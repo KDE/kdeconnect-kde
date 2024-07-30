@@ -2,20 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Martin Schlander <mschlander@opensuse.org>, 2013, 2014, 2015, 2016, 2017, 2019, 2020.
 # scootergrisen, 2017.
+# SPDX-FileCopyrightText: 2024 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2020-04-08 19:46+0200\n"
-"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"PO-Revision-Date: 2024-07-17 13:40+0200\n"
+"Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 18.12.3\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: package/contents/ui/Battery.qml:33
 #, kde-format
@@ -35,19 +36,17 @@ msgstr "Ingen info"
 #: package/contents/ui/Connectivity.qml:43
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "Ukendt"
 
 #: package/contents/ui/Connectivity.qml:54
 #, kde-format
 msgid "No signal"
-msgstr ""
+msgstr "Intet signal"
 
 #: package/contents/ui/DeviceDelegate.qml:82
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "Den parrede enhed er ikke tilgængelig"
+msgstr "Virtuel skærm er ikke tilgængelig"
 
 #: package/contents/ui/DeviceDelegate.qml:87
 #, kde-format
@@ -62,7 +61,7 @@ msgstr "Del fil"
 #: package/contents/ui/DeviceDelegate.qml:113
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Send udklipsholder"
 
 #: package/contents/ui/DeviceDelegate.qml:124
 #, kde-format
@@ -92,26 +91,25 @@ msgstr "Slip en fil for at overføre den til din telefon."
 #: package/contents/ui/DeviceDelegate.qml:193
 #, kde-format
 msgid "Virtual Display"
-msgstr ""
+msgstr "Virtuel skærm"
 
 #: package/contents/ui/DeviceDelegate.qml:197
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "Ekstern enhed har ikke en VNC-klient (f.eks. krdc) installeret."
 
 #: package/contents/ui/DeviceDelegate.qml:201
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "Krfb-pakken er påkrævet på den lokale enhed."
 
 #: package/contents/ui/DeviceDelegate.qml:208
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "Kunne ikke oprette den virtuelle skærm. "
 
 #: package/contents/ui/DeviceDelegate.qml:259
-#, fuzzy, kde-format
-#| msgid "%1%"
+#, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
@@ -144,18 +142,18 @@ msgstr "Afvis"
 #: package/contents/ui/DeviceDelegate.qml:398
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Annullér"
 
 #: package/contents/ui/DeviceDelegate.qml:412
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "Svar til %1…"
 
 #: package/contents/ui/DeviceDelegate.qml:430
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Send"
 
 #: package/contents/ui/DeviceDelegate.qml:451
 #, kde-format
@@ -186,10 +184,9 @@ msgstr ""
 "Installér KDE Connect på din Android-enhed for at integrere den med Plasma!"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "Par en enhed..."
+msgstr "Par en enhed…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -202,10 +199,9 @@ msgid "Install from F-Droid"
 msgstr "Installér fra F-Droid"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "Indstilling af KDE Connect..."
+msgstr "KDE Connect-indstillinger…"
 
 #~ msgid "Configure..."
 #~ msgstr "Indstil..."

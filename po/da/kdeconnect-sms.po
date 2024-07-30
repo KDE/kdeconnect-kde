@@ -1,43 +1,44 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # Martin Schlander <mschlander@opensuse.org>, 2020.
+# SPDX-FileCopyrightText: 2024 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-11 00:38+0000\n"
-"PO-Revision-Date: 2020-07-21 18:26+0200\n"
-"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"PO-Revision-Date: 2024-07-17 13:44+0200\n"
+"Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Martin Schlander"
+msgstr "Martin Schlander,Rasmus Rosendahl-Kaa,"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "mschlander@opensuse.org"
+msgstr "mschlander@opensuse.org,rasmus@rosendahl-kaa.name,"
 
 #: conversationlistmodel.cpp:199
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is an image"
 msgid "Picture"
-msgstr ""
+msgstr "Billede"
 
 #: conversationlistmodel.cpp:201
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is a video"
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: conversationlistmodel.cpp:205
 #, kde-format
@@ -45,7 +46,7 @@ msgctxt ""
 "Used as a text placeholder when the most-recent message is an arbitrary "
 "attachment, resulting in something like \"pdf file\""
 msgid "%1 file"
-msgstr ""
+msgstr "%1 fil"
 
 #: conversationlistmodel.cpp:221
 #, kde-format
@@ -73,10 +74,9 @@ msgid "SMS Instant Messaging"
 msgstr "Sms instant messaging"
 
 #: main.cpp:53
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2019, KDE Connect Team"
+#, kde-format
 msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018-2019, KDE Connect-holdet"
+msgstr "(C) 2018-2022, KDE Connect-holdet"
 
 #: main.cpp:54
 #, kde-format
@@ -116,7 +116,7 @@ msgstr "besked"
 #: qml/AttachmentViewer.qml:21
 #, kde-format
 msgid "Open with default"
-msgstr ""
+msgstr "Åbn med standard"
 
 #: qml/ChatMessage.qml:153
 #, kde-format
@@ -147,6 +147,8 @@ msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
 "your device and then click Refresh."
 msgstr ""
+"Indlæser samtaler fra enhed. Hvis dette tager lang tid, skal du venligst "
+"vække enheden op og tryk Genopfrisk."
 
 #: qml/ConversationList.qml:56
 #, kde-format
@@ -154,6 +156,8 @@ msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
 "load quickly."
 msgstr ""
+"Tip: Hvis du sætter din enhed til strøm, bør den ikke doze-tilstand og bør "
+"indlæse hurtigt."
 
 #: qml/ConversationList.qml:64 qml/Main.qml:90
 #, kde-format
@@ -171,10 +175,9 @@ msgid "Cancel"
 msgstr "Annullér"
 
 #: qml/ConversationList.qml:102
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgid "Search or start a conversation"
-msgstr "Start ny samtale"
+msgstr "Søg eller start en ny samtale"
 
 #: qml/ConversationList.qml:136
 #, kde-format
@@ -185,33 +188,32 @@ msgstr "Start ny samtale"
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
-msgstr ""
+msgstr "Ingen fund"
 
 #: qml/Main.qml:85
 #, kde-format
 msgid "Devices"
-msgstr ""
+msgstr "Enheder"
 
 #: qml/Main.qml:98
-#, fuzzy, kde-format
-#| msgid "About..."
+#, kde-format
 msgid "About"
-msgstr "Om..."
+msgstr "Om"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
 msgid "Audio clip"
-msgstr ""
+msgstr "Lydklip"
 
 #: qml/SendingArea.qml:24
 #, kde-format
 msgid "Failed to send"
-msgstr ""
+msgstr "Kunne ikke sende"
 
 #: qml/SendingArea.qml:25
 #, kde-format
 msgid "Max message size limit exceeded."
-msgstr ""
+msgstr "Maksimal beskedstørrelsesgrænsen overskrevet."
 
 #: qml/SendingArea.qml:72
 #, kde-format
