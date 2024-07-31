@@ -12,6 +12,7 @@
 #include "kdeconnect-version.h"
 #include <KAboutData>
 #include <KCMultiDialog>
+#include <KCrash>
 #include <KDBusService>
 #include <KLocalizedString>
 #include <KWindowSystem>
@@ -29,6 +30,8 @@ int main(int argc, char **argv)
                      KAboutLicense::GPL,
                      i18n("(C) 2018-2020 Nicolas Fella"));
     KAboutData::setApplicationData(about);
+
+    KCrash::initialize();
 
     QCommandLineParser parser;
     parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the config module"), QStringLiteral("args")));

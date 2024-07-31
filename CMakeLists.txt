@@ -92,7 +92,7 @@ add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_
 
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Quick QuickControls2 Network Multimedia)
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications
-    KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons DocTools)
+    KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons DocTools Crash)
 
 if (WIN32)
     get_filename_component(WINDOWS_KITS_DIR

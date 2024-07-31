@@ -24,6 +24,7 @@ Dependencies:
     'frameworks/kpeople': '@stable'
     'frameworks/kwindowsystem': '@stable'
     'frameworks/qqc2-desktop-style': '@stable'
+    'frameworks/kcrash': '@stable'
     'libraries/kirigami-addons': '@latest'
 - 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
   'require':

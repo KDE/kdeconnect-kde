@@ -13,6 +13,7 @@
 
 #include <KAboutData>
 #include <KColorSchemeManager>
+#include <KCrash>
 #include <KDBusService>
 #include <KLocalizedContext>
 #include <KLocalizedString>
@@ -56,6 +57,8 @@ int main(int argc, char *argv[])
     aboutData.addAuthor(i18n("Nicolas Fella"), {}, QStringLiteral("nicolas.fella@gmx.de"));
     aboutData.setBugAddress(QStringLiteral("https://bugs.kde.org/enter_bug.cgi?product=kdeconnect&component=messaging-application").toUtf8());
     KAboutData::setApplicationData(aboutData);
+
+    KCrash::initialize();
 
 #ifdef Q_OS_WIN
     KColorSchemeManager manager;

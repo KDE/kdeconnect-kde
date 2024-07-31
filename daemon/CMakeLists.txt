@@ -13,6 +13,7 @@ target_link_libraries(kdeconnectd
     KF6::Notifications
     KF6::I18n
     KF6::WindowSystem
+    KF6::Crash
     Qt::Widgets)
 
 ecm_mark_nongui_executable(kdeconnectd)

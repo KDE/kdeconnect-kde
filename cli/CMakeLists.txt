@@ -9,6 +9,7 @@ target_link_libraries(kdeconnect-cli
     kdeconnectversion
     KF6::CoreAddons
     KF6::I18n
+    KF6::Crash
 )
 
 install(TARGETS kdeconnect-cli ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

@@ -17,6 +17,7 @@
 
 #include <KAboutData>
 #include <KColorSchemeManager>
+#include <KCrash>
 #include <KDBusService>
 #include <KLocalizedString>
 #include <KUrlRequester>
@@ -48,6 +49,9 @@ int main(int argc, char **argv)
     about.addAuthor(QStringLiteral("Aleix Pol Gonzalez"), QString(), QStringLiteral("aleixpol@kde.org"));
     about.setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
     KAboutData::setApplicationData(about);
+
+    KCrash::initialize();
+
     KDBusService dbusService(KDBusService::Unique);
 
 #ifdef Q_OS_WIN

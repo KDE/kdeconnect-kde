@@ -67,6 +67,7 @@ target_link_libraries(kdeconnect-sms PRIVATE
     KF6::I18n
     KF6::People
     KF6::KCMUtils
+    KF6::Crash
     )
 
 install(TARGETS kdeconnect-sms ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

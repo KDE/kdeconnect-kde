@@ -12,6 +12,7 @@
 #include <QTextStream>
 
 #include <KAboutData>
+#include <KCrash>
 
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbushelpers.h"
@@ -32,6 +33,8 @@ int main(int argc, char **argv)
                      KAboutLicense::GPL,
                      i18n("(C) 2015 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
+
+    KCrash::initialize();
 
     about.addAuthor(i18n("Aleix Pol Gonzalez"), QString(), QStringLiteral("aleixpol@kde.org"));
     about.addAuthor(i18n("Albert Vaca Cintora"), QString(), QStringLiteral("albertvaka@gmail.com"));
