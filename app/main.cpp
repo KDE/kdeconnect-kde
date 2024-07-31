@@ -16,6 +16,7 @@
 #include "kdeconnect-version.h"
 #include <KAboutData>
 #include <KColorSchemeManager>
+#include <KCrash>
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
@@ -36,6 +37,8 @@ int main(int argc, char *argv[])
     aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
     aboutData.setBugAddress("https://bugs.kde.org/enter_bug.cgi?product=kdeconnect&component=common");
     KAboutData::setApplicationData(aboutData);
+
+    KCrash::initialize();
 
 #ifdef Q_OS_WIN
     KColorSchemeManager manager;

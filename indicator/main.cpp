@@ -22,6 +22,7 @@
 #include <KAboutData>
 #include <KCMultiDialog>
 #include <KColorSchemeManager>
+#include <KCrash>
 #include <KDBusService>
 #include <KLocalizedString>
 
@@ -55,6 +56,8 @@ int main(int argc, char **argv)
                      KAboutLicense::GPL,
                      i18n("(C) 2016 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
+
+    KCrash::initialize();
 
 #ifdef Q_OS_WIN
     KColorSchemeManager manager;

@@ -19,6 +19,7 @@
 #endif
 
 #include <KAboutData>
+#include <KCrash>
 #include <KDBusService>
 #include <KIO/Global>
 #include <KIO/JobTracker>
@@ -146,6 +147,8 @@ int main(int argc, char *argv[])
                          KAboutLicense::GPL);
     KAboutData::setApplicationData(aboutData);
     app.setQuitOnLastWindowClosed(false);
+
+    KCrash::initialize();
 
     QCommandLineParser parser;
     QCommandLineOption replaceOption({QStringLiteral("replace")}, i18n("Replace an existing instance"));

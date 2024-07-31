@@ -16,7 +16,7 @@ target_link_libraries(kdeconnect-handler
     KF6::ConfigWidgets
     KF6::DBusAddons
     KF6::I18n
-    KF6::KIOCore KF6::KIOFileWidgets KF6::KIOWidgets
+    KF6::KIOCore KF6::KIOFileWidgets KF6::KIOWidgets KF6::Crash
 )
 
 install(TARGETS kdeconnect-handler ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
