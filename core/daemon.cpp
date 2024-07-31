@@ -62,6 +62,16 @@ void Daemon::init()
 {
     qCDebug(KDECONNECT_CORE) << "Daemon starting";
 
+    // Register on DBus
+    // This must happen as early as possible in the process startup to ensure
+    // the absolute minimum amount of blocking on logon/autostart
+
+    qDBusRegisterMetaType<QMap<QString, QString>>();
+    QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kdeconnect"));
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kdeconnect"), this, QDBusConnection::ExportScriptableContents);
+
+    qCDebug(KDECONNECT_CORE) << "DBus registration complete";
+
     // Load backends
     if (d->m_testMode)
         d->m_linkProviders.insert(new LoopbackLinkProvider());
@@ -75,10 +85,7 @@ void Daemon::init()
 #endif
     }
 
-    // Register on DBus
-    qDBusRegisterMetaType<QMap<QString, QString>>();
-    QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kdeconnect"));
-    QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kdeconnect"), this, QDBusConnection::ExportScriptableContents);
+    qCDebug(KDECONNECT_CORE) << "Backends loaded";
 
     // Read remembered paired devices
     const QStringList &list = KdeConnectConfig::instance().trustedDevices();
@@ -86,11 +93,15 @@ void Daemon::init()
         addDevice(new Device(this, id));
     }
 
+    qCDebug(KDECONNECT_CORE) << "Paired devices added";
+
     // Listen to new devices
     for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
         connect(a, &LinkProvider::onConnectionReceived, this, &Daemon::onNewDeviceLink);
         a->onStart();
     }
+
+    qCDebug(KDECONNECT_CORE) << "Link providers started";
 
     NotificationServerInfo::instance().init();
 
