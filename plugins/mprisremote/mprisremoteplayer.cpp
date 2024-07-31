@@ -5,6 +5,7 @@
  */
 
 #include "mprisremoteplayer.h"
+#include "albumart_cache.h"
 #include "mprisremoteplayermediaplayer2.h"
 #include "mprisremoteplayermediaplayer2player.h"
 #include "mprisremoteplugin.h"
@@ -13,6 +14,8 @@
 
 #include <QUuid>
 #include <networkpacket.h>
+
+#include "plugin_mprisremote_debug.h"
 
 MprisRemotePlayer::MprisRemotePlayer(QString id, MprisRemotePlugin *plugin)
     : QObject(plugin)
@@ -33,6 +36,7 @@ MprisRemotePlayer::MprisRemotePlayer(QString id, MprisRemotePlugin *plugin)
     , m_dbusConnectionName(QStringLiteral("mpris_") + QUuid::createUuid().toString(QUuid::Id128))
     , m_dbusConnection(QDBusConnection::connectToBus(QDBusConnection::SessionBus, m_dbusConnectionName))
 {
+    connect(AlbumArtCache::instance(), &AlbumArtCache::albumArtFetched, this, &MprisRemotePlayer::albumArtFetched);
     // Expose this player on the newly created connection. This allows multiple mpris services in the same Qt process
     new MprisRemotePlayerMediaPlayer2(this, plugin);
     new MprisRemotePlayerMediaPlayer2Player(this, plugin);
@@ -56,7 +60,17 @@ void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket &np)
     QString newTitle = np.get<QString>(QStringLiteral("title"), m_title);
     QString newArtist = np.get<QString>(QStringLiteral("artist"), m_artist);
     QString newAlbum = np.get<QString>(QStringLiteral("album"), m_album);
+    QString newAlbumArtUrl = np.get<QString>(QStringLiteral("albumArtUrl"), QStringLiteral(""));
     int newLength = np.get<int>(QStringLiteral("length"), m_length);
+    if (newAlbumArtUrl != m_albumArtUrl) {
+        // album art changed
+        m_albumArtUrl = newAlbumArtUrl;
+        auto url = AlbumArtCache::getAlbumArt(newAlbumArtUrl, (MprisRemotePlugin *)(parent()), identity());
+        // if empty, will be populated once album art has been fetched
+        if (url.fetchStatus != AlbumArtCache::IndexItem::FETCHING) {
+            setLocalAlbumArtUrl(url.file);
+        }
+    }
 
     // Check if they changed
     if (newTitle != m_title || newArtist != m_artist || newAlbum != m_album || newLength != m_length) {
@@ -126,6 +140,13 @@ void MprisRemotePlayer::setPosition(long position)
     m_lastPositionTime = QDateTime::currentMSecsSinceEpoch();
 }
 
+void MprisRemotePlayer::setLocalAlbumArtUrl(const QSharedPointer<LocalFile> &url)
+{
+    m_localAlbumArtUrl = url;
+    qCDebug(KDECONNECT_PLUGIN_MPRISREMOTE) << "Setting local url" << (url ? url->localPath.toDisplayString() : QStringLiteral("(null)"));
+    Q_EMIT trackInfoChanged();
+}
+
 int MprisRemotePlayer::volume() const
 {
     return m_volume;
@@ -189,6 +210,34 @@ bool MprisRemotePlayer::canGoNext() const
 QDBusConnection &MprisRemotePlayer::dbus()
 {
     return m_dbusConnection;
+}
+
+QString MprisRemotePlayer::albumArtUrl() const
+{
+    return m_albumArtUrl;
+}
+
+QUrl MprisRemotePlayer::localAlbumArtUrl() const
+{
+    return m_localAlbumArtUrl ? m_localAlbumArtUrl->localPath : QUrl{};
+}
+
+void MprisRemotePlayer::albumArtFetched(const QString &player, const QString &remoteUrl, const QSharedPointer<LocalFile> &localPath)
+{
+    if (identity() != player) {
+        // doesn't concern us
+        return;
+    }
+    if (albumArtUrl() != remoteUrl) {
+        // doesn't concern us
+        return;
+    }
+    Q_ASSERT(localPath);
+    if (localAlbumArtUrl() == localPath->localPath) {
+        // already set
+        return;
+    }
+    setLocalAlbumArtUrl(localPath);
 }
 
 #include "moc_mprisremoteplayer.cpp"

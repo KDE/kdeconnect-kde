@@ -54,6 +54,8 @@ public:
     Q_SCRIPTABLE void seek(int offset) const;
     Q_SCRIPTABLE void requestPlayerList();
     Q_SCRIPTABLE void sendAction(const QString &action);
+    // we don't want this to be exposed via dbus, right?
+    void requestAlbumArt(const QString &player, const QString &album_art_url);
 
 Q_SIGNALS:
     Q_SCRIPTABLE void propertiesChanged();

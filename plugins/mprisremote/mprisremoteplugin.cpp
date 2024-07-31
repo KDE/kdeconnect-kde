@@ -9,9 +9,12 @@
 #include <KPluginFactory>
 
 #include <QDebug>
+#include <QStandardPaths>
 
 #include <core/device.h>
+#include <filetransferjob.h>
 
+#include "albumart_cache.h"
 #include "plugin_mprisremote_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(MprisRemotePlugin, "kdeconnect_mprisremote.json")
@@ -20,6 +23,11 @@ void MprisRemotePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.type() != PACKET_TYPE_MPRIS)
         return;
+
+    if (np.get<bool>(QStringLiteral("transferringAlbumArt"), false)) {
+        AlbumArtCache::instance()->handleAlbumArt(np);
+        return;
+    }
 
     if (np.has(QStringLiteral("player"))) {
         const QString player = np.get<QString>(QStringLiteral("player"));
@@ -80,6 +88,13 @@ void MprisRemotePlugin::requestPlayerStatus(const QString &player)
 void MprisRemotePlugin::requestPlayerList()
 {
     NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {{QStringLiteral("requestPlayerList"), true}});
+    sendPacket(np);
+}
+
+void MprisRemotePlugin::requestAlbumArt(const QString &player, const QString &album_art_url)
+{
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {{QStringLiteral("player"), player}, {QStringLiteral("albumArtUrl"), album_art_url}});
+    qInfo(KDECONNECT_PLUGIN_MPRISREMOTE) << "Requesting album art " << np.serialize();
     sendPacket(np);
 }
 

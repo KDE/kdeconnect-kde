@@ -5,8 +5,10 @@
  */
 #pragma once
 
+#include "albumart_cache.h"
 #include <QDBusConnection>
 #include <QString>
+#include <QUrl>
 
 class NetworkPacket;
 class MprisRemotePlugin;
@@ -22,12 +24,15 @@ public:
     void parseNetworkPacket(const NetworkPacket &np);
     long position() const;
     void setPosition(long position);
+    void setLocalAlbumArtUrl(const QSharedPointer<LocalFile> &url);
     int volume() const;
     long length() const;
     bool playing() const;
     QString title() const;
     QString artist() const;
     QString album() const;
+    QString albumArtUrl() const;
+    QUrl localAlbumArtUrl() const;
     QString identity() const;
 
     bool canSeek() const;
@@ -46,6 +51,9 @@ Q_SIGNALS:
     void playingChanged();
 
 private:
+    void albumArtFetched(const QString &player, const QString &remoteUrl, const QSharedPointer<LocalFile> &localPath);
+
+private:
     QString id;
     bool m_playing;
     bool m_canPlay;
@@ -59,6 +67,11 @@ private:
     QString m_title;
     QString m_artist;
     QString m_album;
+    QString m_albumArtUrl;
+    // hold a strong reference so that the file doesn't get deleted while in use
+    QSharedPointer<LocalFile> m_localAlbumArtUrl;
+
+private:
     bool m_canSeek;
 
     // Use an unique connection for every player, otherwise we can't distinguish which mpris player is being controlled
