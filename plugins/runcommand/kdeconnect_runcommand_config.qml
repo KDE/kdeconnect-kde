@@ -22,7 +22,7 @@ ListView {
 
     property var action: Kirigami.Action {
         icon.name: "list-add"
-        text: i18n("Add command")
+        text: i18n("Add Command…")
         onTriggered: addDialog.open()
     }
 
@@ -58,10 +58,26 @@ ListView {
 
     Kirigami.Dialog {
         id: addDialog
-        title: "Add command"
+        title: i18nc("@title:window", "Add Command")
 
-        standardButtons: QQC2.Dialog.Save | QQC2.Dialog.Cancel
         padding: Kirigami.Units.largeSpacing
+
+        property Kirigami.Action addCommandAction: Kirigami.Action {
+            text: i18nc("@action:button", "Add")
+            icon.name: "list-add"
+            enabled: commandField.length > 0
+            onTriggered: {
+                commandModel.addCommand(nameField.text, commandField.text)
+                addDialog.close();
+            }
+            Component.onCompleted: {
+                // TODO: can be set directly once Qt 6.8 is required
+                Accessible.Name = i18nc("@action:button accessible", "Add command")
+            }
+        }
+
+        standardButtons: Kirigami.Dialog.Cancel
+        customFooterActions: [addCommandAction]
 
         Kirigami.FormLayout {
             QQC2.TextField {
@@ -115,7 +131,5 @@ ListView {
                 }
             }
         }
-
-        onAccepted: commandModel.addCommand(nameField.text, commandField.text)
     }
 }
