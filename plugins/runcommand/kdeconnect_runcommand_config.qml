@@ -56,11 +56,12 @@ ListView {
         helpfulAction: view.action
     }
 
-    QQC2.Dialog {
+    Kirigami.Dialog {
         id: addDialog
         title: "Add command"
 
         standardButtons: QQC2.Dialog.Save | QQC2.Dialog.Cancel
+        padding: Kirigami.Units.largeSpacing
 
         Kirigami.FormLayout {
             QQC2.TextField {
