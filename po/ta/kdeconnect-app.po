@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 02:34+0000\n"
 "PO-Revision-Date: 2024-05-19 16:26+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.02.2\n"
 
-#: main.cpp:30 main.cpp:32
+#: main.cpp:31 main.cpp:33
 #, kde-format
 msgid "KDE Connect"
 msgstr "கே.டீ.யீ. கனெக்ட்"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
 msgstr "(C) 2015 அலேயிக்சு போல் ஈ கொன்ஸாலெசு"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "அலேயிக்சு போல் கொன்ஸாலெசு"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Maintainer"
 msgstr "பராமரிப்பாளர்"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "கோ. கிஷோர்"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Kde-l10n-ta@kde.org"
 
-#: main.cpp:53
+#: main.cpp:56
 #, kde-format
 msgid "URL to share"
 msgstr "பகிர வேண்டிய முகவரி"

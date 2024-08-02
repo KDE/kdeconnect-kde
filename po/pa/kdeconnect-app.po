@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 02:34+0000\n"
 "PO-Revision-Date: 2024-01-28 13:07-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: main.cpp:30 main.cpp:32
+#: main.cpp:31 main.cpp:33
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE ਕਨੈਕਟ"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
 msgstr "(c) 2015, Aleix Pol Gonzalez"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr ""
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Maintainer"
 msgstr "ਪਰਬੰਧਕ"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੪"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aalam@punlinux.org"
 
-#: main.cpp:53
+#: main.cpp:56
 #, kde-format
 msgid "URL to share"
 msgstr "ਸਾਂਝਾ ਕਰਨ ਲਈ URL"

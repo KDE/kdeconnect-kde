@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 02:34+0000\n"
 "PO-Revision-Date: 2023-09-18 09:40-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -19,39 +19,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: main.cpp:30 main.cpp:32
+#: main.cpp:31 main.cpp:33
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
 msgstr "(c) 2015, Aleix Pol Gonzalez"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantenedor"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "André Marcelo Alvarenga"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alvarenga@kde.org"
 
-#: main.cpp:53
+#: main.cpp:56
 #, kde-format
 msgid "URL to share"
 msgstr "URL a compartilhar"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 02:34+0000\n"
 "PO-Revision-Date: 2017-06-18 23:13+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -52,62 +52,62 @@ msgstr ""
 msgid "Open on peer device"
 msgstr ""
 
-#: kdeconnect-handler.cpp:41
+#: kdeconnect-handler.cpp:42
 #, kde-format
 msgid "KDE Connect URL handler"
 msgstr "КДЕ‑конекцијин руковалац УРЛ‑овима"
 
-#: kdeconnect-handler.cpp:47
+#: kdeconnect-handler.cpp:48
 #, kde-format
 msgid "(C) 2017 Aleix Pol Gonzalez"
 msgstr "© 2017, Алекс Пол Гонзалез"
 
-#: kdeconnect-handler.cpp:63
+#: kdeconnect-handler.cpp:67
 #, kde-format
 msgid "URL to share"
 msgstr "УРЛ за дељење"
 
-#: kdeconnect-handler.cpp:64
+#: kdeconnect-handler.cpp:68
 #, kde-format
 msgid "Select a device"
 msgstr ""
 
-#: kdeconnect-handler.cpp:64
+#: kdeconnect-handler.cpp:68
 #, kde-format
 msgid "id"
 msgstr ""
 
-#: kdeconnect-handler.cpp:111
+#: kdeconnect-handler.cpp:115
 #, kde-format
 msgid "Enter URL here"
 msgstr ""
 
-#: kdeconnect-handler.cpp:119
+#: kdeconnect-handler.cpp:123
 #, kde-format
 msgid "Enter file location here"
 msgstr ""
 
-#: kdeconnect-handler.cpp:144
+#: kdeconnect-handler.cpp:148
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr ""
 
-#: kdeconnect-handler.cpp:147
+#: kdeconnect-handler.cpp:151
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr ""
 
-#: kdeconnect-handler.cpp:150
+#: kdeconnect-handler.cpp:154
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr ""
 
-#: kdeconnect-handler.cpp:153
+#: kdeconnect-handler.cpp:157
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr ""
 
-#: kdeconnect-handler.cpp:182
+#: kdeconnect-handler.cpp:186
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Не могу да поделим %1"

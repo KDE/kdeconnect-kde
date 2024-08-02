@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-08-02 02:34+0000\n"
 "PO-Revision-Date: 2023-06-09 15:48+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -27,37 +27,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "smart2128vr@gmail.com"
 
-#: kdeconnect-cli.cpp:31
+#: kdeconnect-cli.cpp:32
 #, kde-format
 msgid "KDE Connect CLI tool"
 msgstr "Strumento CLI di KDE Connect"
 
-#: kdeconnect-cli.cpp:33
+#: kdeconnect-cli.cpp:34
 #, kde-format
 msgid "(C) 2015 Aleix Pol Gonzalez"
 msgstr "(C) 2015 Aleix Pol Gonzalez"
 
-#: kdeconnect-cli.cpp:36
+#: kdeconnect-cli.cpp:39
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: kdeconnect-cli.cpp:37
+#: kdeconnect-cli.cpp:40
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: kdeconnect-cli.cpp:39
+#: kdeconnect-cli.cpp:42
 #, kde-format
 msgid "List all devices"
 msgstr "Elenca tutti i dispositivi"
 
-#: kdeconnect-cli.cpp:41
+#: kdeconnect-cli.cpp:44
 #, kde-format
 msgid "List available (paired and reachable) devices"
 msgstr "Elenca i dispositivi disponibili (associati e raggiungibili)"
 
-#: kdeconnect-cli.cpp:43
+#: kdeconnect-cli.cpp:46
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices id, to ease "
@@ -66,7 +66,7 @@ msgstr ""
 "Fa stampare a --list-devices o --list-available solo gli identificatori dei "
 "dispositivi, per facilitare la creazione di script"
 
-#: kdeconnect-cli.cpp:45
+#: kdeconnect-cli.cpp:48
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices name, to ease "
@@ -75,7 +75,7 @@ msgstr ""
 "Fa stampare a --list-devices o --list-available solo il nome dei "
 "dispositivi, per facilitare la creazione di script"
 
-#: kdeconnect-cli.cpp:47
+#: kdeconnect-cli.cpp:50
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices id and name, "
@@ -84,87 +84,87 @@ msgstr ""
 "Fa stampare a --list-devices o --list-available solo gli identificatori e il "
 "nome dei dispositivi, per facilitare la creazione di script"
 
-#: kdeconnect-cli.cpp:48
+#: kdeconnect-cli.cpp:51
 #, kde-format
 msgid "Search for devices in the network and re-establish connections"
 msgstr "Ricerca i dispositivi nella rete e ripristina le connessioni"
 
-#: kdeconnect-cli.cpp:49
+#: kdeconnect-cli.cpp:52
 #, kde-format
 msgid "Request pairing to a said device"
 msgstr "Richiedi l'associazione a un dispositivo specificato"
 
-#: kdeconnect-cli.cpp:50
+#: kdeconnect-cli.cpp:53
 #, kde-format
 msgid "Find the said device by ringing it."
 msgstr "Trova il dispositivo facendolo squillare."
 
-#: kdeconnect-cli.cpp:51
+#: kdeconnect-cli.cpp:54
 #, kde-format
 msgid "Stop pairing to a said device"
 msgstr "Interrompi l'associazione a un dispositivo specificato"
 
-#: kdeconnect-cli.cpp:52
+#: kdeconnect-cli.cpp:55
 #, kde-format
 msgid "Sends a ping to said device"
 msgstr "Invia un ping a un dispositivo specificato"
 
-#: kdeconnect-cli.cpp:53
+#: kdeconnect-cli.cpp:56
 #, kde-format
 msgid "Same as ping but you can set the message to display"
 msgstr "Come il ping, ma puoi impostare il messaggio da visualizzare"
 
-#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:56 kdeconnect-cli.cpp:63
 #, kde-format
 msgid "message"
 msgstr "messaggio"
 
-#: kdeconnect-cli.cpp:54
+#: kdeconnect-cli.cpp:57
 #, kde-format
 msgid "Sends the current clipboard to said device"
 msgstr "Invia gli appunti attuali allo specifico dispositivo"
 
-#: kdeconnect-cli.cpp:55
+#: kdeconnect-cli.cpp:58
 #, kde-format
 msgid "Share a file/URL to a said device"
 msgstr "Condividi un file/URL con uno specifico dispositivo"
 
-#: kdeconnect-cli.cpp:56
+#: kdeconnect-cli.cpp:59
 #, kde-format
 msgid "Share text to a said device"
 msgstr "Condividi del testo con un dispositivo specificato"
 
-#: kdeconnect-cli.cpp:57
+#: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Display the notifications on a said device"
 msgstr "Visualizza le notifiche su un dispositivo specificato"
 
-#: kdeconnect-cli.cpp:58
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "Lock the specified device"
 msgstr "Blocca il dispositivo specificato"
 
-#: kdeconnect-cli.cpp:59
+#: kdeconnect-cli.cpp:62
 #, kde-format
 msgid "Unlock the specified device"
 msgstr "Sblocca il dispositivo specificato"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:63
 #, kde-format
 msgid "Sends an SMS. Requires destination"
 msgstr "Invia un SMS. Richiede la destinazione"
 
-#: kdeconnect-cli.cpp:61
+#: kdeconnect-cli.cpp:64
 #, kde-format
 msgid "Phone number to send the message"
 msgstr "Numero di telefono per inviare il messaggio"
 
-#: kdeconnect-cli.cpp:61
+#: kdeconnect-cli.cpp:64
 #, kde-format
 msgid "phone number"
 msgstr "numero di telefono"
 
-#: kdeconnect-cli.cpp:63
+#: kdeconnect-cli.cpp:66
 #, kde-format
 msgid ""
 "File urls to send attachments with the message (can be passed multiple times)"
@@ -172,79 +172,79 @@ msgstr ""
 "URL dei file per inviare allegati con il messaggio (può essere fornito più "
 "volte)"
 
-#: kdeconnect-cli.cpp:64
+#: kdeconnect-cli.cpp:67
 #, kde-format
 msgid "file urls"
 msgstr "URL dei file"
 
-#: kdeconnect-cli.cpp:65
+#: kdeconnect-cli.cpp:68
 #, kde-format
 msgid "Device ID"
 msgstr "ID dispositivo"
 
-#: kdeconnect-cli.cpp:66
+#: kdeconnect-cli.cpp:69
 #, kde-format
 msgid "Device Name"
 msgstr "Nome dispositivo"
 
-#: kdeconnect-cli.cpp:67
+#: kdeconnect-cli.cpp:70
 #, kde-format
 msgid "Get encryption info about said device"
 msgstr "Ottieni le informazioni di cifratura su un dispositivo specificato"
 
-#: kdeconnect-cli.cpp:68
+#: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "Lists remote commands and their ids"
 msgstr "Elenca i comandi remoti e i loro ID"
 
-#: kdeconnect-cli.cpp:69
+#: kdeconnect-cli.cpp:72
 #, kde-format
 msgid "Executes a remote command by id"
 msgstr "Esegue un comando remoto per ID"
 
-#: kdeconnect-cli.cpp:71
+#: kdeconnect-cli.cpp:74
 #, kde-format
 msgid "Sends keys to a said device"
 msgstr "Invia tasti a un dispositivo specificato"
 
-#: kdeconnect-cli.cpp:72
+#: kdeconnect-cli.cpp:75
 #, kde-format
 msgid "Display this device's id and exit"
 msgstr "Visualizzare l'ID di questo dispositivo ed esci"
 
-#: kdeconnect-cli.cpp:118
+#: kdeconnect-cli.cpp:121
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(associato e raggiungibile)"
 
-#: kdeconnect-cli.cpp:120
+#: kdeconnect-cli.cpp:123
 #, kde-format
 msgid "(reachable)"
 msgstr "(raggiungibile)"
 
-#: kdeconnect-cli.cpp:122 kdeconnect-cli.cpp:141
+#: kdeconnect-cli.cpp:125 kdeconnect-cli.cpp:144
 #, kde-format
 msgid "(paired)"
 msgstr "(associato)"
 
-#: kdeconnect-cli.cpp:128
+#: kdeconnect-cli.cpp:131
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "Un dispositivo trovato"
 msgstr[1] "%1 dispositivi trovati"
 
-#: kdeconnect-cli.cpp:130
+#: kdeconnect-cli.cpp:133
 #, kde-format
 msgid "No devices found"
 msgstr "Nessun dispositivo trovato"
 
-#: kdeconnect-cli.cpp:143
+#: kdeconnect-cli.cpp:146
 #, kde-format
 msgid "(unpaired)"
 msgstr "(non associato)"
 
-#: kdeconnect-cli.cpp:180
+#: kdeconnect-cli.cpp:183
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -258,59 +258,59 @@ msgstr ""
 "«kdeconnect-cli -l» \n"
 "Vedi la guida completa con l'opzione --help"
 
-#: kdeconnect-cli.cpp:215
+#: kdeconnect-cli.cpp:218
 #, kde-format
 msgid "Shared %1"
 msgstr "%1 condiviso"
 
-#: kdeconnect-cli.cpp:224
+#: kdeconnect-cli.cpp:227
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Testo condiviso: %1"
 
-#: kdeconnect-cli.cpp:231
+#: kdeconnect-cli.cpp:234
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Richiesta di bloccare %1."
 
-#: kdeconnect-cli.cpp:233
+#: kdeconnect-cli.cpp:236
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Richiesta di sbloccare %1."
 
-#: kdeconnect-cli.cpp:240
+#: kdeconnect-cli.cpp:243
 #, kde-format
 msgid "waiting for device..."
 msgstr "in attesa di un dispositivo..."
 
-#: kdeconnect-cli.cpp:253
+#: kdeconnect-cli.cpp:256
 #, kde-format
 msgid "Device not found"
 msgstr "Dispositivo non trovato"
 
-#: kdeconnect-cli.cpp:255
+#: kdeconnect-cli.cpp:258
 #, kde-format
 msgid "Already paired"
 msgstr "Già associato"
 
-#: kdeconnect-cli.cpp:257
+#: kdeconnect-cli.cpp:260
 #, kde-format
 msgid "Pair requested"
 msgstr "Accoppiamento richiesto"
 
-#: kdeconnect-cli.cpp:263
+#: kdeconnect-cli.cpp:266
 #, kde-format
 msgid "Already not paired"
 msgstr "Già disassociato"
 
-#: kdeconnect-cli.cpp:265
+#: kdeconnect-cli.cpp:268
 #, kde-format
 msgid "Unpaired"
 msgstr "Disassociato"
 
-#: kdeconnect-cli.cpp:311
+#: kdeconnect-cli.cpp:314
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -319,7 +319,7 @@ msgstr ""
 "errore: dovresti specificare il destinatario del SMS fornendo --destination "
 "<numero di telefono>"
 
-#: kdeconnect-cli.cpp:365
+#: kdeconnect-cli.cpp:368
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Niente da fare"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 02:34+0000\n"
 "PO-Revision-Date: 2024-03-16 15:17+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -27,17 +27,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alministradores@softastur.org"
 
-#: main.cpp:26 main.cpp:28
+#: main.cpp:27 main.cpp:29
 #, kde-format
 msgid "KDE Connect Settings"
 msgstr ""
 
-#: main.cpp:30
+#: main.cpp:31
 #, kde-format
 msgid "(C) 2018-2020 Nicolas Fella"
 msgstr ""
 
-#: main.cpp:34 main.cpp:53
+#: main.cpp:37 main.cpp:56
 #, kde-format
 msgid "Arguments for the config module"
 msgstr ""

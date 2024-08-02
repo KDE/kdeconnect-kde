@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 02:34+0000\n"
 "PO-Revision-Date: 2024-07-23 14:30+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -104,48 +104,48 @@ msgstr "Kdeconnect bulunamıyor"
 msgid "Loading modules"
 msgstr "Modüller yükleniyor"
 
-#: main.cpp:52
+#: main.cpp:53
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "KDE Bağlan Indicator"
 
-#: main.cpp:54
+#: main.cpp:55
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "KDE Bağlan Indicator aracı"
 
-#: main.cpp:56
+#: main.cpp:57
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
 msgstr "© 2016 Aleix Pol Gonzalez"
 
-#: main.cpp:93
+#: main.cpp:96
 #, kde-format
 msgid "Configure..."
 msgstr "Yapılandır…"
 
-#: main.cpp:119
+#: main.cpp:122
 #, kde-format
 msgid "Pairing requests"
 msgstr "Eşleştirme istekleri"
 
-#: main.cpp:124
+#: main.cpp:127
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Eşleştir"
 
-#: main.cpp:125
+#: main.cpp:128
 #, kde-format
 msgid "Reject"
 msgstr "Reddet"
 
-#: main.cpp:131 main.cpp:141
+#: main.cpp:134 main.cpp:144
 #, kde-format
 msgid "Quit"
 msgstr "Çık"
 
-#: main.cpp:160 main.cpp:184
+#: main.cpp:163 main.cpp:187
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

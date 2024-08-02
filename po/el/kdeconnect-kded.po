@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 02:34+0000\n"
 "PO-Revision-Date: 2021-06-14 15:47+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "dimkard@gmail.com,sstavra@gmail.com"
 
-#: kdeconnectd.cpp:56
+#: kdeconnectd.cpp:57
 #, fuzzy, kde-format
 #| msgid ""
 #| "Pairing request from %1\n"
@@ -40,37 +40,37 @@ msgstr ""
 "Αίτημα σύζευξης από το %1\n"
 "Πλήκτρο: %2..."
 
-#: kdeconnectd.cpp:64
+#: kdeconnectd.cpp:65
 #, kde-format
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: kdeconnectd.cpp:67
+#: kdeconnectd.cpp:68
 #, kde-format
 msgid "Accept"
 msgstr "Αποδοχή"
 
-#: kdeconnectd.cpp:70
+#: kdeconnectd.cpp:71
 #, kde-format
 msgid "Reject"
 msgstr "Απόρριψη"
 
-#: kdeconnectd.cpp:73
+#: kdeconnectd.cpp:74
 #, kde-format
 msgid "View key"
 msgstr "Πλήκτρο προβολής"
 
-#: kdeconnectd.cpp:143 kdeconnectd.cpp:145
+#: kdeconnectd.cpp:144 kdeconnectd.cpp:146
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "Δαίμων KDE Connect"
 
-#: kdeconnectd.cpp:151
+#: kdeconnectd.cpp:154
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Αντικατάσταση μιας υπάρχουσας εκτελούμενης διεργασίας"
 
-#: kdeconnectd.cpp:155
+#: kdeconnectd.cpp:158
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 02:34+0000\n"
 "PO-Revision-Date: 2024-05-19 09:32+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -20,39 +20,39 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: main.cpp:30 main.cpp:32
+#: main.cpp:31 main.cpp:33
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
 msgstr "© Aleix Pol Gonzalez, 2015"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Юрій Чорноіван"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: main.cpp:53
+#: main.cpp:56
 #, kde-format
 msgid "URL to share"
 msgstr "Адреса для оприлюднення"

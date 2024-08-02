@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 02:34+0000\n"
 "PO-Revision-Date: 2024-05-19 08:11+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-l10n-he@kde.org"
 
-#: kdeconnectd.cpp:56
+#: kdeconnectd.cpp:57
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -39,37 +39,37 @@ msgstr ""
 "בקשת צימוד מאת %1\n"
 "מפתח: %2"
 
-#: kdeconnectd.cpp:64
+#: kdeconnectd.cpp:65
 #, kde-format
 msgid "Open"
 msgstr "פתיחה"
 
-#: kdeconnectd.cpp:67
+#: kdeconnectd.cpp:68
 #, kde-format
 msgid "Accept"
 msgstr "אישור"
 
-#: kdeconnectd.cpp:70
+#: kdeconnectd.cpp:71
 #, kde-format
 msgid "Reject"
 msgstr "דחייה"
 
-#: kdeconnectd.cpp:73
+#: kdeconnectd.cpp:74
 #, kde-format
 msgid "View key"
 msgstr "הצגת מפתח"
 
-#: kdeconnectd.cpp:143 kdeconnectd.cpp:145
+#: kdeconnectd.cpp:144 kdeconnectd.cpp:146
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "סוכן KDE Connect"
 
-#: kdeconnectd.cpp:151
+#: kdeconnectd.cpp:154
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "החלפת מופע קיים"
 
-#: kdeconnectd.cpp:155
+#: kdeconnectd.cpp:158
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

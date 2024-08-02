@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 02:34+0000\n"
 "PO-Revision-Date: 2023-08-10 06:55+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -104,48 +104,48 @@ msgstr "შეცდომა kdeconnectd-ის მოძებნისას"
 msgid "Loading modules"
 msgstr "მოდულების ჩატვირთვა"
 
-#: main.cpp:52
+#: main.cpp:53
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "KDE Connect -ის მაჩვენებელი"
 
-#: main.cpp:54
+#: main.cpp:55
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "KDE Connect -ის მაჩვნებელი ხელსაწყო"
 
-#: main.cpp:56
+#: main.cpp:57
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
 msgstr "(C) 2016 Aleix Pol Gonzalez"
 
-#: main.cpp:93
+#: main.cpp:96
 #, kde-format
 msgid "Configure..."
 msgstr "მორგება..."
 
-#: main.cpp:119
+#: main.cpp:122
 #, kde-format
 msgid "Pairing requests"
 msgstr "შეწყვილების მოთხოვნები"
 
-#: main.cpp:124
+#: main.cpp:127
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "დაწყვილება"
 
-#: main.cpp:125
+#: main.cpp:128
 #, kde-format
 msgid "Reject"
 msgstr "უარყოფა"
 
-#: main.cpp:131 main.cpp:141
+#: main.cpp:134 main.cpp:144
 #, kde-format
 msgid "Quit"
 msgstr "დასრულება"
 
-#: main.cpp:160 main.cpp:184
+#: main.cpp:163 main.cpp:187
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
