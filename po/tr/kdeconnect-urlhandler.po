@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 00:40+0000\n"
 "PO-Revision-Date: 2023-08-29 01:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -53,62 +53,62 @@ msgstr "Dosya gönder"
 msgid "Open on peer device"
 msgstr "Eş aygıtta aç"
 
-#: kdeconnect-handler.cpp:41
+#: kdeconnect-handler.cpp:42
 #, kde-format
 msgid "KDE Connect URL handler"
 msgstr "KDE Bağlan URL İşleyicisi"
 
-#: kdeconnect-handler.cpp:47
+#: kdeconnect-handler.cpp:48
 #, kde-format
 msgid "(C) 2017 Aleix Pol Gonzalez"
 msgstr "(C) 2017 Aleix Pol Gonzalez"
 
-#: kdeconnect-handler.cpp:63
+#: kdeconnect-handler.cpp:67
 #, kde-format
 msgid "URL to share"
 msgstr "Paylaşılacak URL"
 
-#: kdeconnect-handler.cpp:64
+#: kdeconnect-handler.cpp:68
 #, kde-format
 msgid "Select a device"
 msgstr "Bir aygıt seçin"
 
-#: kdeconnect-handler.cpp:64
+#: kdeconnect-handler.cpp:68
 #, kde-format
 msgid "id"
 msgstr "kimlik"
 
-#: kdeconnect-handler.cpp:111
+#: kdeconnect-handler.cpp:115
 #, kde-format
 msgid "Enter URL here"
 msgstr "Buraya URL gir"
 
-#: kdeconnect-handler.cpp:119
+#: kdeconnect-handler.cpp:123
 #, kde-format
 msgid "Enter file location here"
 msgstr "Buraya dosya konumu gir"
 
-#: kdeconnect-handler.cpp:144
+#: kdeconnect-handler.cpp:148
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "%1 ile aranacak aygıt:"
 
-#: kdeconnect-handler.cpp:147
+#: kdeconnect-handler.cpp:151
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "%1 açmak için aygıt:"
 
-#: kdeconnect-handler.cpp:150
+#: kdeconnect-handler.cpp:154
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "SMS göndermek için aygıt:"
 
-#: kdeconnect-handler.cpp:153
+#: kdeconnect-handler.cpp:157
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "%1 gönderilecek aygıt:"
 
-#: kdeconnect-handler.cpp:182
+#: kdeconnect-handler.cpp:186
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "%1 paylaşılamadı"

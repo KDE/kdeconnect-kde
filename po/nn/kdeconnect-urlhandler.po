@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 00:40+0000\n"
 "PO-Revision-Date: 2023-01-15 11:18+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -53,62 +53,62 @@ msgstr "Send fil"
 msgid "Open on peer device"
 msgstr "Opna på para eining"
 
-#: kdeconnect-handler.cpp:41
+#: kdeconnect-handler.cpp:42
 #, kde-format
 msgid "KDE Connect URL handler"
 msgstr "KDE Connect adressehandsamar"
 
-#: kdeconnect-handler.cpp:47
+#: kdeconnect-handler.cpp:48
 #, kde-format
 msgid "(C) 2017 Aleix Pol Gonzalez"
 msgstr "© 2017 Aleix Pol Gonzalez"
 
-#: kdeconnect-handler.cpp:63
+#: kdeconnect-handler.cpp:67
 #, kde-format
 msgid "URL to share"
 msgstr "Adresse å dela"
 
-#: kdeconnect-handler.cpp:64
+#: kdeconnect-handler.cpp:68
 #, kde-format
 msgid "Select a device"
 msgstr "Vel ei eining"
 
-#: kdeconnect-handler.cpp:64
+#: kdeconnect-handler.cpp:68
 #, kde-format
 msgid "id"
 msgstr "ID"
 
-#: kdeconnect-handler.cpp:111
+#: kdeconnect-handler.cpp:115
 #, kde-format
 msgid "Enter URL here"
 msgstr "Skriv inn nettadresse"
 
-#: kdeconnect-handler.cpp:119
+#: kdeconnect-handler.cpp:123
 #, kde-format
 msgid "Enter file location here"
 msgstr "Skriv inn filadresse"
 
-#: kdeconnect-handler.cpp:144
+#: kdeconnect-handler.cpp:148
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Eining å ringja %1 med:"
 
-#: kdeconnect-handler.cpp:147
+#: kdeconnect-handler.cpp:151
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Eining å opna %1 på:"
 
-#: kdeconnect-handler.cpp:150
+#: kdeconnect-handler.cpp:154
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Eining å senda SMS med:"
 
-#: kdeconnect-handler.cpp:153
+#: kdeconnect-handler.cpp:157
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Eining å senda %1 til:"
 
-#: kdeconnect-handler.cpp:182
+#: kdeconnect-handler.cpp:186
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Klarte ikkje dela %1"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 00:40+0000\n"
 "PO-Revision-Date: 2024-05-21 13:06+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -37,7 +37,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "renard@kde.org, sdepiets@gmail.com, xavier.besnard@kde.org"
 
-#: kdeconnectd.cpp:56
+#: kdeconnectd.cpp:57
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -46,37 +46,37 @@ msgstr ""
 "Demande d'association provenant de %1\n"
 "Clé : %2"
 
-#: kdeconnectd.cpp:64
+#: kdeconnectd.cpp:65
 #, kde-format
 msgid "Open"
 msgstr "Ouvrir"
 
-#: kdeconnectd.cpp:67
+#: kdeconnectd.cpp:68
 #, kde-format
 msgid "Accept"
 msgstr "Accepter"
 
-#: kdeconnectd.cpp:70
+#: kdeconnectd.cpp:71
 #, kde-format
 msgid "Reject"
 msgstr "Rejeter"
 
-#: kdeconnectd.cpp:73
+#: kdeconnectd.cpp:74
 #, kde-format
 msgid "View key"
 msgstr "Afficher la clé"
 
-#: kdeconnectd.cpp:143 kdeconnectd.cpp:145
+#: kdeconnectd.cpp:144 kdeconnectd.cpp:146
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "Démon de KDEConnect"
 
-#: kdeconnectd.cpp:151
+#: kdeconnectd.cpp:154
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Remplacer une instance existante"
 
-#: kdeconnectd.cpp:155
+#: kdeconnectd.cpp:158
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

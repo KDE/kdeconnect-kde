@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 00:40+0000\n"
 "PO-Revision-Date: 2023-02-01 21:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -28,17 +28,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sunder67@hotmail.com"
 
-#: main.cpp:26 main.cpp:28
+#: main.cpp:27 main.cpp:29
 #, kde-format
 msgid "KDE Connect Settings"
 msgstr "KDE Bağlan Ayarları"
 
-#: main.cpp:30
+#: main.cpp:31
 #, kde-format
 msgid "(C) 2018-2020 Nicolas Fella"
 msgstr "(C) 2018-2020 Nicolas Fella"
 
-#: main.cpp:34 main.cpp:53
+#: main.cpp:37 main.cpp:56
 #, kde-format
 msgid "Arguments for the config module"
 msgstr "Yapılandırma modülü için argümanlar"

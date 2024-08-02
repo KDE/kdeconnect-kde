@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org, i@guoyunhe.me, henry.hu.sh@gmail.com"
 
-#: kdeconnectd.cpp:56
+#: kdeconnectd.cpp:57
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -36,37 +36,37 @@ msgstr ""
 "来自 %1 的配对请求\n"
 "密钥：%2"
 
-#: kdeconnectd.cpp:64
+#: kdeconnectd.cpp:65
 #, kde-format
 msgid "Open"
 msgstr "打开"
 
-#: kdeconnectd.cpp:67
+#: kdeconnectd.cpp:68
 #, kde-format
 msgid "Accept"
 msgstr "接受"
 
-#: kdeconnectd.cpp:70
+#: kdeconnectd.cpp:71
 #, kde-format
 msgid "Reject"
 msgstr "拒绝"
 
-#: kdeconnectd.cpp:73
+#: kdeconnectd.cpp:74
 #, kde-format
 msgid "View key"
 msgstr "查看密钥"
 
-#: kdeconnectd.cpp:143 kdeconnectd.cpp:145
+#: kdeconnectd.cpp:144 kdeconnectd.cpp:146
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect守护进程"
 
-#: kdeconnectd.cpp:151
+#: kdeconnectd.cpp:154
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "替换现有实例"
 
-#: kdeconnectd.cpp:155
+#: kdeconnectd.cpp:158
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

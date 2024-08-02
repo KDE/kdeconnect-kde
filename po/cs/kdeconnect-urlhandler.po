@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:38+0000\n"
+"POT-Creation-Date: 2024-08-02 00:40+0000\n"
 "PO-Revision-Date: 2023-01-04 22:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -52,62 +52,62 @@ msgstr "Poslat soubor"
 msgid "Open on peer device"
 msgstr "Otevřít na spárovaném zařízení"
 
-#: kdeconnect-handler.cpp:41
+#: kdeconnect-handler.cpp:42
 #, kde-format
 msgid "KDE Connect URL handler"
 msgstr "Nástroj pro práci s URL v KDE Connect"
 
-#: kdeconnect-handler.cpp:47
+#: kdeconnect-handler.cpp:48
 #, kde-format
 msgid "(C) 2017 Aleix Pol Gonzalez"
 msgstr "(C) 2017 Aleix Pol Gonzalez"
 
-#: kdeconnect-handler.cpp:63
+#: kdeconnect-handler.cpp:67
 #, kde-format
 msgid "URL to share"
 msgstr "URL ke sdílení"
 
-#: kdeconnect-handler.cpp:64
+#: kdeconnect-handler.cpp:68
 #, kde-format
 msgid "Select a device"
 msgstr "Zvolte zařízení"
 
-#: kdeconnect-handler.cpp:64
+#: kdeconnect-handler.cpp:68
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: kdeconnect-handler.cpp:111
+#: kdeconnect-handler.cpp:115
 #, kde-format
 msgid "Enter URL here"
 msgstr "Zde zadejte URL"
 
-#: kdeconnect-handler.cpp:119
+#: kdeconnect-handler.cpp:123
 #, kde-format
 msgid "Enter file location here"
 msgstr "Vyberte umístění souboru"
 
-#: kdeconnect-handler.cpp:144
+#: kdeconnect-handler.cpp:148
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Zařízení pro volání %1 s:"
 
-#: kdeconnect-handler.cpp:147
+#: kdeconnect-handler.cpp:151
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Zařízení pro pro otevření %1 na:"
 
-#: kdeconnect-handler.cpp:150
+#: kdeconnect-handler.cpp:154
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Zařízení, kam odeslat SMS s:"
 
-#: kdeconnect-handler.cpp:153
+#: kdeconnect-handler.cpp:157
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Zařízení, kam odeslat %1:"
 
-#: kdeconnect-handler.cpp:182
+#: kdeconnect-handler.cpp:186
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Nelze sdílet %1"
