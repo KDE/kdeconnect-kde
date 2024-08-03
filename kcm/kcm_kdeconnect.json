@@ -1,7 +1,7 @@
 {
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_kdeconnect",
-        "Description": "Connect and sync your devices",
+        "Description": "Configure device synchronization",
         "Description[ar]": "اتّصل وزامن أجهزتك",
         "Description[az]": "Cihazlarını qoş və eyniləşdir",
         "Description[bg]": "Свържете и синхронизирайте вашите устройства",
