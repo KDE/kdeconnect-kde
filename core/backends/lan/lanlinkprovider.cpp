@@ -551,41 +551,7 @@ void LanLinkProvider::configureSslSocket(QSslSocket *socket, const QString &devi
 void LanLinkProvider::configureSocket(QSslSocket *socket)
 {
     socket->setProxy(QNetworkProxy::NoProxy);
-
     socket->setSocketOption(QAbstractSocket::KeepAliveOption, QVariant(1));
-
-#ifdef TCP_KEEPIDLE
-    // time to start sending keepalive packets (seconds)
-    int maxIdle = 10;
-    setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
-#endif
-
-#ifdef TCP_KEEPINTVL
-    // interval between keepalive packets after the initial period (seconds)
-    int interval = 5;
-    setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPINTVL, &interval, sizeof(interval));
-#endif
-
-#ifdef TCP_KEEPCNT
-    // number of missed keepalive packets before disconnecting
-    int count = 3;
-    setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPCNT, &count, sizeof(count));
-#endif
-
-#if defined(Q_OS_WIN)
-    int maxIdle = 5 * 60 * 1000; // 5 minutes of idle before sending keep-alive
-    int interval = 5 * 1000; // 5 seconds interval between probes after 5 minute delay
-    DWORD nop;
-
-    // see https://learn.microsoft.com/en-us/windows/win32/winsock/sio-keepalive-vals
-    struct tcp_keepalive keepalive = {1 /* true */, maxIdle, interval};
-
-    int rv = WSAIoctl(socket->socketDescriptor(), SIO_KEEPALIVE_VALS, &keepalive, sizeof(keepalive), nullptr, 0, &nop, nullptr, nullptr);
-    if (!rv) {
-        int error = WSAGetLastError();
-        qCDebug(KDECONNECT_CORE) << "Could not enable TCP Keep-Alive: " << error;
-    }
-#endif
 }
 
 void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
