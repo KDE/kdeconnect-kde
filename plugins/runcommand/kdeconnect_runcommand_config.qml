@@ -5,6 +5,7 @@
  */
 
 import QtQuick 2.15
+import QtQuick.Layouts
 import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kdeconnect 1.0
@@ -35,8 +36,18 @@ ListView {
         width: parent.width
         enabled: true
 
-        contentItem: QQC2.Label {
-            text: i18n("%1 <br> <i>%2</i>", name, command)
+        contentItem: ColumnLayout {
+            QQC2.Label {
+                text: name
+                Layout.fillWidth: true
+                elide: Text.ElideRight
+            }
+            QQC2.Label {
+                text: command
+                font.italic: true
+                Layout.fillWidth: true
+                elide: Text.ElideRight
+            }
         }
 
         actions: Kirigami.Action {
