@@ -62,8 +62,8 @@ ListView {
         anchors.centerIn: parent
         visible: view.count === 0
         width: parent.width - Kirigami.Units.gridUnit * 4
-        text: i18n("No Commands")
-        explanation: i18n("Add commands to run them remotely from other devices")
+        text: i18nc("@info", "No commands configured")
+        explanation: i18n("@info", "Add commands to run them remotely from other devices")
         helpfulAction: view.action
     }
 
