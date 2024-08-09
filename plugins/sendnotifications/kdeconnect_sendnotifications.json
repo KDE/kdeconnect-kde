@@ -50,7 +50,7 @@
         "Description[ru]": "Трансляция уведомления с этого компьютера, чтобы они могли быть видны на других устройствах",
         "Description[sk]": "Vysielať upozornenia tohto počítača, aby sa zobrazili na druhom zariadení.",
         "Description[sl]": "Oddaj obvestila tega računalnika, da jih je mogoče prikazati na drugih napravah.",
-        "Description[sv]": "Sänd ut datorns underrättelser så att de kan visas på andra enheter.",
+        "Description[sv]": "Sänd ut datorns underrättelser så att de kan visas på andra apparater.",
         "Description[tr]": "Bu bilgisayarın bildirimlerini yayınla, böylece diğer aygıtlarda gösterilebilirler.",
         "Description[uk]": "Транслювати сповіщення з цього комп’ютера так, щоб їх було показано на інших пристроях.",
         "Description[x-test]": "xxBroadcast this computer's notifications, so they can be shown on other devices.xx",
