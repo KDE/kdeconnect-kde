@@ -17,6 +17,7 @@
         "Description[tr]": "Aygıt eşzamanlamasını yapılandırın",
         "Description[uk]": "Налаштовування синхронізації із пристроями",
         "Description[x-test]": "xxConfigure device synchronizationxx",
+        "Description[zh_CN]": "配置设备同步",
         "Description[zh_TW]": "設定裝置同步",
         "Icon": "preferences-kde-connect",
         "Name": "KDE Connect",

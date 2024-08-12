@@ -28,6 +28,7 @@
         "Description[tr]": "Bağlı aygıtları yönetin",
         "Description[uk]": "Керування з'єднаними пристроями",
         "Description[x-test]": "xxManage connected devicesxx",
+        "Description[zh_CN]": "管理已连接的设备",
         "Description[zh_TW]": "管理已連線裝置",
         "EnabledByDefault": true,
         "Icon": "kdeconnect",
