@@ -113,6 +113,6 @@
         "Name[zh_CN]": "禁止屏保",
         "Name[zh_TW]": "停止螢幕保護"
     },
-    "X-KdeConnect-SupportedPacketType": [],
-    "X-KdeConnect-OutgoingPacketType": []
+    "X-KdeConnect-OutgoingPacketType": [],
+    "X-KdeConnect-SupportedPacketType": []
 }

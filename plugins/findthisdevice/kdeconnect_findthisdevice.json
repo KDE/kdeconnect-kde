@@ -110,8 +110,8 @@
         "Name[zh_TW]": "尋找這個裝置"
     },
     "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_findthisdevice_config",
+    "X-KdeConnect-OutgoingPacketType": [],
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.findmyphone.request"
-    ],
-    "X-KdeConnect-OutgoingPacketType": []
+    ]
 }
