@@ -15,10 +15,17 @@ ecm_target_qml_sources(kdeconnectdeclarativeplugin
     VERSION 1.0)
 
 if(UNIX AND NOT APPLE)
+    if (Qt6_VERSION VERSION_GREATER_EQUAL "6.8.0")
+        set(private_code_option  "PRIVATE_CODE")
+    endif()
     qt6_generate_wayland_protocol_client_sources(kdeconnectdeclarativeplugin FILES
-        ${WaylandProtocols_DATADIR}/unstable/pointer-constraints/pointer-constraints-unstable-v1.xml)
+        ${WaylandProtocols_DATADIR}/unstable/pointer-constraints/pointer-constraints-unstable-v1.xml
+        ${private_code_option}
+    )
     qt6_generate_wayland_protocol_client_sources(kdeconnectdeclarativeplugin FILES
-        ${WaylandProtocols_DATADIR}/unstable/relative-pointer/relative-pointer-unstable-v1.xml)
+        ${WaylandProtocols_DATADIR}/unstable/relative-pointer/relative-pointer-unstable-v1.xml
+        ${private_code_option}
+    )
 
     target_sources(kdeconnectdeclarativeplugin PRIVATE ${wayland_SRCS})
     target_link_libraries(kdeconnectdeclarativeplugin PRIVATE Wayland::Client Qt::WaylandClient Qt::GuiPrivate)
