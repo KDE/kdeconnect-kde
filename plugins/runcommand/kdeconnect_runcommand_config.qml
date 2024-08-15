@@ -72,6 +72,7 @@ ListView {
         title: i18nc("@title:window", "Add Command")
 
         padding: Kirigami.Units.largeSpacing
+        preferredWidth: Kirigami.Units.gridUnit * 20
 
         property Kirigami.Action addCommandAction: Kirigami.Action {
             text: i18nc("@action:button", "Add")
