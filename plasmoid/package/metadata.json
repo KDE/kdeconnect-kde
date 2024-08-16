@@ -13,6 +13,7 @@
         ],
         "Category": "System Information",
         "Description": "Manage connected devices",
+        "Description[ar]": "تدير الأجهزة المتصلة",
         "Description[bg]": "Управление на свързани устройства",
         "Description[ca@valencia]": "Gestiona els dispositius connectats",
         "Description[ca]": "Gestiona els dispositius connectats",

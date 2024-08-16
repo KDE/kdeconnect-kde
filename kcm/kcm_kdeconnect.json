@@ -2,6 +2,7 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_kdeconnect",
         "Description": "Configure device synchronization",
+        "Description[ar]": "ضبط مزامنة الجهاز",
         "Description[bg]": "Конфигуриране на синхронизирането на устройствата",
         "Description[ca@valencia]": "Configura la sincronització del dispositiu",
         "Description[ca]": "Configura la sincronització del dispositiu",
