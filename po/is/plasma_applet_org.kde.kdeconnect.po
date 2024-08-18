@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-06-29 14:47+0000\n"
+"PO-Revision-Date: 2024-08-17 15:14+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
@@ -184,10 +184,9 @@ msgstr ""
 "Settu upp KDE Connect á Android-tækinu þínu til að tengja það við Plasma!"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "Para tæki..."
+msgstr "Para tæki…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -200,10 +199,9 @@ msgid "Install from F-Droid"
 msgstr "Setja upp frá F-Droid"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "Stillingar KDE Connect..."
+msgstr "Stillingar KDE Connect…"
 
 #~ msgid "Save As"
 #~ msgstr "Vista sem"
