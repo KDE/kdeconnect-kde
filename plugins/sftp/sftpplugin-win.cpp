@@ -7,14 +7,14 @@
 
 #include <QDebug>
 #include <QDesktopServices>
-#include <QDir>
+#include <QUrl>
 #include <QMessageBox>
 #include <QProcess>
-#include <QRegularExpression>
 
 #include <KLocalizedString>
 #include <KPluginFactory>
 
+#include "kdeconnectconfig.h"
 #include "plugin_sftp_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SftpPlugin, "kdeconnect_sftp.json")
@@ -63,21 +63,17 @@ void SftpPlugin::receivePacket(const NetworkPacket &np)
         path += QChar::fromLatin1('/');
     }
 
-    QString url_string = QStringLiteral("sftp://%1:%2@%3:%4%5")
+    QString url_string = QStringLiteral("sftp://%1;x-publickeyfile=%2@%3:%4%5")
                              .arg(np.get<QString>(QStringLiteral("user")),
-                                  np.get<QString>(QStringLiteral("password")),
+                                  QLatin1StringView(QUrl::toPercentEncoding(KdeConnectConfig::instance().privateKeyPath())),
                                   np.get<QString>(QStringLiteral("ip")),
                                   np.get<QString>(QStringLiteral("port")),
                                   path);
-    static QRegularExpression uriRegex(QStringLiteral("^sftp://kdeconnect:\\w+@\\d+.\\d+.\\d+.\\d+:17[3-6][0-9]/$"));
-    if (!uriRegex.match(url_string).hasMatch()) {
-        qCWarning(KDECONNECT_PLUGIN_SFTP) << "Invalid URL invoked. If the problem persists, contact the developers.";
-    }
 
     if (!QDesktopServices::openUrl(QUrl(url_string))) {
         QMessageBox::critical(nullptr,
                               i18n("KDE Connect"),
-                              i18n("Cannot handle SFTP protocol. Apologies for the inconvenience"),
+                              i18n("Couldn't find a program to handle sftp:// URLs, please install WinSCP or another SFTP client."),
                               QMessageBox::Abort,
                               QMessageBox::Abort);
     }
