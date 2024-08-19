@@ -48,11 +48,15 @@ public:
 private:
     void stop();
     bool checkVncClient() const;
+    bool checkRdpClient() const;
     bool checkDefaultSchemeHandler(const QString &scheme) const;
+    bool requestVnc();
+    bool requestRdp();
 
     struct Capabilities {
         bool virtualMonitor = false;
         bool vncClient = false;
+        bool rdpClient = false;
     };
 
     Capabilities m_capabilitiesLocal;
@@ -61,4 +65,6 @@ private:
     QProcess *m_process = nullptr;
     QJsonObject m_remoteResolution;
     uint m_retries = 0;
+
+    static uint s_port;
 };
