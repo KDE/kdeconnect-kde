@@ -191,22 +191,17 @@ PlasmaComponents.ItemDelegate {
                 icon.name: "krdc"
                 visible: virtualmonitor.available
                 text: i18n("Virtual Display")
-                onClicked: {
-                    let err = "";
-                    if (virtualmonitor?.plugin?.hasRemoteVncClient === false) {
-                        err = i18n("Remote device does not have a VNC client (eg. krdc) installed.");
-                    }
-                    if (virtualmonitor?.plugin?.isVirtualMonitorAvailable === false) {
-                        err = (err ? err + "\n\n" : "")
-                            + i18n("The krfb package is required on the local device.");
-                    }
+                checked: visible && virtualmonitor.plugin.active
+                checkable: true
 
-                    if (err) {
-                        prompt.subtitle = err;
-                        prompt.visible = true;
-                    } else if (!virtualmonitor.plugin.requestVirtualMonitor()) {
-                        prompt.subtitle = i18n("Failed to create the virtual monitor.");
-                        prompt.visible = true;
+                onClicked: {
+                    if (virtualmonitor.plugin.active) {
+                        virtualmonitor.plugin.stop();
+                        prompt.visible = false;
+                    } else {
+                        virtualmonitor.plugin.requestVirtualMonitor();
+                        prompt.subtitle = virtualmonitor.plugin.lastError;
+                        prompt.visible = prompt.subtitle.length > 0;
                     }
                 }
             }

@@ -4,4 +4,5 @@ target_link_libraries(kdeconnect_virtualmonitor
     Qt::Core
     Qt::Multimedia
     Qt::DBus
+    KF6::I18n
 )

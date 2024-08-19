@@ -233,8 +233,11 @@ public:
 class KDECONNECTINTERFACES_EXPORT VirtualmonitorDbusInterface : public OrgKdeKdeconnectDeviceVirtualmonitorInterface
 {
     Q_OBJECT
+    Q_PROPERTY(bool active READ active NOTIFY activeChanged)
 public:
     explicit VirtualmonitorDbusInterface(const QString &deviceId, QObject *parent = nullptr);
+Q_SIGNALS:
+    void activeChanged();
 };
 
 class KDECONNECTINTERFACES_EXPORT ClipboardDbusInterface : public OrgKdeKdeconnectDeviceClipboardInterface
