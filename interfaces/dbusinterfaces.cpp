@@ -191,6 +191,7 @@ VirtualmonitorDbusInterface::VirtualmonitorDbusInterface(const QString &deviceId
                                                     QDBusConnection::sessionBus(),
                                                     parent)
 {
+    connect(this, &OrgKdeKdeconnectDeviceVirtualmonitorInterface::activeChanged, this, &VirtualmonitorDbusInterface::activeChanged);
 }
 
 ClipboardDbusInterface::ClipboardDbusInterface(const QString &deviceId, QObject *parent)

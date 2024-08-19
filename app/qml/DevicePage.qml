@@ -187,6 +187,23 @@ Kirigami.ScrollablePage {
                 onClick: () => sftp.startBrowsing();
                 section: "action"
                 device: root.currentDevice
+            },
+            PluginItem {
+                readonly property QtObject virtualMonitor: VirtualmonitorDbusInterfaceFactory.create(root.currentDevice.id())
+                pluginName: "virtualmonitor"
+                name: (virtualMonitor.active ? i18n("Stop virtual monitor session") : i18n("Use device as an external monitor")) + "   " + virtualMonitor.active
+                onClick: () => {
+                    if (virtualMonitor.active) {
+                        virtualMonitor.stop();
+                    } else {
+                        virtualMonitor.requestVirtualMonitor();
+                        if (virtualMonitor.lastError.length > 0) {
+                            showPassiveNotification(virtualMonitor.lastError)
+                        }
+                    }
+                }
+                section: "action"
+                device: root.currentDevice
             }
         ]
 
