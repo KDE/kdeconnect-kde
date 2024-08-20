@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Shinjo Park <kde@peremen.name>, 2014, 2015, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2014, 2015, 2019, 2020, 2021, 2022, 2024 Shinjo Park <kde@peremen.name>
 # JungHee Lee <daemul72@gmail.com>, 2019.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-02 00:40+0000\n"
-"PO-Revision-Date: 2022-04-15 23:16+0200\n"
+"PO-Revision-Date: 2024-08-19 22:45+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,16 +29,13 @@ msgid "Your emails"
 msgstr "kde@peremen.name"
 
 #: kdeconnectd.cpp:57
-#, fuzzy, kde-format
-#| msgid ""
-#| "Pairing request from %1\n"
-#| "Key: %2..."
+#, kde-format
 msgid ""
 "Pairing request from %1\n"
 "Key: %2"
 msgstr ""
 "%1에서 페어링 요청\n"
-"키: %2..."
+"키: %2"
 
 #: kdeconnectd.cpp:65
 #, kde-format
