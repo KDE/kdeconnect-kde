@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Shinjo Park <kde@peremen.name>, 2020, 2021, 2023.
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-02 02:34+0000\n"
-"PO-Revision-Date: 2023-10-08 22:54+0200\n"
+"PO-Revision-Date: 2024-08-19 22:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -120,12 +120,13 @@ msgid "Volume control"
 msgstr "음량 제어"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "장치가 연결되지 않음"
+msgstr ""
+"이 장치는 연결되지 않았습니다.\n"
+"키: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -134,12 +135,13 @@ msgid "Pair"
 msgstr "페어링"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "연결 요청됨"
+msgstr ""
+"연결 요청됨\n"
+"키: "
 
 #: qml/DevicePage.qml:156
 #, kde-format
@@ -226,7 +228,7 @@ msgstr "%1 - %2"
 #: qml/PluginSettings.qml:64
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "플러그인 설정"
 
 #: qml/presentationRemote.qml:21
 #, kde-format

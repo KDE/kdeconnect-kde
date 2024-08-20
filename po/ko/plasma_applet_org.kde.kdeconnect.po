@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Shinjo Park <kde@peremen.name>, 2014, 2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2014, 2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2023-07-23 00:47+0200\n"
+"PO-Revision-Date: 2024-08-19 22:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: package/contents/ui/Battery.qml:33
 #, kde-format
@@ -43,11 +43,9 @@ msgid "No signal"
 msgstr "신호 없음"
 
 #: package/contents/ui/DeviceDelegate.qml:82
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "모든 연결된 장치에 접근할 수 없음"
+msgstr "가상 모니터를 사용할 수 없음"
 
 #: package/contents/ui/DeviceDelegate.qml:87
 #, kde-format
@@ -97,17 +95,17 @@ msgstr "가상 디스플레이"
 #: package/contents/ui/DeviceDelegate.qml:197
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "원격 장치에 VNC 클라이언트(예: krdc)가 설치되어 있지 않습니다."
 
 #: package/contents/ui/DeviceDelegate.qml:201
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "로컬 장치에 krfb 패키지가 설치되어 있어야 합니다."
 
 #: package/contents/ui/DeviceDelegate.qml:208
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "가상 모니터를 만들 수 없습니다."
 
 #: package/contents/ui/DeviceDelegate.qml:259
 #, kde-format
@@ -183,10 +181,9 @@ msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr "Plasma와 안드로이드 장치를 연결하려면 KDE Connect를 설치하십시오!"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "장치 연결..."
+msgstr "장치 연결…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -199,10 +196,9 @@ msgid "Install from F-Droid"
 msgstr "F-Droid에서 설치"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "KDE Connect 설정..."
+msgstr "KDE Connect 설정…"
 
 #~ msgid "Save As"
 #~ msgstr "다른 이름으로 저장"
