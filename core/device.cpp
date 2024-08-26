@@ -320,7 +320,11 @@ bool Device::updateDeviceInfo(const DeviceInfo &newDeviceInfo)
 
     return hasChanges;
 }
-
+bool Device::hasInvalidCertificate()
+{
+    QDateTime now = QDateTime::currentDateTime();
+    return certificate().isNull() || certificate().effectiveDate() >= now || certificate().expiryDate() <= now;
+}
 void Device::linkDestroyed(QObject *o)
 {
     removeLink(static_cast<DeviceLink *>(o));

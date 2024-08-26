@@ -90,7 +90,14 @@ void Daemon::init()
     // Read remembered paired devices
     const QStringList &list = KdeConnectConfig::instance().trustedDevices();
     for (const QString &id : list) {
-        addDevice(new Device(this, id));
+        Device *d = new Device(this, id);
+        // prune away devices with malformed certificates
+        if (d->hasInvalidCertificate()) {
+            qCDebug(KDECONNECT_CORE) << "Certificate for device " << id << "illegal, deleting the device";
+            KdeConnectConfig::instance().removeTrustedDevice(id);
+        } else {
+            addDevice(d);
+        }
     }
 
     qCDebug(KDECONNECT_CORE) << "Paired devices added";

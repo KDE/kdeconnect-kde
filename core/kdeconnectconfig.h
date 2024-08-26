@@ -77,6 +77,8 @@ private:
     void generatePrivateKey(const QString &path);
     void generateCertificate(const QString &path);
 
+    void removeAllTrustedDevices();
+
     struct KdeConnectConfigPrivate *d;
 };
 

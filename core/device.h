@@ -74,6 +74,8 @@ public:
 
     bool updateDeviceInfo(const DeviceInfo &deviceInfo);
 
+    bool hasInvalidCertificate();
+
     PairState pairState() const;
     Q_SCRIPTABLE int pairStateAsInt() const; // Hack because qdbus doesn't like enums
     Q_SCRIPTABLE bool isPaired() const;

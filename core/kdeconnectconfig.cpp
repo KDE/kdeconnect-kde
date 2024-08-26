@@ -215,6 +215,12 @@ void KdeConnectConfig::removeTrustedDevice(const QString &deviceId)
     // We do not remove the config files.
 }
 
+void KdeConnectConfig::removeAllTrustedDevices()
+{
+    d->m_trustedDevices->clear();
+    d->m_trustedDevices->sync();
+}
+
 // Utility functions to set and get a value
 void KdeConnectConfig::setDeviceProperty(const QString &deviceId, const QString &key, const QString &value)
 {
@@ -276,10 +282,18 @@ bool KdeConnectConfig::loadPrivateKey(const QString &keyPath)
 bool KdeConnectConfig::loadCertificate(const QString &certPath)
 {
     QFile cert(certPath);
+    QDateTime now = QDateTime::currentDateTime();
+
     if (cert.exists() && cert.open(QIODevice::ReadOnly)) {
         d->m_certificate = QSslCertificate(cert.readAll());
         if (d->m_certificate.isNull()) {
             qCWarning(KDECONNECT_CORE) << "Certificate from" << certPath << "is not valid";
+        } else if (d->m_certificate.effectiveDate() >= now) {
+            qCWarning(KDECONNECT_CORE) << "Certificate from" << certPath << "not yet effective: " << d->m_certificate.effectiveDate();
+            return true;
+        } else if (d->m_certificate.expiryDate() <= now) {
+            qCWarning(KDECONNECT_CORE) << "Certificate from" << certPath << "expired: " << d->m_certificate.expiryDate();
+            return true;
         }
     }
     return d->m_certificate.isNull();
@@ -294,6 +308,7 @@ void KdeConnectConfig::loadOrGeneratePrivateKeyAndCertificate(const QString &key
         generatePrivateKey(keyPath);
     }
     if (needsToGenerateCert) {
+        removeAllTrustedDevices();
         generateCertificate(certPath);
     }
 

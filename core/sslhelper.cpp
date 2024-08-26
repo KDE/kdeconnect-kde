@@ -200,7 +200,7 @@ QSslCertificate generateSelfSignedCertificate(const QSslKey &qtPrivateKey, const
     }
 
     // Set the certificate validity period.
-    int a_year_in_seconds = 356 * 24 * 60 * 60;
+    int a_year_in_seconds = 365 * 24 * 60 * 60;
     X509_gmtime_adj(X509_getm_notBefore(x509.get()), -a_year_in_seconds);
     X509_gmtime_adj(X509_getm_notAfter(x509.get()), 10 * a_year_in_seconds);
 
