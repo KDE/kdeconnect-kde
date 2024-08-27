@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-02 02:34+0000\n"
-"PO-Revision-Date: 2024-03-20 20:55+0100\n"
+"PO-Revision-Date: 2024-08-26 18:28+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -122,12 +122,13 @@ msgid "Volume control"
 msgstr "Lautstärkeeinstellung"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "Dieses Gerät ist nicht verbunden"
+msgstr ""
+"Dieses Gerät ist nicht verbunden.\n"
+"Schlüssel: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -136,12 +137,13 @@ msgid "Pair"
 msgstr "Verbinden"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "Verbindung angefordert"
+msgstr ""
+"Die Verbindung wurde angefordert.\n"
+"Schlüssel:"
 
 #: qml/DevicePage.qml:156
 #, kde-format
