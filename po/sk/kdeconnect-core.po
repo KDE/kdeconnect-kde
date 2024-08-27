@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"POT-Creation-Date: 2024-08-27 00:39+0000\n"
 "PO-Revision-Date: 2024-04-27 16:46+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -89,12 +89,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Cieľ"
 
-#: device.cpp:455
+#: device.cpp:459
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Odtlačok SHA256 certifikátu vášho zariadenia je: %1\n"
 
-#: device.cpp:461
+#: device.cpp:465
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Odtlačok SHA256 certifikátu vzdialeného zariadenia je: %1\n"
@@ -109,27 +109,27 @@ msgstr "Názov súboru už existuje"
 msgid "Received incomplete file from: %1"
 msgstr "Prijatý neúplný súbor zo zariadenia: %1"
 
-#: kdeconnectconfig.cpp:316 kdeconnectconfig.cpp:350
+#: kdeconnectconfig.cpp:331 kdeconnectconfig.cpp:365
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Aplikáciu KDE Connect sa nepodarilo spustiť"
 
-#: kdeconnectconfig.cpp:316
+#: kdeconnectconfig.cpp:331
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "Failed to generate a device certificate."
 
-#: kdeconnectconfig.cpp:335
+#: kdeconnectconfig.cpp:350
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Nepodarilo sa uložiť súbor so súkromným kľúčom: %1"
 
-#: kdeconnectconfig.cpp:350
+#: kdeconnectconfig.cpp:365
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Nepodarilo sa vygenerovať certifikát zariadenia."
 
-#: kdeconnectconfig.cpp:366
+#: kdeconnectconfig.cpp:381
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Nepodarilo sa uložiť súbor s certifikátom: %1"

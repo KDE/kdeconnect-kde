@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"POT-Creation-Date: 2024-08-27 00:39+0000\n"
 "PO-Revision-Date: 2023-08-06 19:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -86,12 +86,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "대상"
 
-#: device.cpp:455
+#: device.cpp:459
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "내 장치 인증서의 SHA256 지문: %1\n"
 
-#: device.cpp:461
+#: device.cpp:465
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "원격 장치 인증서의 SHA256 지문: %1\n"
@@ -106,27 +106,27 @@ msgstr "파일 이름이 이미 존재함"
 msgid "Received incomplete file from: %1"
 msgstr "완전하지 않은 파일 받음: %1"
 
-#: kdeconnectconfig.cpp:316 kdeconnectconfig.cpp:350
+#: kdeconnectconfig.cpp:331 kdeconnectconfig.cpp:365
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connect를 시작할 수 없음"
 
-#: kdeconnectconfig.cpp:316
+#: kdeconnectconfig.cpp:331
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "개인 키를 생성할 수 없습니다."
 
-#: kdeconnectconfig.cpp:335
+#: kdeconnectconfig.cpp:350
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "개인 키 파일을 저장할 수 없음: %1"
 
-#: kdeconnectconfig.cpp:350
+#: kdeconnectconfig.cpp:365
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "장치 인증서를 생성할 수 없습니다."
 
-#: kdeconnectconfig.cpp:366
+#: kdeconnectconfig.cpp:381
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "인증서 파일을 저장할 수 없음: %1"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"POT-Creation-Date: 2024-08-27 00:39+0000\n"
 "PO-Revision-Date: 2024-06-08 20:26+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -87,12 +87,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "गन्तव्य"
 
-#: device.cpp:455
+#: device.cpp:459
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "आपके उपकरण प्रमाणपत्र का SHA256 अंगुलांक है: %1\n"
 
-#: device.cpp:461
+#: device.cpp:465
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "दूरस्थ उपकरण प्रमाणपत्र का SHA256 अंगुलांक है: %1\n"
@@ -107,27 +107,27 @@ msgstr "फ़ाइलनाम पहले से मौजूद है"
 msgid "Received incomplete file from: %1"
 msgstr "यहाँ से अपूर्ण फ़ाइल प्राप्त हुई: %1"
 
-#: kdeconnectconfig.cpp:316 kdeconnectconfig.cpp:350
+#: kdeconnectconfig.cpp:331 kdeconnectconfig.cpp:365
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "केडीई कनेक्ट प्रारंभ होने में विफल रहा"
 
-#: kdeconnectconfig.cpp:316
+#: kdeconnectconfig.cpp:331
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "निजी कुंजी संग्रहित उत्पन्न नहीं की जा सकी"
 
-#: kdeconnectconfig.cpp:335
+#: kdeconnectconfig.cpp:350
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "निजी कुंजी फ़ाइल संग्रहित नहीं किया जा सका: %1"
 
-#: kdeconnectconfig.cpp:350
+#: kdeconnectconfig.cpp:365
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "उपकरण प्रमाणपत्र उत्पन्न नहीं हो सका।"
 
-#: kdeconnectconfig.cpp:366
+#: kdeconnectconfig.cpp:381
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "प्रमाणपत्र फ़ाइल संग्रहित नहीं किया जा सका: %1"

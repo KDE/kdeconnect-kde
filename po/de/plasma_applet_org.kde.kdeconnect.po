@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # Burkhard Lück <lueck@hube-lueck.de>, 2015, 2017, 2018, 2019, 2020, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2016, 2018, 2020, 2022, 2023.
 msgid ""
@@ -5,15 +6,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2023-06-12 00:13+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
-"Language-Team: German <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2024-08-26 18:40+0200\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: package/contents/ui/Battery.qml:33
 #, kde-format
@@ -41,11 +42,9 @@ msgid "No signal"
 msgstr "Kein Signal"
 
 #: package/contents/ui/DeviceDelegate.qml:82
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "Verbundenes Gerät ist nicht verfügbar"
+msgstr "Virtueller Monitor ist nicht verfügbar"
 
 #: package/contents/ui/DeviceDelegate.qml:87
 #, kde-format
@@ -95,17 +94,17 @@ msgstr "Virtuelle Anzeige"
 #: package/contents/ui/DeviceDelegate.qml:197
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "Auf dem entfernten Gerät ist kein VNC-Client (z. B. krdc) installiert."
 
 #: package/contents/ui/DeviceDelegate.qml:201
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "Das Paket krfb wird auf dem lokalen Gerät benötigt."
 
 #: package/contents/ui/DeviceDelegate.qml:208
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "Der virtuelle Monitor kann nicht erstellt werden."
 
 #: package/contents/ui/DeviceDelegate.qml:259
 #, kde-format
@@ -184,10 +183,9 @@ msgstr ""
 "integrieren."
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "Gerät verbinden ..."
+msgstr "Gerät verbinden …"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -200,10 +198,9 @@ msgid "Install from F-Droid"
 msgstr "Von F-Droid installieren"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "KDE-Connect-Einstellungen ..."
+msgstr "KDE-Connect-Einstellungen …"
 
 #~ msgid "Save As"
 #~ msgstr "Speichern unter"

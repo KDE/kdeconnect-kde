@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:38+0000\n"
+"POT-Creation-Date: 2024-08-27 00:39+0000\n"
 "PO-Revision-Date: 2019-11-29 20:54+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -91,13 +91,13 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr ""
 
-#: device.cpp:455
+#: device.cpp:459
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of your device certificate is: %1\n"
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Sinu seadme sertifikaadi SHA1 sõrmejälg on: %1\n"
 
-#: device.cpp:461
+#: device.cpp:465
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
@@ -113,29 +113,29 @@ msgstr "Failinimi on juba olemas"
 msgid "Received incomplete file from: %1"
 msgstr "Saadi ebatäielik fail seadmest %1"
 
-#: kdeconnectconfig.cpp:316 kdeconnectconfig.cpp:350
+#: kdeconnectconfig.cpp:331 kdeconnectconfig.cpp:365
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connecti käivitamine nurjus"
 
-#: kdeconnectconfig.cpp:316
+#: kdeconnectconfig.cpp:331
 #, fuzzy, kde-format
 #| msgid "Could not store private key file: %1"
 msgid "Could not generate the private key."
 msgstr "Privaatvõtmefaili salvestamine nurjus: %1"
 
-#: kdeconnectconfig.cpp:335
+#: kdeconnectconfig.cpp:350
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Privaatvõtmefaili salvestamine nurjus: %1"
 
-#: kdeconnectconfig.cpp:350
+#: kdeconnectconfig.cpp:365
 #, fuzzy, kde-format
 #| msgid "Could not store certificate file: %1"
 msgid "Could not generate the device certificate."
 msgstr "Sertifikaadifaili salvestamine nurjus: %1"
 
-#: kdeconnectconfig.cpp:366
+#: kdeconnectconfig.cpp:381
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Sertifikaadifaili salvestamine nurjus: %1"
