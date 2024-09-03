@@ -1,32 +1,28 @@
 /**
  * SPDX-FileCopyrightText: 2014 Samoilenko Yuri <kinnalru@gmail.com>
- * SPDX-FileCopyrightText: 2024 ivan tkachenko <me@ratijas.tk>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-pragma ComponentBehavior: Bound
-
 import QtQuick
-
-import org.kde.kdeconnect as KDEConnect
+import org.kde.plasma.core as PlasmaCore
+import org.kde.kdeconnect
 
 QtObject {
+
     id: root
 
-    required property KDEConnect.DeviceDbusInterface device
-
+    property alias device: checker.device
     readonly property alias available: checker.available
 
-    readonly property KDEConnect.PluginChecker pluginChecker: KDEConnect.PluginChecker {
+    readonly property PluginChecker pluginChecker: PluginChecker {
         id: checker
         pluginName: "findmyphone"
-        device: root.device
     }
 
-    property KDEConnect.FindMyPhoneDbusInterface findMyPhone
+    property variant findMyPhone: null
 
-    function ring(): void {
+    function ring() {
         if (findMyPhone) {
             findMyPhone.ring();
         }
@@ -34,9 +30,9 @@ QtObject {
 
     onAvailableChanged: {
         if (available) {
-            findMyPhone = KDEConnect.FindMyPhoneDbusInterfaceFactory.create(device.id());
+            findMyPhone = FindMyPhoneDbusInterfaceFactory.create(device.id())
         } else {
-            findMyPhone = null;
+            findMyPhone = null
         }
     }
 }

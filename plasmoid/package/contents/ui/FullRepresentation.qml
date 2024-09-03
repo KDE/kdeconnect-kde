@@ -1,45 +1,40 @@
 /**
  * SPDX-FileCopyrightText: 2013 Albert Vaca <albertvaka@gmail.com>
- * SPDX-FileCopyrightText: 2024 ivan tkachenko <me@ratijas.tk>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-pragma ComponentBehavior: Bound
-
 import QtQuick
-import QtQuick.Controls as QQC2
-import QtQuick.Layouts
-
-import org.kde.config as KConfig
-import org.kde.kcmutils as KCMUtils
-import org.kde.kdeconnect as KDEConnect
-import org.kde.kirigami as Kirigami
+import QtQuick.Controls
+import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.plasma.extras as PlasmaExtras
+import org.kde.kdeconnect as KdeConnect
+import QtQuick.Layouts
+import org.kde.kquickcontrolsaddons
+import org.kde.kirigami as Kirigami
+import org.kde.kcmutils as KCMUtils
+import org.kde.config as KConfig
 
 PlasmaExtras.Representation {
     id: kdeconnect
-
     property alias devicesModel: devicesView.model
-
     collapseMarginsHint: true
 
-    KDEConnect.DevicesModel {
+    KdeConnect.DevicesModel {
         id: allDevicesModel
     }
-
-    KDEConnect.DevicesModel {
+    KdeConnect.DevicesModel {
         id: pairedDevicesModel
-        displayFilter: KDEConnect.DevicesModel.Paired
+        displayFilter: KdeConnect.DevicesModel.Paired
     }
 
     PlasmaComponents3.ScrollView {
+        id: dialogItem
         anchors.fill: parent
 
         contentItem: ListView {
             id: devicesView
-
             spacing: Kirigami.Units.smallSpacing
 
             clip: true
@@ -62,16 +57,16 @@ PlasmaExtras.Representation {
 
                 text: {
                     if (pairedDevicesModel.count >= 0) {
-                        return pairedDevicesModel.count === 0 ? i18n("No paired devices") : i18np("Paired device is unavailable", "All paired devices are unavailable", pairedDevicesModel.count)
-                    } else if (allDevicesModel.count === 0) {
+                        return pairedDevicesModel.count == 0 ? i18n("No paired devices") : i18np("Paired device is unavailable", "All paired devices are unavailable", pairedDevicesModel.count)
+                    } else if (allDevicesModel.count == 0) {
                         return i18n("Install KDE Connect on your Android device to integrate it with Plasma!")
                     }
                 }
-                helpfulAction: QQC2.Action {
+                helpfulAction: Action {
                     text: i18n("Pair a Device…")
                     icon.name: "list-add"
                     onTriggered: KCMUtils.KCMLauncher.openSystemSettings("kcm_kdeconnect")
-                    enabled: pairedDevicesModel.count === 0 && KConfig.KAuthorized.authorizeControlModule("kcm_kdeconnect")
+                    enabled: pairedDevicesModel.count == 0 && KConfig.KAuthorized.authorizeControlModule("kcm_kdeconnect")
                 }
 
                 PlasmaComponents3.Button {

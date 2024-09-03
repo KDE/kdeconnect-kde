@@ -1,32 +1,28 @@
 /**
  * SPDX-FileCopyrightText: 2021 Yaman Qalieh <ybq987@gmail.com>
- * SPDX-FileCopyrightText: 2024 ivan tkachenko <me@ratijas.tk>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-pragma ComponentBehavior: Bound
-
 import QtQuick
-
-import org.kde.kdeconnect as KDEConnect
+import org.kde.plasma.core as PlasmaCore
+import org.kde.kdeconnect
 
 QtObject {
+
     id: root
 
-    required property KDEConnect.DeviceDbusInterface device
-
+    property alias device: checker.device
     readonly property alias available: checker.available
 
-    readonly property KDEConnect.PluginChecker pluginChecker: KDEConnect.PluginChecker {
+    readonly property PluginChecker pluginChecker: PluginChecker {
         id: checker
         pluginName: "clipboard"
-        device: root.device
     }
 
-    property KDEConnect.ClipboardDbusInterface clipboard
+    property variant clipboard: null
 
-    function sendClipboard(): void {
+    function sendClipboard() {
         if (clipboard) {
             clipboard.sendClipboard();
         }
@@ -34,9 +30,9 @@ QtObject {
 
     onAvailableChanged: {
         if (available) {
-            clipboard = KDEConnect.ClipboardDbusInterfaceFactory.create(device.id());
+            clipboard = ClipboardDbusInterfaceFactory.create(device.id())
         } else {
-            clipboard = null;
+            clipboard = null
         }
     }
 }

@@ -1,29 +1,25 @@
 /**
  * SPDX-FileCopyrightText: 2018 Nicolas Fella <nicolas.fella@gmx.de>
- * SPDX-FileCopyrightText: 2024 ivan tkachenko <me@ratijas.tk>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-pragma ComponentBehavior: Bound
-
 import QtQuick
-
-import org.kde.kdeconnect as KDEConnect
+import org.kde.plasma.core as PlasmaCore
+import org.kde.kdeconnect
 
 QtObject {
+
     id: root
 
-    required property KDEConnect.DeviceDbusInterface device
-
+    property alias device: checker.device
     readonly property alias available: checker.available
 
-    readonly property KDEConnect.PluginChecker pluginChecker: KDEConnect.PluginChecker {
+    readonly property PluginChecker pluginChecker: PluginChecker {
         id: checker
         pluginName: "share"
-        device: root.device
     }
 
-    property KDEConnect.ShareDbusInterface plugin:
-        available ? KDEConnect.ShareDbusInterfaceFactory.create(device.id()) : null
+    property variant plugin: available ? ShareDbusInterfaceFactory.create(device.id()) : null
 }
+

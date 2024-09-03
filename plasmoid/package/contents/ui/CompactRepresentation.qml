@@ -1,44 +1,32 @@
-/**
- *  SPDX-FileCopyrightText: 2014-2015 Frederic St-Pierre <me@fredericstpierre.com>
- *  SPDX-FileCopyrightText: 2024 ivan tkachenko <me@ratijas.tk>
- *
- *  SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
- */
+/*
+    SPDX-FileCopyrightText: 2014-2015 Frederic St-Pierre <me@fredericstpierre.com>
 
-pragma ComponentBehavior: Bound
+    SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
+*/
 
 import QtQuick
-
+import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
-import org.kde.plasma.plasmoid
 
 DropArea {
-    id: root
-
-    required property PlasmoidItem plasmoidItem
-
-    onEntered: drag => {
+    onEntered: {
         if (drag.hasUrls) {
-            root.plasmoidItem.expanded = true;
+            root.expanded = true;
         }
     }
 
     MouseArea {
+        id: kdeConnectMouseArea
         anchors.fill: parent
 
-        property bool wasExpanded: false
-
-        onPressed: mouse => {
-            wasExpanded = root.plasmoidItem.expanded;
-        }
-
-        onClicked: mouse => {
-            root.plasmoidItem.expanded = !root.plasmoidItem.expanded;
+        onClicked: {
+            root.expanded = !root.expanded;
         }
     }
 
     Kirigami.Icon {
+        id: kdeConnectIcon
         anchors.fill: parent
-        source: Plasmoid.icon
+        source: plasmoid.icon
     }
 }
