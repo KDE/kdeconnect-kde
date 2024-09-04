@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-04 02:27+0000\n"
 "PO-Revision-Date: 2024-07-16 15:44+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -18,160 +18,160 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 24.05.2\n"
 
-#: package/contents/ui/Battery.qml:33
+#: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "%1% charging"
 msgstr "%1% nabíjí se"
 
-#: package/contents/ui/Battery.qml:35
+#: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/Battery.qml:38
+#: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "No info"
 msgstr "Žádné informace"
 
-#: package/contents/ui/Connectivity.qml:43
+#: package/contents/ui/Connectivity.qml:40
 #, kde-format
 msgid "Unknown"
 msgstr "Neznámý"
 
-#: package/contents/ui/Connectivity.qml:54
+#: package/contents/ui/Connectivity.qml:50
 #, kde-format
 msgid "No signal"
 msgstr "Žádný signál"
 
-#: package/contents/ui/DeviceDelegate.qml:82
+#: package/contents/ui/DeviceDelegate.qml:31
 #, kde-format
 msgid "Virtual Monitor is not available"
 msgstr "Virtuální monitor není dostupný"
 
-#: package/contents/ui/DeviceDelegate.qml:87
-#, kde-format
-msgid "Please choose a file"
-msgstr "´Prosím, vyberte soubor"
-
-#: package/contents/ui/DeviceDelegate.qml:105
-#, kde-format
-msgid "Share file"
-msgstr "Sdílet soubor"
-
-#: package/contents/ui/DeviceDelegate.qml:113
-#, kde-format
-msgid "Send Clipboard"
-msgstr "Poslat schránku"
-
-#: package/contents/ui/DeviceDelegate.qml:124
-#, kde-format
-msgid "Ring my phone"
-msgstr "Prozvonit můj telefon"
-
-#: package/contents/ui/DeviceDelegate.qml:135
-#, kde-format
-msgid "Browse this device"
-msgstr "Procházet toto zařízení"
-
-#: package/contents/ui/DeviceDelegate.qml:146
-#, kde-format
-msgid "SMS Messages"
-msgstr "Zprávy SMS"
-
-#: package/contents/ui/DeviceDelegate.qml:170
+#: package/contents/ui/DeviceDelegate.qml:63
 #, kde-format
 msgid "File Transfer"
 msgstr "Přenos souboru"
 
-#: package/contents/ui/DeviceDelegate.qml:171
+#: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "Zde upusťte soubor pro jeho přesun do vašeho telefonu."
 
 # 56606 AttribValues/label
-#: package/contents/ui/DeviceDelegate.qml:193
+#: package/contents/ui/DeviceDelegate.qml:102
 #, kde-format
 msgid "Virtual Display"
 msgstr "Virtuální obrazovka"
 
-#: package/contents/ui/DeviceDelegate.qml:197
+#: package/contents/ui/DeviceDelegate.qml:106
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
 msgstr "Vzdálené zařízení nemá nainstalován VNC klient (např. krdc)."
 
-#: package/contents/ui/DeviceDelegate.qml:201
+#: package/contents/ui/DeviceDelegate.qml:110
 #, kde-format
 msgid "The krfb package is required on the local device."
 msgstr "Na lokálním zařízení je potřeba balíček krfb."
 
-#: package/contents/ui/DeviceDelegate.qml:208
+#: package/contents/ui/DeviceDelegate.qml:117
 #, kde-format
 msgid "Failed to create the virtual monitor."
 msgstr "Virtuální monitor nelze vytvořit."
 
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:167
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:285
+#: package/contents/ui/DeviceDelegate.qml:189
+#, kde-format
+msgid "Please choose a file"
+msgstr "´Prosím, vyberte soubor"
+
+#: package/contents/ui/DeviceDelegate.qml:198
+#, kde-format
+msgid "Share file"
+msgstr "Sdílet soubor"
+
+#: package/contents/ui/DeviceDelegate.qml:213
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Poslat schránku"
+
+#: package/contents/ui/DeviceDelegate.qml:232
+#, kde-format
+msgid "Ring my phone"
+msgstr "Prozvonit můj telefon"
+
+#: package/contents/ui/DeviceDelegate.qml:250
+#, kde-format
+msgid "Browse this device"
+msgstr "Procházet toto zařízení"
+
+#: package/contents/ui/DeviceDelegate.qml:267
+#, kde-format
+msgid "SMS Messages"
+msgstr "Zprávy SMS"
+
+#: package/contents/ui/DeviceDelegate.qml:288
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Vzdálená klávesnice"
 
-#: package/contents/ui/DeviceDelegate.qml:306
+#: package/contents/ui/DeviceDelegate.qml:309
 #, kde-format
 msgid "Notifications:"
 msgstr "Oznámení:"
 
-#: package/contents/ui/DeviceDelegate.qml:314
+#: package/contents/ui/DeviceDelegate.qml:317
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Zahodit všechna oznámení"
 
-#: package/contents/ui/DeviceDelegate.qml:372
+#: package/contents/ui/DeviceDelegate.qml:364
 #, kde-format
 msgid "Reply"
 msgstr "Odpovědět"
 
-#: package/contents/ui/DeviceDelegate.qml:385
+#: package/contents/ui/DeviceDelegate.qml:374
 #, kde-format
 msgid "Dismiss"
 msgstr "Zahodit"
 
-#: package/contents/ui/DeviceDelegate.qml:398
+#: package/contents/ui/DeviceDelegate.qml:387
 #, kde-format
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: package/contents/ui/DeviceDelegate.qml:412
+#: package/contents/ui/DeviceDelegate.qml:401
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Odpovědět %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:430
+#: package/contents/ui/DeviceDelegate.qml:419
 #, kde-format
 msgid "Send"
 msgstr "Odeslat"
 
-#: package/contents/ui/DeviceDelegate.qml:451
+#: package/contents/ui/DeviceDelegate.qml:445
 #, kde-format
 msgid "Run command"
 msgstr "Spustit příkaz:"
 
-#: package/contents/ui/DeviceDelegate.qml:458
+#: package/contents/ui/DeviceDelegate.qml:453
 #, kde-format
 msgid "Add command"
 msgstr "Přidat příkaz"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:60
 #, kde-format
 msgid "No paired devices"
 msgstr "Žádná spárovaná zařízení"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:60
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
@@ -179,29 +179,29 @@ msgstr[0] "Spárované zařízení není dostupné"
 msgstr[1] "Všechna spárovaná zařízení jsou nedostupná"
 msgstr[2] "Všechna spárovaná zařízení jsou nedostupná"
 
-#: package/contents/ui/FullRepresentation.qml:67
+#: package/contents/ui/FullRepresentation.qml:62
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
 "Pro integraci zařízení Android a prostředí Plasma je potřeba nainstalovat "
 "KDE Connect."
 
-#: package/contents/ui/FullRepresentation.qml:71
+#: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Pair a Device…"
 msgstr "Spárovat zařízení…"
 
-#: package/contents/ui/FullRepresentation.qml:83
+#: package/contents/ui/FullRepresentation.qml:78
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Instalovat z Google Play"
 
-#: package/contents/ui/FullRepresentation.qml:93
+#: package/contents/ui/FullRepresentation.qml:88
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "Instalovat z F-Droidu"
 
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:59
 #, kde-format
 msgid "KDE Connect Settings…"
 msgstr "Nastavení KDE Connect…"

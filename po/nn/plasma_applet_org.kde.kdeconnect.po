@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-04 02:27+0000\n"
 "PO-Revision-Date: 2024-07-14 11:48+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -18,186 +18,186 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: package/contents/ui/Battery.qml:33
+#: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "%1% charging"
 msgstr "%1 % – ladar"
 
-#: package/contents/ui/Battery.qml:35
+#: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "%1%"
 msgstr "%1 %"
 
-#: package/contents/ui/Battery.qml:38
+#: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "No info"
 msgstr "Ingen info"
 
-#: package/contents/ui/Connectivity.qml:43
+#: package/contents/ui/Connectivity.qml:40
 #, kde-format
 msgid "Unknown"
 msgstr "Ukjend"
 
-#: package/contents/ui/Connectivity.qml:54
+#: package/contents/ui/Connectivity.qml:50
 #, kde-format
 msgid "No signal"
 msgstr "Inkje signal"
 
-#: package/contents/ui/DeviceDelegate.qml:82
+#: package/contents/ui/DeviceDelegate.qml:31
 #, kde-format
 msgid "Virtual Monitor is not available"
 msgstr "Virtuell avlyttar er ikkje tilgjengeleg"
 
-#: package/contents/ui/DeviceDelegate.qml:87
-#, kde-format
-msgid "Please choose a file"
-msgstr "Vel ei fil"
-
-#: package/contents/ui/DeviceDelegate.qml:105
-#, kde-format
-msgid "Share file"
-msgstr "Del fil"
-
-#: package/contents/ui/DeviceDelegate.qml:113
-#, kde-format
-msgid "Send Clipboard"
-msgstr "Send utklippstavle"
-
-#: package/contents/ui/DeviceDelegate.qml:124
-#, kde-format
-msgid "Ring my phone"
-msgstr "Ring telefonen"
-
-#: package/contents/ui/DeviceDelegate.qml:135
-#, kde-format
-msgid "Browse this device"
-msgstr "Bla gjennom eininga"
-
-#: package/contents/ui/DeviceDelegate.qml:146
-#, kde-format
-msgid "SMS Messages"
-msgstr "Tekstmeldingar"
-
-#: package/contents/ui/DeviceDelegate.qml:170
+#: package/contents/ui/DeviceDelegate.qml:63
 #, kde-format
 msgid "File Transfer"
 msgstr "Filoverføring"
 
-#: package/contents/ui/DeviceDelegate.qml:171
+#: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "Slepp ei fil for å overføra ho til telefonen."
 
-#: package/contents/ui/DeviceDelegate.qml:193
+#: package/contents/ui/DeviceDelegate.qml:102
 #, kde-format
 msgid "Virtual Display"
 msgstr "Virtuell skjerm"
 
-#: package/contents/ui/DeviceDelegate.qml:197
+#: package/contents/ui/DeviceDelegate.qml:106
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
 msgstr "Fjerneininga har ikkje ein VNC-klient (eks. krdc) installert."
 
-#: package/contents/ui/DeviceDelegate.qml:201
+#: package/contents/ui/DeviceDelegate.qml:110
 #, kde-format
 msgid "The krfb package is required on the local device."
 msgstr "Pakken krfb må vera installert på den lokale eininga."
 
-#: package/contents/ui/DeviceDelegate.qml:208
+#: package/contents/ui/DeviceDelegate.qml:117
 #, kde-format
 msgid "Failed to create the virtual monitor."
 msgstr "Klarte ikkje oppretta virtuell avlyttar."
 
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:167
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1 %"
 
-#: package/contents/ui/DeviceDelegate.qml:285
+#: package/contents/ui/DeviceDelegate.qml:189
+#, kde-format
+msgid "Please choose a file"
+msgstr "Vel ei fil"
+
+#: package/contents/ui/DeviceDelegate.qml:198
+#, kde-format
+msgid "Share file"
+msgstr "Del fil"
+
+#: package/contents/ui/DeviceDelegate.qml:213
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Send utklippstavle"
+
+#: package/contents/ui/DeviceDelegate.qml:232
+#, kde-format
+msgid "Ring my phone"
+msgstr "Ring telefonen"
+
+#: package/contents/ui/DeviceDelegate.qml:250
+#, kde-format
+msgid "Browse this device"
+msgstr "Bla gjennom eininga"
+
+#: package/contents/ui/DeviceDelegate.qml:267
+#, kde-format
+msgid "SMS Messages"
+msgstr "Tekstmeldingar"
+
+#: package/contents/ui/DeviceDelegate.qml:288
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Fjerntastatur"
 
-#: package/contents/ui/DeviceDelegate.qml:306
+#: package/contents/ui/DeviceDelegate.qml:309
 #, kde-format
 msgid "Notifications:"
 msgstr "Varslingar:"
 
-#: package/contents/ui/DeviceDelegate.qml:314
+#: package/contents/ui/DeviceDelegate.qml:317
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Lukk alle varslingar"
 
-#: package/contents/ui/DeviceDelegate.qml:372
+#: package/contents/ui/DeviceDelegate.qml:364
 #, kde-format
 msgid "Reply"
 msgstr "Svar"
 
-#: package/contents/ui/DeviceDelegate.qml:385
+#: package/contents/ui/DeviceDelegate.qml:374
 #, kde-format
 msgid "Dismiss"
 msgstr "Lukk"
 
-#: package/contents/ui/DeviceDelegate.qml:398
+#: package/contents/ui/DeviceDelegate.qml:387
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: package/contents/ui/DeviceDelegate.qml:412
+#: package/contents/ui/DeviceDelegate.qml:401
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Svar til %1 …"
 
-#: package/contents/ui/DeviceDelegate.qml:430
+#: package/contents/ui/DeviceDelegate.qml:419
 #, kde-format
 msgid "Send"
 msgstr "Send"
 
-#: package/contents/ui/DeviceDelegate.qml:451
+#: package/contents/ui/DeviceDelegate.qml:445
 #, kde-format
 msgid "Run command"
 msgstr "Køyr kommando"
 
-#: package/contents/ui/DeviceDelegate.qml:458
+#: package/contents/ui/DeviceDelegate.qml:453
 #, kde-format
 msgid "Add command"
 msgstr "Legg til kommando"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:60
 #, kde-format
 msgid "No paired devices"
 msgstr "Ingen para einingar"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:60
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "Para eining er utilgjengeleg"
 msgstr[1] "Alle para einingar er utilgjengelege"
 
-#: package/contents/ui/FullRepresentation.qml:67
+#: package/contents/ui/FullRepresentation.qml:62
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr "Installert KDE Connect på Android-eininga di for Plasma-integrasjon!"
 
-#: package/contents/ui/FullRepresentation.qml:71
+#: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Pair a Device…"
 msgstr "Par ny eining …"
 
-#: package/contents/ui/FullRepresentation.qml:83
+#: package/contents/ui/FullRepresentation.qml:78
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Installer via Google Play"
 
-#: package/contents/ui/FullRepresentation.qml:93
+#: package/contents/ui/FullRepresentation.qml:88
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "Installer via F-Droid"
 
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:59
 #, kde-format
 msgid "KDE Connect Settings…"
 msgstr "Set opp KDE Connect …"

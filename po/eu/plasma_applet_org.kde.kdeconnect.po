@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-04 02:27+0000\n"
 "PO-Revision-Date: 2024-07-13 11:19+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -21,186 +21,186 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 24.05.2\n"
 
-#: package/contents/ui/Battery.qml:33
+#: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "%1% charging"
 msgstr "%%1 kargatzen"
 
-#: package/contents/ui/Battery.qml:35
+#: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "%1%"
 msgstr "%%1"
 
-#: package/contents/ui/Battery.qml:38
+#: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "No info"
 msgstr "Informaziorik ez"
 
-#: package/contents/ui/Connectivity.qml:43
+#: package/contents/ui/Connectivity.qml:40
 #, kde-format
 msgid "Unknown"
 msgstr "Ezezaguna"
 
-#: package/contents/ui/Connectivity.qml:54
+#: package/contents/ui/Connectivity.qml:50
 #, kde-format
 msgid "No signal"
 msgstr "Seinalerik ez"
 
-#: package/contents/ui/DeviceDelegate.qml:82
+#: package/contents/ui/DeviceDelegate.qml:31
 #, kde-format
 msgid "Virtual Monitor is not available"
 msgstr "Alegiazko begiralea ez dago eskuragarri"
 
-#: package/contents/ui/DeviceDelegate.qml:87
-#, kde-format
-msgid "Please choose a file"
-msgstr "Mesedez aukeratu fitxategi bat"
-
-#: package/contents/ui/DeviceDelegate.qml:105
-#, kde-format
-msgid "Share file"
-msgstr "Partekatu fitxategia"
-
-#: package/contents/ui/DeviceDelegate.qml:113
-#, kde-format
-msgid "Send Clipboard"
-msgstr "Bidali arbela"
-
-#: package/contents/ui/DeviceDelegate.qml:124
-#, kde-format
-msgid "Ring my phone"
-msgstr "Jo nire telefonoaren dei-doinua"
-
-#: package/contents/ui/DeviceDelegate.qml:135
-#, kde-format
-msgid "Browse this device"
-msgstr "Arakatu gailu hau"
-
-#: package/contents/ui/DeviceDelegate.qml:146
-#, kde-format
-msgid "SMS Messages"
-msgstr "SMS mezuak"
-
-#: package/contents/ui/DeviceDelegate.qml:170
+#: package/contents/ui/DeviceDelegate.qml:63
 #, kde-format
 msgid "File Transfer"
 msgstr "Fitxategi transferentzia"
 
-#: package/contents/ui/DeviceDelegate.qml:171
+#: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "Jaregin fitxategi bat zure telefonora transferitzeko."
 
-#: package/contents/ui/DeviceDelegate.qml:193
+#: package/contents/ui/DeviceDelegate.qml:102
 #, kde-format
 msgid "Virtual Display"
 msgstr "Alegiazko pantaila"
 
-#: package/contents/ui/DeviceDelegate.qml:197
+#: package/contents/ui/DeviceDelegate.qml:106
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
 msgstr "Hurreneko gailuak ez du VNC bezerorik (adib. krdc) instalatuta."
 
-#: package/contents/ui/DeviceDelegate.qml:201
+#: package/contents/ui/DeviceDelegate.qml:110
 #, kde-format
 msgid "The krfb package is required on the local device."
 msgstr "Gailu lokalean «krfb» paketea behar da."
 
-#: package/contents/ui/DeviceDelegate.qml:208
+#: package/contents/ui/DeviceDelegate.qml:117
 #, kde-format
 msgid "Failed to create the virtual monitor."
 msgstr "Alegiazko begiralea sortzea huts egin du."
 
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:167
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%%1"
 
-#: package/contents/ui/DeviceDelegate.qml:285
+#: package/contents/ui/DeviceDelegate.qml:189
+#, kde-format
+msgid "Please choose a file"
+msgstr "Mesedez aukeratu fitxategi bat"
+
+#: package/contents/ui/DeviceDelegate.qml:198
+#, kde-format
+msgid "Share file"
+msgstr "Partekatu fitxategia"
+
+#: package/contents/ui/DeviceDelegate.qml:213
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Bidali arbela"
+
+#: package/contents/ui/DeviceDelegate.qml:232
+#, kde-format
+msgid "Ring my phone"
+msgstr "Jo nire telefonoaren dei-doinua"
+
+#: package/contents/ui/DeviceDelegate.qml:250
+#, kde-format
+msgid "Browse this device"
+msgstr "Arakatu gailu hau"
+
+#: package/contents/ui/DeviceDelegate.qml:267
+#, kde-format
+msgid "SMS Messages"
+msgstr "SMS mezuak"
+
+#: package/contents/ui/DeviceDelegate.qml:288
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Urruneko teklatua"
 
-#: package/contents/ui/DeviceDelegate.qml:306
+#: package/contents/ui/DeviceDelegate.qml:309
 #, kde-format
 msgid "Notifications:"
 msgstr "Jakinarazpenak:"
 
-#: package/contents/ui/DeviceDelegate.qml:314
+#: package/contents/ui/DeviceDelegate.qml:317
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Baztertu jakinarazpen guztiak"
 
-#: package/contents/ui/DeviceDelegate.qml:372
+#: package/contents/ui/DeviceDelegate.qml:364
 #, kde-format
 msgid "Reply"
 msgstr "Erantzun"
 
-#: package/contents/ui/DeviceDelegate.qml:385
+#: package/contents/ui/DeviceDelegate.qml:374
 #, kde-format
 msgid "Dismiss"
 msgstr "Baztertu"
 
-#: package/contents/ui/DeviceDelegate.qml:398
+#: package/contents/ui/DeviceDelegate.qml:387
 #, kde-format
 msgid "Cancel"
 msgstr "Utzi"
 
-#: package/contents/ui/DeviceDelegate.qml:412
+#: package/contents/ui/DeviceDelegate.qml:401
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Erantzun %1(e)ri..."
 
-#: package/contents/ui/DeviceDelegate.qml:430
+#: package/contents/ui/DeviceDelegate.qml:419
 #, kde-format
 msgid "Send"
 msgstr "Bidali"
 
-#: package/contents/ui/DeviceDelegate.qml:451
+#: package/contents/ui/DeviceDelegate.qml:445
 #, kde-format
 msgid "Run command"
 msgstr "Exekutatu komandoa"
 
-#: package/contents/ui/DeviceDelegate.qml:458
+#: package/contents/ui/DeviceDelegate.qml:453
 #, kde-format
 msgid "Add command"
 msgstr "Gehitu komandoa"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:60
 #, kde-format
 msgid "No paired devices"
 msgstr "Ez dago parekatutako gailurik"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:60
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "Parekatutako gailua ez dago eskuragarri"
 msgstr[1] "Parekatutako gailua guztiak ez daude eskuragarri"
 
-#: package/contents/ui/FullRepresentation.qml:67
+#: package/contents/ui/FullRepresentation.qml:62
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr "Instalatu KDE Connect zure Android gailuan Plasmarekin integratzeko!"
 
-#: package/contents/ui/FullRepresentation.qml:71
+#: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Pair a Device…"
 msgstr "Gailu bat parekatu..."
 
-#: package/contents/ui/FullRepresentation.qml:83
+#: package/contents/ui/FullRepresentation.qml:78
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Instalatu Google Playtik"
 
-#: package/contents/ui/FullRepresentation.qml:93
+#: package/contents/ui/FullRepresentation.qml:88
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "Instalatu F-Droidetik"
 
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:59
 #, kde-format
 msgid "KDE Connect Settings…"
 msgstr "KDE Connect-en ezarpenak..."
