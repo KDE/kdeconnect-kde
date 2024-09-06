@@ -6,7 +6,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeconnect-kde\n"
+"Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-02 02:34+0000\n"
 "PO-Revision-Date: 2023-08-14 22:00+0200\n"
