@@ -1,7 +1,7 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2014, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
 "PO-Revision-Date: 2019-08-08 06:26+0200\n"

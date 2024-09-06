@@ -5,7 +5,7 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2020.
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeconnect-kde\n"
+"Project-Id-Version: kdeconnect-nautilus-extension\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
 "PO-Revision-Date: 2020-04-07 23:28+0200\n"

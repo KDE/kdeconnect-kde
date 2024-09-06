@@ -3,7 +3,7 @@
 # hkaelber <holger.k@elberer.de>, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-02 00:40+0000\n"
 "PO-Revision-Date: 2023-06-12 00:15+0200\n"
