@@ -53,7 +53,7 @@ public:
     void updateConversation(const qint64 &conversationID);
 
     /**
-     * Gets the path of the succesfully downloaded attachment file and send
+     * Gets the path of the successfully downloaded attachment file and send
      * update to the conversationModel
      */
     void attachmentDownloaded(const QString &filePath, const QString &fileName);
@@ -83,7 +83,7 @@ public Q_SLOTS:
     void replyToConversation(const qint64 &conversationID, const QString &message, const QVariantList &attachmentUrls);
 
     /**
-     * Send a new message to the contact having no previous coversation with
+     * Send a new message to the contact having no previous conversation with
      */
     void sendWithoutConversation(const QVariantList &addressList, const QString &message, const QVariantList &attachmentUrls);
 
@@ -129,7 +129,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void conversationLoaded(qint64 conversationID, quint64 messageCount);
 
     /**
-     * Emitted whenever we have succesfully download a requested attachment file from the phone
+     * Emitted whenever we have successfully download a requested attachment file from the phone
      */
     Q_SCRIPTABLE void attachmentReceived(QString filePath, QString fileName);
 
