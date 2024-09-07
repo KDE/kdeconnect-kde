@@ -7,6 +7,8 @@
 #ifndef CHARCOUNT_H
 #define CHARCOUNT_H
 
+#include <QtTypes>
+
 class SmsCharCount
 {
 public:
@@ -29,9 +31,6 @@ public:
      * Count of SMSes in concatenated SMS.
      */
     qint32 messages;
-
-    SmsCharCount() {};
-    ~SmsCharCount() {};
 };
 
 #endif // CHARCOUNT_H
