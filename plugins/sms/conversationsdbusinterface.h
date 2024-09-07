@@ -133,10 +133,10 @@ Q_SIGNALS:
      */
     Q_SCRIPTABLE void attachmentReceived(QString filePath, QString fileName);
 
-private /*methods*/:
+private: // methods
     QString newId(); // Generates successive identifiers to use as public ids
 
-private /*attributes*/:
+private: // attributes
     const QString m_device;
 
     /**
