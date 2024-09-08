@@ -3,6 +3,9 @@
 
 # Include scripts from https://invent.kde.org/sysadmin/ci-utilities
 # which run on Docker images from https://invent.kde.org/sysadmin/ci-images
+# The macOS build is only signed and notarized for the stable branch builds, as specified in:
+# https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/signing/macappsigner-projects.yaml
+# and https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/signing/macappnotarizer-projects.yaml
 include:
   - project: sysadmin/ci-utilities
     file:
