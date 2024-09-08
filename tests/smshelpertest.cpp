@@ -5,6 +5,7 @@
  */
 
 #include "smsapp/smshelper.h"
+#include "networkpacket.h"
 
 #include <QtTest>
 
@@ -35,6 +36,25 @@ private Q_SLOTS:
     void testDifferentPhoneNumbers2();
     void testAllZeros();
     void testEmptyInput();
+    void benchmark_serialize()
+    {
+        NetworkPacket pack(QStringLiteral("bla"), QVariantMap{{QStringLiteral("test"), 54321}});
+        pack.setPayloadTransferInfo({{QStringLiteral("testme"), 123}});
+        QBENCHMARK {
+            pack.serialize();
+        }
+    }
+
+    void benchmark_deserialize()
+    {
+        NetworkPacket pack(QStringLiteral("bla"), QVariantMap{{QStringLiteral("test"), 54321}});
+        pack.setPayloadTransferInfo({{QStringLiteral("testme"), 123}});
+        auto serialized = pack.serialize();
+        QBENCHMARK {
+            NetworkPacket packet;
+            NetworkPacket::unserialize(serialized, &packet);
+        }
+    }
 };
 
 /**
