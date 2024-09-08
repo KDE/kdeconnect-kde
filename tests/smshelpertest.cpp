@@ -7,7 +7,7 @@
 #include "smsapp/smshelper.h"
 #include "networkpacket.h"
 
-#include <QtTest>
+#include <QTest>
 
 /**
  * This class tests the working of device class
