@@ -43,26 +43,20 @@ NetworkPacket::NetworkPacket(const QString &type, const QVariantMap &body)
 
 QByteArray NetworkPacket::serialize() const
 {
-    // Object -> QVariant
-    QVariantMap variant;
-    variant.insert(QStringLiteral("id"), m_id);
-    variant.insert(QStringLiteral("type"), m_type);
-    variant.insert(QStringLiteral("body"), m_body);
+    QJsonObject obj;
+    obj.insert(QLatin1String("id"), m_id);
+    obj.insert(QLatin1String("type"), m_type);
+    obj.insert(QLatin1String("body"), QJsonObject::fromVariantMap(m_body));
 
     if (hasPayload()) {
-        variant.insert(QStringLiteral("payloadSize"), m_payloadSize);
-        variant.insert(QStringLiteral("payloadTransferInfo"), m_payloadTransferInfo);
+        obj.insert(QLatin1String("payloadSize"), m_payloadSize);
+        obj.insert(QLatin1String("payloadTransferInfo"), QJsonObject::fromVariantMap(m_payloadTransferInfo));
     }
 
-    // QVariant -> json
-    auto jsonDocument = QJsonDocument::fromVariant(variant);
-    QByteArray json = jsonDocument.toJson(QJsonDocument::Compact);
+    QByteArray json = QJsonDocument(obj).toJson(QJsonDocument::Compact);
     if (json.isEmpty()) {
         qCDebug(KDECONNECT_CORE) << "Serialization error:";
     } else {
-        /*if (!isEncrypted()) {
-            //qCDebug(KDECONNECT_CORE) << "Serialized packet:" << json;
-        }*/
         json.append('\n');
     }
 
@@ -70,9 +64,9 @@ QByteArray NetworkPacket::serialize() const
 }
 
 template<class T>
-void qvariant2qobject(const QVariantMap &variant, T *object)
+void qjsonobject2qobject(const QJsonObject &obj, T *object)
 {
-    for (QVariantMap::const_iterator iter = variant.begin(); iter != variant.end(); ++iter) {
+    for (auto iter = obj.begin(); iter != obj.end(); ++iter) {
         const int propertyIndex = T::staticMetaObject.indexOfProperty(iter.key().toLatin1().data());
         if (propertyIndex < 0) {
             qCWarning(KDECONNECT_CORE) << "missing property" << object << iter.key();
@@ -80,7 +74,7 @@ void qvariant2qobject(const QVariantMap &variant, T *object)
         }
 
         QMetaProperty property = T::staticMetaObject.property(propertyIndex);
-        bool ret = property.writeOnGadget(object, *iter);
+        bool ret = property.writeOnGadget(object, iter.value().toVariant());
         if (!ret) {
             qCWarning(KDECONNECT_CORE) << "couldn't set" << object << "->" << property.name() << '=' << *iter;
         }
@@ -97,10 +91,12 @@ bool NetworkPacket::unserialize(const QByteArray &a, NetworkPacket *np)
         return false;
     }
 
-    auto variant = parser.toVariant().toMap();
-    qvariant2qobject(variant, np);
+    const QJsonObject obj = parser.object();
 
-    np->m_payloadTransferInfo = variant[QStringLiteral("payloadTransferInfo")].toMap(); // Will return an empty qvariantmap if was not present, which is ok
+    qjsonobject2qobject(obj, np);
+
+    // Will return an empty qvariantmap if was not present, which is ok
+    np->m_payloadTransferInfo = obj.value(QLatin1String("payloadTransferInfo")).toVariant().toMap();
 
     // Ids containing characters that are not allowed as dbus paths would make app crash
     if (np->m_body.contains(QStringLiteral("deviceId"))) {
