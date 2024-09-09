@@ -31,9 +31,9 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
     addAction(battery);
     setWhenAvailable(
         device->hasPlugin(QStringLiteral("kdeconnect_battery")),
-        [battery](bool available) {
-            battery->setVisible(available);
-            battery->setDisabled(available);
+        [battery](bool error, bool available) {
+            battery->setVisible(available && !error);
+            battery->setDisabled(true);
         },
         this);
 
@@ -41,9 +41,9 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
     addAction(connectivity);
     setWhenAvailable(
         device->hasPlugin(QStringLiteral("kdeconnect_connectivity_report")),
-        [connectivity](bool available) {
-            connectivity->setVisible(available);
-            connectivity->setDisabled(available);
+        [connectivity](bool error, bool available) {
+            connectivity->setVisible(available && !error);
+            connectivity->setDisabled(true);
         },
         this);
 
@@ -58,8 +58,8 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
     });
     setWhenAvailable(
         device->hasPlugin(QStringLiteral("kdeconnect_sftp")),
-        [browse](bool available) {
-            browse->setVisible(available);
+        [browse](bool error, bool available) {
+            browse->setVisible(available && !error);
         },
         this);
 
@@ -72,8 +72,8 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
     });
     setWhenAvailable(
         device->hasPlugin(QStringLiteral("kdeconnect_clipboard")),
-        [clipboard](bool available) {
-            clipboard->setVisible(available);
+        [clipboard](bool error, bool available) {
+            clipboard->setVisible(available && !error);
         },
         this);
 
@@ -86,8 +86,8 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
     });
     setWhenAvailable(
         device->hasPlugin(QStringLiteral("kdeconnect_findmyphone")),
-        [findDevice](bool available) {
-            findDevice->setVisible(available);
+        [findDevice](bool error, bool available) {
+            findDevice->setVisible(available && !error);
         },
         this);
 
@@ -106,8 +106,8 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
     });
     setWhenAvailable(
         device->hasPlugin(QStringLiteral("kdeconnect_share")),
-        [sendFile](bool available) {
-            sendFile->setVisible(available);
+        [sendFile](bool error, bool available) {
+            sendFile->setVisible(available && !error);
         },
         this);
 
@@ -120,8 +120,8 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
         });
         setWhenAvailable(
             device->hasPlugin(QStringLiteral("kdeconnect_sms")),
-            [smsapp](bool available) {
-                smsapp->setVisible(available);
+            [smsapp](bool error, bool available) {
+                smsapp->setVisible(available && !error);
             },
             this);
     }
@@ -135,11 +135,12 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
     addAction(menuAction);
     setWhenAvailable(
         device->hasPlugin(QStringLiteral("kdeconnect_remotecommands")),
-        [this, remoteCommandsMenu, menuAction](bool available) {
-            menuAction->setVisible(available);
+        [this, remoteCommandsMenu, menuAction](bool error, bool available) {
+            menuAction->setVisible(available && !error);
 
-            if (!available)
+            if (!available || error) {
                 return;
+            }
 
             const auto cmds = QJsonDocument::fromJson(m_remoteCommandsInterface->commands()).object();
 

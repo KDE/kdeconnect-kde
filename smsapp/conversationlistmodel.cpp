@@ -101,8 +101,11 @@ void ConversationListModel::prepareConversationsList()
 
     setWhenAvailable(
         validThreadIDsReply,
-        [this](const QVariantList &convs) {
+        [this](bool error, const QVariantList &convs) {
             clear(); // If we clear before we receive the reply, there might be a (several second) visual gap!
+            if (error) {
+                return;
+            }
             for (const QVariant &headMessage : convs) {
                 createRowFromMessage(qdbus_cast<ConversationMessage>(headMessage));
             }

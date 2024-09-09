@@ -51,9 +51,14 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
 
     setWhenAvailable(
         daemon->announcedName(),
-        [this](const QString &announcedName) {
-            kcmUi.rename_label->setText(announcedName);
-            kcmUi.rename_edit->setText(announcedName);
+        [this](bool error, const QString &announcedName) {
+            kcmUi.renameShow_button->setEnabled(!error);
+            if (error) {
+                kcmUi.rename_label->setText(i18n("Error: KDE Connect is not running"));
+            } else {
+                kcmUi.rename_label->setText(announcedName);
+                kcmUi.rename_edit->setText(announcedName);
+            }
         },
         this);
     connect(daemon, &DaemonDbusInterface::announcedNameChanged, kcmUi.rename_edit, &QLineEdit::setText);
@@ -185,8 +190,10 @@ void KdeConnectKcm::resetDeviceView()
     kcmUi.name_label->setText(currentDevice->name());
     setWhenAvailable(
         currentDevice->pairStateAsInt(),
-        [this](int pairStateAsInt) {
-            setCurrentDevicePairState(pairStateAsInt);
+        [this](bool error, int pairStateAsInt) {
+            if (!error) {
+                setCurrentDevicePairState(pairStateAsInt);
+            }
         },
         this);
 

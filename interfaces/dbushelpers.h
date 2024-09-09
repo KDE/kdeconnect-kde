@@ -38,7 +38,7 @@ static void setWhenAvailable(const QDBusPendingReply<T> &pending, W func, QObjec
     QObject::connect(watcher, &QDBusPendingCallWatcher::finished, parent, [func](QDBusPendingCallWatcher *watcher) {
         watcher->deleteLater();
         QDBusPendingReply<T> reply = *watcher;
-        func(reply.value());
+        func(reply.isError(), reply.value());
     });
 }
 
