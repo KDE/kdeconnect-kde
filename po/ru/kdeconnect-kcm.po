@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:38+0000\n"
+"POT-Creation-Date: 2024-09-10 00:38+0000\n"
 "PO-Revision-Date: 2024-06-30 17:26+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -32,37 +32,43 @@ msgstr ""
 "juliette.tux@gmail.com,aspotashev@gmail.com,dmitri.s93@gmail.com,"
 "zawertun@gmail.com"
 
-#: kcm.cpp:183
+#: kcm.cpp:57
+#, fuzzy, kde-format
+#| msgid "KDE Connect Settings"
+msgid "Error: KDE Connect is not running"
+msgstr "Настройка KDE Connect"
+
+#: kcm.cpp:188
 #, kde-format
 msgid "Key: %1"
 msgstr "Ключ: %1"
 
-#: kcm.cpp:206
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "Доступные модули"
 
-#: kcm.cpp:253
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Ошибка при попытке сопряжения: %1"
 
-#: kcm.cpp:269
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(сопряжено)"
 
-#: kcm.cpp:272
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(не сопряжено)"
 
-#: kcm.cpp:275
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(входящий запрос на сопряжение)"
 
-#: kcm.cpp:278
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(запрошено сопряжение)"
@@ -176,9 +182,6 @@ msgstr ""
 "\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
 "underline;\">KDE Connect Community wiki</span></a> для получения помощи.</"
 "p></body></html>"
-
-#~ msgid "KDE Connect Settings"
-#~ msgstr "Настройка KDE Connect"
 
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "Модуль настройки KDE Connect"

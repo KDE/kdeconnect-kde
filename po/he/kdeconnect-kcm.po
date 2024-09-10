@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:38+0000\n"
+"POT-Creation-Date: 2024-09-10 00:38+0000\n"
 "PO-Revision-Date: 2024-06-25 14:59+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -30,37 +30,43 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ttv200@gmail.com,kde-l10n-he@kde.org"
 
-#: kcm.cpp:183
+#: kcm.cpp:57
+#, fuzzy, kde-format
+#| msgid "KDE Connect Settings"
+msgid "Error: KDE Connect is not running"
+msgstr "הגדרות KDE Connect"
+
+#: kcm.cpp:188
 #, kde-format
 msgid "Key: %1"
 msgstr "מפתח: %1"
 
-#: kcm.cpp:206
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "תוספים זמינים"
 
-#: kcm.cpp:253
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "שגיאה בניסיון לצימוד: %1"
 
-#: kcm.cpp:269
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(מצומד)"
 
-#: kcm.cpp:272
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(לא מצומד)"
 
-#: kcm.cpp:275
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(בקשת צימוד נכנסת)"
 
-#: kcm.cpp:278
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(בקשת צימוד)"
@@ -172,9 +178,6 @@ msgstr ""
 "אפשר לפנות ל<a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
 "text-decoration: underline;\">וויקי של קהילת KDE Connect</span></a> לקבלת "
 "עזרה.</p></body></html>"
-
-#~ msgid "KDE Connect Settings"
-#~ msgstr "הגדרות KDE Connect"
 
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "מודול ההגדרה של KDE Connect"

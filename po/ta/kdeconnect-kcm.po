@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:38+0000\n"
+"POT-Creation-Date: 2024-09-10 00:38+0000\n"
 "PO-Revision-Date: 2023-12-04 20:48+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -27,37 +27,43 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Kde-l10n-ta@kde.org"
 
-#: kcm.cpp:183
+#: kcm.cpp:57
+#, fuzzy, kde-format
+#| msgid "KDE Connect Settings"
+msgid "Error: KDE Connect is not running"
+msgstr "கே.டீ.யீ. கனெக்ட் அமைப்புகள்"
+
+#: kcm.cpp:188
 #, kde-format
 msgid "Key: %1"
 msgstr "விசை: %1"
 
-#: kcm.cpp:206
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "பயன்படுத்தக்கூடிய செருகுநிரல்கள்"
 
-#: kcm.cpp:253
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "இணைப்பதில் சிக்கல்: %1"
 
-#: kcm.cpp:269
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(இணைந்துள்ளது)"
 
-#: kcm.cpp:272
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(இணைக்கப்படவில்லை)"
 
-#: kcm.cpp:275
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(உள்வரும் இணைப்பு கோரிக்கை)"
 
-#: kcm.cpp:278
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(இணைப்பு கோரப்பட்டது)"
@@ -177,9 +183,6 @@ msgstr ""
 "தெரியும்.<br><br>பிரச்சனைகள் இருந்தால் <a href=\"https://userbase.kde.org/"
 "KDEConnect\"><span style=\" text-decoration: underline;\">கே.டீ.யீ. கனெக்ட் சமூக "
 "விக்கியில்</span></a> உதவி பெறலாம்.</p></body></html>"
-
-#~ msgid "KDE Connect Settings"
-#~ msgstr "கே.டீ.யீ. கனெக்ட் அமைப்புகள்"
 
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "கே.டீ.யீ. கனெக்டை அமைக்கும் கூறு"

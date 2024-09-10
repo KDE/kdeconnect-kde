@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:38+0000\n"
+"POT-Creation-Date: 2024-09-10 00:38+0000\n"
 "PO-Revision-Date: 2024-01-06 22:42+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -28,37 +28,42 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ryuichi_ya220@outlook.jp"
 
-#: kcm.cpp:183
+#: kcm.cpp:57
+#, kde-format
+msgid "Error: KDE Connect is not running"
+msgstr ""
+
+#: kcm.cpp:188
 #, kde-format
 msgid "Key: %1"
 msgstr "キー: %1"
 
-#: kcm.cpp:206
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "利用可能なプラグイン"
 
-#: kcm.cpp:253
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "ペアリング試行エラー: %1"
 
-#: kcm.cpp:269
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(ペアリング済み)"
 
-#: kcm.cpp:272
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(ペアリングしていません)"
 
-#: kcm.cpp:275
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(ペアリング要求を受信しました)"
 
-#: kcm.cpp:278
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(ペアリング要求済み)"

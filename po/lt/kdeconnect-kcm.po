@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:38+0000\n"
+"POT-Creation-Date: 2024-09-10 00:38+0000\n"
 "PO-Revision-Date: 2024-07-06 01:47+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -30,37 +30,43 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "<>"
 
-#: kcm.cpp:183
+#: kcm.cpp:57
+#, fuzzy, kde-format
+#| msgid "KDE Connect Settings"
+msgid "Error: KDE Connect is not running"
+msgstr "KDE Connect nuostatos"
+
+#: kcm.cpp:188
 #, kde-format
 msgid "Key: %1"
 msgstr "Raktas: %1"
 
-#: kcm.cpp:206
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "Prieinami įskiepiai"
 
-#: kcm.cpp:253
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Klaida bandant suporuoti: %1"
 
-#: kcm.cpp:269
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(suporuotas)"
 
-#: kcm.cpp:272
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(nesuporuotas)"
 
-#: kcm.cpp:275
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(gaunama suporavimo užklausa)"
 
-#: kcm.cpp:278
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(užklausta suporavimo)"
@@ -173,9 +179,6 @@ msgstr ""
 "apsilankykite <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
 "text-decoration: underline;\">KDE Connect bendruomenės vikyje</span></a>, "
 "kad gautumėte pagalbos.</p></body></html>"
-
-#~ msgid "KDE Connect Settings"
-#~ msgstr "KDE Connect nuostatos"
 
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "KDE Connect nuostatų modulis"

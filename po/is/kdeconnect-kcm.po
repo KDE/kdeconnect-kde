@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:38+0000\n"
+"POT-Creation-Date: 2024-09-10 00:38+0000\n"
 "PO-Revision-Date: 2024-06-29 14:37+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -28,37 +28,43 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 
-#: kcm.cpp:183
+#: kcm.cpp:57
+#, fuzzy, kde-format
+#| msgid "KDE Connect Settings"
+msgid "Error: KDE Connect is not running"
+msgstr "Stillingar KDE Connect"
+
+#: kcm.cpp:188
 #, kde-format
 msgid "Key: %1"
 msgstr "Lykill: %1"
 
-#: kcm.cpp:206
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "Tiltækar viðbætur"
 
-#: kcm.cpp:253
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Villa þegar reynt var að para: %1"
 
-#: kcm.cpp:269
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(parað)"
 
-#: kcm.cpp:272
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(ekki parað)"
 
-#: kcm.cpp:275
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(beiðni um pörun á innleið)"
 
-#: kcm.cpp:278
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(beðið um pörun)"
@@ -170,9 +176,6 @@ msgstr ""
 "geturðu skoðað <a href=\"https://userbase.kde.org/KDEConnect\"><span style="
 "\"text-decoration: underline;\">wiki-síðu KDE Connect samfélagsins</span></"
 "a> til að fá aðstoð.</p></body></html>"
-
-#~ msgid "KDE Connect Settings"
-#~ msgstr "Stillingar KDE Connect"
 
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "Stillingaeining KDE Connect"

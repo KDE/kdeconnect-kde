@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:38+0000\n"
+"POT-Creation-Date: 2024-09-10 00:38+0000\n"
 "PO-Revision-Date: 2024-07-09 23:43+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -32,37 +32,43 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "oelkoro@gmail.com,gontzalpujana@protonmail.com"
 
-#: kcm.cpp:183
+#: kcm.cpp:57
+#, fuzzy, kde-format
+#| msgid "KDE Connect Settings"
+msgid "Error: KDE Connect is not running"
+msgstr "KDE Connect ezarpenak"
+
+#: kcm.cpp:188
 #, kde-format
 msgid "Key: %1"
 msgstr "Gakoa: %1"
 
-#: kcm.cpp:206
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "Plugin eskuragarriak"
 
-#: kcm.cpp:253
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Errorea parekatzen saiatzean: %1"
 
-#: kcm.cpp:269
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(parekatuta)"
 
-#: kcm.cpp:272
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(ez parekatuta)"
 
-#: kcm.cpp:275
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(parekatze-eskaria jaso da)"
 
-#: kcm.cpp:278
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(parekatzea eskatu da)"
@@ -174,9 +180,6 @@ msgstr ""
 "a><br><br>Arazorik  baduzu, bisitatu <a href=\"https://userbase.kde.org/"
 "KDEConnect\"> <span style=\" text-decoration: underline;\">KDE Connect "
 "Community wikia</span></a> laguntza lortzeko.</p></body></html>"
-
-#~ msgid "KDE Connect Settings"
-#~ msgstr "KDE Connect ezarpenak"
 
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "KDE Connect ezarpenen modulua"

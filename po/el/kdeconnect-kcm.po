@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:38+0000\n"
+"POT-Creation-Date: 2024-09-10 00:38+0000\n"
 "PO-Revision-Date: 2021-10-17 10:13+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -28,37 +28,43 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "dimkard@gmail.com"
 
-#: kcm.cpp:183
+#: kcm.cpp:57
+#, fuzzy, kde-format
+#| msgid "KDE Connect Settings"
+msgid "Error: KDE Connect is not running"
+msgstr "Ρυθμίσεις KDE Connect"
+
+#: kcm.cpp:188
 #, kde-format
 msgid "Key: %1"
 msgstr "Πλήκτρο: %1"
 
-#: kcm.cpp:206
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "Διαθέσιμα πρόσθετα"
 
-#: kcm.cpp:253
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Σφάλμα κατά την προσπάθεια σύζευξης: %1"
 
-#: kcm.cpp:269
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(συζευγμένη)"
 
-#: kcm.cpp:272
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(μη συζευγμένη)"
 
-#: kcm.cpp:275
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(εισερχόμενη αίτηση σύζευξης)"
 
-#: kcm.cpp:278
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(αίτηση σύζευξης)"
@@ -180,9 +186,6 @@ msgstr ""
 "\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
 "underline; color:#4c6b8a;\">wiki της κοινότητας του KDE Connect </span></a> "
 "για βοήθεια.</p></body></html>"
-
-#~ msgid "KDE Connect Settings"
-#~ msgstr "Ρυθμίσεις KDE Connect"
 
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "Άρθρωμα ρυθμίσεων KDE Connect"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:38+0000\n"
+"POT-Creation-Date: 2024-09-10 00:38+0000\n"
 "PO-Revision-Date: 2024-03-20 18:15+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -28,37 +28,43 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "translator@legisign.org,lasse.liehu@gmail.com"
 
-#: kcm.cpp:183
+#: kcm.cpp:57
+#, fuzzy, kde-format
+#| msgid "KDE Connect Settings"
+msgid "Error: KDE Connect is not running"
+msgstr "KDE Connectin asetukset"
+
+#: kcm.cpp:188
 #, kde-format
 msgid "Key: %1"
 msgstr "Avain: %1"
 
-#: kcm.cpp:206
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "Saatavilla olevat liitännäiset"
 
-#: kcm.cpp:253
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Virhe yritettäessä kytkeä pariksi: %1"
 
-#: kcm.cpp:269
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(kytketty pariksi)"
 
-#: kcm.cpp:272
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(pariton)"
 
-#: kcm.cpp:275
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(saapuva parituspyyntö)"
 
-#: kcm.cpp:278
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(paritusta pyydetty)"
@@ -179,9 +185,6 @@ msgstr ""
 "ongelmia, etsi apua <a href=\"https://community.kde.org/KDEConnect\"><span "
 "style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect Community "
 "wikistä</span></a>.</p></body></html>"
-
-#~ msgid "KDE Connect Settings"
-#~ msgstr "KDE Connectin asetukset"
 
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "KDE Connectin asetusosio"

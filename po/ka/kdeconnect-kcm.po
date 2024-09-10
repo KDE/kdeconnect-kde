@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:38+0000\n"
+"POT-Creation-Date: 2024-09-10 00:38+0000\n"
 "PO-Revision-Date: 2024-06-25 05:16+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,37 +28,43 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: kcm.cpp:183
+#: kcm.cpp:57
+#, fuzzy, kde-format
+#| msgid "KDE Connect Settings"
+msgid "Error: KDE Connect is not running"
+msgstr "KDE Connect -ის მორგება"
+
+#: kcm.cpp:188
 #, kde-format
 msgid "Key: %1"
 msgstr "გასაღები: %1"
 
-#: kcm.cpp:206
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "ხელმისაწვდომი დამატებები"
 
-#: kcm.cpp:253
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "შეცდომა შეწყვილებისას: %1"
 
-#: kcm.cpp:269
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(შეწყვილებულია)"
 
-#: kcm.cpp:272
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(შეუწყვილებელია)"
 
-#: kcm.cpp:275
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(შეწყვილების შემომავალი მოთხოვნა)"
 
-#: kcm.cpp:278
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(შეწყვილება უარყოფილია)"
@@ -168,9 +174,6 @@ msgstr ""
 "\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
 "underline;\">KDE Connect -ის ვიკის</span></a>, მეტი ინფორმაციისა და "
 "დახმარებისთვის.</p></body></html>"
-
-#~ msgid "KDE Connect Settings"
-#~ msgstr "KDE Connect -ის მორგება"
 
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "KDE Connect -ის მორგების მოდული"
