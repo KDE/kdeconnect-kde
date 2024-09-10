@@ -107,7 +107,7 @@
   <summary xml:lang="zh-CN">无缝连接您的设备</summary>
   <summary xml:lang="zh-TW">無縫連線您的裝置</summary>
   <description>
-    <p>KDE Connect provides various features to integrate your phone and your computer. It allows you to send files to the other device, control its media playback, send remote input, view its notifications and may things more. It is available for (mobile) Linux, Android, FreeBSD, Windows and macOS.
+    <p>KDE Connect makes your phone and computer work better together: share your clipboard and access files across devices, turn your phone into a remote control for your computer, find your phone when it has slipped down the back of your couch, see your phone notifications from your computer, and much more!
     </p>
     <p xml:lang="ar">يوفر كِيدِي متصل العديد من الميزات لدمج هاتفك وجهاز الحاسوب الخاص بك. يتيح لك إرسال الملفات إلى الجهاز الآخر ، والتحكم في تشغيل الوسائط الخاصة به ، وإرسال الإدخال عن بُعد ، وعرض الإخطارات الخاصة به ، وربما أشياء أخرى. وهو متاح لأنظمة لينكس و أندرويد و FreeBSD و ويندوز و macOS (للجوال). </p>
     <p xml:lang="az">KDE Connect, telefonunuzu və kompüterinizi birləşdirmək üçün müxtəlif xüsusiyyətlər təqdim edir. Faylları digər cihaza göndərməyə, medianın oxunmasına nəzarət etməyə, uzaqdan yazı yazmağa, bildirişlərə baxmağa və sairə imkanlar yaradır. Bu (mobil) Linux, Android, FreeBSD, Windows və MacOS üçün mövcuddur.</p>
@@ -193,21 +193,21 @@
   </custom>
   <releases>
     <release version="24.08.1" date="2024-09-12"/>
-    <release version="24.08.0" date="2024-08-22"/>
+    <release version="24.08.0" date="2024-09-10">
+      <artifacts>
+        <artifact type="binary" platform="x86_64-windows-msvc">
+          <location>https://download.kde.org/stable/release-service/24.08.0/windows/kdeconnect-kde-release_24.08-4217-windows-cl-msvc2022-x86_64.exe</location>
+          <checksum type="sha256">046597f22fabdef3ee0a3f5d1a85fbbdf9c5763875902994f51799e6f7844df1</checksum>
+          <size type="download">88187672</size>
+        </artifact>
+      </artifacts>
+    </release>
     <release version="24.05.2" date="2024-07-04"/>
     <release version="24.05.1" date="2024-06-13"/>
     <release version="24.05.0" date="2024-05-23"/>
     <release version="24.02.2" date="2024-04-11"/>
     <release version="24.02.1" date="2024-03-21"/>
-    <release version="24.02.0" date="2024-02-28">
-      <artifacts>
-        <artifact type="binary" platform="x86_64-windows-msvc">
-          <location>https://download.kde.org/stable/release-service/24.02.0/windows/kdeconnect-kde-release_24.02-3692-windows-cl-msvc2022-x86_64.exe</location>
-          <checksum type="sha256">8f7eb541bbe21a5fb1800d5f362fe1ea25328631894c30e937bd4bc259327ebd</checksum>
-          <size type="download">88187672</size>
-        </artifact>
-      </artifacts>
-    </release>
+    <release version="24.02.0" date="2024-02-28"/>
     <release version="23.08.5" date="2024-02-15"/>
   </releases>
 </component>
