@@ -94,7 +94,6 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
         // Wait for dbus daemon env
         QProcess getLaunchdDBusEnv;
         m_splashScreen->showMessage(i18n("Waiting D-Bus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::black);
-        int retry = 0;
         getLaunchdDBusEnv.setProgram(QStringLiteral("launchctl"));
         getLaunchdDBusEnv.setArguments({QStringLiteral("getenv"), QStringLiteral(KDECONNECT_SESSION_DBUS_LAUNCHD_ENV)});
         getLaunchdDBusEnv.start();
