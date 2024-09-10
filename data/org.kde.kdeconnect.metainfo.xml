@@ -193,7 +193,7 @@
   </custom>
   <releases>
     <release version="24.08.1" date="2024-09-12"/>
-    <release version="24.08.0" date="2024-09-10">
+    <release version="24.08.0" date="2024-08-22">
       <artifacts>
         <artifact type="binary" platform="x86_64-windows-msvc">
           <location>https://download.kde.org/stable/release-service/24.08.0/windows/kdeconnect-kde-release_24.08-4217-windows-cl-msvc2022-x86_64.exe</location>
