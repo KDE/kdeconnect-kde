@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-09-11 00:38+0000\n"
 "PO-Revision-Date: 2024-07-28 12:23+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -79,13 +79,13 @@ msgstr "مطلق الأوامر"
 msgid "Waiting D-Bus"
 msgstr "ينتظر دي-باص"
 
-#: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
-#: indicatorhelper_mac.cpp:142
+#: indicatorhelper_mac.cpp:112 indicatorhelper_mac.cpp:124
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "KDE Connect"
 msgstr "كِيدِي المتّصل"
 
-#: indicatorhelper_mac.cpp:114 indicatorhelper_mac.cpp:126
+#: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
 #, kde-format
 msgid ""
 "Cannot connect to DBus\n"
@@ -94,12 +94,12 @@ msgstr ""
 "تعذر الاتصال بدي باص\n"
 "كِيدِي المتصل سيخرج"
 
-#: indicatorhelper_mac.cpp:142
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "لم يعثر على kdeconnectd"
 
-#: indicatorhelper_mac.cpp:147
+#: indicatorhelper_mac.cpp:146
 #, kde-format
 msgid "Loading modules"
 msgstr "يحمل الوحدات"

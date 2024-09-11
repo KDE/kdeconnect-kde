@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-09-11 00:38+0000\n"
 "PO-Revision-Date: 2024-01-10 21:59+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -82,13 +82,13 @@ msgstr "Идёт запуск фоновой службы"
 msgid "Waiting D-Bus"
 msgstr "Ожидание D-Bus"
 
-#: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
-#: indicatorhelper_mac.cpp:142
+#: indicatorhelper_mac.cpp:112 indicatorhelper_mac.cpp:124
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: indicatorhelper_mac.cpp:114 indicatorhelper_mac.cpp:126
+#: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
 #, kde-format
 msgid ""
 "Cannot connect to DBus\n"
@@ -97,12 +97,12 @@ msgstr ""
 "Не удалось подключиться к D-Bus\n"
 "KDE Connect завершает работу"
 
-#: indicatorhelper_mac.cpp:142
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "Не удалось найти kdeconnectd"
 
-#: indicatorhelper_mac.cpp:147
+#: indicatorhelper_mac.cpp:146
 #, kde-format
 msgid "Loading modules"
 msgstr "Загрузка модулей"

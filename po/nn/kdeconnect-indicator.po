@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-09-11 00:38+0000\n"
 "PO-Revision-Date: 2024-07-26 14:09+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -79,13 +79,13 @@ msgstr "Startar teneste"
 msgid "Waiting D-Bus"
 msgstr "Ventar på D-Bus"
 
-#: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
-#: indicatorhelper_mac.cpp:142
+#: indicatorhelper_mac.cpp:112 indicatorhelper_mac.cpp:124
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: indicatorhelper_mac.cpp:114 indicatorhelper_mac.cpp:126
+#: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
 #, kde-format
 msgid ""
 "Cannot connect to DBus\n"
@@ -94,12 +94,12 @@ msgstr ""
 "Klarte ikkje kopla til D-Bus.\n"
 "KDE Connect vert no avslutta."
 
-#: indicatorhelper_mac.cpp:142
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "Fann ikkje kdeconnectd"
 
-#: indicatorhelper_mac.cpp:147
+#: indicatorhelper_mac.cpp:146
 #, kde-format
 msgid "Loading modules"
 msgstr "Lastar modular"
