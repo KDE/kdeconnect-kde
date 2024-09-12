@@ -135,13 +135,12 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
     }
 
     // Start kdeconnectd, the daemon will not duplicate when there is already one
-    if (QString daemon = QCoreApplication::applicationDirPath() + QLatin1String("/kdeconnectd"); QFile::exists(daemon)) {
-        kdeconnectd.setProgram(daemon);
-    } else {
+    QString daemonPath = QCoreApplication::applicationDirPath() + QLatin1String("/kdeconnectd");
+    if (!QFile::exists(daemonPath)) {
         QMessageBox::critical(nullptr, i18n("KDE Connect"), i18n("Cannot find kdeconnectd"), QMessageBox::Abort, QMessageBox::Abort);
         return -1;
     }
-    kdeconnectd.startDetached();
+    kdeconnectd.start(daemonPath, QStringList());
 
     m_splashScreen->showMessage(i18n("Loading modules") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
 
