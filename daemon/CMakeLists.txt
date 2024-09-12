@@ -20,6 +20,9 @@ ecm_mark_nongui_executable(kdeconnectd)
 
 configure_file(org.kde.kdeconnect.daemon.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop)
 
+if (UNIX AND NOT APPLE)
+    set(kdeconnectd_prefix "${KDE_INSTALL_FULL_BINDIR}/")
+endif()
 configure_file(org.kde.kdeconnect.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
