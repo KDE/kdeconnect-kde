@@ -30,78 +30,11 @@
 #include <dbushelper.h>
 
 #include "core/backends/pairinghandler.h"
-#include "core/daemon.h"
+#include "desktop_daemon.h"
 #include "core/device.h"
 #include "core/openconfig.h"
 #include "kdeconnect-version.h"
 #include "kdeconnectd_debug.h"
-
-class DesktopDaemon : public Daemon
-{
-    Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.daemon")
-public:
-    DesktopDaemon(QObject *parent = nullptr)
-        : Daemon(parent)
-    {
-        qApp->setWindowIcon(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.png")));
-    }
-
-    void askPairingConfirmation(Device *device) override
-    {
-        KNotification *notification = new KNotification(QStringLiteral("pairingRequest"), KNotification::NotificationFlag::Persistent);
-        QTimer::singleShot(PairingHandler::pairingTimeoutMsec, notification, &KNotification::close);
-        notification->setIconName(QStringLiteral("dialog-information"));
-        notification->setComponentName(QStringLiteral("kdeconnect"));
-        notification->setTitle(QStringLiteral("KDE Connect"));
-        notification->setText(i18n("Pairing request from %1\nKey: %2", device->name().toHtmlEscaped(), device->verificationKey()));
-        QString deviceId = device->id();
-        auto openSettings = [deviceId, notification] {
-            OpenConfig oc;
-            oc.setXdgActivationToken(notification->xdgActivationToken());
-            oc.openConfiguration(deviceId);
-        };
-
-        KNotificationAction *openSettingsAction = notification->addDefaultAction(i18n("Open"));
-        connect(openSettingsAction, &KNotificationAction::activated, openSettings);
-
-        KNotificationAction *acceptAction = notification->addAction(i18n("Accept"));
-        connect(acceptAction, &KNotificationAction::activated, device, &Device::acceptPairing);
-
-        KNotificationAction *rejectAction = notification->addAction(i18n("Reject"));
-        connect(rejectAction, &KNotificationAction::activated, device, &Device::cancelPairing);
-
-        KNotificationAction *viewKeyAction = notification->addAction(i18n("View key"));
-        connect(viewKeyAction, &KNotificationAction::activated, openSettings);
-        notification->sendEvent();
-    }
-
-    void reportError(const QString &title, const QString &description) override
-    {
-        qCWarning(KDECONNECT_DAEMON) << title << ":" << description;
-        KNotification::event(KNotification::Error, title, description);
-    }
-
-    KJobTrackerInterface *jobTracker() override
-    {
-        return KIO::getJobTracker();
-    }
-
-    Q_SCRIPTABLE void sendSimpleNotification(const QString &eventId, const QString &title, const QString &text, const QString &iconName) override
-    {
-        KNotification *notification = new KNotification(eventId); // KNotification::Persistent
-        notification->setIconName(iconName);
-        notification->setComponentName(QStringLiteral("kdeconnect"));
-        notification->setTitle(title);
-        notification->setText(text);
-        notification->sendEvent();
-    }
-
-    void quit() override
-    {
-        QApplication::quit();
-    }
-};
 
 // Copied from plasma-workspace/libkworkspace/kworkspace.cpp
 static void detectPlatform(int argc, char **argv)
@@ -195,5 +128,3 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
-
-#include "kdeconnectd.moc"
