@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-10 00:38+0000\n"
-"PO-Revision-Date: 2024-06-26 18:24+0400\n"
+"PO-Revision-Date: 2024-09-11 21:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -30,10 +30,9 @@ msgid "Your emails"
 msgstr "safa1996alfulaij@gmail.com"
 
 #: kcm.cpp:57
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings"
+#, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "إعدادات «كِيدِي المتّصل»"
+msgstr "خطأ: كيدي متصل لا يعمل"
 
 #: kcm.cpp:188
 #, kde-format
