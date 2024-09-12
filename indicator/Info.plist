@@ -30,6 +30,8 @@
     <true/>
     <key>NSHumanReadableCopyright</key>
     <string>${MACOSX_BUNDLE_COPYRIGHT}</string>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Bluetooth is an alternative to WiFi to pair your device</string>
     <key>LSUIElement</key>
     <string>1</string>
     <key>NSHighResolutionCapable</key>
