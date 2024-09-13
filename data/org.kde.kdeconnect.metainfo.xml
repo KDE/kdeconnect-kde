@@ -73,7 +73,7 @@
   <summary xml:lang="fi">Saumaton yhteys laitteisiisi</summary>
   <summary xml:lang="fr">Connexion facile avec vos périphériques</summary>
   <summary xml:lang="gl">Conexión constante entre dispositivos</summary>
-  <summary xml:lang="he">חיבור מהיר בין המכשירים שלך</summary>
+  <summary xml:lang="he">חיבור בלתי טרחני בין המכשירים שלך</summary>
   <summary xml:lang="hu">Eszközeinek zökkenőmentes csatlakoztatása</summary>
   <summary xml:lang="ia">Perfecte connexion de tu dispositivos</summary>
   <summary xml:lang="id">Koneksi yang mulus dari peranti Anda</summary>
@@ -111,6 +111,8 @@
     </p>
     <p xml:lang="ca">El KDE Connect fa que el telèfon i l'ordinador funcionin millor junts: compartiu el porta-retalls i accediu a fitxers entre els dispositius, convertiu el telèfon en un control remot de l'ordinador, trobeu el telèfon quan s'escoli per la part posterior del sofà, vegeu les notificacions del telèfon des de l'ordinador i molt més!</p>
     <p xml:lang="eu">«KDE Connect»ek zure telefonoa eta ordenagailua elkarrekin hobeto lan egin arazten ditu: zure arbela partekatu eta gailuen arteko fitxategiak atzitu, zure telefonoa zure ordenagailuaren urruneko aginte gisa erabili, aurkitu zure telefonoa sofa atzealdetik irristatu denean, ikusi zure telefonoaren jakinarazpenak zure ordenagailutik, eta askoz gehiago!</p>
+    <p xml:lang="he">KDE Connect משפר את החיבוריות בין הטלפון למחשב שלך: אפשר לשתף לוח גזירים ולגשת לקבצים בין המכשירים, להפוך את הטלפון שלך לשלט רחוק למחשב, לאתר את הטלפון שלך אם הוא נתקע בחריצים של הספה, לראות את ההתראות הטלפון שלך במחשב ועוד המון יכולות משובחות!</p>
+    <p xml:lang="ia">KDE Connect face que tu telephono e computator functiona meliormente insimul: comparti tu area de transferentia  e accede a files trans dispositivos, transforma tu telephono in un dispositivo de controlo remote per tu computator, trova tu telephonjo quando il es slippate retro tu sofa, vide tu notificationes de telephono ab tu computator, e multe altere!</p>
     <p xml:lang="ka">KDE Connect თქვენს კომპიუტერსა და ტელეფონს ერთად უკეთ ამუშავებს: გააზიარეთ თქვენი მიმოცვლის ბუფერი და იქონიეთ წვდომა ფაილებთან მოწყობილობიდან მოწყობილობამდე, გადააქციეთ თქვენი ტელეფონი კომპიუტერის დისტანციური მართვის ბლოკად, იპოვეთ თქვენი ტელეფონი, როცა ის დივნის უკან ჩაცურდა, იხილეთ ტელეფონის გაფრთხილებები თქვენს კომპიუტერზე და ბევრი სხვა რამ!</p>
     <p xml:lang="nl">KDE Connect maakt dat uw telefoon en computer beter samenwerken: deel uw klembord en heb toegang tot bestanden tussen apparaten, verander uw telefoon in een afstandsbediening voor uw computer, zoek uw telefoon wanneer het achter uw bank is gevallen, bekijk uw telefoonmeldingen vanuit uw computer en veel meer!</p>
     <p xml:lang="sl">KDE Connect izboljša skupno delovanje vašega telefona in računalnika: delite svoje odložišče in dostopajte do datotek med napravami, spremenite svoj telefon v daljinski upravljalnik za svoj računalnik, poiščite svoj telefon, ko je zdrsnil za naslonjalo vašega kavča, oglejte si telefonska obvestila iz vašega računalnika in še veliko več!</p>
