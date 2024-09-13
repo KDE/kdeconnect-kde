@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include <QString>
 #include <QObject>
+#include <QString>
 
 #include "daemon.h"
 

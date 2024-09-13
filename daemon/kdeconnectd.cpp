@@ -30,9 +30,9 @@
 #include <dbushelper.h>
 
 #include "core/backends/pairinghandler.h"
-#include "desktop_daemon.h"
 #include "core/device.h"
 #include "core/openconfig.h"
+#include "desktop_daemon.h"
 #include "kdeconnect-version.h"
 #include "kdeconnectd_debug.h"
 
