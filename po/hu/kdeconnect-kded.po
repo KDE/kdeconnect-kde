@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-09-13 00:39+0000\n"
 "PO-Revision-Date: 2024-05-22 10:41+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ulysses@fsf.hu,ur.balazs@fsf.hu"
 
-#: kdeconnectd.cpp:57
+#: desktop_daemon.cpp:37
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -37,37 +37,37 @@ msgstr ""
 "Párosítási kérés innen: %1\n"
 "Kulcs: %2"
 
-#: kdeconnectd.cpp:65
+#: desktop_daemon.cpp:45
 #, kde-format
 msgid "Open"
 msgstr "Megnyitás"
 
-#: kdeconnectd.cpp:68
+#: desktop_daemon.cpp:48
 #, kde-format
 msgid "Accept"
 msgstr "Elfogadás"
 
-#: kdeconnectd.cpp:71
+#: desktop_daemon.cpp:51
 #, kde-format
 msgid "Reject"
 msgstr "Elutasítás"
 
-#: kdeconnectd.cpp:74
+#: desktop_daemon.cpp:54
 #, kde-format
 msgid "View key"
 msgstr "Kulcs megtekintése"
 
-#: kdeconnectd.cpp:144 kdeconnectd.cpp:146
+#: kdeconnectd.cpp:77 kdeconnectd.cpp:79
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect démon"
 
-#: kdeconnectd.cpp:154
+#: kdeconnectd.cpp:87
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Meglévő példány cseréje"
 
-#: kdeconnectd.cpp:158
+#: kdeconnectd.cpp:91
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

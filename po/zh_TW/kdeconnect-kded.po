@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-09-13 00:39+0000\n"
 "PO-Revision-Date: 2024-05-23 16:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "pan93412@gmail.com, brli@chakralinux.org, mail@kisaragi-hiu.com"
 
-#: kdeconnectd.cpp:57
+#: desktop_daemon.cpp:37
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -39,37 +39,37 @@ msgstr ""
 "來自 %1 來的配對請求\n"
 "金鑰：%2"
 
-#: kdeconnectd.cpp:65
+#: desktop_daemon.cpp:45
 #, kde-format
 msgid "Open"
 msgstr "開啟"
 
-#: kdeconnectd.cpp:68
+#: desktop_daemon.cpp:48
 #, kde-format
 msgid "Accept"
 msgstr "同意"
 
-#: kdeconnectd.cpp:71
+#: desktop_daemon.cpp:51
 #, kde-format
 msgid "Reject"
 msgstr "拒絕"
 
-#: kdeconnectd.cpp:74
+#: desktop_daemon.cpp:54
 #, kde-format
 msgid "View key"
 msgstr "檢視配對金鑰"
 
-#: kdeconnectd.cpp:144 kdeconnectd.cpp:146
+#: kdeconnectd.cpp:77 kdeconnectd.cpp:79
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE 連線守護程式"
 
-#: kdeconnectd.cpp:154
+#: kdeconnectd.cpp:87
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "取代執行中的程序"
 
-#: kdeconnectd.cpp:158
+#: kdeconnectd.cpp:91
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

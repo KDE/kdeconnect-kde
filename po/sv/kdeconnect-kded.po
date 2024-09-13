@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-09-13 00:39+0000\n"
 "PO-Revision-Date: 2024-06-18 00:11+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@gmail.com"
 
-#: kdeconnectd.cpp:57
+#: desktop_daemon.cpp:37
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -36,37 +36,37 @@ msgstr ""
 "Begäran om parkoppling från %1\n"
 "Nyckel: %2 ..."
 
-#: kdeconnectd.cpp:65
+#: desktop_daemon.cpp:45
 #, kde-format
 msgid "Open"
 msgstr "Öppna"
 
-#: kdeconnectd.cpp:68
+#: desktop_daemon.cpp:48
 #, kde-format
 msgid "Accept"
 msgstr "Acceptera"
 
-#: kdeconnectd.cpp:71
+#: desktop_daemon.cpp:51
 #, kde-format
 msgid "Reject"
 msgstr "Avslå"
 
-#: kdeconnectd.cpp:74
+#: desktop_daemon.cpp:54
 #, kde-format
 msgid "View key"
 msgstr "Visa nyckel"
 
-#: kdeconnectd.cpp:144 kdeconnectd.cpp:146
+#: kdeconnectd.cpp:77 kdeconnectd.cpp:79
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE-anslut demon"
 
-#: kdeconnectd.cpp:154
+#: kdeconnectd.cpp:87
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Ersätt en befintlig instans"
 
-#: kdeconnectd.cpp:158
+#: kdeconnectd.cpp:91
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

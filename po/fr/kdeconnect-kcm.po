@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-10 00:38+0000\n"
-"PO-Revision-Date: 2024-06-27 14:31+0200\n"
+"PO-Revision-Date: 2024-09-11 10:17+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -35,10 +35,9 @@ msgid "Your emails"
 msgstr "mcorteel@gmail.com, sdepiets@gmail.com, xavier.besnard@kde.org"
 
 #: kcm.cpp:57
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings"
+#, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "Configuration de KDE Connect"
+msgstr "Erreur : KDEConnect n'est pas en cours d'exécution"
 
 #: kcm.cpp:188
 #, kde-format
