@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-14 00:40+0000\n"
 "PO-Revision-Date: 2024-07-23 07:29+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -80,7 +80,7 @@ msgid "Waiting D-Bus"
 msgstr "Čakam na D-Bus"
 
 #: indicatorhelper_mac.cpp:112 indicatorhelper_mac.cpp:124
-#: indicatorhelper_mac.cpp:140
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
@@ -94,12 +94,12 @@ msgstr ""
 "Ni se mogoče povezati na DBus\n"
 "KDE Connect bo prenehal"
 
-#: indicatorhelper_mac.cpp:140
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "Ni mogoče najti kdeconnectd"
 
-#: indicatorhelper_mac.cpp:145
+#: indicatorhelper_mac.cpp:146
 #, kde-format
 msgid "Loading modules"
 msgstr "Nalaganje modulov"

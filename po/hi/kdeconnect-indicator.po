@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-14 00:40+0000\n"
 "PO-Revision-Date: 2024-06-08 20:33+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -80,7 +80,7 @@ msgid "Waiting D-Bus"
 msgstr "इंतज़ार कर रही D-Bus"
 
 #: indicatorhelper_mac.cpp:112 indicatorhelper_mac.cpp:124
-#: indicatorhelper_mac.cpp:140
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "KDE Connect"
 msgstr "केडीई कनेक्ट"
@@ -94,12 +94,12 @@ msgstr ""
 "DBus से कनेक्ट नहीं हो सका\n"
 "केडीई कनेक्ट बंद हो जाएगा"
 
-#: indicatorhelper_mac.cpp:140
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "केडीकनेक्टेड नहीं मिल सका"
 
-#: indicatorhelper_mac.cpp:145
+#: indicatorhelper_mac.cpp:146
 #, kde-format
 msgid "Loading modules"
 msgstr "मॉड्यूलों को लोड किया जा रहा है"

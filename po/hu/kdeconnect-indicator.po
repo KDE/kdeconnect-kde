@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-14 00:40+0000\n"
 "PO-Revision-Date: 2024-01-18 09:49+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -80,7 +80,7 @@ msgid "Waiting D-Bus"
 msgstr "Várakozás a D-Busra"
 
 #: indicatorhelper_mac.cpp:112 indicatorhelper_mac.cpp:124
-#: indicatorhelper_mac.cpp:140
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
@@ -94,12 +94,12 @@ msgstr ""
 "Nem lehet kapcsolódni a D-Bushoz\n"
 "A KDE Connect kilép"
 
-#: indicatorhelper_mac.cpp:140
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "A kdeconnectd nem található"
 
-#: indicatorhelper_mac.cpp:145
+#: indicatorhelper_mac.cpp:146
 #, kde-format
 msgid "Loading modules"
 msgstr "Modulok betöltése"

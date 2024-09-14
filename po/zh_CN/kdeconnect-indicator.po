@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-14 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -79,7 +79,7 @@ msgid "Waiting D-Bus"
 msgstr "正在等待 D-Bus"
 
 #: indicatorhelper_mac.cpp:112 indicatorhelper_mac.cpp:124
-#: indicatorhelper_mac.cpp:140
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
@@ -93,12 +93,12 @@ msgstr ""
 "无法连接到 DBus\n"
 "KDE Connect 将退出"
 
-#: indicatorhelper_mac.cpp:140
+#: indicatorhelper_mac.cpp:141
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "找不到 kdeconnectd"
 
-#: indicatorhelper_mac.cpp:145
+#: indicatorhelper_mac.cpp:146
 #, kde-format
 msgid "Loading modules"
 msgstr "正在加载模块"
