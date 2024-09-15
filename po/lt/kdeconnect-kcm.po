@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-10 00:38+0000\n"
-"PO-Revision-Date: 2024-07-06 01:47+0300\n"
+"PO-Revision-Date: 2024-09-15 00:17+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -31,10 +31,9 @@ msgid "Your emails"
 msgstr "<>"
 
 #: kcm.cpp:57
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings"
+#, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "KDE Connect nuostatos"
+msgstr "Klaida: KDE Connect nepaleista"
 
 #: kcm.cpp:188
 #, kde-format
