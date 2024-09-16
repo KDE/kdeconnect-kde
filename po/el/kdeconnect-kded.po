@@ -29,16 +29,13 @@ msgid "Your emails"
 msgstr "dimkard@gmail.com,sstavra@gmail.com"
 
 #: desktop_daemon.cpp:37
-#, fuzzy, kde-format
-#| msgid ""
-#| "Pairing request from %1\n"
-#| "Key: %2..."
+#, kde-format
 msgid ""
 "Pairing request from %1\n"
 "Key: %2"
 msgstr ""
 "Αίτημα σύζευξης από το %1\n"
-"Πλήκτρο: %2..."
+"Πλήκτρο: %2"
 
 #: desktop_daemon.cpp:45
 #, kde-format

@@ -38,8 +38,7 @@ msgid "Send clipboard"
 msgstr ""
 
 #: deviceindicator.cpp:81
-#, fuzzy, kde-format
-#| msgid "Ring device"
+#, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Ήχος συσκευής"
@@ -131,8 +130,7 @@ msgid "Pairing requests"
 msgstr "Αιτήσεις σύζευξης"
 
 #: main.cpp:127
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Ζεύγος"

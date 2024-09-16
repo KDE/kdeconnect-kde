@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-10 00:38+0000\n"
-"PO-Revision-Date: 2024-06-25 14:20+0200\n"
+"PO-Revision-Date: 2024-09-10 20:18+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,10 +29,9 @@ msgid "Your emails"
 msgstr "smart2128vr@gmail.com"
 
 #: kcm.cpp:57
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings"
+#, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "Impostazioni di KDE Connect"
+msgstr "Errore: KDE Connect non è in esecuzione"
 
 #: kcm.cpp:188
 #, kde-format

@@ -187,10 +187,9 @@ msgstr ""
 "ενσωματώσετε στο Plasma!"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "Σύζευξη συσκευής..."
+msgstr "Σύζευξη συσκευής…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -203,10 +202,9 @@ msgid "Install from F-Droid"
 msgstr "Εγκατάσταση από F-Droid"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "Ρυθμίσεις KDE Connect..."
+msgstr "Ρυθμίσεις KDE Connect…"
 
 #~ msgid "Configure..."
 #~ msgstr "Διαμόρφωση..."

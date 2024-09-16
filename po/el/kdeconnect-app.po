@@ -128,8 +128,7 @@ msgid ""
 msgstr "Αυτή η συσκευή δεν είναι σε σύζευξη"
 
 #: qml/DevicePage.qml:134
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Ζεύγος"
