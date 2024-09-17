@@ -43,7 +43,7 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION}
 
 ecm_set_disabled_deprecation_versions(
     QT 6.6
-    KF 6.0
+    KF 6.5
 )
 
 # Make the version header available by linking against kdeconnectversion

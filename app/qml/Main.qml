@@ -9,6 +9,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kdeconnect
+import org.kde.config as KConfig
 
 Kirigami.ApplicationWindow {
     id: root
@@ -18,6 +19,10 @@ Kirigami.ApplicationWindow {
     wideScreen: width > columnWidth * 5
     pageStack.globalToolBar.canContainHandles: true
     pageStack.globalToolBar.showNavigationButtons: applicationWindow().pageStack.currentIndex > 0 ? Kirigami.ApplicationHeaderStyle.ShowBackButton : 0
+
+    KConfig.WindowStateSaver {
+        configGroupName: "MainWindow"
+    }
 
     globalDrawer: Kirigami.OverlayDrawer {
         id: drawer
