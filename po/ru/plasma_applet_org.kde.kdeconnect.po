@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-04 02:27+0000\n"
-"PO-Revision-Date: 2024-06-27 19:56+0300\n"
+"PO-Revision-Date: 2024-09-15 13:47+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -190,10 +190,9 @@ msgstr ""
 "интегрировать его с Plasma!"
 
 #: package/contents/ui/FullRepresentation.qml:66
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "Запустить сопряжение..."
+msgstr "Запустить сопряжение…"
 
 #: package/contents/ui/FullRepresentation.qml:78
 #, kde-format
@@ -206,10 +205,9 @@ msgid "Install from F-Droid"
 msgstr "Установить из F-Droid"
 
 #: package/contents/ui/main.qml:59
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "Настроить KDE Connect..."
+msgstr "Настроить KDE Connect…"
 
 #~ msgid "Save As"
 #~ msgstr "Сохранить как"
