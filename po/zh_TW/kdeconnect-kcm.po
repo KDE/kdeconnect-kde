@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-10 00:38+0000\n"
-"PO-Revision-Date: 2024-06-26 06:40+0900\n"
+"PO-Revision-Date: 2024-09-17 07:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: Traditional Chinese\n"
@@ -34,10 +34,9 @@ msgstr ""
 "hiu.com"
 
 #: kcm.cpp:57
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings"
+#, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "KDE連線設定"
+msgstr "錯誤：《KDE 連線》並非執行中"
 
 #: kcm.cpp:188
 #, kde-format
