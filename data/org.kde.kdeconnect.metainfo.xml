@@ -105,7 +105,7 @@
   <summary xml:lang="uk">Безшовне з’єднання для усіх ваших пристроїв</summary>
   <summary xml:lang="x-test">xxSeamless connection of your devicesxx</summary>
   <summary xml:lang="zh-CN">无缝连接您的设备</summary>
-  <summary xml:lang="zh-TW">無縫連線您的裝置</summary>
+  <summary xml:lang="zh-TW">無縫連接您的裝置</summary>
   <description>
     <p>KDE Connect provides various features to integrate your phone and your computer. It allows you to send files to the other device, control its media playback, send remote input, view its notifications and may things more. It is available for (mobile) Linux, Android, FreeBSD, Windows and macOS.
     </p>
