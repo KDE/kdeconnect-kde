@@ -29,10 +29,9 @@ msgstr "sstavra@gmail.com"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialog.ui:31
-#, fuzzy, kde-format
-#| msgid "Select a device"
+#, kde-format
 msgid "Select device:"
-msgstr "Επιλογή συσκευής"
+msgstr "Επιλογή συσκευής:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
 #: dialog.ui:55

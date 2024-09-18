@@ -49,10 +49,9 @@ msgid "%1: Already paired"
 msgstr "%1: Έχει γίνει ήδη σύζευξη"
 
 #: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "Η συσκευή δεν είναι προσβάσιμη"
+msgstr "%1: Η συσκευή δεν είναι προσβάσιμη"
 
 #: backends/pairinghandler.cpp:113
 #, kde-format
@@ -60,8 +59,7 @@ msgid "Device not reachable"
 msgstr "Η συσκευή δεν είναι προσβάσιμη"
 
 #: backends/pairinghandler.cpp:124
-#, fuzzy, kde-format
-#| msgid "Canceled by the user"
+#, kde-format
 msgid "Cancelled by user"
 msgstr "Ακυρώθηκε από τον χρήστη"
 

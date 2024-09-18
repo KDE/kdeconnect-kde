@@ -73,10 +73,9 @@ msgid "SMS Instant Messaging"
 msgstr "Στιγμιαία μηνύματα SMS"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2019, KDE Connect Team"
+#, kde-format
 msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018-2019, η ομάδα του KDE Connect"
+msgstr "(C) 2018-2022, η ομάδα του KDE Connect"
 
 #: main.cpp:55
 #, kde-format
