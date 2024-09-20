@@ -3,20 +3,21 @@
 #
 # Dimitris Kardarakos <dimkard@gmail.com>, 2016.
 # Stelios <sstavra@gmail.com>, 2017, 2020, 2021.
+# SPDX-FileCopyrightText: 2024 Antonis Geralis <capoiosct@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2021-06-19 07:55+0300\n"
-"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"PO-Revision-Date: 2024-09-19 21:43+0300\n"
+"Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -397,7 +398,7 @@ msgstr "Άγνωστο σφάλμα στην sshfs"
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 "Σφάλμα κατά την πρόσβαση στο σύστημα αρχείων, το sshfs τερματίστηκε με "
-"κώδικό %0"
+"κωδικό %0"
 
 #: sftp/mounter.cpp:193
 #, kde-format
