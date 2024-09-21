@@ -35,10 +35,6 @@ struct KdeConnectConfigPrivate {
 
     QSettings *m_config;
     QSettings *m_trustedDevices;
-
-#ifdef Q_OS_MAC
-    QString m_privateDBusAddress; // Private DBus Address cache
-#endif
 };
 
 static QString getDefaultDeviceName()
@@ -381,48 +377,3 @@ void KdeConnectConfig::generateCertificate(const QString &certPath)
         Daemon::instance()->reportError(QStringLiteral("KDE Connect"), i18n("Could not store certificate file: %1", certPath));
     }
 }
-
-#ifdef Q_OS_MAC
-QString KdeConnectConfig::privateDBusAddressPath()
-{
-    return baseConfigDir().absoluteFilePath(QStringLiteral("private_dbus_address"));
-}
-
-QString KdeConnectConfig::privateDBusAddress()
-{
-    if (d->m_privateDBusAddress.length() != 0)
-        return d->m_privateDBusAddress;
-
-    QString dbusAddressPath = privateDBusAddressPath();
-    QFile dbusAddressFile(dbusAddressPath);
-
-    if (!dbusAddressFile.open(QFile::ReadOnly | QFile::Text)) {
-        qCCritical(KDECONNECT_CORE) << "Private DBus enabled but error read private dbus address conf";
-        exit(1);
-    }
-
-    QTextStream in(&dbusAddressFile);
-
-    qCDebug(KDECONNECT_CORE) << "Waiting for private dbus";
-
-    int retry = 0;
-    QString addr = in.readLine();
-    while (addr.length() == 0 && retry < 5) {
-        qCDebug(KDECONNECT_CORE) << "Retry reading private DBus address after 3s";
-        QThread::sleep(3);
-        retry++;
-        addr = in.readLine(); // Read until first not empty line
-    }
-
-    if (addr.length() == 0) {
-        qCCritical(KDECONNECT_CORE) << "Private DBus enabled but read private dbus address failed";
-        exit(1);
-    }
-
-    qCDebug(KDECONNECT_CORE) << "Private dbus address: " << addr;
-
-    d->m_privateDBusAddress = addr;
-
-    return addr;
-}
-#endif

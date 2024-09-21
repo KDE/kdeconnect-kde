@@ -1,11 +1,5 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
 
-set(KDECONNECT_PRIVATE_DBUS_ADDR unix:tmpdir=/tmp)
-if(WIN32)
-    set(KDECONNECT_PRIVATE_DBUS_ADDR tcp:host=localhost,port=0)
-endif()
-set(KDECONNECT_PRIVATE_DBUS_NAME DBusKDEConnectOnly)
-configure_file(dbushelper.h.in ${CMAKE_CURRENT_BINARY_DIR}/dbushelper.h)
 
 option(MDNS_ENABLED "Use MDNS for device discovery" ON)
 

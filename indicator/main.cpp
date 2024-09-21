@@ -49,6 +49,10 @@ int main(int argc, char **argv)
     QIcon::setFallbackThemeName(QStringLiteral("breeze"));
 
     QApplication app(argc, argv);
+
+    IndicatorHelper helper;
+    helper.startDaemon();
+
     KAboutData about(QStringLiteral("kdeconnect-indicator"),
                      i18n("KDE Connect Indicator"),
                      QStringLiteral(KDECONNECT_VERSION_STRING),
@@ -62,19 +66,7 @@ int main(int argc, char **argv)
 #ifdef Q_OS_WIN
     KColorSchemeManager manager;
     QApplication::setStyle(QStringLiteral("breeze"));
-    IndicatorHelper helper(QUrl::fromLocalFile(qApp->applicationDirPath()));
-#else
-    IndicatorHelper helper;
 #endif
-
-    helper.preInit();
-
-    // Run Daemon initialization step
-    // When run from macOS app bundle, D-Bus call should be later than kdeconnectd and D-Bus daemon
-    QProcess kdeconnectd;
-    if (helper.daemonHook(kdeconnectd)) {
-        return -1;
-    }
 
     KDBusService dbusService(KDBusService::Unique);
 
@@ -130,7 +122,6 @@ int main(int argc, char **argv)
         }
         // Add quit menu
 #if defined Q_OS_MAC
-
         menu->addAction(i18n("Quit"), []() {
             auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect.daemon"),
                                                           QStringLiteral("/MainApplication"),
@@ -193,9 +184,6 @@ int main(int argc, char **argv)
     refreshMenu();
 
     app.setQuitOnLastWindowClosed(false);
-
-    // Finish init
-    helper.postInit();
 
     return app.exec();
 }

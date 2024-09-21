@@ -12,15 +12,8 @@
 IndicatorHelper::IndicatorHelper()
 {
 }
+
 IndicatorHelper::~IndicatorHelper()
-{
-}
-
-void IndicatorHelper::preInit()
-{
-}
-
-void IndicatorHelper::postInit()
 {
 }
 
@@ -28,7 +21,7 @@ void IndicatorHelper::iconPathHook()
 {
 }
 
-int IndicatorHelper::daemonHook(QProcess & /*kdeconnectd*/)
+int IndicatorHelper::startDaemon()
 {
     return 0;
 }
