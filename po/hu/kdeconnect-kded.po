@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-22 00:40+0000\n"
 "PO-Revision-Date: 2024-05-22 10:41+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -67,11 +67,9 @@ msgstr "KDE Connect démon"
 msgid "Replace an existing instance"
 msgstr "Meglévő példány cseréje"
 
-#: kdeconnectd.cpp:91
-#, kde-format
-msgid ""
-"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
-msgstr "Privát D-Bus démon indítása kdeconnectd-vel (csak macOS tesztcélra)"
+#~ msgid ""
+#~ "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
+#~ msgstr "Privát D-Bus démon indítása kdeconnectd-vel (csak macOS tesztcélra)"
 
 #~ msgid "kdeconnect"
 #~ msgstr "kdeconnect"

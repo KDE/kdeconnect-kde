@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-22 00:40+0000\n"
 "PO-Revision-Date: 2020-02-02 13:49+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -64,9 +64,3 @@ msgstr "കെ.ഡി.ഇ കണക്ട് ഡീമണ്‍"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "നിലവിലുള്ള ജാലകത്തിനെ പകരം വക്കുക"
-
-#: kdeconnectd.cpp:91
-#, kde-format
-msgid ""
-"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
-msgstr ""

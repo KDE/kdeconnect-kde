@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:39+0000\n"
+"POT-Creation-Date: 2024-09-22 00:40+0000\n"
 "PO-Revision-Date: 2023-08-06 19:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -106,27 +106,27 @@ msgstr "파일 이름이 이미 존재함"
 msgid "Received incomplete file from: %1"
 msgstr "완전하지 않은 파일 받음: %1"
 
-#: kdeconnectconfig.cpp:331 kdeconnectconfig.cpp:365
+#: kdeconnectconfig.cpp:327 kdeconnectconfig.cpp:361
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connect를 시작할 수 없음"
 
-#: kdeconnectconfig.cpp:331
+#: kdeconnectconfig.cpp:327
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "개인 키를 생성할 수 없습니다."
 
-#: kdeconnectconfig.cpp:350
+#: kdeconnectconfig.cpp:346
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "개인 키 파일을 저장할 수 없음: %1"
 
-#: kdeconnectconfig.cpp:365
+#: kdeconnectconfig.cpp:361
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "장치 인증서를 생성할 수 없습니다."
 
-#: kdeconnectconfig.cpp:381
+#: kdeconnectconfig.cpp:377
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "인증서 파일을 저장할 수 없음: %1"

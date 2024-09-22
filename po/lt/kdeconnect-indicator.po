@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-14 00:40+0000\n"
+"POT-Creation-Date: 2024-09-22 00:40+0000\n"
 "PO-Revision-Date: 2024-07-28 23:34+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -65,28 +65,12 @@ msgstr "Vykdyti komandą"
 msgid "Add commands"
 msgstr "Pridėti komandas"
 
-#: indicatorhelper_mac.cpp:37
-#, kde-format
-msgid "Launching"
-msgstr "Paleidžiama"
-
-#: indicatorhelper_mac.cpp:87
-#, kde-format
-msgid "Launching daemon"
-msgstr "Paleidžiama tarnyba"
-
-#: indicatorhelper_mac.cpp:96
-#, kde-format
-msgid "Waiting D-Bus"
-msgstr "Laukiama D-Bus"
-
-#: indicatorhelper_mac.cpp:112 indicatorhelper_mac.cpp:124
-#: indicatorhelper_mac.cpp:141
+#: indicatorhelper_mac.cpp:47 indicatorhelper_mac.cpp:58
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
+#: indicatorhelper_mac.cpp:48
 #, kde-format
 msgid ""
 "Cannot connect to DBus\n"
@@ -95,58 +79,53 @@ msgstr ""
 "Nepavyksta prisijungti prie DBus\n"
 "KDE Connect užbaigs darbą"
 
-#: indicatorhelper_mac.cpp:141
+#: indicatorhelper_mac.cpp:58
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "Nepavyksta rasti kdeconnectd"
 
-#: indicatorhelper_mac.cpp:146
-#, kde-format
-msgid "Loading modules"
-msgstr "Įkeliami moduliai"
-
-#: main.cpp:53
+#: main.cpp:57
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "KDE Connect indikatorius"
 
-#: main.cpp:55
+#: main.cpp:59
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "KDE Connect indikatoriaus įrankis"
 
-#: main.cpp:57
+#: main.cpp:61
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
 msgstr "(C) 2016 Aleix Pol Gonzalez"
 
-#: main.cpp:96
+#: main.cpp:88
 #, kde-format
 msgid "Configure..."
 msgstr "Konfigūruoti..."
 
-#: main.cpp:122
+#: main.cpp:114
 #, kde-format
 msgid "Pairing requests"
 msgstr "Suporavimo užklausos"
 
-#: main.cpp:127
+#: main.cpp:119
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Suporuoti"
 
-#: main.cpp:128
+#: main.cpp:120
 #, kde-format
 msgid "Reject"
 msgstr "Atmesti"
 
-#: main.cpp:134 main.cpp:144
+#: main.cpp:125 main.cpp:135
 #, kde-format
 msgid "Quit"
 msgstr "Išeiti"
 
-#: main.cpp:163 main.cpp:187
+#: main.cpp:154 main.cpp:178
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
@@ -185,6 +164,18 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#~ msgid "Launching"
+#~ msgstr "Paleidžiama"
+
+#~ msgid "Launching daemon"
+#~ msgstr "Paleidžiama tarnyba"
+
+#~ msgid "Waiting D-Bus"
+#~ msgstr "Laukiama D-Bus"
+
+#~ msgid "Loading modules"
+#~ msgstr "Įkeliami moduliai"
 
 #~ msgid "Get a photo"
 #~ msgstr "Gauti nuotrauką"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-22 00:40+0000\n"
 "PO-Revision-Date: 2017-03-20 21:08+0100\n"
 "Last-Translator: Slobodan Simic <slsimic@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -64,10 +64,4 @@ msgstr ""
 #: kdeconnectd.cpp:87
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
-
-#: kdeconnectd.cpp:91
-#, kde-format
-msgid ""
-"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
 msgstr ""

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-10 00:38+0000\n"
-"PO-Revision-Date: 2024-06-28 16:51+0200\n"
+"PO-Revision-Date: 2024-09-21 10:41+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -31,7 +31,7 @@ msgstr "olivermkellogg@gmail.com"
 #: kcm.cpp:57
 #, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr ""
+msgstr "Eraro: KDE Connect ne estas rulanta"
 
 #: kcm.cpp:188
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:39+0000\n"
+"POT-Creation-Date: 2024-09-22 00:40+0000\n"
 "PO-Revision-Date: 2022-11-16 16:14+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -109,27 +109,27 @@ msgstr ""
 msgid "Received incomplete file from: %1"
 msgstr ""
 
-#: kdeconnectconfig.cpp:331 kdeconnectconfig.cpp:365
+#: kdeconnectconfig.cpp:327 kdeconnectconfig.cpp:361
 #, fuzzy, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Inviar per KDE Connect"
 
-#: kdeconnectconfig.cpp:331
+#: kdeconnectconfig.cpp:327
 #, kde-format
 msgid "Could not generate the private key."
 msgstr ""
 
-#: kdeconnectconfig.cpp:350
+#: kdeconnectconfig.cpp:346
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr ""
 
-#: kdeconnectconfig.cpp:365
+#: kdeconnectconfig.cpp:361
 #, fuzzy, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Ne successat leer li file %1."
 
-#: kdeconnectconfig.cpp:381
+#: kdeconnectconfig.cpp:377
 #, fuzzy, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Ne successat leer li file %1."
