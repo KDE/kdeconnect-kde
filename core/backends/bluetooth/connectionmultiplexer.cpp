@@ -133,7 +133,7 @@ bool ConnectionMultiplexer::tryParseMessage()
         message_uuid_raw.data[i] = header[3 + i];
     }
 #else
-    message_uuid_raw = qFromBigEndian<quint128>(&header.data()[3]);
+    message_uuid_raw = qFromLittleEndian<quint128>(&header.data()[3]);
 #endif
     QBluetoothUuid message_uuid = QBluetoothUuid(message_uuid_raw);
 
@@ -236,8 +236,8 @@ QBluetoothUuid ConnectionMultiplexer::newChannel()
     message[0] = MESSAGE_OPEN_CHANNEL;
     qToBigEndian<uint16_t>(0, &message.data()[1]);
 
-    const auto channelBytes = new_id.toByteArray();
-    message.append(channelBytes.constData(), 16);
+    const auto channelBytes = new_id.toBytes();
+    message.append((const char *)&channelBytes, 16);
     to_write_bytes.append(message);
 
     // Add the channel ourselves
@@ -345,8 +345,8 @@ void ConnectionMultiplexer::channelCanRead(QBluetoothUuid channelId)
         QByteArray message(3, (char)0);
         message[0] = MESSAGE_READ;
         qToBigEndian<uint16_t>(2, &message.data()[1]);
-        const auto channelBytes = channelId.toByteArray();
-        message.append(channelBytes.constData(), 16);
+        const auto channelBytes = channelId.toBytes();
+        message.append((const char *)&channelBytes, 16);
         message.append(2, 0);
         qToBigEndian<int16_t>(read_amount, &message.data()[19]);
         to_write_bytes.append(message);
@@ -375,8 +375,8 @@ void ConnectionMultiplexer::channelCanWrite(QBluetoothUuid channelId)
         message[0] = MESSAGE_WRITE;
         qToBigEndian<uint16_t>(amount, &message.data()[1]);
 
-        const auto channelBytes = channelId.toByteArray();
-        message.append(channelBytes.constData(), 16);
+        const auto channelBytes = channelId.toBytes();
+        message.append((const char *)&channelBytes, 16);
         message.append(data);
         to_write_bytes.append(message);
         // Try to send it immediately
@@ -413,8 +413,8 @@ void ConnectionMultiplexer::closeChannel(QBluetoothUuid channelId)
     message[0] = MESSAGE_CLOSE_CHANNEL;
     qToBigEndian<uint16_t>(0, &message.data()[1]);
 
-    const auto channelBytes = channelId.toByteArray();
-    message.append(channelBytes.constData(), 16);
+    const auto channelBytes = channelId.toBytes();
+    message.append((const char *)&channelBytes, 16);
     to_write_bytes.append(message);
     // Try to send it immediately
     bytesWritten();
