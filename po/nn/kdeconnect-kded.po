@@ -66,8 +66,3 @@ msgstr "KDE Connect-teneste"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Erstatt ein instans som finst frå før"
-
-#~ msgid ""
-#~ "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
-#~ msgstr ""
-#~ "Start privat D-Bus-teneste med kdeconnectd (berre for macOS-testing)"

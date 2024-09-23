@@ -1,14 +1,15 @@
+# Translation of kdeconnect-kcm to Spanish
 # Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Eloy Cuadra <ecuadra@eloihr.net>, 2013, 2014.
-# Victor Rodrigo Cordoba <vrcordoba@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2023, 2024.
+# SPDX-FileCopyrightText: 2013, 2014 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2023, 2024 Victor Rodrigo Cordoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-10 00:38+0000\n"
-"PO-Revision-Date: 2024-06-29 11:58+0200\n"
+"PO-Revision-Date: 2024-09-22 16:45+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -31,7 +32,7 @@ msgstr "vrcordoba@gmail.com"
 #: kcm.cpp:57
 #, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr ""
+msgstr "Error: KDE Connect no está ejecutando"
 
 #: kcm.cpp:188
 #, kde-format

@@ -161,15 +161,3 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1 | ~%2 %"
-
-#~ msgid "Launching"
-#~ msgstr "Startar"
-
-#~ msgid "Launching daemon"
-#~ msgstr "Startar teneste"
-
-#~ msgid "Waiting D-Bus"
-#~ msgstr "Ventar på D-Bus"
-
-#~ msgid "Loading modules"
-#~ msgstr "Lastar modular"
