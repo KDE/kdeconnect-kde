@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="kdeconnect" lang="&language;">
+<articleinfo>
+<title
+>KDE Connect</title>
+<authorgroup>
+<author
+>&Aleix.Pol;</author>
+<othercredit role="translator"
+><firstname
+>Matjaž</firstname
+><surname
+>Jeran</surname
+><affiliation
+><address
+><email
+>matjaz.jeran@amis.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>19.10.2015</date>
+<releaseinfo
+>0.9</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Poveži</keyword>
+<keyword
+>telefon</keyword>
+<keyword
+>oddaljeni</keyword>
+<keyword
+>naprava</keyword>
+<keyword
+>par</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1 id="kdeconnect-kcm">
+
+<title
+>KDE Connect</title>
+
+<para
+>S tem pogovornim oknom lahko konfigurirate, s katerimi napravami smo uparjeni in s kaj si delimo. Uporabniški vmesnik je razdeljen na 2 glavna dela:</para>
+
+<sect2>
+<title
+>Seznam naprav</title>
+
+<para
+>Vsebuje seznam naprav, ločenih med uparjenimi in neuparjenimi. Izberiteenega, da ga uparite, in ko je uparjen, ga konfigurirajte.</para>
+</sect2>
+
+<sect2>
+<title
+>Konfiguracija naprave</title>
+
+<para
+>Ponuja seznam razpoložljivih vtičnikov, povezanih z napravo. Ti vtičniki bodo ustrezali različnim funkcijam, ki so na voljo za napravo. To je uporabno predvsem zato, da veste, kateri vtičniki so na voljo in v če obstajajo nekatere informacije, ki jih ne bi smeli izrecno deliti z napravo, ga onemogočite.</para>
+</sect2>
+
+<sect2>
+<title
+>Splošna interakcija z napravami</title>
+
+<para
+>KDE Connect ne ponuja osrednjega mesta za interakcijo z vašimi napravami. Zasnovan je za pravilno integracijo z vašim operacijskim sistemom, zaradi česar je možna skupna raba datotek iz različnih aplikacij ali integracija s sistemom obveščanja za prikaz informacij.</para>
+</sect2>
+
+</sect1>
+
+</article>
