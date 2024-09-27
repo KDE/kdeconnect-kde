@@ -67,8 +67,3 @@ msgstr "Демон на KDE Connect"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Заменяне на съществуваща инстанция"
-
-#~ msgid ""
-#~ "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
-#~ msgstr ""
-#~ "Стартиране на частен D-Bus демон с kdeconnectd (macOS само за тестване)"

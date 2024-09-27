@@ -160,15 +160,3 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
-
-#~ msgid "Launching"
-#~ msgstr "Стартиране"
-
-#~ msgid "Launching daemon"
-#~ msgstr "Демон за стартиране"
-
-#~ msgid "Waiting D-Bus"
-#~ msgstr "Изчаква се D-Bus"
-
-#~ msgid "Loading modules"
-#~ msgstr "Зареждане на модули"
