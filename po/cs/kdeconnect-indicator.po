@@ -161,15 +161,3 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
-
-#~ msgid "Launching"
-#~ msgstr "Spouštím"
-
-#~ msgid "Launching daemon"
-#~ msgstr "Spouštím démona"
-
-#~ msgid "Waiting D-Bus"
-#~ msgstr "Čeká se na D-Bus"
-
-#~ msgid "Loading modules"
-#~ msgstr "Probíhá načítání modulů"
