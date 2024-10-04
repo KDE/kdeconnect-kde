@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-22 00:40+0000\n"
-"PO-Revision-Date: 2024-01-18 09:49+0100\n"
+"PO-Revision-Date: 2024-10-03 21:46+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.01.90\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -44,10 +44,9 @@ msgid "Ring device"
 msgstr "Eszköz csengetése"
 
 #: deviceindicator.cpp:95
-#, fuzzy, kde-format
-#| msgid "Send a file/URL"
+#, kde-format
 msgid "Send files"
-msgstr "Fájl/URL küldése"
+msgstr "Fájlok küldése"
 
 #: deviceindicator.cpp:117
 #, kde-format
