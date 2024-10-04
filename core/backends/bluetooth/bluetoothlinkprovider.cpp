@@ -31,24 +31,28 @@ BluetoothLinkProvider::BluetoothLinkProvider()
 
 void BluetoothLinkProvider::onStart()
 {
+    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStart executed";
+    tryToInitialise();
+}
+
+void BluetoothLinkProvider::tryToInitialise()
+{
     QBluetoothLocalDevice localDevice;
     if (!localDevice.isValid()) {
         qCWarning(KDECONNECT_CORE) << "No local bluetooth adapter found";
         return;
     }
 
-    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStart executed";
+    if (!mBluetoothServer) {
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onNetworkChange re-setting up mBluetoothServer";
 
-    mBluetoothServer = new QBluetoothServer(QBluetoothServiceInfo::RfcommProtocol, this);
-    mBluetoothServer->setSecurityFlags(QBluetooth::Security::Encryption | QBluetooth::Security::Secure);
-    connect(mBluetoothServer, &QBluetoothServer::newConnection, this, &BluetoothLinkProvider::serverNewConnection);
+        mBluetoothServer = new QBluetoothServer(QBluetoothServiceInfo::RfcommProtocol, this);
+        mBluetoothServer->setSecurityFlags(QBluetooth::Security::Encryption | QBluetooth::Security::Secure);
+        connect(mBluetoothServer, &QBluetoothServer::newConnection, this, &BluetoothLinkProvider::serverNewConnection);
 
-    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::About to start server listen";
-    mKdeconnectService = mBluetoothServer->listen(mServiceUuid, QStringLiteral("KDE Connect"));
-
-    // Disabled for the moment as once the server is listening, the client will not be able to connect anyway
-    // mServiceDiscoveryAgent->start();
-    // connectTimer->start();
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onNetworkChange About to start server listen";
+        mKdeconnectService = mBluetoothServer->listen(mServiceUuid, QStringLiteral("KDE Connect"));
+    }
 }
 
 void BluetoothLinkProvider::onStop()
@@ -65,9 +69,10 @@ void BluetoothLinkProvider::onStop()
     mBluetoothServer->deleteLater();
 }
 
-// I'm in a new network, let's be polite and introduce myself
 void BluetoothLinkProvider::onNetworkChange()
 {
+    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onNetworkChange executed";
+    tryToInitialise();
 }
 
 void BluetoothLinkProvider::connectError()

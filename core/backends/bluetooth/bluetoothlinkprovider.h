@@ -62,6 +62,7 @@ private Q_SLOTS:
 private:
     void addLink(BluetoothDeviceLink *deviceLink, const QString &deviceId);
     QList<QBluetoothAddress> getPairedDevices();
+    void tryToInitialise();
 
     QBluetoothUuid mServiceUuid;
     QPointer<QBluetoothServer> mBluetoothServer;

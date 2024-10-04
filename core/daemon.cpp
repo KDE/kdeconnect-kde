@@ -127,6 +127,7 @@ void Daemon::forceOnNetworkChange()
 {
     qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to" << d->m_linkProviders.size() << "LinkProviders";
     for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
+        qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to: " << a->name();
         a->onNetworkChange();
     }
 }
