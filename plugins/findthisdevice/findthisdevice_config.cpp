@@ -5,6 +5,7 @@
  */
 
 #include "findthisdevice_config.h"
+#include "findthisdevicehelper.h"
 #include "findthisdeviceplugin.h"
 
 // KF
@@ -40,7 +41,7 @@ void FindThisDeviceConfig::defaults()
 {
     KCModule::defaults();
 
-    m_ui.soundFileRequester->setText(defaultSound());
+    m_ui.soundFileRequester->setText(FindThisDeviceHelper::defaultSound());
     markAsChanged();
 }
 
@@ -48,7 +49,7 @@ void FindThisDeviceConfig::load()
 {
     KCModule::load();
 
-    const QString ringTone = config()->getString(QStringLiteral("ringtone"), defaultSound());
+    const QString ringTone = config()->getString(QStringLiteral("ringtone"), FindThisDeviceHelper::defaultSound());
     m_ui.soundFileRequester->setText(ringTone);
 }
 
