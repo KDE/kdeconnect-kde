@@ -93,32 +93,27 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
             }
         },
         this);
-    /*
-        setWhenAvailable(
-            daemon->linkProviders(),
-            [this](bool error, const QStringList linkProviders) {
-                for (int i = 0; i < linkProviders[QStringLiteral("all")].size(); ++i) {
-                    QString linkProvider = QString(linkProviders[QStringLiteral("all")].at(i).constData());
-                    QListWidgetItem linkProviderItem = new QListWidgetItem(linkProvider, kcmUi.linkProviders_list);
-                    linkProviderItem->setCheckState(Qt::Unchecked);
-                    if(linkProviders[QStringLiteral("enabled")].contains(linkProvider)){
-                        linkProviderItem->setCheckState(Qt::Checked);
-                    }
-                    kcmUi.linkProviders_list->addItem(linkProviderItem);
-                }
-            },
-            this);
-    */
+
     setWhenAvailable(
         daemon->linkProviders(),
-        [this](bool error, const QStringList linkProviders) { /*
-             for (int i = 0; i < linkProviders[QStringLiteral("all")].size(); ++i) {
-                 QString linkProvider = QString(linkProviders[QStringLiteral("all")].at(i).constData());
-                 QListWidgetItem *linkProviderItem = new QListWidgetItem(linkProvider, kcmUi.linkProviders_list);
-                 linkProviderItem->setCheckState(Qt::Checked);
-                 kcmUi.linkProviders_list->addItem(linkProviderItem);
-             }*/
+        [this](bool error, const QStringList linkProviders) {
+            kcmUi.linkProviders_list->clear();
+            for (int i = 0; i < linkProviders.size(); ++i) {
+                QStringList linkProvider = linkProviders.at(i).split(QStringLiteral("|"));
 
+                QString providerName = linkProvider.at(0);
+                QString providerStatus = linkProvider.at(1);
+
+                QListWidgetItem *linkProviderItem = new QListWidgetItem(providerName, kcmUi.linkProviders_list);
+
+                if (providerStatus.compare(QStringLiteral("enabled")) == 0) {
+                    linkProviderItem->setCheckState(Qt::Checked);
+                } else {
+                    linkProviderItem->setCheckState(Qt::Unchecked);
+                }
+
+                kcmUi.linkProviders_list->addItem(linkProviderItem);
+            }
         },
         this);
 
