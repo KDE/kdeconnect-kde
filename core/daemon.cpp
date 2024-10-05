@@ -147,7 +147,7 @@ QSet<LinkProvider *> Daemon::getLinkProviders() const
     return d->m_linkProviders;
 }
 
-QVector<QStringList> Daemon::linkProviders() const
+QStringList Daemon::linkProviders() const
 {
     /*
     QString allStr = QStringLiteral("all");
@@ -162,7 +162,7 @@ QVector<QStringList> Daemon::linkProviders() const
         returnValue[enabledStr] += a->name();
     }
     return returnValue;*/
-    return QVector<QStringList>();
+    return QStringList();
 }
 QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
 {
