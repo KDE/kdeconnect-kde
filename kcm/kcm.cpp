@@ -92,6 +92,23 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
             }
         },
         this);
+
+    kcmUi.bluetoothEnabled_checkbox->setChecked(false);
+
+    setWhenAvailable(
+        daemon->linkProviders(),
+        [this](bool error, const QStringList linkProviders) {
+            for (int i = 0; i < linkProviders.size(); ++i) {
+                QString linkProvider = QString(linkProviders.at(i).constData());
+                qDebug() << "link provider: " << linkProvider;
+
+                if (linkProvider == QStringLiteral("bluetooth")) {
+                    kcmUi.bluetoothEnabled_checkbox->setChecked(true);
+                }
+            }
+        },
+        this);
+
     connect(daemon, &DaemonDbusInterface::announcedNameChanged, kcmUi.rename_edit, &QLineEdit::setText);
     connect(daemon, &DaemonDbusInterface::announcedNameChanged, kcmUi.rename_label, &QLabel::setText);
     setRenameMode(false);

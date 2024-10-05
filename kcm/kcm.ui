@@ -122,6 +122,16 @@
        </widget>
       </item>
       <item>
+       <widget class="QCheckBox" name="bluetoothEnabled_checkbox">
+        <property name="text">
+         <string>Bluetooth Enabled</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="refresh_button">
         <property name="text">
          <string>Refresh</string>
