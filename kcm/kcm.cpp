@@ -12,6 +12,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KPluginMetaData>
+#include <QMessageBox>
 #include <QtWidgets/QListView>
 #include <kcmutils_version.h>
 
@@ -184,16 +185,18 @@ KdeConnectKcm::~KdeConnectKcm()
 
 void KdeConnectKcm::refresh()
 {
-    QStringList providerStatus;
-
+    QStringList providerStatusToSend;
     for (int i = 0; i < kcmUi.linkProviders_list->count(); ++i) {
         QListWidgetItem *item = kcmUi.linkProviders_list->item(i);
-        QString providerStatus = item->checkState() == Qt::Checked ? QStringLiteral("enabled") : QStringLiteral("disabled");
-        QString line = item->text() + QStringLiteral("|") + providerStatus;
-        providerStatus.append(line);
+        QString providerIsEnabled = item->checkState() == Qt::Checked ? QStringLiteral("enabled") : QStringLiteral("disabled");
+        QString line = item->text() + QStringLiteral("|") + providerIsEnabled;
+        providerStatusToSend.append(line);
+        //  QMessageBox::information(widget(), QStringLiteral("thisLine"), line, QMessageBox::StandardButton::NoButton);
     }
 
-    daemon->setProviderStatus(providerStatus);
+    // QMessageBox::information(widget(), QStringLiteral("ProviderStatus"),providerStatusToSend.join(QStringLiteral("")),
+    // QMessageBox::StandardButton::NoButton);
+    daemon->setProviderStatus(providerStatusToSend);
     daemon->forceOnNetworkChange();
 }
 
