@@ -147,6 +147,14 @@ QSet<LinkProvider *> Daemon::getLinkProviders() const
     return d->m_linkProviders;
 }
 
+QStringList Daemon::linkProviders() const
+{
+    QStringList return;
+    for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
+        return.append(a->name())
+    }
+    return ret;
+}
 QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
 {
     QStringList ret;

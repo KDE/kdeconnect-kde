@@ -61,11 +61,10 @@ public Q_SLOTS:
 
     // Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
     Q_SCRIPTABLE QStringList devices(bool onlyReachable = false, bool onlyPaired = false) const;
-
     Q_SCRIPTABLE QMap<QString, QString> deviceNames(bool onlyReachable = false, bool onlyPaired = false) const;
 
     Q_SCRIPTABLE QString deviceIdByName(const QString &name) const;
-
+    Q_SCRIPTABLE QStringList linkProviders() const;
     Q_SCRIPTABLE virtual void sendSimpleNotification(const QString &eventId, const QString &title, const QString &text, const QString &iconName) = 0;
 
 Q_SIGNALS:
