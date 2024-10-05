@@ -52,8 +52,24 @@ Kirigami.ScrollablePage {
             QQC2.Button {
                 text: i18nc("@action:button", "Choose file")
                 display: QQC2.Button.IconOnly
-                icon.name: "document-open"
+                icon.name: "document-open-symbolic"
                 onClicked: fileDialog.open()
+            }
+
+            QQC2.Button {
+                text: i18nc("@action:button", "Play")
+                display: QQC2.Button.IconOnly
+                icon.name: playMusic.playing ? "media-playback-stop-symbolic" : "media-playback-start-symbolic"
+                enabled: FindThisDevice.FindThisDeviceHelper.pathExists(path.text)
+                onClicked: {
+                    playMusic.source = path.text;
+                    playMusic.playing ? playMusic.stop() : playMusic.play();
+                }
+
+                MediaPlayer {
+                    id: playMusic
+                    audioOutput: AudioOutput {}
+                }
             }
         }
     }
