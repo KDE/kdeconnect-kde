@@ -184,6 +184,16 @@ KdeConnectKcm::~KdeConnectKcm()
 
 void KdeConnectKcm::refresh()
 {
+    QStringList providerStatus;
+
+    for (int i = 0; i < kcmUi.linkProviders_list->count(); ++i) {
+        QListWidgetItem *item = kcmUi.linkProviders_list->item(i);
+        QString providerStatus = item->checkState() == Qt::Checked ? QStringLiteral("enabled") : QStringLiteral("disabled");
+        QString line = item->text() + QStringLiteral("|") + providerStatus;
+        providerStatus.append(line);
+    }
+
+    daemon->setProviderStatus(providerStatus);
     daemon->forceOnNetworkChange();
 }
 

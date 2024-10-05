@@ -158,6 +158,15 @@ QStringList Daemon::linkProviders() const
     }
     return returnValue;
 }
+
+void Daemon::setProviderStatus(const QStringList &providerStatus)
+{
+    qCDebug(KDECONNECT_CORE) << "setProviderStatus called" << providerStatus;
+    for (const auto &i : providerStatus) {
+        qCDebug(KDECONNECT_CORE) << "setProviderstatus with: " << i;
+    }
+}
+
 QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
 {
     QStringList ret;
