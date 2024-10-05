@@ -65,7 +65,6 @@ Kirigami.ScrollablePage
         delegate: ItemDelegate {
             id: delegate
             icon.name: iconName
-            icon.color: "transparent"
             text: model.name
             width: ListView.view.width
             highlighted: false
