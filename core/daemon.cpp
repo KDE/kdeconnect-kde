@@ -149,11 +149,20 @@ QSet<LinkProvider *> Daemon::getLinkProviders() const
 
 QStringList Daemon::linkProviders() const
 {
-    QStringList returnValue;
+    QString allStr = QStringLiteral("all");
+    QString enabledStr = QStringLiteral("enabled");
+
+    QMap<QString, QStringList> returnValue;
+    returnValue[allStr] = QStringList();
+    returnValue[enabledStr] = QStringList();
+
     for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
-        returnValue.append(a->name());
+        returnValue[allStr].append(a->name());
+
+        // TODO add filtering by enabled config
+        returnValue[enabledStr].append(a->name());
     }
-    return returnValue;
+    return returnValue[allStr];
 }
 QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
 {

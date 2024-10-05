@@ -12,6 +12,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KPluginMetaData>
+#include <QtWidgets/QListView>
 #include <kcmutils_version.h>
 
 #include <QQmlContext>
@@ -92,19 +93,30 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
             }
         },
         this);
-
-    kcmUi.bluetoothEnabled_checkbox->setChecked(false);
-
+    /*
+        setWhenAvailable(
+            daemon->linkProviders(),
+            [this](bool error, const QStringList linkProviders) {
+                for (int i = 0; i < linkProviders[QStringLiteral("all")].size(); ++i) {
+                    QString linkProvider = QString(linkProviders[QStringLiteral("all")].at(i).constData());
+                    QListWidgetItem linkProviderItem = new QListWidgetItem(linkProvider, kcmUi.linkProviders_list);
+                    linkProviderItem->setCheckState(Qt::Unchecked);
+                    if(linkProviders[QStringLiteral("enabled")].contains(linkProvider)){
+                        linkProviderItem->setCheckState(Qt::Checked);
+                    }
+                    kcmUi.linkProviders_list->addItem(linkProviderItem);
+                }
+            },
+            this);
+    */
     setWhenAvailable(
         daemon->linkProviders(),
         [this](bool error, const QStringList linkProviders) {
             for (int i = 0; i < linkProviders.size(); ++i) {
                 QString linkProvider = QString(linkProviders.at(i).constData());
-                qDebug() << "link provider: " << linkProvider;
-
-                if (linkProvider == QStringLiteral("BluetoothLinkProvider")) {
-                    kcmUi.bluetoothEnabled_checkbox->setChecked(true);
-                }
+                QListWidgetItem *linkProviderItem = new QListWidgetItem(linkProvider, kcmUi.linkProviders_list);
+                linkProviderItem->setCheckState(Qt::Checked);
+                kcmUi.linkProviders_list->addItem(linkProviderItem);
             }
         },
         this);

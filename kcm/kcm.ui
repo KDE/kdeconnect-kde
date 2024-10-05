@@ -47,6 +47,19 @@
       <item>
        <layout class="QHBoxLayout" name="rename_group_2">
         <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>0</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
          <widget class="QLabel" name="rename_label">
           <property name="font">
            <font>
@@ -61,19 +74,6 @@
            <enum>Qt::TextFormat::PlainText</enum>
           </property>
          </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>0</height>
-           </size>
-          </property>
-         </spacer>
         </item>
         <item>
          <widget class="QToolButton" name="renameShow_button">
@@ -109,26 +109,38 @@
        </layout>
       </item>
       <item>
-       <widget class="QQuickWidget" name="list_quick_widget">
+       <widget class="QListView" name="deviceList">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="resizeMode">
-         <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="linkProvider_label">
+        <property name="text">
+         <string>Link Providers</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="bluetoothEnabled_checkbox">
-        <property name="text">
-         <string>Bluetooth Enabled</string>
+       <widget class="QListWidget" name="linkProviders_list">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-        <property name="checked">
-         <bool>true</bool>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::MultiSelection</enum>
         </property>
+        <item>
+         <property name="text">
+          <string>Placeholder</string>
+         </property>
+        </item>
        </widget>
       </item>
       <item>
