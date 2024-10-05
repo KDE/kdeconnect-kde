@@ -28,6 +28,15 @@ Kirigami.ScrollablePage
         refreshResetTimer.start()
     }
 
+    actions: Kirigami.Action {
+        text: i18nc("@action:intoolbar", "Refresh")
+        icon.name: 'view-refresh-symbolic'
+        onTrigerred: {
+            DaemonDbusInterface.forceOnNetworkChange()
+            refreshResetTimer.start()
+        }
+    }
+
     Timer {
         id: refreshResetTimer
         interval: 1000
