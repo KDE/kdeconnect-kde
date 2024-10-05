@@ -8,18 +8,53 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.kitemmodels as KItemModels
 import org.kde.kdeconnect
 
 Kirigami.ScrollablePage {
     id: root
-    title: i18n("Plugin Settings")
+
     property string device
+    property string filterString
+
+    title: i18n("Plugin Settings")
+
+    header: Control {
+        topPadding: Kirigami.Units.smallSpacing
+        bottomPadding: Kirigami.Units.smallSpacing
+        leftPadding: Kirigami.Units.smallSpacing
+        rightPadding: Kirigami.Units.smallSpacing
+
+        background: Rectangle {
+            Kirigami.Theme.colorSet: Kirigami.Theme.Window
+            Kirigami.Theme.inherit: false
+            color: Kirigami.Theme.backgroundColor
+
+            Kirigami.Separator {
+                anchors {
+                    left: parent.left
+                    bottom: parent.bottom
+                    right: parent.right
+                }
+            }
+        }
+
+        contentItem: Kirigami.SearchField {
+            id: searchField
+            onTextChanged: root.filterString = text;
+            autoAccept: false
+        }
+    }
 
     ListView {
-        anchors.fill: parent
+        model: KItemModels.KSortFilterProxyModel {
+            filterString: root.filterString
+            filterRoleName: "name"
+            filterCaseSensitivity: Qt.CaseInsensitive
 
-        model: PluginModel {
-            deviceId: device
+            sourceModel: PluginModel {
+                deviceId: device
+            }
         }
 
         delegate: Kirigami.SwipeListItem {
