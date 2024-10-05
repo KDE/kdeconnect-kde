@@ -17,6 +17,7 @@
 #endif
 
 #include <QDebug>
+#include <QFileInfo>
 #include <QUrl>
 
 QString FindThisDeviceHelper::defaultSound()
@@ -47,4 +48,9 @@ QString FindThisDeviceHelper::defaultSound()
         qWarning() << "Could not find default ring tone.";
     }
     return soundURL.toLocalFile();
+}
+
+bool FindThisDeviceHelper::pathExists(const QString &path)
+{
+    return QFileInfo::exists(path);
 }
