@@ -22,11 +22,13 @@
 
 #include <QAudioOutput>
 
+#include "findthisdevicehelper.h"
+
 K_PLUGIN_CLASS_WITH_JSON(FindThisDevicePlugin, "kdeconnect_findthisdevice.json")
 
 void FindThisDevicePlugin::receivePacket(const NetworkPacket & /*np*/)
 {
-    const QString soundFile = config()->getString(QStringLiteral("ringtone"), defaultSound());
+    const QString soundFile = config()->getString(QStringLiteral("ringtone"), FindThisDeviceHelper::defaultSound());
     const QUrl soundURL = QUrl::fromLocalFile(soundFile);
 
     if (soundURL.isEmpty()) {
