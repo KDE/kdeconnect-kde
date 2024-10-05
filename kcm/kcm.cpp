@@ -111,13 +111,14 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
     */
     setWhenAvailable(
         daemon->linkProviders(),
-        [this](bool error, const QStringList linkProviders) {
-            for (int i = 0; i < linkProviders.size(); ++i) {
-                QString linkProvider = QString(linkProviders.at(i).constData());
-                QListWidgetItem *linkProviderItem = new QListWidgetItem(linkProvider, kcmUi.linkProviders_list);
-                linkProviderItem->setCheckState(Qt::Checked);
-                kcmUi.linkProviders_list->addItem(linkProviderItem);
-            }
+        [this](bool error, const QVector<QStringList> linkProviders) { /*
+             for (int i = 0; i < linkProviders[QStringLiteral("all")].size(); ++i) {
+                 QString linkProvider = QString(linkProviders[QStringLiteral("all")].at(i).constData());
+                 QListWidgetItem *linkProviderItem = new QListWidgetItem(linkProvider, kcmUi.linkProviders_list);
+                 linkProviderItem->setCheckState(Qt::Checked);
+                 kcmUi.linkProviders_list->addItem(linkProviderItem);
+             }*/
+
         },
         this);
 

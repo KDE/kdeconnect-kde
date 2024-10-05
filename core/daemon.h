@@ -64,7 +64,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE QMap<QString, QString> deviceNames(bool onlyReachable = false, bool onlyPaired = false) const;
 
     Q_SCRIPTABLE QString deviceIdByName(const QString &name) const;
-    Q_SCRIPTABLE QStringList linkProviders() const;
+    Q_SCRIPTABLE QVector<QStringList> linkProviders() const;
     Q_SCRIPTABLE virtual void sendSimpleNotification(const QString &eventId, const QString &title, const QString &text, const QString &iconName) = 0;
 
 Q_SIGNALS:
