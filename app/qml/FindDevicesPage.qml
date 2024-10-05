@@ -55,6 +55,7 @@ Kirigami.ScrollablePage
         }
         Kirigami.PlaceholderMessage {
             text: i18nd("kdeconnect-app", "No devices found")
+            icon.name: 'edit-none-symbolic'
             anchors.centerIn: parent
             visible: devices.count === 0
         }
