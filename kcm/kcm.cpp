@@ -96,7 +96,7 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
     kcmUi.bluetoothEnabled_checkbox->setChecked(false);
 
     setWhenAvailable(
-        daemon->linkProviders(),
+        daemon->getLinkProviders(),
         [this](bool error, const QStringList linkProviders) {
             for (int i = 0; i < linkProviders.size(); ++i) {
                 QString linkProvider = QString(linkProviders.at(i).constData());
