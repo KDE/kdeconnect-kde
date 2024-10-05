@@ -61,7 +61,7 @@ Kirigami.ScrollablePage {
             visible: view.count === 0
             width: parent.width - Kirigami.Units.gridUnit * 4
             text: i18nc("@info", "No commands configured")
-            explanation: i18n("@info", "Add commands to run them remotely from other devices")
+            explanation: i18nc("@info", "Add commands to run them remotely from other devices")
             helpfulAction: addCommandDialogAction
         }
 
