@@ -10,31 +10,33 @@ import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kdeconnect 1.0
 
-Kirigami.FormLayout {
+Kirigami.ScrollablePage {
+    id: root
 
     property string device
-
-    KdeConnectPluginConfig {
-        id: config
-        deviceId: device
-        pluginName: "kdeconnect_clipboard"
-    }
 
     Component.onCompleted: {
         autoShare.checked = config.getBool("autoShare", config.getBool("sendUnknown", true))
         password.checked = config.getBool("sendPassword", true)
     }
 
-    QQC2.CheckBox {
-        id: autoShare
-        text: i18n("Automatically share the clipboard from this device")
-        onClicked: config.set("autoShare", checked)
-    }
+    Kirigami.FormLayout {
+        KdeConnectPluginConfig {
+            id: config
+            deviceId: device
+            pluginName: "kdeconnect_clipboard"
+        }
 
-    QQC2.CheckBox {
-        id: password
-        text: i18n("Including passwords (as marked by password managers)")
-        onClicked: config.set("sendPassword", checked)
-    }
+        QQC2.CheckBox {
+            id: autoShare
+            text: i18n("Automatically share the clipboard from this device")
+            onClicked: config.set("autoShare", checked)
+        }
 
+        QQC2.CheckBox {
+            id: password
+            text: i18n("Including passwords (as marked by password managers)")
+            onClicked: config.set("sendPassword", checked)
+        }
+    }
 }

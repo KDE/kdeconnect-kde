@@ -40,7 +40,6 @@ ecm_target_qml_sources(kdeconnect-app SOURCES
     qml/volume.qml
     qml/MprisSlider.qml
     qml/PluginSettings.qml
-    qml/PluginInfoPage.qml
     qml/Settings.qml
 )
 
