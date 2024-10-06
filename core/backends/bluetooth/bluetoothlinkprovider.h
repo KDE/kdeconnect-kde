@@ -42,6 +42,14 @@ public:
         return 10;
     }
 
+    void enable() override
+    {
+    }
+
+    void disable() override
+    {
+    }
+
 public Q_SLOTS:
     virtual void onNetworkChange() override;
     virtual void onStart() override;

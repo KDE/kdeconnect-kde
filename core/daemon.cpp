@@ -149,11 +149,19 @@ QSet<LinkProvider *> Daemon::getLinkProviders() const
 
 QStringList Daemon::linkProviders() const
 {
+    auto configInstance = KdeConnectConfig::instance();
+    auto status = configInstance.getLinkProviderStatus();
     QStringList returnValue;
 
     for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
         QString line = QString(a->name());
-        line += QStringLiteral("|enabled");
+
+        if (status[QStringLiteral("enabled")].contains(a->name())) {
+            line += QStringLiteral("|enabled");
+        } else {
+            line += QStringLiteral("|disabled");
+        }
+
         returnValue.append(line);
     }
     return returnValue;
@@ -162,9 +170,34 @@ QStringList Daemon::linkProviders() const
 void Daemon::setProviderStatus(const QStringList &providerStatus)
 {
     qCDebug(KDECONNECT_CORE) << "setProviderStatus called" << providerStatus;
+
+    KdeConnectConfig configInstance = KdeConnectConfig::instance();
+
+    QStringList enabledProviders;
+    QStringList disabledProviders;
+
     for (const auto &i : providerStatus) {
-        qCDebug(KDECONNECT_CORE) << "setProviderstatus with: " << i;
+        auto components = i.split(QStringLiteral("|"));
+        QString providerName = components.at(0);
+        QString providerStatus = components.at(1);
+
+        auto linkProviders = this->getLinkProviders();
+        for (LinkProvider *provider : linkProviders) {
+            if (provider->name() == providerName) {
+                if (providerStatus == QStringLiteral("enabled")) {
+                    qCDebug(KDECONNECT_CORE) << "enabling " << providerName;
+                    provider->enable();
+                    enabledProviders.append(providerName);
+                } else {
+                    qCDebug(KDECONNECT_CORE) << "disabling" << providerName;
+                    provider->disable();
+                    disabledProviders.append(providerName);
+                }
+                break;
+            }
+        }
     }
+    configInstance.setLinkProviderStatus(enabledProviders, disabledProviders);
 }
 
 QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const

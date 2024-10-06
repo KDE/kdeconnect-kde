@@ -76,6 +76,23 @@ void KdeConnectConfig::setName(const QString &name)
     d->m_config->sync();
 }
 
+void KdeConnectConfig::setLinkProviderStatus(const QStringList enabledProviders, const QStringList disabledProviders)
+{
+    d->m_config->setValue(QStringLiteral("enabled_providers"), enabledProviders);
+    d->m_config->setValue(QStringLiteral("disabled_providers"), disabledProviders);
+    d->m_config->sync();
+}
+
+QMap<QString, QStringList> KdeConnectConfig::getLinkProviderStatus()
+{
+    QMap<QString, QStringList> result;
+
+    result[QStringLiteral("enabled")] = d->m_config->value(QStringLiteral("enabled_providers")).toStringList();
+    result[QStringLiteral("disabled")] = d->m_config->value(QStringLiteral("disabled_providers")).toStringList();
+
+    return result;
+}
+
 DeviceType KdeConnectConfig::deviceType()
 {
     const QByteArrayList platforms = qgetenv("PLASMA_PLATFORM").split(':');

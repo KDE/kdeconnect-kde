@@ -43,6 +43,13 @@ public:
         return 20;
     }
 
+    void enable() override
+    {
+    }
+    void disable() override
+    {
+    }
+
     void sendUdpIdentityPacket(const QList<QHostAddress> &addresses);
 
     static void configureSslSocket(QSslSocket *socket, const QString &deviceId, bool isDeviceTrusted);
