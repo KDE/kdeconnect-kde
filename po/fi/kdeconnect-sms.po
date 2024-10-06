@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-06 00:39+0000\n"
 "PO-Revision-Date: 2022-09-06 16:49+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: KDE\n"
@@ -215,7 +215,7 @@ msgstr "Lähettäminen epäonnistui"
 msgid "Max message size limit exceeded."
 msgstr "Viestin enimmäiskoko ylitetty."
 
-#: qml/SendingArea.qml:72
+#: qml/SendingArea.qml:63
 #, kde-format
 msgid "Compose message"
 msgstr "Luo viesti"

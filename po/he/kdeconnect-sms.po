@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-06 00:39+0000\n"
 "PO-Revision-Date: 2024-03-24 10:25+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -211,7 +211,7 @@ msgstr "השליחה נכשלה"
 msgid "Max message size limit exceeded."
 msgstr "חרגת ממגבלת הגודל המרבי להודעה."
 
-#: qml/SendingArea.qml:72
+#: qml/SendingArea.qml:63
 #, kde-format
 msgid "Compose message"
 msgstr "כתיבת הודעה"

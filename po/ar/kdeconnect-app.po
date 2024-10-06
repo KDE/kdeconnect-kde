@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-10-06 00:39+0000\n"
 "PO-Revision-Date: 2024-05-25 16:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: \n"
@@ -190,12 +190,12 @@ msgstr "متّصل"
 msgid "No devices found"
 msgstr "لم يُعثر على أجهزة"
 
-#: qml/Main.qml:73
+#: qml/Main.qml:78
 #, kde-format
 msgid "Find devices..."
 msgstr "اعثر على أجهزة…"
 
-#: qml/Main.qml:122 qml/Main.qml:126
+#: qml/Main.qml:127 qml/Main.qml:131
 #, kde-format
 msgid "Settings"
 msgstr "إعدادات"

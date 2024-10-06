@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-06 00:39+0000\n"
 "PO-Revision-Date: 2020-11-20 01:14+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -214,7 +214,7 @@ msgstr "Saatmine nurjus"
 msgid "Max message size limit exceeded."
 msgstr "Sõnumi mahupiirang ületati."
 
-#: qml/SendingArea.qml:72
+#: qml/SendingArea.qml:63
 #, kde-format
 msgid "Compose message"
 msgstr "Sõnumi kirjutamine"

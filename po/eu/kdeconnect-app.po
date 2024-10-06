@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-10-06 00:39+0000\n"
 "PO-Revision-Date: 2024-07-09 23:45+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -192,12 +192,12 @@ msgstr "Konektatua"
 msgid "No devices found"
 msgstr "Ez da gailurik aurkitu"
 
-#: qml/Main.qml:73
+#: qml/Main.qml:78
 #, kde-format
 msgid "Find devices..."
 msgstr "Aurkitu gailuak..."
 
-#: qml/Main.qml:122 qml/Main.qml:126
+#: qml/Main.qml:127 qml/Main.qml:131
 #, kde-format
 msgid "Settings"
 msgstr "Ezarpenak"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-10-06 00:39+0000\n"
 "PO-Revision-Date: 2024-01-30 19:23+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -187,12 +187,12 @@ msgstr "接続済み"
 msgid "No devices found"
 msgstr "デバイスが見つかりません"
 
-#: qml/Main.qml:73
+#: qml/Main.qml:78
 #, kde-format
 msgid "Find devices..."
 msgstr "デバイスを探す..."
 
-#: qml/Main.qml:122 qml/Main.qml:126
+#: qml/Main.qml:127 qml/Main.qml:131
 #, kde-format
 msgid "Settings"
 msgstr "設定"

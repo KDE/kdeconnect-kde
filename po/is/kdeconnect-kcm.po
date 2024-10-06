@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-10 00:38+0000\n"
-"PO-Revision-Date: 2024-06-29 14:37+0000\n"
+"PO-Revision-Date: 2024-09-26 13:48+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
@@ -29,10 +29,9 @@ msgid "Your emails"
 msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 
 #: kcm.cpp:57
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings"
+#, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "Stillingar KDE Connect"
+msgstr "Villa: KDE Connect er ekki í gangi"
 
 #: kcm.cpp:188
 #, kde-format

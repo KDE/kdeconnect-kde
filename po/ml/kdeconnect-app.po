@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-10-06 00:39+0000\n"
 "PO-Revision-Date: 2020-01-28 02:48+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -187,12 +187,12 @@ msgstr "ബന്ധിപ്പിച്ചു"
 msgid "No devices found"
 msgstr "ഉപകരണങ്ങളൊന്നും കണ്ടെത്തിയില്ല"
 
-#: qml/Main.qml:73
+#: qml/Main.qml:78
 #, kde-format
 msgid "Find devices..."
 msgstr "ഉപകരണങ്ങൾ കണ്ടെത്തുക..."
 
-#: qml/Main.qml:122 qml/Main.qml:126
+#: qml/Main.qml:127 qml/Main.qml:131
 #, kde-format
 msgid "Settings"
 msgstr ""
