@@ -1,0 +1,7 @@
+<!DOCTYPE RCC>
+
+<RCC version="1.0">
+<qresource prefix="/kdeconnectkcm">
+    <file>list.qml</file>
+</qresource>
+</RCC>

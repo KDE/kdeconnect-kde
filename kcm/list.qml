@@ -10,32 +10,28 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kdeconnect
 
-Kirigami.ScrollablePage
-{
+ScrollView {
     id: root
 
-    Component {
-        id: deviceComp
-        DevicePage {}
-    }
+    focus: true
 
-    objectName: "FindDevices"
-    title: i18ndc("kdeconnect-app", "Title of the page listing the devices", "Devices")
-    supportsRefreshing: true
+    signal clicked(string device)
 
-    onRefreshingChanged: {
-        DaemonDbusInterface.forceOnNetworkChange()
-        refreshResetTimer.start()
-    }
+    property string currentDeviceId
 
-    Timer {
-        id: refreshResetTimer
-        interval: 1000
-        onTriggered: root.refreshing = false
+    property alias model: devices.model
+
+    Component.onCompleted: {
+        if (background) {
+            background.visible = true
+        }
     }
 
     ListView {
         id: devices
+
+        focus: true
+
         section {
             property: "status"
             delegate: Kirigami.ListSectionHeader {
@@ -45,31 +41,30 @@ Kirigami.ScrollablePage
                 text: switch (parseInt(section))
                 {
                     case DevicesModel.Paired:
-                        return i18nd("kdeconnect-app", "Remembered")
+                        return i18nd("kdeconnect-kcm", "Remembered")
                     case DevicesModel.Reachable:
-                        return i18nd("kdeconnect-app", "Available")
+                        return i18nd("kdeconnect-kcm", "Available")
                     case (DevicesModel.Reachable | DevicesModel.Paired):
-                        return i18nd("kdeconnect-app", "Connected")
+                        return i18nd("kdeconnect-kcm", "Connected")
                 }
             }
         }
         Kirigami.PlaceholderMessage {
-            text: i18nd("kdeconnect-app", "No devices found")
+            text: i18nd("kdeconnect-kcm", "No devices found")
             icon.name: 'edit-none-symbolic'
             anchors.centerIn: parent
             width: parent.width - (Kirigami.Units.largeSpacing * 4)
             visible: devices.count === 0
         }
 
-        model: DevicesSortProxyModel {
-            sourceModel: DevicesModel {}
-        }
         delegate: ItemDelegate {
             id: delegate
             icon.name: iconName
             text: model.name
             width: ListView.view.width
-            highlighted: false
+            highlighted: root.currentDeviceId === deviceId
+
+            focus: true
 
             contentItem: Kirigami.IconTitleSubtitle {
                 title: delegate.text
@@ -78,10 +73,8 @@ Kirigami.ScrollablePage
             }
 
             onClicked: {
-                pageStack.push(
-                    deviceComp,
-                    {currentDevice: device}
-                );
+                root.currentDeviceId = deviceId
+                root.clicked(deviceId)
             }
         }
     }

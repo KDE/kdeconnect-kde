@@ -14,6 +14,9 @@
 #include <KPluginMetaData>
 #include <kcmutils_version.h>
 
+#include <QQmlContext>
+#include <QQuickItem>
+
 #include "dbushelpers.h"
 #include "dbusinterfaces.h"
 #include "devicesmodel.h"
@@ -21,6 +24,21 @@
 #include "kdeconnect-version.h"
 
 K_PLUGIN_CLASS_WITH_JSON(KdeConnectKcm, "kcm_kdeconnect.json")
+
+class QQuickWidgetPaleteChangeWatcher : public QObject
+{
+    using QObject::QObject;
+
+    bool eventFilter(QObject *watched, QEvent *event) override
+    {
+        if (event->type() == QEvent::PaletteChange || event->type() == QEvent::ApplicationPaletteChange) {
+            // We know that watched is a QQuickWidget
+            QQuickWidget *w = static_cast<QQuickWidget *>(watched);
+            w->setClearColor(w->palette().color(QPalette::Window));
+        }
+        return QObject::eventFilter(watched, event);
+    }
+};
 
 KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const QVariantList &args)
     : KCModule(parent, md)
@@ -37,7 +55,14 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
 
     sortProxyModel = new DevicesSortProxyModel(devicesModel);
 
-    kcmUi.deviceList->setModel(sortProxyModel);
+    kcmUi.list_quick_widget->setMinimumWidth(250 * kcmUi.list_quick_widget->devicePixelRatio());
+    kcmUi.list_quick_widget->rootContext()->setContextObject(new KLocalizedContext(kcmUi.list_quick_widget));
+    kcmUi.list_quick_widget->setClearColor(kcmUi.list_quick_widget->palette().color(QPalette::Window));
+    kcmUi.list_quick_widget->setSource(QUrl(QStringLiteral("qrc:/kdeconnectkcm/list.qml")));
+    kcmUi.list_quick_widget->rootObject()->setProperty("model", QVariant::fromValue(sortProxyModel));
+    connect(kcmUi.list_quick_widget->rootObject(), SIGNAL(clicked(QString)), this, SLOT(deviceSelected(QString)));
+
+    kcmUi.list_quick_widget->installEventFilter(new QQuickWidgetPaleteChangeWatcher(kcmUi.list_quick_widget));
 
     kcmUi.deviceInfo->setVisible(false);
     kcmUi.progressBar->setVisible(false);
@@ -67,8 +92,6 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
 
     setButtons(KCModule::Help | KCModule::NoAdditionalButton);
 
-    connect(devicesModel, &QAbstractItemModel::dataChanged, this, &KdeConnectKcm::resetSelection);
-    connect(kcmUi.deviceList->selectionModel(), &QItemSelectionModel::currentChanged, this, &KdeConnectKcm::deviceSelected);
     connect(kcmUi.accept_button, &QAbstractButton::clicked, this, &KdeConnectKcm::acceptPairing);
     connect(kcmUi.reject_button, &QAbstractButton::clicked, this, &KdeConnectKcm::cancelPairing);
     connect(kcmUi.cancel_button, &QAbstractButton::clicked, this, &KdeConnectKcm::cancelPairing);
@@ -88,11 +111,8 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
         const QString pluginCM = colonIdx < 0 ? QString() : input.mid(colonIdx + 1);
 
         connect(devicesModel, &DevicesModel::rowsInserted, this, [this, deviceId, pluginCM]() {
-            auto row = devicesModel->rowForDevice(deviceId);
-            if (row >= 0) {
-                const QModelIndex idx = sortProxyModel->mapFromSource(devicesModel->index(row));
-                kcmUi.deviceList->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::ClearAndSelect);
-            }
+            kcmUi.list_quick_widget->rootObject()->setProperty("currentDeviceId", deviceId);
+            deviceSelected(deviceId);
             if (!pluginCM.isEmpty()) {
                 kcmUi.pluginSelector->showConfiguration(pluginCM);
             }
@@ -136,28 +156,18 @@ void KdeConnectKcm::refresh()
     daemon->forceOnNetworkChange();
 }
 
-void KdeConnectKcm::resetSelection()
-{
-    if (!currentDevice) {
-        return;
-    }
-    kcmUi.deviceList->selectionModel()->setCurrentIndex(sortProxyModel->mapFromSource(currentIndex), QItemSelectionModel::ClearAndSelect);
-}
-
-void KdeConnectKcm::deviceSelected(const QModelIndex &current)
+void KdeConnectKcm::deviceSelected(const QString &deviceId)
 {
     if (currentDevice) {
         disconnect(currentDevice, nullptr, this, nullptr);
     }
 
-    if (!current.isValid()) {
+    currentDevice = devicesModel->getDevice(devicesModel->rowForDevice(deviceId));
+    if (!currentDevice) {
         currentDevice = nullptr;
         kcmUi.deviceInfo->setVisible(false);
         return;
     }
-
-    currentIndex = sortProxyModel->mapToSource(current);
-    currentDevice = devicesModel->getDevice(currentIndex.row());
 
     kcmUi.noDevicePlaceholder->setVisible(false);
     bool valid = (currentDevice != nullptr && currentDevice->isValid());

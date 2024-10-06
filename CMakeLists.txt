@@ -8,7 +8,7 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 
 project(kdeconnect VERSION ${RELEASE_SERVICE_VERSION})
 
-set(KF_MIN_VERSION "5.240")
+set(KF_MIN_VERSION "6.0.0")
 set(QT_MIN_VERSION "6.7.0")
 
 set(CMAKE_CXX_STANDARD 20)
@@ -94,7 +94,7 @@ ecm_find_qmlmodule(QtQuick.Particles 2.0)
 
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII)
 
-find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Quick QuickControls2 Network Multimedia)
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Quick QuickWidgets QuickControls2 Network Multimedia)
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications
     KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons DocTools Crash)
 
