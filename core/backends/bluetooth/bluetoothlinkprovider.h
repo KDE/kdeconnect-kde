@@ -44,10 +44,17 @@ public:
 
     void enable() override
     {
+        enabled = true;
+        tryToInitialise();
     }
 
     void disable() override
     {
+        enabled = false;
+        this->onStop();
+
+        mBluetoothServer = nullptr;
+        mServiceDiscoveryAgent = nullptr;
     }
 
 public Q_SLOTS:
@@ -77,6 +84,7 @@ private:
     QBluetoothServiceInfo mKdeconnectService;
     QBluetoothServiceDiscoveryAgent *mServiceDiscoveryAgent;
     QTimer *connectTimer;
+    bool enabled;
 
     QMap<QString, DeviceLink *> mLinks;
 

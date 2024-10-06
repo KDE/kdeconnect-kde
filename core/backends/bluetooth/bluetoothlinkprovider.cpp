@@ -32,7 +32,9 @@ BluetoothLinkProvider::BluetoothLinkProvider()
 void BluetoothLinkProvider::onStart()
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStart executed";
-    tryToInitialise();
+    if (enabled) {
+        tryToInitialise();
+    }
 }
 
 void BluetoothLinkProvider::tryToInitialise()
@@ -57,22 +59,26 @@ void BluetoothLinkProvider::tryToInitialise()
 
 void BluetoothLinkProvider::onStop()
 {
-    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStop executed";
-    if (!mBluetoothServer) {
-        return;
+    if (enabled) {
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStop executed";
+        if (!mBluetoothServer) {
+            return;
+        }
+
+        connectTimer->stop();
+
+        mKdeconnectService.unregisterService();
+        mBluetoothServer->close();
+        mBluetoothServer->deleteLater();
     }
-
-    connectTimer->stop();
-
-    mKdeconnectService.unregisterService();
-    mBluetoothServer->close();
-    mBluetoothServer->deleteLater();
 }
 
 void BluetoothLinkProvider::onNetworkChange()
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onNetworkChange executed";
-    tryToInitialise();
+    if (enabled) {
+        tryToInitialise();
+    }
 }
 
 void BluetoothLinkProvider::connectError()
