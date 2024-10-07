@@ -13,11 +13,12 @@
 
 #include <QBluetoothServiceInfo>
 
-BluetoothLinkProvider::BluetoothLinkProvider()
+BluetoothLinkProvider::BluetoothLinkProvider(bool isDisabled)
     : mServiceUuid(QBluetoothUuid(QStringLiteral("185f3df4-3268-4e3f-9fca-d4d5059915bd")))
     , mServiceDiscoveryAgent(new QBluetoothServiceDiscoveryAgent(this))
     , connectTimer(new QTimer(this))
 {
+    this->disabled = isDisabled;
     connectTimer->setInterval(30000);
     connectTimer->setSingleShot(false);
 
@@ -32,7 +33,7 @@ BluetoothLinkProvider::BluetoothLinkProvider()
 void BluetoothLinkProvider::onStart()
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStart executed";
-    if (enabled) {
+    if (!disabled) {
         tryToInitialise();
     }
 }
@@ -59,7 +60,7 @@ void BluetoothLinkProvider::tryToInitialise()
 
 void BluetoothLinkProvider::onStop()
 {
-    if (enabled) {
+    if (!disabled) {
         qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStop executed";
         if (!mBluetoothServer) {
             return;
@@ -75,16 +76,16 @@ void BluetoothLinkProvider::onStop()
 
 void BluetoothLinkProvider::enable()
 {
-    if (enabled == false) {
-        enabled = true;
+    if (disabled) {
+        disabled = false;
         tryToInitialise();
     }
 }
 
 void BluetoothLinkProvider::disable()
 {
-    if (enabled == true) {
-        enabled = false;
+    if (!disabled) {
+        disabled = true;
         this->onStop();
 
         mBluetoothServer = nullptr;
@@ -95,7 +96,7 @@ void BluetoothLinkProvider::disable()
 void BluetoothLinkProvider::onNetworkChange()
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onNetworkChange executed";
-    if (enabled) {
+    if (!disabled) {
         tryToInitialise();
     }
 }

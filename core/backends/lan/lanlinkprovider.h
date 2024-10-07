@@ -30,7 +30,7 @@ public:
     /**
      * @param testMode Some special overrides needed while testing
      */
-    LanLinkProvider(bool testMode = false);
+    LanLinkProvider(bool testMode = false, bool disabled = false);
     ~LanLinkProvider() override;
 
     QString name() override

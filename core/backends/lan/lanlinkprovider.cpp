@@ -42,7 +42,7 @@ static const int MAX_REMEMBERED_IDENTITY_PACKETS = 42;
 
 static const long MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE = 500;
 
-LanLinkProvider::LanLinkProvider(bool testMode)
+LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
     : m_server(new Server(this))
     , m_udpSocket(this)
     , m_tcpPort(0)
@@ -52,6 +52,8 @@ LanLinkProvider::LanLinkProvider(bool testMode)
     , m_mdnsDiscovery(this)
 #endif
 {
+    this->disabled = isDisabled;
+
     m_combineNetworkChangeTimer.setInterval(0); // increase this if waiting a single event-loop iteration is not enough
     m_combineNetworkChangeTimer.setSingleShot(true);
     connect(&m_combineNetworkChangeTimer, &QTimer::timeout, this, &LanLinkProvider::combinedOnNetworkChange);

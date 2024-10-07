@@ -72,13 +72,16 @@ void Daemon::init()
 
     qCDebug(KDECONNECT_CORE) << "DBus registration complete";
 
+    auto configInstance = KdeConnectConfig::instance();
+    auto status = configInstance.getLinkProviderStatus();
+
     // Load backends
-    if (d->m_testMode)
+    if (d->m_testMode) {
         d->m_linkProviders.insert(new LoopbackLinkProvider());
-    else {
-        d->m_linkProviders.insert(new LanLinkProvider());
+    } else {
+        d->m_linkProviders.insert(new LanLinkProvider(false, status[QStringLiteral("disabled")].contains(QStringLiteral("LanLinkProvider"))));
 #ifdef KDECONNECT_BLUETOOTH
-        d->m_linkProviders.insert(new BluetoothLinkProvider());
+        d->m_linkProviders.insert(new BluetoothLinkProvider(status[QStringLiteral("disabled")].contains(QStringLiteral("BluetoothLinkProvider"))));
 #endif
 #ifdef KDECONNECT_LOOPBACK
         d->m_linkProviders.insert(new LoopbackLinkProvider());

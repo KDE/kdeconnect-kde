@@ -29,7 +29,8 @@ class KDECONNECTCORE_EXPORT BluetoothLinkProvider : public LinkProvider
     Q_OBJECT
 
 public:
-    BluetoothLinkProvider();
+    BluetoothLinkProvider(bool disabled = false);
+
     virtual ~BluetoothLinkProvider();
 
     QString name() override
@@ -73,7 +74,7 @@ private:
     QBluetoothServiceInfo mKdeconnectService;
     QBluetoothServiceDiscoveryAgent *mServiceDiscoveryAgent;
     QTimer *connectTimer;
-    bool enabled;
+    bool disabled;
 
     QMap<QString, DeviceLink *> mLinks;
 
