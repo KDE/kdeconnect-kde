@@ -43,12 +43,8 @@ public:
         return 20;
     }
 
-    void enable() override
-    {
-    }
-    void disable() override
-    {
-    }
+    void enable() override;
+    void disable() override;
 
     void sendUdpIdentityPacket(const QList<QHostAddress> &addresses);
 
@@ -98,6 +94,8 @@ private:
     QMap<QString, qint64> m_lastConnectionTime;
     const bool m_testMode;
     QTimer m_combineNetworkChangeTimer;
+
+    bool disabled;
 
 #ifdef KDECONNECT_MDNS
     MdnsDiscovery m_mdnsDiscovery;

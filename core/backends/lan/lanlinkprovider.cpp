@@ -84,6 +84,17 @@ LanLinkProvider::~LanLinkProvider()
 {
 }
 
+void LanLinkProvider::enable()
+{
+    disabled = false;
+    this->onStart();
+}
+void LanLinkProvider::disable()
+{
+    this->onStop();
+    disabled = true;
+}
+
 void LanLinkProvider::onStart()
 {
     const QHostAddress bindAddress = m_testMode ? QHostAddress::LocalHost : QHostAddress::Any;

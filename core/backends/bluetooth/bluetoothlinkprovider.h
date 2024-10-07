@@ -42,20 +42,9 @@ public:
         return 10;
     }
 
-    void enable() override
-    {
-        enabled = true;
-        tryToInitialise();
-    }
+    void enable() override;
 
-    void disable() override
-    {
-        enabled = false;
-        this->onStop();
-
-        mBluetoothServer = nullptr;
-        mServiceDiscoveryAgent = nullptr;
-    }
+    void disable() override;
 
 public Q_SLOTS:
     virtual void onNetworkChange() override;

@@ -73,6 +73,21 @@ void BluetoothLinkProvider::onStop()
     }
 }
 
+void BluetoothLinkProvider::enable()
+{
+    enabled = true;
+    tryToInitialise();
+}
+
+void BluetoothLinkProvider::disable()
+{
+    enabled = false;
+    this->onStop();
+
+    mBluetoothServer = nullptr;
+    mServiceDiscoveryAgent = nullptr;
+}
+
 void BluetoothLinkProvider::onNetworkChange()
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onNetworkChange executed";
