@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-07 00:39+0000\n"
 "PO-Revision-Date: 2024-09-10 17:38+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -28,126 +28,126 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "volkangezer@gmail.com"
 
-#: kcm.cpp:57
+#: kcm.cpp:82
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "Hata: KDE Bağlan çalışmıyor"
 
-#: kcm.cpp:188
+#: kcm.cpp:198
 #, kde-format
 msgid "Key: %1"
 msgstr "Anahtar: %1"
 
-#: kcm.cpp:213
+#: kcm.cpp:223
 #, kde-format
 msgid "Available plugins"
 msgstr "Kullanılabilir eklentiler"
 
-#: kcm.cpp:260
+#: kcm.cpp:270
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Eşleştirmeye çalışılırken hata oluştu: %1"
 
-#: kcm.cpp:276
+#: kcm.cpp:286
 #, kde-format
 msgid "(paired)"
 msgstr "(eşlenmiş)"
 
-#: kcm.cpp:279
+#: kcm.cpp:289
 #, kde-format
 msgid "(not paired)"
 msgstr "(eşlenmemiş)"
 
-#: kcm.cpp:282
+#: kcm.cpp:292
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(gelen eşleşme isteği)"
 
-#: kcm.cpp:285
+#: kcm.cpp:295
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(eşleşme istendi)"
 
 #. i18n: ectx: property (text), widget (QLabel, rename_label)
-#: kcm.ui:59
+#: kcm.ui:58
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Bağlan"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
-#: kcm.ui:82
+#: kcm.ui:81
 #, kde-format
 msgid "Edit"
 msgstr "Düzenle"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
-#: kcm.ui:104
+#: kcm.ui:102
 #, kde-format
 msgid "Save"
 msgstr "Kaydet"
 
 #. i18n: ectx: property (text), widget (QPushButton, refresh_button)
-#: kcm.ui:120
+#: kcm.ui:127
 #, kde-format
 msgid "Refresh"
 msgstr "Yenile"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
-#: kcm.ui:193
+#: kcm.ui:199
 #, kde-format
 msgid "Device"
 msgstr "Aygıt"
 
 #. i18n: ectx: property (text), widget (QLabel, status_label)
-#: kcm.ui:209
+#: kcm.ui:215
 #, kde-format
 msgid "(status)"
 msgstr "(durum)"
 
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
-#: kcm.ui:232
+#: kcm.ui:238
 #, kde-format
-msgid "🔑 abababab"
-msgstr "🔑 abababab"
+msgid "KSqueezedTextLabel"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
-#: kcm.ui:263
+#: kcm.ui:269
 #, kde-format
 msgid "Cancel"
 msgstr "İptal"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
-#: kcm.ui:289
+#: kcm.ui:295
 #, kde-format
 msgid "Accept"
 msgstr "Kabul Et"
 
 #. i18n: ectx: property (text), widget (QPushButton, reject_button)
-#: kcm.ui:296
+#: kcm.ui:302
 #, kde-format
 msgid "Reject"
 msgstr "Reddet"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
-#: kcm.ui:309
+#: kcm.ui:315
 #, kde-format
 msgid "Request pair"
 msgstr "Eşleşme İste"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
-#: kcm.ui:322
+#: kcm.ui:328
 #, kde-format
 msgid "Unpair"
 msgstr "Ayır"
 
 #. i18n: ectx: property (text), widget (QPushButton, ping_button)
-#: kcm.ui:335
+#: kcm.ui:341
 #, kde-format
 msgid "Send ping"
 msgstr "Ping Gönder"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
-#: kcm.ui:373
+#: kcm.ui:379
 #, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
@@ -175,6 +175,31 @@ msgstr ""
 "yaşıyorsanız yardım için <a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">KDE Bağlan Topluluk "
 "Vikisi’ni</span></a> ziyaret edin.</p></body></html>"
+
+#: list.qml:44
+#, kde-format
+msgid "Remembered"
+msgstr ""
+
+#: list.qml:46
+#, fuzzy, kde-format
+#| msgid "Available plugins"
+msgid "Available"
+msgstr "Kullanılabilir eklentiler"
+
+#: list.qml:48
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgid "Connected"
+msgstr "KDE Bağlan"
+
+#: list.qml:53
+#, kde-format
+msgid "No devices found"
+msgstr ""
+
+#~ msgid "🔑 abababab"
+#~ msgstr "🔑 abababab"
 
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "KDE Bağlan Ayarları modülü"

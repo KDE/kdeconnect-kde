@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-07 00:39+0000\n"
 "PO-Revision-Date: 2017-05-26 11:26+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -30,127 +30,127 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "slsimic@gmail.com"
 
-#: kcm.cpp:57
+#: kcm.cpp:82
 #, fuzzy, kde-format
 #| msgid "KDE Connect Settings"
 msgid "Error: KDE Connect is not running"
 msgstr "Поставке за КДЕ‑конекцију"
 
-#: kcm.cpp:188
+#: kcm.cpp:198
 #, kde-format
 msgid "Key: %1"
 msgstr ""
 
-#: kcm.cpp:213
+#: kcm.cpp:223
 #, kde-format
 msgid "Available plugins"
 msgstr "Доступни прикључци"
 
-#: kcm.cpp:260
+#: kcm.cpp:270
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Грешка при покушају упаривања: %1"
 
-#: kcm.cpp:276
+#: kcm.cpp:286
 #, kde-format
 msgid "(paired)"
 msgstr "(упарен)"
 
-#: kcm.cpp:279
+#: kcm.cpp:289
 #, kde-format
 msgid "(not paired)"
 msgstr "(неупарен)"
 
-#: kcm.cpp:282
+#: kcm.cpp:292
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(долазни захтев за упаривање)"
 
-#: kcm.cpp:285
+#: kcm.cpp:295
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(тражено упаривање)"
 
 #. i18n: ectx: property (text), widget (QLabel, rename_label)
-#: kcm.ui:59
+#: kcm.ui:58
 #, kde-format
 msgid "KDE Connect"
 msgstr "КДЕ‑конекција"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
-#: kcm.ui:82
+#: kcm.ui:81
 #, kde-format
 msgid "Edit"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
-#: kcm.ui:104
+#: kcm.ui:102
 #, kde-format
 msgid "Save"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, refresh_button)
-#: kcm.ui:120
+#: kcm.ui:127
 #, kde-format
 msgid "Refresh"
 msgstr "Освежи"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
-#: kcm.ui:193
+#: kcm.ui:199
 #, kde-format
 msgid "Device"
 msgstr "Уређај"
 
 #. i18n: ectx: property (text), widget (QLabel, status_label)
-#: kcm.ui:209
+#: kcm.ui:215
 #, kde-format
 msgid "(status)"
 msgstr "(стање)"
 
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
-#: kcm.ui:232
+#: kcm.ui:238
 #, kde-format
-msgid "🔑 abababab"
+msgid "KSqueezedTextLabel"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
-#: kcm.ui:263
+#: kcm.ui:269
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
-#: kcm.ui:289
+#: kcm.ui:295
 #, kde-format
 msgid "Accept"
 msgstr "Прихвати"
 
 #. i18n: ectx: property (text), widget (QPushButton, reject_button)
-#: kcm.ui:296
+#: kcm.ui:302
 #, kde-format
 msgid "Reject"
 msgstr "Одбаци"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
-#: kcm.ui:309
+#: kcm.ui:315
 #, kde-format
 msgid "Request pair"
 msgstr "Тражи упаривање"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
-#: kcm.ui:322
+#: kcm.ui:328
 #, kde-format
 msgid "Unpair"
 msgstr "Распари"
 
 #. i18n: ectx: property (text), widget (QPushButton, ping_button)
-#: kcm.ui:335
+#: kcm.ui:341
 #, kde-format
 msgid "Send ping"
 msgstr "Пошаљи пинг"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
-#: kcm.ui:373
+#: kcm.ui:379
 #, fuzzy, kde-format
 #| msgid ""
 #| "<html><head/><body><p>If you own an Android device, make sure to install "
@@ -181,6 +181,28 @@ msgstr ""
 "repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
 "decoration: underline; \">Ф‑дроиду</span></a>) и уређај ће се појавити на "
 "списку.</p></body></html>"
+
+#: list.qml:44
+#, kde-format
+msgid "Remembered"
+msgstr ""
+
+#: list.qml:46
+#, fuzzy, kde-format
+#| msgid "Available plugins"
+msgid "Available"
+msgstr "Доступни прикључци"
+
+#: list.qml:48
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgid "Connected"
+msgstr "КДЕ‑конекција"
+
+#: list.qml:53
+#, kde-format
+msgid "No devices found"
+msgstr ""
 
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "Модул поставки за КДЕ‑конекцију"

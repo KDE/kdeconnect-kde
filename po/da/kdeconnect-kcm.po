@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-07 00:39+0000\n"
 "PO-Revision-Date: 2024-07-17 13:29+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -28,127 +28,127 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mschlander@opensuse.org,rasmus@rosendahl-kaa."
 
-#: kcm.cpp:57
+#: kcm.cpp:82
 #, fuzzy, kde-format
 #| msgid "KDE Connect Settings"
 msgid "Error: KDE Connect is not running"
 msgstr "Indstilling af KDE Connect"
 
-#: kcm.cpp:188
+#: kcm.cpp:198
 #, kde-format
 msgid "Key: %1"
 msgstr "Nøgle: %1"
 
-#: kcm.cpp:213
+#: kcm.cpp:223
 #, kde-format
 msgid "Available plugins"
 msgstr "Tilgængelige plugins"
 
-#: kcm.cpp:260
+#: kcm.cpp:270
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Fejl ved parring: %1"
 
-#: kcm.cpp:276
+#: kcm.cpp:286
 #, kde-format
 msgid "(paired)"
 msgstr "(parret)"
 
-#: kcm.cpp:279
+#: kcm.cpp:289
 #, kde-format
 msgid "(not paired)"
 msgstr "(ikke parret)"
 
-#: kcm.cpp:282
+#: kcm.cpp:292
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(indkommende parringsanmodning)"
 
-#: kcm.cpp:285
+#: kcm.cpp:295
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(anmodet om parring)"
 
 #. i18n: ectx: property (text), widget (QLabel, rename_label)
-#: kcm.ui:59
+#: kcm.ui:58
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
-#: kcm.ui:82
+#: kcm.ui:81
 #, kde-format
 msgid "Edit"
 msgstr "Redigér"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
-#: kcm.ui:104
+#: kcm.ui:102
 #, kde-format
 msgid "Save"
 msgstr "Gem"
 
 #. i18n: ectx: property (text), widget (QPushButton, refresh_button)
-#: kcm.ui:120
+#: kcm.ui:127
 #, kde-format
 msgid "Refresh"
 msgstr "Genopfrisk"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
-#: kcm.ui:193
+#: kcm.ui:199
 #, kde-format
 msgid "Device"
 msgstr "Enhed"
 
 #. i18n: ectx: property (text), widget (QLabel, status_label)
-#: kcm.ui:209
+#: kcm.ui:215
 #, kde-format
 msgid "(status)"
 msgstr "(status)"
 
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
-#: kcm.ui:232
+#: kcm.ui:238
 #, kde-format
-msgid "🔑 abababab"
-msgstr "🔑 abababab"
+msgid "KSqueezedTextLabel"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
-#: kcm.ui:263
+#: kcm.ui:269
 #, kde-format
 msgid "Cancel"
 msgstr "Annullér"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
-#: kcm.ui:289
+#: kcm.ui:295
 #, kde-format
 msgid "Accept"
 msgstr "Acceptér"
 
 #. i18n: ectx: property (text), widget (QPushButton, reject_button)
-#: kcm.ui:296
+#: kcm.ui:302
 #, kde-format
 msgid "Reject"
 msgstr "Afvis"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
-#: kcm.ui:309
+#: kcm.ui:315
 #, kde-format
 msgid "Request pair"
 msgstr "Anmod om parring"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
-#: kcm.ui:322
+#: kcm.ui:328
 #, kde-format
 msgid "Unpair"
 msgstr "Fjern parring"
 
 #. i18n: ectx: property (text), widget (QPushButton, ping_button)
-#: kcm.ui:335
+#: kcm.ui:341
 #, kde-format
 msgid "Send ping"
 msgstr "Send ping"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
-#: kcm.ui:373
+#: kcm.ui:379
 #, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
@@ -177,6 +177,32 @@ msgstr ""
 "\"><span style=\" text-decoration: underline;\">KDE Connects community-wiki "
 "</span></a> for hjælp.</p></body></html>"
 
+#: list.qml:44
+#, kde-format
+msgid "Remembered"
+msgstr ""
+
+#: list.qml:46
+#, fuzzy, kde-format
+#| msgid "Available plugins"
+msgid "Available"
+msgstr "Tilgængelige plugins"
+
+#: list.qml:48
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgid "Connected"
+msgstr "KDE Connect"
+
+#: list.qml:53
+#, fuzzy, kde-format
+#| msgid "No device selected."
+msgid "No devices found"
+msgstr "Ingen enhed valgt."
+
+#~ msgid "🔑 abababab"
+#~ msgstr "🔑 abababab"
+
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "Modul til indstilling af KDE Connect"
 
@@ -185,9 +211,6 @@ msgstr ""
 
 #~ msgid "Albert Vaca Cintora"
 #~ msgstr "Albert Vaca Cintora"
-
-#~ msgid "No device selected."
-#~ msgstr "Ingen enhed valgt."
 
 #~ msgid ""
 #~ "<html><head/><body><p>If you are having problems, visit the <a href="

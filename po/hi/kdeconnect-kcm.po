@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-07 00:39+0000\n"
 "PO-Revision-Date: 2024-06-08 20:44+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -27,126 +27,126 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "officialasishkumar@gmail.com, raghu@raghukamath.com"
 
-#: kcm.cpp:57
+#: kcm.cpp:82
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr ""
 
-#: kcm.cpp:188
+#: kcm.cpp:198
 #, kde-format
 msgid "Key: %1"
 msgstr "कुंजी: %1"
 
-#: kcm.cpp:213
+#: kcm.cpp:223
 #, kde-format
 msgid "Available plugins"
 msgstr "उपलब्ध प्लगइन्स"
 
-#: kcm.cpp:260
+#: kcm.cpp:270
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "युग्मित करने का प्रयास करने में त्रुटि: %1"
 
-#: kcm.cpp:276
+#: kcm.cpp:286
 #, kde-format
 msgid "(paired)"
 msgstr "(युग्मित)"
 
-#: kcm.cpp:279
+#: kcm.cpp:289
 #, kde-format
 msgid "(not paired)"
 msgstr "(युग्मित नहीं हुआ)"
 
-#: kcm.cpp:282
+#: kcm.cpp:292
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(आने वाली जोड़ी अनुरोध)"
 
-#: kcm.cpp:285
+#: kcm.cpp:295
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(जोड़ने का अनुरोध किया गया)"
 
 #. i18n: ectx: property (text), widget (QLabel, rename_label)
-#: kcm.ui:59
+#: kcm.ui:58
 #, kde-format
 msgid "KDE Connect"
 msgstr "केडीई कनेक्ट"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
-#: kcm.ui:82
+#: kcm.ui:81
 #, kde-format
 msgid "Edit"
 msgstr "संपादित करें"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
-#: kcm.ui:104
+#: kcm.ui:102
 #, kde-format
 msgid "Save"
 msgstr "सहेजें"
 
 #. i18n: ectx: property (text), widget (QPushButton, refresh_button)
-#: kcm.ui:120
+#: kcm.ui:127
 #, kde-format
 msgid "Refresh"
 msgstr "ताज़ा करें"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
-#: kcm.ui:193
+#: kcm.ui:199
 #, kde-format
 msgid "Device"
 msgstr "उपकरण"
 
 #. i18n: ectx: property (text), widget (QLabel, status_label)
-#: kcm.ui:209
+#: kcm.ui:215
 #, kde-format
 msgid "(status)"
 msgstr "(स्थिति)"
 
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
-#: kcm.ui:232
+#: kcm.ui:238
 #, kde-format
-msgid "🔑 abababab"
-msgstr "🔑 abababab"
+msgid "KSqueezedTextLabel"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
-#: kcm.ui:263
+#: kcm.ui:269
 #, kde-format
 msgid "Cancel"
 msgstr "रद्द"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
-#: kcm.ui:289
+#: kcm.ui:295
 #, kde-format
 msgid "Accept"
 msgstr "स्वीकार करें"
 
 #. i18n: ectx: property (text), widget (QPushButton, reject_button)
-#: kcm.ui:296
+#: kcm.ui:302
 #, kde-format
 msgid "Reject"
 msgstr "अस्वीकार करें"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
-#: kcm.ui:309
+#: kcm.ui:315
 #, kde-format
 msgid "Request pair"
 msgstr "जोड़ी का अनुरोध करें"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
-#: kcm.ui:322
+#: kcm.ui:328
 #, kde-format
 msgid "Unpair"
 msgstr "अयुग्मित करें"
 
 #. i18n: ectx: property (text), widget (QPushButton, ping_button)
-#: kcm.ui:335
+#: kcm.ui:341
 #, kde-format
 msgid "Send ping"
 msgstr "पिंग भेजें"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
-#: kcm.ui:373
+#: kcm.ui:379
 #, fuzzy, kde-format
 #| msgid ""
 #| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
@@ -182,3 +182,28 @@ msgstr ""
 "चाहिए। यदि आपको समस्या हो रही है, तो सहायता के लिए <a href=\"https://userbase."
 "kde.org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE "
 "Connect समुदाय विकि</span></a> पर जाएँ"
+
+#: list.qml:44
+#, kde-format
+msgid "Remembered"
+msgstr ""
+
+#: list.qml:46
+#, fuzzy, kde-format
+#| msgid "Available plugins"
+msgid "Available"
+msgstr "उपलब्ध प्लगइन्स"
+
+#: list.qml:48
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgid "Connected"
+msgstr "केडीई कनेक्ट"
+
+#: list.qml:53
+#, kde-format
+msgid "No devices found"
+msgstr ""
+
+#~ msgid "🔑 abababab"
+#~ msgstr "🔑 abababab"

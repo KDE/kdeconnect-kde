@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-07 00:39+0000\n"
 "PO-Revision-Date: 2024-09-10 06:49+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -30,126 +30,126 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ttv200@gmail.com,kde-l10n-he@kde.org"
 
-#: kcm.cpp:57
+#: kcm.cpp:82
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "שגיאה: KDE Connect אינו פעיל"
 
-#: kcm.cpp:188
+#: kcm.cpp:198
 #, kde-format
 msgid "Key: %1"
 msgstr "מפתח: %1"
 
-#: kcm.cpp:213
+#: kcm.cpp:223
 #, kde-format
 msgid "Available plugins"
 msgstr "תוספים זמינים"
 
-#: kcm.cpp:260
+#: kcm.cpp:270
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "שגיאה בניסיון לצימוד: %1"
 
-#: kcm.cpp:276
+#: kcm.cpp:286
 #, kde-format
 msgid "(paired)"
 msgstr "(מצומד)"
 
-#: kcm.cpp:279
+#: kcm.cpp:289
 #, kde-format
 msgid "(not paired)"
 msgstr "(לא מצומד)"
 
-#: kcm.cpp:282
+#: kcm.cpp:292
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(בקשת צימוד נכנסת)"
 
-#: kcm.cpp:285
+#: kcm.cpp:295
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(בקשת צימוד)"
 
 #. i18n: ectx: property (text), widget (QLabel, rename_label)
-#: kcm.ui:59
+#: kcm.ui:58
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
-#: kcm.ui:82
+#: kcm.ui:81
 #, kde-format
 msgid "Edit"
 msgstr "עריכה"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
-#: kcm.ui:104
+#: kcm.ui:102
 #, kde-format
 msgid "Save"
 msgstr "שמירה"
 
 #. i18n: ectx: property (text), widget (QPushButton, refresh_button)
-#: kcm.ui:120
+#: kcm.ui:127
 #, kde-format
 msgid "Refresh"
 msgstr "רענון"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
-#: kcm.ui:193
+#: kcm.ui:199
 #, kde-format
 msgid "Device"
 msgstr "מכשיר"
 
 #. i18n: ectx: property (text), widget (QLabel, status_label)
-#: kcm.ui:209
+#: kcm.ui:215
 #, kde-format
 msgid "(status)"
 msgstr "(מצב)"
 
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
-#: kcm.ui:232
+#: kcm.ui:238
 #, kde-format
-msgid "🔑 abababab"
-msgstr "🔑 אבאבאבאב"
+msgid "KSqueezedTextLabel"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
-#: kcm.ui:263
+#: kcm.ui:269
 #, kde-format
 msgid "Cancel"
 msgstr "ביטול"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
-#: kcm.ui:289
+#: kcm.ui:295
 #, kde-format
 msgid "Accept"
 msgstr "אישור"
 
 #. i18n: ectx: property (text), widget (QPushButton, reject_button)
-#: kcm.ui:296
+#: kcm.ui:302
 #, kde-format
 msgid "Reject"
 msgstr "דחייה"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
-#: kcm.ui:309
+#: kcm.ui:315
 #, kde-format
 msgid "Request pair"
 msgstr "בקשת צימוד"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
-#: kcm.ui:322
+#: kcm.ui:328
 #, kde-format
 msgid "Unpair"
 msgstr "הפרדה"
 
 #. i18n: ectx: property (text), widget (QPushButton, ping_button)
-#: kcm.ui:335
+#: kcm.ui:341
 #, kde-format
 msgid "Send ping"
 msgstr "שליחת פינג"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
-#: kcm.ui:373
+#: kcm.ui:379
 #, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
@@ -178,6 +178,32 @@ msgstr ""
 "text-decoration: underline;\">וויקי של קהילת KDE Connect</span></a> לקבלת "
 "עזרה.</p></body></html>"
 
+#: list.qml:44
+#, kde-format
+msgid "Remembered"
+msgstr ""
+
+#: list.qml:46
+#, fuzzy, kde-format
+#| msgid "Available plugins"
+msgid "Available"
+msgstr "תוספים זמינים"
+
+#: list.qml:48
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgid "Connected"
+msgstr "KDE Connect"
+
+#: list.qml:53
+#, fuzzy, kde-format
+#| msgid "No device selected."
+msgid "No devices found"
+msgstr "לא נבחרו התקנים"
+
+#~ msgid "🔑 abababab"
+#~ msgstr "🔑 אבאבאבאב"
+
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "מודול ההגדרה של KDE Connect"
 
@@ -186,9 +212,6 @@ msgstr ""
 
 #~ msgid "Albert Vaca Cintora"
 #~ msgstr "Albert Vaca Cintora"
-
-#~ msgid "No device selected."
-#~ msgstr "לא נבחרו התקנים"
 
 #~ msgid ""
 #~ "<html><head/><body><p>If you are having problems, visit the <a href="
