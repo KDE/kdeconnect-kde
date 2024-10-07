@@ -75,17 +75,21 @@ void BluetoothLinkProvider::onStop()
 
 void BluetoothLinkProvider::enable()
 {
-    enabled = true;
-    tryToInitialise();
+    if (enabled == false) {
+        enabled = true;
+        tryToInitialise();
+    }
 }
 
 void BluetoothLinkProvider::disable()
 {
-    enabled = false;
-    this->onStop();
+    if (enabled == true) {
+        enabled = false;
+        this->onStop();
 
-    mBluetoothServer = nullptr;
-    mServiceDiscoveryAgent = nullptr;
+        mBluetoothServer = nullptr;
+        mServiceDiscoveryAgent = nullptr;
+    }
 }
 
 void BluetoothLinkProvider::onNetworkChange()

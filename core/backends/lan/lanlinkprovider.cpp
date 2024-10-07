@@ -86,17 +86,25 @@ LanLinkProvider::~LanLinkProvider()
 
 void LanLinkProvider::enable()
 {
-    disabled = false;
-    this->onStart();
+    if (disabled == true) {
+        disabled = false;
+        this->onStart();
+    }
 }
 void LanLinkProvider::disable()
 {
-    this->onStop();
-    disabled = true;
+    if (disabled == false) {
+        this->onStop();
+        disabled = true;
+    }
 }
 
 void LanLinkProvider::onStart()
 {
+    if (disabled) {
+        return;
+    }
+
     const QHostAddress bindAddress = m_testMode ? QHostAddress::LocalHost : QHostAddress::Any;
 
     bool success = m_udpSocket.bind(bindAddress, UDP_PORT, QUdpSocket::ShareAddress);
@@ -129,6 +137,9 @@ void LanLinkProvider::onStart()
 
 void LanLinkProvider::onStop()
 {
+    if (disabled) {
+        return;
+    }
 #ifdef KDECONNECT_MDNS
     m_mdnsDiscovery.onStop();
 #endif
@@ -139,6 +150,9 @@ void LanLinkProvider::onStop()
 
 void LanLinkProvider::onNetworkChange()
 {
+    if (disabled) {
+        return;
+    }
     if (m_combineNetworkChangeTimer.isActive()) {
         qCDebug(KDECONNECT_CORE) << "Device discovery triggered too fast, ignoring";
         return;
@@ -149,6 +163,9 @@ void LanLinkProvider::onNetworkChange()
 // I'm in a new network, let's be polite and introduce myself
 void LanLinkProvider::combinedOnNetworkChange()
 {
+    if (disabled) {
+        return;
+    }
     if (!m_server->isListening()) {
         qWarning() << "TCP server not listening, not broadcasting";
         return;
