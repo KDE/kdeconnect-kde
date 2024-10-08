@@ -15,7 +15,6 @@
 #include <dbushelper.h>
 
 #include <Windows.h>
-#pragma comment(lib, "user32.lib")
 
 K_PLUGIN_CLASS_WITH_JSON(LockDevicePlugin, "kdeconnect_lockdevice.json")
 
