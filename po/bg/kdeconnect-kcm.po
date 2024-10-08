@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-07 00:39+0000\n"
-"PO-Revision-Date: 2024-09-11 13:31+0200\n"
+"PO-Revision-Date: 2024-10-07 22:14+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -109,7 +109,7 @@ msgstr "(състояние)"
 #: kcm.ui:238
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:269
@@ -181,24 +181,22 @@ msgstr ""
 #: list.qml:44
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "Запомнени"
 
 #: list.qml:46
-#, fuzzy, kde-format
-#| msgid "Available plugins"
+#, kde-format
 msgid "Available"
-msgstr "Налични приставки"
+msgstr "Налични"
 
 #: list.qml:48
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "Connected"
-msgstr "KDE Connect"
+msgstr "Свързани"
 
 #: list.qml:53
 #, kde-format
 msgid "No devices found"
-msgstr ""
+msgstr "Не са открити устройства"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"

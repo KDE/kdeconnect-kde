@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-07 00:39+0000\n"
-"PO-Revision-Date: 2024-09-11 19:22+0200\n"
+"PO-Revision-Date: 2024-10-07 16:43+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -107,7 +107,7 @@ msgstr "(status)"
 #: kcm.ui:238
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:269
@@ -178,25 +178,22 @@ msgstr ""
 #: list.qml:44
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "Ihågkommen"
 
 #: list.qml:46
-#, fuzzy, kde-format
-#| msgid "Available plugins"
+#, kde-format
 msgid "Available"
-msgstr "Tillgängliga insticksprogram"
+msgstr "Tillgänglig"
 
 #: list.qml:48
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "Connected"
-msgstr "KDE-anslut"
+msgstr "Ansluten"
 
 #: list.qml:53
-#, fuzzy, kde-format
-#| msgid "No device selected."
+#, kde-format
 msgid "No devices found"
-msgstr "Ingen apparat vald."
+msgstr "Inga apparater hittades"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"
