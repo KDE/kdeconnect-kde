@@ -73,7 +73,7 @@ void Daemon::init()
     qCDebug(KDECONNECT_CORE) << "DBus registration complete";
 
     auto configInstance = KdeConnectConfig::instance();
-    auto status = configInstance.getLinkProviderStatus();
+    auto status = configInstance.linkProviderStatus();
 
     // Load backends
     if (d->m_testMode) {
@@ -153,7 +153,7 @@ QSet<LinkProvider *> Daemon::getLinkProviders() const
 QStringList Daemon::linkProviders() const
 {
     auto configInstance = KdeConnectConfig::instance();
-    auto status = configInstance.getLinkProviderStatus();
+    auto status = configInstance.linkProviderStatus();
     QStringList returnValue;
 
     for (LinkProvider *a : std::as_const(d->m_linkProviders)) {

@@ -101,7 +101,6 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
             kcmUi.linkProviders_list->clear();
             for (int i = 0; i < linkProviders.size(); ++i) {
                 QStringList linkProvider = linkProviders.at(i).split(QStringLiteral("|"));
-
                 QString providerName = linkProvider.at(0);
                 QString providerStatus = linkProvider.at(1);
 
@@ -191,11 +190,8 @@ void KdeConnectKcm::refresh()
         QString providerIsEnabled = item->checkState() == Qt::Checked ? QStringLiteral("enabled") : QStringLiteral("disabled");
         QString line = item->text() + QStringLiteral("|") + providerIsEnabled;
         providerStatusToSend.append(line);
-        //  QMessageBox::information(widget(), QStringLiteral("thisLine"), line, QMessageBox::StandardButton::NoButton);
     }
 
-    // QMessageBox::information(widget(), QStringLiteral("ProviderStatus"),providerStatusToSend.join(QStringLiteral("")),
-    // QMessageBox::StandardButton::NoButton);
     daemon->setProviderStatus(providerStatusToSend);
     daemon->forceOnNetworkChange();
 }

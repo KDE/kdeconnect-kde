@@ -83,14 +83,10 @@ void KdeConnectConfig::setLinkProviderStatus(const QStringList enabledProviders,
     d->m_config->sync();
 }
 
-QMap<QString, QStringList> KdeConnectConfig::getLinkProviderStatus()
+QMap<QString, QStringList> KdeConnectConfig::linkProviderStatus() const
 {
-    QMap<QString, QStringList> result;
-
-    result[QStringLiteral("enabled")] = d->m_config->value(QStringLiteral("enabled_providers")).toStringList();
-    result[QStringLiteral("disabled")] = d->m_config->value(QStringLiteral("disabled_providers")).toStringList();
-
-    return result;
+    return {{QStringLiteral("enabled"), d->m_config->value(QStringLiteral("enabled_providers")).toStringList()},
+            {QStringLiteral("disabled"), d->m_config->value(QStringLiteral("disabled_providers")).toStringList()}};
 }
 
 DeviceType KdeConnectConfig::deviceType()
