@@ -97,7 +97,7 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
 
     setWhenAvailable(
         daemon->linkProviders(),
-        [this](bool error, const QStringList linkProviders) {
+        [this](bool error, const QStringList &linkProviders) {
             kcmUi.linkProviders_list->clear();
             for (int i = 0; i < linkProviders.size(); ++i) {
                 QStringList linkProvider = linkProviders.at(i).split(QStringLiteral("|"));
