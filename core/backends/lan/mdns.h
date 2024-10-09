@@ -1085,10 +1085,10 @@ mdns_multiquery_send(int sock, const mdns_query_t* query, size_t count, void* bu
 	socklen_t saddrlen = sizeof(addr_storage);
 	if (getsockname(sock, saddr, &saddrlen) == 0) {
 		if ((saddr->sa_family == AF_INET) &&
-		    (ntohs(((struct sockaddr_in*)saddr)->sin_port) == MDNS_PORT))
+		    (ntohs((reinterpret_cast<sockaddr_in*>(saddr))->sin_port) == MDNS_PORT))
 			rclass &= ~MDNS_UNICAST_RESPONSE;
 		else if ((saddr->sa_family == AF_INET6) &&
-		         (ntohs(((struct sockaddr_in6*)saddr)->sin6_port) == MDNS_PORT))
+		         (ntohs((reinterpret_cast<sockaddr_in6*>(saddr))->sin6_port) == MDNS_PORT))
 			rclass &= ~MDNS_UNICAST_RESPONSE;
 	}
 
