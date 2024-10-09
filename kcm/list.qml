@@ -21,10 +21,18 @@ ScrollView {
 
     property alias model: devices.model
 
-    Component.onCompleted: {
-        if (background) {
-            background.visible = true
-        }
+    Kirigami.Theme.colorSet: Kirigami.Theme.View
+    Kirigami.Theme.inherit: false
+
+    background: Rectangle {
+        color: Kirigami.Theme.backgroundColor
+        radius: Kirigami.Units.cornerRadius
+
+        border.color: Kirigami.ColorUtils.linearInterpolation(
+            Kirigami.Theme.backgroundColor,
+            Kirigami.Theme.textColor,
+            Kirigami.Theme.frameContrast
+        )
     }
 
     ListView {
