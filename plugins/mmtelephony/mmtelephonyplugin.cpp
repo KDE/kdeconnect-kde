@@ -56,7 +56,7 @@ void MMTelephonyPlugin::onCallAdded(ModemManager::Call::Ptr call)
 {
     qCDebug(KDECONNECT_PLUGIN_MMTELEPHONY) << "Call added" << call->number();
 
-    connect(call.get(), &ModemManager::Call::stateChanged, this, [=](MMCallState newState, MMCallState oldState) {
+    connect(call.get(), &ModemManager::Call::stateChanged, this, [=, this](MMCallState newState, MMCallState oldState) {
         onCallStateChanged(call.get(), newState, oldState);
     });
 }
