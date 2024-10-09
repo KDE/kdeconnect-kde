@@ -18,7 +18,7 @@ BluetoothLinkProvider::BluetoothLinkProvider(bool isDisabled)
     , mServiceDiscoveryAgent(new QBluetoothServiceDiscoveryAgent(this))
     , connectTimer(new QTimer(this))
 {
-    this->disabled = isDisabled;
+    this->mDisabled = isDisabled;
     connectTimer->setInterval(30000);
     connectTimer->setSingleShot(false);
 
@@ -33,7 +33,7 @@ BluetoothLinkProvider::BluetoothLinkProvider(bool isDisabled)
 void BluetoothLinkProvider::onStart()
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStart executed";
-    if (!disabled) {
+    if (!mDisabled) {
         tryToInitialise();
     }
 }
@@ -60,7 +60,7 @@ void BluetoothLinkProvider::tryToInitialise()
 
 void BluetoothLinkProvider::onStop()
 {
-    if (!disabled) {
+    if (!mDisabled) {
         qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStop executed";
         if (!mBluetoothServer) {
             return;
@@ -76,17 +76,17 @@ void BluetoothLinkProvider::onStop()
 
 void BluetoothLinkProvider::enable()
 {
-    if (disabled) {
-        disabled = false;
+    if (mDisabled) {
+        mDisabled = false;
         tryToInitialise();
     }
 }
 
 void BluetoothLinkProvider::disable()
 {
-    if (!disabled) {
-        disabled = true;
-        this->onStop();
+    if (!mDisabled) {
+        mDisabled = true;
+        onStop();
 
         mBluetoothServer = nullptr;
         mServiceDiscoveryAgent = nullptr;
@@ -96,7 +96,7 @@ void BluetoothLinkProvider::disable()
 void BluetoothLinkProvider::onNetworkChange()
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onNetworkChange executed";
-    if (!disabled) {
+    if (!mDisabled) {
         tryToInitialise();
     }
 }

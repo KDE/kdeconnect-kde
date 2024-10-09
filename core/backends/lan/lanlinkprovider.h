@@ -95,7 +95,7 @@ private:
     const bool m_testMode;
     QTimer m_combineNetworkChangeTimer;
 
-    bool disabled;
+    bool m_disabled;
 
 #ifdef KDECONNECT_MDNS
     MdnsDiscovery m_mdnsDiscovery;

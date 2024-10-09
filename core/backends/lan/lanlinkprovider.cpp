@@ -52,7 +52,7 @@ LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
     , m_mdnsDiscovery(this)
 #endif
 {
-    this->disabled = isDisabled;
+    this->m_disabled = isDisabled;
 
     m_combineNetworkChangeTimer.setInterval(0); // increase this if waiting a single event-loop iteration is not enough
     m_combineNetworkChangeTimer.setSingleShot(true);
@@ -88,22 +88,22 @@ LanLinkProvider::~LanLinkProvider()
 
 void LanLinkProvider::enable()
 {
-    if (disabled == true) {
-        disabled = false;
-        this->onStart();
+    if (m_disabled == true) {
+        m_disabled = false;
+        onStart();
     }
 }
 void LanLinkProvider::disable()
 {
-    if (disabled == false) {
-        this->onStop();
-        disabled = true;
+    if (m_disabled == false) {
+        onStop();
+        m_disabled = true;
     }
 }
 
 void LanLinkProvider::onStart()
 {
-    if (disabled) {
+    if (m_disabled) {
         return;
     }
 
@@ -139,7 +139,7 @@ void LanLinkProvider::onStart()
 
 void LanLinkProvider::onStop()
 {
-    if (disabled) {
+    if (m_disabled) {
         return;
     }
 #ifdef KDECONNECT_MDNS
@@ -152,7 +152,7 @@ void LanLinkProvider::onStop()
 
 void LanLinkProvider::onNetworkChange()
 {
-    if (disabled) {
+    if (m_disabled) {
         return;
     }
     if (m_combineNetworkChangeTimer.isActive()) {
@@ -165,7 +165,7 @@ void LanLinkProvider::onNetworkChange()
 // I'm in a new network, let's be polite and introduce myself
 void LanLinkProvider::combinedOnNetworkChange()
 {
-    if (disabled) {
+    if (m_disabled) {
         return;
     }
     if (!m_server->isListening()) {

@@ -74,7 +74,7 @@ private:
     QBluetoothServiceInfo mKdeconnectService;
     QBluetoothServiceDiscoveryAgent *mServiceDiscoveryAgent;
     QTimer *connectTimer;
-    bool disabled;
+    bool mDisabled;
 
     QMap<QString, DeviceLink *> mLinks;
 
