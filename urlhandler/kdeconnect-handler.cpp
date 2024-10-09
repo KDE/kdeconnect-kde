@@ -55,7 +55,7 @@ int main(int argc, char **argv)
     KDBusService dbusService(KDBusService::Unique);
 
 #ifdef Q_OS_WIN
-    KColorSchemeManager manager;
+    KColorSchemeManager::instance();
     QApplication::setStyle(QStringLiteral("breeze"));
 #endif
 

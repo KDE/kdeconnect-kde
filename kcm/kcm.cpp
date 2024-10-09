@@ -47,7 +47,7 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
     , currentDevice(nullptr)
 {
 #ifdef Q_OS_WIN
-    KColorSchemeManager manager;
+    KColorSchemeManager::instance();
     QApplication::setStyle(QStringLiteral("breeze"));
 #endif
 
