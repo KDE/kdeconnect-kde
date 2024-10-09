@@ -1,13 +1,13 @@
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # <tomhioo@outlook.jp>, 2019.
-# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2022, 2023.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2019, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-04 02:27+0000\n"
-"PO-Revision-Date: 2023-04-07 23:39-0700\n"
-"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
+"PO-Revision-Date: 2024-10-06 10:32+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -44,11 +44,9 @@ msgid "No signal"
 msgstr "シグナルなし"
 
 #: package/contents/ui/DeviceDelegate.qml:31
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "ペアリング済みのデバイスが利用できません"
+msgstr "仮想モニタは利用できません"
 
 #: package/contents/ui/DeviceDelegate.qml:63
 #, kde-format
@@ -69,16 +67,17 @@ msgstr "仮想ディスプレイ"
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
 msgstr ""
+"リモートデバイスに VNC クライアント (例: krdc) がインストールされていません。"
 
 #: package/contents/ui/DeviceDelegate.qml:110
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "ローカルデバイスには krfb パッケージが必要です。"
 
 #: package/contents/ui/DeviceDelegate.qml:117
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "仮想モニタの作成に失敗しました。"
 
 #: package/contents/ui/DeviceDelegate.qml:167
 #, kde-format
@@ -99,7 +98,7 @@ msgstr "ファイルを共有"
 #: package/contents/ui/DeviceDelegate.qml:213
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "クリップボードを送信"
 
 #: package/contents/ui/DeviceDelegate.qml:232
 #, kde-format
@@ -182,14 +181,13 @@ msgstr[0] "ペアリング済みのデバイスが利用できません"
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
-"KDE Connect をあなたの Android デバイスにインストールして Plasma と統合しま"
-"しょう!"
+"KDE Connect をあなたの Android デバイスにインストールして Plasma と連携させま"
+"しょう！"
 
 #: package/contents/ui/FullRepresentation.qml:66
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "デバイスとペアリングする..."
+msgstr "デバイスとペアリング…"
 
 #: package/contents/ui/FullRepresentation.qml:78
 #, kde-format
@@ -202,7 +200,6 @@ msgid "Install from F-Droid"
 msgstr "F-Droid からインストール"
 
 #: package/contents/ui/main.qml:59
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
 msgstr "KDE Connect の設定..."
