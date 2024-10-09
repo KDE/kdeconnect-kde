@@ -36,6 +36,7 @@ private Q_SLOTS:
     void sendPing();
     void pairingFailed(const QString &error);
     void refresh();
+    void saveBackends();
     void renameShow();
     void renameDone();
     void setRenameMode(bool b);

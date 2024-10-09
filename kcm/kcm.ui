@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1130</width>
+    <width>1143</width>
     <height>740</height>
    </rect>
   </property>
@@ -65,6 +65,9 @@
         </item>
         <item>
          <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>40</width>
@@ -122,6 +125,13 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="refresh_button">
+        <property name="text">
+         <string>Refresh</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QLabel" name="label">
         <property name="text">
          <string>Backends:</string>
@@ -132,9 +142,9 @@
        <widget class="QListWidget" name="linkProviders_list"/>
       </item>
       <item>
-       <widget class="QPushButton" name="refresh_button">
+       <widget class="QPushButton" name="backend_apply_button">
         <property name="text">
-         <string>Refresh</string>
+         <string>Apply</string>
         </property>
        </widget>
       </item>
@@ -229,6 +239,9 @@
                  </item>
                  <item>
                   <spacer name="horizontalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>40</width>
@@ -254,6 +267,9 @@
             </item>
             <item>
              <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
               <property name="sizeHint" stdset="0">
                <size>
                 <width>40</width>

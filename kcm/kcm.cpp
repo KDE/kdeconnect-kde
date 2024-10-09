@@ -134,6 +134,7 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
     connect(kcmUi.renameDone_button, &QAbstractButton::clicked, this, &KdeConnectKcm::renameDone);
     connect(kcmUi.renameShow_button, &QAbstractButton::clicked, this, &KdeConnectKcm::renameShow);
     connect(kcmUi.pluginSelector, &KPluginWidget::changed, this, &KdeConnectKcm::pluginsConfigChanged);
+    connect(kcmUi.backend_apply_button, &QAbstractButton::clicked, this, &KdeConnectKcm::saveBackends);
 
     if (!args.isEmpty() && !args.first().isNull() && args.first().canConvert<QString>()) {
         const QString input = args.first().toString();
@@ -184,6 +185,11 @@ KdeConnectKcm::~KdeConnectKcm()
 
 void KdeConnectKcm::refresh()
 {
+    daemon->forceOnNetworkChange();
+}
+
+void KdeConnectKcm::saveBackends()
+{
     QStringList providerStatusToSend;
     for (int i = 0; i < kcmUi.linkProviders_list->count(); ++i) {
         QListWidgetItem *item = kcmUi.linkProviders_list->item(i);
@@ -193,7 +199,6 @@ void KdeConnectKcm::refresh()
     }
 
     daemon->setProviderStatus(providerStatusToSend);
-    daemon->forceOnNetworkChange();
 }
 
 void KdeConnectKcm::deviceSelected(const QString &deviceId)
