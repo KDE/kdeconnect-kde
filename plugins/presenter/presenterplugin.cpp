@@ -28,8 +28,8 @@ class PresenterView : public QQuickView
 public:
     PresenterView()
     {
-        Qt::WindowFlags windowFlags = Qt::WindowFlags(Qt::WA_TranslucentBackground | Qt::WindowDoesNotAcceptFocus | Qt::WindowFullScreen
-                                                      | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool);
+        Qt::WindowFlags windowFlags = Qt::WindowFlags(Qt::WindowDoesNotAcceptFocus | Qt::WindowFullScreen | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint
+                                                      | Qt::Tool | (int)(Qt::WA_TranslucentBackground));
 #ifdef Q_OS_WIN
         windowFlags |= Qt::WindowTransparentForInput;
 #endif
