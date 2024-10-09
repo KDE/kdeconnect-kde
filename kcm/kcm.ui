@@ -51,7 +51,6 @@
           <property name="font">
            <font>
             <pointsize>12</pointsize>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -59,14 +58,17 @@
            <string>KDE Connect</string>
           </property>
           <property name="textFormat">
-           <enum>Qt::PlainText</enum>
+           <enum>Qt::TextFormat::PlainText</enum>
           </property>
          </widget>
         </item>
         <item>
          <spacer name="horizontalSpacer_2">
           <property name="orientation">
-           <enum>Qt::Vertical</enum>
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Policy::Minimum</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -82,8 +84,7 @@
            <string>Edit</string>
           </property>
           <property name="icon">
-           <iconset theme="edit-rename">
-            <normaloff>.</normaloff>.</iconset>
+           <iconset theme="edit-rename"/>
           </property>
          </widget>
         </item>
@@ -104,8 +105,7 @@
            <string>Save</string>
           </property>
           <property name="icon">
-           <iconset theme="dialog-ok">
-            <normaloff>.</normaloff>.</iconset>
+           <iconset theme="dialog-ok"/>
           </property>
          </widget>
         </item>
@@ -120,7 +120,7 @@
          </sizepolicy>
         </property>
         <property name="resizeMode">
-         <enum>QQuickWidget::SizeViewToRootObject</enum>
+         <enum>QQuickWidget::ResizeMode::SizeViewToRootObject</enum>
         </property>
        </widget>
       </item>
@@ -139,7 +139,14 @@
        </widget>
       </item>
       <item>
-       <widget class="QListWidget" name="linkProviders_list"/>
+       <widget class="QListWidget" name="linkProviders_list">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="backend_apply_button">
@@ -179,7 +186,7 @@
            </property>
            <layout class="QHBoxLayout" name="header">
             <property name="sizeConstraint">
-             <enum>QLayout::SetDefaultConstraint</enum>
+             <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
             </property>
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -212,7 +219,6 @@
                    <property name="font">
                     <font>
                      <pointsize>10</pointsize>
-                     <weight>75</weight>
                      <bold>true</bold>
                     </font>
                    </property>
@@ -220,7 +226,7 @@
                     <string>Device</string>
                    </property>
                    <property name="textFormat">
-                    <enum>Qt::PlainText</enum>
+                    <enum>Qt::TextFormat::PlainText</enum>
                    </property>
                   </widget>
                  </item>
@@ -240,7 +246,10 @@
                  <item>
                   <spacer name="horizontalSpacer_3">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Policy::Minimum</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -259,7 +268,7 @@
                  <string>KSqueezedTextLabel</string>
                 </property>
                 <property name="textInteractionFlags">
-                 <set>Qt::NoTextInteraction</set>
+                 <set>Qt::TextInteractionFlag::NoTextInteraction</set>
                 </property>
                </widget>
               </item>
@@ -268,7 +277,10 @@
             <item>
              <spacer name="horizontalSpacer">
               <property name="orientation">
-               <enum>Qt::Vertical</enum>
+               <enum>Qt::Orientation::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Policy::Minimum</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -378,7 +390,7 @@
             </sizepolicy>
            </property>
            <property name="focusPolicy">
-            <enum>Qt::NoFocus</enum>
+            <enum>Qt::FocusPolicy::NoFocus</enum>
            </property>
           </widget>
          </item>
@@ -400,7 +412,7 @@
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;No device selected.&lt;br&gt;&lt;br&gt;If you own an Android device, make sure to install the &lt;a href=&quot;https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;KDE Connect Android app&lt;/span&gt;&lt;/a&gt; (also available &lt;a href=&quot;https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;from F-Droid&lt;/span&gt;&lt;/a&gt;) and it should appear in the list. If you have an iPhone, make sure to install the &lt;a href=&quot;https://apps.apple.com/us/app/kde-connect/id1580245991&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;KDE Connect iOS app&lt;/span&gt;&lt;/a&gt; &lt;br&gt;&lt;br&gt;If you are having problems, visit the &lt;a href=&quot;https://userbase.kde.org/KDEConnect&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;KDE Connect Community wiki&lt;/span&gt;&lt;/a&gt; for help.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="textFormat">
-            <enum>Qt::PlainText</enum>
+            <enum>Qt::TextFormat::PlainText</enum>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -412,7 +424,7 @@
             <bool>true</bool>
            </property>
            <property name="textInteractionFlags">
-            <set>Qt::NoTextInteraction</set>
+            <set>Qt::TextInteractionFlag::NoTextInteraction</set>
            </property>
           </widget>
          </item>
