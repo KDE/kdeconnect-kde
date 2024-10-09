@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2024-10-09 00:39+0000\n"
 "PO-Revision-Date: 2024-02-10 10:21-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -70,13 +70,13 @@ msgstr "ਚਲਾਉਣ ਲਈ ਸਾਊਂਡ:"
 msgid "Select the sound to play"
 msgstr "ਚਲਾਉਣ ਲਈ ਸਾਊਂਡ ਚੁਣੋ"
 
-#: lockdevice/lockdeviceplugin-win.cpp:59 lockdevice/lockdeviceplugin.cpp:87
+#: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
 msgstr "ਰਿਮੋਟ ਲਾਕ ਕਾਮਯਾਬ ਹੈ"
 
-#: lockdevice/lockdeviceplugin-win.cpp:62
-#: lockdevice/lockdeviceplugin-win.cpp:63 lockdevice/lockdeviceplugin.cpp:92
+#: lockdevice/lockdeviceplugin-win.cpp:61
+#: lockdevice/lockdeviceplugin-win.cpp:62 lockdevice/lockdeviceplugin.cpp:92
 #: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
