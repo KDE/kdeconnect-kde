@@ -63,9 +63,8 @@ void RequestConversationWorker::handleRequestConversation()
     Q_EMIT finished();
 }
 
-size_t RequestConversationWorker::replyForConversation(const QList<ConversationMessage> &conversation, int start, size_t howMany)
+size_t RequestConversationWorker::replyForConversation(const QList<ConversationMessage> &conversation, size_t start, size_t howMany)
 {
-    Q_ASSERT(start >= 0);
     // Messages are sorted in ascending order of keys, meaning the front of the list has the oldest
     // messages (smallest timestamp number)
     // Therefore, return the end of the list first (most recent messages)

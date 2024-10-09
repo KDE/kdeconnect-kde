@@ -58,5 +58,5 @@ private:
      * @param howMany Maximum number of messages to return
      * $return Number of messages processed
      */
-    size_t replyForConversation(const QList<ConversationMessage> &conversation, int start, size_t howMany);
+    size_t replyForConversation(const QList<ConversationMessage> &conversation, size_t start, size_t howMany);
 };
