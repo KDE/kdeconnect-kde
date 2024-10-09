@@ -25,7 +25,7 @@ namespace
 {
 // https://specifications.freedesktop.org/notification-spec/notification-spec-latest.html
 inline constexpr const char *NOTIFY_SIGNATURE = "susssasa{sv}i";
-inline constexpr const char *IMAGE_DATA_SIGNATURE = "iiibiiay";
+// inline constexpr const char *IMAGE_DATA_SIGNATURE = "iiibiiay";
 
 QString becomeMonitor(DBusConnection *conn, const char *match)
 {
