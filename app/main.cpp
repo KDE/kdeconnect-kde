@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     KCrash::initialize();
 
 #ifdef Q_OS_WIN
-    KColorSchemeManager manager;
+    KColorSchemeManager::instance();
     QApplication::setStyle(QStringLiteral("breeze"));
 #endif
 
