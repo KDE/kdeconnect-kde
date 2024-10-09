@@ -10,6 +10,7 @@
 #include <limits>
 
 #include <QBuffer>
+#include <QDBusArgument>
 #include <QFile>
 #include <QImage>
 
@@ -355,15 +356,15 @@ bool DBusNotificationsListener::parseImageDataArgument(const QVariant &argument,
                                                        bool &hasAlpha,
                                                        QByteArray &imageData) const
 {
-    // FIXME
-    // if (!argument.canConvert<QDBusArgument>()) {
-    //     return false;
-    // }
-    // const QDBusArgument dbusArg = argument.value<QDBusArgument>();
-    // dbusArg.beginStructure();
-    // dbusArg >> width >> height >> rowStride >> hasAlpha >> bitsPerSample >> channels >> imageData;
-    // dbusArg.endStructure();
     return true;
+    // FIXME
+    if (!argument.canConvert<QDBusArgument>()) {
+        return false;
+    }
+    const QDBusArgument dbusArg = argument.value<QDBusArgument>();
+    dbusArg.beginStructure();
+    dbusArg >> width >> height >> rowStride >> hasAlpha >> bitsPerSample >> channels >> imageData;
+    dbusArg.endStructure();
 }
 
 QSharedPointer<QIODevice> DBusNotificationsListener::iconForImageData(const QVariant &argument) const
