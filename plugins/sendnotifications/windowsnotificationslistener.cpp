@@ -112,7 +112,7 @@ void WindowsNotificationsListener::onNotificationChanged(const UserNotificationL
                 reader.ReadBytes({bufferArray.data(), bufferArray.data() + bufferArray.size()});
 
                 QImage image;
-                if (image.loadFromData(bufferArray.data(), bufferArray.size())) {
+                if (image.loadFromData(bufferArray.data(), (int)(bufferArray.size()))) {
                     // Write the logo buffer to the QIODevice
                     QSharedPointer<QIODevice> iconSource = iconFromQImage(image);
                     if (iconSource) {
