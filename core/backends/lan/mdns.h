@@ -731,7 +731,7 @@ mdns_string_find(const char* str, size_t length, char c, size_t offset) {
 static inline void*
 mdns_string_make_ref(void* data, size_t capacity, size_t ref_offset) {
 	if (capacity < 2)
-		return 0;
+		return nullptr;
 	return mdns_htons(data, 0xC000 | (uint16_t)ref_offset);
 }
 
@@ -755,7 +755,7 @@ mdns_string_make(void* buffer, size_t capacity, void* data, const char* name, si
 			return mdns_string_make_ref(data, remain, ref_offset);
 
 		if (remain <= (sub_length + 1))
-			return 0;
+			return nullptr;
 
 		*(unsigned char*)data = (unsigned char)sub_length;
 		memcpy(MDNS_POINTER_OFFSET(data, 1), name + last_pos, sub_length);
@@ -767,7 +767,7 @@ mdns_string_make(void* buffer, size_t capacity, void* data, const char* name, si
 	}
 
 	if (!remain)
-		return 0;
+		return nullptr;
 
 	*(unsigned char*)data = 0;
 	return MDNS_POINTER_OFFSET(data, 1);
@@ -1107,7 +1107,7 @@ mdns_multiquery_send(int sock, const mdns_query_t* query, size_t count, void* bu
 	void* data = MDNS_POINTER_OFFSET(buffer, sizeof(struct mdns_header_t));
 	for (size_t iq = 0; iq < count; ++iq) {
 		// Name string
-		data = mdns_string_make(buffer, capacity, data, query[iq].name, query[iq].length, 0);
+		data = mdns_string_make(buffer, capacity, data, query[iq].name, query[iq].length, nullptr);
 		if (!data)
 			return -1;
 		// Record type
@@ -1195,10 +1195,10 @@ mdns_answer_add_question_unicast(void* buffer, size_t capacity, void* data,
                                  size_t name_length, mdns_string_table_t* string_table) {
 	data = mdns_string_make(buffer, capacity, data, name, name_length, string_table);
 	if (!data)
-		return 0;
+		return nullptr;
 	size_t remain = capacity - MDNS_POINTER_DIFF(data, buffer);
 	if (remain < 4)
-		return 0;
+		return nullptr;
 
 	data = mdns_htons(data, record_type);
 	data = mdns_htons(data, MDNS_UNICAST_RESPONSE | MDNS_CLASS_IN);
@@ -1211,10 +1211,10 @@ mdns_answer_add_record_header(void* buffer, size_t capacity, void* data, mdns_re
                               mdns_string_table_t* string_table) {
 	data = mdns_string_make(buffer, capacity, data, record.name.str, record.name.length, string_table);
 	if (!data)
-		return 0;
+		return nullptr;
 	size_t remain = capacity - MDNS_POINTER_DIFF(data, buffer);
 	if (remain < 10)
-		return 0;
+		return nullptr;
 
 	data = mdns_htons(data, record.type);
 	data = mdns_htons(data, record.rclass);
@@ -1232,7 +1232,7 @@ mdns_answer_add_record(void* buffer, size_t capacity, void* data, mdns_record_t 
 
 	data = mdns_answer_add_record_header(buffer, capacity, data, record, string_table);
 	if (!data)
-		return 0;
+		return nullptr;
 
 	// Pointer to length of record to be filled at end
 	void* record_length = MDNS_POINTER_OFFSET(data, -2);
@@ -1247,7 +1247,7 @@ mdns_answer_add_record(void* buffer, size_t capacity, void* data, mdns_record_t 
 
 		case MDNS_RECORDTYPE_SRV:
 			if (remain <= 6)
-				return 0;
+				return nullptr;
 			data = mdns_htons(data, record.data.srv.priority);
 			data = mdns_htons(data, record.data.srv.weight);
 			data = mdns_htons(data, record.data.srv.port);
@@ -1257,14 +1257,14 @@ mdns_answer_add_record(void* buffer, size_t capacity, void* data, mdns_record_t 
 
 		case MDNS_RECORDTYPE_A:
 			if (remain < 4)
-				return 0;
+				return nullptr;
 			memcpy(data, &record.data.a.addr.sin_addr.s_addr, 4);
 			data = MDNS_POINTER_OFFSET(data, 4);
 			break;
 
 		case MDNS_RECORDTYPE_AAAA:
 			if (remain < 16)
-				return 0;
+				return nullptr;
 			memcpy(data, &record.data.aaaa.addr.sin6_addr, 16);  // ipv6 address
 			data = MDNS_POINTER_OFFSET(data, 16);
 			break;
@@ -1274,7 +1274,7 @@ mdns_answer_add_record(void* buffer, size_t capacity, void* data, mdns_record_t 
 	}
 
 	if (!data)
-		return 0;
+		return nullptr;
 
 	// Fill record length
 	mdns_htons(record_length, (uint16_t)MDNS_POINTER_DIFF(data, record_data));
@@ -1298,8 +1298,8 @@ mdns_answer_add_txt_record(void* buffer, size_t capacity, void* data, const mdns
                            size_t record_count, uint16_t rclass, uint32_t ttl,
                            mdns_string_table_t* string_table) {
 	// Pointer to length of record to be filled at end
-	void* record_length = 0;
-	void* record_data = 0;
+	void* record_length = nullptr;
+	void* record_data = nullptr;
 
 	size_t remain = 0;
 	for (size_t irec = 0; data && (irec < record_count); ++irec) {
@@ -1320,10 +1320,10 @@ mdns_answer_add_txt_record(void* buffer, size_t capacity, void* data, const mdns
 		// termination, thus the <= check
 		size_t string_length = record.data.txt.key.length + record.data.txt.value.length + 1;
 		if (!data)
-			return 0;
+			return nullptr;
 		remain = capacity - MDNS_POINTER_DIFF(data, buffer);
 		if ((remain <= string_length) || (string_length > 0x3FFF))
-			return 0;
+			return nullptr;
 
 		unsigned char* strdata = (unsigned char*)data;
 		*strdata++ = (unsigned char)string_length;
@@ -1504,7 +1504,7 @@ mdns_record_parse_ptr(const void* buffer, size_t size, size_t offset, size_t len
 	// PTR record is just a string
 	if ((size >= offset + length) && (length >= 2))
 		return mdns_string_extract(buffer, size, &offset, strbuffer, capacity);
-	mdns_string_t empty = {0, 0};
+	mdns_string_t empty = {nullptr, 0};
 	return empty;
 }
 
@@ -1600,7 +1600,7 @@ mdns_record_parse_txt(const void* buffer, size_t size, size_t offset, size_t len
 		} else {
 			records[parsed].key.str = strdata;
 			records[parsed].key.length = sublength;
-			records[parsed].value.str = 0;
+			records[parsed].value.str = nullptr;
 			records[parsed].value.length = 0;
 		}
 
