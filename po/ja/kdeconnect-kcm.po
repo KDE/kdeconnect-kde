@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-07 00:39+0000\n"
-"PO-Revision-Date: 2024-01-06 22:42+0900\n"
+"PO-Revision-Date: 2024-09-15 11:32+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,7 +31,7 @@ msgstr "ryuichi_ya220@outlook.jp"
 #: kcm.cpp:82
 #, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr ""
+msgstr "エラー: KDE Connect は動作していません"
 
 #: kcm.cpp:198
 #, kde-format
@@ -148,18 +148,7 @@ msgstr "Ping を送信"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:379
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline;\">KDE Connect Android app</span></a> (also available <a href="
-#| "\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
-#| "\"><span style=\" text-decoration: underline;\">from F-Droid</span></a>) "
-#| "and it should appear in the list.<br><br>If you are having problems, "
-#| "visit the <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-#| "text-decoration: underline;\">KDE Connect Community wiki</span></a> for "
-#| "help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -174,16 +163,19 @@ msgid ""
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>デバイスが選択されていません。<br><br>お使いの Android "
-"デバイスに <a href=\"https://play.google.com/store/apps/details?id=org.kde."
-"kdeconnect_tp\"><span style=\" text-decoration: underline;\">KDE Connect の "
-"Android アプリ</span></a> (<a href=\"https://f-droid.org/repository/browse/?"
-"fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline;\">F-"
-"Droid</span></a> からも入手可能) をインストールしてください。インストール後、"
-"こちらのリストに表示されます。<br><br>もし問題が発生し、サポートが必要な場合"
-"は、<a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-"
-"decoration: underline;\">KDE Connect Community wiki</span></a> をご覧くださ"
-"い。</p></body></html>"
+"<html><head/><body><p>デバイスが選択されていません。<br><br>Android デバイス"
+"をお使いの場合は、<a href=\"https://play.google.com/store/apps/details?"
+"id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline;\">KDE "
+"Connect Android アプリ</span></a> (<a href=\"https://f-droid.org/repository/"
+"browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
+"underline;\">F-Droid</span></a> からも入手可能) をインストールしてください。"
+"iPhone をお使いの場合は、<a href=\"https://apps.apple.com/us/app/kde-connect/"
+"id1580245991\"><span style=\" text-decoration: underline;\">KDE Connect iOS "
+"アプリ</span></a> <br><br>をインストールしてください。インストール後、こちら"
+"のリストに表示されます。<br><br>もし問題が発生し、サポートが必要な場合は、<a "
+"href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
+"underline;\">KDE Connect Community wiki</span></a> をご覧ください。</p></"
+"body></html>"
 
 #: list.qml:44
 #, kde-format
@@ -206,6 +198,3 @@ msgstr "KDE Connect"
 #, kde-format
 msgid "No devices found"
 msgstr ""
-
-#~ msgid "🔑 abababab"
-#~ msgstr "🔑 abababab"
