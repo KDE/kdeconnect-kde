@@ -255,7 +255,7 @@ static inline int
 mdns_multiquery_send(int sock, const mdns_query_t* query, size_t count, void* buffer,
                      size_t capacity, uint16_t query_id);
 
-//! Receive unicast responses to a mDNS query sent with mdns_discovery_recv, optionally filtering
+//! Receive unicast responses to a mDNS query sent with mdns_[multi]query_recv, optionally filtering
 //! out any responses not matching the given query ID. Set the query ID to 0 to parse all responses,
 //! even if it is not matching the query ID set in a specific query. Any data will be piped to the
 //! given callback for parsing. Buffer must be 32 bit aligned. Parsing is stopped when callback
@@ -1109,6 +1109,9 @@ mdns_multiquery_send(int sock, const mdns_query_t* query, size_t count, void* bu
 		// Name string
 		data = mdns_string_make(buffer, capacity, data, query[iq].name, query[iq].length, nullptr);
 		if (!data)
+			return -1;
+		size_t remain = capacity - MDNS_POINTER_DIFF(data, buffer);
+		if (remain < 4)
 			return -1;
 		// Record type
 		data = mdns_htons(data, query[iq].type);
