@@ -7,6 +7,7 @@
 #include <QApplication>
 #include <QPointer>
 #include <QProcess>
+#include <QQuickStyle>
 #include <QThread>
 
 #ifdef Q_OS_WIN
@@ -67,6 +68,11 @@ int main(int argc, char **argv)
     KColorSchemeManager::instance();
     QApplication::setStyle(QStringLiteral("breeze"));
 #endif
+
+    // Default to org.kde.desktop style unless the user forces another style
+    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
+    }
 
     KDBusService dbusService(KDBusService::Unique);
 
