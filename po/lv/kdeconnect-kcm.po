@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-07 00:39+0000\n"
+"POT-Creation-Date: 2024-10-11 00:39+0000\n"
 "PO-Revision-Date: 2024-01-11 11:20+0200\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -185,24 +185,24 @@ msgstr ""
 "decoration: underline;\">„KDE Connect“ kopienas uzziņu lapu</span></a>.</p></"
 "body></html>"
 
-#: list.qml:44
+#: list.qml:52
 #, kde-format
 msgid "Remembered"
 msgstr ""
 
-#: list.qml:46
+#: list.qml:54
 #, fuzzy, kde-format
 #| msgid "Available plugins"
 msgid "Available"
 msgstr "Pieejamie papildinājumi"
 
-#: list.qml:48
+#: list.qml:56
 #, fuzzy, kde-format
 #| msgid "KDE Connect"
 msgid "Connected"
 msgstr "KDE Connect"
 
-#: list.qml:53
+#: list.qml:61
 #, kde-format
 msgid "No devices found"
 msgstr ""

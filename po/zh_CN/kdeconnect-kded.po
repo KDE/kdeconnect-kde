@@ -65,7 +65,3 @@ msgstr "KDE Connect守护进程"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "替换现有实例"
-
-#~ msgid ""
-#~ "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
-#~ msgstr "使用 kdeconnectd 启动一个私有的 D-Bus 守护程序 (仅限 macOS 测试用)"

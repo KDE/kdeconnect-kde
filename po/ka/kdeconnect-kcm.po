@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-07 00:39+0000\n"
+"POT-Creation-Date: 2024-10-11 00:39+0000\n"
 "PO-Revision-Date: 2024-10-07 05:32+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -174,22 +174,22 @@ msgstr ""
 "underline;\">KDE Connect -ის ვიკის</span></a>, მეტი ინფორმაციისა და "
 "დახმარებისთვის.</p></body></html>"
 
-#: list.qml:44
+#: list.qml:52
 #, kde-format
 msgid "Remembered"
 msgstr "დამახსოვრებულია"
 
-#: list.qml:46
+#: list.qml:54
 #, kde-format
 msgid "Available"
 msgstr "ხელმისაწვდომია"
 
-#: list.qml:48
+#: list.qml:56
 #, kde-format
 msgid "Connected"
 msgstr "მიერთებულია"
 
-#: list.qml:53
+#: list.qml:61
 #, kde-format
 msgid "No devices found"
 msgstr "მოწყობილობები აღმოჩენილი არაა"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-07 00:39+0000\n"
+"POT-Creation-Date: 2024-10-11 00:39+0000\n"
 "PO-Revision-Date: 2024-10-07 07:00+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -178,22 +178,22 @@ msgstr ""
 "text-decoration: underline;\">וויקי של קהילת KDE Connect</span></a> לקבלת "
 "עזרה.</p></body></html>"
 
-#: list.qml:44
+#: list.qml:52
 #, kde-format
 msgid "Remembered"
 msgstr "שמור"
 
-#: list.qml:46
+#: list.qml:54
 #, kde-format
 msgid "Available"
 msgstr "זמין"
 
-#: list.qml:48
+#: list.qml:56
 #, kde-format
 msgid "Connected"
 msgstr "מחובר"
 
-#: list.qml:53
+#: list.qml:61
 #, kde-format
 msgid "No devices found"
 msgstr "לא נמצאו התקנים"

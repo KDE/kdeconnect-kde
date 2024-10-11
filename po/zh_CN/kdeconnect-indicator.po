@@ -159,15 +159,3 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
-
-#~ msgid "Launching"
-#~ msgstr "正在启动"
-
-#~ msgid "Launching daemon"
-#~ msgstr "正在启动守护进程"
-
-#~ msgid "Waiting D-Bus"
-#~ msgstr "正在等待 D-Bus"
-
-#~ msgid "Loading modules"
-#~ msgstr "正在加载模块"

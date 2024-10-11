@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-07 00:39+0000\n"
+"POT-Creation-Date: 2024-10-11 00:39+0000\n"
 "PO-Revision-Date: 2024-09-15 00:17+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -179,24 +179,24 @@ msgstr ""
 "text-decoration: underline;\">KDE Connect bendruomenės vikyje</span></a>, "
 "kad gautumėte pagalbos.</p></body></html>"
 
-#: list.qml:44
+#: list.qml:52
 #, kde-format
 msgid "Remembered"
 msgstr ""
 
-#: list.qml:46
+#: list.qml:54
 #, fuzzy, kde-format
 #| msgid "Available plugins"
 msgid "Available"
 msgstr "Prieinami įskiepiai"
 
-#: list.qml:48
+#: list.qml:56
 #, fuzzy, kde-format
 #| msgid "KDE Connect"
 msgid "Connected"
 msgstr "KDE Connect"
 
-#: list.qml:53
+#: list.qml:61
 #, kde-format
 msgid "No devices found"
 msgstr ""

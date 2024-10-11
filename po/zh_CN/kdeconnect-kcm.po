@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-07 00:39+0000\n"
+"POT-Creation-Date: 2024-10-11 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -30,7 +30,7 @@ msgstr "kde-china@kde.org, i@guoyunhe.me, tds00@qq.com"
 #: kcm.cpp:82
 #, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr ""
+msgstr "错误：KDE Connect 没有运行"
 
 #: kcm.cpp:198
 #, kde-format
@@ -107,7 +107,7 @@ msgstr "(状态)"
 #: kcm.ui:238
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:269
@@ -174,27 +174,22 @@ msgstr ""
 "kde.org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE "
 "Connect 社区百科</span></a> 查找帮助。</p></body></html>"
 
-#: list.qml:44
+#: list.qml:52
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "已记住"
 
-#: list.qml:46
-#, fuzzy, kde-format
-#| msgid "Available plugins"
+#: list.qml:54
+#, kde-format
 msgid "Available"
-msgstr "可用插件"
+msgstr "可用"
 
-#: list.qml:48
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#: list.qml:56
+#, kde-format
 msgid "Connected"
-msgstr "KDE Connect"
+msgstr "已连接"
 
-#: list.qml:53
+#: list.qml:61
 #, kde-format
 msgid "No devices found"
-msgstr ""
-
-#~ msgid "🔑 abababab"
-#~ msgstr "🔑 abababab"
+msgstr "没有找到设备"

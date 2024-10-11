@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-07 00:39+0000\n"
+"POT-Creation-Date: 2024-10-11 00:39+0000\n"
 "PO-Revision-Date: 2024-04-27 16:46+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -187,24 +187,24 @@ msgstr ""
 "color:#cba;\">wiki komunity KDE Connect</span></a> pre získanie pomoci.</p></"
 "body></html>"
 
-#: list.qml:44
+#: list.qml:52
 #, kde-format
 msgid "Remembered"
 msgstr ""
 
-#: list.qml:46
+#: list.qml:54
 #, fuzzy, kde-format
 #| msgid "Available plugins"
 msgid "Available"
 msgstr "Dostupné zásuvné moduly"
 
-#: list.qml:48
+#: list.qml:56
 #, fuzzy, kde-format
 #| msgid "KDE Connect"
 msgid "Connected"
 msgstr "KDE Connect"
 
-#: list.qml:53
+#: list.qml:61
 #, fuzzy, kde-format
 #| msgid "No device selected."
 msgid "No devices found"

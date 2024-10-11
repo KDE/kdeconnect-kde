@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-07 00:39+0000\n"
+"POT-Creation-Date: 2024-10-11 00:39+0000\n"
 "PO-Revision-Date: 2024-10-07 16:43+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -175,22 +175,22 @@ msgstr ""
 "userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline;"
 "\">KDE-ansluts Wiki</span></a> för att få hjälp.</p></body></html>"
 
-#: list.qml:44
+#: list.qml:52
 #, kde-format
 msgid "Remembered"
 msgstr "Ihågkommen"
 
-#: list.qml:46
+#: list.qml:54
 #, kde-format
 msgid "Available"
 msgstr "Tillgänglig"
 
-#: list.qml:48
+#: list.qml:56
 #, kde-format
 msgid "Connected"
 msgstr "Ansluten"
 
-#: list.qml:53
+#: list.qml:61
 #, kde-format
 msgid "No devices found"
 msgstr "Inga apparater hittades"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-07 00:39+0000\n"
+"POT-Creation-Date: 2024-10-11 00:39+0000\n"
 "PO-Revision-Date: 2023-12-04 20:48+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -184,24 +184,24 @@ msgstr ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">கே.டீ.யீ. கனெக்ட் சமூக "
 "விக்கியில்</span></a> உதவி பெறலாம்.</p></body></html>"
 
-#: list.qml:44
+#: list.qml:52
 #, kde-format
 msgid "Remembered"
 msgstr ""
 
-#: list.qml:46
+#: list.qml:54
 #, fuzzy, kde-format
 #| msgid "Available plugins"
 msgid "Available"
 msgstr "பயன்படுத்தக்கூடிய செருகுநிரல்கள்"
 
-#: list.qml:48
+#: list.qml:56
 #, fuzzy, kde-format
 #| msgid "KDE Connect"
 msgid "Connected"
 msgstr "கே.டீ.யீ. கனெக்ட்"
 
-#: list.qml:53
+#: list.qml:61
 #, kde-format
 msgid "No devices found"
 msgstr ""

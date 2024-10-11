@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-07 00:39+0000\n"
+"POT-Creation-Date: 2024-10-11 00:39+0000\n"
 "PO-Revision-Date: 2024-03-20 18:15+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -186,24 +186,24 @@ msgstr ""
 "style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect Community "
 "wikistä</span></a>.</p></body></html>"
 
-#: list.qml:44
+#: list.qml:52
 #, kde-format
 msgid "Remembered"
 msgstr ""
 
-#: list.qml:46
+#: list.qml:54
 #, fuzzy, kde-format
 #| msgid "Available plugins"
 msgid "Available"
 msgstr "Saatavilla olevat liitännäiset"
 
-#: list.qml:48
+#: list.qml:56
 #, fuzzy, kde-format
 #| msgid "KDE Connect"
 msgid "Connected"
 msgstr "KDE Connect"
 
-#: list.qml:53
+#: list.qml:61
 #, fuzzy, kde-format
 #| msgid "No device selected."
 msgid "No devices found"

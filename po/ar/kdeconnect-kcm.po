@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-07 00:39+0000\n"
-"PO-Revision-Date: 2024-09-11 21:16+0400\n"
+"POT-Creation-Date: 2024-10-11 00:39+0000\n"
+"PO-Revision-Date: 2024-10-10 09:00+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -109,7 +109,7 @@ msgstr "(الحالة)"
 #: kcm.ui:238
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:269
@@ -177,28 +177,25 @@ msgstr ""
 "underline; color:#cba;\">ويكي كِيدِي المتصل</span></a> للمساعدة.</p></body></"
 "html>"
 
-#: list.qml:44
+#: list.qml:52
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "المتذكَّرة"
 
-#: list.qml:46
-#, fuzzy, kde-format
-#| msgid "Available plugins"
+#: list.qml:54
+#, kde-format
 msgid "Available"
-msgstr "الملحقات المتوفّرة"
+msgstr "متوفّرة"
 
-#: list.qml:48
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#: list.qml:56
+#, kde-format
 msgid "Connected"
-msgstr "كِيدِي المتّصل"
+msgstr "متّصل"
 
-#: list.qml:53
-#, fuzzy, kde-format
-#| msgid "No device selected."
+#: list.qml:61
+#, kde-format
 msgid "No devices found"
-msgstr "لم يحدّد جهاز."
+msgstr "لم يُعثر على أجهزة"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"
