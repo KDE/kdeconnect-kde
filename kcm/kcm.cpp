@@ -55,7 +55,7 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
 
     sortProxyModel = new DevicesSortProxyModel(devicesModel);
 
-    kcmUi.list_quick_widget->setMinimumWidth(250 * kcmUi.list_quick_widget->devicePixelRatio());
+    kcmUi.list_quick_widget->setMinimumWidth(250);
     kcmUi.list_quick_widget->rootContext()->setContextObject(new KLocalizedContext(kcmUi.list_quick_widget));
     kcmUi.list_quick_widget->setClearColor(kcmUi.list_quick_widget->palette().color(QPalette::Window));
     kcmUi.list_quick_widget->setSource(QUrl(QStringLiteral("qrc:/kdeconnectkcm/list.qml")));
