@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-22 00:40+0000\n"
+"POT-Creation-Date: 2024-10-12 00:38+0000\n"
 "PO-Revision-Date: 2024-01-07 13:08+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -84,48 +84,48 @@ msgstr ""
 msgid "Cannot find kdeconnectd"
 msgstr "Nu s-a putut găsi kdeconnectd"
 
-#: main.cpp:57
+#: main.cpp:58
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "Indicator KDE Connect"
 
-#: main.cpp:59
+#: main.cpp:60
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "Unealtă de indicator KDE Connect"
 
-#: main.cpp:61
+#: main.cpp:62
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
 msgstr "(C) 2016 Aleix Pol Gonzalez"
 
-#: main.cpp:88
+#: main.cpp:94
 #, kde-format
 msgid "Configure..."
 msgstr "Configurare..."
 
-#: main.cpp:114
+#: main.cpp:120
 #, kde-format
 msgid "Pairing requests"
 msgstr "Cereri de asociere"
 
-#: main.cpp:119
+#: main.cpp:125
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Asociază"
 
-#: main.cpp:120
+#: main.cpp:126
 #, kde-format
 msgid "Reject"
 msgstr "Refuză"
 
-#: main.cpp:125 main.cpp:135
+#: main.cpp:131 main.cpp:141
 #, kde-format
 msgid "Quit"
 msgstr "Termină"
 
-#: main.cpp:154 main.cpp:178
+#: main.cpp:160 main.cpp:184
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
