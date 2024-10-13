@@ -103,4 +103,9 @@ public:
                                                             INT); // not available on Windows 7, use method from IPolicyConfig
 };
 
+#if defined(__MINGW32__) && defined(__CRT_UUID_DECL)
+__CRT_UUID_DECL(IPolicyConfigVista, 0x568b9108, 0x44bf, 0x40b4, 0x90, 0x06, 0x86, 0xaf, 0xe5, 0xb5, 0xa6, 0x20)
+__CRT_UUID_DECL(CPolicyConfigVistaClient, 0x294935CE, 0xF637, 0x4E7C, 0xA4, 0x1B, 0xAB, 0x25, 0x54, 0x60, 0xB8, 0x62)
+#endif
+
 // ----------------------------------------------------------------------------
