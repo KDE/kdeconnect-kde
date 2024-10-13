@@ -13,6 +13,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QTextStream>
+#include <QQuickStyle>
 #include <QUrl>
 
 #include <KAboutData>
@@ -58,6 +59,11 @@ int main(int argc, char **argv)
     KColorSchemeManager::instance();
     QApplication::setStyle(QStringLiteral("breeze"));
 #endif
+
+    // Default to org.kde.desktop style unless the user forces another style
+    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
+    }
 
     QUrl urlToShare;
     bool open;

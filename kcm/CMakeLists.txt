@@ -11,6 +11,7 @@ target_link_libraries(kcm_kdeconnect
     Qt::Core
     Qt::Gui
     Qt::QuickWidgets
+    Qt::QuickControls2
     KF6::I18n
     KF6::KCMUtils
     kdeconnectinterfaces
