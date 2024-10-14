@@ -203,12 +203,9 @@ public:
         // This callback is supper spammy. Care only about name and description changes.
         if (IsEqualPropertyKey(key, PKEY_Device_FriendlyName)) {
             enclosing.sendSinkList();
-        }
-#ifndef __MINGW32__
-        else if (IsEqualPropertyKey(key, PKEY_Device_DeviceDesc)) {
+        } else if (IsEqualPropertyKey(key, PKEY_Device_DeviceDesc)) {
             enclosing.sendSinkList();
         }
-#endif
         return S_OK;
     }
 
@@ -302,13 +299,9 @@ bool SystemvolumePlugin::sendSinkList()
         name = QString::fromWCharArray(deviceProperty.pwszVal);
         PropVariantClear(&deviceProperty);
 
-#ifndef __MINGW32__
         deviceProperties->GetValue(PKEY_Device_DeviceDesc, &deviceProperty);
         desc = QString::fromWCharArray(deviceProperty.pwszVal);
         PropVariantClear(&deviceProperty);
-#else
-        desc = name;
-#endif
 
         QJsonObject sinkObject;
         sinkObject.insert(QStringLiteral("name"), name);
