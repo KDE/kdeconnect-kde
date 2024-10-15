@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-10-15 00:39+0000\n"
 "PO-Revision-Date: 2024-05-23 14:50+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -65,7 +65,7 @@ msgstr "Afpara"
 msgid "Send Ping"
 msgstr "Senda ping-beiðni "
 
-#: qml/DevicePage.qml:40 qml/PluginSettings.qml:15
+#: qml/DevicePage.qml:40 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Stillingar viðbótar"
@@ -225,7 +225,7 @@ msgstr "Engir spilarar tiltækir"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:64
+#: qml/PluginSettings.qml:99
 #, kde-format
 msgid "Configure plugin"
 msgstr "Grunnstilla viðbót"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-10-15 00:39+0000\n"
 "PO-Revision-Date: 2024-01-28 13:07-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -64,7 +64,7 @@ msgstr "ਅਣ-ਪੇਅਰ"
 msgid "Send Ping"
 msgstr "ਪਿੰਗ ਭੇਜੋ"
 
-#: qml/DevicePage.qml:40 qml/PluginSettings.qml:15
+#: qml/DevicePage.qml:40 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
 msgstr "ਪਲੱਗਇਨ ਸੈਟਿੰਗਾਂ"
@@ -222,7 +222,7 @@ msgstr ""
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:64
+#: qml/PluginSettings.qml:99
 #, kde-format
 msgid "Configure plugin"
 msgstr ""

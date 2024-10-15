@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-10-15 00:39+0000\n"
 "PO-Revision-Date: 2024-05-25 17:28+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -68,7 +68,7 @@ msgstr "Desemparejar"
 msgid "Send Ping"
 msgstr "Enviar sonido"
 
-#: qml/DevicePage.qml:40 qml/PluginSettings.qml:15
+#: qml/DevicePage.qml:40 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Preferencias del complemento"
@@ -230,7 +230,7 @@ msgstr "No hay reproductores disponibles"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:64
+#: qml/PluginSettings.qml:99
 #, kde-format
 msgid "Configure plugin"
 msgstr "Configurar complemento"

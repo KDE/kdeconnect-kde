@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-10-15 00:39+0000\n"
 "PO-Revision-Date: 2024-05-19 09:32+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -67,7 +67,7 @@ msgstr "Скасувати пов’язування"
 msgid "Send Ping"
 msgstr "Надіслати сигнал підтримання зв’язку"
 
-#: qml/DevicePage.qml:40 qml/PluginSettings.qml:15
+#: qml/DevicePage.qml:40 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Параметри додатка"
@@ -227,7 +227,7 @@ msgstr "Немає доступних програвачів"
 msgid "%1 - %2"
 msgstr "%1 – %2"
 
-#: qml/PluginSettings.qml:64
+#: qml/PluginSettings.qml:99
 #, kde-format
 msgid "Configure plugin"
 msgstr "Налаштувати додаток"

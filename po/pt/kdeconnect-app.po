@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-10-15 00:39+0000\n"
 "PO-Revision-Date: 2023-06-09 03:04+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -60,7 +60,7 @@ msgstr "Cancelar o emparelhamento"
 msgid "Send Ping"
 msgstr "Enviar um Contacto"
 
-#: qml/DevicePage.qml:40 qml/PluginSettings.qml:15
+#: qml/DevicePage.qml:40 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Configuração do 'Plugin'"
@@ -222,7 +222,7 @@ msgstr "Não estão disponíveis leitores"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:64
+#: qml/PluginSettings.qml:99
 #, kde-format
 msgid "Configure plugin"
 msgstr ""
