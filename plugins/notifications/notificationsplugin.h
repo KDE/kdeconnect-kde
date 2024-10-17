@@ -43,6 +43,14 @@ Q_SIGNALS:
     Q_SCRIPTABLE void allNotificationsRemoved();
 
 private:
+    /**
+     * Check if the action is to copy an auth code, if so add the code to the desktop clipboard.
+     *
+     * This is necessary since access to the Android clipboard has become more restricted for apps
+     * that are not the foreground app since Android 10.
+     */
+    void copyAuthCodeIfPresent(const QString &action);
+
     void removeNotification(const QString &internalId);
     QString newId(); // Generates successive identifiers to use as public ids
     void notificationReady();

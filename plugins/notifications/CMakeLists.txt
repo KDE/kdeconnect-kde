@@ -5,8 +5,9 @@ target_link_libraries(kdeconnect_notifications
     kdeconnectcore
     Qt::DBus
     Qt::Widgets
-    KF6::Notifications
+    KF6::GuiAddons
     KF6::I18n
+    KF6::Notifications
     KF6::WindowSystem
 )
 
