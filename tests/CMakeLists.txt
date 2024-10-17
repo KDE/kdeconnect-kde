@@ -5,8 +5,10 @@ set(kdeconnect_libraries
     kdeconnectinterfaces
     kdeconnectsmshelper
     kdeconnectversion
+    KF6::GuiAddons
     KF6::I18n
     KF6::KIOWidgets
+    KF6::Notifications
     Qt::DBus
     Qt::Network
     KF6::People
@@ -14,6 +16,7 @@ set(kdeconnect_libraries
     Qt::Test
 )
 
+ecm_add_test(notificationstest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(pluginloadtest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(sendfiletest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(smshelpertest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
