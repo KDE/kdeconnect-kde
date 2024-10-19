@@ -178,11 +178,6 @@ public Q_SLOTS:
 
 private:
     /**
-     * Send to the telepathy plugin if it is available
-     */
-    void forwardToTelepathy(const ConversationMessage &message);
-
-    /**
      * Handle a packet which contains many messages, such as PACKET_TYPE_TELEPHONY_MESSAGE
      */
     bool handleBatchMessages(const NetworkPacket &np);
@@ -197,6 +192,5 @@ private:
      */
     Attachment createAttachmentFromUrl(const QString &url);
 
-    QDBusInterface m_telepathyInterface;
     ConversationsDbusInterface *m_conversationInterface;
 };

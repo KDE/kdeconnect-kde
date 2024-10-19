@@ -27,7 +27,6 @@ K_PLUGIN_CLASS_WITH_JSON(SmsPlugin, "kdeconnect_sms.json")
 
 SmsPlugin::SmsPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
-    , m_telepathyInterface(QStringLiteral("org.freedesktop.Telepathy.ConnectionManager.kdeconnect"), QStringLiteral("/kdeconnect"))
     , m_conversationInterface(new ConversationsDbusInterface(this))
 {
 }
@@ -112,20 +111,6 @@ void SmsPlugin::requestAttachment(const qint64 &partID, const QString &uniqueIde
     sendPacket(np);
 }
 
-void SmsPlugin::forwardToTelepathy(const ConversationMessage &message)
-{
-    // If we don't have a valid Telepathy interface, bail out
-    if (!(m_telepathyInterface.isValid()))
-        return;
-
-    qCDebug(KDECONNECT_PLUGIN_SMS) << "Passing a text message to the telepathy interface";
-    connect(&m_telepathyInterface, SIGNAL(messageReceived(QString, QString)), this, SLOT(sendSms(QString, QString)), Qt::UniqueConnection);
-    const QString messageBody = message.body();
-    const QString contactName; // TODO: When telepathy support is improved, look up the contact with KPeople
-    const QString phoneNumber = message.addresses()[0].address();
-    m_telepathyInterface.call(QDBus::NoBlock, QStringLiteral("sendMessage"), phoneNumber, contactName, messageBody);
-}
-
 bool SmsPlugin::handleBatchMessages(const NetworkPacket &np)
 {
     const auto messages = np.get<QVariantList>(QStringLiteral("messages"));
@@ -134,9 +119,6 @@ bool SmsPlugin::handleBatchMessages(const NetworkPacket &np)
 
     for (const QVariant &body : messages) {
         ConversationMessage message(body.toMap());
-        if (message.containsTextBody()) {
-            forwardToTelepathy(message);
-        }
         messagesList.append(message);
     }
 
