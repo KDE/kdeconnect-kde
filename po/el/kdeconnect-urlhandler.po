@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-10-19 00:39+0000\n"
 "PO-Revision-Date: 2021-06-19 07:57+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -51,62 +51,62 @@ msgstr ""
 msgid "Open on peer device"
 msgstr ""
 
-#: kdeconnect-handler.cpp:42
+#: kdeconnect-handler.cpp:43
 #, kde-format
 msgid "KDE Connect URL handler"
 msgstr "KDE Connect χειριστής URL"
 
-#: kdeconnect-handler.cpp:48
+#: kdeconnect-handler.cpp:49
 #, kde-format
 msgid "(C) 2017 Aleix Pol Gonzalez"
 msgstr "(C) 2017 Aleix Pol Gonzalez"
 
-#: kdeconnect-handler.cpp:67
+#: kdeconnect-handler.cpp:73
 #, kde-format
 msgid "URL to share"
 msgstr "URL για διαμοιρασμό"
 
-#: kdeconnect-handler.cpp:68
+#: kdeconnect-handler.cpp:74
 #, kde-format
 msgid "Select a device"
 msgstr "Επιλογή συσκευής"
 
-#: kdeconnect-handler.cpp:68
+#: kdeconnect-handler.cpp:74
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: kdeconnect-handler.cpp:115
+#: kdeconnect-handler.cpp:121
 #, kde-format
 msgid "Enter URL here"
 msgstr "Εισαγωγή του URL εδώ"
 
-#: kdeconnect-handler.cpp:123
+#: kdeconnect-handler.cpp:129
 #, kde-format
 msgid "Enter file location here"
 msgstr "Εισαγωγή της θέσης του αρχείου εδώ"
 
-#: kdeconnect-handler.cpp:148
+#: kdeconnect-handler.cpp:154
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Συσκευή για κλήση %1 με:"
 
-#: kdeconnect-handler.cpp:151
+#: kdeconnect-handler.cpp:157
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Συσκευή για άνοιγμα %1 στο:"
 
-#: kdeconnect-handler.cpp:154
+#: kdeconnect-handler.cpp:160
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Συσκευή για αποστολή SMS με:"
 
-#: kdeconnect-handler.cpp:157
+#: kdeconnect-handler.cpp:163
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Συσκευή για αποστολή %1 στο:"
 
-#: kdeconnect-handler.cpp:186
+#: kdeconnect-handler.cpp:192
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Αδυναμία διαμοιρασμού %1"

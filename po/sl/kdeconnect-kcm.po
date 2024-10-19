@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-11 00:39+0000\n"
+"POT-Creation-Date: 2024-10-19 00:39+0000\n"
 "PO-Revision-Date: 2024-10-11 19:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -28,42 +28,42 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net"
 
-#: kcm.cpp:82
+#: kcm.cpp:88
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "Napaka: KDE Connect ne teče"
 
-#: kcm.cpp:198
+#: kcm.cpp:204
 #, kde-format
 msgid "Key: %1"
 msgstr "Ključ: %1"
 
-#: kcm.cpp:223
+#: kcm.cpp:229
 #, kde-format
 msgid "Available plugins"
 msgstr "Vtičniki na voljo"
 
-#: kcm.cpp:270
+#: kcm.cpp:276
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Napaka pri uparjanju: %1"
 
-#: kcm.cpp:286
+#: kcm.cpp:292
 #, kde-format
 msgid "(paired)"
 msgstr "(uparjeno)"
 
-#: kcm.cpp:289
+#: kcm.cpp:295
 #, kde-format
 msgid "(not paired)"
 msgstr "(ni uparjeno)"
 
-#: kcm.cpp:292
+#: kcm.cpp:298
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(prihajajoč zahtevek za uparjanje)"
 
-#: kcm.cpp:295
+#: kcm.cpp:301
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(zahtevano uparjanje)"

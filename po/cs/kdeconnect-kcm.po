@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-11 00:39+0000\n"
+"POT-Creation-Date: 2024-10-19 00:39+0000\n"
 "PO-Revision-Date: 2024-09-17 13:40+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -28,42 +28,42 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "vit@pelcak.org"
 
-#: kcm.cpp:82
+#: kcm.cpp:88
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "Chyba: KDE Connect neběží"
 
-#: kcm.cpp:198
+#: kcm.cpp:204
 #, kde-format
 msgid "Key: %1"
 msgstr "Klíč: %1"
 
-#: kcm.cpp:223
+#: kcm.cpp:229
 #, kde-format
 msgid "Available plugins"
 msgstr "Dostupné moduly"
 
-#: kcm.cpp:270
+#: kcm.cpp:276
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Chyba při pokusu o párování: %1"
 
-#: kcm.cpp:286
+#: kcm.cpp:292
 #, kde-format
 msgid "(paired)"
 msgstr "(spárovaný)"
 
-#: kcm.cpp:289
+#: kcm.cpp:295
 #, kde-format
 msgid "(not paired)"
 msgstr "(nespárovaný)"
 
-#: kcm.cpp:292
+#: kcm.cpp:298
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(příchozí požadavek na párování)"
 
-#: kcm.cpp:295
+#: kcm.cpp:301
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(bylo vyžádáno párování)"
@@ -108,7 +108,7 @@ msgstr "(stav)"
 #: kcm.ui:238
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:269
@@ -180,24 +180,19 @@ msgstr ""
 #: list.qml:52
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "Zapamatovaná"
 
 #: list.qml:54
-#, fuzzy, kde-format
-#| msgid "Available plugins"
+#, kde-format
 msgid "Available"
-msgstr "Dostupné moduly"
+msgstr "Dostupné"
 
 #: list.qml:56
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "Connected"
-msgstr "KDE Connect"
+msgstr "Připojen"
 
 #: list.qml:61
 #, kde-format
 msgid "No devices found"
-msgstr ""
-
-#~ msgid "🔑 abababab"
-#~ msgstr "🔑 abababab"
+msgstr "Nebyla nalezena žádná zařízení"

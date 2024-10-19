@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-10-19 00:39+0000\n"
 "PO-Revision-Date: 2023-01-12 11:41+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -55,62 +55,62 @@ msgstr "Передать файл"
 msgid "Open on peer device"
 msgstr "Открыть на устройстве"
 
-#: kdeconnect-handler.cpp:42
+#: kdeconnect-handler.cpp:43
 #, kde-format
 msgid "KDE Connect URL handler"
 msgstr "Обработчик адресов URL в KDE Connect"
 
-#: kdeconnect-handler.cpp:48
+#: kdeconnect-handler.cpp:49
 #, kde-format
 msgid "(C) 2017 Aleix Pol Gonzalez"
 msgstr "© Aleix Pol Gonzalez, 2017"
 
-#: kdeconnect-handler.cpp:67
+#: kdeconnect-handler.cpp:73
 #, kde-format
 msgid "URL to share"
 msgstr "Адрес URL для совместного использования"
 
-#: kdeconnect-handler.cpp:68
+#: kdeconnect-handler.cpp:74
 #, kde-format
 msgid "Select a device"
 msgstr "Выберите устройство"
 
-#: kdeconnect-handler.cpp:68
+#: kdeconnect-handler.cpp:74
 #, kde-format
 msgid "id"
 msgstr "Идентификатор"
 
-#: kdeconnect-handler.cpp:115
+#: kdeconnect-handler.cpp:121
 #, kde-format
 msgid "Enter URL here"
 msgstr "Укажите здесь URL"
 
-#: kdeconnect-handler.cpp:123
+#: kdeconnect-handler.cpp:129
 #, kde-format
 msgid "Enter file location here"
 msgstr "Укажите здесь местоположение файла"
 
-#: kdeconnect-handler.cpp:148
+#: kdeconnect-handler.cpp:154
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Устройство для вызова %1:"
 
-#: kdeconnect-handler.cpp:151
+#: kdeconnect-handler.cpp:157
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Устройство для открытия %1:"
 
-#: kdeconnect-handler.cpp:154
+#: kdeconnect-handler.cpp:160
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Устройство для отправки SMS:"
 
-#: kdeconnect-handler.cpp:157
+#: kdeconnect-handler.cpp:163
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Устройство для отправки %1:"
 
-#: kdeconnect-handler.cpp:186
+#: kdeconnect-handler.cpp:192
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Не удалось отправить %1"

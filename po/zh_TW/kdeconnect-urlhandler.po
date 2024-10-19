@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2024-10-19 00:39+0000\n"
 "PO-Revision-Date: 2023-01-22 00:52+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -53,62 +53,62 @@ msgstr "傳送檔案"
 msgid "Open on peer device"
 msgstr "在同等裝置上開啟"
 
-#: kdeconnect-handler.cpp:42
+#: kdeconnect-handler.cpp:43
 #, kde-format
 msgid "KDE Connect URL handler"
 msgstr "KDE 連線網址處理程式"
 
-#: kdeconnect-handler.cpp:48
+#: kdeconnect-handler.cpp:49
 #, kde-format
 msgid "(C) 2017 Aleix Pol Gonzalez"
 msgstr "(C) 2017 Aleix Pol Gonzalez"
 
-#: kdeconnect-handler.cpp:67
+#: kdeconnect-handler.cpp:73
 #, kde-format
 msgid "URL to share"
 msgstr "要分享的 URL"
 
-#: kdeconnect-handler.cpp:68
+#: kdeconnect-handler.cpp:74
 #, kde-format
 msgid "Select a device"
 msgstr "選擇一個裝置"
 
-#: kdeconnect-handler.cpp:68
+#: kdeconnect-handler.cpp:74
 #, kde-format
 msgid "id"
 msgstr "ID"
 
-#: kdeconnect-handler.cpp:115
+#: kdeconnect-handler.cpp:121
 #, kde-format
 msgid "Enter URL here"
 msgstr "在此輸入網址"
 
-#: kdeconnect-handler.cpp:123
+#: kdeconnect-handler.cpp:129
 #, kde-format
 msgid "Enter file location here"
 msgstr "在此輸入檔案位址"
 
-#: kdeconnect-handler.cpp:148
+#: kdeconnect-handler.cpp:154
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "要撥打 %1 的裝置："
 
-#: kdeconnect-handler.cpp:151
+#: kdeconnect-handler.cpp:157
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "要開啟 %1 的裝置："
 
-#: kdeconnect-handler.cpp:154
+#: kdeconnect-handler.cpp:160
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "要傳送簡訊至哪個裝置："
 
-#: kdeconnect-handler.cpp:157
+#: kdeconnect-handler.cpp:163
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "要將 %1 傳送到的目標裝置："
 
-#: kdeconnect-handler.cpp:186
+#: kdeconnect-handler.cpp:192
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "無法分享 %1"
