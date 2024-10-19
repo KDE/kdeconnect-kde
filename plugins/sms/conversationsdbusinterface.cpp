@@ -17,8 +17,6 @@
 
 #include "kdeconnect_conversations_debug.h"
 
-QMap<QString, ConversationsDbusInterface *> ConversationsDbusInterface::liveConversationInterfaces;
-
 ConversationsDbusInterface::ConversationsDbusInterface(KdeConnectPlugin *plugin)
     : QDBusAbstractAdaptor(const_cast<Device *>(plugin->device()))
     , m_device(plugin->device()->id())
@@ -26,17 +24,6 @@ ConversationsDbusInterface::ConversationsDbusInterface(KdeConnectPlugin *plugin)
     , m_smsInterface(m_device)
 {
     ConversationMessage::registerDbusType();
-
-    // Check for an existing interface for the same device
-    // If there is already an interface for this device, we can safely delete is since we have just replaced it
-    const auto &oldInterfaceItr = ConversationsDbusInterface::liveConversationInterfaces.find(m_device);
-    if (oldInterfaceItr != ConversationsDbusInterface::liveConversationInterfaces.end()) {
-        ConversationsDbusInterface *oldInterface = oldInterfaceItr.value();
-        oldInterface->deleteLater();
-        ConversationsDbusInterface::liveConversationInterfaces.erase(oldInterfaceItr);
-    }
-
-    ConversationsDbusInterface::liveConversationInterfaces[m_device] = this;
 }
 
 ConversationsDbusInterface::~ConversationsDbusInterface()
@@ -47,10 +34,6 @@ ConversationsDbusInterface::~ConversationsDbusInterface()
     conversationsWaitingForMessages.clear();
     waitingForMessages.wakeAll();
     waitingForMessagesLock.unlock();
-
-    // Erase this interface from the list of known interfaces
-    const auto myIterator = ConversationsDbusInterface::liveConversationInterfaces.find(m_device);
-    ConversationsDbusInterface::liveConversationInterfaces.erase(myIterator);
 }
 
 QVariantList ConversationsDbusInterface::activeConversations()
