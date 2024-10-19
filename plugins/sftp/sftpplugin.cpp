@@ -120,6 +120,12 @@ void SftpPlugin::receivePacket(const NetworkPacket &np)
         return;
     }
 
+    // if a packet arrives before mounting or after the mount timed out, ignore it
+    if (!m_mounter) {
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Received network packet but no mount is active, ignoring";
+        return;
+    }
+
     m_mounter->onPacketReceived(np);
 
     remoteDirectories.clear();
