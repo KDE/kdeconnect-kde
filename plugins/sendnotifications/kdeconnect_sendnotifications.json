@@ -94,6 +94,7 @@
         "Description[sk]": "Vysielať upozornenia tohto počítača, aby sa zobrazili na druhom zariadení.",
         "Description[sl]": "Oddaj obvestila tega računalnika, da jih je mogoče prikazati na drugih napravah.",
         "Description[sv]": "Sänd ut datorns underrättelser så att de kan visas på andra apparater.",
+        "Description[ta]": "இச்சாதனத்தின் அறிவிப்புகளை பிற சாதனங்களில் காட்டக்கூடிய விதத்தில் அனுப்பும்",
         "Description[tr]": "Bu bilgisayarın bildirimlerini yayınla, böylece diğer aygıtlarda gösterilebilirler.",
         "Description[uk]": "Транслювати сповіщення з цього комп’ютера так, щоб їх було показано на інших пристроях.",
         "Description[x-test]": "xxBroadcast this computer's notifications, so they can be shown on other devices.xx",

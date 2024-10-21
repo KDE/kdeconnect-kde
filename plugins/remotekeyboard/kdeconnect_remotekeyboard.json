@@ -100,6 +100,7 @@
         "Description[sr@latin]": "Koristite tastaturu za kucanje na uparenom uređaju",
         "Description[sr]": "Користите тастатуру за куцање на упареном уређају",
         "Description[sv]": "Använd tangentbordet för att skicka tangenthändelser till den parade enheten",
+        "Description[ta]": "இணைந்துள்ள சாதனத்தில் இச்சாதனத்தின் விசைப்பலகையை பயன்படுத்தலாம்",
         "Description[tr]": "Eşleşmiş aygıta önemli etkinlikler göndermek için klavyeyi kullan",
         "Description[uk]": "Скористайтеся вашою клавіатурою для надсилання подій натискання клавіш на пов’язаний пристрій",
         "Description[x-test]": "xxUse your keyboard to send key-events to your paired devicexx",
