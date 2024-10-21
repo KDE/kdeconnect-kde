@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2021, 2023 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2023, 2024 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-19 00:39+0000\n"
-"PO-Revision-Date: 2023-12-04 20:48+0530\n"
+"PO-Revision-Date: 2024-10-20 14:35+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,10 +28,9 @@ msgid "Your emails"
 msgstr "Kde-l10n-ta@kde.org"
 
 #: kcm.cpp:88
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings"
+#, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "கே.டீ.யீ. கனெக்ட் அமைப்புகள்"
+msgstr "சிக்கல்: கே.டீ.யீ. கனெக்ட் செயலிலில்லை"
 
 #: kcm.cpp:204
 #, kde-format
@@ -148,18 +147,7 @@ msgstr "பிங் அனுப்பு"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:379
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline;\">KDE Connect Android app</span></a> (also available <a href="
-#| "\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
-#| "\"><span style=\" text-decoration: underline;\">from F-Droid</span></a>) "
-#| "and it should appear in the list.<br><br>If you are having problems, "
-#| "visit the <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-#| "text-decoration: underline;\">KDE Connect Community wiki</span></a> for "
-#| "help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -180,31 +168,32 @@ msgstr ""
 "ஆண்ட்ராய்டு செயலியை</span></a> நிறுவியிபின் <a href=\"https://f-droid.org/"
 "repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
 "decoration: underline;\">F-Droid</span></a>-இலும் கிடைக்கும்) அது இப்பட்டியலில் "
-"தெரியும்.<br><br>பிரச்சனைகள் இருந்தால் <a href=\"https://userbase.kde.org/"
-"KDEConnect\"><span style=\" text-decoration: underline;\">கே.டீ.யீ. கனெக்ட் சமூக "
-"விக்கியில்</span></a> உதவி பெறலாம்.</p></body></html>"
+"தெரியும். iPhone, இருந்தால் <a href=\"https://apps.apple.com/us/app/kde-connect/"
+"id1580245991\"><span style=\" text-decoration: underline;\">கே.டீ.யீ. கனெக்டின் "
+"iOS செயலி</span></a> தனை நிறுவவும். <br><br>பிரச்சனைகள் இருந்தால் <a href="
+"\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
+"underline;\">கே.டீ.யீ. கனெக்ட் சமூக விக்கியில்</span></a> உதவி பெறலாம்.</p></body></"
+"html>"
 
 #: list.qml:52
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "நினைவிலுள்ளது"
 
 #: list.qml:54
-#, fuzzy, kde-format
-#| msgid "Available plugins"
+#, kde-format
 msgid "Available"
-msgstr "பயன்படுத்தக்கூடிய செருகுநிரல்கள்"
+msgstr "கிடைக்கிறது"
 
 #: list.qml:56
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "Connected"
-msgstr "கே.டீ.யீ. கனெக்ட்"
+msgstr "இணைந்துள்ளது"
 
 #: list.qml:61
 #, kde-format
 msgid "No devices found"
-msgstr ""
+msgstr "எந்த சாதனமும் கண்டுபிடிக்கப்படவில்லை"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"
