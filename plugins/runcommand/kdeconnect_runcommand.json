@@ -144,6 +144,7 @@
         "Description[sr@latin]": "Daljinski izvršava naredbe u konzoli",
         "Description[sr]": "Даљински извршава наредбе у конзоли",
         "Description[sv]": "Kör terminalkommandon på distans",
+        "Description[ta]": "முனையக் கட்டளை தொலைவிலிருந்து இயக்க விடும்",
         "Description[tr]": "Uzaktan konsol komutları yürüt",
         "Description[uk]": "Віддалене виконання консольних команд",
         "Description[x-test]": "xxExecute console commands remotelyxx",

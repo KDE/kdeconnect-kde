@@ -99,6 +99,7 @@
         "Description[sr@latin]": "Onemogućava čuvara ekrana kada je uređaj povezan",
         "Description[sr]": "Онемогућава чувара екрана када је уређај повезан",
         "Description[sv]": "Stoppa skärmsläckaren när apparaten ansluts",
+        "Description[ta]": "சாதனம் இணைக்கப்பட்டிருக்கும்போது திரைகாப்பியை முடக்கும்",
         "Description[tr]": "Aygıt bağlandığında ekran koruyucuyu engelle",
         "Description[uk]": "Забороняє зберігач екрана, якщо з’єднано пристрій",
         "Description[x-test]": "xxInhibit the screensaver when the device is connectedxx",
