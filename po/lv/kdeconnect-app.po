@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-15 00:39+0000\n"
-"PO-Revision-Date: 2024-01-09 15:04+0200\n"
+"PO-Revision-Date: 2024-10-24 16:45+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -78,7 +78,7 @@ msgstr "Multivides pārvaldība"
 #: qml/DevicePage.qml:71
 #, kde-format
 msgid "Remote input"
-msgstr "Attālināta ievade"
+msgstr "Attālā ievade"
 
 #: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
 #, kde-format
@@ -121,12 +121,13 @@ msgid "Volume control"
 msgstr "Skaļuma pārvaldība"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "Šī ierīce nav sapārota"
+msgstr ""
+"Šī ierīce nav sapārota.\n"
+"Atslēga: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -135,12 +136,13 @@ msgid "Pair"
 msgstr "Sapārot"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "Pieprasīta sapārošana"
+msgstr ""
+"Pieprasīta sapārošana\n"
+"Atslēga: "
 
 #: qml/DevicePage.qml:156
 #, kde-format
@@ -201,7 +203,7 @@ msgstr "Iestatījumi"
 #: qml/mousepad.qml:16
 #, kde-format
 msgid "Remote Control"
-msgstr "Attālināta vadība"
+msgstr "Attālā vadība"
 
 #: qml/mousepad.qml:59
 #, kde-format
@@ -226,7 +228,7 @@ msgstr "%1 — %2"
 #: qml/PluginSettings.qml:99
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "Konfigurēt spraudni"
 
 #: qml/presentationRemote.qml:21
 #, kde-format

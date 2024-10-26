@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-06 00:39+0000\n"
-"PO-Revision-Date: 2024-01-11 20:38+0200\n"
+"PO-Revision-Date: 2024-10-24 16:45+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -76,7 +76,7 @@ msgstr "Īsziņu sūtīšana"
 #: main.cpp:54
 #, kde-format
 msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018–2022, „KDE Connect“ komanda"
+msgstr "(C) 2018—2022, „KDE Connect“ komanda"
 
 #: main.cpp:55
 #, kde-format
@@ -175,10 +175,9 @@ msgid "Cancel"
 msgstr "Atcelt"
 
 #: qml/ConversationList.qml:102
-#, fuzzy, kde-format
-#| msgid "Search or start conversation..."
+#, kde-format
 msgid "Search or start a conversation"
-msgstr "Meklēt vai sākt sarunu..."
+msgstr "Meklēt vai uzsākt sarunu"
 
 #: qml/ConversationList.qml:136
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-01-11 20:44+0200\n"
+"PO-Revision-Date: 2024-10-24 16:50+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: package/contents/ui/Battery.qml:33
 #, kde-format
@@ -44,11 +44,9 @@ msgid "No signal"
 msgstr "Nav signāla"
 
 #: package/contents/ui/DeviceDelegate.qml:82
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "Sapārotā ierīce nav pieejama"
+msgstr "Virtuālais monitors nav pieejams"
 
 #: package/contents/ui/DeviceDelegate.qml:87
 #, kde-format
@@ -98,17 +96,17 @@ msgstr "Virtuālais displejs"
 #: package/contents/ui/DeviceDelegate.qml:197
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "Attālajā ierīcē nav instalēts VNC klients (piemēram, „krdc“)"
 
 #: package/contents/ui/DeviceDelegate.qml:201
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "Lokālajā ierīcē jābūt ieinstalētai „krfb“ pakotnei."
 
 #: package/contents/ui/DeviceDelegate.qml:208
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "Neizdevās izveidot virtuālo monitoru."
 
 #: package/contents/ui/DeviceDelegate.qml:259
 #, kde-format
@@ -150,7 +148,7 @@ msgstr "Atcelt"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr "Atbildēt %1..."
+msgstr "Atbildēt %1…"
 
 #: package/contents/ui/DeviceDelegate.qml:430
 #, kde-format
@@ -187,15 +185,14 @@ msgstr ""
 "Instalēt „KDE Connect“ savā „Android“ ierīcē, lai to integrētu ar „Plasma“!"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "Sapārot ierīci..."
+msgstr "Sapārot ierīci…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
 msgid "Install from Google Play"
-msgstr "Instalēt no „Google Play“..."
+msgstr "Instalēt no „Google Play“"
 
 #: package/contents/ui/FullRepresentation.qml:93
 #, kde-format
@@ -203,7 +200,6 @@ msgid "Install from F-Droid"
 msgstr "Instalēt no „F-Droid“"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "„KDE Connect“ iestatījumi..."
+msgstr "„KDE Connect“ iestatījumi…"
