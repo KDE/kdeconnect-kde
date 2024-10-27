@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-09 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:39+0000\n"
 "PO-Revision-Date: 2023-09-26 10:45+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -413,12 +413,12 @@ msgstr "KDE Connect"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "SFTP-yhteyskäytäntöä ei voi käsitellä. Pahoittelut harmista"
 
-#: sftp/sftpplugin.cpp:134
+#: sftp/sftpplugin.cpp:140
 #, kde-format
 msgid "All files"
 msgstr "Kaikki tiedostot"
 
-#: sftp/sftpplugin.cpp:135
+#: sftp/sftpplugin.cpp:141
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamerakuvat"

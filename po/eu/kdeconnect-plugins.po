@@ -1,7 +1,7 @@
 # Translation for kdeconnect-plugins.po to Euskara/Basque (eu).
 # Copyright (C) 2017-2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Osoitz <oelkoro@gmail.com>, 2017.
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-09 00:39+0000\n"
-"PO-Revision-Date: 2023-08-29 08:40+0200\n"
+"POT-Creation-Date: 2024-10-27 00:39+0000\n"
+"PO-Revision-Date: 2024-10-26 17:47+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -224,7 +224,7 @@ msgstr "Distira maximoa"
 #: runcommand/runcommand_config.cpp:63
 #, kde-format
 msgid "Unlock Screen"
-msgstr "Giltzatik askatu pantaila"
+msgstr "Pantaila giltzapetik askatu"
 
 #: runcommand/runcommand_config.cpp:64
 #, kde-format
@@ -412,12 +412,12 @@ msgstr "KDE Connect"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Ezin da SFTP protokoloa kudeatu. Barkatu eragozpenak"
 
-#: sftp/sftpplugin.cpp:134
+#: sftp/sftpplugin.cpp:140
 #, kde-format
 msgid "All files"
 msgstr "Fitxategi guztiak"
 
-#: sftp/sftpplugin.cpp:135
+#: sftp/sftpplugin.cpp:141
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamerako irudiak"
