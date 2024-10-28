@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-19 00:39+0000\n"
-"PO-Revision-Date: 2024-09-22 16:34+0200\n"
+"PO-Revision-Date: 2024-10-27 14:43+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -108,7 +108,7 @@ msgstr "(status)"
 #: kcm.ui:238
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:269
@@ -179,21 +179,19 @@ msgstr ""
 #: list.qml:52
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "Remembered"
 
 #: list.qml:54
-#, fuzzy, kde-format
-#| msgid "Available plugins"
+#, kde-format
 msgid "Available"
-msgstr "Tilgjengelege programtillegg"
+msgstr "Tilgjengeleg"
 
 #: list.qml:56
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "Connected"
-msgstr "KDE Connect"
+msgstr "Kopla til"
 
 #: list.qml:61
 #, kde-format
 msgid "No devices found"
-msgstr ""
+msgstr "Fann ingen einingar"
