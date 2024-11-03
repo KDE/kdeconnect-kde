@@ -73,20 +73,21 @@ void Daemon::init()
     qCDebug(KDECONNECT_CORE) << "DBus registration complete";
 
     auto configInstance = KdeConnectConfig::instance();
-    auto status = configInstance.linkProviderStatus();
+    const auto disabledLinkProviders = configInstance.disabledLinkProviders();
 
     // Load backends
     if (d->m_testMode) {
         d->m_linkProviders.insert(new LoopbackLinkProvider());
     } else {
-        d->m_linkProviders.insert(new LanLinkProvider(false, status[QStringLiteral("disabled")].contains(QStringLiteral("LanLinkProvider"))));
+        d->m_linkProviders.insert(new LanLinkProvider(false, disabledLinkProviders.contains(QStringLiteral("LanLinkProvider"))));
 #ifdef KDECONNECT_BLUETOOTH
-        d->m_linkProviders.insert(new BluetoothLinkProvider(status[QStringLiteral("disabled")].contains(QStringLiteral("BluetoothLinkProvider"))));
+        d->m_linkProviders.insert(new BluetoothLinkProvider(disabledLinkProviders.contains(QStringLiteral("BluetoothLinkProvider"))));
 #endif
 #ifdef KDECONNECT_LOOPBACK
         d->m_linkProviders.insert(new LoopbackLinkProvider());
 #endif
     }
+    Q_EMIT linkProvidersChanged(linkProviders());
 
     qCDebug(KDECONNECT_CORE) << "Backends loaded";
 
@@ -153,16 +154,16 @@ QSet<LinkProvider *> Daemon::getLinkProviders() const
 QStringList Daemon::linkProviders() const
 {
     auto configInstance = KdeConnectConfig::instance();
-    auto status = configInstance.linkProviderStatus();
+    const auto disabledLinkProviders = configInstance.disabledLinkProviders();
     QStringList returnValue;
 
     for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
         QString line(a->name());
 
-        if (status[QStringLiteral("enabled")].contains(a->name())) {
-            line += QStringLiteral("|enabled");
-        } else {
+        if (disabledLinkProviders.contains(a->name())) {
             line += QStringLiteral("|disabled");
+        } else {
+            line += QStringLiteral("|enabled");
         }
 
         returnValue.append(line);
@@ -170,37 +171,33 @@ QStringList Daemon::linkProviders() const
     return returnValue;
 }
 
-void Daemon::setProviderStatus(const QStringList &providerStatus)
+void Daemon::setDisabledLinkProviders(const QStringList &disabledLinkProviders)
 {
-    qCDebug(KDECONNECT_CORE) << "setProviderStatus called" << providerStatus;
+    qCDebug(KDECONNECT_CORE) << "setDisabledLinkProviders called" << disabledLinkProviders;
 
     KdeConnectConfig configInstance = KdeConnectConfig::instance();
 
-    QStringList enabledProviders;
-    QStringList disabledProviders;
+    configInstance.setDisabledLinkProviders(disabledLinkProviders);
+    Q_EMIT linkProvidersChanged(linkProviders());
+}
 
-    for (const auto &i : providerStatus) {
-        auto components = i.split(QStringLiteral("|"));
-        QString providerName = components.at(0);
-        QString providerStatus = components.at(1);
+void Daemon::setLinkProviderState(const QString &linkProvider, bool state)
+{
+    qCDebug(KDECONNECT_CORE) << "setLinkProviderState called" << linkProvider << state;
 
-        const auto linkProviders = this->getLinkProviders();
-        for (LinkProvider *provider : linkProviders) {
-            if (provider->name() == providerName) {
-                if (providerStatus == QStringLiteral("enabled")) {
-                    qCDebug(KDECONNECT_CORE) << "enabling " << providerName;
-                    provider->enable();
-                    enabledProviders.append(providerName);
-                } else {
-                    qCDebug(KDECONNECT_CORE) << "disabling" << providerName;
-                    provider->disable();
-                    disabledProviders.append(providerName);
-                }
-                break;
-            }
-        }
+    KdeConnectConfig configInstance = KdeConnectConfig::instance();
+
+    auto disabledLinkProviders = configInstance.disabledLinkProviders();
+    if (!state && !disabledLinkProviders.contains(linkProvider)) {
+        disabledLinkProviders.append(linkProvider);
+    } else if (state && disabledLinkProviders.contains(linkProvider)) {
+        disabledLinkProviders.removeAll(linkProvider);
+    } else {
+        return; // no change
     }
-    configInstance.setLinkProviderStatus(enabledProviders, disabledProviders);
+
+    configInstance.setDisabledLinkProviders(disabledLinkProviders);
+    Q_EMIT linkProvidersChanged(linkProviders());
 }
 
 QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const

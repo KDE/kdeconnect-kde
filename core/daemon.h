@@ -65,8 +65,14 @@ public Q_SLOTS:
 
     Q_SCRIPTABLE QString deviceIdByName(const QString &name) const;
 
+    /// Return the list of link providers with their state e.g. "BluetoothLinkProvider|enabled"
     Q_SCRIPTABLE QStringList linkProviders() const;
-    Q_SCRIPTABLE void setProviderStatus(const QStringList &providerStatus);
+
+    /// Set the list of disabled link providers.
+    Q_SCRIPTABLE void setDisabledLinkProviders(const QStringList &disabledLinkProviders);
+
+    /// Set the state of a link provider.
+    Q_SCRIPTABLE void setLinkProviderState(const QString &linkProvider, bool state);
 
     Q_SCRIPTABLE virtual void sendSimpleNotification(const QString &eventId, const QString &title, const QString &text, const QString &iconName) = 0;
 
@@ -77,6 +83,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void deviceListChanged(); // Emitted when any of deviceAdded, deviceRemoved or deviceVisibilityChanged is emitted
     Q_SCRIPTABLE void announcedNameChanged(const QString &announcedName);
     Q_SCRIPTABLE void pairingRequestsChanged();
+    Q_SCRIPTABLE void linkProvidersChanged(const QStringList &linkProviders);
     Q_SCRIPTABLE void customDevicesChanged(const QStringList &customDevices);
 
 private Q_SLOTS:

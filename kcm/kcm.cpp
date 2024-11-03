@@ -100,11 +100,23 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
         [this](bool error, const QStringList &linkProviders) {
             kcmUi.linkProviders_list->clear();
             for (int i = 0; i < linkProviders.size(); ++i) {
-                QStringList linkProvider = linkProviders.at(i).split(QStringLiteral("|"));
-                QString providerName = linkProvider.at(0);
+                const QStringList linkProvider = linkProviders.at(i).split(QStringLiteral("|"));
+                const QString providerId = linkProvider.at(0);
+                QString displayName;
+                if (providerId == QLatin1StringView("BluetoothLinkProvider")) {
+                    displayName = i18nc("@info KDE Connect provider name", "Bluetooth");
+                } else if (providerId == QLatin1StringView("LoopbackLinkProvider")) {
+                    displayName = i18nc("@info KDE Connect provider name", "Loopback");
+                } else if (providerId == QLatin1StringView("LanLinkProvider")) {
+                    displayName = i18nc("@info KDE Connect provider name", "WiFi Network");
+                } else {
+                    Q_ASSERT_X(false, Q_FUNC_INFO, "Unknow provider given");
+                    displayName = i18nc("@info KDE Connect provider name", "Unknown");
+                }
                 QString providerStatus = linkProvider.at(1);
 
-                QListWidgetItem *linkProviderItem = new QListWidgetItem(providerName, kcmUi.linkProviders_list);
+                QListWidgetItem *linkProviderItem = new QListWidgetItem(displayName, kcmUi.linkProviders_list);
+                linkProviderItem->setData(Qt::UserRole, providerId);
 
                 if (providerStatus.compare(QStringLiteral("enabled")) == 0) {
                     linkProviderItem->setCheckState(Qt::Checked);
@@ -190,15 +202,15 @@ void KdeConnectKcm::refresh()
 
 void KdeConnectKcm::saveBackends()
 {
-    QStringList providerStatusToSend;
+    QStringList disabledLinkProviders;
     for (int i = 0; i < kcmUi.linkProviders_list->count(); ++i) {
         QListWidgetItem *item = kcmUi.linkProviders_list->item(i);
-        QString providerIsEnabled = item->checkState() == Qt::Checked ? QStringLiteral("enabled") : QStringLiteral("disabled");
-        QString line = item->text() + QStringLiteral("|") + providerIsEnabled;
-        providerStatusToSend.append(line);
+        if (item->checkState() == Qt::Unchecked) {
+            disabledLinkProviders << item->data(Qt::UserRole).toString();
+        }
     }
 
-    daemon->setProviderStatus(providerStatusToSend);
+    daemon->setDisabledLinkProviders(disabledLinkProviders);
 }
 
 void KdeConnectKcm::deviceSelected(const QString &deviceId)
