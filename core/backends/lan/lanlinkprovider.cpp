@@ -48,12 +48,11 @@ LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
     , m_tcpPort(0)
     , m_testMode(testMode)
     , m_combineNetworkChangeTimer(this)
+    , m_disabled(isDisabled)
 #ifdef KDECONNECT_MDNS
     , m_mdnsDiscovery(this)
 #endif
 {
-    this->m_disabled = isDisabled;
-
     m_combineNetworkChangeTimer.setInterval(0); // increase this if waiting a single event-loop iteration is not enough
     m_combineNetworkChangeTimer.setSingleShot(true);
     connect(&m_combineNetworkChangeTimer, &QTimer::timeout, this, &LanLinkProvider::combinedOnNetworkChange);
