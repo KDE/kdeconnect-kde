@@ -19,6 +19,7 @@
 #include <QQmlContext>
 #include <QQuickItem>
 #include <QQuickStyle>
+#include <qassert.h>
 
 #include "dbushelpers.h"
 #include "dbusinterfaces.h"
@@ -131,6 +132,31 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
 
     connect(daemon, &DaemonDbusInterface::announcedNameChanged, kcmUi.rename_edit, &QLineEdit::setText);
     connect(daemon, &DaemonDbusInterface::announcedNameChanged, kcmUi.rename_label, &QLabel::setText);
+    connect(daemon, &DaemonDbusInterface::linkProvidersChanged, this, [this](const QStringList &providers) {
+        if (kcmUi.linkProviders_list->count() == 0) {
+            return; // not yet setup
+        }
+        for (auto i = 0, count = kcmUi.linkProviders_list->count(); i < count; i++) {
+            const auto item = kcmUi.linkProviders_list->item(i);
+            const auto id = item->data(Qt::UserRole).toString();
+
+            bool found = false;
+            for (const auto &provider : providers) {
+                if (provider.startsWith(id)) {
+                    const auto status = provider.split(QStringLiteral("|")).at(1);
+                    if (status.compare(QStringLiteral("enabled")) == 0) {
+                        item->setCheckState(Qt::Checked);
+                    } else {
+                        item->setCheckState(Qt::Unchecked);
+                    }
+                    found = true;
+                    break;
+                }
+            }
+
+            Q_ASSERT_X(found, Q_FUNC_INFO, "A new backend appeared, this should not happen as the list of backends is static");
+        }
+    });
     setRenameMode(false);
 
     setButtons(KCModule::Help | KCModule::NoAdditionalButton);
