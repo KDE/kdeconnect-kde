@@ -29,6 +29,44 @@ FormCard.FormCardPage {
         }
     }
 
+    FormCard.FormHeader {
+        title: i18nc("@title:group", "Backends")
+    }
+
+    FormCard.FormCard {
+        DBusProperty {
+            id: linkProvidersProperty
+            object: DaemonDbusInterface
+            read: "linkProviders"
+            defaultValue: []
+        }
+
+        Repeater {
+            model: linkProvidersProperty.value
+
+            FormCard.FormCheckDelegate {
+                required property string modelData
+
+                readonly property string linkProviderId: modelData.split('|')[0]
+                readonly property string displayName: switch (linkProviderId) {
+                case 'BluetoothLinkProvider':
+                    return i18nc("@info KDE Connect provider name", "Bluetooth")
+                case 'LoopbackLinkProvider':
+                    return i18nc("@info KDE Connect provider name", "Loopback")
+                case 'LanLinkProvider':
+                    return i18nc("@info KDE Connect provider name", "WiFi Network")
+                }
+
+                checked: modelData.split('|')[1] === 'enabled'
+                text: displayName
+
+                onCheckedChanged: {
+                    DaemonDbusInterface.setLinkProviderState(linkProviderId, checked);
+                }
+            }
+        }
+    }
+
     FormCard.FormCard {
         Layout.topMargin: Kirigami.Units.gridUnit
 
