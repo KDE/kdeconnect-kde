@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1143</width>
+    <width>1130</width>
     <height>740</height>
    </rect>
   </property>
@@ -65,10 +65,7 @@
         <item>
          <spacer name="horizontalSpacer_2">
           <property name="orientation">
-           <enum>Qt::Orientation::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Policy::Minimum</enum>
+           <enum>Qt::Orientation::Horizontal</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -120,7 +117,7 @@
          </sizepolicy>
         </property>
         <property name="resizeMode">
-         <enum>QQuickWidget::ResizeMode::SizeViewToRootObject</enum>
+         <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
         </property>
        </widget>
       </item>
@@ -186,7 +183,7 @@
            </property>
            <layout class="QHBoxLayout" name="header">
             <property name="sizeConstraint">
-             <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+             <enum>QLayout::SizeConstraint::SetMaximumSize</enum>
             </property>
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -246,10 +243,7 @@
                  <item>
                   <spacer name="horizontalSpacer_3">
                    <property name="orientation">
-                    <enum>Qt::Orientation::Vertical</enum>
-                   </property>
-                   <property name="sizeType">
-                    <enum>QSizePolicy::Policy::Minimum</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -268,7 +262,7 @@
                  <string>KSqueezedTextLabel</string>
                 </property>
                 <property name="textInteractionFlags">
-                 <set>Qt::TextInteractionFlag::NoTextInteraction</set>
+                 <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
                 </property>
                </widget>
               </item>
@@ -277,10 +271,7 @@
             <item>
              <spacer name="horizontalSpacer">
               <property name="orientation">
-               <enum>Qt::Orientation::Vertical</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Policy::Minimum</enum>
+               <enum>Qt::Orientation::Horizontal</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -390,7 +381,7 @@
             </sizepolicy>
            </property>
            <property name="focusPolicy">
-            <enum>Qt::FocusPolicy::NoFocus</enum>
+            <enum>Qt::FocusPolicy::WheelFocus</enum>
            </property>
           </widget>
          </item>
@@ -412,7 +403,10 @@
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;No device selected.&lt;br&gt;&lt;br&gt;If you own an Android device, make sure to install the &lt;a href=&quot;https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;KDE Connect Android app&lt;/span&gt;&lt;/a&gt; (also available &lt;a href=&quot;https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;from F-Droid&lt;/span&gt;&lt;/a&gt;) and it should appear in the list. If you have an iPhone, make sure to install the &lt;a href=&quot;https://apps.apple.com/us/app/kde-connect/id1580245991&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;KDE Connect iOS app&lt;/span&gt;&lt;/a&gt; &lt;br&gt;&lt;br&gt;If you are having problems, visit the &lt;a href=&quot;https://userbase.kde.org/KDEConnect&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;KDE Connect Community wiki&lt;/span&gt;&lt;/a&gt; for help.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="textFormat">
-            <enum>Qt::TextFormat::PlainText</enum>
+            <enum>Qt::TextFormat::RichText</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -424,7 +418,7 @@
             <bool>true</bool>
            </property>
            <property name="textInteractionFlags">
-            <set>Qt::TextInteractionFlag::NoTextInteraction</set>
+            <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse</set>
            </property>
           </widget>
          </item>
@@ -438,11 +432,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QQuickWidget</class>
-   <extends>QWidget</extends>
-   <header location="global">QtQuickWidgets/QQuickWidget</header>
-  </customwidget>
-  <customwidget>
    <class>KMessageWidget</class>
    <extends>QFrame</extends>
    <header>kmessagewidget.h</header>
@@ -452,6 +441,11 @@
    <class>KSqueezedTextLabel</class>
    <extends>QLabel</extends>
    <header>ksqueezedtextlabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QQuickWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">QtQuickWidgets/QQuickWidget</header>
   </customwidget>
   <customwidget>
    <class>KPluginWidget</class>
