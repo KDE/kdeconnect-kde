@@ -23,7 +23,11 @@ class KDECONNECTINTERFACES_EXPORT CommandsModel : public QAbstractListModel
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
 
 public:
-    enum ModelRoles { KeyRole, NameRole, CommandRole };
+    enum ModelRoles {
+        KeyRole,
+        NameRole,
+        CommandRole,
+    };
 
     explicit CommandsModel(QObject *parent = nullptr);
     ~CommandsModel() override;

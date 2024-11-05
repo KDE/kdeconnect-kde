@@ -34,7 +34,12 @@ protected:
     bool doKill() override;
 
 private:
-    enum { NoPortAvailable = UserDefinedError, SendingNetworkPacketFailed, SocketError, SslError };
+    enum {
+        NoPortAvailable = UserDefinedError,
+        SendingNetworkPacketFailed,
+        SocketError,
+        SslError,
+    };
 
     Server *const m_server;
     QSslSocket *m_socket;

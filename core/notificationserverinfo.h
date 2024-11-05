@@ -14,7 +14,10 @@ class KDECONNECTCORE_EXPORT NotificationServerInfo : public QObject
     Q_OBJECT
 
 public:
-    enum Hint { X_KDE_DISPLAY_APPNAME = 1, X_KDE_ORIGIN_NAME = 2 };
+    enum Hint {
+        X_KDE_DISPLAY_APPNAME = 1,
+        X_KDE_ORIGIN_NAME = 2,
+    };
 
     Q_DECLARE_FLAGS(Hints, Hint)
 

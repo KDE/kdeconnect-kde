@@ -24,7 +24,10 @@ class ClipboardListener : public QObject
     Q_OBJECT
 
 public:
-    enum ClipboardContentType { ClipboardContentTypeUnknown = 0, ClipboardContentTypePassword = 1 };
+    enum ClipboardContentType {
+        ClipboardContentTypeUnknown = 0,
+        ClipboardContentTypePassword = 1,
+    };
 
 protected:
     ClipboardListener();

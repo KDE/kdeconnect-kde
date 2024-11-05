@@ -25,7 +25,13 @@ class KDECONNECTINTERFACES_EXPORT RemoteSinksModel : public QAbstractListModel
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
 
 public:
-    enum ModelRoles { NameRole, DescriptionRole, MaxVolumeRole, VolumeRole, MutedRole };
+    enum ModelRoles {
+        NameRole,
+        DescriptionRole,
+        MaxVolumeRole,
+        VolumeRole,
+        MutedRole,
+    };
 
     explicit RemoteSinksModel(QObject *parent = nullptr);
     ~RemoteSinksModel() override;

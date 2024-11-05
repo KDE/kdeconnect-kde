@@ -15,7 +15,13 @@
 #include <X11/keysym.h>
 #include <fakekey/fakekey.h>
 
-enum MouseButtons { LeftMouseButton = 1, MiddleMouseButton = 2, RightMouseButton = 3, MouseWheelUp = 4, MouseWheelDown = 5 };
+enum MouseButtons {
+    LeftMouseButton = 1,
+    MiddleMouseButton = 2,
+    RightMouseButton = 3,
+    MouseWheelUp = 4,
+    MouseWheelDown = 5,
+};
 
 // Translation table to keep in sync within all the implementations
 int SpecialKeysMap[] = {
