@@ -52,9 +52,7 @@ qint64 MultiplexChannel::bytesToWrite() const
 qint64 MultiplexChannel::readData(char *data, qint64 maxlen)
 {
     if (maxlen <= state->read_buffer.size()) {
-        for (int i = 0; i < maxlen; ++i) {
-            data[i] = state->read_buffer[i];
-        }
+        std::memcpy(data, state->read_buffer.data(), maxlen);
         state->read_buffer.remove(0, maxlen);
         Q_EMIT state->readAvailable();
         if (!state->connected && state->read_buffer.isEmpty()) {
@@ -63,9 +61,7 @@ qint64 MultiplexChannel::readData(char *data, qint64 maxlen)
         return maxlen;
     } else if (state->read_buffer.size() > 0) {
         auto num_to_read = state->read_buffer.size();
-        for (int i = 0; i < num_to_read; ++i) {
-            data[i] = state->read_buffer[i];
-        }
+        std::memcpy(data, state->read_buffer.data(), num_to_read);
         state->read_buffer.remove(0, num_to_read);
         Q_EMIT state->readAvailable();
         if (!state->connected && state->read_buffer.isEmpty()) {
