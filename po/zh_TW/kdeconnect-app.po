@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-15 00:39+0000\n"
-"PO-Revision-Date: 2024-05-23 16:08+0900\n"
+"PO-Revision-Date: 2024-11-28 16:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -20,12 +20,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
 msgid "KDE Connect"
-msgstr "KDE 連線"
+msgstr "KDE Connect"
 
 #: main.cpp:35
 #, kde-format
@@ -268,7 +268,7 @@ msgstr "裝置名稱"
 #: qml/Settings.qml:36
 #, kde-format
 msgid "About KDE Connect"
-msgstr "關於 KDE 連線"
+msgstr "關於 KDE Connect"
 
 #: qml/Settings.qml:47
 #, kde-format

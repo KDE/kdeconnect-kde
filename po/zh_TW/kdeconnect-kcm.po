@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-19 00:39+0000\n"
-"PO-Revision-Date: 2024-10-20 00:09+0900\n"
+"PO-Revision-Date: 2024-11-28 16:36+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: Traditional Chinese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -36,7 +36,7 @@ msgstr ""
 #: kcm.cpp:88
 #, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "錯誤：《KDE 連線》並非執行中"
+msgstr "錯誤：KDE Connect 並非執行中"
 
 #: kcm.cpp:204
 #, kde-format
@@ -78,7 +78,7 @@ msgstr "（已請求配對）"
 #: kcm.ui:58
 #, kde-format
 msgid "KDE Connect"
-msgstr "KDE 連線"
+msgstr "KDE Connect"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
 #: kcm.ui:81
@@ -171,15 +171,15 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>未選取裝置。<br><br>如果您擁有 Android 裝置，請確保已經"
 "安裝 <a href=\"https://play.google.com/store/apps/details?id=org.kde."
-"kdeconnect_tp\"><span style=\" text-decoration: underline;\">KDE 連線 "
+"kdeconnect_tp\"><span style=\" text-decoration: underline;\">KDE Connect 的 "
 "Android App</span></a>（亦可<a href=\"https://f-droid.org/repository/browse/?"
 "fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline;\">至 "
 "F-Droid</span></a> 下載），而後列表中應該會顯示該裝置。如果您使用 iPhone，請"
 "確保已經安裝 <a href=\"https://apps.apple.com/tw/app/kde-connect/"
-"id1580245991\"><span style=\" text-decoration: underline;\">KDE 連線 iOS "
-"App</span></a><br><br>若仍有疑問，請造訪 <a href=\"https://userbase.kde.org/"
-"KDEConnect\"><span style=\" text-decoration: underline;\">KDE 連線社群 Wiki</"
-"span></a> 以取得其他說明。</p></body></html>"
+"id1580245991\"><span style=\" text-decoration: underline;\">KDE Connect 的 "
+"iOS App</span></a><br><br>若仍有疑問，請造訪 <a href=\"https://userbase.kde."
+"org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect 社"
+"群 Wiki</span></a> 以取得其他說明。</p></body></html>"
 
 #: list.qml:52
 #, kde-format
