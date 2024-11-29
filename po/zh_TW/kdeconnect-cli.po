@@ -4,13 +4,13 @@
 # liueigi <liueigi@gmail.com>, 2016.
 # pan93412 <pan93412@gmail.com>, 2018, 2019.
 # Chaoting Liu <brli@chakralinux.org>, 2021.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-02 00:40+0000\n"
-"PO-Revision-Date: 2023-12-09 16:56+0900\n"
+"PO-Revision-Date: 2024-11-28 16:34+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: Traditional Chinese\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.01.80\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -33,7 +33,7 @@ msgstr "liueigi@gmail.com, pan93412@gmail.com, brli@chakralinux.org"
 #: kdeconnect-cli.cpp:32
 #, kde-format
 msgid "KDE Connect CLI tool"
-msgstr "KDE 連線 CLI 工具"
+msgstr "KDE Connect 指令列工具"
 
 #: kdeconnect-cli.cpp:34
 #, kde-format
@@ -58,7 +58,7 @@ msgstr "列出全部裝置"
 #: kdeconnect-cli.cpp:44
 #, kde-format
 msgid "List available (paired and reachable) devices"
-msgstr "列出可用的裝置(已經配對並且可連線)"
+msgstr "列出可用的裝置（已經配對並且可連線）"
 
 #: kdeconnect-cli.cpp:46
 #, kde-format
@@ -110,7 +110,7 @@ msgstr "對指定的裝置停止配對"
 #: kdeconnect-cli.cpp:55
 #, kde-format
 msgid "Sends a ping to said device"
-msgstr "向指定的裝置發送Ping回應封包"
+msgstr "向指定的裝置發送 Ping 回應封包"
 
 #: kdeconnect-cli.cpp:56
 #, kde-format
@@ -135,7 +135,7 @@ msgstr "分享檔案/網址到指定的裝置"
 #: kdeconnect-cli.cpp:59
 #, kde-format
 msgid "Share text to a said device"
-msgstr "分享文字至 said 裝置"
+msgstr "分享文字到指定的裝置"
 
 #: kdeconnect-cli.cpp:60
 #, kde-format
@@ -155,7 +155,7 @@ msgstr "解除鎖定指定的裝置"
 #: kdeconnect-cli.cpp:63
 #, kde-format
 msgid "Sends an SMS. Requires destination"
-msgstr "傳送簡訊。需要指定目的地。"
+msgstr "傳送簡訊。需要指定目的地"
 
 #: kdeconnect-cli.cpp:64
 #, kde-format
@@ -201,7 +201,7 @@ msgstr "列出遠端指令及其標識"
 #: kdeconnect-cli.cpp:72
 #, kde-format
 msgid "Executes a remote command by id"
-msgstr "以ID來執行遠端指令"
+msgstr "以 ID 來執行遠端指令"
 
 #: kdeconnect-cli.cpp:74
 #, kde-format
@@ -216,7 +216,7 @@ msgstr "顯示裝置編號並退出"
 #: kdeconnect-cli.cpp:121
 #, kde-format
 msgid "(paired and reachable)"
-msgstr "（已配對與可連線）"
+msgstr "（已配對且可連線）"
 
 #: kdeconnect-cli.cpp:123
 #, kde-format

@@ -5,26 +5,27 @@
 #
 # Automatically generated, 2019.
 # pan93412 <pan93412@gmail.com>, 2019.
+# SPDX-FileCopyrightText: 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2019-09-29 20:59+0800\n"
-"Last-Translator: pan93412 <pan93412@gmail.com>\n"
-"Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2024-11-28 16:39+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 19.08.1\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: kdeconnect-share.py:105
 #, python-format
 msgid "Send to %s via KDE Connect"
-msgstr "使用 KDE 連線傳送至 %s"
+msgstr "使用 KDE Connect 傳送至 %s"
 
 #: kdeconnect-share.py:112
 msgid "Send via KDE Connect"
-msgstr "使用 KDE 連線傳送"
+msgstr "使用 KDE Connect 傳送"
