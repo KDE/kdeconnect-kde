@@ -56,13 +56,6 @@ void RemoteSystemVolumePlugin::sendMuted(const QString &name, bool muted)
     sendPacket(np);
 }
 
-void RemoteSystemVolumePlugin::connected()
-{
-    NetworkPacket np(PACKET_TYPE_SYSTEMVOLUME_REQUEST);
-    np.set<bool>(QStringLiteral("requestSinks"), true);
-    sendPacket(np);
-}
-
 QByteArray RemoteSystemVolumePlugin::sinks()
 {
     return m_sinks;

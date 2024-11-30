@@ -24,7 +24,6 @@ public:
     using KdeConnectPlugin::KdeConnectPlugin;
 
     void receivePacket(const NetworkPacket &np) override;
-    void connected() override;
     QString dbusPath() const override;
 
     QString deviceId() const
