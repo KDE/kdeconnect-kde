@@ -69,6 +69,10 @@ Kirigami.ScrollablePage {
                     Accessible.description: model.description
                 }
 
+                Kirigami.Icon {
+                    source: model.iconName
+                }
+
                 ColumnLayout {
                     spacing: 0
                     Layout.fillWidth: true
