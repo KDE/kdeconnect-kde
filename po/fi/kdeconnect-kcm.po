@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Tommi Nieminen <translator@legisign.org>, 2014, 2018, 2019, 2020, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2014, 2018, 2019, 2020, 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
 # Lasse Liehu <lasse.liehu@gmail.com>, 2014, 2015, 2016.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-19 00:39+0000\n"
-"PO-Revision-Date: 2024-03-20 18:15+0200\n"
+"PO-Revision-Date: 2024-10-21 17:36+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,23 +16,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Tommi Nieminen,Lasse Liehu"
+msgstr "Tommi Nieminen, Lasse Liehu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "translator@legisign.org,lasse.liehu@gmail.com"
+msgstr "translator@legisign.org, lasse.liehu@gmail.com"
 
 #: kcm.cpp:88
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings"
+#, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "KDE Connectin asetukset"
+msgstr "Virhe: KDE Connect ei ole käynnissä"
 
 #: kcm.cpp:204
 #, kde-format
@@ -109,7 +108,7 @@ msgstr "Tila"
 #: kcm.ui:238
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KTiivisTekstiselite"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:269
@@ -149,18 +148,7 @@ msgstr "Lähetä tiedustelupaketti"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:379
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline;\">KDE Connect Android app</span></a> (also available <a href="
-#| "\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
-#| "\"><span style=\" text-decoration: underline;\">from F-Droid</span></a>) "
-#| "and it should appear in the list.<br><br>If you are having problems, "
-#| "visit the <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-#| "text-decoration: underline;\">KDE Connect Community wiki</span></a> for "
-#| "help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -175,39 +163,38 @@ msgid ""
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Laitetta ei ole valittu.<br><br>Jos sinulla on Android-"
-"laite, asenna <a href=\"https://play.google.com/store/apps/details?id=org."
-"kde.kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-"\">KDE Connect Android -sovellus</span></a> (saatavilla myös <a href="
-"\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span "
-"style=\" text-decoration: underline; color:#4c6b8a;\">F-Droidista</span></"
-"a>), minkä jälkeen sen pitäisi näkyä luettelossa.<br><br>Jos esiintyy "
-"ongelmia, etsi apua <a href=\"https://community.kde.org/KDEConnect\"><span "
-"style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect Community "
-"wikistä</span></a>.</p></body></html>"
+"<html><head/><body><p>Laitetta ei ole valittu.<br><br>Jos laite on Android, "
+"asenna <a href=\"https://play.google.com/store/apps/details?id=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline;\">KDE Connect "
+"Android</span></a> -sovellus (saatavilla myös <a href=\"https://f-droid.org/"
+"repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline;\">F-Droidista</span></a>), minkä jälkeen sen pitäisi "
+"näkyä luettelossa. Jos laite on iPhone, asenna <a href=\"https://apps.apple."
+"com/us/app/kde-connect/id1580245991\"><span style=\"text-decoration: "
+"underline;\">KDE Connect iOS</span></a> -sovellus.<br><br>Jos esiintyy "
+"ongelmia, etsi ohjeita <a href=\"https://userbase.kde.org/KDEConnect\"><span "
+"style=\"text-decoration: underline;\">KDE Connectin yhteisöwikistä</span></"
+"a>.</p></body></html>"
 
 #: list.qml:52
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "Muistettu"
 
 #: list.qml:54
-#, fuzzy, kde-format
-#| msgid "Available plugins"
+#, kde-format
 msgid "Available"
-msgstr "Saatavilla olevat liitännäiset"
+msgstr "Saatavilla"
 
 #: list.qml:56
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "Connected"
-msgstr "KDE Connect"
+msgstr "Yhdistetty"
 
 #: list.qml:61
-#, fuzzy, kde-format
-#| msgid "No device selected."
+#, kde-format
 msgid "No devices found"
-msgstr "Laitetta ei ole valittu."
+msgstr "Laitteita ei löytynyt"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"
