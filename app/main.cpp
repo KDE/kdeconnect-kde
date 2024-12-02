@@ -68,10 +68,6 @@ int main(int argc, char *argv[])
         }
     }
 
-    qmlRegisterSingletonType("org.kde.kdeconnect.app", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
-        return engine->toScriptValue(KAboutData::applicationData());
-    });
-
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.loadFromModule("org.kde.kdeconnect.app", "Main");
