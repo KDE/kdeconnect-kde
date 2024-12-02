@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Tommi Nieminen <translator@legisign.org>, 2020, 2021, 2023.
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-15 00:39+0000\n"
-"PO-Revision-Date: 2023-09-26 10:45+0300\n"
+"PO-Revision-Date: 2024-10-21 17:32+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -120,12 +120,13 @@ msgid "Volume control"
 msgstr "Äänenvoimakkuuden säätö"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "Laitetta ei ole kytketty pariksi"
+msgstr ""
+"Tätä laitetta ei ole paritettu.\n"
+"Avain: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -134,12 +135,13 @@ msgid "Pair"
 msgstr "Parita"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "Paritusta pyydetään"
+msgstr ""
+"Paritusta pyydetään\n"
+"Avain: "
 
 #: qml/DevicePage.qml:156
 #, kde-format
@@ -226,7 +228,7 @@ msgstr "%1 – %2"
 #: qml/PluginSettings.qml:99
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "Liitännäisen asetukset"
 
 #: qml/presentationRemote.qml:21
 #, kde-format
