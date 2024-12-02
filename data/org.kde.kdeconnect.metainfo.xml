@@ -182,6 +182,7 @@
     <value key="KDE::supporters">[fat_malama](https://www.instagram.com/fat_malama/); Alexandru Traistaru; Neeko iko</value>
   </custom>
   <releases>
+    <release version="24.12.0" date="2024-12-12"/>
     <release version="24.08.3" date="2024-11-07"/>
     <release version="24.08.2" date="2024-10-10"/>
     <release version="24.08.1" date="2024-09-12"/>
