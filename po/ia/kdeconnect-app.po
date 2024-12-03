@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-15 00:39+0000\n"
+"POT-Creation-Date: 2024-12-03 00:40+0000\n"
 "PO-Revision-Date: 2024-05-20 12:35+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -227,7 +227,7 @@ msgstr "Necun reproductores disponibile"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:99
+#: qml/PluginSettings.qml:103
 #, kde-format
 msgid "Configure plugin"
 msgstr "Configura Plugin"
@@ -268,7 +268,7 @@ msgstr "Nomine de dispositivo"
 msgid "About KDE Connect"
 msgstr "Re KDE Connect"
 
-#: qml/Settings.qml:47
+#: qml/Settings.qml:44
 #, kde-format
 msgid "About KDE"
 msgstr "A proposio de KDE"

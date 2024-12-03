@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-15 00:39+0000\n"
+"POT-Creation-Date: 2024-12-03 00:40+0000\n"
 "PO-Revision-Date: 2024-05-19 08:11+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -226,7 +226,7 @@ msgstr "אין נגנים זמינים"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:99
+#: qml/PluginSettings.qml:103
 #, kde-format
 msgid "Configure plugin"
 msgstr "הגדרת תוסף"
@@ -267,7 +267,7 @@ msgstr "שם המכשיר"
 msgid "About KDE Connect"
 msgstr "על KDE Connect"
 
-#: qml/Settings.qml:47
+#: qml/Settings.qml:44
 #, kde-format
 msgid "About KDE"
 msgstr "על KDE"
