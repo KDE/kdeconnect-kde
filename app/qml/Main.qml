@@ -24,6 +24,11 @@ Kirigami.ApplicationWindow {
         configGroupName: "MainWindow"
     }
 
+    Component {
+        id: deviceComp
+        DevicePage {}
+    }
+
     globalDrawer: Kirigami.OverlayDrawer {
         id: drawer
         edge: Qt.application.layoutDirection === Qt.RightToLeft ? Qt.RightEdge : Qt.LeftEdge
@@ -50,70 +55,86 @@ Kirigami.ApplicationWindow {
 
         contentItem: ColumnLayout {
             spacing: 0
-
             QQC2.ToolBar {
                 Layout.fillWidth: true
                 Layout.preferredHeight: pageStack.globalToolBar.preferredHeight
 
-                leftPadding: Kirigami.Units.largeSpacing
-                rightPadding: Kirigami.Units.largeSpacing
-                topPadding: Kirigami.Units.smallSpacing
-                bottomPadding: Kirigami.Units.smallSpacing
+                contentItem: RowLayout {
+                    spacing: 0
 
-                contentItem: Kirigami.Heading {
-                    text: announcedNameProperty.value
-                    elide: Qt.ElideRight
+                    Kirigami.Heading {
+                        text: i18nd("kdeconnect-app", "Devices")
+                        elide: Qt.ElideRight
 
-                    DBusProperty {
-                        id: announcedNameProperty
-                        object: DaemonDbusInterface
-                        read: "announcedName"
-                        defaultValue: ""
+                        Layout.fillWidth: true
+                        Layout.leftMargin: Kirigami.Units.largeSpacing
+                    }
+
+                    QQC2.ToolButton {
+                        text: i18nc("@action:button", "Refresh")
+                        icon.name: 'view-refresh-symbolic'
+
+                        QQC2.ToolTip.text: text
+                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        QQC2.ToolTip.visible: hovered
+
+                        onClicked: {
+                            //refresh
+                            DaemonDbusInterface.forceOnNetworkChange();
+                        }
                     }
                 }
             }
-
-            QQC2.ItemDelegate {
-                id: findDevicesAction
-                text: i18nd("kdeconnect-app", "Find devices...")
-                icon.name: "list-add"
-                checked: pageStack.currentItem && pageStack.currentItem.objectName == "FindDevices"
+            QQC2.ScrollView {
                 Layout.fillWidth: true
-
-                onClicked: {
-                    root.pageStack.clear()
-                    root.pageStack.push(Qt.resolvedUrl("FindDevicesPage.qml"));
-                }
-            }
-
-            Kirigami.Separator {
-                Layout.fillWidth: true
-            }
-
-            Repeater {
-                model: DevicesSortProxyModel {
-                    sourceModel: DevicesModel {
-                        displayFilter: DevicesModel.Paired | DevicesModel.Reachable
-                    }
-                }
-
-                QQC2.ItemDelegate {
+                ListView {
+                    id: devices
                     Layout.fillWidth: true
-                    contentItem: Kirigami.IconTitleSubtitle {
-                        icon.name: model.iconName
-                        icon.width: Kirigami.Units.iconSizes.smallMedium
-                        title: model.name
-                        subtitle: model.toolTip
-                    }
+                    clip: true
 
-                    enabled: status & DevicesModel.Reachable
-                    checked: pageStack.currentItem && pageStack.currentItem.currentDevice == device
-                    onClicked: {
-                        root.pageStack.pop(0)
-                        root.pageStack.push(
-                            Qt.resolvedUrl("DevicePage.qml"),
-                            {currentDevice: device}
-                        );
+                    section {
+                        property: "status"
+                        delegate: Kirigami.ListSectionHeader {
+                            width: ListView.view.width
+                            text: switch (parseInt(section)) {
+                            case DevicesModel.Paired:
+                                return i18nd("kdeconnect-app", "Remembered");
+                            case DevicesModel.Reachable:
+                                return i18nd("kdeconnect-app", "Available");
+                            case (DevicesModel.Reachable | DevicesModel.Paired):
+                                return i18nd("kdeconnect-app", "Connected");
+                            }
+                        }
+                    }
+                    Kirigami.PlaceholderMessage {
+                        text: i18nd("kdeconnect-app", "No devices found")
+                        icon.name: 'edit-none-symbolic'
+                        anchors.centerIn: parent
+                        width: parent.width - (Kirigami.Units.largeSpacing * 4)
+                        visible: devices.count === 0
+                    }
+                    model: DevicesSortProxyModel {
+                        sourceModel: DevicesModel {}
+                    }
+                    delegate: QQC2.ItemDelegate {
+                        id: delegate
+                        icon.name: iconName
+                        text: model.name
+                        width: ListView.view.width
+                        highlighted: false
+
+                        contentItem: Kirigami.IconTitleSubtitle {
+                            title: delegate.text
+                            subtitle: toolTip
+                            icon: icon.fromControlsIcon(delegate.icon)
+                        }
+
+                        onClicked: {
+                            pageStack.clear();
+                            pageStack.push(deviceComp, {
+                                currentDevice: device
+                            });
+                        }
                     }
                 }
             }
@@ -123,13 +144,42 @@ Kirigami.ApplicationWindow {
                 Layout.fillWidth: true
             }
 
-            QQC2.ItemDelegate {
-                text: i18n("Settings")
-                icon.name: "settings-configure"
+            QQC2.ToolBar {
                 Layout.fillWidth: true
-                onClicked: pageStack.pushDialogLayer(Qt.resolvedUrl("Settings.qml"), {}, {
-                    title: i18n("Settings"),
-                });
+                Layout.preferredHeight: pageStack.globalToolBar.preferredHeight
+                position: QQC2.ToolBar.Footer
+
+                contentItem: RowLayout {
+                    spacing: Kirigami.Units.smallSpacing
+                    QQC2.Label {
+                        text: announcedNameProperty.value
+                        elide: Qt.ElideRight
+
+                        Layout.fillWidth: true
+                        Layout.leftMargin: Kirigami.Units.largeSpacing
+
+                        DBusProperty {
+                            id: announcedNameProperty
+                            object: DaemonDbusInterface
+                            read: "announcedName"
+                            defaultValue: "DeviceName"
+                        }
+                    }
+
+                    QQC2.ToolButton {
+                        text: i18n("Settings")
+                        icon.name: "settings-configure"
+                        display: QQC2.AbstractButton.IconOnly
+
+                        QQC2.ToolTip.text: text
+                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        QQC2.ToolTip.visible: hovered
+
+                        onClicked: pageStack.pushDialogLayer(Qt.resolvedUrl("Settings.qml"), {}, {
+                            title: i18n("Settings")
+                        })
+                    }
+                }
             }
         }
     }
@@ -138,5 +188,5 @@ Kirigami.ApplicationWindow {
         id: contextDrawer
     }
 
-    pageStack.initialPage: Qt.resolvedUrl("FindDevicesPage.qml")
+    pageStack.initialPage: Qt.resolvedUrl("NoDeviceSelected.qml")
 }
