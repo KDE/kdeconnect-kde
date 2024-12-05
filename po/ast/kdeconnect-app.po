@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
+"POT-Creation-Date: 2024-12-05 00:39+0000\n"
 "PO-Revision-Date: 2024-03-27 23:21+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -159,38 +159,38 @@ msgstr ""
 msgid "Please choose a file"
 msgstr ""
 
-#: qml/FindDevicesPage.qml:23
+#: qml/Main.qml:66
 #, kde-format
-msgctxt "Title of the page listing the devices"
 msgid "Devices"
 msgstr ""
 
-#: qml/FindDevicesPage.qml:48
+#: qml/Main.qml:74
+#, kde-format
+msgctxt "@action:button"
+msgid "Refresh"
+msgstr ""
+
+#: qml/Main.qml:101
 #, kde-format
 msgid "Remembered"
 msgstr ""
 
-#: qml/FindDevicesPage.qml:50
+#: qml/Main.qml:103
 #, kde-format
 msgid "Available"
 msgstr ""
 
-#: qml/FindDevicesPage.qml:52
+#: qml/Main.qml:105
 #, kde-format
 msgid "Connected"
 msgstr ""
 
-#: qml/FindDevicesPage.qml:57
+#: qml/Main.qml:110
 #, kde-format
 msgid "No devices found"
 msgstr ""
 
-#: qml/Main.qml:78
-#, kde-format
-msgid "Find devices..."
-msgstr ""
-
-#: qml/Main.qml:127 qml/Main.qml:131
+#: qml/Main.qml:170 qml/Main.qml:179
 #, kde-format
 msgid "Settings"
 msgstr ""
@@ -218,6 +218,23 @@ msgstr ""
 #: qml/mpris.qml:107
 #, kde-format
 msgid "%1 - %2"
+msgstr ""
+
+#: qml/NoDeviceSelected.qml:13
+#, kde-format
+msgid ""
+"<html><head/><body><p>No device selected<br><br>If you own an Android "
+"device, make sure to install the <a href=\"https://play.google.com/store/"
+"apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
+"underline;\">KDE Connect Android app</span></a> (also available <a href="
+"\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span "
+"style=\" text-decoration: underline;\">from F-Droid</span></a>) and it "
+"should appear in the list. If you have an iPhone, make sure to install the "
+"<a href=\"https://apps.apple.com/us/app/kde-connect/id1580245991\"><span "
+"style=\" text-decoration: underline;\">KDE Connect iOS app.</span></a> "
+"<br><br>If you are having problems, visit the <a href=\"https://userbase.kde."
+"org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
+"Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
 
 #: qml/PluginSettings.qml:103
