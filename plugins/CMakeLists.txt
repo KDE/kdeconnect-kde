@@ -20,7 +20,7 @@ endif()
 
 add_subdirectory(presenter)
 
-if((WIN32 AND MSVC AND (${CMAKE_SYSTEM_VERSION} VERSION_GREATER_EQUAL 10.0.17763.0)) OR (NOT WIN32 AND NOT APPLE))
+if((WIN32 AND MSVC AND ("${CMAKE_SYSTEM_VERSION}" VERSION_GREATER_EQUAL 10.0.17763.0)) OR (NOT WIN32 AND NOT APPLE))
     add_subdirectory(mpriscontrol)
 endif()
 add_subdirectory(mprisremote)
