@@ -3,14 +3,14 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
 # SPDX-FileCopyrightText: 2018, 2019, 2020, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:39+0000\n"
-"PO-Revision-Date: 2024-05-19 08:54+0200\n"
+"PO-Revision-Date: 2024-12-05 09:13+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -168,9 +168,7 @@ msgid "Please choose a file"
 msgstr "Si us plau, seleccioneu un fitxer"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Dispositius"
 
@@ -178,7 +176,7 @@ msgstr "Dispositius"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Actualitza"
 
 #: qml/Main.qml:101
 #, kde-format
@@ -248,6 +246,19 @@ msgid ""
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>No hi ha cap dispositiu seleccionat<br><br>Si teniu un "
+"dispositiu amb Android, assegureu-vos d'instal·lar l'<a href=\"https://play."
+"google.com/store/apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline; \">app KDE Connect per a Android</span></a> (també "
+"disponible <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline; \">des del F-"
+"Droid</span></a>) i hauria d'aparèixer a la llista. Si teniu un iPhone, "
+"assegureu-vos d'instal·lar l'aplicació d'<a href=\"https://apps.apple.com/us/"
+"app/kde-connect/id1580245991\"><span style=\" text-decoration: underline;"
+"\">iOS KDE Connect.</span></a> <br><br>Si teniu problemes, visiteu el <a "
+"href=\"https://userbase.kde.org/KDEConnect/ca\"><span style=\" text-"
+"decoration: underline; \">wiki de la KDE Connect Community</span></a> per a "
+"obtenir ajuda.</p></body></html>"
 
 #: qml/PluginSettings.qml:103
 #, kde-format

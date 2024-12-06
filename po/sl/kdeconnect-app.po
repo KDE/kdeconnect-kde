@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:39+0000\n"
-"PO-Revision-Date: 2024-05-19 07:32+0200\n"
+"PO-Revision-Date: 2024-12-05 07:29+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -165,9 +165,7 @@ msgid "Please choose a file"
 msgstr "Izberite datoteko"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Naprave"
 
@@ -175,7 +173,7 @@ msgstr "Naprave"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Osveži"
 
 #: qml/Main.qml:101
 #, kde-format
@@ -243,6 +241,18 @@ msgid ""
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Izbrane ni nobene naprave<br><br>Če imate napravo "
+"Android, ne pozabite namestiti <a href=\"https://play.google.com/store /apps/"
+"details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline;"
+"\">Aplikacijo KDE Connect za Android</span></a> (na voljo tudi <a href="
+"\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span "
+"style=\"text-decoration: underline;\">iz F-Droid</span></ a>) in se mora "
+"pojaviti na seznamu. Če imate iPhone, ne pozabite namestiti <a href="
+"\"https://apps.apple.com/us/app/kde-connect/id1580245991\"><span style="
+"\"text-decoration: underline;\"> Aplikacijo KDE Connect za iOS.</span></a> "
+"<br><br>Če imate težave, obiščite <a href=\"https://userbase.kde.org/"
+"KDEConnect\"><span style=\" text-decoration: underline;\">wiki skupnosti KDE "
+"Connect</span></a> za pomoč.</p></body></html>"
 
 #: qml/PluginSettings.qml:103
 #, kde-format

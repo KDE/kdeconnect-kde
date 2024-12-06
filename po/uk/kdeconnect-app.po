@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:39+0000\n"
-"PO-Revision-Date: 2024-05-19 09:32+0300\n"
+"PO-Revision-Date: 2024-12-05 11:51+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -167,9 +167,7 @@ msgid "Please choose a file"
 msgstr "Будь ласка, виберіть файл"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Пристрої"
 
@@ -177,7 +175,7 @@ msgstr "Пристрої"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Освіжити"
 
 #: qml/Main.qml:101
 #, kde-format
@@ -245,6 +243,18 @@ msgid ""
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Не вибрано пристрою<br><br>Якщо у вас є телефон під "
+"керуванням Android, встановіть <a href=\"https://play.google.com/store/apps/"
+"details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline;"
+"\">програму KDE Connect для Android</span></a> (також доступна з <a href="
+"\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span "
+"style=\" text-decoration: underline;\">F-Droid</span></a>), і вона з’явиться "
+"у списку. Якщо ви є власником iPhone, не забудьте встановити <a href="
+"\"https://apps.apple.com/us/app/kde-connect/id1580245991\"><span style=\" "
+"text-decoration: underline;\">програму KDE Connect для iOS</span></a> "
+"<br><br>Якщо у вас виникають проблеми, відвідайте <a href=\"https://userbase."
+"kde.org/KDEConnect\"><span style=\" text-decoration: underline;\">вікі "
+"спільноти KDE Connect</span></a>, щоб дізнатися більше.</p></body></html>"
 
 #: qml/PluginSettings.qml:103
 #, kde-format

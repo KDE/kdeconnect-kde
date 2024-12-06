@@ -165,9 +165,7 @@ msgid "Please choose a file"
 msgstr "请选择文件"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "设备"
 
@@ -289,6 +287,3 @@ msgstr "关于 KDE Connect"
 #, kde-format
 msgid "About KDE"
 msgstr "关于 KDE"
-
-#~ msgid "Find devices..."
-#~ msgstr "查找设备..."

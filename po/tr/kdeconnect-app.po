@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:39+0000\n"
-"PO-Revision-Date: 2024-09-23 15:20+0300\n"
+"PO-Revision-Date: 2024-12-05 20:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -165,9 +165,7 @@ msgid "Please choose a file"
 msgstr "Lütfen bir dosya seçin"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Aygıtlar"
 
@@ -175,7 +173,7 @@ msgstr "Aygıtlar"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Yenile"
 
 #: qml/Main.qml:101
 #, kde-format
@@ -245,6 +243,18 @@ msgid ""
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Seçili aygıt yok<br><br>Bir Android aygıtınız varsa <a "
+"href=\"https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
+"\"><span style=\" text-decoration: underline;\">KDE Bağlan Android "
+"uygulamasını</span></a> kurun (<a href=\"https://f-droid.org/repository/"
+"browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
+"underline;\">F-Droid</span></a> mağazasından da edinilebilir) ve o listede "
+"görünecektir. Bir iPhone’unuz varsa <a href=\"https://apps.apple.com/us/app/"
+"kde-connect/id1580245991\"><span style=\" text-decoration: underline;\">KDE "
+"Bağlan iOS uygulamasını kurun.</span></a> <br><br>Sorunlar yaşıyorsanız "
+"yardım için <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
+"text-decoration: underline;\">KDE Bağlan topluluk vikisini</span></a> "
+"ziyaret edin.</p></body></html>"
 
 #: qml/PluginSettings.qml:103
 #, kde-format
