@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:39+0000\n"
-"PO-Revision-Date: 2024-05-23 08:35+0200\n"
+"PO-Revision-Date: 2024-12-06 11:58+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -164,9 +164,7 @@ msgid "Please choose a file"
 msgstr "Escolla un ficheiro"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
@@ -174,7 +172,7 @@ msgstr "Dispositivos"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Actualizar"
 
 #: qml/Main.qml:101
 #, kde-format
@@ -244,6 +242,19 @@ msgid ""
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Non seleccionou ningún dispositivo.<br> <br>Se dispón "
+"dun dispositivo con Android, asegúrese de instalar a <a href=\"https://play."
+"google.com/store/apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline\">aplicación de KDE Connect para Android</span></a> "
+"(tamén dispoñíbel <a href=\"https://f-droid.org/repository/browse/?fdid=org."
+"kde.kdeconnect_tp\"><span style=\" text-decoration: underline; color\">en F-"
+"Droid</span></a>) e debería aparecer na lista. Se ten un iPhone, asegúrese "
+"de instalar a <a href=\"https://apps.apple.com/us/app/kde-connect/"
+"id1580245991\"><span style=\" text-decoration: underline;\">aplicación KDE "
+"Connect para iOS</span></a>.<br><br>Se ten problemas, visite o <a href="
+"\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
+"underline\">wiki da comunidade de KDE Connect</span></a> para obter axuda.</"
+"p></body></html>"
 
 #: qml/PluginSettings.qml:103
 #, kde-format
