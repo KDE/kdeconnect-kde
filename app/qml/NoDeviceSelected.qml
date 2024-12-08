@@ -13,6 +13,22 @@ import org.kde.kirigamiaddons.formcard as FormCard
 FormCard.FormCardPage {
     id: root
 
+    readonly property string gearVersion: {
+        const now = new Date();
+        const month = now.getMonth();
+        const year = now.getFullYear() - 2000;
+        if (month < 3) {
+            return (year - 1).toString() + '.12';
+        }
+        if (month < 7) {
+            return year.toString() + '.04';
+        }
+        if (month < 11) {
+            return year.toString() + '.08';
+        }
+        return year.toString() + '.12';
+    }
+
     Kirigami.Icon {
         source: "kdeconnect"
         implicitWidth: Kirigami.Units.iconSizes.huge
@@ -65,6 +81,45 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             text: i18n("Apple Store")
             onClicked: Qt.openUrlExternally("https://apps.apple.com/us/app/kde-connect/id1580245991")
+        }
+    }
+
+    FormCard.FormHeader {
+        title: i18nc("@title:context", "KDE Connect Desktop Apps")
+    }
+
+    FormCard.FormCard {
+        FormCard.FormButtonDelegate {
+            text: i18n("Windows (Microsoft Store)")
+            onClicked: Qt.openUrlExternally("https://apps.microsoft.com/detail/9n93mrmsxbf0")
+        }
+
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.FormButtonDelegate {
+            text: i18n("Windows (Offline Installer)")
+            onClicked: Qt.openUrlExternally("https://cdn.kde.org/ci-builds/network/kdeconnect-kde/release-" + root.gearVersion + "/windows/")
+        }
+
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.FormButtonDelegate {
+            text: i18n("macOS (ARM)")
+            onClicked: Qt.openUrlExternally("https://cdn.kde.org/ci-builds/network/kdeconnect-kde/release-" + root.gearVersion + "/macos-arm64/")
+        }
+
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.FormButtonDelegate {
+            text: i18n("macOS (Intel)")
+            onClicked: Qt.openUrlExternally("https://cdn.kde.org/ci-builds/network/kdeconnect-kde/release-" + root.gearVersion + "/macos-x86_64/")
+        }
+
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.FormButtonDelegate {
+            text: i18n("GNOME")
+            onClicked: Qt.openUrlExternally("https://extensions.gnome.org/extension/1319/gsconnect/")
         }
     }
 
