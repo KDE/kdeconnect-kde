@@ -188,5 +188,5 @@ Kirigami.ApplicationWindow {
         id: contextDrawer
     }
 
-    pageStack.initialPage: Qt.resolvedUrl("NoDeviceSelected.qml")
+    pageStack.initialPage: Qt.resolvedUrl("WelcomePage.qml")
 }
