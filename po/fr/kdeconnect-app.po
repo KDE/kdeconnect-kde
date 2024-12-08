@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:39+0000\n"
-"PO-Revision-Date: 2024-05-21 13:07+0200\n"
+"PO-Revision-Date: 2024-12-06 09:10+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.11.90\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -163,9 +163,7 @@ msgid "Please choose a file"
 msgstr "Veuillez choisir un fichier"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Périphériques"
 
@@ -173,7 +171,7 @@ msgstr "Périphériques"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Rafraîchir"
 
 #: qml/Main.qml:101
 #, kde-format
@@ -243,6 +241,20 @@ msgid ""
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Aucun périphérique sélectionné<br><br>Si vous possédez "
+"un périphérique sous Android, veuillez vous assurer d'avoir installé <a href="
+"\"https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
+"\"><span style=\" text-decoration: underline;\">l'application KDEConnect "
+"pour Android</span></a> (Disponible aussi <a href=\"https://f-droid.org/"
+"repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline;\">à partir de F-Droid</span></a>) et elle doit "
+"apparaître dans la liste. Si vous possédez un iPhone, veuillez vous assurer "
+"d'avoir installé<a href=\"https://apps.apple.com/us/app/kde-connect/"
+"id1580245991\"><span style=\" text-decoration: underline;\">l'application "
+"KDEConnect pour iOS.</span></a> <br><br>Si vous rencontrez des problèmes, "
+"veuillez consulter le <a href=\"https://userbase.kde.org/KDEConnect\"><span "
+"style=\" text-decoration: underline;\">wiki de la communauté de KDEConnect</"
+"span></a> pour obtenir de l'aide.</p></body></html>"
 
 #: qml/PluginSettings.qml:103
 #, kde-format

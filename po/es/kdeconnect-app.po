@@ -2,16 +2,15 @@
 # Copyright (C) 2020 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, %Y.
 # Automatically generated, 2020.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2020.
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2020 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:39+0000\n"
-"PO-Revision-Date: 2024-05-25 17:28+0200\n"
+"PO-Revision-Date: 2024-12-07 19:28+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -168,9 +167,7 @@ msgid "Please choose a file"
 msgstr "Por favor, elija un archivo"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
@@ -178,7 +175,7 @@ msgstr "Dispositivos"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Refrescar"
 
 #: qml/Main.qml:101
 #, kde-format
@@ -248,6 +245,19 @@ msgid ""
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Ningún dispositivo seleccionado<br><br>Si dispone de "
+"un dispositivo Android, asegúrese de instalar la <a href=\"https://play."
+"google.com/store/apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline;\">aplicación KDE Connect de Android</span></a> "
+"(también disponible <a href=\"https://f-droid.org/repository/browse/?"
+"fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline;\">en "
+"F-Droid</span></a>) y aparecerá e4n la lista. Si tiene un iPhone, asegúrese "
+"de instalar la <a href=\"https://apps.apple.com/us/app/kde-connect/"
+"id1580245991\"><span style=\" text-decoration: underline;\">aplicación KDE "
+"Connect de iOS.</span></a>Si tiene problemas, visite la <a href=\"https://"
+"userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline;"
+"\">wiki de la comunidad de KDE Connect</span></a> para buscar ayuda.</p></"
+"body></html><br><br>"
 
 #: qml/PluginSettings.qml:103
 #, kde-format
@@ -294,6 +304,3 @@ msgstr "Sobre KDE Connect"
 #, kde-format
 msgid "About KDE"
 msgstr "Sobre KDE"
-
-#~ msgid "Find devices..."
-#~ msgstr "Encontrar dispositivos..."
