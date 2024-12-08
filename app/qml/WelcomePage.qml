@@ -47,7 +47,7 @@ FormCard.FormCardPage {
     }
 
     Controls.Label {
-        text: i18nc("@info", "Make sure to install KDE Connect on your mobile device.")
+        text: i18nc("@info", "Make sure to install KDE Connect on your other devices.")
         horizontalAlignment: Qt.AlignHCenter
 
         Layout.fillWidth: true
@@ -118,8 +118,8 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {}
 
         FormCard.FormButtonDelegate {
-            text: i18n("GNOME")
-            onClicked: Qt.openUrlExternally("https://extensions.gnome.org/extension/1319/gsconnect/")
+            text: i18n("Others")
+            onClicked: Qt.openUrlExternally("https://kdeconnect.kde.org/download.html")
         }
     }
 
