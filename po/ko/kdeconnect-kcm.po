@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-19 00:39+0000\n"
-"PO-Revision-Date: 2024-08-19 22:45+0200\n"
+"PO-Revision-Date: 2024-12-10 00:45+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -28,10 +28,9 @@ msgid "Your emails"
 msgstr "kde@peremen.name"
 
 #: kcm.cpp:88
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings"
+#, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "KDE Connect 설정"
+msgstr "오류: KDE Connect가 실행 중이 아님"
 
 #: kcm.cpp:204
 #, kde-format
@@ -108,7 +107,7 @@ msgstr "(상태)"
 #: kcm.ui:238
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:269
@@ -179,25 +178,22 @@ msgstr ""
 #: list.qml:52
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "기억함"
 
 #: list.qml:54
-#, fuzzy, kde-format
-#| msgid "Available plugins"
+#, kde-format
 msgid "Available"
-msgstr "사용 가능한 플러그인"
+msgstr "사용 가능"
 
 #: list.qml:56
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "Connected"
-msgstr "KDE Connect"
+msgstr "연결됨"
 
 #: list.qml:61
-#, fuzzy, kde-format
-#| msgid "No device selected."
+#, kde-format
 msgid "No devices found"
-msgstr "장치를 선택하지 않았습니다."
+msgstr "장치를 찾을 수 없음"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"
