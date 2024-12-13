@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-15 00:39+0000\n"
+"POT-Creation-Date: 2024-12-13 02:30+0000\n"
 "PO-Revision-Date: 2024-07-06 14:27+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -225,7 +225,7 @@ msgstr "Ingen spelarar er tilgjengelege"
 msgid "%1 - %2"
 msgstr "%1 – %2"
 
-#: qml/PluginSettings.qml:99
+#: qml/PluginSettings.qml:103
 #, kde-format
 msgid "Configure plugin"
 msgstr "Set opp programtillegg"

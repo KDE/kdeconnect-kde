@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-15 00:39+0000\n"
+"POT-Creation-Date: 2024-12-13 02:30+0000\n"
 "PO-Revision-Date: 2024-08-26 18:28+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -227,7 +227,7 @@ msgstr "Keine Wiedergabegeräte verfügbar"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:99
+#: qml/PluginSettings.qml:103
 #, kde-format
 msgid "Configure plugin"
 msgstr "Modul einrichten"

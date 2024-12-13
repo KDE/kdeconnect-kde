@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-15 00:39+0000\n"
+"POT-Creation-Date: 2024-12-13 02:30+0000\n"
 "PO-Revision-Date: 2024-10-21 17:32+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -225,7 +225,7 @@ msgstr "Ei toisto-ohjelmia"
 msgid "%1 - %2"
 msgstr "%1 – %2"
 
-#: qml/PluginSettings.qml:99
+#: qml/PluginSettings.qml:103
 #, kde-format
 msgid "Configure plugin"
 msgstr "Liitännäisen asetukset"
