@@ -71,9 +71,7 @@ Kirigami.ApplicationWindow
 
     Component {
         id: aboutPageComponent
-        FormCard.AboutPage {
-            aboutData: About
-        }
+        FormCard.AboutPage {}
     }
 
     globalDrawer: Kirigami.GlobalDrawer {

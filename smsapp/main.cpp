@@ -102,10 +102,6 @@ int main(int argc, char *argv[])
 
     qmlRegisterSingletonInstance<AppData>("org.kde.kdeconnect.sms", 1, 0, "AppData", &data);
 
-    qmlRegisterSingletonType("org.kde.kdeconnect.sms", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
-        return engine->toScriptValue(KAboutData::applicationData());
-    });
-
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.addImageProvider(QStringLiteral("thumbnailsProvider"), new ThumbnailsProvider);
