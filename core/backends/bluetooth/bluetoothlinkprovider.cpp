@@ -289,6 +289,10 @@ void BluetoothLinkProvider::serverDataReceived(const QBluetoothAddress &peer, QS
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::serverDataReceived executed";
     QByteArray identityArray;
+    if (!socket) {
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::serverDataReceived but socket no longer exists";
+        return;
+    }
     socket->startTransaction();
     identityArray = socket->readLine();
 
