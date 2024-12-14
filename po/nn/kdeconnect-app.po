@@ -289,6 +289,3 @@ msgstr "Om KDE Connect"
 #, kde-format
 msgid "About KDE"
 msgstr "Om KDE"
-
-#~ msgid "Find devices..."
-#~ msgstr "Finn einingar …"

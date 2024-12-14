@@ -1,0 +1,321 @@
+# Sanskrit translations for kdeconnect-kde package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"PO-Revision-Date: 2024-12-13 19:10+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>2);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: kdeconnect-cli.cpp:32
+#, kde-format
+msgid "KDE Connect CLI tool"
+msgstr "KDE CLI साधनं संयोजयन्तु"
+
+#: kdeconnect-cli.cpp:34
+#, kde-format
+msgid "(C) 2015 Aleix Pol Gonzalez"
+msgstr "(C) 2015 अलेक्स पोल गोन्जालेज"
+
+#: kdeconnect-cli.cpp:39
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "एलेक्स पोल गोन्जालेज"
+
+#: kdeconnect-cli.cpp:40
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "अल्बर्ट वाका सिन्टोरा"
+
+#: kdeconnect-cli.cpp:42
+#, kde-format
+msgid "List all devices"
+msgstr "सर्वाणि उपकरणानि सूचीबद्धानि कुर्वन्तु"
+
+#: kdeconnect-cli.cpp:44
+#, kde-format
+msgid "List available (paired and reachable) devices"
+msgstr "उपलब्धानि (युग्मितानि तथा प्राप्यमाणानि) उपकरणानि सूचीबद्धं कुर्वन्तु"
+
+#: kdeconnect-cli.cpp:46
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id, to ease "
+"scripting"
+msgstr ""
+"--list-devices अथवा --list-available केवलं devices id मुद्रयन्तु, स्क्रिप्टिङ्ग् सुलभं कर्तुं"
+
+#: kdeconnect-cli.cpp:48
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices name, to ease "
+"scripting"
+msgstr ""
+"--list-devices अथवा --list-available केवलं उपकरणानां नाम मुद्रयन्तु, स्क्रिप्टिङ्ग् सुलभं "
+"कर्तुं"
+
+#: kdeconnect-cli.cpp:50
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id and name, "
+"to ease scripting"
+msgstr ""
+"--list-devices अथवा --list-available केवलं devices id तथा name मुद्रयन्तु, "
+"स्क्रिप्टिङ्ग् सुलभं कर्तुं"
+
+#: kdeconnect-cli.cpp:51
+#, kde-format
+msgid "Search for devices in the network and re-establish connections"
+msgstr "जालपुटे उपकरणानि अन्वेष्टुम्, पुनः संयोजनानि स्थापयन्तु च"
+
+#: kdeconnect-cli.cpp:52
+#, kde-format
+msgid "Request pairing to a said device"
+msgstr "उक्तयन्त्रे युग्मीकरणस्य अनुरोधं कुर्वन्तु"
+
+#: kdeconnect-cli.cpp:53
+#, kde-format
+msgid "Find the said device by ringing it."
+msgstr "उक्तं यन्त्रं तस्य ध्वनिं कृत्वा अन्वेष्टुम्।"
+
+#: kdeconnect-cli.cpp:54
+#, kde-format
+msgid "Stop pairing to a said device"
+msgstr "उक्तयन्त्रेण सह युग्मीकरणं त्यजन्तु"
+
+#: kdeconnect-cli.cpp:55
+#, kde-format
+msgid "Sends a ping to said device"
+msgstr "उक्तं यन्त्रं प्रति पिंगं प्रेषयति"
+
+#: kdeconnect-cli.cpp:56
+#, kde-format
+msgid "Same as ping but you can set the message to display"
+msgstr "ping इत्यस्य समानं किन्तु भवन्तः सन्देशं प्रदर्शयितुं सेट् कर्तुं शक्नुवन्ति"
+
+#: kdeconnect-cli.cpp:56 kdeconnect-cli.cpp:63
+#, kde-format
+msgid "message"
+msgstr "सन्देशः"
+
+#: kdeconnect-cli.cpp:57
+#, kde-format
+msgid "Sends the current clipboard to said device"
+msgstr "वर्तमानं क्लिप्बोर्डं उक्तयन्त्रे प्रेषयति"
+
+#: kdeconnect-cli.cpp:58
+#, kde-format
+msgid "Share a file/URL to a said device"
+msgstr "उक्तयन्त्रे सञ्चिकां/URL साझां कुर्वन्तु"
+
+#: kdeconnect-cli.cpp:59
+#, kde-format
+msgid "Share text to a said device"
+msgstr "उक्तयन्त्रे पाठं साझां कुर्वन्तु"
+
+#: kdeconnect-cli.cpp:60
+#, kde-format
+msgid "Display the notifications on a said device"
+msgstr "उक्तयन्त्रे सूचनाः प्रदर्शयन्तु"
+
+#: kdeconnect-cli.cpp:61
+#, kde-format
+msgid "Lock the specified device"
+msgstr "निर्दिष्टं यन्त्रं ताडयन्तु"
+
+#: kdeconnect-cli.cpp:62
+#, kde-format
+msgid "Unlock the specified device"
+msgstr "निर्दिष्टं यन्त्रं अनलॉक् कुर्वन्तु"
+
+#: kdeconnect-cli.cpp:63
+#, kde-format
+msgid "Sends an SMS. Requires destination"
+msgstr "एस एम एस प्रेषयति। गन्तव्यस्य आवश्यकता भवति"
+
+#: kdeconnect-cli.cpp:64
+#, kde-format
+msgid "Phone number to send the message"
+msgstr "सन्देशं प्रेषयितुं दूरभाषसङ्ख्या"
+
+#: kdeconnect-cli.cpp:64
+#, kde-format
+msgid "phone number"
+msgstr "दूरभाषसङ्ख्या"
+
+#: kdeconnect-cli.cpp:66
+#, kde-format
+msgid ""
+"File urls to send attachments with the message (can be passed multiple times)"
+msgstr "सन्देशेन सह संलग्नकानि प्रेषयितुं सञ्चिका-urls (बहुवारं पारितुं शक्यते)"
+
+#: kdeconnect-cli.cpp:67
+#, kde-format
+msgid "file urls"
+msgstr "सञ्चिका urls"
+
+#: kdeconnect-cli.cpp:68
+#, kde-format
+msgid "Device ID"
+msgstr "डिवाइस आईडी"
+
+#: kdeconnect-cli.cpp:69
+#, kde-format
+msgid "Device Name"
+msgstr "यन्त्रनाम"
+
+#: kdeconnect-cli.cpp:70
+#, kde-format
+msgid "Get encryption info about said device"
+msgstr "उक्तयन्त्रस्य विषये एन्क्रिप्शनसूचना प्राप्नुवन्तु"
+
+#: kdeconnect-cli.cpp:71
+#, kde-format
+msgid "Lists remote commands and their ids"
+msgstr "दूरस्थान् आदेशान् तेषां ids च सूचीबद्धं करोति"
+
+#: kdeconnect-cli.cpp:72
+#, kde-format
+msgid "Executes a remote command by id"
+msgstr "id द्वारा दूरस्थं आदेशं निष्पादयति"
+
+#: kdeconnect-cli.cpp:74
+#, kde-format
+msgid "Sends keys to a said device"
+msgstr "उक्तयन्त्रे कीलानि प्रेषयति"
+
+#: kdeconnect-cli.cpp:75
+#, kde-format
+msgid "Display this device's id and exit"
+msgstr "अस्य यन्त्रस्य id प्रदर्श्य निर्गच्छतु"
+
+#: kdeconnect-cli.cpp:121
+#, kde-format
+msgid "(paired and reachable)"
+msgstr "(युग्मं प्राप्य च) २."
+
+#: kdeconnect-cli.cpp:123
+#, kde-format
+msgid "(reachable)"
+msgstr "(प्राप्य) ९."
+
+#: kdeconnect-cli.cpp:125 kdeconnect-cli.cpp:144
+#, kde-format
+msgid "(paired)"
+msgstr "(युग्मितम्) २."
+
+#: kdeconnect-cli.cpp:131
+#, kde-format
+msgid "1 device found"
+msgid_plural "%1 devices found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: kdeconnect-cli.cpp:133
+#, kde-format
+msgid "No devices found"
+msgstr "न यन्त्राणि प्राप्तानि"
+
+#: kdeconnect-cli.cpp:146
+#, kde-format
+msgid "(unpaired)"
+msgstr "(अयुग्मितम्) २."
+
+#: kdeconnect-cli.cpp:183
+#, kde-format
+msgid ""
+"No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
+"device. \n"
+"Device ID's and names may be found using \"kdeconnect-cli -l\" \n"
+"View complete help with --help option"
+msgstr ""
+"कोऽपि यन्त्रः निर्दिष्टः नास्ति: यन्त्रं निर्दिष्टुं -d <Device ID> अथवा -n <Device "
+"Name> इत्यस्य उपयोगं कुर्वन्तु । \n"
+"\"kdeconnect-cli -l\" इत्यस्य उपयोगेन उपकरण-ID's तथा च नामानि प्राप्यन्ते । \n"
+"--help विकल्पेन सह सम्पूर्णं सहायतां पश्यन्तु"
+
+#: kdeconnect-cli.cpp:218
+#, kde-format
+msgid "Shared %1"
+msgstr "साझा %1"
+
+#: kdeconnect-cli.cpp:227
+#, kde-format
+msgid "Shared text: %1"
+msgstr "साझापाठः %1"
+
+#: kdeconnect-cli.cpp:234
+#, kde-format
+msgctxt "device has requested to lock peer device"
+msgid "Requested to lock %1."
+msgstr ""
+
+#: kdeconnect-cli.cpp:236
+#, kde-format
+msgctxt "device has requested to unlock peer device"
+msgid "Requested to unlock %1."
+msgstr ""
+
+#: kdeconnect-cli.cpp:243
+#, kde-format
+msgid "waiting for device..."
+msgstr "यन्त्रस्य प्रतीक्षां कुर्वन्..."
+
+#: kdeconnect-cli.cpp:256
+#, kde-format
+msgid "Device not found"
+msgstr "यन्त्रं न लब्धम्"
+
+#: kdeconnect-cli.cpp:258
+#, kde-format
+msgid "Already paired"
+msgstr "पूर्वमेव युग्मितम्"
+
+#: kdeconnect-cli.cpp:260
+#, kde-format
+msgid "Pair requested"
+msgstr "युग्मं अनुरोधितम्"
+
+#: kdeconnect-cli.cpp:266
+#, kde-format
+msgid "Already not paired"
+msgstr "पूर्वमेव न युग्मितम्"
+
+#: kdeconnect-cli.cpp:268
+#, kde-format
+msgid "Unpaired"
+msgstr "अयुग्मितम्"
+
+#: kdeconnect-cli.cpp:314
+#, kde-format
+msgid ""
+"error: should specify the SMS's recipient by passing --destination <phone "
+"number>"
+msgstr ""
+"error: --destination <phone number> इति उत्तीर्णं कृत्वा SMS इत्यस्य प्राप्तकर्ता "
+"निर्दिष्टव्यः"
+
+#: kdeconnect-cli.cpp:368
+#, kde-format
+msgid "Nothing to be done"
+msgstr "न किमपि कर्तव्यम्"

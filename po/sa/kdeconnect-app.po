@@ -1,123 +1,122 @@
-# Copyright (C) 2023 This file is copyright:
+# Sanskrit translations for kdeconnect-kde package.
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
+# Kali <EMAIL@ADDRESS>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:39+0000\n"
-"PO-Revision-Date: 2024-12-06 03:17+0100\n"
-"Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
-"Language-Team: Italian <kde-i18n-it@kde.org>\n"
-"Language: it\n"
+"PO-Revision-Date: 2024-12-13 19:10+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.3\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
 msgid "KDE Connect"
-msgstr "KDE Connect"
+msgstr "KDE Connect इति"
 
 #: main.cpp:35
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "(c) 2015, Aleix Pol Gonzalez"
+msgstr "(ग) 2015, अलेक्स पोल गोन्जालेज"
 
 #: main.cpp:36
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr "एलेक्स पोल गोन्जालेज"
 
 #: main.cpp:36
 #, kde-format
 msgid "Maintainer"
-msgstr "Responsabile"
+msgstr "परिपालकः"
 
 #: main.cpp:37
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vincenzo Reale"
+msgstr ""
 
 #: main.cpp:37
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "smart2128vr@gmail.com"
+msgstr ""
 
 #: main.cpp:56
 #, kde-format
 msgid "URL to share"
-msgstr "URL da condividere"
+msgstr "साझां कर्तुं URL"
 
 #: qml/DevicePage.qml:27
 #, kde-format
 msgid "Unpair"
-msgstr "Disassocia"
+msgstr "अयुग्मम्"
 
 #: qml/DevicePage.qml:32
 #, kde-format
 msgid "Send Ping"
-msgstr "Invia ping"
+msgstr "Ping प्रेषयतु"
 
 #: qml/DevicePage.qml:40 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
-msgstr "Impostazioni delle estensioni"
+msgstr "प्लगिन् सेटिंग्स्"
 
 #: qml/DevicePage.qml:64
 #, kde-format
 msgid "Multimedia control"
-msgstr "Controllo multimediale"
+msgstr "बहुमाध्यम नियन्त्रण"
 
 #: qml/DevicePage.qml:71
 #, kde-format
 msgid "Remote input"
-msgstr "Impulso remoto"
+msgstr "दूरस्थः निवेशः"
 
 #: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
-msgstr "Presentazione remota"
+msgstr "प्रस्तुति दूरस्थ"
 
 #: qml/DevicePage.qml:87 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
-msgstr "Blocca"
+msgstr "ताल"
 
 #: qml/DevicePage.qml:87
 #, kde-format
 msgid "Unlock"
-msgstr "Sblocca"
+msgstr "अनलॉक"
 
 #: qml/DevicePage.qml:94
 #, kde-format
 msgid "Find Device"
-msgstr "Trova dispositivo"
+msgstr "यन्त्रं अन्वेष्टुम्"
 
 #: qml/DevicePage.qml:99 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
-msgstr "Esegui comando"
+msgstr "आदेशं चालयन्तु"
 
 #: qml/DevicePage.qml:108
 #, kde-format
 msgid "Send Clipboard"
-msgstr "Invia appunti"
+msgstr "Clipboard प्रेषयतु"
 
 #: qml/DevicePage.qml:114
 #, kde-format
 msgid "Share File"
-msgstr "Condividi file"
+msgstr "सञ्चिकां साझां कुर्वन्तु"
 
 #: qml/DevicePage.qml:119 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
-msgstr "Controllo volume"
+msgstr "मात्रा नियन्त्रणम्"
 
 #: qml/DevicePage.qml:130
 #, kde-format
@@ -125,14 +124,14 @@ msgid ""
 "This device is not paired.\n"
 "Key: %1"
 msgstr ""
-"Questo dispositivo non è associato.\n"
-"Chiave: %1"
+"एतत् यन्त्रं युग्मितं नास्ति ।\n"
+"कुञ्जी: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
-msgstr "Associa"
+msgstr ""
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
 #, kde-format
@@ -140,86 +139,84 @@ msgid ""
 "Pair requested\n"
 "Key: "
 msgstr ""
-"Associazione richiesta\n"
-"Chiave: "
+"युग्मं अनुरोधितम्\n"
+"कुंजी: "
 
 #: qml/DevicePage.qml:156
 #, kde-format
 msgid "Accept"
-msgstr "Accetta"
+msgstr "स्वीकरोतु"
 
 #: qml/DevicePage.qml:162
 #, kde-format
 msgid "Reject"
-msgstr "Rifiuta"
+msgstr "अस्वीकार"
 
 #: qml/DevicePage.qml:173
 #, kde-format
 msgid "This device is not reachable"
-msgstr "Questo dispositivo non è raggiungibile"
+msgstr "एतत् यन्त्रं न प्राप्यते"
 
 #: qml/DevicePage.qml:181
 #, kde-format
 msgid "Please choose a file"
-msgstr "Scegli un file"
+msgstr "कृपया सञ्चिकां चिनोतु"
 
 #: qml/Main.qml:66
 #, kde-format
 msgid "Devices"
-msgstr "Dispositivi"
+msgstr "यन्त्राणि"
 
 #: qml/Main.qml:74
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr "Aggiorna"
+msgstr ""
 
 #: qml/Main.qml:101
 #, kde-format
 msgid "Remembered"
-msgstr "Memorizzati"
+msgstr "स्मर्यते"
 
 #: qml/Main.qml:103
 #, kde-format
 msgid "Available"
-msgstr "Disponibili"
+msgstr "उपलब्धः"
 
 #: qml/Main.qml:105
 #, kde-format
 msgid "Connected"
-msgstr "Connessi"
+msgstr "संबद्धः"
 
 #: qml/Main.qml:110
 #, kde-format
 msgid "No devices found"
-msgstr "Nessun dispositivo trovato"
+msgstr "न यन्त्राणि प्राप्तानि"
 
 #: qml/Main.qml:170 qml/Main.qml:179
 #, kde-format
 msgid "Settings"
-msgstr "Impostazioni"
+msgstr "सेटिंग्स्"
 
 #: qml/mousepad.qml:16
 #, kde-format
 msgid "Remote Control"
-msgstr "Controllo remoto"
+msgstr "दूरनियन्त्रणम्"
 
 #: qml/mousepad.qml:59
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr ""
-"Premi %1 o il tasto destro e sinistro del mouse contemporaneamente per "
-"sbloccare"
+msgstr "अनलॉक् कर्तुं %1 अथवा वामदक्षिणमूषकस्य बटन् एकस्मिन् समये नुदन्तु"
 
 #: qml/mpris.qml:19
 #, kde-format
 msgid "Multimedia Controls"
-msgstr "Controlli multimediali"
+msgstr "बहुमाध्यम नियन्त्रणानि"
 
 #: qml/mpris.qml:67
 #, kde-format
 msgid "No players available"
-msgstr "Nessun lettore disponibile"
+msgstr "न खिलाडयः उपलभ्यन्ते"
 
 #: qml/mpris.qml:107
 #, kde-format
@@ -242,65 +239,61 @@ msgid ""
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Nessun dispositivo selezionato<br><br>Se possiedi un "
-"dispositivo Android, assicurati di installare <a href=\"https://play.google."
-"com/store/apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-"
-"decoration: underline;\">l'applicazione KDE Connect Android</span></a> "
-"(disponibile anche <a href=\"https://f-droid.org/repository/browse/?fdid=org."
-"kde.kdeconnect_tp\"><span style=\" text-decoration: underline;\">da F-Droid</"
-"span></a>) e dovrebbe apparire nell'elenco. Se hai un iPhone, assicurati di "
-"installare <a href=\"https://apps.apple.com/us/app/kde-connect/"
-"id1580245991\"><span style=\" text-decoration: underline;\">l'applicazione "
-"KDE Connect iOS.</span></a> <br><br>Se riscontri problemi, visita il <a href="
-"\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
-"underline;\">wiki della comunità KDE Connect</span></a> per aiuto.</p></"
-"body></html>"
+"<html><head/><body><p>न यन्त्रं चयनितम्<br><br> यदि भवान् एण्ड्रॉयड्-यन्त्रस्य स्वामित्वं "
+"करोति तर्हि <a href=\"https://play.google.com/store/apps/details?id=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline;\">KDE Connect "
+"Android एप्</span></a> ( <a href=\"https://f-droid.org/repository/browse/?"
+"fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline;\">F-"
+"Droid इत्यस्मात्</span></a> अपि उपलभ्यते) संस्थापयितुं सुनिश्चितं कुर्वन्तु तथा च तत् सूचीयां "
+"दृश्यते । यदि भवतां समीपे iPhone अस्ति तर्हि <a href=\"https://apps.apple.com/us/"
+"app/kde-connect/id1580245991\"><span style=\" text-decoration: underline;"
+"\">KDE Connect iOS app संस्थापयितुं सुनिश्चितं कुर्वन्तु।</span></a><br><br> यदि भवान् "
+"समस्यां प्राप्नोति तर्हि साहाय्यार्थं <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline;\">KDE Connect Community विकिं</"
+"span></a> पश्यन्तु ।</p></body></html>"
 
 #: qml/PluginSettings.qml:103
 #, kde-format
 msgid "Configure plugin"
-msgstr "Configura l'estensione"
+msgstr "प्लगिन् विन्यस्तं कुर्वन्तु"
 
 #: qml/presentationRemote.qml:21
 #, kde-format
 msgid "Enable Full-Screen"
-msgstr "Abilita schermo intero"
+msgstr "Full-Screen सक्षमं कुर्वन्तु"
 
 #: qml/runcommand.qml:22
 #, kde-format
 msgid "Edit commands"
-msgstr "Modifica comandi"
+msgstr "आदेशान् सम्पादयतु"
 
 #: qml/runcommand.qml:25
 #, kde-format
 msgid "You can edit commands on the connected device"
-msgstr "Puoi modificare i comandi sul dispositivo connesso"
+msgstr "संयोजितयन्त्रे आदेशान् सम्पादयितुं शक्नुवन्ति"
 
 #: qml/runcommand.qml:52
 #, kde-format
 msgid "No commands defined"
-msgstr "Nessun comando definito"
+msgstr "न आदेशाः परिभाषिताः"
 
 #: qml/Settings.qml:13
 #, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "Impostazioni"
+msgstr "सेटिंग्स्"
 
 #: qml/Settings.qml:21
 #, kde-format
 msgid "Device name"
-msgstr "Nome dispositivo"
+msgstr "यन्त्रनाम"
 
 #: qml/Settings.qml:36
 #, kde-format
 msgid "About KDE Connect"
-msgstr "Informazioni su KDE Connect"
+msgstr "KDE Connect इत्यस्य विषये"
 
 #: qml/Settings.qml:44
 #, kde-format
 msgid "About KDE"
-msgstr "Informazioni su KDE"
-
-#~ msgid "Find devices..."
-#~ msgstr "Trova dispositivi..."
+msgstr "KDE विषये"

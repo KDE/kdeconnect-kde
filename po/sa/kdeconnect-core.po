@@ -1,0 +1,133 @@
+# Sanskrit translations for kdeconnect-kde package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-09-22 00:40+0000\n"
+"PO-Revision-Date: 2024-12-13 19:10+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>2);\n"
+
+#: backends/lan/compositeuploadjob.cpp:78
+#, kde-format
+msgid "Couldn't find an available port"
+msgstr "उपलब्धं पोर्ट् न लब्धम्"
+
+#: backends/lan/compositeuploadjob.cpp:110
+#, kde-format
+msgid "Failed to send packet to %1"
+msgstr "%1 - मध्ये पैकेट् प्रेषयितुं असफलम्"
+
+#: backends/lan/compositeuploadjob.cpp:256
+#, kde-format
+msgid "Sending to %1"
+msgstr "%1 प्रति प्रेषयन्"
+
+#: backends/lan/compositeuploadjob.cpp:256
+#, kde-format
+msgid "File"
+msgstr "संचिका"
+
+#: backends/pairinghandler.cpp:59
+#, kde-format
+msgid "Canceled by other peer"
+msgstr "अन्यैः सहपाठिभिः रद्दः"
+
+#: backends/pairinghandler.cpp:75
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: पूर्वमेव युग्मितम्"
+
+#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
+#, kde-format
+msgid "%1: Device not reachable"
+msgstr "%1: यन्त्रं न प्राप्यते"
+
+#: backends/pairinghandler.cpp:113
+#, kde-format
+msgid "Device not reachable"
+msgstr "यन्त्रं न प्राप्यते"
+
+#: backends/pairinghandler.cpp:124
+#, kde-format
+msgid "Cancelled by user"
+msgstr "उपयोक्त्रा रद्दं कृतम्"
+
+#: backends/pairinghandler.cpp:140
+#, kde-format
+msgid "Timed out"
+msgstr "समयः समाप्तः"
+
+#: compositefiletransferjob.cpp:47
+#, kde-format
+msgctxt "@title job"
+msgid "Receiving file"
+msgid_plural "Receiving files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: compositefiletransferjob.cpp:48
+#, kde-format
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr ""
+
+#: compositefiletransferjob.cpp:49
+#, kde-format
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr ""
+
+#: device.cpp:459
+#, kde-format
+msgid "SHA256 fingerprint of your device certificate is: %1\n"
+msgstr "भवतः उपकरणप्रमाणपत्रस्य SHA256 अङ्गुलिचिह्नम् अस्ति: %1\n"
+
+#: device.cpp:465
+#, kde-format
+msgid "SHA256 fingerprint of remote device certificate is: %1\n"
+msgstr "दूरस्थयन्त्रप्रमाणपत्रस्य SHA256 अङ्गुलिचिह्नम् अस्ति: %1\n"
+
+#: filetransferjob.cpp:53
+#, kde-format
+msgid "Filename already present"
+msgstr "सञ्चिकानाम पूर्वमेव वर्तते"
+
+#: filetransferjob.cpp:116
+#, kde-format
+msgid "Received incomplete file from: %1"
+msgstr "अपूर्णसञ्चिका प्राप्ता: %1"
+
+#: kdeconnectconfig.cpp:327 kdeconnectconfig.cpp:361
+#, kde-format
+msgid "KDE Connect failed to start"
+msgstr "KDE Connect आरम्भं कर्तुं असफलम् अभवत्"
+
+#: kdeconnectconfig.cpp:327
+#, kde-format
+msgid "Could not generate the private key."
+msgstr "निजीकुंजी जनयितुं न शक्तवान् ।"
+
+#: kdeconnectconfig.cpp:346
+#, kde-format
+msgid "Could not store private key file: %1"
+msgstr "निजकुंजीसञ्चिकां संग्रहीतुं न शक्तवान्: %1"
+
+#: kdeconnectconfig.cpp:361
+#, kde-format
+msgid "Could not generate the device certificate."
+msgstr "यन्त्रप्रमाणपत्रं जनयितुं न शक्तवान् ।"
+
+#: kdeconnectconfig.cpp:377
+#, kde-format
+msgid "Could not store certificate file: %1"
+msgstr "प्रमाणपत्रसञ्चिकां संग्रहीतुं न शक्तवान्: %1"

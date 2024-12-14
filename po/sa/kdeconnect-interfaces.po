@@ -1,0 +1,37 @@
+# Sanskrit translations for kdeconnect-kde package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"PO-Revision-Date: 2024-12-13 19:10+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: dbushelpers.h:19 dbushelpers.h:29
+#, kde-format
+msgid "error: "
+msgstr "त्रुटि: "
+
+#: devicesmodel.cpp:223
+#, kde-format
+msgid "Device trusted and connected"
+msgstr "यन्त्रं विश्वसनीयं सम्बद्धं च"
+
+#: devicesmodel.cpp:223
+#, kde-format
+msgid "Device not trusted"
+msgstr "यन्त्रं न विश्वसिति"
+
+#: devicesmodel.cpp:223
+#, kde-format
+msgid "Device disconnected"
+msgstr "यन्त्रं विच्छिन्नम्"
