@@ -41,6 +41,7 @@
   <name xml:lang="pt-BR">KDE Connect</name>
   <name xml:lang="ro">KDE Connect</name>
   <name xml:lang="ru">KDE Connect</name>
+  <name xml:lang="sa">KDE Connect इति</name>
   <name xml:lang="sk">KDE Connect</name>
   <name xml:lang="sl">KDE Connect</name>
   <name xml:lang="sr">КДЕ‑конекција</name>
@@ -92,6 +93,7 @@
   <summary xml:lang="pt-BR">Conexão transparente com seus dispositivos</summary>
   <summary xml:lang="ro">Conectare perfectă a dispozitivelor dumneavoastră</summary>
   <summary xml:lang="ru">Бесшовное подключение устройств</summary>
+  <summary xml:lang="sa">भवतः उपकरणानां निर्विघ्नसंयोजनम्</summary>
   <summary xml:lang="sk">Jednoduché prepojenie vašich zariadení</summary>
   <summary xml:lang="sl">Komaj vidna povezava vaših naprav</summary>
   <summary xml:lang="sr">Једноставно повезивање ваших уређаја</summary>
@@ -135,6 +137,7 @@
     <p xml:lang="nn">KDE Connect lèt deg kopla telefonen din og datamaskina di saman. Du kan dela utklippstavle, få tilgang til filer på tvers av einingane, bruka telefonen som fjernkontroll for datamaskina, finn att telefonen når han har dotte ned bak sofaputene, sjå varslingar frå telefonen på datamaskina – og mykje anna!</p>
     <p xml:lang="pl">KDE Connect sprawia, że twój telefon i komputer lepiej współpracują: udostępnianie twojego schowka i dostęp do plików między urządzeniami, obsługa komputera z telefonu, znajdowanie telefonu, gdy wpadnie za łóżko, oglądanie powiadomień z telefonu na komputerze i wiele więcej!</p>
     <p xml:lang="pt-BR">O KDE Connect faz com que seu telefone e computador funcionem melhor juntos: compartilhe sua área de transferência e acesse arquivos entre dispositivos, transforme seu telefone em um controle remoto para seu computador, encontre seu telefone quando ele escorregar para o encosto do sofá, veja as notificações do seu telefone no computador e muito mais!</p>
+    <p xml:lang="sa">KDE Connect भवतः दूरभाषं सङ्गणकं च एकत्र उत्तमं कार्यं करोति: भवतः क्लिप्बोर्डं साझां कुर्वन्तु तथा च उपकरणेषु सञ्चिकाः अभिगन्तुं, भवतः दूरभाषं भवतः सङ्गणकस्य दूरनियन्त्रणरूपेण परिणमयन्तु, भवतः दूरभाषं अन्वेष्टुम् यदा सः भवतः सोफायाः पृष्ठभागे स्खलितः अस्ति, भवतः दूरभाषसूचनाः पश्यन्तु भवतः सङ्गणकं, अपि च बहु किमपि!</p>
     <p xml:lang="sl">KDE Connect izboljša skupno delovanje vašega telefona in računalnika: delite svoje odložišče in dostopajte do datotek med napravami, spremenite svoj telefon v daljinski upravljalnik za svoj računalnik, poiščite svoj telefon, ko je zdrsnil za naslonjalo vašega kavča, oglejte si telefonska obvestila iz vašega računalnika in še veliko več!</p>
     <p xml:lang="sv">KDE-anslut får din telefon och dator att fungera bättre tillsammans: dela klippbordet och få tillgång till filer mellan apparater, förvandla telefonen till en fjärrkontroll för datorn, hitta telefonen när den har glidit ner på baksidan av soffan, se telefonunderrättelser från datorn och mycket mer.</p>
     <p xml:lang="tr">KDE Bağlan, telefonunuzun ve bilgisayarınızın birlikte daha iyi çalışmasını sağlar: Panonuzu paylaşın ve dosyalara başka aygıtlardan erişin, telefonunuzu bilgisayarınızın uzaktan kumandasına dönüştürün, telefonunuz koltuğunuzun arkasına kaydığında onu bulun, telefon bildirimlerinizi bilgisayarınızdan görün ve çok daha fazlasını yapın!</p>
