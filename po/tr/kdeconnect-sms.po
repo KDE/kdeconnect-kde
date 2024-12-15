@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-12-15 00:40+0000\n"
 "PO-Revision-Date: 2024-09-23 15:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -158,7 +158,7 @@ msgid ""
 msgstr ""
 "İpucu: Aygıtınızı takarsanız pinekleme kipine girmez ve daha tez yüklenir."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:90
+#: qml/ConversationList.qml:64 qml/Main.qml:88
 #, kde-format
 msgid "Refresh"
 msgstr "Yenile"
@@ -189,12 +189,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Eşleşme yok"
 
-#: qml/Main.qml:85
+#: qml/Main.qml:83
 #, kde-format
 msgid "Devices"
 msgstr "Aygıtlar"
 
-#: qml/Main.qml:98
+#: qml/Main.qml:96
 #, kde-format
 msgid "About"
 msgstr "Hakkında"

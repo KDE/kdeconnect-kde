@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-12-15 00:40+0000\n"
 "PO-Revision-Date: 2022-07-21 19:39+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -155,7 +155,7 @@ msgstr ""
 "Dica: Se ligar o seu dispositivo, não deverá entrar no modo de economia e "
 "deverá carregar rapidamente."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:90
+#: qml/ConversationList.qml:64 qml/Main.qml:88
 #, kde-format
 msgid "Refresh"
 msgstr "Actualizar"
@@ -187,12 +187,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Sem correspondências"
 
-#: qml/Main.qml:85
+#: qml/Main.qml:83
 #, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: qml/Main.qml:98
+#: qml/Main.qml:96
 #, kde-format
 msgid "About"
 msgstr "Acerca"

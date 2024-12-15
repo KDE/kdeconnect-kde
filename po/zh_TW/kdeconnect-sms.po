@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-12-15 00:40+0000\n"
 "PO-Revision-Date: 2024-11-28 16:39+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -161,7 +161,7 @@ msgid ""
 msgstr ""
 "提示：如果您插入裝置，它應該就不會進入省電 (doze) 模式而應該就會比較快載入。"
 
-#: qml/ConversationList.qml:64 qml/Main.qml:90
+#: qml/ConversationList.qml:64 qml/Main.qml:88
 #, kde-format
 msgid "Refresh"
 msgstr "重新整理"
@@ -192,12 +192,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "無相符的簡訊"
 
-#: qml/Main.qml:85
+#: qml/Main.qml:83
 #, kde-format
 msgid "Devices"
 msgstr "裝置"
 
-#: qml/Main.qml:98
+#: qml/Main.qml:96
 #, kde-format
 msgid "About"
 msgstr "關於"

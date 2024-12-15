@@ -20,7 +20,7 @@ msgstr ""
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
-msgstr ""
+msgstr "%1: न्यून बैटरी"
 
 #: battery/batteryplugin.cpp:120
 #, kde-format
@@ -87,19 +87,19 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "वर्तमान खिलाडी"
 
 #: notifications/notification.cpp:108
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
-msgstr ""
+msgstr "उत्तरं"
 
 #: notifications/notification.cpp:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
-msgstr ""
+msgstr "%1 इत्यस्य उत्तरं ददातु..."
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -437,19 +437,19 @@ msgstr "सञ्चिकाः अत्र रक्षन्तु :"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "%1 तः साझाः पाठः क्लिप्बोर्ड् प्रति प्रतिलिखितः"
 
 #: share/shareplugin.cpp:191
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Text Editor इत्यत्र उद्घाटयन्तु"
 
 #: share/shareplugin.cpp:195
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "लिङ्कं उद्घाटयतु"
 
 #: share/shareplugin.cpp:237
 #, kde-format

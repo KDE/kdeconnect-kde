@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-12-15 00:40+0000\n"
 "PO-Revision-Date: 2024-04-24 01:14+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
@@ -160,7 +160,7 @@ msgstr ""
 "Patarimas: Jei prijungsite savo įrenginį, jis neturėtų pereiti į užsnūdimo "
 "veikseną ir turėtų būti greičiau įkeltas."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:90
+#: qml/ConversationList.qml:64 qml/Main.qml:88
 #, kde-format
 msgid "Refresh"
 msgstr "Įkelti iš naujo"
@@ -191,12 +191,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Nėra atitikmenų"
 
-#: qml/Main.qml:85
+#: qml/Main.qml:83
 #, kde-format
 msgid "Devices"
 msgstr "Įrenginiai"
 
-#: qml/Main.qml:98
+#: qml/Main.qml:96
 #, kde-format
 msgid "About"
 msgstr "Apie"

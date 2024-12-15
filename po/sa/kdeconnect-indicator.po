@@ -3,29 +3,31 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-12 00:38+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:10+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: deviceindicator.cpp:53
 #, kde-format
@@ -41,7 +43,7 @@ msgstr "क्लिपबोर्डं प्रेषयन्तु"
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
-msgstr ""
+msgstr "रिंग यन्त्र"
 
 #: deviceindicator.cpp:95
 #, kde-format
@@ -111,7 +113,7 @@ msgstr "युग्मीकरणानुरोधाः"
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
-msgstr ""
+msgstr "युग्म"
 
 #: main.cpp:126
 #, kde-format
@@ -127,8 +129,8 @@ msgstr "परिजहातु"
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 यन्त्रं संयोजितम्"
+msgstr[1] "%1 उपकरणानि संयोजितानि"
 
 #: systray_actions/battery_action.cpp:28
 #, kde-format
@@ -151,7 +153,7 @@ msgctxt ""
 "The fallback text to display in case the remote device does not have a "
 "cellular connection"
 msgid "No Cellular Connectivity"
-msgstr ""
+msgstr "न कोशिकीयसंयोजनम्"
 
 #: systray_actions/connectivity_action.cpp:33
 #, kde-format
@@ -159,4 +161,4 @@ msgctxt ""
 "Display the cellular connection type and an approximate percentage of signal "
 "strength"
 msgid "%1  | ~%2%"
-msgstr ""
+msgstr "%1 | ~%2% २."

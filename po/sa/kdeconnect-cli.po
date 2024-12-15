@@ -20,12 +20,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: kdeconnect-cli.cpp:32
 #, kde-format
@@ -228,8 +228,8 @@ msgstr "(युग्मितम्) २."
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "१ यन्त्रं प्राप्तम्"
+msgstr[1] "%1 उपकरणानि प्राप्तानि"
 
 #: kdeconnect-cli.cpp:133
 #, kde-format
@@ -268,13 +268,13 @@ msgstr "साझापाठः %1"
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
-msgstr ""
+msgstr "%1 ताडयितुं अनुरोधः कृतः ।"
 
 #: kdeconnect-cli.cpp:236
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
-msgstr ""
+msgstr "%1 अनलॉक् कर्तुं अनुरोधः कृतः ।"
 
 #: kdeconnect-cli.cpp:243
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-12-15 00:40+0000\n"
 "PO-Revision-Date: 2024-12-13 19:10+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Sanskrit\n"
@@ -19,24 +19,24 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is an image"
 msgid "Picture"
-msgstr ""
+msgstr "चित्र"
 
 #: conversationlistmodel.cpp:204
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is a video"
 msgid "Video"
-msgstr ""
+msgstr "विडिओ"
 
 #: conversationlistmodel.cpp:208
 #, kde-format
@@ -44,7 +44,7 @@ msgctxt ""
 "Used as a text placeholder when the most-recent message is an arbitrary "
 "attachment, resulting in something like \"pdf file\""
 msgid "%1 file"
-msgstr ""
+msgstr "%1 सञ्चिका"
 
 #: conversationlistmodel.cpp:224
 #, kde-format
@@ -157,7 +157,7 @@ msgstr ""
 "युक्तिः : यदि भवान् स्वयन्त्रं प्लग् करोति तर्हि तत् डोज मोड् मध्ये न गन्तव्यं शीघ्रं लोड् "
 "कर्तव्यम् ।"
 
-#: qml/ConversationList.qml:64 qml/Main.qml:90
+#: qml/ConversationList.qml:64 qml/Main.qml:88
 #, kde-format
 msgid "Refresh"
 msgstr "ताजगी"
@@ -186,14 +186,14 @@ msgstr "नूतनं वार्तालापं आरभत"
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
-msgstr ""
+msgstr "न मेलनं"
 
-#: qml/Main.qml:85
+#: qml/Main.qml:83
 #, kde-format
 msgid "Devices"
 msgstr "यन्त्राणि"
 
-#: qml/Main.qml:98
+#: qml/Main.qml:96
 #, kde-format
 msgid "About"
 msgstr "विषये"

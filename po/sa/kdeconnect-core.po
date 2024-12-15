@@ -72,20 +72,20 @@ msgstr "समयः समाप्तः"
 msgctxt "@title job"
 msgid "Receiving file"
 msgid_plural "Receiving files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "सञ्चिकां प्राप्य"
+msgstr[1] "सञ्चिकाः प्राप्य"
 
 #: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
-msgstr ""
+msgstr "स्रोतः"
 
 #: compositefiletransferjob.cpp:49
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
-msgstr ""
+msgstr "गन्तव्य"
 
 #: device.cpp:459
 #, kde-format

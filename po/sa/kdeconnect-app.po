@@ -40,13 +40,13 @@ msgstr "परिपालकः"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #: main.cpp:37
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: main.cpp:56
 #, kde-format
@@ -131,7 +131,7 @@ msgstr ""
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
-msgstr ""
+msgstr "युग्म"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
 #, kde-format
@@ -171,7 +171,7 @@ msgstr "यन्त्राणि"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "ताजगी"
 
 #: qml/Main.qml:101
 #, kde-format

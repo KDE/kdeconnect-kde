@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-12-13 20:20+0530\n"
+"PO-Revision-Date: 2024-12-14 01:48+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -149,7 +149,7 @@ msgstr "निरसयतु"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "%1 इत्यस्य उत्तरं ददातु…"
 
 #: package/contents/ui/DeviceDelegate.qml:430
 #, kde-format
@@ -175,8 +175,8 @@ msgstr "न युग्मितयन्त्राणि"
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "युग्मितं यन्त्रं अनुपलब्धम् अस्ति"
+msgstr[1] "सर्वे युग्मितयन्त्राणि अनुपलब्धाः सन्ति"
 
 #: package/contents/ui/FullRepresentation.qml:67
 #, kde-format
@@ -186,7 +186,7 @@ msgstr "प्लाज्मा सह एकीकृत्य स्वस्
 #: package/contents/ui/FullRepresentation.qml:71
 #, kde-format
 msgid "Pair a Device…"
-msgstr "एकं उपकरणं युग्मं कुर्वन्तु..."
+msgstr "एकं उपकरणं युग्मं कुर्वन्तु…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -201,4 +201,4 @@ msgstr "F-Droid इत्यस्मात् संस्थापयन्त
 #: package/contents/ui/main.qml:55
 #, kde-format
 msgid "KDE Connect Settings…"
-msgstr "KDE Connect सेटिंग्स्..."
+msgstr "KDE Connect सेटिंग्स्…"
