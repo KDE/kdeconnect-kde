@@ -1,4 +1,4 @@
-# Sanskrit translations for kdeconnect-kde package.
+# Hindi translations for kdeconnect-kde package.
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 # Kali <EMAIL@ADDRESS>, 2024.
@@ -8,105 +8,104 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-19 00:39+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
+"PO-Revision-Date: 2024-12-15 15:58+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
-"Language: sa\n"
+"Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n>2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "भवतः नामानि"
+msgstr ""
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "भवतः ईमेलपत्राणि"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialog.ui:31
 #, kde-format
 msgid "Select device:"
-msgstr "यन्त्रं चिनोतु : १."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
 #: dialog.ui:55
 #, kde-format
 msgid "Send URL"
-msgstr "URL प्रेषयतु"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendFileRadioButton)
 #: dialog.ui:62
 #, kde-format
 msgid "Send File"
-msgstr "सञ्चिका प्रेषयतु"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, openOnPeerCheckBox)
 #: dialog.ui:82
 #, kde-format
 msgid "Open on peer device"
-msgstr "सहकर्मीयन्त्रे उद्घाटयन्तु"
+msgstr ""
 
 #: kdeconnect-handler.cpp:43
 #, kde-format
 msgid "KDE Connect URL handler"
-msgstr "KDE URL संचालकं संयोजयन्तु"
+msgstr ""
 
 #: kdeconnect-handler.cpp:49
 #, kde-format
 msgid "(C) 2017 Aleix Pol Gonzalez"
-msgstr "(C) 2017 Aleix Pol Gonzalez"
+msgstr ""
 
 #: kdeconnect-handler.cpp:73
 #, kde-format
 msgid "URL to share"
-msgstr "साझां कर्तुं URL"
+msgstr ""
 
 #: kdeconnect-handler.cpp:74
 #, kde-format
 msgid "Select a device"
-msgstr "एकं यन्त्रं चिनोतु"
+msgstr ""
 
 #: kdeconnect-handler.cpp:74
 #, kde-format
 msgid "id"
-msgstr "id"
+msgstr ""
 
 #: kdeconnect-handler.cpp:121
 #, kde-format
 msgid "Enter URL here"
-msgstr "अत्र URL प्रविशतु"
+msgstr ""
 
 #: kdeconnect-handler.cpp:129
 #, kde-format
 msgid "Enter file location here"
-msgstr "अत्र सञ्चिकास्थानं प्रविशतु"
+msgstr ""
 
 #: kdeconnect-handler.cpp:154
 #, kde-format
 msgid "Device to call %1 with:"
-msgstr "%1 इत्यस्य आह्वानार्थं यन्त्रम्:"
+msgstr ""
 
 #: kdeconnect-handler.cpp:157
 #, kde-format
 msgid "Device to open %1 on:"
-msgstr "%1 उद्घाटयितुं उपकरणम्:"
+msgstr ""
 
 #: kdeconnect-handler.cpp:160
 #, kde-format
 msgid "Device to send a SMS with:"
-msgstr "एसएमएस प्रेषयितुं यन्त्रं यस्य सह:"
+msgstr ""
 
 #: kdeconnect-handler.cpp:163
 #, kde-format
 msgid "Device to send %1 to:"
-msgstr "%1 प्रेषयितुं यन्त्रम् :"
+msgstr ""
 
 #: kdeconnect-handler.cpp:192
 #, kde-format
 msgid "Couldn't share %1"
-msgstr "%1 साझां कर्तुं न शक्तवान्"
+msgstr ""
