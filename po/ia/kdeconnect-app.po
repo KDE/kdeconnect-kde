@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2023 Giovanni Sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024 Giovanni Sora <g.sora@tiscali.it>
 # giovanni <g.sora@tiscali.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:39+0000\n"
-"PO-Revision-Date: 2024-05-20 12:35+0200\n"
+"PO-Revision-Date: 2024-12-16 18:14+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -165,9 +165,7 @@ msgid "Please choose a file"
 msgstr "Pro favor tu selige un file"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
@@ -175,7 +173,7 @@ msgstr "Dispositivos"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Refresca"
 
 #: qml/Main.qml:101
 #, kde-format
@@ -245,6 +243,18 @@ msgid ""
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Nulle dispositivo seligite.<br><br>Si tu possede un "
+"dispositivo Android, assecura te installar le app <a href=\"https://play."
+"google.com/store/apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline;\">KDE Connect Android </span></a> (anque disponibile "
+"<a href=\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
+"\"><span style=\" text-decoration: underline;\">ex F-Droid</span></a>) e "
+"deberea apparer in le lista.Si tu ha un iPhone, assecura te installar le "
+"app  <a href=\"https://apps.apple.com/us/app/kde-connect/"
+"id1580245991\"><span style=\"text-decoration: underline;\">KDE Connect iOS</"
+"span></a> <br><br>Si tu es havente problemas, visita le <a href=\"https://"
+"userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline;"
+"\">KDE Connect Community wiki</span></a> per adjuta</p></body></html>"
 
 #: qml/PluginSettings.qml:103
 #, kde-format
