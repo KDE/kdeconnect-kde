@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2017, 2020, 2021, 2022, 2023 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2017, 2020, 2021, 2022, 2023, 2024 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-27 00:39+0000\n"
-"PO-Revision-Date: 2023-09-14 23:02+0200\n"
+"PO-Revision-Date: 2024-12-18 17:53+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -296,7 +296,7 @@ msgid ""
 "notifications."
 msgstr ""
 "Expression regular definente qual notificationes non deberea esser inviate.\n"
-"Iste patrono es applicate al summario e, si selegite supra, le corpore de "
+"Iste patrono es applicate al summario e, si seligite supra, le corpore de "
 "notificationes."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
