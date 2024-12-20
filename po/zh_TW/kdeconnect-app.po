@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-05 00:39+0000\n"
-"PO-Revision-Date: 2024-11-28 16:29+0900\n"
+"PO-Revision-Date: 2024-12-19 18:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -169,9 +169,7 @@ msgid "Please choose a file"
 msgstr "請選擇檔案"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "裝置"
 
@@ -179,7 +177,7 @@ msgstr "裝置"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "重新整理"
 
 #: qml/Main.qml:101
 #, kde-format
@@ -247,6 +245,17 @@ msgid ""
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>未選取裝置<br><br>如果您擁有 Android 裝置，請確保已經安"
+"裝 <a href=\"https://play.google.com/store/apps/details?id=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline;\">KDE Connect 的 "
+"Android App</span></a>（亦可<a href=\"https://f-droid.org/repository/browse/?"
+"fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline;\">至 "
+"F-Droid</span></a> 下載），而後列表中應該就會顯示該裝置。如果您使用 iPhone，"
+"請確保已經安裝 <a href=\"https://apps.apple.com/tw/app/kde-connect/"
+"id1580245991\"><span style=\" text-decoration: underline;\">KDE Connect 的 "
+"iOS App。</span></a><br><br>若仍有疑問，請造訪 <a href=\"https://userbase."
+"kde.org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE "
+"Connect 社群 Wiki</span></a> 以取得其他說明。</p></body></html>"
 
 #: qml/PluginSettings.qml:103
 #, kde-format
