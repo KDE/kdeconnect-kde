@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-12-14 01:48+0530\n"
+"PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -27,7 +27,7 @@ msgstr "%1% चार्जिंग"
 #: package/contents/ui/Battery.qml:35
 #, kde-format
 msgid "%1%"
-msgstr "%1% २."
+msgstr "%1%"
 
 #: package/contents/ui/Battery.qml:38
 #, kde-format
@@ -113,7 +113,7 @@ msgstr "आभासीनिरीक्षकं निर्मातुं �
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
-msgstr "%1% २."
+msgstr "%1%"
 
 #: package/contents/ui/DeviceDelegate.qml:285
 #, kde-format
@@ -123,7 +123,7 @@ msgstr "दूरस्थ कीबोर्ड"
 #: package/contents/ui/DeviceDelegate.qml:306
 #, kde-format
 msgid "Notifications:"
-msgstr "सूचनाः : १."
+msgstr "सूचनाः :"
 
 #: package/contents/ui/DeviceDelegate.qml:314
 #, kde-format
