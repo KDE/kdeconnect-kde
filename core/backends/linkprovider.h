@@ -7,7 +7,6 @@
 #ifndef LINKPROVIDER_H
 #define LINKPROVIDER_H
 
-#include <KLocalizedString>
 #include <QObject>
 
 #include "networkpacket.h"

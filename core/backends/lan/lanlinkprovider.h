@@ -35,7 +35,7 @@ public:
 
     QString name() override
     {
-        return i18nc("@info KDE Connect provider name", "Network");
+        return QStringLiteral("LanLinkProvider");
     }
 
     int priority() override

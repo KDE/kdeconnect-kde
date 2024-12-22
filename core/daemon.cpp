@@ -79,9 +79,9 @@ void Daemon::init()
     if (d->m_testMode) {
         d->m_linkProviders.insert(new LoopbackLinkProvider());
     } else {
-        d->m_linkProviders.insert(new LanLinkProvider(false, disabledLinkProviders.contains(QStringLiteral("Network"))));
+        d->m_linkProviders.insert(new LanLinkProvider(false, disabledLinkProviders.contains(QStringLiteral("LanLinkProvider"))));
 #ifdef KDECONNECT_BLUETOOTH
-        d->m_linkProviders.insert(new BluetoothLinkProvider(disabledLinkProviders.contains(QStringLiteral("Bluetooth"))));
+        d->m_linkProviders.insert(new BluetoothLinkProvider(disabledLinkProviders.contains(QStringLiteral("BluetoothLinkProvider"))));
 #endif
 #ifdef KDECONNECT_LOOPBACK
         d->m_linkProviders.insert(new LoopbackLinkProvider());
@@ -180,8 +180,7 @@ void Daemon::setLinkProviderState(const QString &linkProviderName, bool enabled)
     LinkProvider *providerByName = nullptr;
     const auto allLinkProviders = getLinkProviders();
     for (LinkProvider *provider : allLinkProviders) {
-        const auto thisLinkProviderName = provider->name();
-        if (thisLinkProviderName == linkProviderName) {
+        if (provider->name() == linkProviderName) {
             providerByName = provider;
             break;
         }

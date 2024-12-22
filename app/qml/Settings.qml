@@ -49,9 +49,17 @@ FormCard.FormCardPage {
                 required property string modelData
 
                 readonly property string linkProviderId: modelData.split('|')[0]
+                readonly property string displayName: switch (linkProviderId) {
+                case 'BluetoothLinkProvider':
+                    return i18nc("@info KDE Connect provider name", "Bluetooth")
+                case 'LoopbackLinkProvider':
+                    return i18nc("@info KDE Connect provider name", "Loopback")
+                case 'LanLinkProvider':
+                    return i18nc("@info KDE Connect provider name", "Network")
+                }
 
                 checked: modelData.split('|')[1] === 'enabled'
-                text: linkProviderId
+                text: displayName
 
                 onToggled: DaemonDbusInterface.setLinkProviderState(linkProviderId, checked);
             }

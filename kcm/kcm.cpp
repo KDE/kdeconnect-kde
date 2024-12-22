@@ -110,9 +110,20 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
                 for (int i = 0; i < linkProviders.size(); ++i) {
                     const QStringList linkProvider = linkProviders.at(i).split(QStringLiteral("|"));
                     const QString providerId = linkProvider.at(0);
+                    QString displayName;
+                    if (providerId == QLatin1StringView("BluetoothLinkProvider")) {
+                        displayName = i18nc("@info KDE Connect provider name", "Bluetooth");
+                    } else if (providerId == QLatin1StringView("LoopbackLinkProvider")) {
+                        displayName = i18nc("@info KDE Connect provider name", "Loopback");
+                    } else if (providerId == QLatin1StringView("LanLinkProvider")) {
+                        displayName = i18nc("@info KDE Connect provider name", "Network");
+                    } else {
+                        Q_ASSERT_X(false, Q_FUNC_INFO, "Unknow provider given");
+                        displayName = i18nc("@info KDE Connect provider name", "Unknown");
+                    }
                     QString providerStatus = linkProvider.at(1);
 
-                    QListWidgetItem *linkProviderItem = new QListWidgetItem(providerId, kcmUi.linkProviders_list);
+                    QListWidgetItem *linkProviderItem = new QListWidgetItem(displayName, kcmUi.linkProviders_list);
                     linkProviderItem->setData(Qt::UserRole, providerId);
 
                     if (providerStatus.compare(QStringLiteral("enabled")) == 0) {
@@ -127,7 +138,7 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
 
             connect(kcmUi.linkProviders_list, &QListWidget::itemChanged, this, [this](const QListWidgetItem *item) {
                 bool checked = item->checkState() == Qt::Checked;
-                daemon->setLinkProviderState(item->text(), checked);
+                daemon->setLinkProviderState(item->data(Qt::UserRole).toString(), checked);
             });
         },
         this);

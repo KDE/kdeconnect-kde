@@ -66,7 +66,7 @@ public Q_SLOTS:
 
     Q_SCRIPTABLE QString deviceIdByName(const QString &name) const;
 
-    /// Return the list of link providers with their state e.g. "Bluetooth|enabled"
+    /// Return the list of link providers with their state e.g. "BluetoothLinkProvider|enabled"
     Q_SCRIPTABLE QStringList linkProviders() const;
 
     /// Set the state of a link provider.
