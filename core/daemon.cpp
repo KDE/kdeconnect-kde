@@ -72,18 +72,22 @@ void Daemon::init()
 
     qCDebug(KDECONNECT_CORE) << "DBus registration complete";
 
+    auto configInstance = KdeConnectConfig::instance();
+    const auto disabledLinkProviders = configInstance.disabledLinkProviders();
+
     // Load backends
-    if (d->m_testMode)
+    if (d->m_testMode) {
         d->m_linkProviders.insert(new LoopbackLinkProvider());
-    else {
-        d->m_linkProviders.insert(new LanLinkProvider());
+    } else {
+        d->m_linkProviders.insert(new LanLinkProvider(false, disabledLinkProviders.contains(QStringLiteral("Network"))));
 #ifdef KDECONNECT_BLUETOOTH
-        d->m_linkProviders.insert(new BluetoothLinkProvider());
+        d->m_linkProviders.insert(new BluetoothLinkProvider(disabledLinkProviders.contains(QStringLiteral("Bluetooth"))));
 #endif
 #ifdef KDECONNECT_LOOPBACK
         d->m_linkProviders.insert(new LoopbackLinkProvider());
 #endif
     }
+    Q_EMIT linkProvidersChanged(linkProviders());
 
     qCDebug(KDECONNECT_CORE) << "Backends loaded";
 
@@ -127,7 +131,7 @@ void Daemon::forceOnNetworkChange()
 {
     qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to" << d->m_linkProviders.size() << "LinkProviders";
     for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
-        qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to: " << a->name();
+        qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to:" << a->name();
         a->onNetworkChange();
     }
 }
@@ -145,6 +149,60 @@ Device *Daemon::getDevice(const QString &deviceId)
 QSet<LinkProvider *> Daemon::getLinkProviders() const
 {
     return d->m_linkProviders;
+}
+
+QStringList Daemon::linkProviders() const
+{
+    auto configInstance = KdeConnectConfig::instance();
+    const auto disabledLinkProviders = configInstance.disabledLinkProviders();
+    QStringList returnValue;
+
+    for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
+        QString line(a->name());
+
+        if (disabledLinkProviders.contains(a->name())) {
+            line += QStringLiteral("|disabled");
+        } else {
+            line += QStringLiteral("|enabled");
+        }
+
+        returnValue.append(line);
+    }
+    returnValue.sort();
+    return returnValue;
+}
+
+void Daemon::setLinkProviderState(const QString &linkProviderName, bool enabled)
+{
+    qCDebug(KDECONNECT_CORE) << "setLinkProviderState called" << linkProviderName << enabled;
+
+    KdeConnectConfig configInstance = KdeConnectConfig::instance();
+    LinkProvider *providerByName = nullptr;
+    const auto allLinkProviders = getLinkProviders();
+    for (LinkProvider *provider : allLinkProviders) {
+        const auto thisLinkProviderName = provider->name();
+        if (thisLinkProviderName == linkProviderName) {
+            providerByName = provider;
+            break;
+        }
+    }
+
+    auto disabledLinkProviders = configInstance.disabledLinkProviders();
+    if (!enabled && !disabledLinkProviders.contains(linkProviderName)) {
+        qCDebug(KDECONNECT_CORE) << "disabling" << linkProviderName;
+        disabledLinkProviders.append(linkProviderName);
+        providerByName->disable();
+    } else if (enabled && disabledLinkProviders.contains(linkProviderName)) {
+        qCDebug(KDECONNECT_CORE) << "enabling " << linkProviderName;
+        disabledLinkProviders.removeAll(linkProviderName);
+        providerByName->enable();
+    } else {
+        qCDebug(KDECONNECT_CORE) << "No changes to the disabledLinkProviders have been made, returning";
+        return;
+    }
+
+    configInstance.setDisabledLinkProviders(disabledLinkProviders);
+    Q_EMIT linkProvidersChanged(linkProviders());
 }
 
 QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const

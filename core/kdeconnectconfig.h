@@ -35,6 +35,8 @@ public:
     QString certificatePath();
 
     void setName(const QString &name);
+    void setDisabledLinkProviders(const QStringList disabledProviders);
+    QStringList disabledLinkProviders() const;
 
     /*
      * Trusted devices

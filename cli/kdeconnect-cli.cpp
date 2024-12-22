@@ -42,6 +42,9 @@ int main(int argc, char **argv)
     parser.addOption(QCommandLineOption(QStringList{QStringLiteral("l"), QStringLiteral("list-devices")}, i18n("List all devices")));
     parser.addOption(
         QCommandLineOption(QStringList{QStringLiteral("a"), QStringLiteral("list-available")}, i18n("List available (paired and reachable) devices")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("b"), QStringLiteral("list-backends")}, i18n("List all backends and status")));
+    parser.addOption(QCommandLineOption(QStringLiteral("enable-backend"), i18n("Enable the specified backend"), i18n("backend")));
+    parser.addOption(QCommandLineOption(QStringLiteral("disable-backend"), i18n("Disable the specified backend"), i18n("backend")));
     parser.addOption(
         QCommandLineOption(QStringLiteral("id-only"), i18n("Make --list-devices or --list-available print only the devices id, to ease scripting")));
     parser.addOption(
@@ -132,6 +135,11 @@ int main(int argc, char **argv)
         } else if (devices.isEmpty()) {
             QTextStream(stderr) << i18n("No devices found") << Qt::endl;
         }
+    } else if (parser.isSet(QStringLiteral("b"))) {
+        const QStringList backends = blockOnReply<QStringList>(iface.linkProviders());
+        for (const QString &backend : backends) {
+            QTextStream(stdout) << backend << Qt::endl;
+        }
 
     } else if (parser.isSet(QStringLiteral("shell-device-autocompletion"))) {
         // Outputs a list of reachable devices in zsh autocomplete format, with the name as description
@@ -169,6 +177,12 @@ int main(int argc, char **argv)
                                                           QStringLiteral("org.kde.kdeconnect.daemon"),
                                                           QStringLiteral("forceOnNetworkChange"));
         blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+    } else if (parser.isSet(QStringLiteral("enable-backend"))) {
+        const QString backendName = parser.value(QStringLiteral("enable-backend"));
+        blockOnReply(iface.setLinkProviderState(backendName, true));
+    } else if (parser.isSet(QStringLiteral("disable-backend"))) {
+        const QString backendName = parser.value(QStringLiteral("disable-backend"));
+        blockOnReply(iface.setLinkProviderState(backendName, false));
     } else {
         QString device = parser.value(QStringLiteral("device"));
         if (device.isEmpty() && parser.isSet(QStringLiteral("name"))) {

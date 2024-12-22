@@ -29,18 +29,23 @@ class KDECONNECTCORE_EXPORT BluetoothLinkProvider : public LinkProvider
     Q_OBJECT
 
 public:
-    BluetoothLinkProvider();
+    BluetoothLinkProvider(bool disabled = false);
+
     virtual ~BluetoothLinkProvider();
 
     QString name() override
     {
-        return QStringLiteral("BluetoothLinkProvider");
+        return i18nc("@info KDE Connect provider name", "Bluetooth");
     }
 
     int priority() override
     {
         return 10;
     }
+
+    void enable() override;
+
+    void disable() override;
 
 public Q_SLOTS:
     virtual void onNetworkChange() override;
@@ -69,6 +74,7 @@ private:
     QBluetoothServiceInfo mKdeconnectService;
     QBluetoothServiceDiscoveryAgent *mServiceDiscoveryAgent;
     QTimer *connectTimer;
+    bool mDisabled;
 
     QMap<QString, DeviceLink *> mLinks;
 

@@ -128,6 +128,23 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QLabel" name="linkProviders_label">
+        <property name="text">
+         <string>Backends:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="linkProviders_list">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

@@ -20,11 +20,19 @@ public:
 
     QString name() override
     {
-        return QStringLiteral("LoopbackLinkProvider");
+        return i18nc("@info KDE Connect provider name", "Loopback");
     }
     int priority() override
     {
         return 0;
+    }
+
+    void enable() override
+    {
+    }
+
+    void disable() override
+    {
     }
 
     void onStart() override;

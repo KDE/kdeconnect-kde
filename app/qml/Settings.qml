@@ -29,6 +29,34 @@ FormCard.FormCardPage {
         }
     }
 
+    FormCard.FormHeader {
+        title: i18nc("@title:group", "Backends")
+    }
+
+    FormCard.FormCard {
+        DBusProperty {
+            id: linkProvidersProperty
+            object: DaemonDbusInterface
+            read: "linkProviders"
+            defaultValue: []
+        }
+
+        Repeater {
+            model: linkProvidersProperty.value
+
+            FormCard.FormCheckDelegate {
+                required property string modelData
+
+                readonly property string linkProviderId: modelData.split('|')[0]
+
+                checked: modelData.split('|')[1] === 'enabled'
+                text: linkProviderId
+
+                onToggled: DaemonDbusInterface.setLinkProviderState(linkProviderId, checked);
+            }
+        }
+    }
+
     FormCard.FormCard {
         Layout.topMargin: Kirigami.Units.gridUnit
 

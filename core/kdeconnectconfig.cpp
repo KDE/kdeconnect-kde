@@ -76,6 +76,17 @@ void KdeConnectConfig::setName(const QString &name)
     d->m_config->sync();
 }
 
+void KdeConnectConfig::setDisabledLinkProviders(const QStringList disabledProviders)
+{
+    d->m_config->setValue(QStringLiteral("disabled_providers"), disabledProviders);
+    d->m_config->sync();
+}
+
+QStringList KdeConnectConfig::disabledLinkProviders() const
+{
+    return d->m_config->value(QStringLiteral("disabled_providers")).toStringList();
+}
+
 DeviceType KdeConnectConfig::deviceType()
 {
     const QByteArrayList platforms = qgetenv("PLASMA_PLATFORM").split(':');

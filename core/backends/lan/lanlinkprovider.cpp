@@ -42,12 +42,13 @@ static const int MAX_REMEMBERED_IDENTITY_PACKETS = 42;
 
 static const long MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE = 500;
 
-LanLinkProvider::LanLinkProvider(bool testMode)
+LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
     : m_server(new Server(this))
     , m_udpSocket(this)
     , m_tcpPort(0)
     , m_testMode(testMode)
     , m_combineNetworkChangeTimer(this)
+    , m_disabled(isDisabled)
 #ifdef KDECONNECT_MDNS
     , m_mdnsDiscovery(this)
 #endif
@@ -84,8 +85,28 @@ LanLinkProvider::~LanLinkProvider()
 {
 }
 
+void LanLinkProvider::enable()
+{
+    if (m_disabled == true) {
+        m_disabled = false;
+        onStart();
+    }
+}
+
+void LanLinkProvider::disable()
+{
+    if (m_disabled == false) {
+        onStop();
+        m_disabled = true;
+    }
+}
+
 void LanLinkProvider::onStart()
 {
+    if (m_disabled) {
+        return;
+    }
+
     const QHostAddress bindAddress = m_testMode ? QHostAddress::LocalHost : QHostAddress::Any;
 
     bool success = m_udpSocket.bind(bindAddress, UDP_PORT, QUdpSocket::ShareAddress);
@@ -118,6 +139,9 @@ void LanLinkProvider::onStart()
 
 void LanLinkProvider::onStop()
 {
+    if (m_disabled) {
+        return;
+    }
 #ifdef KDECONNECT_MDNS
     m_mdnsDiscovery.onStop();
 #endif
@@ -128,6 +152,9 @@ void LanLinkProvider::onStop()
 
 void LanLinkProvider::onNetworkChange()
 {
+    if (m_disabled) {
+        return;
+    }
     if (m_combineNetworkChangeTimer.isActive()) {
         qCDebug(KDECONNECT_CORE) << "Device discovery triggered too fast, ignoring";
         return;
@@ -138,6 +165,9 @@ void LanLinkProvider::onNetworkChange()
 // I'm in a new network, let's be polite and introduce myself
 void LanLinkProvider::combinedOnNetworkChange()
 {
+    if (m_disabled) {
+        return;
+    }
     if (!m_server->isListening()) {
         qWarning() << "TCP server not listening, not broadcasting";
         return;

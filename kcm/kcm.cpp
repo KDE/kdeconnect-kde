@@ -12,11 +12,14 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KPluginMetaData>
+#include <QMessageBox>
+#include <QtWidgets/QListView>
 #include <kcmutils_version.h>
 
 #include <QQmlContext>
 #include <QQuickItem>
 #include <QQuickStyle>
+#include <qassert.h>
 
 #include "dbushelpers.h"
 #include "dbusinterfaces.h"
@@ -92,8 +95,72 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
             }
         },
         this);
+
+    setWhenAvailable(
+        daemon->linkProviders(),
+        [this](bool error, const QStringList &linkProviders) {
+            if (error) {
+                return;
+            }
+            kcmUi.linkProviders_list->clear();
+            if (linkProviders.size() <= 1) {
+                kcmUi.linkProviders_list->hide();
+                kcmUi.linkProviders_label->hide();
+            } else {
+                for (int i = 0; i < linkProviders.size(); ++i) {
+                    const QStringList linkProvider = linkProviders.at(i).split(QStringLiteral("|"));
+                    const QString providerId = linkProvider.at(0);
+                    QString providerStatus = linkProvider.at(1);
+
+                    QListWidgetItem *linkProviderItem = new QListWidgetItem(providerId, kcmUi.linkProviders_list);
+                    linkProviderItem->setData(Qt::UserRole, providerId);
+
+                    if (providerStatus.compare(QStringLiteral("enabled")) == 0) {
+                        linkProviderItem->setCheckState(Qt::Checked);
+                    } else {
+                        linkProviderItem->setCheckState(Qt::Unchecked);
+                    }
+
+                    kcmUi.linkProviders_list->addItem(linkProviderItem);
+                }
+            }
+
+            connect(kcmUi.linkProviders_list, &QListWidget::itemChanged, this, [this](const QListWidgetItem *item) {
+                bool checked = item->checkState() == Qt::Checked;
+                daemon->setLinkProviderState(item->text(), checked);
+            });
+        },
+        this);
+
     connect(daemon, &DaemonDbusInterface::announcedNameChanged, kcmUi.rename_edit, &QLineEdit::setText);
     connect(daemon, &DaemonDbusInterface::announcedNameChanged, kcmUi.rename_label, &QLabel::setText);
+
+    connect(daemon, &DaemonDbusInterface::linkProvidersChanged, this, [this](const QStringList &providers) {
+        if (kcmUi.linkProviders_list->count() == 0) {
+            return; // not yet setup
+        }
+        for (auto i = 0, count = kcmUi.linkProviders_list->count(); i < count; i++) {
+            const auto item = kcmUi.linkProviders_list->item(i);
+            const auto id = item->data(Qt::UserRole).toString();
+
+            bool found = false;
+            for (const auto &provider : providers) {
+                if (provider.startsWith(id)) {
+                    const auto status = provider.split(QStringLiteral("|")).at(1);
+                    if (status.compare(QStringLiteral("enabled")) == 0) {
+                        item->setCheckState(Qt::Checked);
+                    } else {
+                        item->setCheckState(Qt::Unchecked);
+                    }
+                    found = true;
+                    break;
+                }
+            }
+
+            Q_ASSERT_X(found, Q_FUNC_INFO, "A new backend appeared, this should not happen as the list of backends is static");
+        }
+    });
+
     setRenameMode(false);
 
     setButtons(KCModule::Help | KCModule::NoAdditionalButton);

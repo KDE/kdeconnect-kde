@@ -13,10 +13,11 @@
 
 #include <QBluetoothServiceInfo>
 
-BluetoothLinkProvider::BluetoothLinkProvider()
+BluetoothLinkProvider::BluetoothLinkProvider(bool isDisabled)
     : mServiceUuid(QBluetoothUuid(QStringLiteral("185f3df4-3268-4e3f-9fca-d4d5059915bd")))
     , mServiceDiscoveryAgent(new QBluetoothServiceDiscoveryAgent(this))
     , connectTimer(new QTimer(this))
+    , mDisabled(isDisabled)
 {
     connectTimer->setInterval(30000);
     connectTimer->setSingleShot(false);
@@ -32,7 +33,9 @@ BluetoothLinkProvider::BluetoothLinkProvider()
 void BluetoothLinkProvider::onStart()
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStart executed";
-    tryToInitialise();
+    if (!mDisabled) {
+        tryToInitialise();
+    }
 }
 
 void BluetoothLinkProvider::tryToInitialise()
@@ -57,22 +60,45 @@ void BluetoothLinkProvider::tryToInitialise()
 
 void BluetoothLinkProvider::onStop()
 {
-    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStop executed";
-    if (!mBluetoothServer) {
-        return;
+    if (!mDisabled) {
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStop executed";
+        if (!mBluetoothServer) {
+            return;
+        }
+
+        connectTimer->stop();
+
+        mKdeconnectService.unregisterService();
+        mBluetoothServer->close();
+        mBluetoothServer->deleteLater();
     }
+}
 
-    connectTimer->stop();
+void BluetoothLinkProvider::enable()
+{
+    if (mDisabled) {
+        mDisabled = false;
+        tryToInitialise();
+    }
+}
 
-    mKdeconnectService.unregisterService();
-    mBluetoothServer->close();
-    mBluetoothServer->deleteLater();
+void BluetoothLinkProvider::disable()
+{
+    if (!mDisabled) {
+        mDisabled = true;
+        onStop();
+
+        mBluetoothServer = nullptr;
+        mServiceDiscoveryAgent = nullptr;
+    }
 }
 
 void BluetoothLinkProvider::onNetworkChange()
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onNetworkChange executed";
-    tryToInitialise();
+    if (!mDisabled) {
+        tryToInitialise();
+    }
 }
 
 void BluetoothLinkProvider::connectError()

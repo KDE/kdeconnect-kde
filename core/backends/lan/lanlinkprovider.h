@@ -30,18 +30,21 @@ public:
     /**
      * @param testMode Some special overrides needed while testing
      */
-    LanLinkProvider(bool testMode = false);
+    LanLinkProvider(bool testMode = false, bool disabled = false);
     ~LanLinkProvider() override;
 
     QString name() override
     {
-        return QStringLiteral("LanLinkProvider");
+        return i18nc("@info KDE Connect provider name", "Network");
     }
 
     int priority() override
     {
         return 20;
     }
+
+    void enable() override;
+    void disable() override;
 
     void sendUdpIdentityPacket(const QList<QHostAddress> &addresses);
 
@@ -91,6 +94,8 @@ private:
     QMap<QString, qint64> m_lastConnectionTime;
     const bool m_testMode;
     QTimer m_combineNetworkChangeTimer;
+
+    bool m_disabled;
 
 #ifdef KDECONNECT_MDNS
     MdnsDiscovery m_mdnsDiscovery;

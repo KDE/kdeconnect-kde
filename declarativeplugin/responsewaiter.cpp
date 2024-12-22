@@ -33,7 +33,8 @@ DBusResponseWaiter::DBusResponseWaiter()
     m_registered << qRegisterMetaType<QDBusPendingReply<>>("QDBusPendingReply<>")
                  << qRegisterMetaType<QDBusPendingReply<QVariant>>("QDBusPendingReply<QVariant>")
                  << qRegisterMetaType<QDBusPendingReply<bool>>("QDBusPendingReply<bool>") << qRegisterMetaType<QDBusPendingReply<int>>("QDBusPendingReply<int>")
-                 << qRegisterMetaType<QDBusPendingReply<QString>>("QDBusPendingReply<QString>");
+                 << qRegisterMetaType<QDBusPendingReply<QString>>("QDBusPendingReply<QString>")
+                 << qRegisterMetaType<QDBusPendingReply<QStringList>>("QDBusPendingReply<QStringList>");
 }
 
 QVariant DBusResponseWaiter::waitForReply(QVariant variant) const
@@ -73,6 +74,8 @@ void DBusAsyncResponse::setPendingCall(QVariant variant)
         connect(watcher, &QDBusPendingCallWatcher::finished, watcher, &QObject::deleteLater);
         connect(&m_timeout, &QTimer::timeout, watcher, &QObject::deleteLater);
         m_timeout.start();
+    } else {
+        qWarning() << "error: extractPendingCall didn't work";
     }
 }
 
