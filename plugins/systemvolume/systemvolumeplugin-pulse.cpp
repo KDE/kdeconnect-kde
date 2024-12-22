@@ -114,10 +114,8 @@ void SystemvolumePlugin::connected()
         sendSinkList();
     });
 
-    const auto sinks = PulseAudioQt::Context::instance()->sinks();
-    for (PulseAudioQt::Sink *sink : sinks) {
-        sinksMap.insert(sink->name(), sink);
-    }
+    // Send the initial sink list. Despite the name, this function also recreates the sink map
+    sendSinkList();
 }
 
 #include "moc_systemvolumeplugin-pulse.cpp"
