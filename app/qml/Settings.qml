@@ -40,6 +40,7 @@ FormCard.FormCardPage {
             read: "linkProviders"
             defaultValue: []
         }
+        visible: linkProvidersProperty.value.length > 0
 
         Repeater {
             model: linkProvidersProperty.value
