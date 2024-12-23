@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-23 02:31+0000\n"
 "PO-Revision-Date: 2024-01-29 22:59-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -51,3 +51,8 @@ msgstr "%0 ਕੋਲ ਕੋਈ ਰਿਮੋਟ ਫਾਇਲ-ਸਿਸਟਮ ਪ�
 #, kde-format
 msgid "Could not contact background service."
 msgstr "ਬੈਕਗਰਾਊਂਡ ਸੇਵਾ ਨਾਲ ਸੰਪਰਕ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।"
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""

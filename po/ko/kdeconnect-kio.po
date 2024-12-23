@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-23 02:31+0000\n"
 "PO-Revision-Date: 2019-05-07 22:37+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -51,6 +51,11 @@ msgstr "%0에 원격 파일 시스템 플러그인이 없음"
 #, kde-format
 msgid "Could not contact background service."
 msgstr "백그라운드 서비스에 연결할 수 없습니다."
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "장치 파일 시스템을 마운트할 수 없음"

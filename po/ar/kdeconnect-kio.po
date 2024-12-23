@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-23 02:31+0000\n"
 "PO-Revision-Date: 2021-07-23 00:20+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: \n"
@@ -52,6 +52,11 @@ msgstr "%0 ليس لديه ملحق نظام ملفات عن بعد"
 #, kde-format
 msgid "Could not contact background service."
 msgstr "تعذّر الاتّصال بخدمة الخلفيّة."
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "تعذّر ضمّ نظام ملفّات الجهاز"

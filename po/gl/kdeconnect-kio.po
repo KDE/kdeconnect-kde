@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-23 02:31+0000\n"
 "PO-Revision-Date: 2019-03-15 18:03+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
@@ -51,6 +51,11 @@ msgstr "%0 non ten complemento de sistema de ficheiros remoto"
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Non foi posíbel contactar co servizo en segundo plano."
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "Non se puido montar o sistema de ficheiros do dispositivo."

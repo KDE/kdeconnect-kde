@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-23 02:31+0000\n"
 "PO-Revision-Date: 2019-03-20 00:43+0800\n"
 "Last-Translator: Simon Depiets <sdepiets@gmail.com>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -55,6 +55,11 @@ msgstr "%0 n'a aucun module externe de système de fichiers à distance"
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Impossible de contacter le service d'arrière plan."
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "Impossible de monter le système de fichiers du périphérique"

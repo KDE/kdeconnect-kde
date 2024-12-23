@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-23 02:31+0000\n"
 "PO-Revision-Date: 2020-09-20 10:05+0200\n"
 "Last-Translator: Ignacy Kajdan <ignacy.kajdan@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -52,6 +52,11 @@ msgstr "Urządzenie „%0” nie ma wtyczki zdalnego systemu plików"
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Nie można połączyć z usługą w tle."
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "Nie można podpiąć systemu plików urządzenia"
