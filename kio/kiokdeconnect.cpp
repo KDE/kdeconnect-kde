@@ -234,7 +234,7 @@ KIO::WorkerResult KioKdeconnect::stat(const QUrl &url)
             if (!mountPoint.isValid()) {
                 return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Failed to get mount point: %1", mountPoint.error().message()));
             } else {
-                entry.fastInsert(KIO::UDSEntry::UDS_LOCAL_PATH, interface.mountPoint());
+                entry.fastInsert(KIO::UDSEntry::UDS_LOCAL_PATH, mountPoint.value());
             }
 
             if (!interface.isMounted()) {
