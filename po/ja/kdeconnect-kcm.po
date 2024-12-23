@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-19 00:39+0000\n"
+"POT-Creation-Date: 2024-12-23 00:40+0000\n"
 "PO-Revision-Date: 2024-09-15 11:32+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -28,42 +28,42 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ryuichi_ya220@outlook.jp"
 
-#: kcm.cpp:88
+#: kcm.cpp:91
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "エラー: KDE Connect は動作していません"
 
-#: kcm.cpp:204
+#: kcm.cpp:271
 #, kde-format
 msgid "Key: %1"
 msgstr "キー: %1"
 
-#: kcm.cpp:229
+#: kcm.cpp:296
 #, kde-format
 msgid "Available plugins"
 msgstr "利用可能なプラグイン"
 
-#: kcm.cpp:276
+#: kcm.cpp:343
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "ペアリング試行エラー: %1"
 
-#: kcm.cpp:292
+#: kcm.cpp:359
 #, kde-format
 msgid "(paired)"
 msgstr "(ペアリング済み)"
 
-#: kcm.cpp:295
+#: kcm.cpp:362
 #, kde-format
 msgid "(not paired)"
 msgstr "(ペアリングしていません)"
 
-#: kcm.cpp:298
+#: kcm.cpp:365
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(ペアリング要求を受信しました)"
 
-#: kcm.cpp:301
+#: kcm.cpp:368
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(ペアリング要求済み)"
@@ -92,62 +92,68 @@ msgstr "保存"
 msgid "Refresh"
 msgstr "再読み込み"
 
+#. i18n: ectx: property (text), widget (QLabel, linkProviders_label)
+#: kcm.ui:134
+#, kde-format
+msgid "Backends:"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, name_label)
-#: kcm.ui:199
+#: kcm.ui:216
 #, kde-format
 msgid "Device"
 msgstr "デバイス"
 
 #. i18n: ectx: property (text), widget (QLabel, status_label)
-#: kcm.ui:215
+#: kcm.ui:232
 #, kde-format
 msgid "(status)"
 msgstr "(状態)"
 
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
-#: kcm.ui:238
+#: kcm.ui:255
 #, kde-format
 msgid "KSqueezedTextLabel"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
-#: kcm.ui:269
+#: kcm.ui:286
 #, kde-format
 msgid "Cancel"
 msgstr "キャンセル"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
-#: kcm.ui:295
+#: kcm.ui:312
 #, kde-format
 msgid "Accept"
 msgstr "承認"
 
 #. i18n: ectx: property (text), widget (QPushButton, reject_button)
-#: kcm.ui:302
+#: kcm.ui:319
 #, kde-format
 msgid "Reject"
 msgstr "拒否"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
-#: kcm.ui:315
+#: kcm.ui:332
 #, kde-format
 msgid "Request pair"
 msgstr "ペアリングを要求"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
-#: kcm.ui:328
+#: kcm.ui:345
 #, kde-format
 msgid "Unpair"
 msgstr "ペアリング解除"
 
 #. i18n: ectx: property (text), widget (QPushButton, ping_button)
-#: kcm.ui:341
+#: kcm.ui:358
 #, kde-format
 msgid "Send ping"
 msgstr "Ping を送信"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
-#: kcm.ui:379
+#: kcm.ui:396
 #, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "

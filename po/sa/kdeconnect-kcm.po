@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-19 00:39+0000\n"
+"POT-Creation-Date: 2024-12-23 00:40+0000\n"
 "PO-Revision-Date: 2024-12-20 12:25+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -29,42 +29,42 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "भवतः ईमेलपत्राणि"
 
-#: kcm.cpp:88
+#: kcm.cpp:91
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "त्रुटिः: KDE Connect न चाल्यते"
 
-#: kcm.cpp:204
+#: kcm.cpp:271
 #, kde-format
 msgid "Key: %1"
 msgstr "कुञ्जी: %1"
 
-#: kcm.cpp:229
+#: kcm.cpp:296
 #, kde-format
 msgid "Available plugins"
 msgstr "उपलब्धाः प्लगिन्स्"
 
-#: kcm.cpp:276
+#: kcm.cpp:343
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "युग्मीकरणस्य प्रयासे त्रुटिः: %1"
 
-#: kcm.cpp:292
+#: kcm.cpp:359
 #, kde-format
 msgid "(paired)"
 msgstr "(युग्मितम्)"
 
-#: kcm.cpp:295
+#: kcm.cpp:362
 #, kde-format
 msgid "(not paired)"
 msgstr "(न युग्मितम्)"
 
-#: kcm.cpp:298
+#: kcm.cpp:365
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(आगच्छन् युग्मानुरोधः)"
 
-#: kcm.cpp:301
+#: kcm.cpp:368
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(युग्मीकरणस्य अनुरोधः)"
@@ -93,62 +93,68 @@ msgstr "रक्ष्"
 msgid "Refresh"
 msgstr "ताजगी"
 
+#. i18n: ectx: property (text), widget (QLabel, linkProviders_label)
+#: kcm.ui:134
+#, kde-format
+msgid "Backends:"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, name_label)
-#: kcm.ui:199
+#: kcm.ui:216
 #, kde-format
 msgid "Device"
 msgstr "उपकरणम्‌"
 
 #. i18n: ectx: property (text), widget (QLabel, status_label)
-#: kcm.ui:215
+#: kcm.ui:232
 #, kde-format
 msgid "(status)"
 msgstr "(स्थितिः)"
 
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
-#: kcm.ui:238
+#: kcm.ui:255
 #, kde-format
 msgid "KSqueezedTextLabel"
 msgstr "KSqueezedTextLabel इति"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
-#: kcm.ui:269
+#: kcm.ui:286
 #, kde-format
 msgid "Cancel"
 msgstr "निरसयतु"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
-#: kcm.ui:295
+#: kcm.ui:312
 #, kde-format
 msgid "Accept"
 msgstr "स्वीकरोतु"
 
 #. i18n: ectx: property (text), widget (QPushButton, reject_button)
-#: kcm.ui:302
+#: kcm.ui:319
 #, kde-format
 msgid "Reject"
 msgstr "अस्वीकार"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
-#: kcm.ui:315
+#: kcm.ui:332
 #, kde-format
 msgid "Request pair"
 msgstr "युग्मं अनुरोधयन्तु"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
-#: kcm.ui:328
+#: kcm.ui:345
 #, kde-format
 msgid "Unpair"
 msgstr "अयुग्मम्"
 
 #. i18n: ectx: property (text), widget (QPushButton, ping_button)
-#: kcm.ui:341
+#: kcm.ui:358
 #, kde-format
 msgid "Send ping"
 msgstr "पिंग प्रेषयतु"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
-#: kcm.ui:379
+#: kcm.ui:396
 #, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "

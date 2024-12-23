@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-22 00:40+0000\n"
+"POT-Creation-Date: 2024-12-23 00:40+0000\n"
 "PO-Revision-Date: 2024-02-10 10:06-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -107,27 +107,27 @@ msgstr "ਫਾਇਲ-ਨਾਂ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
 msgid "Received incomplete file from: %1"
 msgstr "ਇਸ ਤੋਂ ਅਧੂਰੀ ਫਾਇਲ ਮਿਲੀ: %1"
 
-#: kdeconnectconfig.cpp:327 kdeconnectconfig.cpp:361
+#: kdeconnectconfig.cpp:338 kdeconnectconfig.cpp:372
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE ਕਨੈਕਟ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਫੇਲ੍ਹ ਹੈ"
 
-#: kdeconnectconfig.cpp:327
+#: kdeconnectconfig.cpp:338
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "ਪ੍ਰਾਈਵੇਟ ਕੁੰਜੀ ਤਿਆਰ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ ਹੈ।"
 
-#: kdeconnectconfig.cpp:346
+#: kdeconnectconfig.cpp:357
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "ਪ੍ਰਾਈਵੇਟ ਕੁੰਜੀ ਫਾਇਲ ਨੂੰ ਸੰਭਾਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ: %1"
 
-#: kdeconnectconfig.cpp:361
+#: kdeconnectconfig.cpp:372
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "ਡਿਵਾਈਸ ਸਰਟੀਫਿਕੇਟ ਤਿਆਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ ਹੈ।"
 
-#: kdeconnectconfig.cpp:377
+#: kdeconnectconfig.cpp:388
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "ਸਰਟੀਫਿਕੇਟ ਫਾਇਲ ਨੂੰ ਸੰਭਾਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ: %1"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-05 00:39+0000\n"
+"POT-Creation-Date: 2024-12-23 00:40+0000\n"
 "PO-Revision-Date: 2024-12-05 21:54+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -225,36 +225,6 @@ msgstr "Няма налични програми за възпроизвежда
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/NoDeviceSelected.qml:13
-#, kde-format
-msgid ""
-"<html><head/><body><p>No device selected<br><br>If you own an Android "
-"device, make sure to install the <a href=\"https://play.google.com/store/"
-"apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-"underline;\">KDE Connect Android app</span></a> (also available <a href="
-"\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span "
-"style=\" text-decoration: underline;\">from F-Droid</span></a>) and it "
-"should appear in the list. If you have an iPhone, make sure to install the "
-"<a href=\"https://apps.apple.com/us/app/kde-connect/id1580245991\"><span "
-"style=\" text-decoration: underline;\">KDE Connect iOS app.</span></a> "
-"<br><br>If you are having problems, visit the <a href=\"https://userbase.kde."
-"org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
-"Community wiki</span></a> for help.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Няма избрано устройство<br><br>Ако притежавате "
-"устройство с Android, не забравяйте да инсталирате <a href=\"https://play."
-"google.com/store /apps/details?id=org.kde.kdeconnect_tp\"><span style=\" "
-"text-decoration: underline;\">Приложението KDE Connect за Android</span></a> "
-"(налично също <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
-"kdeconnect_tp\"><span style=\" text-decoration: underline;\">от F-Droid</"
-"span></ a>) и трябва да се появи в списъка. Ако имате iPhone, не забравяйте "
-"да инсталирате <a href=\"https://apps.apple.com/us/app/kde-connect/"
-"id1580245991\"><span style=\" text-decoration: underline;\"> Приложението "
-"KDE Connect за iOS.</span></a> <br><br>Ако имате проблеми, посетете <a href="
-"\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
-"underline;\">KDE Connect Community wiki</span></a> за помощ.</p></body></"
-"html>"
-
 #: qml/PluginSettings.qml:103
 #, kde-format
 msgid "Configure plugin"
@@ -291,15 +261,101 @@ msgstr "Настройки"
 msgid "Device name"
 msgstr "Име на устройство"
 
-#: qml/Settings.qml:36
+#: qml/Settings.qml:33
+#, kde-format
+msgctxt "@title:group"
+msgid "Backends"
+msgstr ""
+
+#: qml/Settings.qml:65
 #, kde-format
 msgid "About KDE Connect"
 msgstr "Относно KDE Connect"
 
-#: qml/Settings.qml:44
+#: qml/Settings.qml:73
 #, kde-format
 msgid "About KDE"
 msgstr "Относно KDE"
+
+#: qml/WelcomePage.qml:27
+#, kde-format
+msgctxt "@title"
+msgid "No Device Selected"
+msgstr ""
+
+#: qml/WelcomePage.qml:35
+#, kde-format
+msgctxt "@info"
+msgid "Make sure to install KDE Connect on your other devices."
+msgstr ""
+
+#: qml/WelcomePage.qml:42
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgctxt "@title:context"
+msgid "KDE Connect Android App"
+msgstr "KDE Connect"
+
+#: qml/WelcomePage.qml:49
+#, kde-format
+msgctxt "Android Application Store"
+msgid "F-Droid"
+msgstr ""
+
+#: qml/WelcomePage.qml:56
+#, kde-format
+msgctxt "Android Application Store"
+msgid "Play Store"
+msgstr ""
+
+#: qml/WelcomePage.qml:62
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgctxt "@title:context"
+msgid "KDE Connect iOS App"
+msgstr "KDE Connect"
+
+#: qml/WelcomePage.qml:67
+#, kde-format
+msgid "Apple Store"
+msgstr ""
+
+#: qml/WelcomePage.qml:73
+#, kde-format
+msgid ""
+"If you are having problems, visit the <a href=\"https://userbase.kde.org/"
+"KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
+"Community wiki</span></a> for help."
+msgstr ""
+
+#~ msgid ""
+#~ "<html><head/><body><p>No device selected<br><br>If you own an Android "
+#~ "device, make sure to install the <a href=\"https://play.google.com/store/"
+#~ "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
+#~ "underline;\">KDE Connect Android app</span></a> (also available <a href="
+#~ "\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
+#~ "\"><span style=\" text-decoration: underline;\">from F-Droid</span></a>) "
+#~ "and it should appear in the list. If you have an iPhone, make sure to "
+#~ "install the <a href=\"https://apps.apple.com/us/app/kde-connect/"
+#~ "id1580245991\"><span style=\" text-decoration: underline;\">KDE Connect "
+#~ "iOS app.</span></a> <br><br>If you are having problems, visit the <a href="
+#~ "\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
+#~ "underline;\">KDE Connect Community wiki</span></a> for help.</p></body></"
+#~ "html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Няма избрано устройство<br><br>Ако притежавате "
+#~ "устройство с Android, не забравяйте да инсталирате <a href=\"https://play."
+#~ "google.com/store /apps/details?id=org.kde.kdeconnect_tp\"><span style=\" "
+#~ "text-decoration: underline;\">Приложението KDE Connect за Android</span></"
+#~ "a> (налично също <a href=\"https://f-droid.org/repository/browse/?"
+#~ "fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline;"
+#~ "\">от F-Droid</span></ a>) и трябва да се появи в списъка. Ако имате "
+#~ "iPhone, не забравяйте да инсталирате <a href=\"https://apps.apple.com/us/"
+#~ "app/kde-connect/id1580245991\"><span style=\" text-decoration: underline;"
+#~ "\"> Приложението KDE Connect за iOS.</span></a> <br><br>Ако имате "
+#~ "проблеми, посетете <a href=\"https://userbase.kde.org/KDEConnect\"><span "
+#~ "style=\" text-decoration: underline;\">KDE Connect Community wiki</span></"
+#~ "a> за помощ.</p></body></html>"
 
 #~ msgid "Find devices..."
 #~ msgstr "Търсене на устройство..."
