@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2024-10-07 05:32+0200\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"PO-Revision-Date: 2024-12-23 05:26+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -33,37 +33,61 @@ msgstr "Temuri.doghonadze@gmail.com"
 msgid "Error: KDE Connect is not running"
 msgstr "შეცდომა: KDE Connect გაშვებული არაა"
 
-#: kcm.cpp:271
+#: kcm.cpp:115
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Bluetooth"
+msgstr ""
+
+#: kcm.cpp:117
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Loopback"
+msgstr ""
+
+#: kcm.cpp:119
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Network"
+msgstr ""
+
+#: kcm.cpp:122
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Unknown"
+msgstr ""
+
+#: kcm.cpp:282
 #, kde-format
 msgid "Key: %1"
 msgstr "გასაღები: %1"
 
-#: kcm.cpp:296
+#: kcm.cpp:307
 #, kde-format
 msgid "Available plugins"
 msgstr "ხელმისაწვდომი დამატებები"
 
-#: kcm.cpp:343
+#: kcm.cpp:354
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "შეცდომა შეწყვილებისას: %1"
 
-#: kcm.cpp:359
+#: kcm.cpp:370
 #, kde-format
 msgid "(paired)"
 msgstr "(შეწყვილებულია)"
 
-#: kcm.cpp:362
+#: kcm.cpp:373
 #, kde-format
 msgid "(not paired)"
 msgstr "(შეუწყვილებელია)"
 
-#: kcm.cpp:365
+#: kcm.cpp:376
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(შეწყვილების შემომავალი მოთხოვნა)"
 
-#: kcm.cpp:368
+#: kcm.cpp:379
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(შეწყვილება უარყოფილია)"
@@ -96,7 +120,7 @@ msgstr "განახლება"
 #: kcm.ui:134
 #, kde-format
 msgid "Backends:"
-msgstr ""
+msgstr "უკანაბოლოები:"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
 #: kcm.ui:216

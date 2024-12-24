@@ -63,10 +63,9 @@ msgid "List all backends and status"
 msgstr ""
 
 #: kdeconnect-cli.cpp:46
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Enable the specified backend"
-msgstr "解锁指定设备"
+msgstr ""
 
 #: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
 #, kde-format
@@ -74,10 +73,9 @@ msgid "backend"
 msgstr ""
 
 #: kdeconnect-cli.cpp:47
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Disable the specified backend"
-msgstr "解锁指定设备"
+msgstr ""
 
 #: kdeconnect-cli.cpp:49
 #, kde-format

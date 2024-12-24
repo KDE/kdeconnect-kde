@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2024-09-23 15:21+0300\n"
+"PO-Revision-Date: 2024-12-23 14:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,18 +16,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 "X-POOTLE-MTIME: 1497612949.000000\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Kaan Özdinçer"
+msgstr "Kaan Özdinçer, Emir SARI"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kaanozdincer@gmail.com"
+msgstr "kaanozdincer@gmail.com, emir_sari@îcloud.com"
 
 #: kdeconnect-cli.cpp:32
 #, kde-format
@@ -62,24 +62,22 @@ msgstr "Kullanılabilir (eşlenmiş veya ulaşılabilir) aygıtları listele"
 #: kdeconnect-cli.cpp:45
 #, kde-format
 msgid "List all backends and status"
-msgstr ""
+msgstr "Tüm arka uçları ve durumları listele"
 
 #: kdeconnect-cli.cpp:46
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Enable the specified backend"
-msgstr "Belirtilen aygıtın kilidini aç"
+msgstr "Belirtilen arka ucu etkinleştir"
 
 #: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
 #, kde-format
 msgid "backend"
-msgstr ""
+msgstr "arka uç"
 
 #: kdeconnect-cli.cpp:47
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Disable the specified backend"
-msgstr "Belirtilen aygıtın kilidini aç"
+msgstr "Belirtilen arka ucu devre dışı bırak"
 
 #: kdeconnect-cli.cpp:49
 #, kde-format

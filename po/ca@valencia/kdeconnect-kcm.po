@@ -3,14 +3,14 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2018, 2020, 2021.
 # SPDX-FileCopyrightText: 2015, 2016, 2018, 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2018, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2024-10-07 10:12+0200\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"PO-Revision-Date: 2024-12-23 10:44+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -36,37 +36,61 @@ msgstr "antonibella5@yahoo.com"
 msgid "Error: KDE Connect is not running"
 msgstr "S'ha produït un error: KDE Connect no està executant-se"
 
-#: kcm.cpp:271
+#: kcm.cpp:115
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Bluetooth"
+msgstr ""
+
+#: kcm.cpp:117
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Loopback"
+msgstr ""
+
+#: kcm.cpp:119
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Network"
+msgstr ""
+
+#: kcm.cpp:122
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Unknown"
+msgstr ""
+
+#: kcm.cpp:282
 #, kde-format
 msgid "Key: %1"
 msgstr "Clau: %1"
 
-#: kcm.cpp:296
+#: kcm.cpp:307
 #, kde-format
 msgid "Available plugins"
 msgstr "Connectors disponibles"
 
-#: kcm.cpp:343
+#: kcm.cpp:354
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "S'ha produït un error en intentar aparellar: %1"
 
-#: kcm.cpp:359
+#: kcm.cpp:370
 #, kde-format
 msgid "(paired)"
 msgstr "(aparellat)"
 
-#: kcm.cpp:362
+#: kcm.cpp:373
 #, kde-format
 msgid "(not paired)"
 msgstr "(sense aparellar)"
 
-#: kcm.cpp:365
+#: kcm.cpp:376
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(sol·licitud entrant d'aparellament)"
 
-#: kcm.cpp:368
+#: kcm.cpp:379
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(s'ha demanat aparellar)"
@@ -99,7 +123,7 @@ msgstr "Actualitza"
 #: kcm.ui:134
 #, kde-format
 msgid "Backends:"
-msgstr ""
+msgstr "Dorsals:"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
 #: kcm.ui:216

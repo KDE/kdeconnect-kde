@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2024-01-11 14:22+0200\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -52,3 +52,8 @@ msgstr "%0 nav attālinātās datņu sistēmas papildinājuma"
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Neizdodas sazināties ar fona servisu."
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""

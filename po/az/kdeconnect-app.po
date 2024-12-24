@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2023-10-11 18:12+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -268,12 +268,30 @@ msgctxt "@title:group"
 msgid "Backends"
 msgstr ""
 
-#: qml/Settings.qml:65
+#: qml/Settings.qml:54
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Bluetooth"
+msgstr ""
+
+#: qml/Settings.qml:56
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Loopback"
+msgstr ""
+
+#: qml/Settings.qml:58
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Network"
+msgstr ""
+
+#: qml/Settings.qml:73
 #, kde-format
 msgid "About KDE Connect"
 msgstr "KDE Connect haqqında"
 
-#: qml/Settings.qml:73
+#: qml/Settings.qml:81
 #, kde-format
 msgid "About KDE"
 msgstr "KDE haqqında"

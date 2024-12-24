@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2024-12-16 18:14+0100\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"PO-Revision-Date: 2024-12-23 17:00+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -267,14 +267,32 @@ msgstr "Nomine de dispositivo"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
+msgstr "Retro-administrationes"
+
+#: qml/Settings.qml:54
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Bluetooth"
 msgstr ""
 
-#: qml/Settings.qml:65
+#: qml/Settings.qml:56
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Loopback"
+msgstr ""
+
+#: qml/Settings.qml:58
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Network"
+msgstr ""
+
+#: qml/Settings.qml:73
 #, kde-format
 msgid "About KDE Connect"
 msgstr "Re KDE Connect"
 
-#: qml/Settings.qml:73
+#: qml/Settings.qml:81
 #, kde-format
 msgid "About KDE"
 msgstr "A proposio de KDE"
@@ -283,44 +301,42 @@ msgstr "A proposio de KDE"
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "Nulle dispositivo seligite"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
-msgstr ""
+msgstr "Assecura te a installar KDE Commect sur tu altere dispositivos."
 
 #: qml/WelcomePage.qml:42
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr "KDE Connect"
+msgstr "KDE Connect Android App"
 
 #: qml/WelcomePage.qml:49
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "F-Droid"
 
 #: qml/WelcomePage.qml:56
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "Play Store"
 
 #: qml/WelcomePage.qml:62
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr "KDE Connect"
+msgstr "KDE Connect iOS App"
 
 #: qml/WelcomePage.qml:67
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "Apple Store"
 
 #: qml/WelcomePage.qml:73
 #, kde-format
@@ -329,6 +345,9 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+"Si tu ha problemas, visita le <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline;\">KDE Connect Community wiki</"
+"span></a>per adjuta."
 
 #~ msgid ""
 #~ "<html><head/><body><p>No device selected<br><br>If you own an Android "

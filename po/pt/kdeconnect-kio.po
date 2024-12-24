@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2019-03-29 18:33+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -47,3 +47,8 @@ msgstr "O %0 não tem nenhum 'plugin' de sistema de ficheiros remoto"
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Não foi possível contactar o serviço em segundo plano."
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""

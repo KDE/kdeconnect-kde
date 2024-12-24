@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2019-11-19 23:41+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -51,6 +51,11 @@ msgstr "%0 on ilma võrgufailisüsteemi pluginata"
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Ühendumine taustateenusega nurjus."
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "Seadme failisüsteemi ühendamine nurjus"

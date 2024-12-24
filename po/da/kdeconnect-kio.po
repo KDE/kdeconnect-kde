@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2019-07-29 21:04+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -51,6 +51,11 @@ msgstr "%0 har intet plugin til eksternt filsystem"
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Kunne ikke kontakte baggrundstjenesten."
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "Kunne ikke montere enhedens filsystem"

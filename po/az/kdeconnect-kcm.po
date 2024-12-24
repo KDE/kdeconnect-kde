@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2023-06-12 17:09+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -33,37 +33,61 @@ msgstr "xxmn77@gmail.com"
 msgid "Error: KDE Connect is not running"
 msgstr "KDE Connect Ayarları"
 
-#: kcm.cpp:271
+#: kcm.cpp:115
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Bluetooth"
+msgstr ""
+
+#: kcm.cpp:117
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Loopback"
+msgstr ""
+
+#: kcm.cpp:119
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Network"
+msgstr ""
+
+#: kcm.cpp:122
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Unknown"
+msgstr ""
+
+#: kcm.cpp:282
 #, kde-format
 msgid "Key: %1"
 msgstr "Açar: %1"
 
-#: kcm.cpp:296
+#: kcm.cpp:307
 #, kde-format
 msgid "Available plugins"
 msgstr "Mövcud əlavələr"
 
-#: kcm.cpp:343
+#: kcm.cpp:354
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Qoşulma cəhdi xətası: %1"
 
-#: kcm.cpp:359
+#: kcm.cpp:370
 #, kde-format
 msgid "(paired)"
 msgstr "(qoşulmuş)"
 
-#: kcm.cpp:362
+#: kcm.cpp:373
 #, kde-format
 msgid "(not paired)"
 msgstr "(qoşulmamış)"
 
-#: kcm.cpp:365
+#: kcm.cpp:376
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(gələn qoşulma tələbi)"
 
-#: kcm.cpp:368
+#: kcm.cpp:379
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(qoşulma tələb edildi)"

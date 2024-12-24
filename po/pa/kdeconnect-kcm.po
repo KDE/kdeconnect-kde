@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2024-01-28 13:20-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -32,37 +32,61 @@ msgstr "aalam@punlinux.org"
 msgid "Error: KDE Connect is not running"
 msgstr ""
 
-#: kcm.cpp:271
+#: kcm.cpp:115
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Bluetooth"
+msgstr ""
+
+#: kcm.cpp:117
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Loopback"
+msgstr ""
+
+#: kcm.cpp:119
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Network"
+msgstr ""
+
+#: kcm.cpp:122
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Unknown"
+msgstr ""
+
+#: kcm.cpp:282
 #, kde-format
 msgid "Key: %1"
 msgstr "ਕੁੰਜੀ: %1"
 
-#: kcm.cpp:296
+#: kcm.cpp:307
 #, kde-format
 msgid "Available plugins"
 msgstr "ਮੌਜੂਦ ਪਲੱਗਇਨ"
 
-#: kcm.cpp:343
+#: kcm.cpp:354
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "ਪੇਅਰ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਦੌਰਾਨ ਗਲਤੀ: %1"
 
-#: kcm.cpp:359
+#: kcm.cpp:370
 #, kde-format
 msgid "(paired)"
 msgstr "(ਪੇਅਰ ਹੈ)"
 
-#: kcm.cpp:362
+#: kcm.cpp:373
 #, kde-format
 msgid "(not paired)"
 msgstr "(ਪੇਅਰ ਨਹੀਂ ਹੈ)"
 
-#: kcm.cpp:365
+#: kcm.cpp:376
 #, kde-format
 msgid "(incoming pair request)"
 msgstr ""
 
-#: kcm.cpp:368
+#: kcm.cpp:379
 #, kde-format
 msgid "(pairing requested)"
 msgstr ""

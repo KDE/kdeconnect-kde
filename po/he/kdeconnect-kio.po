@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2023-10-20 16:10+0300\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -53,6 +53,11 @@ msgstr "ל־%0 אין תוסף מערכת קבצים מרוחקת"
 #, kde-format
 msgid "Could not contact background service."
 msgstr "לא ניתן ליצור קשר עם שירות הרקע."
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "לא יכול להציב את מערכת הקבצים של ההתקן"

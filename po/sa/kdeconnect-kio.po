@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2024-12-13 19:10+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Sanskrit\n"
@@ -51,3 +51,8 @@ msgstr "%0 इत्यस्य दूरस्थसञ्चिकातन�
 #, kde-format
 msgid "Could not contact background service."
 msgstr "पृष्ठभूमिसेवाया: सम्पर्कं कर्तुं न शक्तवान्।"
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""

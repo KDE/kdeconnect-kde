@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -33,37 +33,61 @@ msgstr "vivekkj2004@gmail.com"
 msgid "Error: KDE Connect is not running"
 msgstr "കെ ഡി ഇ കണക്ട് സജ്ജീകരണങ്ങൾ"
 
-#: kcm.cpp:271
+#: kcm.cpp:115
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Bluetooth"
+msgstr ""
+
+#: kcm.cpp:117
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Loopback"
+msgstr ""
+
+#: kcm.cpp:119
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Network"
+msgstr ""
+
+#: kcm.cpp:122
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Unknown"
+msgstr ""
+
+#: kcm.cpp:282
 #, kde-format
 msgid "Key: %1"
 msgstr ""
 
-#: kcm.cpp:296
+#: kcm.cpp:307
 #, kde-format
 msgid "Available plugins"
 msgstr "ലഭ്യമായിട്ടുള്ള സംയോജകങ്ങൾ"
 
-#: kcm.cpp:343
+#: kcm.cpp:354
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "ബന്ധപ്പെടാൻ ശ്രമിക്കുന്നതിൽ പിശക്:%1"
 
-#: kcm.cpp:359
+#: kcm.cpp:370
 #, kde-format
 msgid "(paired)"
 msgstr "(ബന്ധിച്ചു)"
 
-#: kcm.cpp:362
+#: kcm.cpp:373
 #, kde-format
 msgid "(not paired)"
 msgstr "(ബന്ധിച്ചിട്ടില്ല)"
 
-#: kcm.cpp:365
+#: kcm.cpp:376
 #, kde-format
 msgid "(incoming pair request)"
 msgstr ""
 
-#: kcm.cpp:368
+#: kcm.cpp:379
 #, kde-format
 msgid "(pairing requested)"
 msgstr ""

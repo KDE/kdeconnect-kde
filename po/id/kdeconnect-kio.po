@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-12-24 00:40+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -51,6 +51,11 @@ msgstr "%0 tidak memiliki Remote Filesystem"
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Tidak bisa mengontak layanan latarbelakang."
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "Tidak dapat mengait filesystem perangkat"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2023-06-08 06:09+0200\n"
+"PO-Revision-Date: 2024-12-23 06:25+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -61,24 +61,22 @@ msgstr "Seznam naprav, ki so na voljo (uparjene in dosegljive)"
 #: kdeconnect-cli.cpp:45
 #, kde-format
 msgid "List all backends and status"
-msgstr ""
+msgstr "Seznam vseh zaledij in stanj"
 
 #: kdeconnect-cli.cpp:46
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Enable the specified backend"
-msgstr "Odkleni določeno napravo"
+msgstr "Omogoči določeno zaledje"
 
 #: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
 #, kde-format
 msgid "backend"
-msgstr ""
+msgstr "zaledje"
 
 #: kdeconnect-cli.cpp:47
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Disable the specified backend"
-msgstr "Odkleni določeno napravo"
+msgstr "Onemogoči določeno zaledje"
 
 #: kdeconnect-cli.cpp:49
 #, kde-format
