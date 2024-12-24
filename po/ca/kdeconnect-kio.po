@@ -1,16 +1,16 @@
 # Translation of kdeconnect-kio.po to Catalan
-# Copyright (C) 2014-2021 This_file_is_part_of_KDE
+# Copyright (C) 2014-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2019, 2020.
-# Josep M. Ferrer <txemaq@gmail.com>, 2021.
+# Josep M. Ferrer <txemaq@gmail.com>, 2021, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 02:31+0000\n"
-"PO-Revision-Date: 2021-09-13 16:27+0200\n"
+"PO-Revision-Date: 2024-12-23 10:26+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: kiokdeconnect.cpp:75
 #, kde-format
@@ -59,4 +59,4 @@ msgstr "No s'ha pogut contactar usant el servei en segon pla."
 #: kiokdeconnect.cpp:235
 #, kde-format
 msgid "Failed to get mount point: %1"
-msgstr ""
+msgstr "Ha fallat en obtenir el punt de muntatge: %1"
