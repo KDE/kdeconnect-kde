@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Shinjo Park <kde@peremen.name>, 2014, 2019.
+# SPDX-FileCopyrightText: 2014, 2019, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 02:31+0000\n"
-"PO-Revision-Date: 2019-05-07 22:37+0200\n"
+"PO-Revision-Date: 2024-12-24 16:46+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 18.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: kiokdeconnect.cpp:75
 #, kde-format
@@ -55,7 +55,7 @@ msgstr "백그라운드 서비스에 연결할 수 없습니다."
 #: kiokdeconnect.cpp:235
 #, kde-format
 msgid "Failed to get mount point: %1"
-msgstr ""
+msgstr "마운트 지점을 가져올 수 없음: %1"
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "장치 파일 시스템을 마운트할 수 없음"

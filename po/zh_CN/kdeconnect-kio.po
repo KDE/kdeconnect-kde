@@ -55,4 +55,4 @@ msgstr "无法连接后台服务。"
 #: kiokdeconnect.cpp:235
 #, kde-format
 msgid "Failed to get mount point: %1"
-msgstr ""
+msgstr "无法获取挂载点：%1"
