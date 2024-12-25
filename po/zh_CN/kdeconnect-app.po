@@ -265,7 +265,7 @@ msgstr "设备名称"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "后端程序"
 
 #: qml/Settings.qml:54
 #, kde-format
@@ -299,42 +299,42 @@ msgstr "关于 KDE"
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "没有选择设备"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
-msgstr ""
+msgstr "请确保在您的其他设备上安装 KDE Connect。"
 
 #: qml/WelcomePage.qml:42
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr ""
+msgstr "KDE Connect 安卓应用"
 
 #: qml/WelcomePage.qml:49
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "F-Droid"
 
 #: qml/WelcomePage.qml:56
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "Play Store"
 
 #: qml/WelcomePage.qml:62
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr ""
+msgstr "KDE Connect iOS 应用"
 
 #: qml/WelcomePage.qml:67
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "Apple Store"
 
 #: qml/WelcomePage.qml:73
 #, kde-format
@@ -343,3 +343,6 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+"如果您遇到问题，请访问 <a href=\"https://userbase.kde.org/KDEConnect\"><span "
+"style=\" text-decoration: underline;\">KDE Connect 社区百科</span></a> 寻求帮"
+"助。"

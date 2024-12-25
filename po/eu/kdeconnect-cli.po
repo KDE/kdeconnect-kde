@@ -1,18 +1,18 @@
 # Translation for kdeconnect-cli.po to Euskara/Basque (eu).
-# Copyright (C) 2017-2023 This file is copyright:
+# Copyright (C) 2017-2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Osoitz <oelkoro@gmail.com>, 2017.
 # Thadah Denyse <gontzalpujana@protonmail.com>, 2019.
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2019, 2020, 2023.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2019, 2020, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2023-07-29 14:29+0200\n"
+"PO-Revision-Date: 2024-12-24 09:14+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -65,24 +65,22 @@ msgstr "Zerrendatu gailu erabilgarriak (parekatuak eta irisgarriak)"
 #: kdeconnect-cli.cpp:45
 #, kde-format
 msgid "List all backends and status"
-msgstr ""
+msgstr "Zerrendatu bizkarraldeko eta egoera denak"
 
 #: kdeconnect-cli.cpp:46
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Enable the specified backend"
-msgstr "Desblokeatu adierazitako gailua"
+msgstr "Gaitu adierazitako bizkarraldekoa"
 
 #: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
 #, kde-format
 msgid "backend"
-msgstr ""
+msgstr "bizkarraldekoa"
 
 #: kdeconnect-cli.cpp:47
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Disable the specified backend"
-msgstr "Desblokeatu adierazitako gailua"
+msgstr "Ezgaitu adierazitako bizkarraldekoa"
 
 #: kdeconnect-cli.cpp:49
 #, kde-format
