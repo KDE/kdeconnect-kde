@@ -36,25 +36,25 @@ msgstr "错误：KDE Connect 没有运行"
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "蓝牙"
 
 #: kcm.cpp:117
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "回环"
 
 #: kcm.cpp:119
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "网络"
 
 #: kcm.cpp:122
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: kcm.cpp:282
 #, kde-format
@@ -119,7 +119,7 @@ msgstr "刷新"
 #: kcm.ui:134
 #, kde-format
 msgid "Backends:"
-msgstr ""
+msgstr "后端程序："
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
 #: kcm.ui:216
