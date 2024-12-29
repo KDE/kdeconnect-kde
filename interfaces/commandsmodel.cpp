@@ -125,7 +125,7 @@ void CommandsModel::saveCommands()
 void CommandsModel::addCommand(const QString &name, const QString &command)
 {
     CommandEntry entry;
-    QString key = QUuid::createUuid().toString();
+    QString key = QUuid::createUuid().toString(QUuid::WithoutBraces);
     DBusHelper::filterNonExportableCharacters(key);
     entry.key = key;
     entry.name = name;

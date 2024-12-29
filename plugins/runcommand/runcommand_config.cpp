@@ -213,7 +213,7 @@ void RunCommandConfig::save()
         }
 
         if (key.isEmpty()) {
-            key = QUuid::createUuid().toString();
+            key = QUuid::createUuid().toString(QUuid::WithoutBraces);
             DBusHelper::filterNonExportableCharacters(key);
         }
         QJsonObject entry;

@@ -132,7 +132,7 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
 
     qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Requesting virtual display " << device()->name();
 
-    QUuid uuid = QUuid::createUuid();
+    QString password = QUuid::createUuid().toString(QUuid::WithoutBraces);
     static int s_port = DEFAULT_PORT;
     const QString port = QString::number(s_port++);
 
@@ -146,7 +146,7 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
                              QS("--scale"),
                              QString::number(scale),
                              QS("--password"),
-                             uuid.toString(),
+                             password,
                              QS("--port"),
                              port});
     connect(m_process, &QProcess::finished, this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
@@ -171,7 +171,7 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
     NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR_REQUEST);
     np.set(QS("protocol"), QS("vnc"));
     np.set(QS("username"), QS("user"));
-    np.set(QS("password"), uuid.toString());
+    np.set(QS("password"), password);
     np.set(QS("port"), port);
     sendPacket(np);
     return true;
