@@ -63,6 +63,23 @@ KdeConnectConfig::KdeConnectConfig()
     if (name().isEmpty()) {
         setName(getDefaultDeviceName());
     }
+
+    configMigration();
+}
+
+void KdeConnectConfig::configMigration()
+{
+    int configVersion = d->m_config->value(QStringLiteral("configVersion"), 0).toInt();
+    if (configVersion < 1) {
+        qCInfo(KDECONNECT_CORE) << "Migrating the config";
+        QStringList trusted = trustedDevices();
+        for (QString deviceId : trusted) {
+            QDir oldPath = baseConfigDir().absoluteFilePath(deviceId);
+            QDir newPath = deviceConfigDir(deviceId);
+            QFile::rename(oldPath.absolutePath(), newPath.absolutePath());
+        }
+        d->m_config->setValue(QStringLiteral("configVersion"), 1);
+    }
 }
 
 QString KdeConnectConfig::name()
@@ -263,14 +280,14 @@ QStringList KdeConnectConfig::customDevices() const
 
 QDir KdeConnectConfig::deviceConfigDir(const QString &deviceId)
 {
-    QString deviceConfigPath = baseConfigDir().absoluteFilePath(deviceId);
+    QString deviceConfigPath = baseConfigDir().absoluteFilePath(QStringLiteral("device_") + deviceId);
     return QDir(deviceConfigPath);
 }
 
 QDir KdeConnectConfig::pluginConfigDir(const QString &deviceId, const QString &pluginName)
 {
-    QString deviceConfigPath = baseConfigDir().absoluteFilePath(deviceId);
-    QString pluginConfigDir = QDir(deviceConfigPath).absoluteFilePath(pluginName);
+    QDir deviceConfDir = deviceConfigDir(deviceId);
+    QString pluginConfigDir = deviceConfDir.absoluteFilePath(pluginName);
     return QDir(pluginConfigDir);
 }
 
