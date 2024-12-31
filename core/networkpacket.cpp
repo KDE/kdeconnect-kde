@@ -30,7 +30,7 @@ QDebug operator<<(QDebug s, const NetworkPacket &pkg)
     return s.space();
 }
 
-const int NetworkPacket::s_protocolVersion = 7;
+const int NetworkPacket::s_protocolVersion = 8;
 
 NetworkPacket::NetworkPacket(const QString &type, const QVariantMap &body)
     : m_id(QString::number(QDateTime::currentMSecsSinceEpoch()))
