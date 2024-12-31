@@ -419,13 +419,42 @@ void LanLinkProvider::encrypted()
 
     NetworkPacket *identityPacket = m_receivedIdentityPackets[socket].np;
 
-    DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(*identityPacket, socket->peerCertificate());
+    int protocolVersion = identityPacket->get<int>(QStringLiteral("protocolVersion"), -1);
+    if (protocolVersion == 8) {
+        disconnect(socket, &QObject::destroyed, nullptr, nullptr);
+        delete m_receivedIdentityPackets.take(socket).np;
 
-    // We don't delete the socket because now it's owned by the LanDeviceLink
-    disconnect(socket, &QObject::destroyed, nullptr, nullptr);
-    delete m_receivedIdentityPackets.take(socket).np;
+        NetworkPacket myIdentity = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
+        socket->write(myIdentity.serialize());
+        socket->flush();
+        connect(socket, &QIODevice::readyRead, this, [this, socket]() {
+            if (!socket->canReadLine()) {
+                // This can happen if the packet is large enough to be split in two chunks
+                return;
+            }
+            disconnect(socket, &QIODevice::readyRead, nullptr, nullptr);
+            QByteArray identityString = socket->readLine();
+            NetworkPacket *identityPacket = new NetworkPacket();
+            bool success = NetworkPacket::unserialize(identityString, identityPacket);
+            if (!success || !DeviceInfo::isValidIdentityPacket(identityPacket)) {
+                qCWarning(KDECONNECT_CORE, "Remote device doesn't correctly implement protocol version 8");
+                disconnect(socket, &QObject::destroyed, nullptr, nullptr);
+                return;
+            }
+            DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(*identityPacket, socket->peerCertificate());
 
-    addLink(socket, deviceInfo);
+            // We don't delete the socket because now it's owned by the LanDeviceLink
+            disconnect(socket, &QObject::destroyed, nullptr, nullptr);
+            addLink(socket, deviceInfo);
+        });
+    } else {
+        DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(*identityPacket, socket->peerCertificate());
+
+        disconnect(socket, &QObject::destroyed, nullptr, nullptr);
+        delete m_receivedIdentityPackets.take(socket).np;
+
+        addLink(socket, deviceInfo);
+    }
 }
 
 void LanLinkProvider::sslErrors(const QList<QSslError> &errors)
@@ -542,7 +571,7 @@ void LanLinkProvider::dataReceived()
         connect(socket, &QSslSocket::sslErrors, this, &LanLinkProvider::sslErrors);
     }
 
-    socket->startClientEncryption();
+    socket->startClientEncryption(); // Will call encrypted()
 }
 
 void LanLinkProvider::onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr)
