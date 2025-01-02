@@ -92,6 +92,8 @@ Kirigami.ApplicationWindow {
                     id: devices
                     Layout.fillWidth: true
                     clip: true
+                    activeFocusOnTab: true
+                    keyNavigationEnabled: true
 
                     section {
                         property: "status"
@@ -205,4 +207,6 @@ Kirigami.ApplicationWindow {
             pageStack.removePage(pageStack.currentIndex)
         }
     }
+
+    Component.onCompleted: devices.forceActiveFocus()
 }
