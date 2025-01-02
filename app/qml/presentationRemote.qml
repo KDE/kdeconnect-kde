@@ -35,11 +35,13 @@ Kirigami.Page
             Button {
                 Layout.fillWidth: true
                 icon.name: "media-skip-backward"
+                Accessible.name: "Previous Slide"
                 onClicked: mousepad.pluginInterface.sendKeyPress("p");
             }
             Button {
                 Layout.fillWidth: true
                 icon.name: "media-skip-forward"
+                Accessible.name: "Next Slide"
                 onClicked: mousepad.pluginInterface.sendKeyPress("n");
             }
         }

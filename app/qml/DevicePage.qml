@@ -62,6 +62,7 @@ Kirigami.ScrollablePage {
                     return i18nc("@title:group device page section header", "Controls");
             }
         }
+        Accessible.role: Accessible.List
 
         delegate: QQC2.ItemDelegate {
             id: pluginDelegate

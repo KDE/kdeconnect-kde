@@ -47,6 +47,7 @@ Kirigami.ScrollablePage {
     }
 
     ListView {
+        Accessible.role: Accessible.List
         model: KItemModels.KSortFilterProxyModel {
             filterString: root.filterString
             filterRoleName: "name"

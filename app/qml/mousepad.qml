@@ -57,6 +57,11 @@ Kirigami.Page
                 horizontalAlignment: Text.AlignHCenter
 
                 text: i18n("Press %1 or the left and right mouse buttons at the same time to unlock", unlockShortcut.nativeText)
+                onVisibleChanged: {
+                    if (visible && Accessible.announce) {
+                        Accessible.announce(text);
+                    }
+                }
             }
 
             Connections {
@@ -202,16 +207,19 @@ Kirigami.Page
             Button {
                 Layout.fillWidth: true
                 icon.name: "input-mouse-click-left"
+                Accessible.name: i18nc("@action:button accessible", "Left Click")
                 onClicked: mousepad.pluginInterface.sendCommand({"singleclick": true});
             }
             Button {
                 Layout.fillWidth: true
                 icon.name: "input-mouse-click-middle"
+                Accessible.name: i18nc("@action:button accessible", "Middle Click")
                 onClicked: mousepad.pluginInterface.sendCommand({"middleclick": true});
             }
             Button {
                 Layout.fillWidth: true
                 icon.name: "input-mouse-click-right"
+                Accessible.name: i18nc("@action:button accessible", "Right Click")
                 onClicked: mousepad.pluginInterface.sendCommand({"rightclick": true});
             }
         }

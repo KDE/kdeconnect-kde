@@ -73,6 +73,7 @@ Kirigami.ApplicationWindow {
                     QQC2.ToolButton {
                         text: i18nc("@action:button", "Refresh")
                         icon.name: 'view-refresh-symbolic'
+                        Accessible.name: i18nc("@action:button accessible", "Refresh Devices")
 
                         QQC2.ToolTip.text: text
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -94,6 +95,7 @@ Kirigami.ApplicationWindow {
                     clip: true
                     activeFocusOnTab: true
                     keyNavigationEnabled: true
+                    Accessible.role: Accessible.List
 
                     section {
                         property: "status"
@@ -126,6 +128,8 @@ Kirigami.ApplicationWindow {
                         Accessible.name: Kirigami.MnemonicData.plainTextLabel ?? model.name // fallback needed for KF < 6.12
                         width: ListView.view.width
                         highlighted: false
+                        Accessible.role: Accessible.PageTab
+                        Accessible.description: toolTip
 
                         Kirigami.MnemonicData.enabled: enabled && visible
                         Kirigami.MnemonicData.controlType: Kirigami.MnemonicData.MenuItem
