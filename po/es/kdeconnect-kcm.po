@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # SPDX-FileCopyrightText: 2013, 2014 Eloy Cuadra <ecuadra@eloihr.net>
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2023, 2024 Victor Rodrigo Cordoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2023, 2024, 2025 Victor Rodrigo Cordoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-10-12 18:14+0200\n"
+"PO-Revision-Date: 2025-01-04 20:06+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -38,25 +38,25 @@ msgstr "Error: KDE Connect no está ejecutando"
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: kcm.cpp:117
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Loopback"
 
 #: kcm.cpp:119
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Red"
 
 #: kcm.cpp:122
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 #: kcm.cpp:282
 #, kde-format
@@ -121,7 +121,7 @@ msgstr "Actualizar"
 #: kcm.ui:134
 #, kde-format
 msgid "Backends:"
-msgstr ""
+msgstr "Motores:"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
 #: kcm.ui:216

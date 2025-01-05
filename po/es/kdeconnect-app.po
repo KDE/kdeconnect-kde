@@ -4,13 +4,13 @@
 #
 # Automatically generated, 2020.
 # SPDX-FileCopyrightText: 2020 Eloy Cuadra <ecuadra@eloihr.net>
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-12-07 19:28+0100\n"
+"PO-Revision-Date: 2025-01-04 20:04+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -269,25 +269,25 @@ msgstr "Nombre del dispositivo"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "Motores"
 
 #: qml/Settings.qml:54
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: qml/Settings.qml:56
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Loopback"
 
 #: qml/Settings.qml:58
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Red"
 
 #: qml/Settings.qml:73
 #, kde-format
@@ -303,44 +303,42 @@ msgstr "Sobre KDE"
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "No se ha seleccionado dispositivo"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
-msgstr ""
+msgstr "Asegúrese de instalar KDE Connect en sus otros dispositivos."
 
 #: qml/WelcomePage.qml:42
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr "KDE Connect"
+msgstr "KDE Connect Android App"
 
 #: qml/WelcomePage.qml:49
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "F-Droid"
 
 #: qml/WelcomePage.qml:56
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "Play Store"
 
 #: qml/WelcomePage.qml:62
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr "KDE Connect"
+msgstr "KDE Connect iOS App"
 
 #: qml/WelcomePage.qml:67
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "Apple Store"
 
 #: qml/WelcomePage.qml:73
 #, kde-format
@@ -349,32 +347,6 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
-
-#~ msgid ""
-#~ "<html><head/><body><p>No device selected<br><br>If you own an Android "
-#~ "device, make sure to install the <a href=\"https://play.google.com/store/"
-#~ "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#~ "underline;\">KDE Connect Android app</span></a> (also available <a href="
-#~ "\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
-#~ "\"><span style=\" text-decoration: underline;\">from F-Droid</span></a>) "
-#~ "and it should appear in the list. If you have an iPhone, make sure to "
-#~ "install the <a href=\"https://apps.apple.com/us/app/kde-connect/"
-#~ "id1580245991\"><span style=\" text-decoration: underline;\">KDE Connect "
-#~ "iOS app.</span></a> <br><br>If you are having problems, visit the <a href="
-#~ "\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
-#~ "underline;\">KDE Connect Community wiki</span></a> for help.</p></body></"
-#~ "html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Ningún dispositivo seleccionado<br><br>Si dispone "
-#~ "de un dispositivo Android, asegúrese de instalar la <a href=\"https://"
-#~ "play.google.com/store/apps/details?id=org.kde.kdeconnect_tp\"><span style="
-#~ "\" text-decoration: underline;\">aplicación KDE Connect de Android</"
-#~ "span></a> (también disponible <a href=\"https://f-droid.org/repository/"
-#~ "browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#~ "underline;\">en F-Droid</span></a>) y aparecerá e4n la lista. Si tiene un "
-#~ "iPhone, asegúrese de instalar la <a href=\"https://apps.apple.com/us/app/"
-#~ "kde-connect/id1580245991\"><span style=\" text-decoration: underline;"
-#~ "\">aplicación KDE Connect de iOS.</span></a>Si tiene problemas, visite la "
-#~ "<a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-"
-#~ "decoration: underline;\">wiki de la comunidad de KDE Connect</span></a> "
-#~ "para buscar ayuda.</p></body></html><br><br>"
+"Si tiene problemas, visite la <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline;\">Wiki de la comunidad KDE "
+"Connect</span></a> para obtener ayuda."

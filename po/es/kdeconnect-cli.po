@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Victor Rodrigo Cordoba <vrcordoba@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2023.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2023, 2025 Victor Rodrigo Cordoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2023-06-10 17:28+0200\n"
+"PO-Revision-Date: 2025-01-04 20:05+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -60,24 +60,22 @@ msgstr "Mostrar dispositivos disponibles (vinculados y accesibles)"
 #: kdeconnect-cli.cpp:45
 #, kde-format
 msgid "List all backends and status"
-msgstr ""
+msgstr "Muestra todos los motores y su estado"
 
 #: kdeconnect-cli.cpp:46
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Enable the specified backend"
-msgstr "Desbloquear el dispositivo especificado"
+msgstr "Activar el motor especificado"
 
 #: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
 #, kde-format
 msgid "backend"
-msgstr ""
+msgstr "motor"
 
 #: kdeconnect-cli.cpp:47
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Disable the specified backend"
-msgstr "Desbloquear el dispositivo especificado"
+msgstr "Desactivar el motor especificado"
 
 #: kdeconnect-cli.cpp:49
 #, kde-format
@@ -344,10 +342,3 @@ msgstr ""
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Nada que hacer"
-
-#~ msgid "Open the connected device's camera and transfer the photo"
-#~ msgstr ""
-#~ "Abrir la cámara del dispositivo conectado y transferir la fotografía"
-
-#~ msgid "Please specify a filename for the photo"
-#~ msgstr "Por favor, especifique un nombre del archivo para la fotografía"
