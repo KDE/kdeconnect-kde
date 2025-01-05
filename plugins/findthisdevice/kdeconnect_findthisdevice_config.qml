@@ -31,6 +31,7 @@ Kirigami.ScrollablePage {
             onAccepted: {
                 path.text = currentFile.toString().replace("file://", "")
             }
+        }
 
         KdeConnectPluginConfig {
             id: config
