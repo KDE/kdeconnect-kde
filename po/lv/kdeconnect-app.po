@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-10-24 16:45+0300\n"
+"PO-Revision-Date: 2025-01-04 14:49+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -165,9 +165,7 @@ msgid "Please choose a file"
 msgstr "Izvēlieties datni"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Ierīces"
 
@@ -175,7 +173,7 @@ msgstr "Ierīces"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Pārlādēt"
 
 #: qml/Main.qml:101
 #, kde-format
@@ -267,25 +265,25 @@ msgstr "Ierīces nosaukums"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "Aizmugursistēmas"
 
 #: qml/Settings.qml:54
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: qml/Settings.qml:56
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Atgriezeniskā cilpa"
 
 #: qml/Settings.qml:58
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Tīkls"
 
 #: qml/Settings.qml:73
 #, kde-format
@@ -301,44 +299,42 @@ msgstr "Par KDE"
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "Neviena ierīce nav atlasīta"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
-msgstr ""
+msgstr "Ieinstalējiet „KDE Connect“ savās pārējās ierīcēs."
 
 #: qml/WelcomePage.qml:42
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr "KDE Connect"
+msgstr "„KDE Connect“ lietotne „Android“ ierīcēm"
 
 #: qml/WelcomePage.qml:49
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "F-Droid"
 
 #: qml/WelcomePage.qml:56
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "Play Store"
 
 #: qml/WelcomePage.qml:62
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr "KDE Connect"
+msgstr "„KDE Connect“ lietotne „iOS“ ierīcēm"
 
 #: qml/WelcomePage.qml:67
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "Apple Store"
 
 #: qml/WelcomePage.qml:73
 #, kde-format
@@ -347,6 +343,9 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+"Ja saskaraties ar problēmām, meklējiet palīdzību <a href=\"https://userbase."
+"kde.org/KDEConnect\"><span style=\" text-decoration: underline;\">„KDE "
+"Connect“ kopienas vikilapā</span></a>."
 
 #~ msgid "Find devices..."
 #~ msgstr "Atrast ierīces"

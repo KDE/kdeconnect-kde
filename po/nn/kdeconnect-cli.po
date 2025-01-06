@@ -67,7 +67,6 @@ msgstr ""
 
 #: kdeconnect-cli.cpp:46
 #, fuzzy, kde-format
-#| msgid "Unlock the specified device"
 msgid "Enable the specified backend"
 msgstr "Lås opp den valde eininga."
 
@@ -78,7 +77,6 @@ msgstr ""
 
 #: kdeconnect-cli.cpp:47
 #, fuzzy, kde-format
-#| msgid "Unlock the specified device"
 msgid "Disable the specified backend"
 msgstr "Lås opp den valde eininga."
 

@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2024 Toms Trasūns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2025 Toms Trasūns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-10-24 16:39+0300\n"
+"PO-Revision-Date: 2025-01-04 14:51+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -37,25 +37,25 @@ msgstr "Kļūda: „KDE Connect“ nav ieslēgts"
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: kcm.cpp:117
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Atgriezeniskā cilpa"
 
 #: kcm.cpp:119
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Tīkls"
 
 #: kcm.cpp:122
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
-msgstr ""
+msgstr "Nezināms"
 
 #: kcm.cpp:282
 #, kde-format
@@ -120,7 +120,7 @@ msgstr "Atsvaidzināt"
 #: kcm.ui:134
 #, kde-format
 msgid "Backends:"
-msgstr ""
+msgstr "Aizmugursistēmas:"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
 #: kcm.ui:216

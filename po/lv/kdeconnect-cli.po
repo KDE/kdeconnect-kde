@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2024-01-11 20:45+0200\n"
+"PO-Revision-Date: 2025-01-04 14:51+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -61,24 +61,22 @@ msgstr "Uzskaitīt pieejamās (sapārotas un sasniedzamās) ierīces"
 #: kdeconnect-cli.cpp:45
 #, kde-format
 msgid "List all backends and status"
-msgstr ""
+msgstr "Uzskaitīt visas aizmugursistēmas un statusu"
 
 #: kdeconnect-cli.cpp:46
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Enable the specified backend"
-msgstr "Atbloķēt attiecīgo ierīci"
+msgstr "Ieslēgt attiecīgo aizmugursistēmu"
 
 #: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
 #, kde-format
 msgid "backend"
-msgstr ""
+msgstr "aizmugursistēma"
 
 #: kdeconnect-cli.cpp:47
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Disable the specified backend"
-msgstr "Atbloķēt attiecīgo ierīci"
+msgstr "Izslēgt attiecīgo aizmugursistēmu"
 
 #: kdeconnect-cli.cpp:49
 #, kde-format

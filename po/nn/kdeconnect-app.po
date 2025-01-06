@@ -166,8 +166,6 @@ msgstr "Vel ei fil"
 
 #: qml/Main.qml:66
 #, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
 msgid "Devices"
 msgstr "Einingar"
 
@@ -311,7 +309,6 @@ msgstr ""
 
 #: qml/WelcomePage.qml:42
 #, fuzzy, kde-format
-#| msgid "KDE Connect"
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
 msgstr "KDE Connect"
@@ -330,7 +327,6 @@ msgstr ""
 
 #: qml/WelcomePage.qml:62
 #, fuzzy, kde-format
-#| msgid "KDE Connect"
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
 msgstr "KDE Connect"
