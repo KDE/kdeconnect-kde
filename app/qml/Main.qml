@@ -190,4 +190,9 @@ Kirigami.ApplicationWindow {
     }
 
     pageStack.initialPage: Qt.resolvedUrl("WelcomePage.qml")
+    pageStack.Keys.onEscapePressed: {
+        if (pageStack.currentIndex) {
+            pageStack.removePage(pageStack.currentIndex)
+        }
+    }
 }
