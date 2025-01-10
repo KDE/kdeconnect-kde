@@ -87,6 +87,7 @@ Kirigami.ApplicationWindow {
             }
             QQC2.ScrollView {
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 ListView {
                     id: devices
                     Layout.fillWidth: true
