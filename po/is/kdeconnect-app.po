@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-01-12 00:41+0000\n"
 "PO-Revision-Date: 2024-05-23 14:50+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -177,27 +177,27 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr ""
 
-#: qml/Main.qml:101
+#: qml/Main.qml:102
 #, kde-format
 msgid "Remembered"
 msgstr "Geymt í minni"
 
-#: qml/Main.qml:103
+#: qml/Main.qml:104
 #, kde-format
 msgid "Available"
 msgstr "Tiltækt"
 
-#: qml/Main.qml:105
+#: qml/Main.qml:106
 #, kde-format
 msgid "Connected"
 msgstr "Tengt"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:111
 #, kde-format
 msgid "No devices found"
 msgstr "Engin tæki fundust"
 
-#: qml/Main.qml:170 qml/Main.qml:179
+#: qml/Main.qml:171 qml/Main.qml:180
 #, kde-format
 msgid "Settings"
 msgstr "Stillingar"

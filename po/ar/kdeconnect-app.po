@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-01-12 00:41+0000\n"
 "PO-Revision-Date: 2024-12-26 09:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -176,27 +176,27 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr "أنعش"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:102
 #, kde-format
 msgid "Remembered"
 msgstr "متذكَّرة"
 
-#: qml/Main.qml:103
+#: qml/Main.qml:104
 #, kde-format
 msgid "Available"
 msgstr "متوفّرة"
 
-#: qml/Main.qml:105
+#: qml/Main.qml:106
 #, kde-format
 msgid "Connected"
 msgstr "متّصل"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:111
 #, kde-format
 msgid "No devices found"
 msgstr "لم يُعثر على أجهزة"
 
-#: qml/Main.qml:170 qml/Main.qml:179
+#: qml/Main.qml:171 qml/Main.qml:180
 #, kde-format
 msgid "Settings"
 msgstr "إعدادات"

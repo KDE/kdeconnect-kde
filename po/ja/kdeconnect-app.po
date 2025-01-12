@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-01-12 00:41+0000\n"
 "PO-Revision-Date: 2024-01-30 19:23+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -174,27 +174,27 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr ""
 
-#: qml/Main.qml:101
+#: qml/Main.qml:102
 #, kde-format
 msgid "Remembered"
 msgstr "記憶済み"
 
-#: qml/Main.qml:103
+#: qml/Main.qml:104
 #, kde-format
 msgid "Available"
 msgstr "利用可能"
 
-#: qml/Main.qml:105
+#: qml/Main.qml:106
 #, kde-format
 msgid "Connected"
 msgstr "接続済み"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:111
 #, kde-format
 msgid "No devices found"
 msgstr "デバイスが見つかりません"
 
-#: qml/Main.qml:170 qml/Main.qml:179
+#: qml/Main.qml:171 qml/Main.qml:180
 #, kde-format
 msgid "Settings"
 msgstr "設定"
