@@ -156,7 +156,13 @@ struct DeviceInfo {
     static bool isValidIdentityPacket(NetworkPacket *np)
     {
         return np->type() == PACKET_TYPE_IDENTITY && !filterName(np->get(QLatin1String("deviceName"), QString())).isEmpty()
-            && !np->get(QLatin1String("deviceId"), QString()).isEmpty();
+            && isValidDeviceId(np->get(QLatin1String("deviceId"), QString()));
+    }
+
+    static bool isValidDeviceId(const QString &deviceId)
+    {
+        static const QRegularExpression DEVICE_ID_REGEX(QStringLiteral("^[a-zA-Z0-9_]{32,38}$"));
+        return DEVICE_ID_REGEX.match(deviceId).hasMatch();
     }
 };
 
