@@ -111,6 +111,8 @@ Kirigami.Page
         }
         RowLayout {
             Layout.fillWidth: true
+            // player controls are by convention always LtR
+            LayoutMirroring.enabled: false
             Button {
                 Layout.fillWidth: true
                 icon.name: "media-skip-backward"
@@ -129,6 +131,9 @@ Kirigami.Page
         }
         RowLayout {
             Layout.fillWidth: true
+            // media progress indicators are by convention always LtR
+            LayoutMirroring.enabled: false
+            LayoutMirroring.childrenInherit: true
             Label {
                 text: msToTime(positionIndicator.item.value)
             }
