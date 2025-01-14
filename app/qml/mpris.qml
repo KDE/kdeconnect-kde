@@ -13,6 +13,7 @@ Kirigami.Page
 {
     id: root
     property QtObject pluginInterface
+    property QtObject device
     property bool muted: false
     property int volumeUnmuted
     property var volume: pluginInterface.volume

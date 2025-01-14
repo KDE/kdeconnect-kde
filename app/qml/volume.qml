@@ -15,6 +15,7 @@ Kirigami.Page
     id: root
     title: i18nd("kdeconnect-app", "Volume control")
     property QtObject pluginInterface
+    property QtObject device
 
     ListView {
         id: sinkList

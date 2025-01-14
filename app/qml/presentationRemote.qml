@@ -14,6 +14,7 @@ Kirigami.Page
     id: mousepad
     title: i18nd("kdeconnect-app", "Presentation Remote")
     property QtObject pluginInterface
+    property QtObject device
 
     actions: [
         Kirigami.Action {

@@ -15,6 +15,7 @@ Kirigami.ScrollablePage
     id: root
     title: i18nd("kdeconnect-app", "Run command")
     property QtObject pluginInterface
+    property QtObject device
 
     actions: [
         Kirigami.Action {

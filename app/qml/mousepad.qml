@@ -84,7 +84,7 @@ Kirigami.Page
                 }
             }
 
-            onClicked: {
+            onClicked: (mouse) => {
                 var clickType = "";
                 var packet = {};
                 switch (mouse.button) {
@@ -112,7 +112,7 @@ Kirigami.Page
                 }
             }
 
-            onPressAndHold: {
+            onPressAndHold: (mouse) => {
                 if (PointerLocker.isLocked)
                     return;                     // we send singlehold and singlerelease twice instead through onPressed and onReleased
                 var clickType = "";
@@ -132,7 +132,7 @@ Kirigami.Page
                 }
             }
 
-            onPositionChanged: {
+            onPositionChanged: (mouse) => {
                 if (lastPos.x > -1) {
     //                 console.log("move", mouse.x, mouse.y, lastPos)
                     var delta = Qt.point(mouse.x-lastPos.x, mouse.y-lastPos.y);
@@ -142,13 +142,13 @@ Kirigami.Page
                 lastPos = Qt.point(mouse.x, mouse.y);
             }
 
-            Keys.onPressed: {
+            Keys.onPressed: (event) => {
                 if (event.key == Qt.Key_X) {
                     PointerLocker.isLocked = false
                     event.accepted = true;
                 }
             }
-            onPressed: {
+            onPressed: (mouse) => {
                 if (PointerLocker.isLocked) {
                     if (pressedButtons === (Qt.LeftButton | Qt.RightButton)) {
                         PointerLocker.isLocked = false
@@ -172,7 +172,7 @@ Kirigami.Page
                 }
             }
 
-            onWheel: {
+            onWheel: (wheel) => {
                 var packet = {};
                 packet["scroll"] = true;
                 packet["dy"] = wheel.angleDelta.y;
@@ -180,7 +180,7 @@ Kirigami.Page
                 mousepad.pluginInterface.sendCommand(packet);
             }
 
-            onReleased: {
+            onReleased: (mouse) => {
                 if (!PointerLocker.isLocked) {
                     lastPos = Qt.point(-1,-1);
                     releasedPos = Qt.point(mouse.x, mouse.y);
