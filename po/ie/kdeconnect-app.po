@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:41+0000\n"
+"POT-Creation-Date: 2025-01-15 00:41+0000\n"
 "PO-Revision-Date: 2022-11-16 16:11+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -211,17 +211,17 @@ msgstr "Telecomande"
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
 
-#: qml/mpris.qml:19
+#: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
 msgstr "Controles de multimedia"
 
-#: qml/mpris.qml:67
+#: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
 msgstr "Null reproductores disponibil"
 
-#: qml/mpris.qml:107
+#: qml/mpris.qml:108
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -231,12 +231,12 @@ msgstr "%1 - %2"
 msgid "Configure plugin"
 msgstr ""
 
-#: qml/presentationRemote.qml:21
+#: qml/presentationRemote.qml:22
 #, fuzzy, kde-format
 msgid "Enable Full-Screen"
 msgstr "_Plen-ecran"
 
-#: qml/runcommand.qml:22
+#: qml/runcommand.qml:23
 #, fuzzy, kde-format
 msgid "Edit commands"
 msgstr ""
@@ -245,12 +245,12 @@ msgstr ""
 "\n"
 "\n"
 
-#: qml/runcommand.qml:25
+#: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr ""
 
-#: qml/runcommand.qml:52
+#: qml/runcommand.qml:53
 #, fuzzy, kde-format
 msgid "No commands defined"
 msgstr ""

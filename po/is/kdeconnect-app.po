@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:41+0000\n"
+"POT-Creation-Date: 2025-01-15 00:41+0000\n"
 "PO-Revision-Date: 2024-05-23 14:50+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -212,17 +212,17 @@ msgstr "Fjarstýring"
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr "Ýttu á %1 eða vinstri og hægri músahnappa samtímis til að aflæsa"
 
-#: qml/mpris.qml:19
+#: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
 msgstr "Margmiðlunarstýringar"
 
-#: qml/mpris.qml:67
+#: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
 msgstr "Engir spilarar tiltækir"
 
-#: qml/mpris.qml:107
+#: qml/mpris.qml:108
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -232,22 +232,22 @@ msgstr "%1 - %2"
 msgid "Configure plugin"
 msgstr "Grunnstilla viðbót"
 
-#: qml/presentationRemote.qml:21
+#: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
 msgstr "Virkja skjáfylli"
 
-#: qml/runcommand.qml:22
+#: qml/runcommand.qml:23
 #, kde-format
 msgid "Edit commands"
 msgstr "Breyta skipunum"
 
-#: qml/runcommand.qml:25
+#: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr "Þú getur breytt skipunum á tengda tækinu"
 
-#: qml/runcommand.qml:52
+#: qml/runcommand.qml:53
 #, kde-format
 msgid "No commands defined"
 msgstr "Engar skipanir skilgreindar"

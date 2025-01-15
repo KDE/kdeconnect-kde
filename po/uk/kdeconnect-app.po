@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:41+0000\n"
+"POT-Creation-Date: 2025-01-15 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 18:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -212,17 +212,17 @@ msgstr "Дистанційне керування"
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr "Натисніть %1 або ліву і праву кнопки миші одночасно, щоб розблокувати"
 
-#: qml/mpris.qml:19
+#: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
 msgstr "Керування відтворенням"
 
-#: qml/mpris.qml:67
+#: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
 msgstr "Немає доступних програвачів"
 
-#: qml/mpris.qml:107
+#: qml/mpris.qml:108
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 – %2"
@@ -232,22 +232,22 @@ msgstr "%1 – %2"
 msgid "Configure plugin"
 msgstr "Налаштувати додаток"
 
-#: qml/presentationRemote.qml:21
+#: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
 msgstr "Увімкнути повноекранний режим"
 
-#: qml/runcommand.qml:22
+#: qml/runcommand.qml:23
 #, kde-format
 msgid "Edit commands"
 msgstr "Редагувати команди"
 
-#: qml/runcommand.qml:25
+#: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr "Ви можете редагувати команди на з'єднаному пристрої"
 
-#: qml/runcommand.qml:52
+#: qml/runcommand.qml:53
 #, kde-format
 msgid "No commands defined"
 msgstr "Немає визначених команд"

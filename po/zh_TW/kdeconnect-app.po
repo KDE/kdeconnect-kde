@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:41+0000\n"
+"POT-Creation-Date: 2025-01-15 00:41+0000\n"
 "PO-Revision-Date: 2024-12-29 02:05+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -214,17 +214,17 @@ msgstr "遠端控制"
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr "按下 %1 或是同時按下滑鼠左鍵與右鍵來解鎖"
 
-#: qml/mpris.qml:19
+#: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
 msgstr "多媒體控制"
 
-#: qml/mpris.qml:67
+#: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
 msgstr "無可用播放器"
 
-#: qml/mpris.qml:107
+#: qml/mpris.qml:108
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -234,22 +234,22 @@ msgstr "%1 - %2"
 msgid "Configure plugin"
 msgstr "設定外掛程式"
 
-#: qml/presentationRemote.qml:21
+#: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
 msgstr "啟用全螢幕"
 
-#: qml/runcommand.qml:22
+#: qml/runcommand.qml:23
 #, kde-format
 msgid "Edit commands"
 msgstr "編輯指令"
 
-#: qml/runcommand.qml:25
+#: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr "您可以在已連線的裝置上編輯指令"
 
-#: qml/runcommand.qml:52
+#: qml/runcommand.qml:53
 #, kde-format
 msgid "No commands defined"
 msgstr "未定義指令"

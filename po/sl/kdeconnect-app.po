@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:41+0000\n"
+"POT-Creation-Date: 2025-01-15 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 10:07+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -210,17 +210,17 @@ msgstr "Oddaljen nadzor"
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr "Pritisnite %1 ali sočasno levi in desni gumb miške, da odklenete"
 
-#: qml/mpris.qml:19
+#: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
 msgstr "Nadzor večpredstavnosti"
 
-#: qml/mpris.qml:67
+#: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
 msgstr "Ni na voljo predvajalnikov"
 
-#: qml/mpris.qml:107
+#: qml/mpris.qml:108
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -230,22 +230,22 @@ msgstr "%1 - %2"
 msgid "Configure plugin"
 msgstr "Konfiguriraj vtičnik"
 
-#: qml/presentationRemote.qml:21
+#: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
 msgstr "Omogoči celoten zaslon"
 
-#: qml/runcommand.qml:22
+#: qml/runcommand.qml:23
 #, kde-format
 msgid "Edit commands"
 msgstr "Ukazi urejanja"
 
-#: qml/runcommand.qml:25
+#: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr "Lahko urejate ukaze na povezani napravi"
 
-#: qml/runcommand.qml:52
+#: qml/runcommand.qml:53
 #, kde-format
 msgid "No commands defined"
 msgstr "Ni določenega ukaza"

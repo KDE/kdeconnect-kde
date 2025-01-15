@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:41+0000\n"
+"POT-Creation-Date: 2025-01-15 00:41+0000\n"
 "PO-Revision-Date: 2024-12-25 19:36+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -211,17 +211,17 @@ msgstr "दूरनियन्त्रणम्"
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr "अनलॉक् कर्तुं %1 अथवा वामदक्षिणमूषकस्य बटन् एकस्मिन् समये नुदन्तु"
 
-#: qml/mpris.qml:19
+#: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
 msgstr "बहुमाध्यम नियन्त्रणानि"
 
-#: qml/mpris.qml:67
+#: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
 msgstr "न खिलाडयः उपलभ्यन्ते"
 
-#: qml/mpris.qml:107
+#: qml/mpris.qml:108
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -231,22 +231,22 @@ msgstr "%1 - %2"
 msgid "Configure plugin"
 msgstr "प्लगिन् विन्यस्तं कुर्वन्तु"
 
-#: qml/presentationRemote.qml:21
+#: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
 msgstr "Full-Screen सक्षमं कुर्वन्तु"
 
-#: qml/runcommand.qml:22
+#: qml/runcommand.qml:23
 #, kde-format
 msgid "Edit commands"
 msgstr "आदेशान् सम्पादयतु"
 
-#: qml/runcommand.qml:25
+#: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr "संयोजितयन्त्रे आदेशान् सम्पादयितुं शक्नुवन्ति"
 
-#: qml/runcommand.qml:52
+#: qml/runcommand.qml:53
 #, kde-format
 msgid "No commands defined"
 msgstr "न आदेशाः परिभाषिताः"

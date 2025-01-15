@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:41+0000\n"
+"POT-Creation-Date: 2025-01-15 00:41+0000\n"
 "PO-Revision-Date: 2025-01-06 22:24+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
@@ -213,17 +213,17 @@ msgstr ""
 "Norėdami atrakinti, paspauskite %1 arba vienu metu kairįjį ir dešinįjį pelės "
 "mygtuką"
 
-#: qml/mpris.qml:19
+#: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
 msgstr "Įvairialypės terpės valdikliai"
 
-#: qml/mpris.qml:67
+#: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
 msgstr "Nėra jokių prieinamų leistuvių"
 
-#: qml/mpris.qml:107
+#: qml/mpris.qml:108
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -233,22 +233,22 @@ msgstr "%1 - %2"
 msgid "Configure plugin"
 msgstr "Konfigūruoti įskiepį"
 
-#: qml/presentationRemote.qml:21
+#: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
 msgstr "Įjungti visą ekraną"
 
-#: qml/runcommand.qml:22
+#: qml/runcommand.qml:23
 #, kde-format
 msgid "Edit commands"
 msgstr "Taisyti komandas"
 
-#: qml/runcommand.qml:25
+#: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr "Galite taisyti komandas prijungtame įrenginyje"
 
-#: qml/runcommand.qml:52
+#: qml/runcommand.qml:53
 #, kde-format
 msgid "No commands defined"
 msgstr "Nėra jokių apibrėžtų komandų"
