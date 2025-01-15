@@ -19,6 +19,7 @@ QtObject
     property var interfaceFactory
     property var component
     property var name
+    property var section
 
     readonly property var checker: PluginChecker {
         id: checker

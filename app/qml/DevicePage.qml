@@ -50,6 +50,16 @@ Kirigami.ScrollablePage {
 
     ListView {
         model: plugins.filter((plugin) => plugin.loaded)
+        section.property: "section"
+        section.delegate: Kirigami.ListSectionHeader {
+            width: ListView.view.width
+            text: switch (section) {
+                case "action":
+                    return i18nc("@title:group device page section header", "Actions");
+                case "control":
+                    return i18nc("@title:group device page section header", "Controls");
+            }
+        }
         delegate: QQC2.ItemDelegate {
             text: modelData.name
             icon.name: modelData.iconName
@@ -65,6 +75,7 @@ Kirigami.ScrollablePage {
                 interfaceFactory: MprisDbusInterfaceFactory
                 component: "mpris.qml"
                 pluginName: "mprisremote"
+                section: "control"
                 device: root.currentDevice
             },
             PluginItem {
@@ -72,27 +83,7 @@ Kirigami.ScrollablePage {
                 interfaceFactory: RemoteControlDbusInterfaceFactory
                 component: "mousepad.qml"
                 pluginName: "remotecontrol"
-                device: root.currentDevice
-            },
-            PluginItem {
-                name: i18nd("kdeconnect-app", "Presentation Remote")
-                interfaceFactory: RemoteKeyboardDbusInterfaceFactory
-                component: "presentationRemote.qml"
-                pluginName: "remotecontrol"
-                device: root.currentDevice
-            },
-            PluginItem {
-                readonly property var lockIface: LockDeviceDbusInterfaceFactory.create(root.currentDevice.id())
-                pluginName: "lockdevice"
-                name: lockIface.isLocked ? i18nd("kdeconnect-app", "Unlock") : i18nd("kdeconnect-app", "Lock")
-                onClick: () => lockIface.isLocked = !lockIface.isLocked;
-                device: root.currentDevice
-            },
-            PluginItem {
-                readonly property var findmyphoneIface: FindMyPhoneDbusInterfaceFactory.create(root.currentDevice.id())
-                pluginName: "findmyphone"
-                name: i18nd("kdeconnect-app", "Find Device")
-                onClick: () => findmyphoneIface.ring()
+                section: "control"
                 device: root.currentDevice
             },
             PluginItem {
@@ -100,19 +91,15 @@ Kirigami.ScrollablePage {
                 interfaceFactory: RemoteCommandsDbusInterfaceFactory
                 component: "runcommand.qml"
                 pluginName: "remotecommands"
+                section: "control"
                 device: root.currentDevice
             },
             PluginItem {
-                readonly property var clipboardIface: ClipboardDbusInterfaceFactory.create(root.currentDevice.id())
-                pluginName: "clipboard"
-                name: i18nd("kdeconnect-app", "Send Clipboard")
-                onClick: () => clipboardIface.sendClipboard()
-                device: root.currentDevice
-            },
-            PluginItem {
-                pluginName: "share"
-                name: i18nd("kdeconnect-app", "Share File")
-                onClick: () => fileDialog.open()
+                name: i18nd("kdeconnect-app", "Presentation Remote")
+                interfaceFactory: RemoteKeyboardDbusInterfaceFactory
+                component: "presentationRemote.qml"
+                pluginName: "remotecontrol"
+                section: "control"
                 device: root.currentDevice
             },
             PluginItem {
@@ -120,6 +107,38 @@ Kirigami.ScrollablePage {
                 interfaceFactory: RemoteSystemVolumeDbusInterfaceFactory
                 component: "volume.qml"
                 pluginName: "remotesystemvolume"
+                section: "control"
+                device: root.currentDevice
+            },
+            PluginItem {
+                readonly property var lockIface: LockDeviceDbusInterfaceFactory.create(root.currentDevice.id())
+                pluginName: "lockdevice"
+                name: lockIface.isLocked ? i18nd("kdeconnect-app", "Unlock") : i18nd("kdeconnect-app", "Lock")
+                onClick: () => lockIface.isLocked = !lockIface.isLocked;
+                section: "action"
+                device: root.currentDevice
+            },
+            PluginItem {
+                readonly property var findmyphoneIface: FindMyPhoneDbusInterfaceFactory.create(root.currentDevice.id())
+                pluginName: "findmyphone"
+                name: i18nd("kdeconnect-app", "Find Device")
+                section: "action"
+                onClick: () => findmyphoneIface.ring()
+                device: root.currentDevice
+            },
+            PluginItem {
+                readonly property var clipboardIface: ClipboardDbusInterfaceFactory.create(root.currentDevice.id())
+                pluginName: "clipboard"
+                name: i18nd("kdeconnect-app", "Send Clipboard")
+                onClick: () => clipboardIface.sendClipboard()
+                section: "action"
+                device: root.currentDevice
+            },
+            PluginItem {
+                pluginName: "share"
+                name: i18nd("kdeconnect-app", "Share File")
+                onClick: () => fileDialog.open()
+                section: "action"
                 device: root.currentDevice
             }
         ]
