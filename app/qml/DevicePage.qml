@@ -49,7 +49,9 @@ Kirigami.ScrollablePage {
     ]
 
     ListView {
-        model: plugins.filter((plugin) => plugin.loaded)
+        id: pluginsListView
+        model: plugins
+
         section.property: "section"
         section.delegate: Kirigami.ListSectionHeader {
             width: ListView.view.width
@@ -60,13 +62,27 @@ Kirigami.ScrollablePage {
                     return i18nc("@title:group device page section header", "Controls");
             }
         }
+
         delegate: QQC2.ItemDelegate {
-            text: modelData.name
+            id: pluginDelegate
+            text: Kirigami.MnemonicData.richTextLabel
             icon.name: modelData.iconName
             highlighted: false
+            height: visible ? pluginDelegate.implicitHeight : -pluginsListView.spacing
             icon.color: "transparent"
             width: ListView.view.width
             onClicked: modelData.onClick()
+            enabled: loaded
+            visible: loaded
+
+            Kirigami.MnemonicData.enabled: enabled && visible
+            Kirigami.MnemonicData.controlType: Kirigami.MnemonicData.MenuItem
+            Kirigami.MnemonicData.label: modelData.name
+
+            Shortcut {
+                sequence: pluginDelegate.Kirigami.MnemonicData.sequence
+                onActivated: clicked()
+            }
         }
 
         property list<QtObject> plugins: [
