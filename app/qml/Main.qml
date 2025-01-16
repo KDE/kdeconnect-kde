@@ -120,9 +120,19 @@ Kirigami.ApplicationWindow {
                     delegate: QQC2.ItemDelegate {
                         id: delegate
                         icon.name: iconName
-                        text: model.name
+                        text: Kirigami.MnemonicData.richTextLabel
+                        Accessible.name: Kirigami.MnemonicData.plainTextLabel ?? model.name // fallback needed for KF < 6.12
                         width: ListView.view.width
                         highlighted: false
+
+                        Kirigami.MnemonicData.enabled: enabled && visible
+                        Kirigami.MnemonicData.controlType: Kirigami.MnemonicData.MenuItem
+                        Kirigami.MnemonicData.label: model.name
+
+                        Shortcut {
+                            sequence: delegate.Kirigami.MnemonicData.sequence
+                            onActivated: clicked()
+                        }
 
                         contentItem: Kirigami.IconTitleSubtitle {
                             title: delegate.text

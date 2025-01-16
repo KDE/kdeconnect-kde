@@ -66,6 +66,7 @@ Kirigami.ScrollablePage {
         delegate: QQC2.ItemDelegate {
             id: pluginDelegate
             text: Kirigami.MnemonicData.richTextLabel
+            Accessible.name: Kirigami.MnemonicData.plainTextLabel ?? modelData.name // fallback needed for KF < 6.12
             icon.name: modelData.iconName
             highlighted: false
             height: visible ? pluginDelegate.implicitHeight : -pluginsListView.spacing
