@@ -61,14 +61,24 @@ Kirigami.ScrollablePage {
 
         delegate: Kirigami.SwipeListItem {
 
+            checked: serviceCheck.checked
+            onPressed: {
+                pluginList.currentIndex = model.index
+                serviceCheck.toggle()
+            }
+
             contentItem: RowLayout {
                 CheckBox {
                     id: serviceCheck
                     Layout.alignment: Qt.AlignVCenter
                     checked: model.isChecked
-                    onToggled: model.isChecked = checked
+                    onToggled: {
+                        pluginList.currentIndex = model.index
+                        model.isChecked = checked
+                    }
                     Accessible.name: model.name
                     Accessible.description: model.description
+                    activeFocusOnTab: false
                 }
 
                 Kirigami.Icon {
