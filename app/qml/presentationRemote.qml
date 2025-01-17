@@ -38,8 +38,10 @@ Kirigami.Page
                 icon.name: "media-skip-backward"
                 Accessible.name: "Previous Slide"
                 onClicked: mousepad.pluginInterface.sendKeyPress("p");
+                KeyNavigation.right: forwardButton
             }
             Button {
+                id: forwardButton
                 Layout.fillWidth: true
                 icon.name: "media-skip-forward"
                 Accessible.name: "Next Slide"

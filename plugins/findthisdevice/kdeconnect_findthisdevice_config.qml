@@ -49,16 +49,20 @@ Kirigami.ScrollablePage {
             QQC2.TextField {
                 id: path
                 focus: true
+                KeyNavigation.right: filePickerButton
             }
 
             QQC2.Button {
+                id: filePickerButton
                 text: i18nc("@action:button", "Choose file")
                 display: QQC2.Button.IconOnly
                 icon.name: "document-open-symbolic"
                 onClicked: fileDialog.open()
+                KeyNavigation.right: playButton
             }
 
             QQC2.Button {
+                id: playButton
                 text: i18nc("@action:button", "Play")
                 display: QQC2.Button.IconOnly
                 icon.name: playMusic.playing ? "media-playback-stop-symbolic" : "media-playback-start-symbolic"

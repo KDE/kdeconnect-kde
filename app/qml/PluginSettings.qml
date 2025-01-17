@@ -44,6 +44,11 @@ Kirigami.ScrollablePage {
             onTextChanged: root.filterString = text;
             autoAccept: false
             focus: true
+            Keys.onDownPressed: event => {
+                pluginList.currentIndex = 0;
+                event.accepted = false; // Pass to KeyNavigation.down
+            }
+            KeyNavigation.down: pluginList
         }
     }
 

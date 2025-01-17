@@ -49,9 +49,11 @@ Kirigami.ScrollablePage {
             QQC2.TextField {
                 id: path
                 focus: true
+                KeyNavigation.right: folderPickerButton
             }
 
             QQC2.Button {
+                id: folderPickerButton
                 icon.name: "document-open"
                 onClicked: folderDialog.open()
             }

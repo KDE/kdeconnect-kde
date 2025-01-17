@@ -79,6 +79,12 @@ Kirigami.ApplicationWindow {
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         QQC2.ToolTip.visible: hovered
 
+                        Keys.onDownPressed: event => {
+                            devices.currentIndex = 0;
+                            event.accepted = false // Pass to KeyNavigation.down
+                        }
+                        KeyNavigation.down: devices
+
                         onClicked: {
                             //refresh
                             DaemonDbusInterface.forceOnNetworkChange();
@@ -191,6 +197,12 @@ Kirigami.ApplicationWindow {
                         QQC2.ToolTip.text: text
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         QQC2.ToolTip.visible: hovered
+
+                        Keys.onUpPressed: event => {
+                            devices.currentIndex = devices.count-1;
+                            event.accepted = false; // Pass to KeyNavigation.up
+                        }
+                        KeyNavigation.up: devices
 
                         onClicked: pageStack.pushDialogLayer(Qt.resolvedUrl("Settings.qml"), {}, {
                             title: i18n("Settings")

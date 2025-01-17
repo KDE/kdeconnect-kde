@@ -85,6 +85,8 @@ Kirigami.Page
             model: root.pluginInterface.playerList
             onCurrentTextChanged: root.pluginInterface.player = currentText
             focus: true
+            KeyNavigation.down: mediaBackButton
+            KeyNavigation.priority: KeyNavigation.BeforeItem
         }
         Label {
             Layout.fillWidth: true
@@ -115,19 +117,33 @@ Kirigami.Page
             // player controls are by convention always LtR
             LayoutMirroring.enabled: false
             Button {
+                id: mediaBackButton
                 Layout.fillWidth: true
                 icon.name: "media-skip-backward"
                 onClicked: root.pluginInterface.sendAction("Previous")
+                KeyNavigation.right: mediaPlayButton
+                KeyNavigation.down: positionIndicator
+                // can't use KeyNavigation as it still flips on reading direction even with LayoutMirroring disabled
+                Keys.onRightPressed: mediaPlayButton.forceActiveFocus(Qt.TabFocusReason)
             }
             Button {
+                id: mediaPlayButton
                 Layout.fillWidth: true
                 icon.name: root.pluginInterface.isPlaying ? "media-playback-pause" : "media-playback-start"
                 onClicked: root.pluginInterface.sendAction("PlayPause");
+                // can't use KeyNavigation as it still flips on reading direction even with LayoutMirroring disabled
+                Keys.onLeftPressed: mediaBackButton.forceActiveFocus(Qt.TabFocusReason)
+                Keys.onRightPressed: mediaForwardButton.forceActiveFocus(Qt.TabFocusReason)
+                KeyNavigation.down: positionIndicator
             }
             Button {
+                id: mediaForwardButton
                 Layout.fillWidth: true
                 icon.name: "media-skip-forward"
                 onClicked: root.pluginInterface.sendAction("Next")
+                KeyNavigation.down: positionIndicator
+                // can't use KeyNavigation as it still flips on reading direction even with LayoutMirroring disabled
+                Keys.onLeftPressed: mediaPlayButton.forceActiveFocus(Qt.TabFocusReason)
             }
         }
         RowLayout {
@@ -143,6 +159,8 @@ Kirigami.Page
                 id: positionIndicator
                 plugin: root.pluginInterface
                 Layout.fillWidth: true
+                KeyNavigation.up: mediaBackButton
+                KeyNavigation.down: muteButton
             }
 
             Label {
@@ -155,6 +173,7 @@ Kirigami.Page
                 id: muteButton
                 icon.name: muted ? "audio-volume-muted" : soundState(root.pluginInterface.volume)
                 onClicked: toggleMute()
+                KeyNavigation.right: volumeSlider
             }
             Slider {
                 id: volumeSlider
@@ -166,6 +185,7 @@ Kirigami.Page
                     volumeUnmuted = value
                     root.pluginInterface.volume = value
                 }
+                KeyNavigation.up: positionIndicator
             }
         }
         Item { Layout.fillHeight: true }
