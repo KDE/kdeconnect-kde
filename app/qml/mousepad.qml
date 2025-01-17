@@ -44,6 +44,7 @@ Kirigami.Page
                 text: i18n("Lock")
                 focus: true
                 visible: !Kirigami.Settings.tabletMode && !PointerLocker.isLocked
+                KeyNavigation.down: middleClickButton
                 onClicked: {
                     PointerLocker.isLocked = true
                     area.pressedPos = Qt.point(-1, -1);
@@ -206,21 +207,29 @@ Kirigami.Page
             Layout.fillWidth: true
 
             Button {
+                id: leftClickButton
                 Layout.fillWidth: true
                 icon.name: "input-mouse-click-left"
                 Accessible.name: i18nc("@action:button accessible", "Left Click")
+                KeyNavigation.right: middleClickButton
+                KeyNavigation.up: lockButton
                 onClicked: mousepad.pluginInterface.sendCommand({"singleclick": true});
             }
             Button {
+                id: middleClickButton
                 Layout.fillWidth: true
                 icon.name: "input-mouse-click-middle"
                 Accessible.name: i18nc("@action:button accessible", "Middle Click")
+                KeyNavigation.right: rightClickButton
+                KeyNavigation.up: lockButton
                 onClicked: mousepad.pluginInterface.sendCommand({"middleclick": true});
             }
             Button {
+                id: rightClickButton
                 Layout.fillWidth: true
                 icon.name: "input-mouse-click-right"
                 Accessible.name: i18nc("@action:button accessible", "Right Click")
+                KeyNavigation.up: lockButton
                 onClicked: mousepad.pluginInterface.sendCommand({"rightclick": true});
             }
         }

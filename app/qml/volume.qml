@@ -40,11 +40,14 @@ Kirigami.Page
             RowLayout {
 
                 Button {
+                    id: muteButton
                     icon.name: muted ? "player-volume-muted" : "player-volume"
+                    KeyNavigation.right: volumeSlider
                     onClicked: muted = !muted
                 }
 
                 Slider {
+                    id: volumeSlider
                     Layout.fillWidth: true
                     from: 0
                     value: volume
