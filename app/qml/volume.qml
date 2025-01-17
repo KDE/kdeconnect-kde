@@ -21,6 +21,7 @@ Kirigami.Page
         id: sinkList
         anchors.fill: parent
         spacing: Kirigami.Units.largeSpacing
+        focus: true
 
         model: RemoteSinksModel {
             deviceId: pluginInterface.deviceId
@@ -28,6 +29,7 @@ Kirigami.Page
         delegate: ColumnLayout {
 
             width: parent.width
+            onActiveFocusChanged: if (activeFocus) muteButton.forceActiveFocus(Qt.TabFocusReason)
 
             Label {
                 text: description

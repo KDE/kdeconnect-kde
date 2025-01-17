@@ -43,6 +43,7 @@ Kirigami.ScrollablePage {
             id: searchField
             onTextChanged: root.filterString = text;
             autoAccept: false
+            focus: true
         }
     }
 

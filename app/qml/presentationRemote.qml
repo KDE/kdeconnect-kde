@@ -33,6 +33,7 @@ Kirigami.Page
         RowLayout {
             Layout.fillWidth: true
             Button {
+                focus: true
                 Layout.fillWidth: true
                 icon.name: "media-skip-backward"
                 Accessible.name: "Previous Slide"

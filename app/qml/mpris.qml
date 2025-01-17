@@ -84,6 +84,7 @@ Kirigami.Page
             Layout.fillWidth: true
             model: root.pluginInterface.playerList
             onCurrentTextChanged: root.pluginInterface.player = currentText
+            focus: true
         }
         Label {
             Layout.fillWidth: true

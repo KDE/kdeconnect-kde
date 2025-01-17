@@ -32,6 +32,7 @@ Kirigami.ScrollablePage {
         CheckBox {
             id: persistent
             text: i18n("Persistent notifications only")
+            focus: true
             onClicked: config.set("generalPersistent", checked)
         }
 

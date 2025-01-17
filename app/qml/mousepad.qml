@@ -42,6 +42,7 @@ Kirigami.Page
                 id: lockButton
                 anchors.centerIn: parent
                 text: i18n("Lock")
+                focus: true
                 visible: !Kirigami.Settings.tabletMode && !PointerLocker.isLocked
                 onClicked: {
                     PointerLocker.isLocked = true

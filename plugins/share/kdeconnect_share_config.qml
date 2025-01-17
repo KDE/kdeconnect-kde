@@ -48,6 +48,7 @@ Kirigami.ScrollablePage {
 
             QQC2.TextField {
                 id: path
+                focus: true
             }
 
             QQC2.Button {
