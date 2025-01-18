@@ -56,7 +56,7 @@ public:
     template<typename T>
     T get(const QString &key, const T &defaultValue = {}) const
     {
-        return m_body.value(key, defaultValue).template value<T>(); // Important note: Awesome template syntax is awesome
+        return m_body.value(key, QVariant::fromValue(defaultValue)).template value<T>(); // Important note: Awesome template syntax is awesome
     }
     template<typename T>
     void set(const QString &key, const T &value)
