@@ -298,10 +298,12 @@ void Device::addLink(DeviceLink *link)
 bool Device::updateDeviceInfo(const DeviceInfo &newDeviceInfo)
 {
     bool hasChanges = false;
-    if (d->m_deviceInfo.name != newDeviceInfo.name || d->m_deviceInfo.type != newDeviceInfo.type) {
+    if (d->m_deviceInfo.name != newDeviceInfo.name || d->m_deviceInfo.type != newDeviceInfo.type
+        || d->m_deviceInfo.protocolVersion != newDeviceInfo.protocolVersion) {
         hasChanges = true;
         d->m_deviceInfo.name = newDeviceInfo.name;
         d->m_deviceInfo.type = newDeviceInfo.type;
+        d->m_deviceInfo.protocolVersion = newDeviceInfo.protocolVersion;
         Q_EMIT typeChanged(d->m_deviceInfo.type.toString());
         Q_EMIT nameChanged(d->m_deviceInfo.name);
         if (isPaired()) {
