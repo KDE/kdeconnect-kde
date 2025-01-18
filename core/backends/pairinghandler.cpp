@@ -7,8 +7,13 @@
 #include "pairinghandler.h"
 
 #include "core_debug.h"
+#include "kdeconnectconfig.h"
+
+#include <QSsl>
 
 #include <KLocalizedString>
+
+const int ALLOWED_TIMESTAMP_TIME_DIFFERENCE_SECONDS = 1800; // 30 min
 
 PairingHandler::PairingHandler(Device *parent, PairState initialState)
     : QObject(parent)
@@ -38,10 +43,26 @@ void PairingHandler::packetReceived(const NetworkPacket &np)
                 qWarning() << "Received pairing request from a device we already trusted.";
                 // It would be nice to auto-accept the pairing request here, but since the pairing accept and pairing request
                 // messages are identical, this could create an infinite loop if both devices are "accepting" each other pairs.
-                // Instead, unpair and handle as if "NotPaired".
+                // Instead, unpair and handle as if "NotPaired". TODO: No longer true in protocol version 8
                 m_pairState = PairState::NotPaired;
                 Q_EMIT unpaired();
             }
+
+            if (m_device->protocolVersion() >= 8) {
+                m_pairingTimestamp = np.get<long>(QStringLiteral("timestamp"), -1L);
+                if (m_pairingTimestamp == -1L) {
+                    m_pairState = PairState::NotPaired;
+                    Q_EMIT unpaired();
+                    return;
+                }
+                long currentTimestamp = QDateTime::currentDateTime().toSecsSinceEpoch();
+                if (abs(m_pairingTimestamp - currentTimestamp) > ALLOWED_TIMESTAMP_TIME_DIFFERENCE_SECONDS) {
+                    m_pairState = PairState::NotPaired;
+                    Q_EMIT pairingFailed(i18n("Device clocks are out of sync"));
+                    return;
+                }
+            }
+
             m_pairState = PairState::RequestedByPeer;
             m_pairingTimeout.start();
             Q_EMIT incomingPairRequest();
@@ -89,7 +110,12 @@ bool PairingHandler::requestPairing()
 
     m_pairingTimeout.start();
 
-    NetworkPacket np(PACKET_TYPE_PAIR, {{QStringLiteral("pair"), true}});
+    m_pairingTimestamp = QDateTime::currentDateTime().toSecsSinceEpoch();
+    NetworkPacket np(PACKET_TYPE_PAIR,
+                     {
+                         {QStringLiteral("timestamp"), QVariant::fromValue(m_pairingTimestamp)},
+                         {QStringLiteral("pair"), true},
+                     });
     const bool success = m_device->sendPacket(np);
     if (!success) {
         m_pairingTimeout.stop();
@@ -145,6 +171,27 @@ void PairingHandler::pairingDone()
     qCDebug(KDECONNECT_CORE) << "Pairing done";
     m_pairState = PairState::Paired;
     Q_EMIT pairingSuccessful();
+}
+
+QString PairingHandler::verificationKey() const
+{
+    auto a = KdeConnectConfig::instance().certificate().publicKey().toDer();
+    auto b = m_device->certificate().publicKey().toDer();
+    if (a < b) {
+        std::swap(a, b);
+    }
+
+    QCryptographicHash hash(QCryptographicHash::Sha256);
+    hash.addData(a);
+    hash.addData(b);
+
+    if (m_device->protocolVersion() >= 8) {
+        QByteArray timestamp;
+        timestamp.setNum(m_pairingTimestamp);
+        hash.addData(timestamp);
+    }
+
+    return QString::fromLatin1(hash.result().toHex().left(8).toUpper());
 }
 
 #include "moc_pairinghandler.cpp"

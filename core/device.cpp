@@ -478,16 +478,7 @@ QSslCertificate Device::certificate() const
 
 QString Device::verificationKey() const
 {
-    auto a = KdeConnectConfig::instance().certificate().publicKey().toDer();
-    auto b = certificate().publicKey().toDer();
-    if (a < b) {
-        std::swap(a, b);
-    }
-
-    QCryptographicHash hash(QCryptographicHash::Sha256);
-    hash.addData(a);
-    hash.addData(b);
-    return QString::fromLatin1(hash.result().toHex().left(8).toUpper());
+    return d->m_pairingHandler->verificationKey();
 }
 
 QString Device::pluginIconName(const QString &pluginName)

@@ -293,8 +293,6 @@ void KdeConnectKcm::resetCurrentDevice()
 
 void KdeConnectKcm::resetDeviceView()
 {
-    kcmUi.verificationKey->setText(i18n("Key: %1", currentDevice->verificationKey()));
-
     kcmUi.name_label->setText(currentDevice->name());
     setWhenAvailable(
         currentDevice->pairStateAsInt(),
@@ -379,6 +377,7 @@ void KdeConnectKcm::setCurrentDevicePairState(int pairStateAsInt)
     kcmUi.unpair_button->setVisible(state == PairState::Paired);
     kcmUi.progressBar->setVisible(state == PairState::Requested);
     kcmUi.ping_button->setVisible(state == PairState::Paired);
+    kcmUi.verificationKey->setVisible(state == PairState::Requested || state == PairState::RequestedByPeer);
     switch (state) {
     case PairState::Paired:
         kcmUi.status_label->setText(i18n("(paired)"));
@@ -388,9 +387,11 @@ void KdeConnectKcm::setCurrentDevicePairState(int pairStateAsInt)
         break;
     case PairState::RequestedByPeer:
         kcmUi.status_label->setText(i18n("(incoming pair request)"));
+        kcmUi.verificationKey->setText(i18n("Key: %1", currentDevice->verificationKey()));
         break;
     case PairState::Requested:
         kcmUi.status_label->setText(i18n("(pairing requested)"));
+        kcmUi.verificationKey->setText(i18n("Key: %1", currentDevice->verificationKey()));
         break;
     }
 }
