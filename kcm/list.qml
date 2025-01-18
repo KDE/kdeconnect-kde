@@ -70,7 +70,6 @@ ScrollView {
             icon.name: iconName
             text: model.name
             width: ListView.view.width
-            highlighted: root.currentDeviceId === deviceId
 
             focus: true
 
