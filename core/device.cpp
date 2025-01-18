@@ -464,6 +464,8 @@ QString Device::encryptionInfo() const
     }
     result += i18n("SHA256 fingerprint of remote device certificate is: %1\n", remoteChecksum);
 
+    result += i18n("Protocol version: %1\n", d->m_deviceInfo.protocolVersion);
+
     return result;
 }
 
