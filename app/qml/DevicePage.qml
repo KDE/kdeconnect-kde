@@ -146,7 +146,7 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             // FIXME: not accessible. screen readers won't read this. Idem for the other PlaceholderMessages
             //        https://invent.kde.org/frameworks/kirigami/-/merge_requests/1482
-            text: i18nd("kdeconnect-app", "This device is not paired.\nKey: %1", root.currentDevice.verificationKey)
+            text: i18nd("kdeconnect-app", "This device is not paired.")
             anchors.centerIn: parent
             visible: root.currentDevice && root.currentDevice.isReachable && !root.currentDevice.isPaired && !root.currentDevice.isPairRequestedByPeer && !root.currentDevice.isPairRequested
             helpfulAction: Kirigami.Action {

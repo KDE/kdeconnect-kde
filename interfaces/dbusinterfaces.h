@@ -57,6 +57,7 @@ class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface : public OrgKdeKdeconnectD
     Q_PROPERTY(bool isPairRequestedByPeer READ isPairRequestedByPeer NOTIFY pairStateChangedProxy)
     Q_PROPERTY(int pairState READ pairState NOTIFY pairStateChangedProxy)
     Q_PROPERTY(QString name READ name NOTIFY nameChangedProxy)
+    Q_PROPERTY(QString verificationKey READ verificationKey NOTIFY pairStateChangedProxy)
 
 public:
     explicit DeviceDbusInterface(const QString &deviceId, QObject *parent = nullptr);
