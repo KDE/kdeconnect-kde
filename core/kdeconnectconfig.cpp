@@ -170,6 +170,7 @@ void KdeConnectConfig::addTrustedDevice(const DeviceInfo &deviceInfo)
     d->m_trustedDevices->beginGroup(deviceInfo.id);
     d->m_trustedDevices->setValue(QStringLiteral("name"), deviceInfo.name);
     d->m_trustedDevices->setValue(QStringLiteral("type"), deviceInfo.type.toString());
+    d->m_trustedDevices->setValue(QStringLiteral("protocolVersion"), deviceInfo.protocolVersion);
     QString certString = QString::fromLatin1(deviceInfo.certificate.toPem());
     d->m_trustedDevices->setValue(QStringLiteral("certificate"), certString);
     d->m_trustedDevices->endGroup();
@@ -188,6 +189,7 @@ void KdeConnectConfig::updateTrustedDeviceInfo(const DeviceInfo &deviceInfo)
     d->m_trustedDevices->beginGroup(deviceInfo.id);
     d->m_trustedDevices->setValue(QStringLiteral("name"), deviceInfo.name);
     d->m_trustedDevices->setValue(QStringLiteral("type"), deviceInfo.type.toString());
+    d->m_trustedDevices->setValue(QStringLiteral("protocolVersion"), deviceInfo.protocolVersion);
     d->m_trustedDevices->endGroup();
     d->m_trustedDevices->sync();
 }
@@ -198,6 +200,14 @@ QSslCertificate KdeConnectConfig::getTrustedDeviceCertificate(const QString &id)
     QString certString = d->m_trustedDevices->value(QStringLiteral("certificate"), QString()).toString();
     d->m_trustedDevices->endGroup();
     return QSslCertificate(certString.toLatin1());
+}
+
+int KdeConnectConfig::getTrustedDeviceProtocolVersion(const QString &id)
+{
+    d->m_trustedDevices->beginGroup(id);
+    int protocolVersion = d->m_trustedDevices->value(QStringLiteral("protocolVersion"), 0).toInt();
+    d->m_trustedDevices->endGroup();
+    return protocolVersion;
 }
 
 DeviceInfo KdeConnectConfig::getTrustedDevice(const QString &id)
