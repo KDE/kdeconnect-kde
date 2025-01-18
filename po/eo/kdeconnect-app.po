@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-15 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-12-27 17:40+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -70,57 +70,70 @@ msgstr "Sendi Ping"
 msgid "Plugin Settings"
 msgstr "Kromprogramaj agordoj"
 
-#: qml/DevicePage.qml:64
+#: qml/DevicePage.qml:58
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Actions"
+msgstr ""
+
+#: qml/DevicePage.qml:60
+#, fuzzy, kde-format
+#| msgid "Remote Control"
+msgctxt "@title:group device page section header"
+msgid "Controls"
+msgstr "Teleregilo"
+
+#: qml/DevicePage.qml:74
 #, kde-format
 msgid "Multimedia control"
 msgstr "Mastrumo de Aŭdvidaĵoj"
 
-#: qml/DevicePage.qml:71
+#: qml/DevicePage.qml:82
 #, kde-format
 msgid "Remote input"
 msgstr "Fora enigo"
 
-#: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
-#, kde-format
-msgid "Presentation Remote"
-msgstr "Fora aparato de Prezento"
-
-#: qml/DevicePage.qml:87 qml/mousepad.qml:44
-#, kde-format
-msgid "Lock"
-msgstr "Ŝlosi"
-
-#: qml/DevicePage.qml:87
-#, kde-format
-msgid "Unlock"
-msgstr "Malŝlosi"
-
-#: qml/DevicePage.qml:94
-#, kde-format
-msgid "Find Device"
-msgstr "Trovi Aparaton"
-
-#: qml/DevicePage.qml:99 qml/runcommand.qml:16
+#: qml/DevicePage.qml:90 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Ruli komandon"
 
-#: qml/DevicePage.qml:108
+#: qml/DevicePage.qml:98 qml/presentationRemote.qml:15
 #, kde-format
-msgid "Send Clipboard"
-msgstr "Sendi Tondujon"
+msgid "Presentation Remote"
+msgstr "Fora aparato de Prezento"
 
-#: qml/DevicePage.qml:114
-#, kde-format
-msgid "Share File"
-msgstr "Kunhavigi Dosieron"
-
-#: qml/DevicePage.qml:119 qml/volume.qml:16
+#: qml/DevicePage.qml:106 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Mastrumo de laŭteco"
 
-#: qml/DevicePage.qml:130
+#: qml/DevicePage.qml:116 qml/mousepad.qml:44
+#, kde-format
+msgid "Lock"
+msgstr "Ŝlosi"
+
+#: qml/DevicePage.qml:116
+#, kde-format
+msgid "Unlock"
+msgstr "Malŝlosi"
+
+#: qml/DevicePage.qml:124
+#, kde-format
+msgid "Find Device"
+msgstr "Trovi Aparaton"
+
+#: qml/DevicePage.qml:132
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Sendi Tondujon"
+
+#: qml/DevicePage.qml:139
+#, kde-format
+msgid "Share File"
+msgstr "Kunhavigi Dosieron"
+
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid ""
 "This device is not paired.\n"
@@ -129,13 +142,13 @@ msgstr ""
 "Ĉi tiu aparato ne estas parigita.\n"
 "Ŝlosilo: %1"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:153
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Parigi"
 
-#: qml/DevicePage.qml:141 qml/DevicePage.qml:150
+#: qml/DevicePage.qml:160 qml/DevicePage.qml:169
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -144,22 +157,22 @@ msgstr ""
 "Parigo alpetiĝis\n"
 "Ŝlosilo: "
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:175
 #, kde-format
 msgid "Accept"
 msgstr "Akcepti"
 
-#: qml/DevicePage.qml:162
+#: qml/DevicePage.qml:181
 #, kde-format
 msgid "Reject"
 msgstr "Malakcepti"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:192
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Ĉi tiu aparato ne estas atingebla"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "Please choose a file"
 msgstr "Bonvolu elekti dosieron"

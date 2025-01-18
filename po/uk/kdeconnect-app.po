@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-15 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 18:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -72,57 +72,70 @@ msgstr "Надіслати сигнал підтримання зв’язку"
 msgid "Plugin Settings"
 msgstr "Параметри додатка"
 
-#: qml/DevicePage.qml:64
+#: qml/DevicePage.qml:58
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Actions"
+msgstr ""
+
+#: qml/DevicePage.qml:60
+#, fuzzy, kde-format
+#| msgid "Remote Control"
+msgctxt "@title:group device page section header"
+msgid "Controls"
+msgstr "Дистанційне керування"
+
+#: qml/DevicePage.qml:74
 #, kde-format
 msgid "Multimedia control"
 msgstr "Керування відтворенням"
 
-#: qml/DevicePage.qml:71
+#: qml/DevicePage.qml:82
 #, kde-format
 msgid "Remote input"
 msgstr "Дистанційне введення"
 
-#: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
-#, kde-format
-msgid "Presentation Remote"
-msgstr "Керування презентацією"
-
-#: qml/DevicePage.qml:87 qml/mousepad.qml:44
-#, kde-format
-msgid "Lock"
-msgstr "Заблокувати"
-
-#: qml/DevicePage.qml:87
-#, kde-format
-msgid "Unlock"
-msgstr "Розблокувати"
-
-#: qml/DevicePage.qml:94
-#, kde-format
-msgid "Find Device"
-msgstr "Знайти пристрій"
-
-#: qml/DevicePage.qml:99 qml/runcommand.qml:16
+#: qml/DevicePage.qml:90 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Виконати команду"
 
-#: qml/DevicePage.qml:108
+#: qml/DevicePage.qml:98 qml/presentationRemote.qml:15
 #, kde-format
-msgid "Send Clipboard"
-msgstr "Надіслати вміст буфера"
+msgid "Presentation Remote"
+msgstr "Керування презентацією"
 
-#: qml/DevicePage.qml:114
-#, kde-format
-msgid "Share File"
-msgstr "Оприлюднити файл"
-
-#: qml/DevicePage.qml:119 qml/volume.qml:16
+#: qml/DevicePage.qml:106 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Керування гучністю"
 
-#: qml/DevicePage.qml:130
+#: qml/DevicePage.qml:116 qml/mousepad.qml:44
+#, kde-format
+msgid "Lock"
+msgstr "Заблокувати"
+
+#: qml/DevicePage.qml:116
+#, kde-format
+msgid "Unlock"
+msgstr "Розблокувати"
+
+#: qml/DevicePage.qml:124
+#, kde-format
+msgid "Find Device"
+msgstr "Знайти пристрій"
+
+#: qml/DevicePage.qml:132
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Надіслати вміст буфера"
+
+#: qml/DevicePage.qml:139
+#, kde-format
+msgid "Share File"
+msgstr "Оприлюднити файл"
+
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid ""
 "This device is not paired.\n"
@@ -131,13 +144,13 @@ msgstr ""
 "Цей пристрій не пов'язано\n"
 "Ключ: %1"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:153
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Пов'язати"
 
-#: qml/DevicePage.qml:141 qml/DevicePage.qml:150
+#: qml/DevicePage.qml:160 qml/DevicePage.qml:169
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -146,22 +159,22 @@ msgstr ""
 "Запит щодо пов’язування\n"
 "Ключ: "
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:175
 #, kde-format
 msgid "Accept"
 msgstr "Прийняти"
 
-#: qml/DevicePage.qml:162
+#: qml/DevicePage.qml:181
 #, kde-format
 msgid "Reject"
 msgstr "Відкинути"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:192
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Цей пристрій є недоступним"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "Please choose a file"
 msgstr "Будь ласка, виберіть файл"

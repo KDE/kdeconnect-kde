@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-15 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 05:20+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -70,70 +70,83 @@ msgstr "პინგის გაგზავნა"
 msgid "Plugin Settings"
 msgstr "მოდულის პარამეტრები"
 
-#: qml/DevicePage.qml:64
+#: qml/DevicePage.qml:58
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Actions"
+msgstr ""
+
+#: qml/DevicePage.qml:60
+#, fuzzy, kde-format
+#| msgid "Remote Control"
+msgctxt "@title:group device page section header"
+msgid "Controls"
+msgstr "დაშორებული მართვა"
+
+#: qml/DevicePage.qml:74
 #, kde-format
 msgid "Multimedia control"
 msgstr "მულტიმედიის კონტროლი"
 
-#: qml/DevicePage.qml:71
+#: qml/DevicePage.qml:82
 #, kde-format
 msgid "Remote input"
 msgstr "დაშორებული შეყვანა"
 
-#: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
-#, kde-format
-msgid "Presentation Remote"
-msgstr "დაშორებული პრეზენტაცია"
-
-#: qml/DevicePage.qml:87 qml/mousepad.qml:44
-#, kde-format
-msgid "Lock"
-msgstr "ჩაკეტვა"
-
-#: qml/DevicePage.qml:87
-#, kde-format
-msgid "Unlock"
-msgstr "განბლოკვა"
-
-#: qml/DevicePage.qml:94
-#, kde-format
-msgid "Find Device"
-msgstr "მოწყობილობის მოძებნა"
-
-#: qml/DevicePage.qml:99 qml/runcommand.qml:16
+#: qml/DevicePage.qml:90 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "ბრძანების გაშვება"
 
-#: qml/DevicePage.qml:108
+#: qml/DevicePage.qml:98 qml/presentationRemote.qml:15
 #, kde-format
-msgid "Send Clipboard"
-msgstr "ბუფერის გაგზავნა"
+msgid "Presentation Remote"
+msgstr "დაშორებული პრეზენტაცია"
 
-#: qml/DevicePage.qml:114
-#, kde-format
-msgid "Share File"
-msgstr "ფაილის გაზიარება"
-
-#: qml/DevicePage.qml:119 qml/volume.qml:16
+#: qml/DevicePage.qml:106 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "ხმის კონტროლი"
 
-#: qml/DevicePage.qml:130
+#: qml/DevicePage.qml:116 qml/mousepad.qml:44
+#, kde-format
+msgid "Lock"
+msgstr "ჩაკეტვა"
+
+#: qml/DevicePage.qml:116
+#, kde-format
+msgid "Unlock"
+msgstr "განბლოკვა"
+
+#: qml/DevicePage.qml:124
+#, kde-format
+msgid "Find Device"
+msgstr "მოწყობილობის მოძებნა"
+
+#: qml/DevicePage.qml:132
+#, kde-format
+msgid "Send Clipboard"
+msgstr "ბუფერის გაგზავნა"
+
+#: qml/DevicePage.qml:139
+#, kde-format
+msgid "Share File"
+msgstr "ფაილის გაზიარება"
+
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
 msgstr "ეს მოწყობილობა დაწყვილებული არაა.\vგასაღები: %1"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:153
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "დაწყვილება"
 
-#: qml/DevicePage.qml:141 qml/DevicePage.qml:150
+#: qml/DevicePage.qml:160 qml/DevicePage.qml:169
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -142,22 +155,22 @@ msgstr ""
 "დაწყვილების მოთხოვნა\n"
 "გასაღები: "
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:175
 #, kde-format
 msgid "Accept"
 msgstr "დასტური"
 
-#: qml/DevicePage.qml:162
+#: qml/DevicePage.qml:181
 #, kde-format
 msgid "Reject"
 msgstr "უარყოფა"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:192
 #, kde-format
 msgid "This device is not reachable"
 msgstr "ეს მოწყობილობა მიუწვდომელია"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "Please choose a file"
 msgstr "გთხოვთ, აირჩიოთ ფაილი"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-15 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-04-27 16:45+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -69,57 +69,70 @@ msgstr "Odoslať ping"
 msgid "Plugin Settings"
 msgstr "Nastavenia doplnkov"
 
-#: qml/DevicePage.qml:64
+#: qml/DevicePage.qml:58
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Actions"
+msgstr ""
+
+#: qml/DevicePage.qml:60
+#, fuzzy, kde-format
+#| msgid "Remote Control"
+msgctxt "@title:group device page section header"
+msgid "Controls"
+msgstr "Diaľkové ovládanie"
+
+#: qml/DevicePage.qml:74
 #, kde-format
 msgid "Multimedia control"
 msgstr "Multimediálny ovládač"
 
-#: qml/DevicePage.qml:71
+#: qml/DevicePage.qml:82
 #, kde-format
 msgid "Remote input"
 msgstr "Vzdialený vstup"
 
-#: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
-#, kde-format
-msgid "Presentation Remote"
-msgstr "Diaľkové ovládanie prezentácie"
-
-#: qml/DevicePage.qml:87 qml/mousepad.qml:44
-#, kde-format
-msgid "Lock"
-msgstr "Uzamknúť"
-
-#: qml/DevicePage.qml:87
-#, kde-format
-msgid "Unlock"
-msgstr "Odomknúť"
-
-#: qml/DevicePage.qml:94
-#, kde-format
-msgid "Find Device"
-msgstr "Nájsť zariadenie"
-
-#: qml/DevicePage.qml:99 qml/runcommand.qml:16
+#: qml/DevicePage.qml:90 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Spustiť príkaz"
 
-#: qml/DevicePage.qml:108
+#: qml/DevicePage.qml:98 qml/presentationRemote.qml:15
 #, kde-format
-msgid "Send Clipboard"
-msgstr "Odoslať schránku"
+msgid "Presentation Remote"
+msgstr "Diaľkové ovládanie prezentácie"
 
-#: qml/DevicePage.qml:114
-#, kde-format
-msgid "Share File"
-msgstr "Zdieľať súbor"
-
-#: qml/DevicePage.qml:119 qml/volume.qml:16
+#: qml/DevicePage.qml:106 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Ovládanie hlasitosti"
 
-#: qml/DevicePage.qml:130
+#: qml/DevicePage.qml:116 qml/mousepad.qml:44
+#, kde-format
+msgid "Lock"
+msgstr "Uzamknúť"
+
+#: qml/DevicePage.qml:116
+#, kde-format
+msgid "Unlock"
+msgstr "Odomknúť"
+
+#: qml/DevicePage.qml:124
+#, kde-format
+msgid "Find Device"
+msgstr "Nájsť zariadenie"
+
+#: qml/DevicePage.qml:132
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Odoslať schránku"
+
+#: qml/DevicePage.qml:139
+#, kde-format
+msgid "Share File"
+msgstr "Zdieľať súbor"
+
+#: qml/DevicePage.qml:149
 #, fuzzy, kde-format
 #| msgid "This device is not paired"
 msgid ""
@@ -127,13 +140,13 @@ msgid ""
 "Key: %1"
 msgstr "Toto zariadenie nie je spárované"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:153
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Spárovať"
 
-#: qml/DevicePage.qml:141 qml/DevicePage.qml:150
+#: qml/DevicePage.qml:160 qml/DevicePage.qml:169
 #, fuzzy, kde-format
 #| msgid "Pair requested"
 msgid ""
@@ -141,22 +154,22 @@ msgid ""
 "Key: "
 msgstr "Žiadosť o párovanie"
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:175
 #, kde-format
 msgid "Accept"
 msgstr "Prijať"
 
-#: qml/DevicePage.qml:162
+#: qml/DevicePage.qml:181
 #, kde-format
 msgid "Reject"
 msgstr "Odmietnuť"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:192
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Toto zariadenie nie je dosiahnuteľné"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "Please choose a file"
 msgstr "Prosím, vyberte súbor"
