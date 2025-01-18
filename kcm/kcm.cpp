@@ -176,6 +176,7 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
 
     setButtons(KCModule::Help | KCModule::NoAdditionalButton);
 
+    connect(devicesModel, &QAbstractItemModel::rowsRemoved, this, &KdeConnectKcm::devicesRemoved);
     connect(kcmUi.accept_button, &QAbstractButton::clicked, this, &KdeConnectKcm::acceptPairing);
     connect(kcmUi.reject_button, &QAbstractButton::clicked, this, &KdeConnectKcm::cancelPairing);
     connect(kcmUi.cancel_button, &QAbstractButton::clicked, this, &KdeConnectKcm::cancelPairing);
@@ -202,6 +203,19 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
             }
             disconnect(devicesModel, &DevicesModel::rowsInserted, this, nullptr);
         });
+    }
+}
+
+void KdeConnectKcm::devicesRemoved()
+{
+    if (!currentDevice) {
+        return;
+    }
+    // If current device no longer exists, unselect it
+    if (devicesModel->rowForDevice(currentDevice->id()) == -1) {
+        currentDevice = nullptr;
+        kcmUi.deviceInfo->setVisible(false);
+        delete currentDevice;
     }
 }
 
