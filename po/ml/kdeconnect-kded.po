@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-22 00:40+0000\n"
+"POT-Creation-Date: 2025-01-19 00:41+0000\n"
 "PO-Revision-Date: 2020-02-02 13:49+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -49,11 +49,6 @@ msgstr "സ്വീകരിക്കുക"
 #, kde-format
 msgid "Reject"
 msgstr "നിരസിക്കുക"
-
-#: desktop_daemon.cpp:54
-#, kde-format
-msgid "View key"
-msgstr ""
 
 #: kdeconnectd.cpp:77 kdeconnectd.cpp:79
 #, kde-format

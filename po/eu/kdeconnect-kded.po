@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-22 00:40+0000\n"
+"POT-Creation-Date: 2025-01-19 00:41+0000\n"
 "PO-Revision-Date: 2024-07-09 23:44+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -57,11 +57,6 @@ msgstr "Onartu"
 msgid "Reject"
 msgstr "Errefuxatu"
 
-#: desktop_daemon.cpp:54
-#, kde-format
-msgid "View key"
-msgstr "Ikusi gakoa"
-
 #: kdeconnectd.cpp:77 kdeconnectd.cpp:79
 #, kde-format
 msgid "KDE Connect Daemon"
@@ -71,6 +66,9 @@ msgstr "KDE Connect daimona"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Ordeztu existitzen den instantzia bat"
+
+#~ msgid "View key"
+#~ msgstr "Ikusi gakoa"
 
 #~ msgid ""
 #~ "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-22 00:40+0000\n"
+"POT-Creation-Date: 2025-01-19 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -51,11 +51,6 @@ msgstr "接受"
 msgid "Reject"
 msgstr "拒绝"
 
-#: desktop_daemon.cpp:54
-#, kde-format
-msgid "View key"
-msgstr "查看密钥"
-
 #: kdeconnectd.cpp:77 kdeconnectd.cpp:79
 #, kde-format
 msgid "KDE Connect Daemon"
@@ -65,3 +60,6 @@ msgstr "KDE Connect守护进程"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "替换现有实例"
+
+#~ msgid "View key"
+#~ msgstr "查看密钥"

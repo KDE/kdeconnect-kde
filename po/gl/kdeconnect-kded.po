@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-22 00:40+0000\n"
+"POT-Creation-Date: 2025-01-19 00:41+0000\n"
 "PO-Revision-Date: 2024-05-23 08:30+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -52,11 +52,6 @@ msgstr "Aceptar"
 msgid "Reject"
 msgstr "Rexeitar"
 
-#: desktop_daemon.cpp:54
-#, kde-format
-msgid "View key"
-msgstr "Ver a chave"
-
 #: kdeconnectd.cpp:77 kdeconnectd.cpp:79
 #, kde-format
 msgid "KDE Connect Daemon"
@@ -66,6 +61,9 @@ msgstr "Servizo de KDE Connect"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Substituír unha instancia existente"
+
+#~ msgid "View key"
+#~ msgstr "Ver a chave"
 
 #~ msgid ""
 #~ "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-01-19 00:41+0000\n"
 "PO-Revision-Date: 2024-06-08 20:44+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -56,37 +56,37 @@ msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr ""
 
-#: kcm.cpp:282
+#: kcm.cpp:296
 #, kde-format
 msgid "Key: %1"
 msgstr "कुंजी: %1"
 
-#: kcm.cpp:307
+#: kcm.cpp:321
 #, kde-format
 msgid "Available plugins"
 msgstr "उपलब्ध प्लगइन्स"
 
-#: kcm.cpp:354
+#: kcm.cpp:368
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "युग्मित करने का प्रयास करने में त्रुटि: %1"
 
-#: kcm.cpp:370
+#: kcm.cpp:384
 #, kde-format
 msgid "(paired)"
 msgstr "(युग्मित)"
 
-#: kcm.cpp:373
+#: kcm.cpp:387
 #, kde-format
 msgid "(not paired)"
 msgstr "(युग्मित नहीं हुआ)"
 
-#: kcm.cpp:376
+#: kcm.cpp:390
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(आने वाली जोड़ी अनुरोध)"
 
-#: kcm.cpp:379
+#: kcm.cpp:393
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(जोड़ने का अनुरोध किया गया)"

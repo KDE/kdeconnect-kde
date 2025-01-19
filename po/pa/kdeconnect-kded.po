@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-22 00:40+0000\n"
+"POT-Creation-Date: 2025-01-19 00:41+0000\n"
 "PO-Revision-Date: 2024-10-25 21:53-0500\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -51,11 +51,6 @@ msgstr "ਮਨਜ਼ੂਰ"
 msgid "Reject"
 msgstr "ਇਨਕਾਰ"
 
-#: desktop_daemon.cpp:54
-#, kde-format
-msgid "View key"
-msgstr "ਕੁੰਜੀ ਨੂੰ ਵੇਖੋ"
-
 #: kdeconnectd.cpp:77 kdeconnectd.cpp:79
 #, kde-format
 msgid "KDE Connect Daemon"
@@ -65,6 +60,9 @@ msgstr "KDE ਕਨੈਕਟ ਡੈਮਨ"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "ਮੌਜੂਦਾ ਮੌਕੇ ਨੂੰ ਬਦਲੋ"
+
+#~ msgid "View key"
+#~ msgstr "ਕੁੰਜੀ ਨੂੰ ਵੇਖੋ"
 
 #~ msgid ""
 #~ "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

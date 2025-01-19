@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-01-19 00:41+0000\n"
 "PO-Revision-Date: 2015-02-04 15:16+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -59,38 +59,38 @@ msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr ""
 
-#: kcm.cpp:282
+#: kcm.cpp:296
 #, kde-format
 msgid "Key: %1"
 msgstr ""
 
-#: kcm.cpp:307
+#: kcm.cpp:321
 #, kde-format
 msgid "Available plugins"
 msgstr ""
 
-#: kcm.cpp:354
+#: kcm.cpp:368
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Greška pri pokušaju uparivanja: %1"
 
-#: kcm.cpp:370
+#: kcm.cpp:384
 #, kde-format
 msgid "(paired)"
 msgstr "(upareno)"
 
-#: kcm.cpp:373
+#: kcm.cpp:387
 #, fuzzy, kde-format
 #| msgid "(unpaired)"
 msgid "(not paired)"
 msgstr "(nije upareno)"
 
-#: kcm.cpp:376
+#: kcm.cpp:390
 #, kde-format
 msgid "(incoming pair request)"
 msgstr ""
 
-#: kcm.cpp:379
+#: kcm.cpp:393
 #, kde-format
 msgid "(pairing requested)"
 msgstr ""

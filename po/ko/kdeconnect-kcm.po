@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-01-19 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 16:46+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -56,37 +56,37 @@ msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: kcm.cpp:282
+#: kcm.cpp:296
 #, kde-format
 msgid "Key: %1"
 msgstr "키: %1"
 
-#: kcm.cpp:307
+#: kcm.cpp:321
 #, kde-format
 msgid "Available plugins"
 msgstr "사용 가능한 플러그인"
 
-#: kcm.cpp:354
+#: kcm.cpp:368
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "페어링 중 오류 발생: %1"
 
-#: kcm.cpp:370
+#: kcm.cpp:384
 #, kde-format
 msgid "(paired)"
 msgstr "(페어링됨)"
 
-#: kcm.cpp:373
+#: kcm.cpp:387
 #, kde-format
 msgid "(not paired)"
 msgstr "(페어링되지 않음)"
 
-#: kcm.cpp:376
+#: kcm.cpp:390
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(들어오는 페어링 요청)"
 
-#: kcm.cpp:379
+#: kcm.cpp:393
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(페어링 요청됨)"
