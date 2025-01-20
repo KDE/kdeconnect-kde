@@ -21,20 +21,12 @@
 #include <KAboutData>
 #include <KCrash>
 #include <KDBusService>
-#include <KIO/Global>
-#include <KIO/JobTracker>
 #include <KLocalizedString>
-#include <KNotification>
-#include <KWindowSystem>
 
 #include <dbushelper.h>
 
-#include "core/backends/pairinghandler.h"
-#include "core/device.h"
-#include "core/openconfig.h"
 #include "desktop_daemon.h"
 #include "kdeconnect-version.h"
-#include "kdeconnectd_debug.h"
 
 // Copied from plasma-workspace/libkworkspace/kworkspace.cpp
 static void detectPlatform(int argc, char **argv)
