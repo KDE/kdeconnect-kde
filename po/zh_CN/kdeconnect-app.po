@@ -74,14 +74,13 @@ msgstr "插件设置"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "操作"
 
 #: qml/DevicePage.qml:60
-#, fuzzy, kde-format
-#| msgid "Remote Control"
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr "远程控制"
+msgstr "控制"
 
 #: qml/DevicePage.qml:74
 #, kde-format

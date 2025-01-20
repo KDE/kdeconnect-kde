@@ -60,6 +60,3 @@ msgstr "KDE Connect守护进程"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "替换现有实例"
-
-#~ msgid "View key"
-#~ msgstr "查看密钥"

@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
-# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2024, 2025 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2024-12-23 17:03+0100\n"
+"PO-Revision-Date: 2025-01-19 13:42+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -78,6 +78,7 @@ msgstr "motor"
 msgid "Disable the specified backend"
 msgstr "Desactivar o motor indicado."
 
+# skip-rule: trasno-gl_bel
 #: kdeconnect-cli.cpp:49
 #, kde-format
 msgid ""
@@ -85,8 +86,9 @@ msgid ""
 "scripting"
 msgstr ""
 "Facer que «--list-devices» e «--list-available» só amosen os identificadores "
-"dos dispositivos, para facilitar o seu uso en scripts."
+"dos dispositivos, para facilitar o seu uso en guións."
 
+# skip-rule: trasno-gl_bel
 #: kdeconnect-cli.cpp:51
 #, kde-format
 msgid ""
@@ -94,8 +96,9 @@ msgid ""
 "scripting"
 msgstr ""
 "Facer que «--list-devices» e «--list-available» só amosen os nomes dos "
-"dispositivos, para facilitar o seu uso en scripts."
+"dispositivos, para facilitar o seu uso en guións."
 
+# skip-rule: trasno-gl_bel
 #: kdeconnect-cli.cpp:53
 #, kde-format
 msgid ""
@@ -103,7 +106,7 @@ msgid ""
 "to ease scripting"
 msgstr ""
 "Facer que «--list-devices» e «--list-available» só amosen os identificadores "
-"e nomes dos dispositivos, para facilitar o seu uso en scripts."
+"e nomes dos dispositivos, para facilitar o seu uso en guións."
 
 #: kdeconnect-cli.cpp:54
 #, kde-format
