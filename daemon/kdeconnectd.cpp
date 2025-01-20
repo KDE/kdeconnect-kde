@@ -28,6 +28,12 @@
 #include "desktop_daemon.h"
 #include "kdeconnect-version.h"
 
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusReply>
+
+using namespace Qt::Literals;
+
 // Copied from plasma-workspace/libkworkspace/kworkspace.cpp
 static void detectPlatform(int argc, char **argv)
 {
@@ -108,6 +114,15 @@ int main(int argc, char *argv[])
     QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
 
     qSetMessagePattern(QStringLiteral("%{time} %{category}: %{message}"));
+
+    QDBusMessage msg = QDBusMessage::createMethodCall(u"org.freedesktop.portal.Desktop"_s,
+                                                      u"/org/freedesktop/portal/desktop"_s,
+                                                      u"org.freedesktop.host.portal.Registry"_s,
+                                                      u"Register"_s);
+
+    QVariantMap options;
+    msg.setArguments({u"org.kde.kdeconnect.daemon"_s, options});
+    QDBusConnection::sessionBus().call(msg, QDBus::NoBlock);
 
     return app.exec();
 }
