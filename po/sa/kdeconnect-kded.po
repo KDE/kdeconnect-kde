@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:41+0000\n"
+"POT-Creation-Date: 2025-01-21 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -53,12 +53,12 @@ msgstr "स्वीकरोतु"
 msgid "Reject"
 msgstr "अस्वीकार"
 
-#: kdeconnectd.cpp:77 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:69 kdeconnectd.cpp:71
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE कनेक्ट् डेमन"
 
-#: kdeconnectd.cpp:87
+#: kdeconnectd.cpp:79
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "विद्यमानं दृष्टान्तं प्रतिस्थापयन्तु"

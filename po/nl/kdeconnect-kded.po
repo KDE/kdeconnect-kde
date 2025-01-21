@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:41+0000\n"
+"POT-Creation-Date: 2025-01-21 00:41+0000\n"
 "PO-Revision-Date: 2024-05-19 13:31+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -51,12 +51,12 @@ msgstr "Accepteren"
 msgid "Reject"
 msgstr "Afwijzen"
 
-#: kdeconnectd.cpp:77 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:69 kdeconnectd.cpp:71
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE-Connect-daemon"
 
-#: kdeconnectd.cpp:87
+#: kdeconnectd.cpp:79
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Een bestaand exemplaar vervangen"

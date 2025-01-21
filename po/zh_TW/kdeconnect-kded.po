@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:41+0000\n"
+"POT-Creation-Date: 2025-01-21 00:41+0000\n"
 "PO-Revision-Date: 2024-11-28 16:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -54,12 +54,12 @@ msgstr "同意"
 msgid "Reject"
 msgstr "拒絕"
 
-#: kdeconnectd.cpp:77 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:69 kdeconnectd.cpp:71
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect 守護程式"
 
-#: kdeconnectd.cpp:87
+#: kdeconnectd.cpp:79
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "取代執行中的程序"

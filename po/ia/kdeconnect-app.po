@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:41+0000\n"
-"PO-Revision-Date: 2025-01-15 10:05+0100\n"
+"PO-Revision-Date: 2025-01-20 12:16+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -74,14 +74,13 @@ msgstr "Preferentias de plugin"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "Actiones"
 
 #: qml/DevicePage.qml:60
-#, fuzzy, kde-format
-#| msgid "Remote Control"
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr "Controlo remote o teleguidage"
+msgstr "Controlos"
 
 #: qml/DevicePage.qml:74
 #, kde-format
