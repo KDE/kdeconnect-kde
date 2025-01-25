@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-15 00:40+0000\n"
-"PO-Revision-Date: 2024-03-24 10:25+0200\n"
+"PO-Revision-Date: 2025-01-24 09:27+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.0\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -146,7 +146,7 @@ msgid ""
 "your device and then click Refresh."
 msgstr ""
 "הדיונים נטענים מהמכשיר. אם זה לוקח זמן רב, נא להעיר את המכשיר שלך ואז ללחוץ "
-"על רענון."
+"על ריענון."
 
 #: qml/ConversationList.qml:56
 #, kde-format
@@ -158,7 +158,7 @@ msgstr "עצה: חיבור המכשיר לחשמל אמור לדחות מצב נ
 #: qml/ConversationList.qml:64 qml/Main.qml:88
 #, kde-format
 msgid "Refresh"
-msgstr "רענון"
+msgstr "ריענון"
 
 #: qml/ConversationList.qml:82
 #, kde-format

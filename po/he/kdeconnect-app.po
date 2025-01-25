@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:41+0000\n"
-"PO-Revision-Date: 2025-01-18 13:26+0200\n"
+"PO-Revision-Date: 2025-01-24 09:27+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -185,7 +185,7 @@ msgstr "מכשירים"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr "רענון"
+msgstr "ריענון"
 
 #: qml/Main.qml:102
 #, kde-format
