@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2024 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2024-04-07 17:38+0530\n"
+"PO-Revision-Date: 2025-01-26 18:38+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "கோ. கிஷோர்"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "Kde-l10n-ta@kde.org"
 
 #: kdeconnect-cli.cpp:32
 #, kde-format
@@ -65,7 +65,7 @@ msgstr ""
 #: kdeconnect-cli.cpp:46
 #, kde-format
 msgid "Enable the specified backend"
-msgstr ""
+msgstr "குறிப்பிட்ட பின்நிலையை இயக்கு"
 
 #: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
 #, kde-format
@@ -75,7 +75,7 @@ msgstr ""
 #: kdeconnect-cli.cpp:47
 #, kde-format
 msgid "Disable the specified backend"
-msgstr ""
+msgstr "குறிப்பிட்ட பின்நிலையை முடக்கு"
 
 #: kdeconnect-cli.cpp:49
 #, kde-format

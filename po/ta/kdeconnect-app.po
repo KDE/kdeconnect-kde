@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:41+0000\n"
-"PO-Revision-Date: 2024-12-08 12:30+0530\n"
+"PO-Revision-Date: 2025-01-26 18:37+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -73,14 +73,13 @@ msgstr "செருகுநிரல் அமைப்புகள்"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "செயல்கள்"
 
 #: qml/DevicePage.qml:60
-#, fuzzy, kde-format
-#| msgid "Remote Control"
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr "தொலையியக்கி"
+msgstr "கட்டுப்படுத்திகள்"
 
 #: qml/DevicePage.qml:74
 #, kde-format
@@ -278,13 +277,13 @@ msgstr "சாதனத்தின் பெயர்"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "பின்நிலைகள்"
 
 #: qml/Settings.qml:54
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "ஊடலை"
 
 #: qml/Settings.qml:56
 #, kde-format
@@ -296,7 +295,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "பிணையம்"
 
 #: qml/Settings.qml:73
 #, kde-format
@@ -312,20 +311,19 @@ msgstr "கே.டீ.யீ. பற்றி"
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "எந்த சாதனமும் தேர்ந்தெடுக்கப்படவில்லை"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
-msgstr ""
+msgstr "இன்னொரு சாதனத்திலும் கே.டீ.யீ. கனெக்ட் தனை நிறுவ வேண்டும்."
 
 #: qml/WelcomePage.qml:42
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr "கே.டீ.யீ. கனெக்ட்"
+msgstr "கே.டீ.யீ. கனெக்ட் ஆண்ட்ராய்டு செயலி"
 
 #: qml/WelcomePage.qml:49
 #, kde-format
@@ -340,11 +338,10 @@ msgid "Play Store"
 msgstr ""
 
 #: qml/WelcomePage.qml:62
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr "கே.டீ.யீ. கனெக்ட்"
+msgstr "கே.டீ.யீ. கனெக்ட் iOS செயலி"
 
 #: qml/WelcomePage.qml:67
 #, kde-format
