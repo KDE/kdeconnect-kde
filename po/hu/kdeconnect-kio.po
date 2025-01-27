@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Balázs Úr <urbalazs@gmail.com>, 2014.
-# Kristof Kiszel <kiszel.kristof@gmail.com>, 2021.
+# SPDX-FileCopyrightText: 2021, 2025 Kristof Kiszel <kiszel.kristof@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 02:31+0000\n"
-"PO-Revision-Date: 2021-11-23 13:27+0100\n"
+"PO-Revision-Date: 2025-01-26 21:06+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: kiokdeconnect.cpp:75
 #, kde-format
@@ -56,7 +56,7 @@ msgstr "Nem sikerült csatlakozni a háttérszolgáltatáshoz."
 #: kiokdeconnect.cpp:235
 #, kde-format
 msgid "Failed to get mount point: %1"
-msgstr ""
+msgstr "Nem sikerült lekérni a csatolási pontot: %1"
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "Nem sikerült csatolni az eszköz fájlrendszerét"
