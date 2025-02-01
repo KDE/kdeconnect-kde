@@ -428,7 +428,7 @@ void LanLinkProvider::encrypted()
     NetworkPacket *identityPacket = m_receivedIdentityPackets[socket].np;
 
     int protocolVersion = identityPacket->get<int>(QStringLiteral("protocolVersion"), -1);
-    if (protocolVersion == 8) {
+    if (protocolVersion >= 8) {
         disconnect(socket, &QObject::destroyed, nullptr, nullptr);
         delete m_receivedIdentityPackets.take(socket).np;
 
