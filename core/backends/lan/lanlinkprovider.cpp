@@ -435,21 +435,26 @@ void LanLinkProvider::encrypted()
         NetworkPacket myIdentity = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
         socket->write(myIdentity.serialize());
         socket->flush();
-        connect(socket, &QIODevice::readyRead, this, [this, socket]() {
+        connect(socket, &QIODevice::readyRead, this, [this, socket, protocolVersion]() {
             if (!socket->canReadLine()) {
                 // This can happen if the packet is large enough to be split in two chunks
                 return;
             }
             disconnect(socket, &QIODevice::readyRead, nullptr, nullptr);
             QByteArray identityString = socket->readLine();
-            NetworkPacket *identityPacket = new NetworkPacket();
-            bool success = NetworkPacket::unserialize(identityString, identityPacket);
-            if (!success || !DeviceInfo::isValidIdentityPacket(identityPacket)) {
+            NetworkPacket *secureIdentityPacket = new NetworkPacket();
+            bool success = NetworkPacket::unserialize(identityString, secureIdentityPacket);
+            if (!success || !DeviceInfo::isValidIdentityPacket(secureIdentityPacket)) {
                 qCWarning(KDECONNECT_CORE, "Remote device doesn't correctly implement protocol version 8");
                 disconnect(socket, &QObject::destroyed, nullptr, nullptr);
                 return;
             }
-            DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(*identityPacket, socket->peerCertificate());
+            if (protocolVersion != secureIdentityPacket->get<int>(QStringLiteral("protocolVersion"), 0)) {
+                qCWarning(KDECONNECT_CORE, "Protocol version changed half-way through the handshake");
+                disconnect(socket, &QObject::destroyed, nullptr, nullptr);
+                return;
+            }
+            DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(*secureIdentityPacket, socket->peerCertificate());
 
             // We don't delete the socket because now it's owned by the LanDeviceLink
             disconnect(socket, &QObject::destroyed, nullptr, nullptr);
