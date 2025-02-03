@@ -184,6 +184,7 @@ class KDECONNECTINTERFACES_EXPORT RemoteCommandsDbusInterface : public OrgKdeKde
     Q_OBJECT
     // Workaround because qdbusxml2cpp is not generating CONSTANT for properties and qml complains at runtime
     Q_PROPERTY(QString deviceId READ deviceId CONSTANT)
+    Q_PROPERTY(bool canAddCommand READ canAddCommand CONSTANT)
 public:
     explicit RemoteCommandsDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };
