@@ -61,6 +61,3 @@ msgstr "KDE Connect-teneste"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Erstatt ein instans som finst frå før"
-
-#~ msgid "View key"
-#~ msgstr "Vis nøkkelen"
