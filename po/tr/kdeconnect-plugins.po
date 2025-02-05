@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-27 00:39+0000\n"
-"PO-Revision-Date: 2025-01-26 13:19+0300\n"
+"PO-Revision-Date: 2025-02-04 18:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -286,7 +286,7 @@ msgstr "Bildiren uygulamanın bir adı."
 #: sendnotifications/notifyingapplicationmodel.cpp:187
 #, kde-format
 msgid "Synchronize notifications of an application?"
-msgstr "Bir uygulamanın bildirimlerini eşitle?"
+msgstr "Uygulamaların bildirimleri eşzamanlansın mı?"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:190
 #, kde-format
@@ -309,7 +309,7 @@ msgstr "Genel"
 #: sendnotifications/sendnotifications_config.ui:44
 #, kde-format
 msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Yalnızca bildirimleri 0 zaman aşımı değeriyle eşitle?"
+msgstr "Yalnızca 0 zaman aşımı değerine sahip bildirimler eşzamanlansın mı?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
 #: sendnotifications/sendnotifications_config.ui:47
@@ -322,7 +322,7 @@ msgstr "Yalnızca kalıcı bildirimler"
 #, kde-format
 msgid ""
 "Append the notification body to the summary when synchronizing notifications?"
-msgstr "Bildirimleri eşitlerken bildirim gövdesini özetine ekle?"
+msgstr "Bildirimler eşzamanlanırken bildirim gövdesi özete eklensin mi?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_body)
 #: sendnotifications/sendnotifications_config.ui:63
@@ -334,13 +334,13 @@ msgstr "Gövdeyi dahil et"
 #: sendnotifications/sendnotifications_config.ui:76
 #, kde-format
 msgid "Synchronize icons of notifying applications if possible?"
-msgstr "Mümkünse bildirim yapan uygulamaları simgeleri ile eşitle?"
+msgstr "Olanaklıysa bildirim yapan uygulamalar simgeleriyle eşzamanlansın mı?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_icons)
 #: sendnotifications/sendnotifications_config.ui:79
 #, kde-format
 msgid "Synchronize icons"
-msgstr "Simgeleri eşitle"
+msgstr "Simgeleri eşzamanla"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
 #: sendnotifications/sendnotifications_config.ui:107
@@ -356,7 +356,8 @@ msgstr ""
 #: sendnotifications/sendnotifications_config.ui:123
 #, kde-format
 msgid "Synchronize only notifications with the given urgency level."
-msgstr "Yalnızca belirtilen acil durum düzeyine sahip bildirimleri eşitle."
+msgstr ""
+"Yalnızca belirtilen acil durum düzeyine sahip bildirimleri eşzamanlayın."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:126
