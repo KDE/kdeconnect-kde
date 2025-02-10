@@ -163,7 +163,7 @@
   <content_rating type="oars-1.1"/>
   <project_group>KDE</project_group>
   <launchable type="desktop-id">org.kde.kdeconnect.app.desktop</launchable>
-  <launchable type="desktop-id">org.kde.kdeconnect.settings.desktop</launchable>
+  <launchable type="desktop-id">org.kde.kdeconnect-settings.desktop</launchable>
   <provides>
     <binary>kdeconnectd</binary>
     <binary>kdeconnect-cli</binary>
