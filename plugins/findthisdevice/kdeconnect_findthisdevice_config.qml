@@ -27,9 +27,9 @@ Kirigami.ScrollablePage {
     Kirigami.FormLayout {
         Dialogs.FileDialog {
             id: fileDialog
-            currentFile: path.text
+            selectedFile: "file://" + path.text
             onAccepted: {
-                path.text = currentFile.toString().replace("file://", "")
+                path.text = selectedFile.toString().replace("file://", "")
             }
         }
 
