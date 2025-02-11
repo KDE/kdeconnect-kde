@@ -61,6 +61,3 @@ msgstr "Démon KDE Connect"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Nahradit existující instanci"
-
-#~ msgid "View key"
-#~ msgstr "Zobrazit klíč"
