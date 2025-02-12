@@ -5,37 +5,7 @@ Options:
  require-passing-tests-on: ['Linux']
 
 Dependencies:
- - 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
-   'require':
-    'frameworks/extra-cmake-modules': '@stable'
-    'frameworks/kcoreaddons': '@stable'
-    'frameworks/kconfig': '@stable'
-    'frameworks/ki18n': '@stable'
-    'frameworks/kitemmodels': '@stable'
-    'frameworks/kcontacts': '@stable'
-    'frameworks/kirigami': '@stable'
-    'frameworks/kdbusaddons': '@stable'
-    'frameworks/knotifications': '@stable'
-    'frameworks/kiconthemes': '@stable'
-    'frameworks/kio': '@stable'
-    'frameworks/kcmutils': '@stable'
-    'frameworks/kservice': '@stable'
-    'frameworks/solid': '@stable'
-    'frameworks/kpeople': '@stable'
-    'frameworks/kwindowsystem': '@stable'
-    'frameworks/qqc2-desktop-style': '@stable'
-    'frameworks/kcrash': '@stable'
-    'libraries/kirigami-addons': '@latest'
- - 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
-   'require':
-    'frameworks/kpackage': '@stable'
-    'libraries/pulseaudio-qt': '@stable'
-    'libraries/plasma-wayland-protocols': '@stable'
- - 'on': ['Linux/Qt5']
-   'require':
-    'frameworks/modemmanager-qt': '@stable'
-
- - 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
+ - 'on': ['Linux/Qt6', 'Linux/Qt6Next', 'FreeBSD/Qt6', 'Windows/Qt6']
    'require':
     'frameworks/extra-cmake-modules': '@latest-kf6'
     'frameworks/kcoreaddons': '@latest-kf6'
@@ -55,12 +25,12 @@ Dependencies:
     'frameworks/kwindowsystem': '@latest-kf6'
     'frameworks/qqc2-desktop-style': '@latest-kf6'
     'libraries/kirigami-addons': '@latest-kf6'
- - 'on': ['Linux/Qt6', 'FreeBSD/Qt6']
+ - 'on': ['Linux/Qt6', 'Linux/Qt6Next', 'FreeBSD/Qt6']
    'require':
     'frameworks/kpackage': '@latest-kf6'
     'frameworks/kstatusnotifieritem': '@latest-kf6'
     'libraries/pulseaudio-qt': '@latest-kf6'
     'libraries/plasma-wayland-protocols': '@latest-kf6'
- - 'on': ['Linux/Qt6']
+ - 'on': ['Linux/Qt6', 'Linux/Qt6Next']
    'require':
     'frameworks/modemmanager-qt': '@latest-kf6'
