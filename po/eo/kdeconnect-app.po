@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-18 00:41+0000\n"
-"PO-Revision-Date: 2024-12-27 17:40+0100\n"
+"PO-Revision-Date: 2025-02-12 07:01+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -74,14 +74,13 @@ msgstr "Kromprogramaj agordoj"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "Agoj"
 
 #: qml/DevicePage.qml:60
-#, fuzzy, kde-format
-#| msgid "Remote Control"
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr "Teleregilo"
+msgstr "Regiloj"
 
 #: qml/DevicePage.qml:74
 #, kde-format
