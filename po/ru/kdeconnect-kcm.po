@@ -3,13 +3,13 @@
 #
 # Julia Dronova <juliette.tux@gmail.com>, 2013, 2021.
 # Alexander Potashev <aspotashev@gmail.com>, 2015, 2017.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2023, 2024.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-19 00:41+0000\n"
-"PO-Revision-Date: 2024-11-17 17:44+0300\n"
+"PO-Revision-Date: 2025-02-13 11:58+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -41,25 +41,25 @@ msgstr "Ошибка: приложение KDE Connect не запущено"
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: kcm.cpp:117
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Петлевой интерфейс (Loopback)"
 
 #: kcm.cpp:119
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Сеть"
 
 #: kcm.cpp:122
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестно"
 
 #: kcm.cpp:296
 #, kde-format
@@ -125,7 +125,7 @@ msgstr "Обновить"
 #: kcm.ui:134
 #, kde-format
 msgid "Backends:"
-msgstr ""
+msgstr "Модули:"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
 #: kcm.ui:216
