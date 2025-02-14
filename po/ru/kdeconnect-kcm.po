@@ -3,13 +3,13 @@
 #
 # Julia Dronova <juliette.tux@gmail.com>, 2013, 2021.
 # Alexander Potashev <aspotashev@gmail.com>, 2015, 2017.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2023, 2024.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-19 00:39+0000\n"
-"PO-Revision-Date: 2024-06-30 17:26+0300\n"
+"PO-Revision-Date: 2025-02-13 12:45+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -33,10 +33,9 @@ msgstr ""
 "zawertun@gmail.com"
 
 #: kcm.cpp:88
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings"
+#, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "Настройка KDE Connect"
+msgstr "Ошибка: приложение KDE Connect не запущено"
 
 #: kcm.cpp:204
 #, kde-format
@@ -114,7 +113,7 @@ msgstr "(состояние)"
 #: kcm.ui:238
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:269
@@ -186,25 +185,22 @@ msgstr ""
 #: list.qml:52
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "В списке"
 
 #: list.qml:54
-#, fuzzy, kde-format
-#| msgid "Available plugins"
+#, kde-format
 msgid "Available"
-msgstr "Доступные модули"
+msgstr "Доступно"
 
 #: list.qml:56
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "Connected"
-msgstr "KDE Connect"
+msgstr "Подключено"
 
 #: list.qml:61
-#, fuzzy, kde-format
-#| msgid "No device selected."
+#, kde-format
 msgid "No devices found"
-msgstr "Устройство не выбрано."
+msgstr "Не найдено ни одного устройства"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"
