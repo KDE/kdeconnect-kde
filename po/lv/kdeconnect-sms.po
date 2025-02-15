@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
+"POT-Creation-Date: 2025-02-15 00:42+0000\n"
 "PO-Revision-Date: 2024-10-24 16:45+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -63,7 +63,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "„KDE Connect“ īsziņas"
@@ -159,7 +159,7 @@ msgstr ""
 "Padoms: Ja iespraužat savu ierīci, tai nevajadzētu ieiet miega režīmā un "
 "vajadzētu ātri ielādēties."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:93
 #, kde-format
 msgid "Refresh"
 msgstr "Atsvaidzināt"
@@ -190,12 +190,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Nav sakritību"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:88
 #, kde-format
 msgid "Devices"
 msgstr "Ierīces"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:101
 #, kde-format
 msgid "About"
 msgstr "Par"

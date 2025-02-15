@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
+"POT-Creation-Date: 2025-02-15 00:42+0000\n"
 "PO-Revision-Date: 2024-04-18 21:26+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -63,7 +63,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect SMS"
@@ -159,7 +159,7 @@ msgstr ""
 "Ábending: Ef þú tengir tækið þitt ætti það ekki að sofna og ætti að hlaðast "
 "fljótt."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:93
 #, kde-format
 msgid "Refresh"
 msgstr "Endurhlaða"
@@ -190,12 +190,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Engar samsvaranir"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:88
 #, kde-format
 msgid "Devices"
 msgstr "Tæki"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:101
 #, kde-format
 msgid "About"
 msgstr "Um hugbúnaðinn"

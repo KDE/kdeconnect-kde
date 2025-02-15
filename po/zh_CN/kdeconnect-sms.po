@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
+"POT-Creation-Date: 2025-02-15 00:42+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -62,7 +62,7 @@ msgstr "%1：%2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect 短信"
@@ -155,7 +155,7 @@ msgid ""
 msgstr ""
 "提示：在正常情况下，插入设备后，对话应该会在设备自动息屏之前迅速加载完毕。"
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:93
 #, kde-format
 msgid "Refresh"
 msgstr "刷新"
@@ -186,12 +186,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "无匹配项"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:88
 #, kde-format
 msgid "Devices"
 msgstr "设备"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:101
 #, kde-format
 msgid "About"
 msgstr "关于"
