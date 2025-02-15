@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Tommi Nieminen <translator@legisign.org>, 2014, 2019.
+# SPDX-FileCopyrightText: 2014, 2019, 2025 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 02:31+0000\n"
-"PO-Revision-Date: 2019-04-15 16:51+0200\n"
+"PO-Revision-Date: 2025-01-12 17:27+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,6 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: kiokdeconnect.cpp:75
 #, kde-format
@@ -54,7 +55,7 @@ msgstr "Taustapalveluun ei saatu yhteyttä."
 #: kiokdeconnect.cpp:235
 #, kde-format
 msgid "Failed to get mount point: %1"
-msgstr ""
+msgstr "Ei saatu liitospistettä: %1"
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "Laitteen tiedostojärjestelmää ei voitu liittää"
