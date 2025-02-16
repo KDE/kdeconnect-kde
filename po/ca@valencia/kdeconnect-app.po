@@ -212,7 +212,7 @@ msgstr "Control remot"
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
-"Per a desbloquejar, premeu %1 o els botons esquerre i dret del ratolí al "
+"Per a desbloquejar, premeu «%1» o els botons esquerre i dret del ratolí al "
 "mateix temps"
 
 #: qml/mpris.qml:19
