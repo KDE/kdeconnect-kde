@@ -33,8 +33,7 @@ QDebug operator<<(QDebug s, const NetworkPacket &pkg)
 const int NetworkPacket::s_protocolVersion = 8;
 
 NetworkPacket::NetworkPacket(const QString &type, const QVariantMap &body)
-    : m_id(QString::number(QDateTime::currentMSecsSinceEpoch()))
-    , m_type(type)
+    : m_type(type)
     , m_body(body)
     , m_payload()
     , m_payloadSize(0)
@@ -44,7 +43,7 @@ NetworkPacket::NetworkPacket(const QString &type, const QVariantMap &body)
 QByteArray NetworkPacket::serialize() const
 {
     QJsonObject obj;
-    obj.insert(QLatin1String("id"), m_id);
+    obj.insert(QLatin1String("id"), QDateTime::currentMSecsSinceEpoch());
     obj.insert(QLatin1String("type"), m_type);
     obj.insert(QLatin1String("body"), QJsonObject::fromVariantMap(m_body));
 
