@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2025-02-24 00:41+0000\n"
 "PO-Revision-Date: 2023-08-04 01:25-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -40,32 +40,37 @@ msgstr "Enviando para %1"
 msgid "File"
 msgstr "Arquivo"
 
-#: backends/pairinghandler.cpp:59
+#: backends/pairinghandler.cpp:61
+#, kde-format
+msgid "Device clocks are out of sync"
+msgstr ""
+
+#: backends/pairinghandler.cpp:80
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "Cancelado pelo outro dispositivo"
 
-#: backends/pairinghandler.cpp:75
+#: backends/pairinghandler.cpp:96
 #, kde-format
 msgid "%1: Already paired"
 msgstr "%1: Já emparelhado"
 
-#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
+#: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: Dispositivo inacessível"
 
-#: backends/pairinghandler.cpp:113
+#: backends/pairinghandler.cpp:139
 #, kde-format
 msgid "Device not reachable"
 msgstr "Dispositivo inacessível"
 
-#: backends/pairinghandler.cpp:124
+#: backends/pairinghandler.cpp:150
 #, kde-format
 msgid "Cancelled by user"
 msgstr "Cancelado pelo usuário"
 
-#: backends/pairinghandler.cpp:140
+#: backends/pairinghandler.cpp:166
 #, kde-format
 msgid "Timed out"
 msgstr "Tempo limite expirou"
@@ -90,16 +95,21 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destino"
 
-#: device.cpp:459
+#: device.cpp:461
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "A impressão digital SHA256 do certificado do seu dispositivo é: %1\n"
 
-#: device.cpp:465
+#: device.cpp:467
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr ""
 "A impressão digital SHA256 do certificado do dispositivo remoto é: %1\n"
+
+#: device.cpp:469
+#, kde-format
+msgid "Protocol version: %1\n"
+msgstr ""
 
 #: filetransferjob.cpp:53
 #, kde-format
@@ -111,27 +121,27 @@ msgstr "O nome de arquivo já está presente"
 msgid "Received incomplete file from: %1"
 msgstr "Arquivo incompleto recebido de: %1"
 
-#: kdeconnectconfig.cpp:338 kdeconnectconfig.cpp:372
+#: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Falha ao iniciar o KDE Connect"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "Não foi possível gerar o arquivo de chave privada."
 
-#: kdeconnectconfig.cpp:357
+#: kdeconnectconfig.cpp:367
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Não foi possível armazenar o arquivo de chave privada: %1"
 
-#: kdeconnectconfig.cpp:372
+#: kdeconnectconfig.cpp:382
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Não foi possível gerar o arquivo do certificado."
 
-#: kdeconnectconfig.cpp:388
+#: kdeconnectconfig.cpp:398
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Não foi possível armazenar o arquivo do certificado: %1"

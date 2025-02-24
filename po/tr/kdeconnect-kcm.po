@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:41+0000\n"
+"POT-Creation-Date: 2025-02-24 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 12:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -57,35 +57,35 @@ msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: kcm.cpp:296
-#, kde-format
-msgid "Key: %1"
-msgstr "Anahtar: %1"
-
-#: kcm.cpp:321
+#: kcm.cpp:319
 #, kde-format
 msgid "Available plugins"
 msgstr "Kullanılabilir eklentiler"
 
-#: kcm.cpp:368
+#: kcm.cpp:366
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Eşleştirmeye çalışılırken hata oluştu: %1"
 
-#: kcm.cpp:384
+#: kcm.cpp:383
 #, kde-format
 msgid "(paired)"
 msgstr "(eşlenmiş)"
 
-#: kcm.cpp:387
+#: kcm.cpp:386
 #, kde-format
 msgid "(not paired)"
 msgstr "(eşlenmemiş)"
 
-#: kcm.cpp:390
+#: kcm.cpp:389
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(gelen eşleşme isteği)"
+
+#: kcm.cpp:390 kcm.cpp:394
+#, kde-format
+msgid "Key: %1"
+msgstr "Anahtar: %1"
 
 #: kcm.cpp:393
 #, kde-format

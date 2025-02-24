@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-18 00:41+0000\n"
+"POT-Creation-Date: 2025-02-24 00:41+0000\n"
 "PO-Revision-Date: 2024-09-19 21:41+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -136,9 +136,7 @@ msgstr "Διαμοιρασμός αρχείου"
 #: qml/DevicePage.qml:149
 #, fuzzy, kde-format
 #| msgid "This device is not paired"
-msgid ""
-"This device is not paired.\n"
-"Key: %1"
+msgid "This device is not paired."
 msgstr "Αυτή η συσκευή δεν είναι σε σύζευξη"
 
 #: qml/DevicePage.qml:153

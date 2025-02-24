@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:41+0000\n"
+"POT-Creation-Date: 2025-02-24 00:41+0000\n"
 "PO-Revision-Date: 2024-12-28 17:41+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -57,35 +57,35 @@ msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr "Nekonata"
 
-#: kcm.cpp:296
-#, kde-format
-msgid "Key: %1"
-msgstr "Ŝlosilo: %1"
-
-#: kcm.cpp:321
+#: kcm.cpp:319
 #, kde-format
 msgid "Available plugins"
 msgstr "Disponeblaj kromprogramoj"
 
-#: kcm.cpp:368
+#: kcm.cpp:366
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Eraro provante parigi: %1"
 
-#: kcm.cpp:384
+#: kcm.cpp:383
 #, kde-format
 msgid "(paired)"
 msgstr "(parigita)"
 
-#: kcm.cpp:387
+#: kcm.cpp:386
 #, kde-format
 msgid "(not paired)"
 msgstr "(ne parigita)"
 
-#: kcm.cpp:390
+#: kcm.cpp:389
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(alvenanta parpeto)"
+
+#: kcm.cpp:390 kcm.cpp:394
+#, kde-format
+msgid "Key: %1"
+msgstr "Ŝlosilo: %1"
 
 #: kcm.cpp:393
 #, kde-format

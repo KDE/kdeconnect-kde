@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-18 00:41+0000\n"
+"POT-Creation-Date: 2025-02-24 00:41+0000\n"
 "PO-Revision-Date: 2024-01-28 13:07-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -135,9 +135,7 @@ msgstr "ਫਾਇਲ ਸਾਂਝੀ ਕਰੋ"
 #: qml/DevicePage.qml:149
 #, fuzzy, kde-format
 #| msgid "This device is not paired"
-msgid ""
-"This device is not paired.\n"
-"Key: %1"
+msgid "This device is not paired."
 msgstr "ਇਹ ਡਿਵਾਈਸ ਪੇਅਰ ਨਹੀਂ ਕੀਤਾ ਹੈ"
 
 #: qml/DevicePage.qml:153

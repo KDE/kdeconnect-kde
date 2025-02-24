@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:41+0000\n"
+"POT-Creation-Date: 2025-02-24 00:41+0000\n"
 "PO-Revision-Date: 2024-07-17 13:29+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -58,35 +58,35 @@ msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr ""
 
-#: kcm.cpp:296
-#, kde-format
-msgid "Key: %1"
-msgstr "Nøgle: %1"
-
-#: kcm.cpp:321
+#: kcm.cpp:319
 #, kde-format
 msgid "Available plugins"
 msgstr "Tilgængelige plugins"
 
-#: kcm.cpp:368
+#: kcm.cpp:366
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Fejl ved parring: %1"
 
-#: kcm.cpp:384
+#: kcm.cpp:383
 #, kde-format
 msgid "(paired)"
 msgstr "(parret)"
 
-#: kcm.cpp:387
+#: kcm.cpp:386
 #, kde-format
 msgid "(not paired)"
 msgstr "(ikke parret)"
 
-#: kcm.cpp:390
+#: kcm.cpp:389
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(indkommende parringsanmodning)"
+
+#: kcm.cpp:390 kcm.cpp:394
+#, kde-format
+msgid "Key: %1"
+msgstr "Nøgle: %1"
 
 #: kcm.cpp:393
 #, kde-format

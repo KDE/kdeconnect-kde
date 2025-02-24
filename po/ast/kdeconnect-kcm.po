@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:41+0000\n"
+"POT-Creation-Date: 2025-02-24 00:41+0000\n"
 "PO-Revision-Date: 2024-03-27 23:43+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -56,34 +56,34 @@ msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr ""
 
-#: kcm.cpp:296
-#, kde-format
-msgid "Key: %1"
-msgstr ""
-
-#: kcm.cpp:321
+#: kcm.cpp:319
 #, kde-format
 msgid "Available plugins"
 msgstr ""
 
-#: kcm.cpp:368
+#: kcm.cpp:366
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr ""
 
-#: kcm.cpp:384
+#: kcm.cpp:383
 #, kde-format
 msgid "(paired)"
 msgstr ""
 
-#: kcm.cpp:387
+#: kcm.cpp:386
 #, kde-format
 msgid "(not paired)"
 msgstr ""
 
-#: kcm.cpp:390
+#: kcm.cpp:389
 #, kde-format
 msgid "(incoming pair request)"
+msgstr ""
+
+#: kcm.cpp:390 kcm.cpp:394
+#, kde-format
+msgid "Key: %1"
 msgstr ""
 
 #: kcm.cpp:393

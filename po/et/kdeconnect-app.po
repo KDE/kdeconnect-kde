@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-18 00:41+0000\n"
+"POT-Creation-Date: 2025-02-24 00:41+0000\n"
 "PO-Revision-Date: 2020-11-20 01:14+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -136,9 +136,7 @@ msgstr "Jaga faili"
 #: qml/DevicePage.qml:149
 #, fuzzy, kde-format
 #| msgid "This device is not paired"
-msgid ""
-"This device is not paired.\n"
-"Key: %1"
+msgid "This device is not paired."
 msgstr "See seade on paaristamata"
 
 #: qml/DevicePage.qml:153
