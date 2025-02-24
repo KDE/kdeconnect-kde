@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-24 00:41+0000\n"
-"PO-Revision-Date: 2023-07-31 06:28+0200\n"
+"PO-Revision-Date: 2025-02-24 06:41+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -41,7 +41,7 @@ msgstr "ფაილი"
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
-msgstr ""
+msgstr "მოწყობილობის საათების სინქრონიზაცია დარღვეულია"
 
 #: backends/pairinghandler.cpp:80
 #, kde-format
@@ -106,7 +106,7 @@ msgstr "დაშორებული მოწყობილობის ს�
 #: device.cpp:469
 #, kde-format
 msgid "Protocol version: %1\n"
-msgstr ""
+msgstr "პროკოლის ვერსია: %1\n"
 
 #: filetransferjob.cpp:53
 #, kde-format

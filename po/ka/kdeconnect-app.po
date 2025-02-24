@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-24 00:41+0000\n"
-"PO-Revision-Date: 2025-01-18 03:29+0100\n"
+"PO-Revision-Date: 2025-02-24 06:41+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -133,12 +133,9 @@ msgid "Share File"
 msgstr "ფაილის გაზიარება"
 
 #: qml/DevicePage.qml:149
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr "ეს მოწყობილობა დაწყვილებული არაა.\vგასაღები: %1"
+msgstr "ეს მოწყობილობა დაწყვილებული არაა."
 
 #: qml/DevicePage.qml:153
 #, kde-format

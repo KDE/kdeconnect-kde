@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Volkan Gezer <volkangezer@gmail.com>, 2017, 2021.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-24 00:41+0000\n"
-"PO-Revision-Date: 2023-07-30 21:41+0300\n"
+"PO-Revision-Date: 2025-02-24 09:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -41,7 +41,7 @@ msgstr "Dosya"
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
-msgstr ""
+msgstr "Aygıt saatleri eşzamanlı değil"
 
 #: backends/pairinghandler.cpp:80
 #, kde-format
@@ -106,7 +106,7 @@ msgstr "Uzak aygıt sertifikasının SHA256 parmak izi: %1\n"
 #: device.cpp:469
 #, kde-format
 msgid "Protocol version: %1\n"
-msgstr ""
+msgstr "Prokotol sürümü: %1\n"
 
 #: filetransferjob.cpp:53
 #, kde-format
