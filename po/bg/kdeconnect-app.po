@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 00:41+0000\n"
-"PO-Revision-Date: 2025-01-21 20:16+0100\n"
+"POT-Creation-Date: 2025-02-25 00:40+0000\n"
+"PO-Revision-Date: 2025-02-24 21:10+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -69,85 +69,80 @@ msgstr "Изпращане на сигнал"
 msgid "Plugin Settings"
 msgstr "Настройки на приставки"
 
-#: qml/DevicePage.qml:58
+#: qml/DevicePage.qml:60
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
 msgstr "Действия"
 
-#: qml/DevicePage.qml:60
+#: qml/DevicePage.qml:62
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "Контроли"
 
-#: qml/DevicePage.qml:74
+#: qml/DevicePage.qml:91
 #, kde-format
 msgid "Multimedia control"
 msgstr "Мултимедиен контрол"
 
-#: qml/DevicePage.qml:82
+#: qml/DevicePage.qml:99
 #, kde-format
 msgid "Remote input"
 msgstr "Отдалечен вход"
 
-#: qml/DevicePage.qml:90 qml/runcommand.qml:16
+#: qml/DevicePage.qml:107 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Изпълняване на команда"
 
-#: qml/DevicePage.qml:98 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:115 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Отдалечена презентация"
 
-#: qml/DevicePage.qml:106 qml/volume.qml:16
+#: qml/DevicePage.qml:123 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Контрол на звука"
 
-#: qml/DevicePage.qml:116 qml/mousepad.qml:44
+#: qml/DevicePage.qml:133 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Заключване"
 
-#: qml/DevicePage.qml:116
+#: qml/DevicePage.qml:133
 #, kde-format
 msgid "Unlock"
 msgstr "Отключване"
 
-#: qml/DevicePage.qml:124
+#: qml/DevicePage.qml:141
 #, kde-format
 msgid "Find Device"
 msgstr "Търсене на устройство"
 
-#: qml/DevicePage.qml:132
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Изпращане на клипборда"
 
-#: qml/DevicePage.qml:139
+#: qml/DevicePage.qml:156
 #, kde-format
 msgid "Share File"
 msgstr "Споделяне на файл"
 
-#: qml/DevicePage.qml:149
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#: qml/DevicePage.qml:166
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"Устройството не е сдвоено.\n"
-"Ключ: %1"
+msgstr "Устройството не е сдвоено"
 
-#: qml/DevicePage.qml:153
+#: qml/DevicePage.qml:170
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Сдвояване"
 
-#: qml/DevicePage.qml:160 qml/DevicePage.qml:169
+#: qml/DevicePage.qml:177 qml/DevicePage.qml:186
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -156,22 +151,22 @@ msgstr ""
 "Запитване за сдвояване\n"
 "Ключ: "
 
-#: qml/DevicePage.qml:175
+#: qml/DevicePage.qml:192
 #, kde-format
 msgid "Accept"
 msgstr "Приемане"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:198
 #, kde-format
 msgid "Reject"
 msgstr "Отхвърляне"
 
-#: qml/DevicePage.qml:192
+#: qml/DevicePage.qml:209
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Това устройство не може да бъде достигнато"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:217
 #, kde-format
 msgid "Please choose a file"
 msgstr "Моля, изберете файл"
@@ -207,7 +202,7 @@ msgstr "Свързан"
 msgid "No devices found"
 msgstr "Няма намерени устройства"
 
-#: qml/Main.qml:171 qml/Main.qml:180
+#: qml/Main.qml:181 qml/Main.qml:190
 #, kde-format
 msgid "Settings"
 msgstr "Настройки"

@@ -1,16 +1,16 @@
 # Translation of kdeconnect-core.po to Catalan
-# Copyright (C) 2014-2023 This_file_is_part_of_KDE
+# Copyright (C) 2014-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2018, 2020, 2021.
-# Josep M. Ferrer <txemaq@gmail.com>, 2015, 2016, 2019, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2015, 2016, 2019, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-24 00:41+0000\n"
-"PO-Revision-Date: 2023-07-30 10:57+0200\n"
+"PO-Revision-Date: 2025-02-24 11:03+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -44,7 +44,7 @@ msgstr "Fitxer"
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
-msgstr ""
+msgstr "Els rellotges dels dispositius no estan sincronitzats"
 
 #: backends/pairinghandler.cpp:80
 #, kde-format
@@ -110,7 +110,7 @@ msgstr "L'empremta digital SHA256 del certificat del dispositiu remot és: %1\n"
 #: device.cpp:469
 #, kde-format
 msgid "Protocol version: %1\n"
-msgstr ""
+msgstr "Versió del protocol: %1\n"
 
 #: filetransferjob.cpp:53
 #, kde-format
@@ -146,6 +146,3 @@ msgstr "No s'ha pogut generar el certificat del dispositiu."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "No s'ha pogut emmagatzemar el fitxer del certificat: %1"
-
-#~ msgid "Received incomplete file: %1"
-#~ msgstr "S'ha rebut un fitxer incomplet: %1"

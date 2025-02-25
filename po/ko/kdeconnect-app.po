@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 00:41+0000\n"
+"POT-Creation-Date: 2025-02-25 00:40+0000\n"
 "PO-Revision-Date: 2024-12-24 16:41+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -69,70 +69,70 @@ msgstr "핑 보내기"
 msgid "Plugin Settings"
 msgstr "플러그인 설정"
 
-#: qml/DevicePage.qml:58
+#: qml/DevicePage.qml:60
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
 msgstr ""
 
-#: qml/DevicePage.qml:60
+#: qml/DevicePage.qml:62
 #, fuzzy, kde-format
 #| msgid "Remote Control"
 msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "원격 제어"
 
-#: qml/DevicePage.qml:74
+#: qml/DevicePage.qml:91
 #, kde-format
 msgid "Multimedia control"
 msgstr "멀티미디어 제어"
 
-#: qml/DevicePage.qml:82
+#: qml/DevicePage.qml:99
 #, kde-format
 msgid "Remote input"
 msgstr "원격 입력"
 
-#: qml/DevicePage.qml:90 qml/runcommand.qml:16
+#: qml/DevicePage.qml:107 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "명령 실행"
 
-#: qml/DevicePage.qml:98 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:115 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "프레젠테이션 리모콘"
 
-#: qml/DevicePage.qml:106 qml/volume.qml:16
+#: qml/DevicePage.qml:123 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "음량 제어"
 
-#: qml/DevicePage.qml:116 qml/mousepad.qml:44
+#: qml/DevicePage.qml:133 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "잠금"
 
-#: qml/DevicePage.qml:116
+#: qml/DevicePage.qml:133
 #, kde-format
 msgid "Unlock"
 msgstr "잠금 해제"
 
-#: qml/DevicePage.qml:124
+#: qml/DevicePage.qml:141
 #, kde-format
 msgid "Find Device"
 msgstr "장치 찾기"
 
-#: qml/DevicePage.qml:132
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "Send Clipboard"
 msgstr "클립보드 보내기"
 
-#: qml/DevicePage.qml:139
+#: qml/DevicePage.qml:156
 #, kde-format
 msgid "Share File"
 msgstr "파일 공유"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:166
 #, fuzzy, kde-format
 #| msgid ""
 #| "This device is not paired.\n"
@@ -142,13 +142,13 @@ msgstr ""
 "이 장치는 연결되지 않았습니다.\n"
 "키: %1"
 
-#: qml/DevicePage.qml:153
+#: qml/DevicePage.qml:170
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "페어링"
 
-#: qml/DevicePage.qml:160 qml/DevicePage.qml:169
+#: qml/DevicePage.qml:177 qml/DevicePage.qml:186
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -157,22 +157,22 @@ msgstr ""
 "연결 요청됨\n"
 "키: "
 
-#: qml/DevicePage.qml:175
+#: qml/DevicePage.qml:192
 #, kde-format
 msgid "Accept"
 msgstr "수락"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:198
 #, kde-format
 msgid "Reject"
 msgstr "거부"
 
-#: qml/DevicePage.qml:192
+#: qml/DevicePage.qml:209
 #, kde-format
 msgid "This device is not reachable"
 msgstr "이 장치에 접근할 수 없음"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:217
 #, kde-format
 msgid "Please choose a file"
 msgstr "파일을 선택하십시오"
@@ -208,7 +208,7 @@ msgstr "연결됨"
 msgid "No devices found"
 msgstr "장치를 찾을 수 없음"
 
-#: qml/Main.qml:171 qml/Main.qml:180
+#: qml/Main.qml:181 qml/Main.qml:190
 #, kde-format
 msgid "Settings"
 msgstr "설정"

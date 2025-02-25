@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Mincho Kondarev <mkondarev@yahoo.de>, 2023.
+# SPDX-FileCopyrightText: 2023, 2025 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-24 00:41+0000\n"
-"PO-Revision-Date: 2023-08-02 22:46+0200\n"
+"PO-Revision-Date: 2025-02-24 21:12+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
 msgid "Couldn't find an available port"
-msgstr "Не можах да намеря наличен пoрт"
+msgstr "Не можа да се намери наличен пoрт"
 
 #: backends/lan/compositeuploadjob.cpp:110
 #, kde-format
@@ -40,7 +40,7 @@ msgstr "Файл"
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
-msgstr ""
+msgstr "Часовниците на устройствата не са синхронизирани"
 
 #: backends/pairinghandler.cpp:80
 #, kde-format
@@ -105,7 +105,7 @@ msgstr "SHA256 отпечатъкът на сертификата на отда�
 #: device.cpp:469
 #, kde-format
 msgid "Protocol version: %1\n"
-msgstr ""
+msgstr "Версия на протокол: %1\n"
 
 #: filetransferjob.cpp:53
 #, kde-format
