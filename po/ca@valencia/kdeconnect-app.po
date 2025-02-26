@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-25 00:40+0000\n"
-"PO-Revision-Date: 2025-01-18 10:13+0100\n"
+"PO-Revision-Date: 2025-02-24 11:02+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -136,14 +136,9 @@ msgid "Share File"
 msgstr "Compartix el fitxer"
 
 #: qml/DevicePage.qml:166
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"Este dispositiu no està aparellat.\n"
-"Clau: %1"
+msgstr "Este dispositiu no està aparellat."
 
 #: qml/DevicePage.qml:170
 #, kde-format
