@@ -187,6 +187,7 @@
     <value key="KDE::supporters">[fat_malama](https://www.instagram.com/fat_malama/); Alexandru Traistaru; Neeko iko; Daniel Lloyd-Miller; [mdPlusPlus](https://github.com/mdPlusPlus)</value>
   </custom>
   <releases>
+    <release version="24.12.3" date="2025-03-06"/>
     <release version="24.12.2" date="2025-02-06"/>
     <release version="24.12.1" date="2025-01-09"/>
     <release version="24.12.0" date="2024-12-12"/>
