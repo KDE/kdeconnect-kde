@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:40+0000\n"
+"POT-Creation-Date: 2025-02-27 00:40+0000\n"
 "PO-Revision-Date: 2020-01-28 02:48+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -82,91 +82,91 @@ msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "വിദൂര നിയന്ത്രണം"
 
-#: qml/DevicePage.qml:91
+#: qml/DevicePage.qml:92
 #, kde-format
 msgid "Multimedia control"
 msgstr "മൾട്ടിമീഡിയ നിയന്ത്രണം"
 
-#: qml/DevicePage.qml:99
+#: qml/DevicePage.qml:100
 #, kde-format
 msgid "Remote input"
 msgstr "വിദൂര ഇൻപുട്ട്"
 
-#: qml/DevicePage.qml:107 qml/runcommand.qml:16
+#: qml/DevicePage.qml:108 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "കമാൻഡ് പ്രവർത്തിപ്പിക്കുക"
 
-#: qml/DevicePage.qml:115 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:116 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "വിദൂര അവതരണം"
 
-#: qml/DevicePage.qml:123 qml/volume.qml:16
+#: qml/DevicePage.qml:124 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "ശബ്ദ നിയന്ത്രണം"
 
-#: qml/DevicePage.qml:133 qml/mousepad.qml:44
+#: qml/DevicePage.qml:134 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "പൂട്ടുക"
 
-#: qml/DevicePage.qml:133
+#: qml/DevicePage.qml:134
 #, kde-format
 msgid "Unlock"
 msgstr "പൂട്ടുതുറക്കുക"
 
-#: qml/DevicePage.qml:141
+#: qml/DevicePage.qml:142
 #, kde-format
 msgid "Find Device"
 msgstr "ഉപകരണം കണ്ടെത്തുക"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:150
 #, kde-format
 msgid "Send Clipboard"
 msgstr ""
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Share File"
 msgstr "ഫയൽ പങ്കിടുക"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:167
 #, fuzzy, kde-format
 msgid "This device is not paired."
 msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴിയുന്നതല്ല"
 
-#: qml/DevicePage.qml:170
+#: qml/DevicePage.qml:171
 #, fuzzy, kde-format
 #| msgid "Pair"
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "ജോഡിചേരുക"
 
-#: qml/DevicePage.qml:177 qml/DevicePage.qml:186
+#: qml/DevicePage.qml:178 qml/DevicePage.qml:187
 #, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
 msgstr ""
 
-#: qml/DevicePage.qml:192
+#: qml/DevicePage.qml:193
 #, kde-format
 msgid "Accept"
 msgstr "അംഗീകരിക്കുക"
 
-#: qml/DevicePage.qml:198
+#: qml/DevicePage.qml:199
 #, kde-format
 msgid "Reject"
 msgstr "നിരസിക്കുക"
 
-#: qml/DevicePage.qml:209
+#: qml/DevicePage.qml:210
 #, kde-format
 msgid "This device is not reachable"
 msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴിയുന്നതല്ല"
 
-#: qml/DevicePage.qml:217
+#: qml/DevicePage.qml:218
 #, kde-format
 msgid "Please choose a file"
 msgstr "ഒരു ഫയൽ തിരഞ്ഞെടുക്കുക"
@@ -183,27 +183,34 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr ""
 
-#: qml/Main.qml:102
+#: qml/Main.qml:76
+#, fuzzy, kde-format
+#| msgid "Find Device"
+msgctxt "@action:button accessible"
+msgid "Refresh Devices"
+msgstr "ഉപകരണം കണ്ടെത്തുക"
+
+#: qml/Main.qml:106
 #, kde-format
 msgid "Remembered"
 msgstr "ഓർമ്മിച്ചത്"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:108
 #, kde-format
 msgid "Available"
 msgstr "ലഭ്യമായത്"
 
-#: qml/Main.qml:106
+#: qml/Main.qml:110
 #, kde-format
 msgid "Connected"
 msgstr "ബന്ധിപ്പിച്ചു"
 
-#: qml/Main.qml:111
+#: qml/Main.qml:115
 #, kde-format
 msgid "No devices found"
 msgstr "ഉപകരണങ്ങളൊന്നും കണ്ടെത്തിയില്ല"
 
-#: qml/Main.qml:181 qml/Main.qml:190
+#: qml/Main.qml:187 qml/Main.qml:196
 #, kde-format
 msgid "Settings"
 msgstr ""
@@ -213,9 +220,27 @@ msgstr ""
 msgid "Remote Control"
 msgstr "വിദൂര നിയന്ത്രണം"
 
-#: qml/mousepad.qml:59
+#: qml/mousepad.qml:60
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
+msgstr ""
+
+#: qml/mousepad.qml:211
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Left Click"
+msgstr ""
+
+#: qml/mousepad.qml:217
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Middle Click"
+msgstr ""
+
+#: qml/mousepad.qml:223
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Right Click"
 msgstr ""
 
 #: qml/mpris.qml:20
@@ -228,12 +253,12 @@ msgstr "മൾട്ടിമീഡിയ നിയന്ത്രണങ്ങ�
 msgid "No players available"
 msgstr "പ്ലെയറുകൾ ലഭ്യമല്ല"
 
-#: qml/mpris.qml:108
+#: qml/mpris.qml:109
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:103
+#: qml/PluginSettings.qml:115
 #, kde-format
 msgid "Configure plugin"
 msgstr ""

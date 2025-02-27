@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:40+0000\n"
+"POT-Creation-Date: 2025-02-27 00:40+0000\n"
 "PO-Revision-Date: 2025-02-24 09:48+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -84,68 +84,68 @@ msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "Керування"
 
-#: qml/DevicePage.qml:91
+#: qml/DevicePage.qml:92
 #, kde-format
 msgid "Multimedia control"
 msgstr "Керування відтворенням"
 
-#: qml/DevicePage.qml:99
+#: qml/DevicePage.qml:100
 #, kde-format
 msgid "Remote input"
 msgstr "Дистанційне введення"
 
-#: qml/DevicePage.qml:107 qml/runcommand.qml:16
+#: qml/DevicePage.qml:108 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Виконати команду"
 
-#: qml/DevicePage.qml:115 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:116 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Керування презентацією"
 
-#: qml/DevicePage.qml:123 qml/volume.qml:16
+#: qml/DevicePage.qml:124 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Керування гучністю"
 
-#: qml/DevicePage.qml:133 qml/mousepad.qml:44
+#: qml/DevicePage.qml:134 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Заблокувати"
 
-#: qml/DevicePage.qml:133
+#: qml/DevicePage.qml:134
 #, kde-format
 msgid "Unlock"
 msgstr "Розблокувати"
 
-#: qml/DevicePage.qml:141
+#: qml/DevicePage.qml:142
 #, kde-format
 msgid "Find Device"
 msgstr "Знайти пристрій"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:150
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Надіслати вміст буфера"
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Share File"
 msgstr "Оприлюднити файл"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:167
 #, kde-format
 msgid "This device is not paired."
 msgstr "Цей пристрій не пов'язано."
 
-#: qml/DevicePage.qml:170
+#: qml/DevicePage.qml:171
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Пов'язати"
 
-#: qml/DevicePage.qml:177 qml/DevicePage.qml:186
+#: qml/DevicePage.qml:178 qml/DevicePage.qml:187
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -154,22 +154,22 @@ msgstr ""
 "Запит щодо пов’язування\n"
 "Ключ: "
 
-#: qml/DevicePage.qml:192
+#: qml/DevicePage.qml:193
 #, kde-format
 msgid "Accept"
 msgstr "Прийняти"
 
-#: qml/DevicePage.qml:198
+#: qml/DevicePage.qml:199
 #, kde-format
 msgid "Reject"
 msgstr "Відкинути"
 
-#: qml/DevicePage.qml:209
+#: qml/DevicePage.qml:210
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Цей пристрій є недоступним"
 
-#: qml/DevicePage.qml:217
+#: qml/DevicePage.qml:218
 #, kde-format
 msgid "Please choose a file"
 msgstr "Будь ласка, виберіть файл"
@@ -185,27 +185,34 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Освіжити"
 
-#: qml/Main.qml:102
+#: qml/Main.qml:76
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@action:button accessible"
+msgid "Refresh Devices"
+msgstr "Пристрої"
+
+#: qml/Main.qml:106
 #, kde-format
 msgid "Remembered"
 msgstr "Відомий"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:108
 #, kde-format
 msgid "Available"
 msgstr "Доступний"
 
-#: qml/Main.qml:106
+#: qml/Main.qml:110
 #, kde-format
 msgid "Connected"
 msgstr "З'єднаний"
 
-#: qml/Main.qml:111
+#: qml/Main.qml:115
 #, kde-format
 msgid "No devices found"
 msgstr "Пристроїв не виявлено"
 
-#: qml/Main.qml:181 qml/Main.qml:190
+#: qml/Main.qml:187 qml/Main.qml:196
 #, kde-format
 msgid "Settings"
 msgstr "Параметри"
@@ -215,10 +222,28 @@ msgstr "Параметри"
 msgid "Remote Control"
 msgstr "Дистанційне керування"
 
-#: qml/mousepad.qml:59
+#: qml/mousepad.qml:60
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr "Натисніть %1 або ліву і праву кнопки миші одночасно, щоб розблокувати"
+
+#: qml/mousepad.qml:211
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Left Click"
+msgstr ""
+
+#: qml/mousepad.qml:217
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Middle Click"
+msgstr ""
+
+#: qml/mousepad.qml:223
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Right Click"
+msgstr ""
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -230,12 +255,12 @@ msgstr "Керування відтворенням"
 msgid "No players available"
 msgstr "Немає доступних програвачів"
 
-#: qml/mpris.qml:108
+#: qml/mpris.qml:109
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 – %2"
 
-#: qml/PluginSettings.qml:103
+#: qml/PluginSettings.qml:115
 #, kde-format
 msgid "Configure plugin"
 msgstr "Налаштувати додаток"

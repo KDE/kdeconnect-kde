@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:40+0000\n"
+"POT-Creation-Date: 2025-02-27 00:40+0000\n"
 "PO-Revision-Date: 2025-01-06 22:24+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
@@ -84,57 +84,57 @@ msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "Nuotolinis valdymas"
 
-#: qml/DevicePage.qml:91
+#: qml/DevicePage.qml:92
 #, kde-format
 msgid "Multimedia control"
 msgstr "Įvairialypės terpės valdymas"
 
-#: qml/DevicePage.qml:99
+#: qml/DevicePage.qml:100
 #, kde-format
 msgid "Remote input"
 msgstr "Nuotolinis įvedimas"
 
-#: qml/DevicePage.qml:107 qml/runcommand.qml:16
+#: qml/DevicePage.qml:108 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Vykdyti komandą"
 
-#: qml/DevicePage.qml:115 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:116 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Pristatymo nuotolinis valdymo pultas"
 
-#: qml/DevicePage.qml:123 qml/volume.qml:16
+#: qml/DevicePage.qml:124 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Garsumo valdymas"
 
-#: qml/DevicePage.qml:133 qml/mousepad.qml:44
+#: qml/DevicePage.qml:134 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Užrakinti"
 
-#: qml/DevicePage.qml:133
+#: qml/DevicePage.qml:134
 #, kde-format
 msgid "Unlock"
 msgstr "Atrakinti"
 
-#: qml/DevicePage.qml:141
+#: qml/DevicePage.qml:142
 #, kde-format
 msgid "Find Device"
 msgstr "Rasti įrenginį"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:150
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Siųsti iškarpinę"
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Share File"
 msgstr "Bendrinti failą"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:167
 #, fuzzy, kde-format
 #| msgid ""
 #| "This device is not paired.\n"
@@ -144,13 +144,13 @@ msgstr ""
 "Šis įrenginys nėra suporuotas.\n"
 "Raktas: %1"
 
-#: qml/DevicePage.qml:170
+#: qml/DevicePage.qml:171
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Suporuoti"
 
-#: qml/DevicePage.qml:177 qml/DevicePage.qml:186
+#: qml/DevicePage.qml:178 qml/DevicePage.qml:187
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -159,22 +159,22 @@ msgstr ""
 "Paprašyta suporavimo\n"
 "Raktas: "
 
-#: qml/DevicePage.qml:192
+#: qml/DevicePage.qml:193
 #, kde-format
 msgid "Accept"
 msgstr "Priimti"
 
-#: qml/DevicePage.qml:198
+#: qml/DevicePage.qml:199
 #, kde-format
 msgid "Reject"
 msgstr "Atmesti"
 
-#: qml/DevicePage.qml:209
+#: qml/DevicePage.qml:210
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Šis įrenginys yra nepasiekiamas"
 
-#: qml/DevicePage.qml:217
+#: qml/DevicePage.qml:218
 #, kde-format
 msgid "Please choose a file"
 msgstr "Pasirinkite failą"
@@ -190,27 +190,34 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Įkelti iš naujo"
 
-#: qml/Main.qml:102
+#: qml/Main.qml:76
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@action:button accessible"
+msgid "Refresh Devices"
+msgstr "Įrenginiai"
+
+#: qml/Main.qml:106
 #, kde-format
 msgid "Remembered"
 msgstr "Įsimintas"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:108
 #, kde-format
 msgid "Available"
 msgstr "Prieinamas"
 
-#: qml/Main.qml:106
+#: qml/Main.qml:110
 #, kde-format
 msgid "Connected"
 msgstr "Prisijungęs"
 
-#: qml/Main.qml:111
+#: qml/Main.qml:115
 #, kde-format
 msgid "No devices found"
 msgstr "Nerasta jokių įrenginių"
 
-#: qml/Main.qml:181 qml/Main.qml:190
+#: qml/Main.qml:187 qml/Main.qml:196
 #, kde-format
 msgid "Settings"
 msgstr "Nuostatos"
@@ -220,12 +227,30 @@ msgstr "Nuostatos"
 msgid "Remote Control"
 msgstr "Nuotolinis valdymas"
 
-#: qml/mousepad.qml:59
+#: qml/mousepad.qml:60
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
 "Norėdami atrakinti, paspauskite %1 arba vienu metu kairįjį ir dešinįjį pelės "
 "mygtuką"
+
+#: qml/mousepad.qml:211
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Left Click"
+msgstr ""
+
+#: qml/mousepad.qml:217
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Middle Click"
+msgstr ""
+
+#: qml/mousepad.qml:223
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Right Click"
+msgstr ""
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -237,12 +262,12 @@ msgstr "Įvairialypės terpės valdikliai"
 msgid "No players available"
 msgstr "Nėra jokių prieinamų leistuvių"
 
-#: qml/mpris.qml:108
+#: qml/mpris.qml:109
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:103
+#: qml/PluginSettings.qml:115
 #, kde-format
 msgid "Configure plugin"
 msgstr "Konfigūruoti įskiepį"

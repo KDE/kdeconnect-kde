@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-25 00:40+0000\n"
+"POT-Creation-Date: 2025-02-27 00:40+0000\n"
 "PO-Revision-Date: 2025-02-24 09:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -82,68 +82,68 @@ msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "Denetimler"
 
-#: qml/DevicePage.qml:91
+#: qml/DevicePage.qml:92
 #, kde-format
 msgid "Multimedia control"
 msgstr "Çoklu ortam denetimi"
 
-#: qml/DevicePage.qml:99
+#: qml/DevicePage.qml:100
 #, kde-format
 msgid "Remote input"
 msgstr "Uzaktan giriş"
 
-#: qml/DevicePage.qml:107 qml/runcommand.qml:16
+#: qml/DevicePage.qml:108 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Komut çalıştır"
 
-#: qml/DevicePage.qml:115 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:116 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Sunum Uzaktan Kumandası"
 
-#: qml/DevicePage.qml:123 qml/volume.qml:16
+#: qml/DevicePage.qml:124 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Ses denetimi"
 
-#: qml/DevicePage.qml:133 qml/mousepad.qml:44
+#: qml/DevicePage.qml:134 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Kilitle"
 
-#: qml/DevicePage.qml:133
+#: qml/DevicePage.qml:134
 #, kde-format
 msgid "Unlock"
 msgstr "Kilidini aç"
 
-#: qml/DevicePage.qml:141
+#: qml/DevicePage.qml:142
 #, kde-format
 msgid "Find Device"
 msgstr "Aygıt Bul"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:150
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Pano Gönder"
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Share File"
 msgstr "Dosya Paylaş"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:167
 #, kde-format
 msgid "This device is not paired."
 msgstr "Bu aygıt eşlenmemiş."
 
-#: qml/DevicePage.qml:170
+#: qml/DevicePage.qml:171
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Eşleştir"
 
-#: qml/DevicePage.qml:177 qml/DevicePage.qml:186
+#: qml/DevicePage.qml:178 qml/DevicePage.qml:187
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -152,22 +152,22 @@ msgstr ""
 "Eşleşme isteği\n"
 "Anahtar: "
 
-#: qml/DevicePage.qml:192
+#: qml/DevicePage.qml:193
 #, kde-format
 msgid "Accept"
 msgstr "Kabul et"
 
-#: qml/DevicePage.qml:198
+#: qml/DevicePage.qml:199
 #, kde-format
 msgid "Reject"
 msgstr "Reddet"
 
-#: qml/DevicePage.qml:209
+#: qml/DevicePage.qml:210
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Bu aygıt erişilebilir değil"
 
-#: qml/DevicePage.qml:217
+#: qml/DevicePage.qml:218
 #, kde-format
 msgid "Please choose a file"
 msgstr "Lütfen bir dosya seçin"
@@ -183,27 +183,34 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Yenile"
 
-#: qml/Main.qml:102
+#: qml/Main.qml:76
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@action:button accessible"
+msgid "Refresh Devices"
+msgstr "Aygıtlar"
+
+#: qml/Main.qml:106
 #, kde-format
 msgid "Remembered"
 msgstr "Anımsanıyor"
 
-#: qml/Main.qml:104
+#: qml/Main.qml:108
 #, kde-format
 msgid "Available"
 msgstr "Kullanılabilir"
 
-#: qml/Main.qml:106
+#: qml/Main.qml:110
 #, kde-format
 msgid "Connected"
 msgstr "Bağlı"
 
-#: qml/Main.qml:111
+#: qml/Main.qml:115
 #, kde-format
 msgid "No devices found"
 msgstr "Hiçbir aygıt bulunamadı"
 
-#: qml/Main.qml:181 qml/Main.qml:190
+#: qml/Main.qml:187 qml/Main.qml:196
 #, kde-format
 msgid "Settings"
 msgstr "Ayarlar"
@@ -213,12 +220,30 @@ msgstr "Ayarlar"
 msgid "Remote Control"
 msgstr "Uzaktan Kumanda"
 
-#: qml/mousepad.qml:59
+#: qml/mousepad.qml:60
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
 "Kilidi açmak için %1 düğmesine veya sol ve sağ fare düğmelerine aynı anda "
 "basın"
+
+#: qml/mousepad.qml:211
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Left Click"
+msgstr ""
+
+#: qml/mousepad.qml:217
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Middle Click"
+msgstr ""
+
+#: qml/mousepad.qml:223
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Right Click"
+msgstr ""
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -230,12 +255,12 @@ msgstr "Çoklu Ortam Denetimleri"
 msgid "No players available"
 msgstr "Oynatıcı bulunamadı"
 
-#: qml/mpris.qml:108
+#: qml/mpris.qml:109
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 — %2"
 
-#: qml/PluginSettings.qml:103
+#: qml/PluginSettings.qml:115
 #, kde-format
 msgid "Configure plugin"
 msgstr "Eklentiyi Yapılandır"
