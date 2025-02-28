@@ -52,7 +52,9 @@ Kirigami.ScrollablePage {
         id: pluginsListView
         model: plugins
 
-        section.property: "section"
+        readonly property int numberVisibleSections: new Set(plugins.filter(plugin => plugin.loaded).map(plugin => plugin.section)).size
+
+        section.property: numberVisibleSections > 1 ? "section" : null
         section.delegate: Kirigami.ListSectionHeader {
             width: ListView.view.width
             text: switch (section) {
