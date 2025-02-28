@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-27 00:40+0000\n"
-"PO-Revision-Date: 2025-02-24 11:02+0100\n"
+"PO-Revision-Date: 2025-02-27 15:12+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -187,11 +187,10 @@ msgid "Refresh"
 msgstr "Actualitza"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Dispositius"
+msgstr "Actualitza la llista dels dispositius"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -234,19 +233,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Clic esquerre"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Clic del mig"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Clic dret"
 
 #: qml/mpris.qml:20
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-27 00:40+0000\n"
-"PO-Revision-Date: 2025-02-24 09:05+0300\n"
+"PO-Revision-Date: 2025-02-27 13:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -184,11 +184,10 @@ msgid "Refresh"
 msgstr "Yenile"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Aygıtlar"
+msgstr "Aygıtları Yenile"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -231,19 +230,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Sol Tık"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Orta Tık"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Sağ Tık"
 
 #: qml/mpris.qml:20
 #, kde-format
