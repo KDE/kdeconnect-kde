@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-27 00:40+0000\n"
-"PO-Revision-Date: 2025-01-19 11:11+0100\n"
-"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"PO-Revision-Date: 2025-02-28 07:17+0100\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -132,14 +132,9 @@ msgid "Share File"
 msgstr "Compartir un ficheiro"
 
 #: qml/DevicePage.qml:167
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"Este dispositivo non está emparellado.\n"
-"Chave: %1"
+msgstr "Este dispositivo non está emparellado."
 
 #: qml/DevicePage.qml:171
 #, kde-format
@@ -188,11 +183,10 @@ msgid "Refresh"
 msgstr "Actualizar"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Dispositivos"
+msgstr "Actualizar a información dos dispositivos"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -235,19 +229,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Clic esquerdo"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Clic central"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Clic dereito"
 
 #: qml/mpris.qml:20
 #, kde-format
