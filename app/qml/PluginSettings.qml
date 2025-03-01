@@ -48,6 +48,7 @@ Kirigami.ScrollablePage {
     }
 
     ListView {
+        id: pluginList
         Accessible.role: Accessible.List
         model: KItemModels.KSortFilterProxyModel {
             filterString: root.filterString
