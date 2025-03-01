@@ -60,7 +60,7 @@ ColumnLayout {
                 Controls.TextArea {
                     width: parent.width
                     id: messageField
-                    placeholderText: i18nd("kdeconnect-sms", "Compose message")
+                    placeholderText: i18nd("kdeconnect-sms", "Send a message…")
                     wrapMode: TextEdit.Wrap
                     topPadding: Kirigami.Units.gridUnit * 0.5
                     bottomPadding: topPadding
