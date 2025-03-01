@@ -104,6 +104,7 @@ void Notification::createKNotification(const NetworkPacket &np)
 
     m_notification->setHint(QStringLiteral("x-kde-origin-name"), m_device->name());
 
+    m_notification->setReplyAction({});
     if (!m_requestReplyId.isEmpty()) {
         auto replyAction = std::make_unique<KNotificationReplyAction>(i18nc("@action:button", "Reply"));
         replyAction->setPlaceholderText(i18nc("@info:placeholder", "Reply to %1...", m_appName));
@@ -124,6 +125,7 @@ void Notification::createKNotification(const NetworkPacket &np)
 
     m_hasIcon = m_hasIcon && !m_payloadHash.isEmpty();
 
+    m_notification->setPixmap({});
     if (!m_hasIcon) {
         show();
     } else {
