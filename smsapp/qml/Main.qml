@@ -79,6 +79,11 @@ Kirigami.ApplicationWindow
         FormCard.AboutPage {}
     }
 
+    Component {
+        id: aboutKDEPageComponent
+        FormCard.AboutKDEPage {}
+    }
+
     globalDrawer: Kirigami.GlobalDrawer {
 
         isMenu: true
@@ -103,6 +108,15 @@ Kirigami.ApplicationWindow
                 onTriggered: {
                     if (applicationWindow().pageStack.layers.depth < 2) {
                         applicationWindow().pageStack.layers.push(aboutPageComponent)
+                    }
+                }
+            },
+            Kirigami.Action {
+                text: i18nd("kdeconnect-sms", "About KDE")
+                icon.name: "kde-symbolic"
+                onTriggered: {
+                    if (applicationWindow().pageStack.layers.depth < 2) {
+                        applicationWindow().pageStack.layers.push(aboutKDEPageComponent)
                     }
                 }
             }
