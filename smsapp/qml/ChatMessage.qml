@@ -54,37 +54,10 @@ Item {
             Layout.fillHeight: true
             Layout.minimumWidth: dateLabel.implicitWidth
 
-            color: {
-                Kirigami.Theme.colorSet = Kirigami.Theme.View
-                var accentColor = Kirigami.Theme.highlightColor
-                return Qt.tint(Kirigami.Theme.backgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, root.sentByMe ? 0.1 : 0.4))
-            }
-            radius: 6
+            color: Qt.tint(Kirigami.Theme.backgroundColor, Qt.alpha(Kirigami.Theme.highlightColor, root.sentByMe ? 0.1 : 0.4))
+            radius: Kirigami.Units.cornerRadius
 
-            MouseArea {
-                anchors.fill: parent
-                acceptedButtons: Qt.LeftButton | Qt.RightButton
-                onClicked: mouse => {
-                    if (mouse.button === Qt.RightButton) {
-                        var selectStart = messageLabel.selectionStart;
-                        var selectEnd = messageLabel.selectionEnd;
-                        selectedText = messageLabel.selectedText;
-                        contextMenu.x = mouse.x;
-                        contextMenu.y = mouse.y;
-                        messageLabel.persistentSelection = true;
-                        contextMenu.open();
-                    }
-                }
-                onPressAndHold: mouse => {
-                    var selectStart = messageLabel.selectionStart;
-                    var selectEnd = messageLabel.selectionEnd;
-                    selectedText = messageLabel.selectedText;
-                    contextMenu.x = mouse.x;
-                    contextMenu.y = mouse.y;
-                    messageLabel.persistentSelection = true;
-                    contextMenu.open();
-                }
-            }
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
 
             Column {
                 id: messageColumn
@@ -119,18 +92,15 @@ Item {
                     }
                 }
 
-                TextEdit {
+                Kirigami.SelectableLabel {
                     id: messageLabel
                     visible: messageBody != ""
-                    selectByMouse: true
-                    readOnly: true
                     leftPadding: Kirigami.Units.largeSpacing
                     rightPadding: Kirigami.Units.largeSpacing
                     topPadding: authorLabel.visible ? 0 : Kirigami.Units.largeSpacing
                     width: parent.width
                     horizontalAlignment: root.sentByMe ? Text.AlignRight : Text.AlignLeft
                     wrapMode: Text.Wrap
-                    color: Kirigami.Theme.textColor
                     text: root.messageBody
                 }
 
@@ -144,24 +114,6 @@ Item {
                     color: Kirigami.Theme.disabledTextColor
                     horizontalAlignment: messageLabel.horizontalAlignment
                 }
-            }
-
-            Menu {
-                id: contextMenu
-                exit: Transition {PropertyAction { target: messageLabel; property: "persistentSelection"; value: false }}
-                MenuItem {
-                    text: i18nd("kdeconnect-sms", "Copy Message")
-                    enabled: messageLabel.visible
-                    onTriggered: root.messageCopyRequested(root.messageBody)
-                }
-                MenuItem {
-                    text: i18nd("kdeconnect-sms", "Copy Selection")
-                    visible: selectedText != ""
-                    onTriggered: {
-                            root.messageCopyRequested(selectedText)
-                    }
-                }
-
             }
         }
     }
