@@ -91,6 +91,10 @@ Kirigami.ScrollablePage
     }
 
     titleDelegate: RowLayout {
+        spacing: Kirigami.Units.mediumSpacing
+
+        Layout.fillWidth: true
+
         Keys.forwardTo: [filter]
 
         Kirigami.SearchField {
@@ -112,6 +116,7 @@ Kirigami.ScrollablePage
                 view.currentIndex = 0
                 filter.forceActiveFocus();
             }
+
             Keys.onReturnPressed: event => {
                 event.accepted = true
                 view.currentItem.startChat()
