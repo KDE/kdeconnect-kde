@@ -108,13 +108,17 @@ ColumnLayout {
                             visible: selectedFileUrls.length > 0
                         }
                         Kirigami.Icon {
-                            source: "insert-image"
+                            source: "mail-attachment-symbolic"
                             isMask: true
                             smooth: true
                             anchors.centerIn: parent
                             width: Kirigami.Units.gridUnit * 1.5
                             height: width
                         }
+
+                        Controls.ToolTip.text: i18nc("@info:tooltip", "Attach an image or file")
+                        Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        Controls.ToolTip.visible: hovered
 
                         onClicked: {
                             fileDialog.open()
@@ -136,6 +140,10 @@ ColumnLayout {
                             width: Kirigami.Units.gridUnit * 1.5
                             height: width
                         }
+
+                        Controls.ToolTip.text: i18nc("@info:tooltip", "Clear attachments")
+                        Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        Controls.ToolTip.visible: hovered
 
                         onClicked: {
                             selectedFileUrls = []
@@ -161,6 +169,10 @@ ColumnLayout {
                         }
 
                         property bool messageSent: false
+
+                        Controls.ToolTip.text: i18nc("@info:tooltip", "Send message")
+                        Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        Controls.ToolTip.visible: hovered
 
                         onClicked: {
 
