@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-15 00:42+0000\n"
+"POT-Creation-Date: 2025-03-02 00:40+0000\n"
 "PO-Revision-Date: 2024-04-07 17:09+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -118,16 +118,6 @@ msgstr "mesaĝo"
 msgid "Open with default"
 msgstr "Malfermi defaŭlte"
 
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Kopii Mesaĝon"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Kopii Elekton"
-
 #: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
@@ -159,7 +149,7 @@ msgstr ""
 "Konsilo: Se vi enŝovas vian aparaton, ĝi ne devus eniri en dormreĝimon kaj "
 "devus ŝargi rapide."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:93
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Refreŝigi"
@@ -174,30 +164,36 @@ msgstr "Elekti ricevonton"
 msgid "Cancel"
 msgstr "Nuligi"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Serĉi aŭ komenci konversacion"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Komenci novan konversacion"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Neniuj alumetoj"
 
-#: qml/Main.qml:88
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "Aparatoj"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
+msgstr "Pri"
+
+#: qml/Main.qml:115
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
 msgstr "Pri"
 
 #: qml/MessageAttachments.qml:114
@@ -216,6 +212,35 @@ msgid "Max message size limit exceeded."
 msgstr "Maksimuma grandecolimo de mesaĝo superita."
 
 #: qml/SendingArea.qml:63
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgid "Send a message…"
+msgstr "Sendi mesaĝon"
+
+#: qml/SendingArea.qml:119
 #, kde-format
-msgid "Compose message"
-msgstr "Verki mesaĝon"
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Sendi mesaĝon"
+
+#~ msgid "Copy Message"
+#~ msgstr "Kopii Mesaĝon"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Kopii Elekton"
+
+#~ msgid "Compose message"
+#~ msgstr "Verki mesaĝon"

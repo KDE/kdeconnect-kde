@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-27 00:40+0000\n"
-"PO-Revision-Date: 2025-01-04 14:49+0200\n"
+"POT-Creation-Date: 2025-03-02 00:40+0000\n"
+"PO-Revision-Date: 2025-02-28 15:14+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -74,14 +74,13 @@ msgstr "Papildinājuma iestatījumi"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "Darbības"
 
 #: qml/DevicePage.qml:62
-#, fuzzy, kde-format
-#| msgid "Remote Control"
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr "Attālā vadība"
+msgstr "Vadība"
 
 #: qml/DevicePage.qml:92
 #, kde-format
@@ -134,14 +133,9 @@ msgid "Share File"
 msgstr "Dalīties ar datni"
 
 #: qml/DevicePage.qml:167
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"Šī ierīce nav sapārota.\n"
-"Atslēga: %1"
+msgstr "Ierīce nav sapārota"
 
 #: qml/DevicePage.qml:171
 #, kde-format
@@ -190,11 +184,10 @@ msgid "Refresh"
 msgstr "Pārlādēt"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Ierīces"
+msgstr "Pārlādēt ierīces"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -235,19 +228,19 @@ msgstr "Nospiediet %1 vai vienlaicīgi kreiso un labo peles pogu, lai atbloķēt
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Kreisais klikšķis"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Vidējais klikšķis"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Labais klikšķis"
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -264,7 +257,7 @@ msgstr "Nav pieejami atskaņotāji"
 msgid "%1 - %2"
 msgstr "%1 — %2"
 
-#: qml/PluginSettings.qml:115
+#: qml/PluginSettings.qml:116
 #, kde-format
 msgid "Configure plugin"
 msgstr "Konfigurēt spraudni"

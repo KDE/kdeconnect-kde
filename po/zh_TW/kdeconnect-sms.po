@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-15 00:42+0000\n"
+"POT-Creation-Date: 2025-03-02 00:40+0000\n"
 "PO-Revision-Date: 2024-11-28 16:39+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -125,16 +125,6 @@ msgstr "訊息"
 msgid "Open with default"
 msgstr "以預設程式開啟"
 
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "複製訊息"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "複製選擇的部份"
-
 #: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
@@ -161,7 +151,7 @@ msgid ""
 msgstr ""
 "提示：如果您插入裝置，它應該就不會進入省電 (doze) 模式而應該就會比較快載入。"
 
-#: qml/ConversationList.qml:64 qml/Main.qml:93
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "重新整理"
@@ -176,30 +166,36 @@ msgstr "選擇收件者"
 msgid "Cancel"
 msgstr "取消"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "搜尋或開始新對話"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "開始新對話"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "無相符的簡訊"
 
-#: qml/Main.qml:88
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "裝置"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
+msgstr "關於"
+
+#: qml/Main.qml:115
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
 msgstr "關於"
 
 #: qml/MessageAttachments.qml:114
@@ -218,9 +214,38 @@ msgid "Max message size limit exceeded."
 msgstr "已達簡訊最大字數"
 
 #: qml/SendingArea.qml:63
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgid "Send a message…"
+msgstr "傳送訊息"
+
+#: qml/SendingArea.qml:119
 #, kde-format
-msgid "Compose message"
-msgstr "撰寫訊息"
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "傳送訊息"
+
+#~ msgid "Copy Message"
+#~ msgstr "複製訊息"
+
+#~ msgid "Copy Selection"
+#~ msgstr "複製選擇的部份"
+
+#~ msgid "Compose message"
+#~ msgstr "撰寫訊息"
 
 #~ msgid "New"
 #~ msgstr "新增"

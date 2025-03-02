@@ -1,13 +1,14 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Translation of kdeconnect-core.po to Spanish
+# Copyright (C) 2014-2025 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Victor Rodrigo Cordoba <vrcordoba@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2023.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-24 00:41+0000\n"
-"PO-Revision-Date: 2023-08-12 17:27+0200\n"
+"PO-Revision-Date: 2025-03-01 17:18+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -40,7 +41,7 @@ msgstr "Archivo"
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
-msgstr ""
+msgstr "Los relojes de los dispositivos no están sincronizados"
 
 #: backends/pairinghandler.cpp:80
 #, kde-format
@@ -106,7 +107,7 @@ msgstr ""
 #: device.cpp:469
 #, kde-format
 msgid "Protocol version: %1\n"
-msgstr ""
+msgstr "Versión del protocolo: %1\n"
 
 #: filetransferjob.cpp:53
 #, kde-format
@@ -142,6 +143,3 @@ msgstr "No se pudo generar el certificado del dispositivo."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "No se pudo almacenar archivo del certificado: %1"
-
-#~ msgid "Received incomplete file: %1"
-#~ msgstr "Recibido archivo incompleto: %1"

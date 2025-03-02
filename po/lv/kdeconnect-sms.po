@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-15 00:42+0000\n"
+"POT-Creation-Date: 2025-03-02 00:40+0000\n"
 "PO-Revision-Date: 2024-10-24 16:45+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -118,16 +118,6 @@ msgstr "ziņojums"
 msgid "Open with default"
 msgstr "Atvērt pēc noklusējuma"
 
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Kopēt ziņojumu"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Kopēt atlasi"
-
 #: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
@@ -159,7 +149,7 @@ msgstr ""
 "Padoms: Ja iespraužat savu ierīci, tai nevajadzētu ieiet miega režīmā un "
 "vajadzētu ātri ielādēties."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:93
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Atsvaidzināt"
@@ -174,30 +164,36 @@ msgstr "Izvēlēties saņēmēju"
 msgid "Cancel"
 msgstr "Atcelt"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Meklēt vai uzsākt sarunu"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Sākt jaunu sarunu"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Nav sakritību"
 
-#: qml/Main.qml:88
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "Ierīces"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
+msgstr "Par"
+
+#: qml/Main.qml:115
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
 msgstr "Par"
 
 #: qml/MessageAttachments.qml:114
@@ -216,9 +212,38 @@ msgid "Max message size limit exceeded."
 msgstr "Ir pārsniegts maksimālais ziņas izmērs."
 
 #: qml/SendingArea.qml:63
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgid "Send a message…"
+msgstr "Nosūtīt ziņojumu"
+
+#: qml/SendingArea.qml:119
 #, kde-format
-msgid "Compose message"
-msgstr "Rakstīt ziņu"
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Nosūtīt ziņojumu"
+
+#~ msgid "Copy Message"
+#~ msgstr "Kopēt ziņojumu"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Kopēt atlasi"
+
+#~ msgid "Compose message"
+#~ msgstr "Rakstīt ziņu"
 
 #~ msgid "New"
 #~ msgstr "Jauna"

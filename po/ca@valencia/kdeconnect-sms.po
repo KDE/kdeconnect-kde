@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-15 00:42+0000\n"
+"POT-Creation-Date: 2025-03-02 00:40+0000\n"
 "PO-Revision-Date: 2024-03-24 09:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -121,16 +121,6 @@ msgstr "missatge"
 msgid "Open with default"
 msgstr "Obri amb la predeterminada"
 
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Copia el missatge"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Copia la selecció"
-
 #: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
@@ -162,7 +152,7 @@ msgstr ""
 "Consell: Si connecteu el dispositiu, no hauria d'entrar en mode migdiada i "
 "hauria de carregar ràpidament."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:93
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Actualitza"
@@ -177,30 +167,36 @@ msgstr "Seleccioneu el destinatari"
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Busca o inicia una conversa"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Inicia una conversa nova"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "No s'ha trobat cap coincidència"
 
-#: qml/Main.qml:88
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "Dispositius"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
+msgstr "Quant a"
+
+#: qml/Main.qml:115
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
 msgstr "Quant a"
 
 #: qml/MessageAttachments.qml:114
@@ -219,6 +215,35 @@ msgid "Max message size limit exceeded."
 msgstr "S'ha superat el límit màxim de la mida del missatge."
 
 #: qml/SendingArea.qml:63
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgid "Send a message…"
+msgstr "Envia un missatge"
+
+#: qml/SendingArea.qml:119
 #, kde-format
-msgid "Compose message"
-msgstr "Redacta un missatge"
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Envia un missatge"
+
+#~ msgid "Copy Message"
+#~ msgstr "Copia el missatge"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Copia la selecció"
+
+#~ msgid "Compose message"
+#~ msgstr "Redacta un missatge"

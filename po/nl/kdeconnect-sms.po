@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-15 00:42+0000\n"
+"POT-Creation-Date: 2025-03-02 00:40+0000\n"
 "PO-Revision-Date: 2024-03-24 09:18+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -117,16 +117,6 @@ msgstr "bericht"
 msgid "Open with default"
 msgstr "Met standaard openen"
 
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Bericht kopiëren"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Selectie kopiëren"
-
 #: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
@@ -158,7 +148,7 @@ msgstr ""
 "Tip: als u uw apparaat inplugt, zou het niet in modus slapen moeten gaan en "
 "zou snel moeten laden."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:93
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Vernieuwen"
@@ -173,30 +163,36 @@ msgstr "Ontvanger kiezen"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Zoeken of een conversatie beginnen"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Nieuwe conversatie beginnen"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Geen overeenkomsten"
 
-#: qml/Main.qml:88
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "Apparaten"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
+msgstr "Info over"
+
+#: qml/Main.qml:115
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
 msgstr "Info over"
 
 #: qml/MessageAttachments.qml:114
@@ -215,9 +211,38 @@ msgid "Max message size limit exceeded."
 msgstr "Limiet voor maximale grootte van bericht overschreden."
 
 #: qml/SendingArea.qml:63
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgid "Send a message…"
+msgstr "Een bericht verzenden"
+
+#: qml/SendingArea.qml:119
 #, kde-format
-msgid "Compose message"
-msgstr "Bericht opstellen"
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Een bericht verzenden"
+
+#~ msgid "Copy Message"
+#~ msgstr "Bericht kopiëren"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Selectie kopiëren"
+
+#~ msgid "Compose message"
+#~ msgstr "Bericht opstellen"
 
 #~ msgid "New"
 #~ msgstr "Nieuw"

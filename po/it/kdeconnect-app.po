@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-27 00:40+0000\n"
-"PO-Revision-Date: 2025-02-24 17:38+0100\n"
+"POT-Creation-Date: 2025-03-02 00:40+0000\n"
+"PO-Revision-Date: 2025-02-28 18:13+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -183,11 +183,10 @@ msgid "Refresh"
 msgstr "Aggiorna"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Dispositivi"
+msgstr "Aggiorna dispositivi"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -230,19 +229,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Clic sinistro"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Clic centrale"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Clic destro"
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -259,7 +258,7 @@ msgstr "Nessun lettore disponibile"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:115
+#: qml/PluginSettings.qml:116
 #, kde-format
 msgid "Configure plugin"
 msgstr "Configura l'estensione"

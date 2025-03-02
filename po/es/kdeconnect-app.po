@@ -1,16 +1,15 @@
 # Spanish translations for kdeconnect-app.po package.
-# Copyright (C) 2020 This file is copyright:
+# Copyright (C) 2020-2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # SPDX-FileCopyrightText: 2020 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
-# Automatically generated, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-27 00:40+0000\n"
-"PO-Revision-Date: 2025-01-18 19:28+0100\n"
+"POT-Creation-Date: 2025-03-02 00:40+0000\n"
+"PO-Revision-Date: 2025-03-01 17:17+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -135,14 +134,9 @@ msgid "Share File"
 msgstr "Compartir archivo"
 
 #: qml/DevicePage.qml:167
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"Este dispositivo no está vinculado.\n"
-"Clave: %1"
+msgstr "Este dispositivo no está vinculado."
 
 #: qml/DevicePage.qml:171
 #, kde-format
@@ -191,11 +185,10 @@ msgid "Refresh"
 msgstr "Refrescar"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Dispositivos"
+msgstr "Refrescar dispositivos"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -238,19 +231,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Clic izquierdo"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Clic medio"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Clic derecho"
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -267,7 +260,7 @@ msgstr "No hay reproductores disponibles"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:115
+#: qml/PluginSettings.qml:116
 #, kde-format
 msgid "Configure plugin"
 msgstr "Configurar complemento"

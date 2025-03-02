@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-15 00:42+0000\n"
+"POT-Creation-Date: 2025-03-02 00:40+0000\n"
 "PO-Revision-Date: 2024-03-24 10:41+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -120,16 +120,6 @@ msgstr "mezua"
 msgid "Open with default"
 msgstr "Ireki lehenetsitakoarekin"
 
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Kopiatu mezua"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Kopiatu hautapena"
-
 #: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
@@ -160,7 +150,7 @@ msgstr ""
 "Argibidea: Zure gailua entxufatzen baduzu, ez litzateke lo arin moduan sartu "
 "behar eta azkar zamatu beharko luke."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:93
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Freskatu"
@@ -175,30 +165,36 @@ msgstr "Aukeratu hartzailea"
 msgid "Cancel"
 msgstr "Utzi"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Bilatu edo abiatu elkarrizketa bat"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Abiatu elkarrizketa berria"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Ez dago bat datorrenik"
 
-#: qml/Main.qml:88
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "Gailuak"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
+msgstr "Honi buruz"
+
+#: qml/Main.qml:115
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
 msgstr "Honi buruz"
 
 #: qml/MessageAttachments.qml:114
@@ -217,9 +213,38 @@ msgid "Max message size limit exceeded."
 msgstr "Mezuen gehienezko neurria gainditu da."
 
 #: qml/SendingArea.qml:63
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgid "Send a message…"
+msgstr "Bidali mezu bat"
+
+#: qml/SendingArea.qml:119
 #, kde-format
-msgid "Compose message"
-msgstr "Idatzi mezua"
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Bidali mezu bat"
+
+#~ msgid "Copy Message"
+#~ msgstr "Kopiatu mezua"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Kopiatu hautapena"
+
+#~ msgid "Compose message"
+#~ msgstr "Idatzi mezua"
 
 #~ msgid "New"
 #~ msgstr "Berria"

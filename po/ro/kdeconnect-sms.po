@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-15 00:42+0000\n"
+"POT-Creation-Date: 2025-03-02 00:40+0000\n"
 "PO-Revision-Date: 2024-06-09 11:32+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -118,16 +118,6 @@ msgstr "mesaj"
 msgid "Open with default"
 msgstr "Deschide cu implicit"
 
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Copiază mesaj"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Copiază selecția"
-
 #: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
@@ -159,7 +149,7 @@ msgstr ""
 "Sfat: Dacă conectați dispozitivul la încărcător, acesta nu ar trebui să "
 "intre în regim de ațipire și ar conversațiile trebui să se încarce rapid."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:93
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Reîmprospătează"
@@ -174,30 +164,36 @@ msgstr "Alege destinatarul"
 msgid "Cancel"
 msgstr "Renunță"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Caută sau începe conversație"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Începe conversație nouă"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Nicio potrivire"
 
-#: qml/Main.qml:88
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "Dispozitive"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
+msgstr "Despre"
+
+#: qml/Main.qml:115
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
 msgstr "Despre"
 
 #: qml/MessageAttachments.qml:114
@@ -216,9 +212,38 @@ msgid "Max message size limit exceeded."
 msgstr "Limita maximă de dimensiune a mesajului a fost depășită."
 
 #: qml/SendingArea.qml:63
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgid "Send a message…"
+msgstr "Trimite mesaj"
+
+#: qml/SendingArea.qml:119
 #, kde-format
-msgid "Compose message"
-msgstr "Compune mesaj"
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Trimite mesaj"
+
+#~ msgid "Copy Message"
+#~ msgstr "Copiază mesaj"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Copiază selecția"
+
+#~ msgid "Compose message"
+#~ msgstr "Compune mesaj"
 
 #~ msgid "New"
 #~ msgstr "Nouă"

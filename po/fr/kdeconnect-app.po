@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-27 00:40+0000\n"
-"PO-Revision-Date: 2025-02-25 09:03+0100\n"
+"POT-Creation-Date: 2025-03-02 00:40+0000\n"
+"PO-Revision-Date: 2025-02-28 11:12+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -182,11 +182,10 @@ msgid "Refresh"
 msgstr "Rafraîchir"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Périphériques"
+msgstr "Rafraîchir la liste des périphériques"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -229,19 +228,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Faire un clic gauche"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Faire un clic central"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Faire un clic droit"
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -258,7 +257,7 @@ msgstr "Aucun lecteur disponible"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:115
+#: qml/PluginSettings.qml:116
 #, kde-format
 msgid "Configure plugin"
 msgstr "Configurer un module externe"

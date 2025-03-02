@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-15 00:42+0000\n"
+"POT-Creation-Date: 2025-03-02 00:40+0000\n"
 "PO-Revision-Date: 2024-04-24 01:14+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
@@ -119,16 +119,6 @@ msgstr "žinutė"
 msgid "Open with default"
 msgstr "Atverti naudojant numatytąją"
 
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Kopijuoti žinutę"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Kopijuoti žymėjimą"
-
 #: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
@@ -160,7 +150,7 @@ msgstr ""
 "Patarimas: Jei prijungsite savo įrenginį, jis neturėtų pereiti į užsnūdimo "
 "veikseną ir turėtų būti greičiau įkeltas."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:93
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Įkelti iš naujo"
@@ -175,30 +165,36 @@ msgstr "Pasirinkite gavėją"
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Ieškoti ar pradėti pokalbį"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Pradėti naują pokalbį"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Nėra atitikmenų"
 
-#: qml/Main.qml:88
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "Įrenginiai"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
+msgstr "Apie"
+
+#: qml/Main.qml:115
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
 msgstr "Apie"
 
 #: qml/MessageAttachments.qml:114
@@ -217,9 +213,38 @@ msgid "Max message size limit exceeded."
 msgstr "Viršytas didžiausias žinutės dydis."
 
 #: qml/SendingArea.qml:63
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgid "Send a message…"
+msgstr "Siųsti žinutę"
+
+#: qml/SendingArea.qml:119
 #, kde-format
-msgid "Compose message"
-msgstr "Rašyti žinutę"
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Siųsti žinutę"
+
+#~ msgid "Copy Message"
+#~ msgstr "Kopijuoti žinutę"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Kopijuoti žymėjimą"
+
+#~ msgid "Compose message"
+#~ msgstr "Rašyti žinutę"
 
 #~ msgid "New"
 #~ msgstr "Naujas"
