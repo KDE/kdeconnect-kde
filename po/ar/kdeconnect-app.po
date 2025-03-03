@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-02 00:40+0000\n"
-"PO-Revision-Date: 2025-01-20 18:47+0400\n"
+"PO-Revision-Date: 2025-03-02 10:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -134,14 +134,9 @@ msgid "Share File"
 msgstr "شارك ملف"
 
 #: qml/DevicePage.qml:167
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"الجهاز غير مقترن\n"
-"المفتاح: %1"
+msgstr "هذا الجهاز غير مقترن"
 
 #: qml/DevicePage.qml:171
 #, kde-format
@@ -190,11 +185,10 @@ msgid "Refresh"
 msgstr "أنعش"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "الأجهزة"
+msgstr "أنعش الأجهزة"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -235,19 +229,19 @@ msgstr "اضغط %1 أو زري الأيمن والأيسر للفأرة في ن
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "النّقر باليسار"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "النقرة الوسطى"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "النّقر باليمين"
 
 #: qml/mpris.qml:20
 #, kde-format

@@ -235,12 +235,3 @@ msgstr ""
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Send ei melding"
-
-#~ msgid "Copy Message"
-#~ msgstr "Kopier melding"
-
-#~ msgid "Copy Selection"
-#~ msgstr "Kopier utval"
-
-#~ msgid "Compose message"
-#~ msgstr "Skriv melding"
