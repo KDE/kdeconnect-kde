@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-02 00:40+0000\n"
+"POT-Creation-Date: 2025-03-04 00:40+0000\n"
 "PO-Revision-Date: 2022-11-16 16:11+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -70,83 +70,83 @@ msgstr "Inviar un ping"
 msgid "Plugin Settings"
 msgstr "Parametres del plugin"
 
-#: qml/DevicePage.qml:60
+#: qml/DevicePage.qml:62
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
 msgstr ""
 
-#: qml/DevicePage.qml:62
+#: qml/DevicePage.qml:64
 #, fuzzy, kde-format
 #| msgid "Remote Control"
 msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "Telecomande"
 
-#: qml/DevicePage.qml:92
+#: qml/DevicePage.qml:94
 #, kde-format
 msgid "Multimedia control"
 msgstr "Control de multimedia"
 
-#: qml/DevicePage.qml:100
+#: qml/DevicePage.qml:102
 #, fuzzy, kde-format
 msgid "Remote input"
 msgstr "Intrada:"
 
-#: qml/DevicePage.qml:108 qml/runcommand.qml:16
+#: qml/DevicePage.qml:110 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Lansar un comande"
 
-#: qml/DevicePage.qml:116 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:118 qml/presentationRemote.qml:15
 #, fuzzy, kde-format
 msgid "Presentation Remote"
 msgstr "Presentation"
 
-#: qml/DevicePage.qml:124 qml/volume.qml:16
+#: qml/DevicePage.qml:126 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Regulator del volúmine"
 
-#: qml/DevicePage.qml:134 qml/mousepad.qml:44
+#: qml/DevicePage.qml:136 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Serrar"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:136
 #, kde-format
 msgid "Unlock"
 msgstr "Desserrar"
 
-#: qml/DevicePage.qml:142
+#: qml/DevicePage.qml:144
 #, kde-format
 msgid "Find Device"
 msgstr "Trovar li aparate"
 
-#: qml/DevicePage.qml:150
+#: qml/DevicePage.qml:152
 #, kde-format
 msgid "Send Clipboard"
 msgstr ""
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:159
 #, kde-format
 msgid "Share File"
 msgstr "Partir un file"
 
-#: qml/DevicePage.qml:167
+#: qml/DevicePage.qml:169
 #, fuzzy, kde-format
 #| msgid "This device is not paired"
 msgid "This device is not paired."
 msgstr "Ti aparate ne es acuplat"
 
-#: qml/DevicePage.qml:171
+#: qml/DevicePage.qml:173
 #, fuzzy, kde-format
 #| msgid "Pair"
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Acuplar"
 
-#: qml/DevicePage.qml:178 qml/DevicePage.qml:187
+#: qml/DevicePage.qml:180 qml/DevicePage.qml:189
 #, fuzzy, kde-format
 #| msgid "Pair requested"
 msgid ""
@@ -154,22 +154,22 @@ msgid ""
 "Key: "
 msgstr "Acuplation demandat"
 
-#: qml/DevicePage.qml:193
+#: qml/DevicePage.qml:195
 #, kde-format
 msgid "Accept"
 msgstr "Acceptar"
 
-#: qml/DevicePage.qml:199
+#: qml/DevicePage.qml:201
 #, kde-format
 msgid "Reject"
 msgstr "Rejecter"
 
-#: qml/DevicePage.qml:210
+#: qml/DevicePage.qml:212
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Ti aparate es ínatingibil"
 
-#: qml/DevicePage.qml:218
+#: qml/DevicePage.qml:220
 #, kde-format
 msgid "Please choose a file"
 msgstr "Ples selecter un file"

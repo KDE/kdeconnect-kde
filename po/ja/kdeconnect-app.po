@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-02 00:40+0000\n"
+"POT-Creation-Date: 2025-03-04 00:40+0000\n"
 "PO-Revision-Date: 2024-01-30 19:23+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -69,82 +69,82 @@ msgstr "Ping を送信"
 msgid "Plugin Settings"
 msgstr "プラグイン設定"
 
-#: qml/DevicePage.qml:60
+#: qml/DevicePage.qml:62
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
 msgstr ""
 
-#: qml/DevicePage.qml:62
+#: qml/DevicePage.qml:64
 #, fuzzy, kde-format
 #| msgid "Remote Control"
 msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "リモートコントロール"
 
-#: qml/DevicePage.qml:92
+#: qml/DevicePage.qml:94
 #, kde-format
 msgid "Multimedia control"
 msgstr "マルチメディアコントロール"
 
-#: qml/DevicePage.qml:100
+#: qml/DevicePage.qml:102
 #, kde-format
 msgid "Remote input"
 msgstr "リモート入力"
 
-#: qml/DevicePage.qml:108 qml/runcommand.qml:16
+#: qml/DevicePage.qml:110 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "コマンド実行"
 
-#: qml/DevicePage.qml:116 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:118 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "プレゼンテーション"
 
-#: qml/DevicePage.qml:124 qml/volume.qml:16
+#: qml/DevicePage.qml:126 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "ボリューム操作"
 
-#: qml/DevicePage.qml:134 qml/mousepad.qml:44
+#: qml/DevicePage.qml:136 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "ロック"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:136
 #, kde-format
 msgid "Unlock"
 msgstr "ロック解除"
 
-#: qml/DevicePage.qml:142
+#: qml/DevicePage.qml:144
 #, kde-format
 msgid "Find Device"
 msgstr "デバイスを探す"
 
-#: qml/DevicePage.qml:150
+#: qml/DevicePage.qml:152
 #, kde-format
 msgid "Send Clipboard"
 msgstr "クリップボードを送信"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:159
 #, kde-format
 msgid "Share File"
 msgstr "ファイル共有 "
 
-#: qml/DevicePage.qml:167
+#: qml/DevicePage.qml:169
 #, fuzzy, kde-format
 #| msgid "This device is not paired"
 msgid "This device is not paired."
 msgstr "このデバイスはペアリングされていません"
 
-#: qml/DevicePage.qml:171
+#: qml/DevicePage.qml:173
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "ペア"
 
-#: qml/DevicePage.qml:178 qml/DevicePage.qml:187
+#: qml/DevicePage.qml:180 qml/DevicePage.qml:189
 #, fuzzy, kde-format
 #| msgid "Pair requested"
 msgid ""
@@ -152,22 +152,22 @@ msgid ""
 "Key: "
 msgstr "ペアリング要求"
 
-#: qml/DevicePage.qml:193
+#: qml/DevicePage.qml:195
 #, kde-format
 msgid "Accept"
 msgstr "承諾"
 
-#: qml/DevicePage.qml:199
+#: qml/DevicePage.qml:201
 #, kde-format
 msgid "Reject"
 msgstr "拒否"
 
-#: qml/DevicePage.qml:210
+#: qml/DevicePage.qml:212
 #, kde-format
 msgid "This device is not reachable"
 msgstr "このデバイスに到達できません"
 
-#: qml/DevicePage.qml:218
+#: qml/DevicePage.qml:220
 #, kde-format
 msgid "Please choose a file"
 msgstr "ファイルを選択してください"

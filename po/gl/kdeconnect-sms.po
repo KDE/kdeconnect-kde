@@ -1,21 +1,21 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2024, 2025 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-02 00:40+0000\n"
-"PO-Revision-Date: 2024-03-29 10:43+0100\n"
-"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"PO-Revision-Date: 2025-03-03 07:02+0100\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -190,10 +190,9 @@ msgid "About"
 msgstr "Sobre"
 
 #: qml/Main.qml:115
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Sobre"
+msgstr "Sobre KDE"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -211,29 +210,27 @@ msgid "Max message size limit exceeded."
 msgstr "Superouse o tamaño máximo para mensaxes."
 
 #: qml/SendingArea.qml:63
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgid "Send a message…"
-msgstr "Enviar unha mensaxe"
+msgstr "Enviar unha mensaxe…"
 
 #: qml/SendingArea.qml:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
-msgstr ""
+msgstr "Anexar unha imaxe ou ficheiro."
 
 #: qml/SendingArea.qml:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
-msgstr ""
+msgstr "Retirar os anexos."
 
 #: qml/SendingArea.qml:173
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
-msgstr "Enviar unha mensaxe"
+msgstr "Enviar unha mensaxe."
 
 #~ msgid "Copy Message"
 #~ msgstr "Copiar a mensaxe"

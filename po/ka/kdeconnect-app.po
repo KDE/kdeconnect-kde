@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-02 00:40+0000\n"
+"POT-Creation-Date: 2025-03-04 00:40+0000\n"
 "PO-Revision-Date: 2025-02-27 08:44+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -70,80 +70,80 @@ msgstr "პინგის გაგზავნა"
 msgid "Plugin Settings"
 msgstr "მოდულის პარამეტრები"
 
-#: qml/DevicePage.qml:60
+#: qml/DevicePage.qml:62
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
 msgstr "ქმედებები"
 
-#: qml/DevicePage.qml:62
+#: qml/DevicePage.qml:64
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "მართვის ელემენტები"
 
-#: qml/DevicePage.qml:92
+#: qml/DevicePage.qml:94
 #, kde-format
 msgid "Multimedia control"
 msgstr "მულტიმედიის კონტროლი"
 
-#: qml/DevicePage.qml:100
+#: qml/DevicePage.qml:102
 #, kde-format
 msgid "Remote input"
 msgstr "დაშორებული შეყვანა"
 
-#: qml/DevicePage.qml:108 qml/runcommand.qml:16
+#: qml/DevicePage.qml:110 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "ბრძანების გაშვება"
 
-#: qml/DevicePage.qml:116 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:118 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "დაშორებული პრეზენტაცია"
 
-#: qml/DevicePage.qml:124 qml/volume.qml:16
+#: qml/DevicePage.qml:126 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "ხმის კონტროლი"
 
-#: qml/DevicePage.qml:134 qml/mousepad.qml:44
+#: qml/DevicePage.qml:136 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "ჩაკეტვა"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:136
 #, kde-format
 msgid "Unlock"
 msgstr "განბლოკვა"
 
-#: qml/DevicePage.qml:142
+#: qml/DevicePage.qml:144
 #, kde-format
 msgid "Find Device"
 msgstr "მოწყობილობის მოძებნა"
 
-#: qml/DevicePage.qml:150
+#: qml/DevicePage.qml:152
 #, kde-format
 msgid "Send Clipboard"
 msgstr "ბუფერის გაგზავნა"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:159
 #, kde-format
 msgid "Share File"
 msgstr "ფაილის გაზიარება"
 
-#: qml/DevicePage.qml:167
+#: qml/DevicePage.qml:169
 #, kde-format
 msgid "This device is not paired."
 msgstr "ეს მოწყობილობა დაწყვილებული არაა."
 
-#: qml/DevicePage.qml:171
+#: qml/DevicePage.qml:173
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "დაწყვილება"
 
-#: qml/DevicePage.qml:178 qml/DevicePage.qml:187
+#: qml/DevicePage.qml:180 qml/DevicePage.qml:189
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -152,22 +152,22 @@ msgstr ""
 "დაწყვილების მოთხოვნა\n"
 "გასაღები: "
 
-#: qml/DevicePage.qml:193
+#: qml/DevicePage.qml:195
 #, kde-format
 msgid "Accept"
 msgstr "დასტური"
 
-#: qml/DevicePage.qml:199
+#: qml/DevicePage.qml:201
 #, kde-format
 msgid "Reject"
 msgstr "უარყოფა"
 
-#: qml/DevicePage.qml:210
+#: qml/DevicePage.qml:212
 #, kde-format
 msgid "This device is not reachable"
 msgstr "ეს მოწყობილობა მიუწვდომელია"
 
-#: qml/DevicePage.qml:218
+#: qml/DevicePage.qml:220
 #, kde-format
 msgid "Please choose a file"
 msgstr "გთხოვთ, აირჩიოთ ფაილი"
