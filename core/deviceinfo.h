@@ -161,7 +161,7 @@ struct DeviceInfo {
 
     static bool isValidDeviceId(const QString &deviceId)
     {
-        static const QRegularExpression DEVICE_ID_REGEX(QStringLiteral("^[a-zA-Z0-9_]{32,38}$"));
+        static const QRegularExpression DEVICE_ID_REGEX(QStringLiteral("^[a-zA-Z0-9_-]{32,38}$"));
         return DEVICE_ID_REGEX.match(deviceId).hasMatch();
     }
 };
