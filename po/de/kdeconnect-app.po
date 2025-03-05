@@ -3,21 +3,22 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2022, 2023.
 # SPDX-FileCopyrightText: 2023, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2025 Flori G <Renner03@protonmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-04 00:40+0000\n"
-"PO-Revision-Date: 2024-08-26 18:28+0200\n"
-"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
+"PO-Revision-Date: 2025-02-17 16:26+0100\n"
+"Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -43,7 +44,7 @@ msgstr "Betreuer"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Deutsches KDE-Übersetzerteam"
+msgstr "Deutsches KDE-Übersetzungsteam"
 
 #: main.cpp:37
 #, kde-format
@@ -75,7 +76,7 @@ msgstr "Modul-Einstellungen"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "Aktionen"
 
 #: qml/DevicePage.qml:64
 #, fuzzy, kde-format
@@ -190,7 +191,7 @@ msgstr "Geräte"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Aktualisieren"
 
 #: qml/Main.qml:76
 #, fuzzy, kde-format
@@ -234,7 +235,7 @@ msgstr "Fernsteuerung"
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
-"Zum Entsperren von %1 die linke und rechte Maustaste gleichzeitig drücken"
+"Zum Entsperren %1 oder die linke und rechte Maustaste gleichzeitig drücken"
 
 #: qml/mousepad.qml:211
 #, kde-format
@@ -309,25 +310,25 @@ msgstr "Gerätename"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "Backends"
 
 #: qml/Settings.qml:54
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: qml/Settings.qml:56
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Loopback"
 
 #: qml/Settings.qml:58
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Netzwerk"
 
 #: qml/Settings.qml:73
 #, kde-format
@@ -343,13 +344,15 @@ msgstr "Über KDE"
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "Kein Gerät ausgewählt"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
 msgstr ""
+"Stellen Sie sicher, dass KDE Connect auf Ihren anderen Geräten installiert "
+"ist."
 
 #: qml/WelcomePage.qml:42
 #, fuzzy, kde-format
@@ -362,13 +365,13 @@ msgstr "KDE Connect"
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "F-Droid"
 
 #: qml/WelcomePage.qml:56
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "Play Store"
 
 #: qml/WelcomePage.qml:62
 #, fuzzy, kde-format
@@ -380,7 +383,7 @@ msgstr "KDE Connect"
 #: qml/WelcomePage.qml:67
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "Apple Store"
 
 #: qml/WelcomePage.qml:73
 #, kde-format
@@ -389,6 +392,9 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+"Bei Problemen besuchen Sie das <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline;\">Community Wiki von KDE "
+"Connect</span></a> für Hilfestellungen."
 
 #~ msgid "Find devices..."
 #~ msgstr "Geräte suchen ..."

@@ -1,16 +1,16 @@
 # Translation of kdeconnect-sms.po to Catalan (Valencian)
-# Copyright (C) 2014-2024 This_file_is_part_of_KDE
+# Copyright (C) 2014-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2021.
-# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2017, 2019, 2020, 2021, 2022, 2024.
+# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2017, 2019, 2020, 2021, 2022, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-02 00:40+0000\n"
-"PO-Revision-Date: 2024-03-24 09:29+0100\n"
+"PO-Revision-Date: 2025-03-02 09:59+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -194,10 +194,9 @@ msgid "About"
 msgstr "Quant a"
 
 #: qml/Main.qml:115
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Quant a"
+msgstr "Quant a KDE"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -215,35 +214,24 @@ msgid "Max message size limit exceeded."
 msgstr "S'ha superat el límit màxim de la mida del missatge."
 
 #: qml/SendingArea.qml:63
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgid "Send a message…"
-msgstr "Envia un missatge"
+msgstr "Envia un missatge…"
 
 #: qml/SendingArea.qml:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
-msgstr ""
+msgstr "Adjunta una imatge o un fitxer"
 
 #: qml/SendingArea.qml:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
-msgstr ""
+msgstr "Neteja els adjunts"
 
 #: qml/SendingArea.qml:173
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Envia un missatge"
-
-#~ msgid "Copy Message"
-#~ msgstr "Copia el missatge"
-
-#~ msgid "Copy Selection"
-#~ msgstr "Copia la selecció"
-
-#~ msgid "Compose message"
-#~ msgstr "Redacta un missatge"
