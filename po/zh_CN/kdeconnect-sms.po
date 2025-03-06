@@ -187,10 +187,9 @@ msgid "About"
 msgstr "关于"
 
 #: qml/Main.qml:115
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "关于"
+msgstr "关于 KDE"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -208,35 +207,24 @@ msgid "Max message size limit exceeded."
 msgstr "超过消息大小上限。"
 
 #: qml/SendingArea.qml:63
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgid "Send a message…"
-msgstr "发送消息"
+msgstr "发送消息…"
 
 #: qml/SendingArea.qml:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
-msgstr ""
+msgstr "附加图像或文件"
 
 #: qml/SendingArea.qml:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
-msgstr ""
+msgstr "清除附件"
 
 #: qml/SendingArea.qml:173
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "发送消息"
-
-#~ msgid "Copy Message"
-#~ msgstr "复制消息"
-
-#~ msgid "Copy Selection"
-#~ msgstr "复制选中项"
-
-#~ msgid "Compose message"
-#~ msgstr "撰写消息"

@@ -40,7 +40,7 @@ msgstr "文件"
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
-msgstr ""
+msgstr "设备时钟不同步"
 
 #: backends/pairinghandler.cpp:80
 #, kde-format
@@ -104,7 +104,7 @@ msgstr "远程设备证书的 SHA256 指纹是：%1\n"
 #: device.cpp:469
 #, kde-format
 msgid "Protocol version: %1\n"
-msgstr ""
+msgstr "协议版本：%1\n"
 
 #: filetransferjob.cpp:53
 #, kde-format

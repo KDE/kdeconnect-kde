@@ -135,7 +135,7 @@ msgstr "共享文件"
 #: qml/DevicePage.qml:169
 #, kde-format
 msgid "This device is not paired."
-msgstr ""
+msgstr "此设备尚未配对。"
 
 #: qml/DevicePage.qml:173
 #, kde-format
@@ -184,11 +184,10 @@ msgid "Refresh"
 msgstr "刷新"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "设备"
+msgstr "刷新设备"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -229,19 +228,19 @@ msgstr "按下 %1 或者同时按下鼠标的左键和右键解锁"
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "左键点击"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "中键点击"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "右键点击"
 
 #: qml/mpris.qml:20
 #, kde-format
