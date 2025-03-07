@@ -305,9 +305,12 @@ void LanLinkProvider::udpBroadcastReceived()
 
         qint64 now = QDateTime::currentMSecsSinceEpoch();
         if (m_lastConnectionTime[deviceId] + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now) {
-            qCDebug(KDECONNECT_CORE) << "Discarding second UPD packet from the same device" << deviceId << "received too quickly";
-            delete receivedPacket;
-            return;
+            qint64 timeSinceLastAttempt = now - m_lastConnectionTime[deviceId];
+            qCDebug(KDECONNECT_CORE) << "Discarding second UDP packet from" << deviceId << "- received" << timeSinceLastAttempt
+                                     << "ms after previous attempt (limit:" << MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE << "ms)";
+            // Don't return here, just track it and continue with connection attempt
+            // delete receivedPacket;
+            // return;
         }
         m_lastConnectionTime[deviceId] = now;
 
@@ -602,7 +605,8 @@ bool LanLinkProvider::isProtocolDowngrade(const QString &deviceId, int protocolV
 
 void LanLinkProvider::onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr)
 {
-    qCDebug(KDECONNECT_CORE) << "LanLinkProvider deviceLinkDestroyed" << deviceId;
+    qCDebug(KDECONNECT_CORE) << "LanLinkProvider deviceLinkDestroyed" << deviceId
+                             << "- Time since last UDP packet:" << (QDateTime::currentMSecsSinceEpoch() - m_lastConnectionTime.value(deviceId)) << "ms";
     DeviceLink *link = m_links.take(deviceId);
     Q_ASSERT(link == oldPtr);
 }
