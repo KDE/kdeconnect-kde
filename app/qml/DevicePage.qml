@@ -9,6 +9,7 @@ import QtCore
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import QtQuick.Dialogs
+import QtQml.Models
 import org.kde.kirigami as Kirigami
 import org.kde.kdeconnect
 
@@ -50,11 +51,8 @@ Kirigami.ScrollablePage {
 
     ListView {
         id: pluginsListView
-        model: plugins
 
-        readonly property int numberVisibleSections: new Set(plugins.filter(plugin => plugin.loaded).map(plugin => plugin.section)).size
-
-        section.property: numberVisibleSections > 1 ? "section" : null
+        section.property: "section"
         section.delegate: Kirigami.ListSectionHeader {
             width: ListView.view.width
             text: switch (section) {
@@ -66,26 +64,42 @@ Kirigami.ScrollablePage {
         }
         Accessible.role: Accessible.List
 
-        delegate: QQC2.ItemDelegate {
-            id: pluginDelegate
-            text: Kirigami.MnemonicData.richTextLabel
-            Accessible.name: Kirigami.MnemonicData.plainTextLabel ?? modelData.name // fallback needed for KF < 6.12
-            icon.name: modelData.iconName
-            highlighted: false
-            height: visible ? pluginDelegate.implicitHeight : -pluginsListView.spacing
-            icon.color: "transparent"
-            width: ListView.view.width
-            onClicked: modelData.onClick()
-            enabled: loaded
-            visible: loaded
+        model: DelegateModel{
+            id: pluginModel
+            model: pluginsListView.plugins
+            groups: [
+                DelegateModelGroup {name: "loadedPlugins"}
+            ]
+            filterOnGroup: "loadedPlugins"
+            property int numberPluginsLoaded: pluginsListView.plugins.filter(plugin => plugin.loaded).length ?? 0
+            onNumberPluginsLoadedChanged: update()
 
-            Kirigami.MnemonicData.enabled: enabled && visible
-            Kirigami.MnemonicData.controlType: Kirigami.MnemonicData.MenuItem
-            Kirigami.MnemonicData.label: modelData.name
+            function update() {
+                for (let i = 0; i < items.count; ++i) {
+                    let item = items.get(i);
+                    item.inLoadedPlugins = item.model.loaded
+                }
+            }
 
-            Shortcut {
-                sequence: pluginDelegate.Kirigami.MnemonicData.sequence
-                onActivated: clicked()
+            delegate: QQC2.ItemDelegate {
+                id: pluginDelegate
+                text: Kirigami.MnemonicData.richTextLabel
+                Accessible.name: Kirigami.MnemonicData.plainTextLabel ?? modelData.name // fallback needed for KF < 6.12
+                icon.name: modelData.iconName
+                highlighted: false
+                icon.color: "transparent"
+                width: ListView.view.width
+                onClicked: modelData.onClick()
+                enabled: loaded
+
+                Kirigami.MnemonicData.enabled: enabled && visible
+                Kirigami.MnemonicData.controlType: Kirigami.MnemonicData.MenuItem
+                Kirigami.MnemonicData.label: modelData.name
+
+                Shortcut {
+                    sequence: pluginDelegate.Kirigami.MnemonicData.sequence
+                    onActivated: clicked()
+                }
             }
         }
 
