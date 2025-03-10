@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Kishore G <kishore96@gmail.com>, 2021.
+# SPDX-FileCopyrightText: 2021, 2025 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-02 00:40+0000\n"
-"PO-Revision-Date: 2021-04-21 19:38+0530\n"
+"PO-Revision-Date: 2025-03-09 17:05+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.03.90\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "கோ. கிஷோர்"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "Kde-l10n-ta@kde.org"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -95,7 +95,7 @@ msgstr ""
 #: main.cpp:77
 #, kde-format
 msgid "Select a device"
-msgstr ""
+msgstr "சாதனத்தை தேர்ந்தெடுக்கவும்"
 
 #: main.cpp:77
 #, kde-format
@@ -105,7 +105,7 @@ msgstr ""
 #: main.cpp:78
 #, kde-format
 msgid "Send a message"
-msgstr ""
+msgstr "செய்தி அனுப்பு"
 
 #: main.cpp:78
 #, kde-format
@@ -115,18 +115,20 @@ msgstr ""
 #: qml/AttachmentViewer.qml:21
 #, kde-format
 msgid "Open with default"
-msgstr ""
+msgstr "இயல்பிருப்பு செயலியில் திற"
 
 #: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
-msgstr ""
+msgstr "எந்த சாதனமும் இல்லை"
 
 #: qml/ConversationList.qml:32
 #, kde-format
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
 msgstr ""
+"புதிய செய்திகளை அனுப்பவோ பெறவோ முடியாது, ஆனால் தற்காலிக செமிப்பகத்திலுள்ளவற்றை "
+"பார்க்கலாம்"
 
 #: qml/ConversationList.qml:48
 #, kde-format
@@ -134,6 +136,8 @@ msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
 "your device and then click Refresh."
 msgstr ""
+"சாதனத்திலிருந்து உரையாடல்கள் ஏற்றப்படுகின்றன. இதற்கு அதிக நேரமானால், சாதனத்தை "
+"எழுப்பியபின் இதைப் புதுப்பிக்கவும்."
 
 #: qml/ConversationList.qml:56
 #, kde-format
@@ -141,87 +145,88 @@ msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
 "load quickly."
 msgstr ""
+"சாதனத்தை மின்னூற்றில் செருகினால், அது உறங்காமல் இருந்து இந்த பட்டியல் விரைவாக ஏற்றப்படும்."
 
 #: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "புதுப்பி"
 
 #: qml/ConversationList.qml:82
 #, kde-format
 msgid "Choose recipient"
-msgstr ""
+msgstr "பெறுநரைத் தேர்ந்தெடுப்பது"
 
 #: qml/ConversationList.qml:87
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "ரத்து செய்"
 
 #: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
-msgstr ""
+msgstr "தேடு அல்லது உரையாடலை துவக்கு"
 
 #: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
-msgstr ""
+msgstr "புதிய உரையாடலை துவக்கு"
 
 #: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
-msgstr ""
+msgstr "எதுவும் பொருந்தவில்லை"
 
 #: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
-msgstr ""
+msgstr "சாதனங்கள்"
 
 #: qml/Main.qml:106
 #, kde-format
 msgid "About"
-msgstr ""
+msgstr "பற்றி"
 
 #: qml/Main.qml:115
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "கே.டீ.யீ. பற்றி"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
 msgid "Audio clip"
-msgstr ""
+msgstr "ஒலிப்பதிவு"
 
 #: qml/SendingArea.qml:24
 #, kde-format
 msgid "Failed to send"
-msgstr ""
+msgstr "அனுப்புவது தோல்வியடைந்தது"
 
 #: qml/SendingArea.qml:25
 #, kde-format
 msgid "Max message size limit exceeded."
-msgstr ""
+msgstr "செய்தி அதற்கான அதிகபட்ச அளவை மீறியது."
 
 #: qml/SendingArea.qml:63
 #, kde-format
 msgid "Send a message…"
-msgstr ""
+msgstr "செய்தியை அனுப்பு…"
 
 #: qml/SendingArea.qml:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
-msgstr ""
+msgstr "படத்தை அல்லது கோப்பை இணை"
 
 #: qml/SendingArea.qml:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
-msgstr ""
+msgstr "உடனிணைப்புகளை நீக்கு"
 
 #: qml/SendingArea.qml:173
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
-msgstr ""
+msgstr "செய்தியை அனுப்பு"

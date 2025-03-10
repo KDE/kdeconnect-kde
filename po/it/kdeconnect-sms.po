@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2024 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2024, 2025 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-02 00:40+0000\n"
-"PO-Revision-Date: 2024-03-25 09:33+0100\n"
+"PO-Revision-Date: 2025-03-03 00:19+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -190,10 +190,9 @@ msgid "About"
 msgstr "Informazioni"
 
 #: qml/Main.qml:115
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Informazioni"
+msgstr "Informazioni su KDE"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -211,29 +210,27 @@ msgid "Max message size limit exceeded."
 msgstr "La dimensione massima del messaggio è stata superata."
 
 #: qml/SendingArea.qml:63
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgid "Send a message…"
-msgstr "Invia un messaggio"
+msgstr "Invia un messaggio…"
 
 #: qml/SendingArea.qml:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
-msgstr ""
+msgstr "Allega un'immagine o un file"
 
 #: qml/SendingArea.qml:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
-msgstr ""
+msgstr "Cancella gli allegati"
 
 #: qml/SendingArea.qml:173
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
-msgstr "Invia un messaggio"
+msgstr "Invia il messaggio"
 
 #~ msgid "Copy Message"
 #~ msgstr "Copia messaggio"
