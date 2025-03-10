@@ -14,9 +14,9 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kdeconnect-kde/kdeconnect-fileitemaction."
-"pot\n"
-"X-Crowdin-File-ID: 49048\n"
+"X-Crowdin-File: /kf6-stable/messages/kdeconnect-kde/kdeconnect-"
+"fileitemaction.pot\n"
+"X-Crowdin-File-ID: 51634\n"
 
 #: sendfileitemaction.cpp:72
 #, kde-format

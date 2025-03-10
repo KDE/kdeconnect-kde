@@ -164,15 +164,3 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
-
-#~ msgid "Launching"
-#~ msgstr "S'està llançant"
-
-#~ msgid "Launching daemon"
-#~ msgstr "S'està llançant el dimoni"
-
-#~ msgid "Waiting D-Bus"
-#~ msgstr "S'està a l'espera del D-Bus"
-
-#~ msgid "Loading modules"
-#~ msgstr "S'estan carregant els mòduls"

@@ -229,6 +229,3 @@ msgstr "Connectat"
 #, kde-format
 msgid "No devices found"
 msgstr "No s'ha trobat cap dispositiu"
-
-#~ msgid "🔑 abababab"
-#~ msgstr "🔑 abababab"
