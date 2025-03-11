@@ -64,12 +64,3 @@ msgstr "Dimoni de KDE Connect"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Substituïx una instància existent"
-
-#~ msgid "View key"
-#~ msgstr "Visualitza la clau"
-
-#~ msgid ""
-#~ "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
-#~ msgstr ""
-#~ "Inicia un dimoni D-Bus privat amb «kdeconnectd» (només amb finalitat de "
-#~ "proves de macOS)"
