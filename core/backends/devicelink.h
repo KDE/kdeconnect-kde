@@ -19,6 +19,7 @@ class DeviceLink : public QObject
     Q_OBJECT
 public:
     DeviceLink(const QString &deviceId, LinkProvider *parent);
+    virtual ~DeviceLink() = default;
 
     QString deviceId() const
     {

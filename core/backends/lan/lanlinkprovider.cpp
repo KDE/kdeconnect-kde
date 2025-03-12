@@ -40,7 +40,7 @@
 static const int MAX_UNPAIRED_CONNECTIONS = 42;
 static const int MAX_REMEMBERED_IDENTITY_PACKETS = 42;
 
-static const long MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE = 500;
+static const long MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE = 2000;
 
 LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
     : m_server(new Server(this))
@@ -281,7 +281,7 @@ void LanLinkProvider::udpBroadcastReceived()
         NetworkPacket *receivedPacket = new NetworkPacket();
         bool success = NetworkPacket::unserialize(datagram, receivedPacket);
 
-        // qCDebug(KDECONNECT_CORE) << "Datagram " << datagram.data() ;
+        qCDebug(KDECONNECT_CORE) << "Datagram " << datagram.data();
 
         if (!success) {
             qCDebug(KDECONNECT_CORE) << "Could not unserialize UDP packet";
@@ -298,16 +298,19 @@ void LanLinkProvider::udpBroadcastReceived()
         QString deviceId = receivedPacket->get<QString>(QStringLiteral("deviceId"));
 
         if (deviceId == KdeConnectConfig::instance().deviceId()) {
-            // qCDebug(KDECONNECT_CORE) << "Ignoring my own broadcast";
+            qCDebug(KDECONNECT_CORE) << "Ignoring my own broadcast";
             delete receivedPacket;
             continue;
         }
 
         qint64 now = QDateTime::currentMSecsSinceEpoch();
         if (m_lastConnectionTime[deviceId] + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now) {
-            qCDebug(KDECONNECT_CORE) << "Discarding second UPD packet from the same device" << deviceId << "received too quickly";
-            delete receivedPacket;
-            return;
+            qint64 timeSinceLastAttempt = now - m_lastConnectionTime[deviceId];
+            qCDebug(KDECONNECT_CORE) << "Discarding second UDP packet from" << deviceId << "- received" << timeSinceLastAttempt
+                                     << "ms after previous attempt (limit:" << MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE << "ms)";
+            // Don't return here, just track it and continue with connection attempt
+            // delete receivedPacket;
+            // return;
         }
         m_lastConnectionTime[deviceId] = now;
 
@@ -326,7 +329,7 @@ void LanLinkProvider::udpBroadcastReceived()
             return;
         }
 
-        // qCDebug(KDECONNECT_CORE) << "Received Udp identity packet from" << sender << " asking for a tcp connection on port " << tcpPort;
+        qCDebug(KDECONNECT_CORE) << "Received Udp identity packet from" << sender << " asking for a tcp connection on port " << tcpPort;
 
         if (m_receivedIdentityPackets.size() > MAX_REMEMBERED_IDENTITY_PACKETS) {
             qCWarning(KDECONNECT_CORE) << "Too many remembered identities, ignoring" << receivedPacket->get<QString>(QStringLiteral("deviceId"))
@@ -383,7 +386,7 @@ void LanLinkProvider::tcpSocketConnected()
 
     NetworkPacket *receivedPacket = m_receivedIdentityPackets[socket].np;
     const QString &deviceId = receivedPacket->get<QString>(QStringLiteral("deviceId"));
-    // qCDebug(KDECONNECT_CORE) << "tcpSocketConnected" << socket->isWritable();
+    qCDebug(KDECONNECT_CORE) << "tcpSocketConnected" << socket->isWritable();
 
     // If network is on ssl, do not believe when they are connected, believe when handshake is completed
     NetworkPacket np2 = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
@@ -576,7 +579,7 @@ void LanLinkProvider::dataReceived()
         delete m_receivedIdentityPackets.take(socket).np;
     });
 
-    // qCDebug(KDECONNECT_CORE) << "Handshaking done (i'm the new device)";
+    qCDebug(KDECONNECT_CORE) << "Handshaking done (i'm the new device)";
 
     // This socket will now be owned by the LanDeviceLink or we don't want more data to be received, forget about it
     disconnect(socket, &QIODevice::readyRead, this, &LanLinkProvider::dataReceived);
@@ -602,7 +605,8 @@ bool LanLinkProvider::isProtocolDowngrade(const QString &deviceId, int protocolV
 
 void LanLinkProvider::onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr)
 {
-    qCDebug(KDECONNECT_CORE) << "LanLinkProvider deviceLinkDestroyed" << deviceId;
+    qCDebug(KDECONNECT_CORE) << "LanLinkProvider deviceLinkDestroyed" << deviceId
+                             << "- Time since last UDP packet:" << (QDateTime::currentMSecsSinceEpoch() - m_lastConnectionTime.value(deviceId)) << "ms";
     DeviceLink *link = m_links.take(deviceId);
     Q_ASSERT(link == oldPtr);
 }
@@ -643,6 +647,8 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
 {
     QString certDeviceId = socket->peerCertificate().subjectDisplayName();
     DBusHelper::filterNonExportableCharacters(certDeviceId);
+    qCDebug(KDECONNECT_CORE) << "LanLinkProvider::addLink - Attempting to add device" << deviceInfo.id << "cert ID:" << certDeviceId;
+
     if (deviceInfo.id != certDeviceId) {
         socket->disconnectFromHost();
         qCWarning(KDECONNECT_CORE) << "DeviceID in cert doesn't match deviceID in identity packet." << deviceInfo.id << "vs" << certDeviceId;
@@ -661,9 +667,10 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
             qWarning() << "LanLink was asked to replace a socket but the certificate doesn't match, aborting";
             return;
         }
-        // qCDebug(KDECONNECT_CORE) << "Reusing link to" << deviceId;
+        qCDebug(KDECONNECT_CORE) << "Reusing existing link for" << deviceInfo.id;
         deviceLink->reset(socket);
     } else {
+        qCDebug(KDECONNECT_CORE) << "Creating new LanDeviceLink for" << deviceInfo.id;
         deviceLink = new LanDeviceLink(deviceInfo, this, socket);
         // Socket disconnection will now be handled by LanDeviceLink
         disconnect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);
@@ -676,6 +683,7 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
         }
         m_links[deviceInfo.id] = deviceLink;
     }
+    qCDebug(KDECONNECT_CORE) << "Connection established for" << deviceInfo.id << "- emitting signal";
     Q_EMIT onConnectionReceived(deviceLink);
 }
 

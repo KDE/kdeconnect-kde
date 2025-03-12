@@ -103,8 +103,8 @@ static int query_callback(int sock,
     Q_UNUSED(name_offset);
     Q_UNUSED(name_length);
 
-    // qCDebug(KDECONNECT_CORE) << "Received DNS record of type" << recordTypeToStr(record_type) << "from socket" << sock << "with type" <<
-    // entryTypeToStr(entry_type);
+    qCDebug(KDECONNECT_CORE) << "Received DNS record of type" << recordTypeToStr(record_type) << "from socket" << sock << "with type"
+                             << entryTypeToStr(entry_type);
 
     Discoverer::MdnsService *discoveredService = (Discoverer::MdnsService *)user_data;
 
@@ -223,8 +223,8 @@ int Discoverer::listenForQueryResponses()
             size_t num_records = mdns_query_recv(socket, buffer, sizeof(buffer), query_callback, (void *)&discoveredService, 0);
             Q_UNUSED(num_records);
 
-            // qCDebug(KDECONNECT_CORE) << "Discovered service" << discoveredService.name << "at" << discoveredService.address << "in" <<  num_records <<
-            // "records via socket" << socket;
+            qCDebug(KDECONNECT_CORE) << "Discovered service" << discoveredService.name << "at" << discoveredService.address << "in" << num_records
+                                     << "records via socket" << socket;
 
             Q_EMIT serviceFound(discoveredService);
         });

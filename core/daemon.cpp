@@ -256,10 +256,10 @@ void Daemon::onDeviceStatusChanged()
 {
     Device *device = (Device *)sender();
 
-    // qCDebug(KDECONNECT_CORE) << "Device" << device->name() << "status changed. Reachable:" << device->isReachable() << ". Paired: " << device->isPaired();
+    qCDebug(KDECONNECT_CORE) << "Device" << device->name() << "status changed. Reachable:" << device->isReachable() << ". Paired: " << device->isPaired();
 
     if (!device->isReachable() && !device->isPaired()) {
-        // qCDebug(KDECONNECT_CORE) << "Destroying device" << device->name();
+        qCDebug(KDECONNECT_CORE) << "Destroying device" << device->name();
         removeDevice(device);
     } else {
         Q_EMIT deviceVisibilityChanged(device->id(), device->isReachable());
@@ -325,7 +325,21 @@ QString Daemon::deviceIdByName(const QString &name) const
 
 void Daemon::addDevice(Device *device)
 {
+    if (!device) {
+        qCDebug(KDECONNECT_CORE) << "Trying to add a null device";
+        return;
+    }
+
     const QString id = device->id();
+    qCDebug(KDECONNECT_CORE) << "Adding device" << id;
+
+    if (d->m_devices.contains(id)) {
+        qCDebug(KDECONNECT_CORE) << "Device already exists";
+        return;
+    }
+
+    qCDebug(KDECONNECT_CORE) << "devices count before adding:" << d->m_devices.count();
+
     connect(device, &Device::reachableChanged, this, &Daemon::onDeviceStatusChanged);
     connect(device, &Device::pairStateChanged, this, &Daemon::onDeviceStatusChanged);
     connect(device, &Device::pairStateChanged, this, &Daemon::pairingRequestsChanged);
@@ -335,6 +349,8 @@ void Daemon::addDevice(Device *device)
             askPairingConfirmation(device);
     });
     d->m_devices[id] = device;
+
+    qCDebug(KDECONNECT_CORE) << "devices count after adding:" << d->m_devices.count();
 
     Q_EMIT deviceAdded(id);
     Q_EMIT deviceListChanged();

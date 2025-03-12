@@ -21,10 +21,29 @@ LanDeviceLink::LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *pare
     , m_deviceInfo(deviceInfo)
 {
     reset(socket);
+
+    qCDebug(KDECONNECT_CORE) << "LanDeviceLink created for device: " << deviceId() << "- Socket state:" << m_socket->state()
+                             << "- Local address:" << m_socket->localAddress().toString() << ":" << m_socket->localPort()
+                             << "- Peer address:" << m_socket->peerAddress().toString() << ":" << m_socket->peerPort();
+
+    connect(socket, &QAbstractSocket::disconnected, this, [this] {
+        qCDebug(KDECONNECT_CORE) << "LanDeviceLink - socket disconnected for" << deviceId() << "- Error:" << m_socket->error() << m_socket->errorString();
+        deleteLater();
+    });
+}
+
+LanDeviceLink::~LanDeviceLink()
+{
+    QString reason = m_socket ? QStringLiteral("socket still exists") : QStringLiteral("no socket present");
+    qCDebug(KDECONNECT_CORE) << "LanDeviceLink destroyed for device:" << deviceId() << "- reason:" << reason
+                             << "- socket error:" << (m_socket ? m_socket->error() : -1) << (m_socket ? m_socket->errorString() : QString());
 }
 
 void LanDeviceLink::reset(QSslSocket *socket)
 {
+    qCDebug(KDECONNECT_CORE) << "LanDeviceLink::reset for" << deviceId() << "- Old socket state:" << (m_socket ? m_socket->state() : -1)
+                             << "- New socket state:" << socket->state();
+
     if (m_socket) {
         disconnect(m_socket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
         delete m_socket;
@@ -97,10 +116,10 @@ void LanDeviceLink::dataReceived()
         NetworkPacket packet;
         NetworkPacket::unserialize(serializedPacket, &packet);
 
-        // qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << serializedPacket;
+        qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << serializedPacket;
 
         if (packet.hasPayloadTransferInfo()) {
-            // qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
+            qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
             const QVariantMap transferInfo = packet.payloadTransferInfo();
 
             QSharedPointer<QSslSocket> socket(new QSslSocket);
