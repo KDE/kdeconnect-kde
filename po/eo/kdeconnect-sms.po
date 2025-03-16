@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-02 00:40+0000\n"
-"PO-Revision-Date: 2024-04-07 17:09+0100\n"
+"PO-Revision-Date: 2025-03-15 22:36+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -191,10 +191,9 @@ msgid "About"
 msgstr "Pri"
 
 #: qml/Main.qml:115
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Pri"
+msgstr "Pri KDE"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -212,10 +211,9 @@ msgid "Max message size limit exceeded."
 msgstr "Maksimuma grandecolimo de mesaĝo superita."
 
 #: qml/SendingArea.qml:63
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgid "Send a message…"
-msgstr "Sendi mesaĝon"
+msgstr "Sendi mesaĝon…"
 
 #: qml/SendingArea.qml:119
 #, kde-format
@@ -230,17 +228,7 @@ msgid "Clear attachments"
 msgstr ""
 
 #: qml/SendingArea.qml:173
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Sendi mesaĝon"
-
-#~ msgid "Copy Message"
-#~ msgstr "Kopii Mesaĝon"
-
-#~ msgid "Copy Selection"
-#~ msgstr "Kopii Elekton"
-
-#~ msgid "Compose message"
-#~ msgstr "Verki mesaĝon"
