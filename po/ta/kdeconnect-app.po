@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-04 00:40+0000\n"
-"PO-Revision-Date: 2025-01-26 18:37+0530\n"
+"PO-Revision-Date: 2025-03-16 15:29+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -132,14 +132,9 @@ msgid "Share File"
 msgstr "கோப்பை பகிர்"
 
 #: qml/DevicePage.qml:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"இச்சாதனம் இணைக்கப்படவில்லை.\n"
-"சாவி: %1"
+msgstr "இச்சாதனம் இணைக்கப்படவில்லை."
 
 #: qml/DevicePage.qml:173
 #, kde-format
@@ -188,11 +183,10 @@ msgid "Refresh"
 msgstr "புதுப்பி"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "சாதனங்கள்"
+msgstr "சாதனப்பட்டியலை புதுப்பி"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -234,19 +228,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "இடது கிளிக்"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "நடு கிளிக்"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "வலது கிளிக்"
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -355,13 +349,13 @@ msgstr "கே.டீ.யீ. கனெக்ட் ஆண்ட்ராய்�
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "எஃப்-டிராய்டு"
 
 #: qml/WelcomePage.qml:56
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "கூகுள் கடை"
 
 #: qml/WelcomePage.qml:62
 #, kde-format
@@ -372,7 +366,7 @@ msgstr "கே.டீ.யீ. கனெக்ட் iOS செயலி"
 #: qml/WelcomePage.qml:67
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "ஆப்பிள் கடை"
 
 #: qml/WelcomePage.qml:73
 #, kde-format
@@ -381,6 +375,9 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+"ஏதேனும் பிரச்சனை ஏற்பட்டால், <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline;\">கே.டீ.யீ. கனெக்டின் சமூக "
+"விக்கியில்</span></a> உங்களுக்கு உதவியாக ஏதாவது உள்ளதா என பார்க்கவும்."
 
 #~ msgid "Find devices..."
 #~ msgstr "சாதனங்களை கண்டுபிடி..."
