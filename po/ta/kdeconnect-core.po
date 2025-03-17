@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Kishore G <kishore96@gmail.com>, 2021, 2023.
+# SPDX-FileCopyrightText: 2021, 2023, 2025 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-24 00:41+0000\n"
-"PO-Revision-Date: 2023-07-30 14:14+0530\n"
+"PO-Revision-Date: 2025-03-16 15:31+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -40,7 +40,7 @@ msgstr "கோப்பு"
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
-msgstr ""
+msgstr "சாதன கடிகாரங்கள் ஒத்துப்போகவில்லை"
 
 #: backends/pairinghandler.cpp:80
 #, kde-format
@@ -105,7 +105,7 @@ msgstr "தொலை சாதன சான்றிதழின் SHA256 க�
 #: device.cpp:469
 #, kde-format
 msgid "Protocol version: %1\n"
-msgstr ""
+msgstr "நெறிமுறை பதிப்பு: %1\n"
 
 #: filetransferjob.cpp:53
 #, kde-format
