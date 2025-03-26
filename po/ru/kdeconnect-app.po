@@ -3,14 +3,14 @@
 #
 # SPDX-FileCopyrightText: 2020, 2021, 2023, 2024 Alexander Yavorsky <kekcuha@gmail.com>
 # Дронова Юлия <juliette.tux@gmail.com>, 2021.
-# SPDX-FileCopyrightText: 2023, 2024 Olesya Gerasimenko <translation-team@basealt.ru>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Olesya Gerasimenko <translation-team@basealt.ru>
 # Alexander Yavorsky <kekcuha@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-04 00:40+0000\n"
-"PO-Revision-Date: 2024-10-28 16:38+0300\n"
+"PO-Revision-Date: 2025-03-25 09:54+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -77,14 +77,13 @@ msgstr "Параметры модуля"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "Действия"
 
 #: qml/DevicePage.qml:64
-#, fuzzy, kde-format
-#| msgid "Remote Control"
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr "Удалённое управление"
+msgstr "Управление"
 
 #: qml/DevicePage.qml:94
 #, kde-format
@@ -137,14 +136,9 @@ msgid "Share File"
 msgstr "Поделиться файлом"
 
 #: qml/DevicePage.qml:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"Это устройство не сопряжено.\n"
-"Ключ: %1"
+msgstr "Это устройство не сопряжено."
 
 #: qml/DevicePage.qml:173
 #, kde-format
@@ -182,9 +176,7 @@ msgid "Please choose a file"
 msgstr "Выберите файл"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Устройства"
 
@@ -192,15 +184,13 @@ msgstr "Устройства"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Обновить"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Устройства"
+msgstr "Обновить список устройств"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -242,19 +232,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Щелчок левой кнопкой"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Щелчок средней кнопкой"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Щелчок правой кнопкой"
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -311,25 +301,25 @@ msgstr "Имя устройства"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "Модули"
 
 #: qml/Settings.qml:54
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: qml/Settings.qml:56
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Петля обратной связи"
 
 #: qml/Settings.qml:58
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Сеть"
 
 #: qml/Settings.qml:73
 #, kde-format
@@ -345,44 +335,42 @@ msgstr "О KDE"
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "Устройство не выбрано"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
-msgstr ""
+msgstr "Установите KDE Connect на других ваших устройствах."
 
 #: qml/WelcomePage.qml:42
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr "KDE Connect"
+msgstr "Приложение KDE Connect для Android"
 
 #: qml/WelcomePage.qml:49
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "F-Droid"
 
 #: qml/WelcomePage.qml:56
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "Play Store"
 
 #: qml/WelcomePage.qml:62
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr "KDE Connect"
+msgstr "Приложение KDE Connect для iOS"
 
 #: qml/WelcomePage.qml:67
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "Apple Store"
 
 #: qml/WelcomePage.qml:73
 #, kde-format
@@ -391,6 +379,9 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+"При возникновении трудностей обратитесь за помощью на <a href=\"https://"
+"userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline;"
+"\">вики-страницу сообщества пользователей KDE Connect</span></a>."
 
 #~ msgid "Find devices..."
 #~ msgstr "Найти устройства…"

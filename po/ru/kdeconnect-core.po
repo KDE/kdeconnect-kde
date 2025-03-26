@@ -5,22 +5,22 @@
 # Dmitry Serov <dmitri.s93@gmail.com>, 2015.
 # SPDX-FileCopyrightText: 2019, 2021, 2024 Alexander Yavorsky <kekcuha@gmail.com>
 # Дронова Юлия <juliette.tux@gmail.com>, 2021.
-# Olesya Gerasimenko <translation-team@basealt.ru>, 2023.
+# SPDX-FileCopyrightText: 2023, 2025 Olesya Gerasimenko <translation-team@basealt.ru>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-24 00:41+0000\n"
-"PO-Revision-Date: 2024-01-10 21:58+0300\n"
-"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"PO-Revision-Date: 2025-03-25 10:00+0300\n"
+"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -45,7 +45,7 @@ msgstr "Файл"
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
-msgstr ""
+msgstr "Часы устройств не синхронизированы"
 
 #: backends/pairinghandler.cpp:80
 #, kde-format
@@ -112,7 +112,7 @@ msgstr "Отпечаток SHA256 сертификата удалённого у
 #: device.cpp:469
 #, kde-format
 msgid "Protocol version: %1\n"
-msgstr ""
+msgstr "Версия протокола: %1\n"
 
 #: filetransferjob.cpp:53
 #, kde-format
