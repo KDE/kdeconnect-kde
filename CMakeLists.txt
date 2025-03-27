@@ -102,7 +102,13 @@ if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
 endif()
 
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications
-    KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons DocTools Crash)
+    KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons Crash)
+
+find_package(KF6DocTools ${KF_MIN_VERSION})
+set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
+    "Tools to generate documentation"
+    TYPE OPTIONAL
+)
 
 if (WIN32)
     get_filename_component(WINDOWS_KITS_DIR
@@ -141,10 +147,11 @@ if(NOT WIN32 AND NOT APPLE)
     add_subdirectory(plasmoid)
 endif()
 
-add_subdirectory(doc)
-kdoctools_install(po)
-
 ki18n_install(po)
+if(KF6DocTools_FOUND)
+    kdoctools_install(po)
+    add_subdirectory(doc)
+endif()
 
 if(BUILD_TESTING)
     add_subdirectory(tests)
