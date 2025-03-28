@@ -372,7 +372,7 @@ void KdeConnectConfig::generateCertificate(const QString &certPath)
 {
     qCDebug(KDECONNECT_CORE) << "Generating certificate";
 
-    QString uuid = QUuid::createUuid().toString(QUuid::WithoutBraces).toLower();
+    QString uuid = QUuid::createUuid().toString(QUuid::Id128).toLower();
     DBusHelper::filterNonExportableCharacters(uuid);
     qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
 
