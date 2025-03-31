@@ -107,7 +107,5 @@ int main(int argc, char *argv[])
     QObject::connect(&app, &QGuiApplication::commitDataRequest, disableSessionManagement);
     QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
 
-    qSetMessagePattern(QStringLiteral("%{time} %{category}: %{message}"));
-
     return app.exec();
 }
