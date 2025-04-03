@@ -36,10 +36,10 @@ MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args
     : KdeConnectPlugin(parent, args)
     , prevVolume(-1)
 {
-    m_watcher = new QDBusServiceWatcher(QString(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+    m_watcher =
+        new QDBusServiceWatcher(QStringLiteral("org.mpris.MediaPlayer2*"), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
 
-    // TODO: QDBusConnectionInterface::serviceOwnerChanged is deprecated, maybe query org.freedesktop.DBus directly?
-    connect(QDBusConnection::sessionBus().interface(), &QDBusConnectionInterface::serviceOwnerChanged, this, &MprisControlPlugin::serviceOwnerChanged);
+    connect(m_watcher, &QDBusServiceWatcher::serviceOwnerChanged, this, &MprisControlPlugin::serviceOwnerChanged);
 
     // Add existing interfaces
     const QStringList services = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
