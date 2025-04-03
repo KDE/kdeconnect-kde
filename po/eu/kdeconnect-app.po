@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-04 00:40+0000\n"
-"PO-Revision-Date: 2025-01-18 09:21+0100\n"
+"PO-Revision-Date: 2025-04-02 14:37+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: main.cpp:31 main.cpp:33
 #, kde-format
@@ -135,14 +135,9 @@ msgid "Share File"
 msgstr "Partekatu fitxategia"
 
 #: qml/DevicePage.qml:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"Gailu hau ez dago parekatuta.\n"
-"Gakoa: %1"
+msgstr "Gailu hau ez dago parekatuta."
 
 #: qml/DevicePage.qml:173
 #, kde-format
@@ -191,11 +186,10 @@ msgid "Refresh"
 msgstr "Berritu"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Gailuak"
+msgstr "Berritu gailuak"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -238,19 +232,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Ezkerreko klik"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Erdiko klik"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Eskuineko klik"
 
 #: qml/mpris.qml:20
 #, kde-format
