@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Tommi Nieminen <translator@legisign.org>, 2014, 2018, 2019, 2020, 2021, 2023.
+# SPDX-FileCopyrightText: 2014, 2018, 2019, 2020, 2021, 2023, 2025 Tommi Nieminen <translator@legisign.org>
 # Lasse Liehu <lasse.liehu@gmail.com>, 2014, 2015, 2016.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-24 00:41+0000\n"
-"PO-Revision-Date: 2023-08-26 17:59+0300\n"
+"PO-Revision-Date: 2025-04-03 17:30+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -40,7 +41,7 @@ msgstr "Tiedosto"
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
-msgstr ""
+msgstr "Laitteiden kelloja ei ole tahdistettu"
 
 #: backends/pairinghandler.cpp:80
 #, kde-format
@@ -105,7 +106,7 @@ msgstr "Etälaitteen varmenteen SHA256-sormenjälki on: %1\n"
 #: device.cpp:469
 #, kde-format
 msgid "Protocol version: %1\n"
-msgstr ""
+msgstr "Yhteyskäytäntöversio: %1\n"
 
 #: filetransferjob.cpp:53
 #, kde-format
