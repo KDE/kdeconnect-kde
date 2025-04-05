@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-04 00:40+0000\n"
+"POT-Creation-Date: 2025-04-05 02:38+0000\n"
 "PO-Revision-Date: 2025-02-28 15:14+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -55,95 +55,95 @@ msgstr "toms.trasuns@posteo.net"
 msgid "URL to share"
 msgstr "URL, ar kuru dalīties"
 
-#: qml/DevicePage.qml:27
+#: qml/DevicePage.qml:28
 #, kde-format
 msgid "Unpair"
 msgstr "Atpārot"
 
-#: qml/DevicePage.qml:32
+#: qml/DevicePage.qml:33
 #, kde-format
 msgid "Send Ping"
 msgstr "Nosūtīt „ping“"
 
-#: qml/DevicePage.qml:40 qml/PluginSettings.qml:20
+#: qml/DevicePage.qml:41 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Papildinājuma iestatījumi"
 
-#: qml/DevicePage.qml:62
+#: qml/DevicePage.qml:60
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
 msgstr "Darbības"
 
-#: qml/DevicePage.qml:64
+#: qml/DevicePage.qml:62
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "Vadība"
 
-#: qml/DevicePage.qml:94
+#: qml/DevicePage.qml:108
 #, kde-format
 msgid "Multimedia control"
 msgstr "Multivides pārvaldība"
 
-#: qml/DevicePage.qml:102
+#: qml/DevicePage.qml:116
 #, kde-format
 msgid "Remote input"
 msgstr "Attālā ievade"
 
-#: qml/DevicePage.qml:110 qml/runcommand.qml:16
+#: qml/DevicePage.qml:124 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Palaist komandu"
 
-#: qml/DevicePage.qml:118 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:132 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Prezentācijas pults"
 
-#: qml/DevicePage.qml:126 qml/volume.qml:16
+#: qml/DevicePage.qml:140 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Skaļuma pārvaldība"
 
-#: qml/DevicePage.qml:136 qml/mousepad.qml:44
+#: qml/DevicePage.qml:150 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Bloķēt"
 
-#: qml/DevicePage.qml:136
+#: qml/DevicePage.qml:150
 #, kde-format
 msgid "Unlock"
 msgstr "Atbloķēt"
 
-#: qml/DevicePage.qml:144
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "Find Device"
 msgstr "Atrast ierīci"
 
-#: qml/DevicePage.qml:152
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Nosūtīt starpliktuves saturu"
 
-#: qml/DevicePage.qml:159
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "Share File"
 msgstr "Dalīties ar datni"
 
-#: qml/DevicePage.qml:169
+#: qml/DevicePage.qml:183
 #, kde-format
 msgid "This device is not paired."
 msgstr "Ierīce nav sapārota"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:187
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Sapārot"
 
-#: qml/DevicePage.qml:180 qml/DevicePage.qml:189
+#: qml/DevicePage.qml:194 qml/DevicePage.qml:203
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -152,22 +152,22 @@ msgstr ""
 "Pieprasīta sapārošana\n"
 "Atslēga: "
 
-#: qml/DevicePage.qml:195
+#: qml/DevicePage.qml:209
 #, kde-format
 msgid "Accept"
 msgstr "Pieņemt"
 
-#: qml/DevicePage.qml:201
+#: qml/DevicePage.qml:215
 #, kde-format
 msgid "Reject"
 msgstr "Noraidīt"
 
-#: qml/DevicePage.qml:212
+#: qml/DevicePage.qml:226
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Šo ierīci nav iespējams sasniegt"
 
-#: qml/DevicePage.qml:220
+#: qml/DevicePage.qml:234
 #, kde-format
 msgid "Please choose a file"
 msgstr "Izvēlieties datni"

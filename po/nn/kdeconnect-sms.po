@@ -192,7 +192,6 @@ msgstr "Om"
 
 #: qml/Main.qml:115
 #, fuzzy, kde-format
-#| msgid "About"
 msgid "About KDE"
 msgstr "Om"
 
@@ -213,7 +212,6 @@ msgstr "Over grensa for meldingsstorleik."
 
 #: qml/SendingArea.qml:63
 #, fuzzy, kde-format
-#| msgid "Send a message"
 msgid "Send a message…"
 msgstr "Send ei melding"
 
@@ -231,7 +229,6 @@ msgstr ""
 
 #: qml/SendingArea.qml:173
 #, fuzzy, kde-format
-#| msgid "Send a message"
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Send ei melding"

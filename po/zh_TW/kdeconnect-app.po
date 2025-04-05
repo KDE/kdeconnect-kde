@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-04 00:40+0000\n"
+"POT-Creation-Date: 2025-04-05 02:38+0000\n"
 "PO-Revision-Date: 2025-03-26 18:32+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -59,95 +59,95 @@ msgstr "pan93412@gmail.com, brli@chakralinux.org, mail@kisaragi-hiu.com"
 msgid "URL to share"
 msgstr "要分享的網址"
 
-#: qml/DevicePage.qml:27
+#: qml/DevicePage.qml:28
 #, kde-format
 msgid "Unpair"
 msgstr "取消配對"
 
-#: qml/DevicePage.qml:32
+#: qml/DevicePage.qml:33
 #, kde-format
 msgid "Send Ping"
 msgstr "傳送 Ping"
 
-#: qml/DevicePage.qml:40 qml/PluginSettings.qml:20
+#: qml/DevicePage.qml:41 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
 msgstr "外掛程式設定"
 
-#: qml/DevicePage.qml:62
+#: qml/DevicePage.qml:60
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
 msgstr "動作"
 
-#: qml/DevicePage.qml:64
+#: qml/DevicePage.qml:62
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "控制"
 
-#: qml/DevicePage.qml:94
+#: qml/DevicePage.qml:108
 #, kde-format
 msgid "Multimedia control"
 msgstr "多媒體控制"
 
-#: qml/DevicePage.qml:102
+#: qml/DevicePage.qml:116
 #, kde-format
 msgid "Remote input"
 msgstr "遠端輸入"
 
-#: qml/DevicePage.qml:110 qml/runcommand.qml:16
+#: qml/DevicePage.qml:124 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "執行指令"
 
-#: qml/DevicePage.qml:118 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:132 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "簡報遙控"
 
-#: qml/DevicePage.qml:126 qml/volume.qml:16
+#: qml/DevicePage.qml:140 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "音量控制"
 
-#: qml/DevicePage.qml:136 qml/mousepad.qml:44
+#: qml/DevicePage.qml:150 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "鎖定"
 
-#: qml/DevicePage.qml:136
+#: qml/DevicePage.qml:150
 #, kde-format
 msgid "Unlock"
 msgstr "解鎖"
 
-#: qml/DevicePage.qml:144
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "Find Device"
 msgstr "尋找裝置"
 
-#: qml/DevicePage.qml:152
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Send Clipboard"
 msgstr "傳送剪貼簿"
 
-#: qml/DevicePage.qml:159
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "Share File"
 msgstr "分享檔案"
 
-#: qml/DevicePage.qml:169
+#: qml/DevicePage.qml:183
 #, kde-format
 msgid "This device is not paired."
 msgstr "此裝置未配對。"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:187
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "配對"
 
-#: qml/DevicePage.qml:180 qml/DevicePage.qml:189
+#: qml/DevicePage.qml:194 qml/DevicePage.qml:203
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -156,22 +156,22 @@ msgstr ""
 "配對請求已送出\n"
 "金鑰："
 
-#: qml/DevicePage.qml:195
+#: qml/DevicePage.qml:209
 #, kde-format
 msgid "Accept"
 msgstr "接受"
 
-#: qml/DevicePage.qml:201
+#: qml/DevicePage.qml:215
 #, kde-format
 msgid "Reject"
 msgstr "拒絕"
 
-#: qml/DevicePage.qml:212
+#: qml/DevicePage.qml:226
 #, kde-format
 msgid "This device is not reachable"
 msgstr "無法連線裝置"
 
-#: qml/DevicePage.qml:220
+#: qml/DevicePage.qml:234
 #, kde-format
 msgid "Please choose a file"
 msgstr "請選擇檔案"
