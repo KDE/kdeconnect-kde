@@ -72,11 +72,24 @@ void MprisControlPlugin::sendMediaProperties(const std::variant<NetworkPacket, Q
     if (packetOrName.index() == 1)
         np.set(QStringLiteral("player"), std::get<1>(packetOrName));
 
-    auto mediaProperties = player.TryGetMediaPropertiesAsync().get();
+    QString title = QStringLiteral("N/A");
+    QString artist = QStringLiteral("N/A");
+    QString album = QStringLiteral("N/A");
+    // Calling GlobalSystemMediaTransportControlsSession.TryGetMediaPropertiesAsync().get()
+    // can trigger a RuntimeError: Element not found in some scenarios.
+    // See: https://bugs.kde.org/show_bug.cgi?id=502269
+    try {
+        auto mediaProperties = player.TryGetMediaPropertiesAsync().get();
+        title = QString::fromWCharArray(mediaProperties.Title().c_str());
+        artist = QString::fromWCharArray(mediaProperties.Artist().c_str());
+        album = QString::fromWCharArray(mediaProperties.AlbumTitle().c_str());
+    } catch (winrt::hresult_error e) {
+        qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to get media properties";
+    }
 
-    np.set(QStringLiteral("title"), QString::fromWCharArray(mediaProperties.Title().c_str()));
-    np.set(QStringLiteral("artist"), QString::fromWCharArray(mediaProperties.Artist().c_str()));
-    np.set(QStringLiteral("album"), QString::fromWCharArray(mediaProperties.AlbumTitle().c_str()));
+    np.set(QStringLiteral("title"), title);
+    np.set(QStringLiteral("artist"), artist);
+    np.set(QStringLiteral("album"), album);
     np.set(QStringLiteral("albumArtUrl"), randomUrl());
 
     np.set(QStringLiteral("url"), QString());
