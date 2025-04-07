@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-05 02:38+0000\n"
-"PO-Revision-Date: 2024-12-24 16:41+0100\n"
+"PO-Revision-Date: 2025-04-06 23:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -73,14 +73,13 @@ msgstr "플러그인 설정"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "동작"
 
 #: qml/DevicePage.qml:62
-#, fuzzy, kde-format
-#| msgid "Remote Control"
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr "원격 제어"
+msgstr "제어"
 
 #: qml/DevicePage.qml:108
 #, kde-format
@@ -133,14 +132,9 @@ msgid "Share File"
 msgstr "파일 공유"
 
 #: qml/DevicePage.qml:183
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"이 장치는 연결되지 않았습니다.\n"
-"키: %1"
+msgstr "장치가 페어링되지 않았습니다."
 
 #: qml/DevicePage.qml:187
 #, kde-format
@@ -154,7 +148,7 @@ msgid ""
 "Pair requested\n"
 "Key: "
 msgstr ""
-"연결 요청됨\n"
+"페어링 요청됨\n"
 "키: "
 
 #: qml/DevicePage.qml:209
@@ -189,11 +183,10 @@ msgid "Refresh"
 msgstr "새로 고침"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "장치"
+msgstr "장치 새로 고침"
 
 #: qml/Main.qml:106
 #, kde-format
@@ -235,19 +228,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "왼쪽 클릭"
 
 #: qml/mousepad.qml:217
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "가운데 클릭"
 
 #: qml/mousepad.qml:223
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "오른쪽 클릭"
 
 #: qml/mpris.qml:20
 #, kde-format
