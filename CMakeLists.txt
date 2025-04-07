@@ -102,7 +102,7 @@ if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
 endif()
 
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications
-    KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons Crash)
+    KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons Crash ItemModels)
 
 find_package(KF6DocTools ${KF_MIN_VERSION})
 set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
