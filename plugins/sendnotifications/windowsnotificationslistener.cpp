@@ -123,7 +123,15 @@ void WindowsNotificationsListener::onNotificationChanged(const UserNotificationL
         }
     }
 
-    m_plugin->sendPacket(np);
+    // This callback is not called directly in the Qt main thread. To ensure
+    // safe interaction with Qt objects, QMetaObject::invokeMethod is used to
+    // schedule the execution within the Qt event loop of the object's thread.
+    QMetaObject::invokeMethod(
+        m_plugin,
+        [&, np]() mutable {
+            m_plugin->sendPacket(np);
+        },
+        Qt::QueuedConnection);
 }
 
 #include "moc_windowsnotificationslistener.cpp"
