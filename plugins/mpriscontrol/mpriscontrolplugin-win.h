@@ -39,7 +39,6 @@ public Q_SLOTS:
     bool sendAlbumArt(const std::variant<NetworkPacket, QString> &packetOrName, const QSharedPointer<QBuffer> qdata, const QString artUrl);
 
 private:
-    GlobalSystemMediaTransportControlsSessionManager sessionManager;
     QHash<QString, GlobalSystemMediaTransportControlsSession> playerList;
 
     std::vector<GlobalSystemMediaTransportControlsSession::PlaybackInfoChanged_revoker> playbackInfoChangedHandlers;

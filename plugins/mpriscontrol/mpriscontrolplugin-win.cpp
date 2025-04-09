@@ -30,11 +30,15 @@ const QString DEFAULT_PLAYER =
 
 MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
-    , sessionManager(GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get())
 {
-    sessionManager.SessionsChanged([this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
-        this->updatePlayerList();
-    });
+    try {
+        auto sessionManager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get();
+        sessionManager.SessionsChanged([this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
+            this->updatePlayerList();
+        });
+    } catch (winrt::hresult_error e) {
+        qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to register mediaSessionsChanged listener";
+    }
     this->updatePlayerList();
 }
 
@@ -178,77 +182,82 @@ void MprisControlPlugin::updatePlayerList()
     mediaPropertiesChangedHandlers.clear();
     timelinePropertiesChangedHandlers.clear();
 
-    auto sessions = sessionManager.GetSessions();
-    playbackInfoChangedHandlers.resize(sessions.Size());
-    mediaPropertiesChangedHandlers.resize(sessions.Size());
-    timelinePropertiesChangedHandlers.resize(sessions.Size());
+    try {
+        auto sessions = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get().GetSessions();
+        playbackInfoChangedHandlers.resize(sessions.Size());
+        mediaPropertiesChangedHandlers.resize(sessions.Size());
+        timelinePropertiesChangedHandlers.resize(sessions.Size());
 
-    for (uint32_t i = 0; i < sessions.Size(); i++) {
-        const auto player = sessions.GetAt(i);
-        auto playerName = player.SourceAppUserModelId();
+        for (uint32_t i = 0; i < sessions.Size(); i++) {
+            const auto player = sessions.GetAt(i);
+            auto playerName = player.SourceAppUserModelId();
 
 #if WIN_SDK_VERSION >= 19041
-        // try to resolve the AUMID to a user-friendly name
-        try {
-            playerName = AppInfo::GetFromAppUserModelId(playerName).DisplayInfo().DisplayName();
-        } catch (winrt::hresult_error e) {
-            qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << QString::fromWCharArray(playerName.c_str()) << "doesn\'t have a valid AppUserModelID! Sending as-is..";
-        }
+            // try to resolve the AUMID to a user-friendly name
+            try {
+                playerName = AppInfo::GetFromAppUserModelId(playerName).DisplayInfo().DisplayName();
+            } catch (winrt::hresult_error e) {
+                qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL)
+                    << QString::fromWCharArray(playerName.c_str()) << "doesn\'t have a valid AppUserModelID! Sending as-is..";
+            }
 #endif
-        QString uniqueName = QString::fromWCharArray(playerName.c_str());
-        for (int i = 2; playerList.contains(uniqueName); ++i) {
-            uniqueName += QStringLiteral(" [") + QString::number(i) + QStringLiteral("]");
+            QString uniqueName = QString::fromWCharArray(playerName.c_str());
+            for (int i = 2; playerList.contains(uniqueName); ++i) {
+                uniqueName += QStringLiteral(" [") + QString::number(i) + QStringLiteral("]");
+            }
+
+            playerList.insert(uniqueName, player);
+
+            player
+                .PlaybackInfoChanged(auto_revoke,
+                                     [this](GlobalSystemMediaTransportControlsSession player, PlaybackInfoChangedEventArgs args) {
+                                         if (auto name = getPlayerName(player))
+                                             this->sendPlaybackInfo(name.value(), player);
+                                     })
+                .swap(playbackInfoChangedHandlers[i]);
+            concurrency::create_task([this, player] {
+                std::chrono::milliseconds timespan(50);
+                std::this_thread::sleep_for(timespan);
+
+                if (auto name = getPlayerName(player))
+                    this->sendPlaybackInfo(name.value(), player);
+            });
+
+            if (auto name = getPlayerName(player))
+                sendPlaybackInfo(name.value(), player);
+
+            player
+                .MediaPropertiesChanged(auto_revoke,
+                                        [this](GlobalSystemMediaTransportControlsSession player, MediaPropertiesChangedEventArgs args) {
+                                            if (auto name = getPlayerName(player))
+                                                this->sendMediaProperties(name.value(), player);
+                                        })
+                .swap(mediaPropertiesChangedHandlers[i]);
+            concurrency::create_task([this, player] {
+                std::chrono::milliseconds timespan(50);
+                std::this_thread::sleep_for(timespan);
+
+                if (auto name = getPlayerName(player))
+                    this->sendMediaProperties(name.value(), player);
+            });
+
+            player
+                .TimelinePropertiesChanged(auto_revoke,
+                                           [this](GlobalSystemMediaTransportControlsSession player, TimelinePropertiesChangedEventArgs args) {
+                                               if (auto name = getPlayerName(player))
+                                                   this->sendTimelineProperties(name.value(), player);
+                                           })
+                .swap(timelinePropertiesChangedHandlers[i]);
+            concurrency::create_task([this, player] {
+                std::chrono::milliseconds timespan(50);
+                std::this_thread::sleep_for(timespan);
+
+                if (auto name = getPlayerName(player))
+                    this->sendTimelineProperties(name.value(), player);
+            });
         }
-
-        playerList.insert(uniqueName, player);
-
-        player
-            .PlaybackInfoChanged(auto_revoke,
-                                 [this](GlobalSystemMediaTransportControlsSession player, PlaybackInfoChangedEventArgs args) {
-                                     if (auto name = getPlayerName(player))
-                                         this->sendPlaybackInfo(name.value(), player);
-                                 })
-            .swap(playbackInfoChangedHandlers[i]);
-        concurrency::create_task([this, player] {
-            std::chrono::milliseconds timespan(50);
-            std::this_thread::sleep_for(timespan);
-
-            if (auto name = getPlayerName(player))
-                this->sendPlaybackInfo(name.value(), player);
-        });
-
-        if (auto name = getPlayerName(player))
-            sendPlaybackInfo(name.value(), player);
-
-        player
-            .MediaPropertiesChanged(auto_revoke,
-                                    [this](GlobalSystemMediaTransportControlsSession player, MediaPropertiesChangedEventArgs args) {
-                                        if (auto name = getPlayerName(player))
-                                            this->sendMediaProperties(name.value(), player);
-                                    })
-            .swap(mediaPropertiesChangedHandlers[i]);
-        concurrency::create_task([this, player] {
-            std::chrono::milliseconds timespan(50);
-            std::this_thread::sleep_for(timespan);
-
-            if (auto name = getPlayerName(player))
-                this->sendMediaProperties(name.value(), player);
-        });
-
-        player
-            .TimelinePropertiesChanged(auto_revoke,
-                                       [this](GlobalSystemMediaTransportControlsSession player, TimelinePropertiesChangedEventArgs args) {
-                                           if (auto name = getPlayerName(player))
-                                               this->sendTimelineProperties(name.value(), player);
-                                       })
-            .swap(timelinePropertiesChangedHandlers[i]);
-        concurrency::create_task([this, player] {
-            std::chrono::milliseconds timespan(50);
-            std::this_thread::sleep_for(timespan);
-
-            if (auto name = getPlayerName(player))
-                this->sendTimelineProperties(name.value(), player);
-        });
+    } catch (winrt::hresult_error e) {
+        qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to update player list";
     }
 
     sendPlayerList();
