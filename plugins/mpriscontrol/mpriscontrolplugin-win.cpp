@@ -72,9 +72,9 @@ void MprisControlPlugin::sendMediaProperties(const std::variant<NetworkPacket, Q
     if (packetOrName.index() == 1)
         np.set(QStringLiteral("player"), std::get<1>(packetOrName));
 
-    QString title = QStringLiteral("N/A");
-    QString artist = QStringLiteral("N/A");
-    QString album = QStringLiteral("N/A");
+    QString title = i18n("N/A");
+    QString artist = i18n("N/A");
+    QString album = i18n("N/A");
     // Calling GlobalSystemMediaTransportControlsSession.TryGetMediaPropertiesAsync().get()
     // can trigger a RuntimeError: Element not found in some scenarios.
     // See: https://bugs.kde.org/show_bug.cgi?id=502269
