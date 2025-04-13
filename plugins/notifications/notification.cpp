@@ -111,6 +111,8 @@ void Notification::createKNotification(const NetworkPacket &np)
         QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, &Notification::replied);
         QObject::connect(replyAction.get(), &KNotificationReplyAction::activated, this, &Notification::reply);
         m_notification->setReplyAction(std::move(replyAction));
+    } else {
+        m_notification->setReplyAction({});
     }
 
     m_notification->clearActions();
@@ -124,6 +126,7 @@ void Notification::createKNotification(const NetworkPacket &np)
 
     m_hasIcon = m_hasIcon && !m_payloadHash.isEmpty();
 
+    m_notification->setPixmap({});
     if (!m_hasIcon) {
         show();
     } else {
