@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-13 00:41+0000\n"
 "PO-Revision-Date: 2024-12-18 17:53+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -83,7 +83,7 @@ msgstr "Bloco remote con successo"
 msgid "Remote lock failed"
 msgstr "Bloco remote con fallimento"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:30
+#: mpriscontrol/mpriscontrolplugin-win.cpp:28
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:39+0000\n"
+"POT-Creation-Date: 2025-04-13 00:41+0000\n"
 "PO-Revision-Date: 2023-10-08 22:54+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -82,7 +82,7 @@ msgstr "원격 잠금 성공"
 msgid "Remote lock failed"
 msgstr "원격 잠금 실패"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:30
+#: mpriscontrol/mpriscontrolplugin-win.cpp:28
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
