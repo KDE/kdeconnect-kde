@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:41+0000\n"
+"POT-Creation-Date: 2025-04-14 00:41+0000\n"
 "PO-Revision-Date: 2020-10-06 15:33+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -88,6 +88,13 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
+msgstr ""
+
+#: mpriscontrol/mpriscontrolplugin-win.cpp:79
+#: mpriscontrol/mpriscontrolplugin-win.cpp:80
+#: mpriscontrol/mpriscontrolplugin-win.cpp:81
+#, kde-format
+msgid "N/A"
 msgstr ""
 
 #: notifications/notification.cpp:108

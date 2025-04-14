@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:41+0000\n"
+"POT-Creation-Date: 2025-04-14 00:41+0000\n"
 "PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -91,6 +91,13 @@ msgctxt ""
 "detect a specific player name like VLC"
 msgid "Current Player"
 msgstr "वर्तमान खिलाडी"
+
+#: mpriscontrol/mpriscontrolplugin-win.cpp:79
+#: mpriscontrol/mpriscontrolplugin-win.cpp:80
+#: mpriscontrol/mpriscontrolplugin-win.cpp:81
+#, kde-format
+msgid "N/A"
+msgstr ""
 
 #: notifications/notification.cpp:108
 #, kde-format
