@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2025-01-06 22:24+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
@@ -197,27 +197,27 @@ msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Įrenginiai"
 
-#: qml/Main.qml:106
+#: qml/Main.qml:112
 #, kde-format
 msgid "Remembered"
 msgstr "Įsimintas"
 
-#: qml/Main.qml:108
+#: qml/Main.qml:114
 #, kde-format
 msgid "Available"
 msgstr "Prieinamas"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:116
 #, kde-format
 msgid "Connected"
 msgstr "Prisijungęs"
 
-#: qml/Main.qml:115
+#: qml/Main.qml:121
 #, kde-format
 msgid "No devices found"
 msgstr "Nerasta jokių įrenginių"
 
-#: qml/Main.qml:187 qml/Main.qml:196
+#: qml/Main.qml:193 qml/Main.qml:208
 #, kde-format
 msgid "Settings"
 msgstr "Nuostatos"
@@ -227,26 +227,26 @@ msgstr "Nuostatos"
 msgid "Remote Control"
 msgstr "Nuotolinis valdymas"
 
-#: qml/mousepad.qml:60
+#: qml/mousepad.qml:61
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
 "Norėdami atrakinti, paspauskite %1 arba vienu metu kairįjį ir dešinįjį pelės "
 "mygtuką"
 
-#: qml/mousepad.qml:211
+#: qml/mousepad.qml:213
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
 msgstr ""
 
-#: qml/mousepad.qml:217
+#: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
 msgstr ""
 
-#: qml/mousepad.qml:223
+#: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
@@ -262,12 +262,12 @@ msgstr "Įvairialypės terpės valdikliai"
 msgid "No players available"
 msgstr "Nėra jokių prieinamų leistuvių"
 
-#: qml/mpris.qml:109
+#: qml/mpris.qml:111
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:116
+#: qml/PluginSettings.qml:121
 #, kde-format
 msgid "Configure plugin"
 msgstr "Konfigūruoti įskiepį"

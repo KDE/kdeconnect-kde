@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2025-02-27 08:38+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -191,27 +191,27 @@ msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Оновити список пристроїв"
 
-#: qml/Main.qml:106
+#: qml/Main.qml:112
 #, kde-format
 msgid "Remembered"
 msgstr "Відомий"
 
-#: qml/Main.qml:108
+#: qml/Main.qml:114
 #, kde-format
 msgid "Available"
 msgstr "Доступний"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:116
 #, kde-format
 msgid "Connected"
 msgstr "З'єднаний"
 
-#: qml/Main.qml:115
+#: qml/Main.qml:121
 #, kde-format
 msgid "No devices found"
 msgstr "Пристроїв не виявлено"
 
-#: qml/Main.qml:187 qml/Main.qml:196
+#: qml/Main.qml:193 qml/Main.qml:208
 #, kde-format
 msgid "Settings"
 msgstr "Параметри"
@@ -221,24 +221,24 @@ msgstr "Параметри"
 msgid "Remote Control"
 msgstr "Дистанційне керування"
 
-#: qml/mousepad.qml:60
+#: qml/mousepad.qml:61
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr "Натисніть %1 або ліву і праву кнопки миші одночасно, щоб розблокувати"
 
-#: qml/mousepad.qml:211
+#: qml/mousepad.qml:213
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
 msgstr "Клацання лівою"
 
-#: qml/mousepad.qml:217
+#: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
 msgstr "Клацання середньою"
 
-#: qml/mousepad.qml:223
+#: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
@@ -254,12 +254,12 @@ msgstr "Керування відтворенням"
 msgid "No players available"
 msgstr "Немає доступних програвачів"
 
-#: qml/mpris.qml:109
+#: qml/mpris.qml:111
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 – %2"
 
-#: qml/PluginSettings.qml:116
+#: qml/PluginSettings.qml:121
 #, kde-format
 msgid "Configure plugin"
 msgstr "Налаштувати додаток"

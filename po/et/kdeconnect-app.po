@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2020-11-20 01:14+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -193,27 +193,27 @@ msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Otsi seadet"
 
-#: qml/Main.qml:106
+#: qml/Main.qml:112
 #, kde-format
 msgid "Remembered"
 msgstr "Meeldejäetud"
 
-#: qml/Main.qml:108
+#: qml/Main.qml:114
 #, kde-format
 msgid "Available"
 msgstr "Saadaval"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:116
 #, kde-format
 msgid "Connected"
 msgstr "Ühendatud"
 
-#: qml/Main.qml:115
+#: qml/Main.qml:121
 #, kde-format
 msgid "No devices found"
 msgstr "Ühtegi seadet ei leitud"
 
-#: qml/Main.qml:187 qml/Main.qml:196
+#: qml/Main.qml:193 qml/Main.qml:208
 #, fuzzy, kde-format
 #| msgid "Plugin Settings"
 msgid "Settings"
@@ -224,24 +224,24 @@ msgstr "Plugina seadistused"
 msgid "Remote Control"
 msgstr "Kaugjuhtimine"
 
-#: qml/mousepad.qml:60
+#: qml/mousepad.qml:61
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
 
-#: qml/mousepad.qml:211
+#: qml/mousepad.qml:213
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
 msgstr ""
 
-#: qml/mousepad.qml:217
+#: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
 msgstr ""
 
-#: qml/mousepad.qml:223
+#: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
@@ -257,12 +257,12 @@ msgstr "Multimeedia juhtimine"
 msgid "No players available"
 msgstr "Ühtegi mängijat pole saada"
 
-#: qml/mpris.qml:109
+#: qml/mpris.qml:111
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:116
+#: qml/PluginSettings.qml:121
 #, kde-format
 msgid "Configure plugin"
 msgstr ""

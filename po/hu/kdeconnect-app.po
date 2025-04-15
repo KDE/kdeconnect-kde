@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2024-05-22 10:41+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -199,27 +199,27 @@ msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Eszközök"
 
-#: qml/Main.qml:106
+#: qml/Main.qml:112
 #, kde-format
 msgid "Remembered"
 msgstr "Megjegyzett"
 
-#: qml/Main.qml:108
+#: qml/Main.qml:114
 #, kde-format
 msgid "Available"
 msgstr "Elérhető"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:116
 #, kde-format
 msgid "Connected"
 msgstr "Csatlakoztatva"
 
-#: qml/Main.qml:115
+#: qml/Main.qml:121
 #, kde-format
 msgid "No devices found"
 msgstr "Nem találhatók eszközök"
 
-#: qml/Main.qml:187 qml/Main.qml:196
+#: qml/Main.qml:193 qml/Main.qml:208
 #, kde-format
 msgid "Settings"
 msgstr "Beállítások"
@@ -229,25 +229,25 @@ msgstr "Beállítások"
 msgid "Remote Control"
 msgstr "Távoli hozzáférés"
 
-#: qml/mousepad.qml:60
+#: qml/mousepad.qml:61
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
 "Feloldáshoz nyomja meg egyszerre az egér bal és jobb gombját vagy ezt: %1"
 
-#: qml/mousepad.qml:211
+#: qml/mousepad.qml:213
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
 msgstr ""
 
-#: qml/mousepad.qml:217
+#: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
 msgstr ""
 
-#: qml/mousepad.qml:223
+#: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
@@ -263,12 +263,12 @@ msgstr "Multimédiavezérlők"
 msgid "No players available"
 msgstr "Nem érhetők el lejátszók"
 
-#: qml/mpris.qml:109
+#: qml/mpris.qml:111
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:116
+#: qml/PluginSettings.qml:121
 #, kde-format
 msgid "Configure plugin"
 msgstr "Bővítmény beállítása"

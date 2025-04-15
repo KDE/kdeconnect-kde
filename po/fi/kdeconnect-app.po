@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2025-04-03 17:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -189,27 +189,27 @@ msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Virkistä laitteet"
 
-#: qml/Main.qml:106
+#: qml/Main.qml:112
 #, kde-format
 msgid "Remembered"
 msgstr "Muistettu"
 
-#: qml/Main.qml:108
+#: qml/Main.qml:114
 #, kde-format
 msgid "Available"
 msgstr "Saatavilla"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:116
 #, kde-format
 msgid "Connected"
 msgstr "Yhdistetty"
 
-#: qml/Main.qml:115
+#: qml/Main.qml:121
 #, kde-format
 msgid "No devices found"
 msgstr "Laitteita ei löytynyt"
 
-#: qml/Main.qml:187 qml/Main.qml:196
+#: qml/Main.qml:193 qml/Main.qml:208
 #, kde-format
 msgid "Settings"
 msgstr "Asetukset"
@@ -219,25 +219,25 @@ msgstr "Asetukset"
 msgid "Remote Control"
 msgstr "Kaukosäädin"
 
-#: qml/mousepad.qml:60
+#: qml/mousepad.qml:61
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
 "Avaa lukitus painamalla %1 tai yhtä aikaa vasenta ja oikeaa hiiripainiketta"
 
-#: qml/mousepad.qml:211
+#: qml/mousepad.qml:213
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
 msgstr "Vasen napsautus"
 
-#: qml/mousepad.qml:217
+#: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
 msgstr "Keskinapsautus"
 
-#: qml/mousepad.qml:223
+#: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
@@ -253,12 +253,12 @@ msgstr "Multimediaohjaimet"
 msgid "No players available"
 msgstr "Ei toisto-ohjelmia"
 
-#: qml/mpris.qml:109
+#: qml/mpris.qml:111
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 – %2"
 
-#: qml/PluginSettings.qml:116
+#: qml/PluginSettings.qml:121
 #, kde-format
 msgid "Configure plugin"
 msgstr "Liitännäisen asetukset"

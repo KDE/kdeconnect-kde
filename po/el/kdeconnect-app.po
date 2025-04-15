@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2024-09-19 21:41+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -192,27 +192,27 @@ msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Εύρεση συσκευής"
 
-#: qml/Main.qml:106
+#: qml/Main.qml:112
 #, kde-format
 msgid "Remembered"
 msgstr "Στη μνήμη"
 
-#: qml/Main.qml:108
+#: qml/Main.qml:114
 #, kde-format
 msgid "Available"
 msgstr "Διαθέσιμη"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:116
 #, kde-format
 msgid "Connected"
 msgstr "Συνδεδεμένη"
 
-#: qml/Main.qml:115
+#: qml/Main.qml:121
 #, kde-format
 msgid "No devices found"
 msgstr "Δεν βρέθηκαν συσκευές"
 
-#: qml/Main.qml:187 qml/Main.qml:196
+#: qml/Main.qml:193 qml/Main.qml:208
 #, fuzzy, kde-format
 #| msgid "Plugin Settings"
 msgid "Settings"
@@ -223,7 +223,7 @@ msgstr "Ρυθμίσεις προσθέτου"
 msgid "Remote Control"
 msgstr "Τηλεχειριστήριο"
 
-#: qml/mousepad.qml:60
+#: qml/mousepad.qml:61
 #, fuzzy, kde-format
 #| msgid "Press the left and right mouse buttons at the same time to unlock"
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
@@ -231,19 +231,19 @@ msgstr ""
 "Πιέστε ταυτόχρονα το αριστερό και το δεξί κουμπί του ποντικιού για να "
 "ξεκλειδώσετε"
 
-#: qml/mousepad.qml:211
+#: qml/mousepad.qml:213
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
 msgstr ""
 
-#: qml/mousepad.qml:217
+#: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
 msgstr ""
 
-#: qml/mousepad.qml:223
+#: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
@@ -259,12 +259,12 @@ msgstr "Συστατικά ελέγχου πολυμέσων"
 msgid "No players available"
 msgstr "Δεν βρέθηκαν προγράμματα αναπαραγωγής"
 
-#: qml/mpris.qml:109
+#: qml/mpris.qml:111
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:116
+#: qml/PluginSettings.qml:121
 #, kde-format
 msgid "Configure plugin"
 msgstr ""
