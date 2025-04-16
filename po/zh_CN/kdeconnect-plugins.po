@@ -95,7 +95,7 @@ msgstr "当前播放器"
 #: mpriscontrol/mpriscontrolplugin-win.cpp:81
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: notifications/notification.cpp:108
 #, kde-format
