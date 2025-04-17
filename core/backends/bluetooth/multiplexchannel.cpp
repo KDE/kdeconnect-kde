@@ -51,8 +51,17 @@ qint64 MultiplexChannel::bytesToWrite() const
 
 qint64 MultiplexChannel::readData(char *data, qint64 maxlen)
 {
-    if (maxlen <= state->read_buffer.size() || state->read_buffer.size() > 0) {
-        const auto num_to_read = std::min(maxlen, state->read_buffer.size());
+    // QByteArray::size() returns qsizetype, which is defined to be the same
+    // as ssize_t which might not be the same as qint64 on all platforms.
+    const qint64 read_buffer_size = (qint64)state->read_buffer.size();
+
+    // Someone sharper than me with C++ can do better here. We need to ensure
+    // that we have not accidentally truncated read_buffer_size with the cast
+    // to qint64 above.
+    static_assert(sizeof(qint64) >= sizeof(qsizetype), "This code has not been checked for safety when qsizetype exceeds the type of the maxlen parameter");
+
+    if (maxlen <= read_buffer_size || read_buffer_size > 0) {
+        const qint64 num_to_read = std::min(maxlen, read_buffer_size);
         std::memcpy(data, state->read_buffer.data(), num_to_read);
         state->read_buffer.remove(0, num_to_read);
         Q_EMIT state->readAvailable();
