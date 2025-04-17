@@ -96,7 +96,7 @@ msgstr "Aktuální hráč"
 #: mpriscontrol/mpriscontrolplugin-win.cpp:81
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "Nedostupné"
 
 #: notifications/notification.cpp:108
 #, kde-format
