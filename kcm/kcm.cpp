@@ -44,6 +44,16 @@ class QQuickWidgetPaleteChangeWatcher : public QObject
     }
 };
 
+void adjustListWidgetHeight(QListWidget *listWidget)
+{
+    int totalHeight = 0;
+    for (int i = 0; i < listWidget->count(); ++i) {
+        totalHeight += listWidget->sizeHintForRow(i);
+    }
+    totalHeight += 2 * listWidget->frameWidth();
+    listWidget->setFixedHeight(totalHeight);
+}
+
 KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const QVariantList &args)
     : KCModule(parent, md)
     , daemon(new DaemonDbusInterface(this))
@@ -134,6 +144,8 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
 
                     kcmUi.linkProviders_list->addItem(linkProviderItem);
                 }
+                // Hack to make the list widget resize to fit the contents
+                adjustListWidgetHeight(kcmUi.linkProviders_list);
             }
 
             connect(kcmUi.linkProviders_list, &QListWidget::itemChanged, this, [this](const QListWidgetItem *item) {
