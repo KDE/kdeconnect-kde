@@ -40,13 +40,6 @@ IndicatorHelper::~IndicatorHelper()
 
 void IndicatorHelper::iconPathHook()
 {
-    // FIXME: This doesn't seem to be enough for QIcon::fromTheme to find the icons, so we still have to use the full path when setting the icon
-    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("icons"), QStandardPaths::LocateDirectory);
-    if (!iconPath.isNull()) {
-        QStringList themeSearchPaths = QIcon::themeSearchPaths();
-        themeSearchPaths << iconPath;
-        QIcon::setThemeSearchPaths(themeSearchPaths);
-    }
 }
 
 int IndicatorHelper::startDaemon()
