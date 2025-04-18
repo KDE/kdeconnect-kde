@@ -50,8 +50,8 @@ int main(int argc, char *argv[])
                          i18n("KDE Connect SMS"),
                          QStringLiteral(KDECONNECT_VERSION_STRING),
                          i18n("SMS Instant Messaging"),
-                         KAboutLicense::GPL_V3,
-                         i18n("(C) 2018-2022, KDE Connect Team"));
+                         KAboutLicense::GPL,
+                         i18n("(C) 2018-2025, KDE Connect Team"));
     aboutData.addAuthor(i18n("Simon Redman"), {}, QStringLiteral("simon@ergotech.com"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
     aboutData.addAuthor(i18n("Nicolas Fella"), {}, QStringLiteral("nicolas.fella@gmx.de"));

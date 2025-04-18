@@ -54,13 +54,16 @@ int main(int argc, char **argv)
     IndicatorHelper helper;
     helper.startDaemon();
 
-    KAboutData about(QStringLiteral("kdeconnect-indicator"),
-                     i18n("KDE Connect Indicator"),
-                     QStringLiteral(KDECONNECT_VERSION_STRING),
-                     i18n("KDE Connect Indicator tool"),
-                     KAboutLicense::GPL,
-                     i18n("(C) 2016 Aleix Pol Gonzalez"));
-    KAboutData::setApplicationData(about);
+    KAboutData aboutData(QStringLiteral("kdeconnect-indicator"),
+                         i18n("KDE Connect Indicator"),
+                         QStringLiteral(KDECONNECT_VERSION_STRING),
+                         i18n("KDE Connect Indicator tool"),
+                         KAboutLicense::GPL,
+                         i18n("(c) 2016-2025, KDE Connect Team"));
+    aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
+    aboutData.addAuthor(i18n("Albert Vaca Cintora"), {}, QStringLiteral("albertvaka@kde.org"));
+    aboutData.setProgramLogo(QIcon::fromTheme(QStringLiteral("kdeconnect")));
+    KAboutData::setApplicationData(aboutData);
 
     KCrash::initialize();
 
@@ -75,9 +78,6 @@ int main(int argc, char **argv)
     }
 
     KDBusService dbusService(KDBusService::Unique);
-
-    // Trigger loading the KIconLoader plugin
-    about.setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
 
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);

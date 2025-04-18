@@ -1,7 +1,7 @@
 qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
 ecm_setup_version(${PROJECT_VERSION}
-    VARIABLE_PREFIX KDE_CONNECT
+    VARIABLE_PREFIX KDECONNECT
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h
 )
 

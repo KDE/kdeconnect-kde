@@ -69,7 +69,8 @@ int main(int argc, char *argv[])
                          i18n("KDE Connect Daemon"),
                          QStringLiteral(KDECONNECT_VERSION_STRING),
                          i18n("KDE Connect Daemon"),
-                         KAboutLicense::GPL);
+                         KAboutLicense::GPL,
+                         i18n("(c) 2015-2025, KDE Connect Team"));
     KAboutData::setApplicationData(aboutData);
     app.setQuitOnLastWindowClosed(false);
 

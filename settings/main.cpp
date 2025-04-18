@@ -23,22 +23,23 @@ int main(int argc, char **argv)
 
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
-    KAboutData about(QStringLiteral("kdeconnect-settings"),
-                     i18n("KDE Connect Settings"),
-                     QStringLiteral(KDECONNECT_VERSION_STRING),
-                     i18n("KDE Connect Settings"),
-                     KAboutLicense::GPL,
-                     i18n("(C) 2018-2020 Nicolas Fella"));
-    KAboutData::setApplicationData(about);
+    KAboutData aboutData(QStringLiteral("kdeconnect-settings"),
+                         i18n("KDE Connect Settings"),
+                         QStringLiteral(KDECONNECT_VERSION_STRING),
+                         i18n("KDE Connect Settings"),
+                         KAboutLicense::GPL,
+                         i18n("(c) 2018-2025, KDE Connect Team"));
+    aboutData.addAuthor(i18n("Nicolas Fella"), {}, QStringLiteral("nicolas.fella@gmx.de"));
+    KAboutData::setApplicationData(aboutData);
 
     KCrash::initialize();
 
     QCommandLineParser parser;
     parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the config module"), QStringLiteral("args")));
 
-    about.setupCommandLine(&parser);
+    aboutData.setupCommandLine(&parser);
     parser.process(app);
-    about.processCommandLine(&parser);
+    aboutData.processCommandLine(&parser);
 
     KDBusService dbusService(KDBusService::Unique);
 

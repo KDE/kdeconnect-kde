@@ -6,7 +6,6 @@
 
 #include "kcm.h"
 
-#include <KAboutData>
 #include <KColorSchemeManager>
 #include <KConfigGroup>
 #include <KLocalizedString>

@@ -24,7 +24,7 @@
 DesktopDaemon::DesktopDaemon(QObject *parent)
     : Daemon(parent)
 {
-    qApp->setWindowIcon(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.png")));
+    qApp->setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
 }
 
 void DesktopDaemon::askPairingConfirmation(Device *device)

@@ -41,15 +41,16 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     const QString description = i18n("KDE Connect URL handler");
-    KAboutData about(QStringLiteral("kdeconnect.handler"),
-                     description,
-                     QStringLiteral(KDECONNECT_VERSION_STRING),
-                     description,
-                     KAboutLicense::GPL,
-                     i18n("(C) 2017 Aleix Pol Gonzalez"));
-    about.addAuthor(QStringLiteral("Aleix Pol Gonzalez"), QString(), QStringLiteral("aleixpol@kde.org"));
-    about.setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
-    KAboutData::setApplicationData(about);
+    KAboutData aboutData(QStringLiteral("kdeconnect.handler"),
+                         description,
+                         QStringLiteral(KDECONNECT_VERSION_STRING),
+                         description,
+                         KAboutLicense::GPL,
+                         i18n("(c) 2015-2025, KDE Connect Team"));
+    aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
+    aboutData.addAuthor(i18n("Albert Vaca Cintora"), {}, QStringLiteral("albertvaka@gmail.org"));
+    aboutData.setProgramLogo(QIcon::fromTheme(QStringLiteral("kdeconnect")));
+    KAboutData::setApplicationData(aboutData);
 
     KCrash::initialize();
 
@@ -73,9 +74,9 @@ int main(int argc, char **argv)
         parser.addPositionalArgument(QStringLiteral("url"), i18n("URL to share"));
         parser.addOption(QCommandLineOption(QStringLiteral("device"), i18n("Select a device"), i18n("id")));
         parser.addOption(QCommandLineOption(QStringLiteral("open"), QStringLiteral("Open the file on the remote device")));
-        about.setupCommandLine(&parser);
+        aboutData.setupCommandLine(&parser);
         parser.process(app);
-        about.processCommandLine(&parser);
+        aboutData.processCommandLine(&parser);
         if (parser.positionalArguments().count() == 1) {
             urlToShare = QUrl::fromUserInput(parser.positionalArguments().constFirst(), QDir::currentPath(), QUrl::AssumeLocalFile);
         }
