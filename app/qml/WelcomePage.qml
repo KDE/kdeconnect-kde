@@ -34,6 +34,7 @@ FormCard.FormCardPage {
     Controls.Label {
         text: i18nc("@info", "Make sure to install KDE Connect on your other devices.")
         horizontalAlignment: Qt.AlignHCenter
+        wrapMode: Text.WordWrap
 
         Layout.fillWidth: true
     }
