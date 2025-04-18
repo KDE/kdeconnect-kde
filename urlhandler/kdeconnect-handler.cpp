@@ -11,6 +11,7 @@
 #include <QDBusMessage>
 #include <QDialog>
 #include <QFileDialog>
+#include <QIcon>
 #include <QMessageBox>
 #include <QQuickStyle>
 #include <QTextStream>
@@ -52,19 +53,28 @@ int main(int argc, char **argv)
     aboutData.setProgramLogo(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     KAboutData::setApplicationData(aboutData);
 
-    KCrash::initialize();
-
-    KDBusService dbusService(KDBusService::Unique);
-
 #ifdef Q_OS_WIN
+    // Ensure we have a suitable color theme set for light/dark mode. KColorSchemeManager implicitly applies
+    // a suitable default theme.
     KColorSchemeManager::instance();
+    // Force breeze style to ensure coloring works consistently in dark mode. Specifically tab colors have
+    // troubles on windows.
     QApplication::setStyle(QStringLiteral("breeze"));
+    // Force breeze icon theme to ensure we can correctly adapt icons to color changes WRT dark/light mode.
+    // Without this we may end up with hicolor and fail to support icon recoloring.
+    QIcon::setThemeName(QStringLiteral("breeze"));
+#else
+    QIcon::setFallbackThemeName(QStringLiteral("breeze"));
 #endif
 
     // Default to org.kde.desktop style unless the user forces another style
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
+
+    KCrash::initialize();
+
+    KDBusService dbusService(KDBusService::Unique);
 
     QUrl urlToShare;
     bool open;
