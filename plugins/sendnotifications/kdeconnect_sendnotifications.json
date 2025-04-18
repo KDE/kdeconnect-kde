@@ -152,7 +152,6 @@
         "Name[zh_CN]": "发送通知",
         "Name[zh_TW]": "傳送通知"
     },
-    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_sendnotifications_config",
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.notification"
     ],

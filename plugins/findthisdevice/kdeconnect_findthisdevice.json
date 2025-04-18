@@ -154,7 +154,6 @@
         "Name[zh_CN]": "查找此设备",
         "Name[zh_TW]": "尋找這個裝置"
     },
-    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_findthisdevice_config",
     "X-KdeConnect-OutgoingPacketType": [],
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.findmyphone.request"

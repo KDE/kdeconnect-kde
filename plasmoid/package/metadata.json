@@ -142,9 +142,6 @@
     },
     "X-Plasma-API": "declarativeappletscript",
     "X-Plasma-API-Minimum-Version": "6.0",
-    "X-Plasma-ConfigPlugins": [
-        "kcm_kdeconnect"
-    ],
     "X-Plasma-MainScript": "ui/main.qml",
     "X-Plasma-NotificationArea": "true",
     "X-Plasma-NotificationAreaCategory": "Hardware"

@@ -15,7 +15,6 @@
 #include <QSettings>
 
 #include <KShell>
-#include <kcmutils_version.h>
 
 #include <core/daemon.h>
 #include <core/device.h>

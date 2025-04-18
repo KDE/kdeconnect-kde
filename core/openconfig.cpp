@@ -7,6 +7,7 @@
 #include "openconfig.h"
 
 #include <QDebug>
+#include <QProcess>
 
 #include <KIO/CommandLauncherJob>
 
@@ -22,22 +23,25 @@ void OpenConfig::openConfiguration(const QString &deviceId, const QString &plugi
     QString argument;
 
     if (!deviceId.isEmpty()) {
-        args << QStringLiteral("--args");
-        argument = deviceId;
+        args << QStringLiteral("--device");
+        args << deviceId;
 
         if (!pluginId.isEmpty()) {
-            argument += QLatin1Char(':') + pluginId;
+            args << QStringLiteral("--plugin-config");
+            args << pluginId;
         }
-
-        args << argument;
     }
 
-    auto job = new KIO::CommandLauncherJob(QStringLiteral("kdeconnect-settings"), args);
-    job->setDesktopName(QStringLiteral("org.kde.kdeconnect-settings"));
+#ifdef Q_OS_WIN
+    QProcess::startDetached(QStringLiteral("kdeconnect-app.exe"), args);
+#else
+    auto job = new KIO::CommandLauncherJob(QStringLiteral("kdeconnect-app"), args);
+    job->setDesktopName(QStringLiteral("org.kde.kdeconnect.app"));
     job->setStartupId(m_currentToken.toUtf8());
     job->start();
 
     m_currentToken = QString();
+#endif
 }
 
 #include "moc_openconfig.cpp"

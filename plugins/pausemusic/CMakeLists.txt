@@ -18,15 +18,4 @@ else()
     target_link_libraries(kdeconnect_pausemusic KF6::PulseAudioQt)
 endif()
 
-#######################################
-# Config
-
-kdeconnect_add_kcm(kdeconnect_pausemusic_config SOURCES pausemusic_config.cpp)
-
-ki18n_wrap_ui(kdeconnect_pausemusic_config pausemusic_config.ui)
-target_link_libraries(kdeconnect_pausemusic_config
-    kdeconnectcore
-    kdeconnectpluginkcm
-    KF6::I18n
-    KF6::KCMUtils
-)
+install(FILES "kdeconnect_pausemusic_config.qml" DESTINATION ${KDE_INSTALL_DATADIR}/kdeconnect)

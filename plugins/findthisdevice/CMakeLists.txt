@@ -30,18 +30,3 @@ if (NOT WIN32)
         KF6::PulseAudioQt
     )
 endif()
-
-# Target kdeconnect_findthisdevice_config
-
-kdeconnect_add_kcm(kdeconnect_findthisdevice_config SOURCES findthisdevice_config.cpp findthisdevicehelper.cpp)
-
-ki18n_wrap_ui(kdeconnect_findthisdevice_config findthisdevice_config.ui)
-target_link_libraries(kdeconnect_findthisdevice_config
-    kdeconnectpluginkcm
-    Qt::Multimedia
-    Qt::Qml
-    KF6::I18n
-    KF6::CoreAddons
-    KF6::ConfigWidgets
-    KF6::KIOWidgets # KUrlRequester
-)

@@ -36,10 +36,6 @@
                     "items": {
                         "type": "string"
                     }
-                },
-                "X-KDE-ConfigModule": {
-                    "type": "string",
-                    "pattern": "^kdeconnect/kcms/[^/]+$"
                 }
             }
         }

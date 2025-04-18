@@ -23,19 +23,4 @@ target_sources(kdeconnect_sendnotifications PRIVATE dbusnotificationslistener.cp
 target_link_libraries(kdeconnect_sendnotifications PkgConfig::DBus)
 endif()
 
-# Config
-kdeconnect_add_kcm(kdeconnect_sendnotifications_config)
-
-ki18n_wrap_ui(kdeconnect_sendnotifications_config sendnotifications_config.ui)
-target_sources(kdeconnect_sendnotifications_config PRIVATE
-     sendnotifications_config.cpp
-     notifyingapplication.cpp
-     notifyingapplicationmodel.cpp
-)
-
-target_link_libraries(kdeconnect_sendnotifications_config
-    kdeconnectcore
-    kdeconnectpluginkcm
-    KF6::I18n
-    KF6::KCMUtils
-)
+install(FILES "kdeconnect_sendnotifications_config.qml" DESTINATION ${KDE_INSTALL_DATADIR}/kdeconnect)
