@@ -45,6 +45,5 @@
 </qresource>
 <qresource prefix="/icons/kdeconnect/">
     <file alias="kdeconnect.svg">app/sc-apps-kdeconnect.svg</file>
-    <file alias="kdeconnect.png">app/128-apps-kdeconnect.png</file>
 </qresource>
 </RCC>
