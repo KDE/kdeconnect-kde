@@ -11,17 +11,14 @@ set(indicator_SRCS
 )
 
 include(ECMAddAppIcon)
-
 ecm_add_app_icon(indicator_SRCS ICONS
     ${CMAKE_SOURCE_DIR}/icons/app/sc-apps-kdeconnect.svg
-    ${CMAKE_SOURCE_DIR}/icons/app/16-apps-kdeconnect.png
-    ${CMAKE_SOURCE_DIR}/icons/app/24-apps-kdeconnect.png
-    ${CMAKE_SOURCE_DIR}/icons/app/32-apps-kdeconnect.png
-    ${CMAKE_SOURCE_DIR}/icons/app/48-apps-kdeconnect.png
-    ${CMAKE_SOURCE_DIR}/icons/app/64-apps-kdeconnect.png
-    ${CMAKE_SOURCE_DIR}/icons/app/128-apps-kdeconnect.png
-    ${CMAKE_SOURCE_DIR}/icons/app/256-apps-kdeconnect.png
-    ${CMAKE_SOURCE_DIR}/icons/app/1024-apps-kdeconnect.png
+    ${CMAKE_SOURCE_DIR}/icons/windows/32-apps-kdeconnect.png
+    ${CMAKE_SOURCE_DIR}/icons/windows/48-apps-kdeconnect.png
+    ${CMAKE_SOURCE_DIR}/icons/windows/64-apps-kdeconnect.png
+    ${CMAKE_SOURCE_DIR}/icons/windows/128-apps-kdeconnect.png
+    ${CMAKE_SOURCE_DIR}/icons/windows/256-apps-kdeconnect.png
+    ${CMAKE_SOURCE_DIR}/icons/windows/512-apps-kdeconnect.png
 )
 
 if (WIN32)
