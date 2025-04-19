@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 02:34+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -37,7 +37,7 @@ msgstr "KDE Connect 设置"
 msgid "(C) 2018-2020 Nicolas Fella"
 msgstr "(C) 2018-2020 Nicolas Fella"
 
-#: main.cpp:37 main.cpp:56
+#: main.cpp:56 main.cpp:75
 #, kde-format
 msgid "Arguments for the config module"
 msgstr "配置模块的参数"

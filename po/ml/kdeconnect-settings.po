@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 02:34+0000\n"
 "PO-Revision-Date: 2020-01-28 02:48+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -37,7 +37,7 @@ msgstr "കെ.ഡി.ഇ കണക്ട് സജ്ജീകരണങ്ങ�
 msgid "(C) 2018-2020 Nicolas Fella"
 msgstr "(C) 2018-2020 നിക്കോളാസ് ഫെല്ല"
 
-#: main.cpp:37 main.cpp:56
+#: main.cpp:56 main.cpp:75
 #, kde-format
 msgid "Arguments for the config module"
 msgstr ""

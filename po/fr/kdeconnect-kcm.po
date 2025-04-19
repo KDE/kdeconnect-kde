@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 02:34+0000\n"
 "PO-Revision-Date: 2025-04-02 21:00+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -34,66 +34,66 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mcorteel@gmail.com, sdepiets@gmail.com, xavier.besnard@kde.org"
 
-#: kcm.cpp:91
+#: kcm.cpp:110
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "Erreur : KDEConnect n'est pas en cours d'exécution"
 
-#: kcm.cpp:115
+#: kcm.cpp:134
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: kcm.cpp:117
+#: kcm.cpp:136
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
 msgstr "Loopback"
 
-#: kcm.cpp:119
+#: kcm.cpp:138
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
 msgstr "Réseau"
 
-#: kcm.cpp:122
+#: kcm.cpp:141
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: kcm.cpp:319
+#: kcm.cpp:340
 #, kde-format
 msgid "Available plugins"
 msgstr "Modules externes disponibles"
 
-#: kcm.cpp:366
+#: kcm.cpp:387
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Erreur lors de la tentative d'association : %1"
 
-#: kcm.cpp:383
+#: kcm.cpp:404
 #, kde-format
 msgid "(paired)"
 msgstr "(associé)"
 
-#: kcm.cpp:386
+#: kcm.cpp:407
 #, kde-format
 msgid "(not paired)"
 msgstr "(non associé)"
 
-#: kcm.cpp:389
+#: kcm.cpp:410
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(requête d'association entrante)"
 
-#: kcm.cpp:390 kcm.cpp:394
+#: kcm.cpp:411 kcm.cpp:415
 #, kde-format
 msgid "Key: %1"
 msgstr "Clé : %1"
 
-#: kcm.cpp:393
+#: kcm.cpp:414
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(association demandée)"

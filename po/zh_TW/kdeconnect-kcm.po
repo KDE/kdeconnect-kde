@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 02:34+0000\n"
 "PO-Revision-Date: 2024-12-29 02:06+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -33,67 +33,67 @@ msgstr ""
 "liueigi@gmail.com, s8321414@gmail.com, brli@chakralinux.org, mail@kisaragi-"
 "hiu.com"
 
-#: kcm.cpp:91
+#: kcm.cpp:110
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "錯誤：KDE Connect 並非執行中"
 
-#: kcm.cpp:115
+#: kcm.cpp:134
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
 msgstr "藍牙"
 
-#: kcm.cpp:117
+#: kcm.cpp:136
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
 msgstr "Loopback"
 
-#: kcm.cpp:119
+#: kcm.cpp:138
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
 msgstr "網路"
 
-#: kcm.cpp:122
+#: kcm.cpp:141
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr "未知"
 
-#: kcm.cpp:319
+#: kcm.cpp:340
 #, kde-format
 msgid "Available plugins"
 msgstr "可用的外掛程式"
 
 # %1 is the error
-#: kcm.cpp:366
+#: kcm.cpp:387
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "嘗試配對時發生錯誤：%1"
 
-#: kcm.cpp:383
+#: kcm.cpp:404
 #, kde-format
 msgid "(paired)"
 msgstr "（已配對）"
 
-#: kcm.cpp:386
+#: kcm.cpp:407
 #, kde-format
 msgid "(not paired)"
 msgstr "（未配對）"
 
-#: kcm.cpp:389
+#: kcm.cpp:410
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "（到來的配對請求）"
 
-#: kcm.cpp:390 kcm.cpp:394
+#: kcm.cpp:411 kcm.cpp:415
 #, kde-format
 msgid "Key: %1"
 msgstr "Key: %1"
 
-#: kcm.cpp:393
+#: kcm.cpp:414
 #, kde-format
 msgid "(pairing requested)"
 msgstr "（已請求配對）"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 02:34+0000\n"
 "PO-Revision-Date: 2025-01-24 09:27+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -30,66 +30,66 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ttv200@gmail.com,kde-l10n-he@kde.org"
 
-#: kcm.cpp:91
+#: kcm.cpp:110
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "שגיאה: KDE Connect אינו פעיל"
 
-#: kcm.cpp:115
+#: kcm.cpp:134
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
 msgstr "בלוטות׳"
 
-#: kcm.cpp:117
+#: kcm.cpp:136
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
 msgstr "לולאה פנימית"
 
-#: kcm.cpp:119
+#: kcm.cpp:138
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
 msgstr "רשת"
 
-#: kcm.cpp:122
+#: kcm.cpp:141
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr "לא ידוע"
 
-#: kcm.cpp:319
+#: kcm.cpp:340
 #, kde-format
 msgid "Available plugins"
 msgstr "תוספים זמינים"
 
-#: kcm.cpp:366
+#: kcm.cpp:387
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "שגיאה בניסיון לצימוד: %1"
 
-#: kcm.cpp:383
+#: kcm.cpp:404
 #, kde-format
 msgid "(paired)"
 msgstr "(מצומד)"
 
-#: kcm.cpp:386
+#: kcm.cpp:407
 #, kde-format
 msgid "(not paired)"
 msgstr "(לא מצומד)"
 
-#: kcm.cpp:389
+#: kcm.cpp:410
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(בקשת צימוד נכנסת)"
 
-#: kcm.cpp:390 kcm.cpp:394
+#: kcm.cpp:411 kcm.cpp:415
 #, kde-format
 msgid "Key: %1"
 msgstr "מפתח: %1"
 
-#: kcm.cpp:393
+#: kcm.cpp:414
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(בקשת צימוד)"

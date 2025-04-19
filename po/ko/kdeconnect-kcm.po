@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 02:34+0000\n"
 "PO-Revision-Date: 2024-12-24 16:46+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -27,66 +27,66 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: kcm.cpp:91
+#: kcm.cpp:110
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "오류: KDE Connect가 실행 중이 아님"
 
-#: kcm.cpp:115
+#: kcm.cpp:134
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
 msgstr "블루투스"
 
-#: kcm.cpp:117
+#: kcm.cpp:136
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
 msgstr "루프백"
 
-#: kcm.cpp:119
+#: kcm.cpp:138
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
 msgstr "네트워크"
 
-#: kcm.cpp:122
+#: kcm.cpp:141
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: kcm.cpp:319
+#: kcm.cpp:340
 #, kde-format
 msgid "Available plugins"
 msgstr "사용 가능한 플러그인"
 
-#: kcm.cpp:366
+#: kcm.cpp:387
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "페어링 중 오류 발생: %1"
 
-#: kcm.cpp:383
+#: kcm.cpp:404
 #, kde-format
 msgid "(paired)"
 msgstr "(페어링됨)"
 
-#: kcm.cpp:386
+#: kcm.cpp:407
 #, kde-format
 msgid "(not paired)"
 msgstr "(페어링되지 않음)"
 
-#: kcm.cpp:389
+#: kcm.cpp:410
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(들어오는 페어링 요청)"
 
-#: kcm.cpp:390 kcm.cpp:394
+#: kcm.cpp:411 kcm.cpp:415
 #, kde-format
 msgid "Key: %1"
 msgstr "키: %1"
 
-#: kcm.cpp:393
+#: kcm.cpp:414
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(페어링 요청됨)"

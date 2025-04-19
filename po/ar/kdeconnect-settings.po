@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 02:34+0000\n"
 "PO-Revision-Date: 2022-09-12 22:34+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -37,7 +37,7 @@ msgstr "إعدادات كِيدِي المتّصل"
 msgid "(C) 2018-2020 Nicolas Fella"
 msgstr "(©) 2018-2020 نيكولاس فلا"
 
-#: main.cpp:37 main.cpp:56
+#: main.cpp:56 main.cpp:75
 #, kde-format
 msgid "Arguments for the config module"
 msgstr "معاملات وحدة الضبط"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-19 00:39+0000\n"
+"POT-Creation-Date: 2025-04-19 02:34+0000\n"
 "PO-Revision-Date: 2024-04-25 14:48+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -56,62 +56,62 @@ msgstr "Envoyer un fichier"
 msgid "Open on peer device"
 msgstr "Ouvrir sur un périphérique associé"
 
-#: kdeconnect-handler.cpp:43
+#: kdeconnect-handler.cpp:44
 #, kde-format
 msgid "KDE Connect URL handler"
 msgstr "Gestionnaire d'URL de KDEConnect"
 
-#: kdeconnect-handler.cpp:49
+#: kdeconnect-handler.cpp:50
 #, kde-format
 msgid "(C) 2017 Aleix Pol Gonzalez"
 msgstr "(C) 2017 Aleix Pol Gonzalez"
 
-#: kdeconnect-handler.cpp:73
+#: kdeconnect-handler.cpp:83
 #, kde-format
 msgid "URL to share"
 msgstr "URL à partager"
 
-#: kdeconnect-handler.cpp:74
+#: kdeconnect-handler.cpp:84
 #, kde-format
 msgid "Select a device"
 msgstr "Sélectionnez un périphérique"
 
-#: kdeconnect-handler.cpp:74
+#: kdeconnect-handler.cpp:84
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: kdeconnect-handler.cpp:121
+#: kdeconnect-handler.cpp:131
 #, kde-format
 msgid "Enter URL here"
 msgstr "Saisissez l'URL ici"
 
-#: kdeconnect-handler.cpp:129
+#: kdeconnect-handler.cpp:139
 #, kde-format
 msgid "Enter file location here"
 msgstr "Saisissez l'emplacement du fichier ici"
 
-#: kdeconnect-handler.cpp:154
+#: kdeconnect-handler.cpp:164
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Appareil sur lequel appeler %1 :"
 
-#: kdeconnect-handler.cpp:157
+#: kdeconnect-handler.cpp:167
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Appareil sur lequel ouvrir %1 :"
 
-#: kdeconnect-handler.cpp:160
+#: kdeconnect-handler.cpp:170
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Appareil depuis lequel envoyer un SMS :"
 
-#: kdeconnect-handler.cpp:163
+#: kdeconnect-handler.cpp:173
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Appareil auquel envoyer %1 :"
 
-#: kdeconnect-handler.cpp:192
+#: kdeconnect-handler.cpp:202
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Impossible de partager %1"
