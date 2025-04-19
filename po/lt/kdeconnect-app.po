@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-15 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2025-01-06 22:24+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
@@ -19,39 +19,39 @@ msgstr ""
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Generator: Poedit 3.5\n"
 
-#: main.cpp:31 main.cpp:33
+#: main.cpp:29 main.cpp:31
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:35
+#: main.cpp:33
 #, kde-format
-msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "(c) 2015, Aleix Pol Gonzalez"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: main.cpp:36
+#: main.cpp:34
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:36
+#: main.cpp:35
 #, kde-format
-msgid "Maintainer"
-msgstr "Prižiūrėtojas"
+msgid "Albert Vaca Cintora"
+msgstr ""
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Moo"
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "<>"
 
-#: main.cpp:56
+#: main.cpp:65
 #, kde-format
 msgid "URL to share"
 msgstr "Norimas bendrinti URL"
@@ -388,6 +388,12 @@ msgstr ""
 "Jei susidūrėte su problemomis, apsilankykite <a href=\"https://userbase.kde."
 "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "bendruomenės vikyje</span></a>, kad gautumėte pagalbos."
+
+#~ msgid "(c) 2015, Aleix Pol Gonzalez"
+#~ msgstr "(c) 2015, Aleix Pol Gonzalez"
+
+#~ msgid "Maintainer"
+#~ msgstr "Prižiūrėtojas"
 
 #~ msgid "Find devices..."
 #~ msgstr "Rasti įrenginius..."

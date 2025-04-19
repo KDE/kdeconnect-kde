@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-15 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-05-21 19:33+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.02.2\n"
 
-#: main.cpp:31 main.cpp:33
+#: main.cpp:29 main.cpp:31
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:35
+#: main.cpp:33
 #, kde-format
-msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "(c) 2015, Aleix Pol Gonzalez"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: main.cpp:36
+#: main.cpp:34
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:36
+#: main.cpp:35
 #, kde-format
-msgid "Maintainer"
-msgstr "Maintainer"
+msgid "Albert Vaca Cintora"
+msgstr ""
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Steve Allewell"
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "steve.allewell@gmail.com"
 
-#: main.cpp:56
+#: main.cpp:65
 #, kde-format
 msgid "URL to share"
 msgstr "URL to share"
@@ -387,6 +387,12 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+
+#~ msgid "(c) 2015, Aleix Pol Gonzalez"
+#~ msgstr "(c) 2015, Aleix Pol Gonzalez"
+
+#~ msgid "Maintainer"
+#~ msgstr "Maintainer"
 
 #~ msgid "Find devices..."
 #~ msgstr "Find devices..."

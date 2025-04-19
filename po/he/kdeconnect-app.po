@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-15 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2025-02-28 11:43+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -18,39 +18,39 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
-#: main.cpp:31 main.cpp:33
+#: main.cpp:29 main.cpp:31
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:35
+#: main.cpp:33
 #, kde-format
-msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "(c) 2015, אלש פול גונזלז"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: main.cpp:36
+#: main.cpp:34
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "אלש פול גונזלז"
 
-#: main.cpp:36
+#: main.cpp:35
 #, kde-format
-msgid "Maintainer"
-msgstr "מתחזק"
+msgid "Albert Vaca Cintora"
+msgstr ""
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "צוות התרגום של KDE ישראל"
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-l10n-he@kde.org"
 
-#: main.cpp:56
+#: main.cpp:65
 #, kde-format
 msgid "URL to share"
 msgstr "כתובת לשיתוף"
@@ -379,6 +379,12 @@ msgstr ""
 "אם נתקלת בבעיות, מומלץ לבקר ב<a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">וויקי של קהילת KDE Connect</"
 "span></a> לקבלת עזרה."
+
+#~ msgid "(c) 2015, Aleix Pol Gonzalez"
+#~ msgstr "(c) 2015, אלש פול גונזלז"
+
+#~ msgid "Maintainer"
+#~ msgstr "מתחזק"
 
 #~ msgid ""
 #~ "<html><head/><body><p>No device selected<br><br>If you own an Android "

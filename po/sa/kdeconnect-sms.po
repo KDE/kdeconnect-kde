@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-02 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -75,8 +75,9 @@ msgid "SMS Instant Messaging"
 msgstr "एस एम एस तत्काल सन्देश"
 
 #: main.cpp:54
-#, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
+#, fuzzy, kde-format
+#| msgid "(C) 2018-2022, KDE Connect Team"
+msgid "(C) 2018-2025, KDE Connect Team"
 msgstr "(C) 2018-2022, केडीई कनेक्ट टीम"
 
 #: main.cpp:55
@@ -94,22 +95,22 @@ msgstr "एलेक्स पोल गोन्जालेज"
 msgid "Nicolas Fella"
 msgstr "निकोलस फेला"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "एकं यन्त्रं चिनोतु"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "सन्देशं प्रेषयन्तु"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "सन्देशः"

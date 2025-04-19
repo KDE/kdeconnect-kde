@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-02 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2025-03-03 09:59+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -72,8 +72,9 @@ msgid "SMS Instant Messaging"
 msgstr "Messagerie instantanée par SMS"
 
 #: main.cpp:54
-#, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
+#, fuzzy, kde-format
+#| msgid "(C) 2018-2022, KDE Connect Team"
+msgid "(C) 2018-2025, KDE Connect Team"
 msgstr "(C) 2018-2022, L'équipe de KDEConnect"
 
 #: main.cpp:55
@@ -91,22 +92,22 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "Sélectionnez un périphérique"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "Envoyer un message"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "message"

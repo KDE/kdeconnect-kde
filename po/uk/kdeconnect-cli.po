@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-12-23 09:49+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -37,15 +37,15 @@ msgstr "Інструмент керування KDE Connect з командно�
 
 #: kdeconnect-cli.cpp:34
 #, kde-format
-msgid "(C) 2015 Aleix Pol Gonzalez"
-msgstr "© Aleix Pol Gonzalez, 2015"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: kdeconnect-cli.cpp:39
+#: kdeconnect-cli.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: kdeconnect-cli.cpp:40
+#: kdeconnect-cli.cpp:36
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
@@ -350,6 +350,9 @@ msgstr ""
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Ніяких дій не передбачено"
+
+#~ msgid "(C) 2015 Aleix Pol Gonzalez"
+#~ msgstr "© Aleix Pol Gonzalez, 2015"
 
 #~ msgid "Open the connected device's camera and transfer the photo"
 #~ msgstr "Відкрити камеру з'єднаного пристрою і передати фотографію"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2025-01-26 13:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -36,15 +36,15 @@ msgstr "KDE Bağlan CLI aracı"
 
 #: kdeconnect-cli.cpp:34
 #, kde-format
-msgid "(C) 2015 Aleix Pol Gonzalez"
-msgstr "© 2015 Aleix Pol Gonzalez"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: kdeconnect-cli.cpp:39
+#: kdeconnect-cli.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: kdeconnect-cli.cpp:40
+#: kdeconnect-cli.cpp:36
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
@@ -342,6 +342,9 @@ msgstr ""
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Yapılacak bir şey yok"
+
+#~ msgid "(C) 2015 Aleix Pol Gonzalez"
+#~ msgstr "© 2015 Aleix Pol Gonzalez"
 
 #~ msgid "Open the connected device's camera and transfer the photo"
 #~ msgstr "Bağlı aygıtın kamerasını aç ve fotoğraf aktar"

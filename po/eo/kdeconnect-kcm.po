@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-12-28 17:41+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -18,76 +18,66 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Oliver Kellogg"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "olivermkellogg@gmail.com"
-
-#: kcm.cpp:91
+#: kcm.cpp:109
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "Eraro: KDE Connect ne estas rulanta"
 
-#: kcm.cpp:115
+#: kcm.cpp:133
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: kcm.cpp:117
+#: kcm.cpp:135
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
 msgstr "Loopback"
 
-#: kcm.cpp:119
+#: kcm.cpp:137
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
 msgstr "Reto"
 
-#: kcm.cpp:122
+#: kcm.cpp:140
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr "Nekonata"
 
-#: kcm.cpp:319
+#: kcm.cpp:339
 #, kde-format
 msgid "Available plugins"
 msgstr "Disponeblaj kromprogramoj"
 
-#: kcm.cpp:366
+#: kcm.cpp:386
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Eraro provante parigi: %1"
 
-#: kcm.cpp:383
+#: kcm.cpp:403
 #, kde-format
 msgid "(paired)"
 msgstr "(parigita)"
 
-#: kcm.cpp:386
+#: kcm.cpp:406
 #, kde-format
 msgid "(not paired)"
 msgstr "(ne parigita)"
 
-#: kcm.cpp:389
+#: kcm.cpp:409
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(alvenanta parpeto)"
 
-#: kcm.cpp:390 kcm.cpp:394
+#: kcm.cpp:410 kcm.cpp:414
 #, kde-format
 msgid "Key: %1"
 msgstr "Ŝlosilo: %1"
 
-#: kcm.cpp:393
+#: kcm.cpp:413
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(pariĝo petita)"
@@ -222,3 +212,11 @@ msgstr "Konektita"
 #, kde-format
 msgid "No devices found"
 msgstr "Trovis neniujn aparatojn"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Oliver Kellogg"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "olivermkellogg@gmail.com"

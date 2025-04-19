@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-12-25 19:35+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -19,76 +19,66 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "श्रीकान्त् कलवार्"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "skkalwar999@gmail.com"
-
-#: kcm.cpp:91
+#: kcm.cpp:109
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "त्रुटिः: KDE Connect न चाल्यते"
 
-#: kcm.cpp:115
+#: kcm.cpp:133
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
 msgstr "ब्लूटूथ"
 
-#: kcm.cpp:117
+#: kcm.cpp:135
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
 msgstr "लूपबैक"
 
-#: kcm.cpp:119
+#: kcm.cpp:137
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
 msgstr "जालकृति"
 
-#: kcm.cpp:122
+#: kcm.cpp:140
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr "अज्ञातम्"
 
-#: kcm.cpp:319
+#: kcm.cpp:339
 #, kde-format
 msgid "Available plugins"
 msgstr "उपलब्धाः प्लगिन्स्"
 
-#: kcm.cpp:366
+#: kcm.cpp:386
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "युग्मीकरणस्य प्रयासे त्रुटिः: %1"
 
-#: kcm.cpp:383
+#: kcm.cpp:403
 #, kde-format
 msgid "(paired)"
 msgstr "(युग्मितम्)"
 
-#: kcm.cpp:386
+#: kcm.cpp:406
 #, kde-format
 msgid "(not paired)"
 msgstr "(न युग्मितम्)"
 
-#: kcm.cpp:389
+#: kcm.cpp:409
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(आगच्छन् युग्मानुरोधः)"
 
-#: kcm.cpp:390 kcm.cpp:394
+#: kcm.cpp:410 kcm.cpp:414
 #, kde-format
 msgid "Key: %1"
 msgstr "कुञ्जी: %1"
 
-#: kcm.cpp:393
+#: kcm.cpp:413
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(युग्मीकरणस्य अनुरोधः)"
@@ -226,3 +216,11 @@ msgstr "संबद्धः"
 #, kde-format
 msgid "No devices found"
 msgstr "न यन्त्राणि प्राप्तानि"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "श्रीकान्त् कलवार्"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "skkalwar999@gmail.com"

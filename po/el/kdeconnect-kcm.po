@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-09-20 10:16+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -19,77 +19,67 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.08.1\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Δημήτρης Καρδαράκος"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "dimkard@gmail.com"
-
-#: kcm.cpp:91
+#: kcm.cpp:109
 #, fuzzy, kde-format
 #| msgid "KDE Connect Settings"
 msgid "Error: KDE Connect is not running"
 msgstr "Ρυθμίσεις KDE Connect"
 
-#: kcm.cpp:115
+#: kcm.cpp:133
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
 msgstr ""
 
-#: kcm.cpp:117
+#: kcm.cpp:135
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
 msgstr ""
 
-#: kcm.cpp:119
+#: kcm.cpp:137
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
 msgstr ""
 
-#: kcm.cpp:122
+#: kcm.cpp:140
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr ""
 
-#: kcm.cpp:319
+#: kcm.cpp:339
 #, kde-format
 msgid "Available plugins"
 msgstr "Διαθέσιμα πρόσθετα"
 
-#: kcm.cpp:366
+#: kcm.cpp:386
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Σφάλμα κατά την προσπάθεια σύζευξης: %1"
 
-#: kcm.cpp:383
+#: kcm.cpp:403
 #, kde-format
 msgid "(paired)"
 msgstr "(συζευγμένη)"
 
-#: kcm.cpp:386
+#: kcm.cpp:406
 #, kde-format
 msgid "(not paired)"
 msgstr "(μη συζευγμένη)"
 
-#: kcm.cpp:389
+#: kcm.cpp:409
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(εισερχόμενη αίτηση σύζευξης)"
 
-#: kcm.cpp:390 kcm.cpp:394
+#: kcm.cpp:410 kcm.cpp:414
 #, kde-format
 msgid "Key: %1"
 msgstr "Πλήκτρο: %1"
 
-#: kcm.cpp:393
+#: kcm.cpp:413
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(αίτηση σύζευξης)"
@@ -240,6 +230,14 @@ msgstr "KDE Connect"
 #| msgid "No device selected."
 msgid "No devices found"
 msgstr "Καμία συσκευή δεν είναι επιλεγμένη."
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Δημήτρης Καρδαράκος"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "dimkard@gmail.com"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"

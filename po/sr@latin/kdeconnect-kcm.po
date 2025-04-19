@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2017-05-26 11:26+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -20,77 +20,67 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Slobodan Simić"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "slsimic@gmail.com"
-
-#: kcm.cpp:91
+#: kcm.cpp:109
 #, fuzzy, kde-format
 #| msgid "KDE Connect Settings"
 msgid "Error: KDE Connect is not running"
 msgstr "Postavke za KDE‑konekciju"
 
-#: kcm.cpp:115
+#: kcm.cpp:133
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
 msgstr ""
 
-#: kcm.cpp:117
+#: kcm.cpp:135
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
 msgstr ""
 
-#: kcm.cpp:119
+#: kcm.cpp:137
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
 msgstr ""
 
-#: kcm.cpp:122
+#: kcm.cpp:140
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr ""
 
-#: kcm.cpp:319
+#: kcm.cpp:339
 #, kde-format
 msgid "Available plugins"
 msgstr "Dostupni priključci"
 
-#: kcm.cpp:366
+#: kcm.cpp:386
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Greška pri pokušaju uparivanja: %1"
 
-#: kcm.cpp:383
+#: kcm.cpp:403
 #, kde-format
 msgid "(paired)"
 msgstr "(uparen)"
 
-#: kcm.cpp:386
+#: kcm.cpp:406
 #, kde-format
 msgid "(not paired)"
 msgstr "(neuparen)"
 
-#: kcm.cpp:389
+#: kcm.cpp:409
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(dolazni zahtev za uparivanje)"
 
-#: kcm.cpp:390 kcm.cpp:394
+#: kcm.cpp:410 kcm.cpp:414
 #, kde-format
 msgid "Key: %1"
 msgstr ""
 
-#: kcm.cpp:393
+#: kcm.cpp:413
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(traženo uparivanje)"
@@ -233,6 +223,14 @@ msgstr "KDE‑konekcija"
 #, kde-format
 msgid "No devices found"
 msgstr ""
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Slobodan Simić"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "slsimic@gmail.com"
 
 #~ msgid "KDE Connect Settings module"
 #~ msgstr "Modul postavki za KDE‑konekciju"

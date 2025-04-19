@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2025-01-06 22:17+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -20,76 +20,66 @@ msgstr ""
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Generator: Poedit 3.5\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Moo"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "<>"
-
-#: kcm.cpp:91
+#: kcm.cpp:109
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "Klaida: KDE Connect nepaleista"
 
-#: kcm.cpp:115
+#: kcm.cpp:133
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: kcm.cpp:117
+#: kcm.cpp:135
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
 msgstr "Kilpinis sujungimas"
 
-#: kcm.cpp:119
+#: kcm.cpp:137
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
 msgstr "Tinklas"
 
-#: kcm.cpp:122
+#: kcm.cpp:140
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr "Nežinoma"
 
-#: kcm.cpp:319
+#: kcm.cpp:339
 #, kde-format
 msgid "Available plugins"
 msgstr "Prieinami įskiepiai"
 
-#: kcm.cpp:366
+#: kcm.cpp:386
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Klaida bandant suporuoti: %1"
 
-#: kcm.cpp:383
+#: kcm.cpp:403
 #, kde-format
 msgid "(paired)"
 msgstr "(suporuotas)"
 
-#: kcm.cpp:386
+#: kcm.cpp:406
 #, kde-format
 msgid "(not paired)"
 msgstr "(nesuporuotas)"
 
-#: kcm.cpp:389
+#: kcm.cpp:409
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(gaunama suporavimo užklausa)"
 
-#: kcm.cpp:390 kcm.cpp:394
+#: kcm.cpp:410 kcm.cpp:414
 #, kde-format
 msgid "Key: %1"
 msgstr "Raktas: %1"
 
-#: kcm.cpp:393
+#: kcm.cpp:413
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(užklausta suporavimo)"
@@ -228,6 +218,14 @@ msgstr "Prisijungta"
 #, kde-format
 msgid "No devices found"
 msgstr "Nerasta jokių įrenginių"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Moo"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "<>"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"

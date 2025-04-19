@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-15 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-07-06 14:27+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -18,39 +18,39 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: main.cpp:31 main.cpp:33
+#: main.cpp:29 main.cpp:31
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:35
+#: main.cpp:33
 #, kde-format
-msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "© 2015 Aleix Pol Gonzalez"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: main.cpp:36
+#: main.cpp:34
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:36
+#: main.cpp:35
 #, kde-format
-msgid "Maintainer"
-msgstr "Vedlikehaldar"
+msgid "Albert Vaca Cintora"
+msgstr ""
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Karl Ove Hufthammer"
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "karl@huftis.org"
 
-#: main.cpp:56
+#: main.cpp:65
 #, kde-format
 msgid "URL to share"
 msgstr "Adresse å dela"
@@ -377,3 +377,9 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+
+#~ msgid "(c) 2015, Aleix Pol Gonzalez"
+#~ msgstr "© 2015 Aleix Pol Gonzalez"
+
+#~ msgid "Maintainer"
+#~ msgstr "Vedlikehaldar"

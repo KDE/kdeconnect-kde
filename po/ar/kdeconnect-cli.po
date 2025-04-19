@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-12-26 09:10+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -36,15 +36,15 @@ msgstr "أداة سطر أوامر ل‍«كِيدِي المتّصل»"
 
 #: kdeconnect-cli.cpp:34
 #, kde-format
-msgid "(C) 2015 Aleix Pol Gonzalez"
-msgstr "© 2015 Aleix Pol Gonzalez"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: kdeconnect-cli.cpp:39
+#: kdeconnect-cli.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: kdeconnect-cli.cpp:40
+#: kdeconnect-cli.cpp:36
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
@@ -344,6 +344,9 @@ msgstr ""
 #, kde-format
 msgid "Nothing to be done"
 msgstr "لا شيء للقيام به"
+
+#~ msgid "(C) 2015 Aleix Pol Gonzalez"
+#~ msgstr "© 2015 Aleix Pol Gonzalez"
 
 #~ msgid "Open the connected device's camera and transfer the photo"
 #~ msgstr "افتح كاميرة الجهاز المتصل وانقل الصورة"

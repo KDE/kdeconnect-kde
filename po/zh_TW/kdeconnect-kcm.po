@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-12-29 02:06+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -21,79 +21,67 @@ msgstr ""
 "X-Generator: Lokalize 24.12.0\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "liueigi, Jeff Huang, Chaoting Liu, Kisaragi Hiu"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr ""
-"liueigi@gmail.com, s8321414@gmail.com, brli@chakralinux.org, mail@kisaragi-"
-"hiu.com"
-
-#: kcm.cpp:91
+#: kcm.cpp:109
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "錯誤：KDE Connect 並非執行中"
 
-#: kcm.cpp:115
+#: kcm.cpp:133
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
 msgstr "藍牙"
 
-#: kcm.cpp:117
+#: kcm.cpp:135
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
 msgstr "Loopback"
 
-#: kcm.cpp:119
+#: kcm.cpp:137
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
 msgstr "網路"
 
-#: kcm.cpp:122
+#: kcm.cpp:140
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr "未知"
 
-#: kcm.cpp:319
+#: kcm.cpp:339
 #, kde-format
 msgid "Available plugins"
 msgstr "可用的外掛程式"
 
 # %1 is the error
-#: kcm.cpp:366
+#: kcm.cpp:386
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "嘗試配對時發生錯誤：%1"
 
-#: kcm.cpp:383
+#: kcm.cpp:403
 #, kde-format
 msgid "(paired)"
 msgstr "（已配對）"
 
-#: kcm.cpp:386
+#: kcm.cpp:406
 #, kde-format
 msgid "(not paired)"
 msgstr "（未配對）"
 
-#: kcm.cpp:389
+#: kcm.cpp:409
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "（到來的配對請求）"
 
-#: kcm.cpp:390 kcm.cpp:394
+#: kcm.cpp:410 kcm.cpp:414
 #, kde-format
 msgid "Key: %1"
 msgstr "Key: %1"
 
-#: kcm.cpp:393
+#: kcm.cpp:413
 #, kde-format
 msgid "(pairing requested)"
 msgstr "（已請求配對）"
@@ -230,6 +218,16 @@ msgstr "已連線"
 #, kde-format
 msgid "No devices found"
 msgstr "未找到裝置"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "liueigi, Jeff Huang, Chaoting Liu, Kisaragi Hiu"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "liueigi@gmail.com, s8321414@gmail.com, brli@chakralinux.org, "
+#~ "mail@kisaragi-hiu.com"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"

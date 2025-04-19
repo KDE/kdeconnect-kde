@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2021-05-29 21:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -34,10 +34,15 @@ msgstr "கே.டீ.யீ. கனெக்ட் அமைப்புகள�
 
 #: main.cpp:31
 #, kde-format
-msgid "(C) 2018-2020 Nicolas Fella"
+msgid "(c) 2018-2025, KDE Connect Team"
 msgstr ""
 
-#: main.cpp:37 main.cpp:56
+#: main.cpp:32
+#, kde-format
+msgid "Nicolas Fella"
+msgstr ""
+
+#: main.cpp:57 main.cpp:76
 #, kde-format
 msgid "Arguments for the config module"
 msgstr "விருப்பத்தேர்வு கூறுக்கான தரு மதிப்புகள்"

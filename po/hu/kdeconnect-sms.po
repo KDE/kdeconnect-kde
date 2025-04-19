@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-02 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-05-18 14:21+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -73,8 +73,9 @@ msgid "SMS Instant Messaging"
 msgstr "SMS azonnali üzenetküldés"
 
 #: main.cpp:54
-#, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
+#, fuzzy, kde-format
+#| msgid "(C) 2018-2022, KDE Connect Team"
+msgid "(C) 2018-2025, KDE Connect Team"
 msgstr "(C) A KDE Connect fejlesztői, 2018-2022."
 
 #: main.cpp:55
@@ -92,22 +93,22 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "Válasszon ki egy eszközt"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "azonosító"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "Üzenet küldése"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "üzenet"

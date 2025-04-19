@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2017-05-26 11:26+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -37,15 +37,15 @@ msgstr "KDE‑konekcijina alatka komandne linije"
 
 #: kdeconnect-cli.cpp:34
 #, kde-format
-msgid "(C) 2015 Aleix Pol Gonzalez"
-msgstr "© 2015 Aleks Pol Gonzalez"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: kdeconnect-cli.cpp:39
+#: kdeconnect-cli.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleks Pol Gonzalez"
 
-#: kdeconnect-cli.cpp:40
+#: kdeconnect-cli.cpp:36
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaka Sintora"
@@ -353,3 +353,6 @@ msgstr "greška: morate navesti primaoca navodeći --destination <broj telefona>
 #, kde-format
 msgid "Nothing to be done"
 msgstr "nema šta da se uradi"
+
+#~ msgid "(C) 2015 Aleix Pol Gonzalez"
+#~ msgstr "© 2015 Aleks Pol Gonzalez"

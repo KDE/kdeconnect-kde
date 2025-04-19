@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-21 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-10-25 21:53-0500\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -51,12 +51,17 @@ msgstr "ਮਨਜ਼ੂਰ"
 msgid "Reject"
 msgstr "ਇਨਕਾਰ"
 
-#: kdeconnectd.cpp:69 kdeconnectd.cpp:71
+#: kdeconnectd.cpp:71 kdeconnectd.cpp:73
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE ਕਨੈਕਟ ਡੈਮਨ"
 
-#: kdeconnectd.cpp:79
+#: kdeconnectd.cpp:75
+#, kde-format
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
+
+#: kdeconnectd.cpp:101
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "ਮੌਜੂਦਾ ਮੌਕੇ ਨੂੰ ਬਦਲੋ"
