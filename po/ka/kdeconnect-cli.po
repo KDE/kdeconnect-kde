@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2024-12-23 05:26+0100\n"
+"PO-Revision-Date: 2025-04-19 04:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -36,7 +36,7 @@ msgstr "KDE Connect CLI-ის ხელსაწყო"
 #: kdeconnect-cli.cpp:34
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr ""
+msgstr "(c) 2015-2025, KDE Connect-ის გუნდი"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format

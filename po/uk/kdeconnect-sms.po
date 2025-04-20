@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2025-03-02 09:35+0200\n"
+"PO-Revision-Date: 2025-04-19 18:57+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -76,10 +76,9 @@ msgid "SMS Instant Messaging"
 msgstr "Миттєвий обмін SMS"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2022, KDE Connect Team"
+#, kde-format
 msgid "(C) 2018-2025, KDE Connect Team"
-msgstr "© Команда KDE Connect, 2018–2022"
+msgstr "© Команда KDE Connect, 2018–2025"
 
 #: main.cpp:55
 #, kde-format

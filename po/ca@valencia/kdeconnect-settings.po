@@ -1,15 +1,15 @@
 # Translation of kdeconnect-settings.po to Catalan (Valencian)
-# Copyright (C) 2020 This_file_is_part_of_KDE
+# Copyright (C) 2020-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2020.
+# SPDX-FileCopyrightText: 2020, 2025 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2020-03-22 12:22+0100\n"
+"PO-Revision-Date: 2025-04-19 11:24+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -38,13 +38,12 @@ msgstr "Configureu KDE Connect"
 #: main.cpp:31
 #, kde-format
 msgid "(c) 2018-2025, KDE Connect Team"
-msgstr ""
+msgstr "(c) 2018-2025, Equip de KDE Connect"
 
 #: main.cpp:32
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2020 Nicolas Fella"
+#, kde-format
 msgid "Nicolas Fella"
-msgstr "(C) 2018-2020 Nicolas Fella"
+msgstr "Nicolas Fella"
 
 #: main.cpp:57 main.cpp:76
 #, kde-format

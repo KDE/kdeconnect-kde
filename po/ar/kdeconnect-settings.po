@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
+# SPDX-FileCopyrightText: 2022, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2022-09-12 22:34+0400\n"
+"PO-Revision-Date: 2025-04-19 13:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -35,13 +36,12 @@ msgstr "إعدادات كِيدِي المتّصل"
 #: main.cpp:31
 #, kde-format
 msgid "(c) 2018-2025, KDE Connect Team"
-msgstr ""
+msgstr "© 2018-2025 فريق كِيدِي المتّصل"
 
 #: main.cpp:32
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2020 Nicolas Fella"
+#, kde-format
 msgid "Nicolas Fella"
-msgstr "(©) 2018-2020 نيكولاس فلا"
+msgstr "نيكولاس فلا"
 
 #: main.cpp:57 main.cpp:76
 #, kde-format

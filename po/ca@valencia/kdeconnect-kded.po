@@ -1,16 +1,16 @@
 # Translation of kdeconnect-kded.po to Catalan (Valencian)
-# Copyright (C) 2014-2024 This_file_is_part_of_KDE
+# Copyright (C) 2014-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2019, 2020, 2021.
-# SPDX-FileCopyrightText: 2019, 2020, 2022, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2019, 2020, 2022, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2024-05-19 08:55+0200\n"
+"PO-Revision-Date: 2025-04-19 11:24+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -63,18 +63,9 @@ msgstr "Dimoni de KDE Connect"
 #: kdeconnectd.cpp:75
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr ""
+msgstr "(c) 2015-2025, Equip de KDE Connect"
 
 #: kdeconnectd.cpp:101
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Substituïx una instància existent"
-
-#~ msgid "View key"
-#~ msgstr "Visualitza la clau"
-
-#~ msgid ""
-#~ "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
-#~ msgstr ""
-#~ "Inicia un dimoni D-Bus privat amb «kdeconnectd» (només amb finalitat de "
-#~ "proves de macOS)"

@@ -219,11 +219,3 @@ msgstr "Connectat"
 #, kde-format
 msgid "No devices found"
 msgstr "No s'ha trobat cap dispositiu"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Antoni Bella"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "antonibella5@yahoo.com"
