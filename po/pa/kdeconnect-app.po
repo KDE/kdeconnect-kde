@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-04-21 00:41+0000\n"
 "PO-Revision-Date: 2024-01-28 13:07-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -343,38 +343,38 @@ msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
 msgstr ""
 
-#: qml/WelcomePage.qml:42
+#: qml/WelcomePage.qml:43
 #, fuzzy, kde-format
 #| msgid "KDE Connect"
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
 msgstr "KDE ਕਨੈਕਟ"
 
-#: qml/WelcomePage.qml:49
+#: qml/WelcomePage.qml:50
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
 msgstr ""
 
-#: qml/WelcomePage.qml:56
+#: qml/WelcomePage.qml:57
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
 msgstr ""
 
-#: qml/WelcomePage.qml:62
+#: qml/WelcomePage.qml:63
 #, fuzzy, kde-format
 #| msgid "KDE Connect"
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
 msgstr "KDE ਕਨੈਕਟ"
 
-#: qml/WelcomePage.qml:67
+#: qml/WelcomePage.qml:68
 #, kde-format
 msgid "Apple Store"
 msgstr ""
 
-#: qml/WelcomePage.qml:73
+#: qml/WelcomePage.qml:74
 #, kde-format
 msgid ""
 "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
