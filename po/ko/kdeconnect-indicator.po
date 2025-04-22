@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2024-08-19 22:43+0200\n"
+"PO-Revision-Date: 2025-04-22 01:23+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -95,18 +95,17 @@ msgstr "KDE Connect 표시기 도구"
 #: main.cpp:61
 #, kde-format
 msgid "(c) 2016-2025, KDE Connect Team"
-msgstr ""
+msgstr "(c) 2016-2025, KDE Connect Team"
 
 #: main.cpp:62
-#, fuzzy, kde-format
-#| msgid "(C) 2016 Aleix Pol Gonzalez"
+#, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "(C) 2016 Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
 
 #: main.cpp:63
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:102
 #, kde-format
