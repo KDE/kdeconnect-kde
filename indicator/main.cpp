@@ -15,11 +15,7 @@
 #include <Windows.h>
 #endif
 
-#ifdef Q_OS_WIN
 #include <QSystemTrayIcon>
-#else
-#include <KStatusNotifierItem>
-#endif
 
 #include <KAboutData>
 #include <KCMultiDialog>
@@ -158,7 +154,6 @@ int main(int argc, char **argv)
     // Run icon to add icon path (if necessary)
     helper.iconPathHook();
 
-#ifdef Q_OS_WIN
     QSystemTrayIcon systray;
     helper.systrayIconHook(systray);
     systray.setVisible(true);
@@ -176,23 +171,6 @@ int main(int argc, char **argv)
     });
 
     systray.setContextMenu(menu);
-#else
-    KStatusNotifierItem systray;
-    helper.systrayIconHook(systray);
-    systray.setToolTip(QStringLiteral("kdeconnect"), QStringLiteral("KDE Connect"), QStringLiteral("KDE Connect"));
-    systray.setCategory(KStatusNotifierItem::Communications);
-    systray.setStatus(KStatusNotifierItem::Passive);
-    systray.setStandardActionsEnabled(false);
-    QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
-        const auto count = model.rowCount();
-#ifndef Q_OS_MACOS // On MacOS, setting status to Active disables color theme syncing of the menu icon
-        systray.setStatus(count == 0 ? KStatusNotifierItem::Passive : KStatusNotifierItem::Active);
-#endif
-        systray.setToolTip(QStringLiteral("kdeconnect"), QStringLiteral("KDE Connect"), i18np("%1 device connected", "%1 devices connected", count));
-    });
-
-    systray.setContextMenu(menu);
-#endif
 
     refreshMenu();
 

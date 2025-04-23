@@ -7,11 +7,7 @@
 #ifndef INDICATORHELPER_H
 #define INDICATORHELPER_H
 
-#ifdef Q_OS_WIN
 #include <QSystemTrayIcon>
-#else
-#include <KStatusNotifierItem>
-#endif
 
 #ifdef Q_OS_WIN
 #include <QProcess>
@@ -37,11 +33,7 @@ public:
 
     int startDaemon();
 
-#ifdef Q_OS_WIN
     void systrayIconHook(QSystemTrayIcon &systray);
-#else
-    void systrayIconHook(KStatusNotifierItem &systray);
-#endif
 
 private:
 #ifdef Q_OS_WIN

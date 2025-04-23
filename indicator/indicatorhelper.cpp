@@ -6,7 +6,6 @@
 
 #include "indicatorhelper.h"
 
-#include <QApplication>
 #include <QIcon>
 
 IndicatorHelper::IndicatorHelper()
@@ -26,7 +25,8 @@ int IndicatorHelper::startDaemon()
     return 0;
 }
 
-void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
+void IndicatorHelper::systrayIconHook(QSystemTrayIcon &systray)
 {
-    systray.setIconByName(QStringLiteral("kdeconnectindicatordark"));
+    // Assume we are on Gnome, where the system bar is always black regardless of the theme
+    systray.setIcon(QIcon::fromTheme(QStringLiteral("kdeconnectindicatordark")));
 }
