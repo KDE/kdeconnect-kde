@@ -52,12 +52,14 @@ if (APPLE)
 # Apple frameworks
 target_link_libraries(kdeconnect-indicator "-framework AppKit")
 # Apple app package
-set_target_properties(kdeconnect-indicator PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist)
 set_target_properties(kdeconnect-indicator PROPERTIES
+    OUTPUT_NAME "KDE Connect"
     MACOSX_BUNDLE_BUNDLE_NAME "KDE Connect"
     MACOSX_BUNDLE_LONG_VERSION_STRING "${KDECONNECT_VERSION_STRING}"
     MACOSX_BUNDLE_SHORT_VERSION_STRING "${KDECONNECT_VERSION_MAJOR}.${KDECONNECT_VERSION_MINOR}.${KDECONNECT_VERSION_PATCH}"
-    MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.kdeconnect")
+    MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.kdeconnect"
+    MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist
+)
 endif()
 
 install(TARGETS kdeconnect-indicator ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
