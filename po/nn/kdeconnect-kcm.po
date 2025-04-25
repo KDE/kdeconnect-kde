@@ -215,11 +215,3 @@ msgstr "Kopla til"
 #, kde-format
 msgid "No devices found"
 msgstr "Fann ingen einingar"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Karl Ove Hufthammer"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "karl@huftis.org"

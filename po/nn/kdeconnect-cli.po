@@ -345,6 +345,3 @@ msgstr ""
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Ingenting å gjera"
-
-#~ msgid "(C) 2015 Aleix Pol Gonzalez"
-#~ msgstr "© 2015 Aleix Pol Gonzalez"

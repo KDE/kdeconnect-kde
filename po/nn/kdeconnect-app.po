@@ -377,9 +377,3 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
-
-#~ msgid "(c) 2015, Aleix Pol Gonzalez"
-#~ msgstr "© 2015 Aleix Pol Gonzalez"
-
-#~ msgid "Maintainer"
-#~ msgstr "Vedlikehaldar"
