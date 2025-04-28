@@ -1,8 +1,8 @@
 # Spanish translations for kdeconnect-sms.po package.
 # Copyright (C) 2020-2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-#
 # Automatically generated, 2020.
+#
 # SPDX-FileCopyrightText: 2020 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2025-03-02 18:09+0100\n"
+"PO-Revision-Date: 2025-04-27 05:02+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -76,10 +76,9 @@ msgid "SMS Instant Messaging"
 msgstr "Mensajería instantánea SMS"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2022, KDE Connect Team"
+#, kde-format
 msgid "(C) 2018-2025, KDE Connect Team"
-msgstr "(C) 2018-2022, El equipo de KDE Connect"
+msgstr "(c) 2018-2025,  el equipo de KDE Connect"
 
 #: main.cpp:55
 #, kde-format
@@ -235,15 +234,3 @@ msgstr "Borrar adjuntos"
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Enviar mensaje"
-
-#~ msgid "Copy Message"
-#~ msgstr "Copiar mensaje"
-
-#~ msgid "Copy Selection"
-#~ msgstr "Copiar selección"
-
-#~ msgid "Compose message"
-#~ msgstr "Componer mensaje"
-
-#~ msgid "New"
-#~ msgstr "Nueva"

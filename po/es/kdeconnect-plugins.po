@@ -1,14 +1,15 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for kdeconnect-plugins.po package.
+# Copyright (C) 2014-2025 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Victor Rodrigo Cordoba <vrcordoba@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2015.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2015 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-14 00:41+0000\n"
-"PO-Revision-Date: 2023-09-02 17:30+0200\n"
+"PO-Revision-Date: 2025-04-27 05:01+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -97,7 +98,7 @@ msgstr "Reproductor actual"
 #: mpriscontrol/mpriscontrolplugin-win.cpp:81
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "No disponible"
 
 #: notifications/notification.cpp:108
 #, kde-format
@@ -109,7 +110,7 @@ msgstr "Responder"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
-msgstr "Responder a %1..."
+msgstr "Responder a %1…"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format

@@ -1,13 +1,14 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
+# Spanish translations for kdeconnect-cli.po package.
+# Copyright (C) 2014-2025 This_file_is_part_of_KDE
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2023, 2025 Victor Rodrigo Cordoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2023, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2025-01-04 20:05+0100\n"
+"PO-Revision-Date: 2025-04-27 04:56+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -35,7 +36,7 @@ msgstr "Herramienta de línea de comandos para KDE Connect"
 #: kdeconnect-cli.cpp:34
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr ""
+msgstr "(c) 2015-2025, el equipo de KDE Connect"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -302,7 +303,7 @@ msgstr "Petición de desbloqueo %1."
 #: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "waiting for device..."
-msgstr "esperando al dispositivo..."
+msgstr "esperando al dispositivo…"
 
 #: kdeconnect-cli.cpp:270
 #, kde-format
@@ -342,6 +343,3 @@ msgstr ""
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Nada que hacer"
-
-#~ msgid "(C) 2015 Aleix Pol Gonzalez"
-#~ msgstr "«©» 2015 Aleix Pol Gonzalez"
