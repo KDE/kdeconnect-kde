@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-21 00:41+0000\n"
-"PO-Revision-Date: 2025-02-28 07:17+0100\n"
+"PO-Revision-Date: 2025-05-03 07:08+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: main.cpp:29 main.cpp:31
 #, kde-format
@@ -25,7 +25,7 @@ msgstr "KDE Connect"
 #: main.cpp:33
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr ""
+msgstr "© 2015-2025 Equipo de KDE Connect"
 
 #: main.cpp:34
 #, kde-format
@@ -35,7 +35,7 @@ msgstr "Aleix Pol Gonzalez"
 #: main.cpp:35
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:36
 #, kde-format
