@@ -41,7 +41,7 @@ msgstr "© 2015-2025 Equipo de KDE Connect"
 #: kdeconnect-cli.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr "Aleix Pol i Gonzàlez"
 
 #: kdeconnect-cli.cpp:36
 #, kde-format

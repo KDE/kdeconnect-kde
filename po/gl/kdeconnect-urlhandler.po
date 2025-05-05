@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2020, 2023.
+# SPDX-FileCopyrightText: 2025 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2023-06-17 08:37+0200\n"
-"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"PO-Revision-Date: 2025-05-04 13:32+0200\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
+"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -59,18 +59,17 @@ msgstr "Manexador de URL de KDE Connect"
 #: kdeconnect-handler.cpp:50
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr ""
+msgstr "© 2015-2025 Equipo de KDE Connect"
 
 #: kdeconnect-handler.cpp:51
-#, fuzzy, kde-format
-#| msgid "(C) 2017 Aleix Pol Gonzalez"
+#, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "© 2017 Aleix Pol Gonzalez"
+msgstr "Aleix Pol i Gonzàlez"
 
 #: kdeconnect-handler.cpp:52
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: kdeconnect-handler.cpp:84
 #, kde-format

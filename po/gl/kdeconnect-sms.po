@@ -85,7 +85,7 @@ msgstr "Simon Redman"
 #: main.cpp:56
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr "Aleix Pol i Gonzàlez"
 
 #: main.cpp:57
 #, kde-format

@@ -30,7 +30,7 @@ msgstr "© 2015-2025 Equipo de KDE Connect"
 #: main.cpp:34
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr "Aleix Pol i Gonzàlez"
 
 #: main.cpp:35
 #, kde-format
