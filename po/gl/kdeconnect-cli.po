@@ -36,12 +36,12 @@ msgstr "Ferramenta da liña de ordes de KDE Connect"
 #: kdeconnect-cli.cpp:34
 #, kde-format
 msgid "(C) 2015 Aleix Pol Gonzalez"
-msgstr "© 2015 Aleix Pol Gonzalez"
+msgstr "© 2015 Aleix Pol i Gonzàlez"
 
 #: kdeconnect-cli.cpp:39
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr "Aleix Pol i Gonzàlez"
 
 #: kdeconnect-cli.cpp:40
 #, kde-format

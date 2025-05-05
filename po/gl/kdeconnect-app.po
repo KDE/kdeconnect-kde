@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 02:34+0000\n"
-"PO-Revision-Date: 2025-02-28 07:17+0100\n"
+"PO-Revision-Date: 2025-05-03 07:08+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -25,12 +25,12 @@ msgstr "KDE Connect"
 #: main.cpp:33
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "© 2015 Aleix Pol Gonzalez"
+msgstr "© 2015 Aleix Pol i Gonzàlez"
 
 #: main.cpp:34
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr "Aleix Pol i Gonzàlez"
 
 #: main.cpp:34
 #, kde-format
