@@ -25,3 +25,4 @@ include:
     rules:
       - if: $CI_COMMIT_BRANCH =~ /^release\//
         when: never
+      - when: always
