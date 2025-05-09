@@ -18,3 +18,11 @@ include:
       - /gitlab-templates/craft-windows-appx-qt6.yml
       - /gitlab-templates/xml-lint.yml
       - /gitlab-templates/yaml-lint.yml
+  - project: sysadmin/ci-utilities
+    file:
+      - /gitlab-templates/craft-macos-x86-64-qt6.yml
+      - /gitlab-templates/craft-macos-arm64-qt6.yml
+    rules:
+      - if: $CI_COMMIT_BRANCH =~ /^release\//
+        when: never
+      - when: always
