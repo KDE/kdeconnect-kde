@@ -5,6 +5,7 @@
  */
 
 #include "sendnotificationsplugin.h"
+#include "notifyingapplication.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
 #include "dbusnotificationslistener.h"
@@ -21,6 +22,7 @@ K_PLUGIN_CLASS_WITH_JSON(SendNotificationsPlugin, "kdeconnect_sendnotifications.
 SendNotificationsPlugin::SendNotificationsPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
+    qRegisterMetaType<NotifyingApplication>("NotifyingApplication");
 #if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
     notificationsListener = new DBusNotificationsListener(this);
 #elif defined(Q_OS_WIN)
