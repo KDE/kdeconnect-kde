@@ -19,6 +19,7 @@
 NotifyingApplicationModel::NotifyingApplicationModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
+    qRegisterMetaType<NotifyingApplication>("NotifyingApplication");
 }
 
 QVector<NotifyingApplication> NotifyingApplicationModel::apps()
