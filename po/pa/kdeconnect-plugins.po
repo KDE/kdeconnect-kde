@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:41+0000\n"
+"POT-Creation-Date: 2025-05-12 00:41+0000\n"
 "PO-Revision-Date: 2024-10-25 21:54-0500\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -254,7 +254,7 @@ msgid "Import"
 msgstr "ਇੰਪੋਰਟ"
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:177
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "ਨਾਂ"
@@ -279,22 +279,22 @@ msgstr "ਕਮਾਡਾਂ ਇੰਪੋਰਟ ਕਰੋ"
 msgid "Phone is connected"
 msgstr "ਫ਼ੋਨ ਕਨੈਕਟ ਹੈ"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:181
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "ਪਾਬੰਦੀ-ਸੂਚੀ"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:185
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "ਨੋਟੀਫਾਈ ਕਰਨ ਵਾਲੀ ਐਪਲੀਕੇਸ਼ਨ ਦਾ ਨਾਂ।"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:187
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "ਐਪਲੀਕੇਸ਼ਨ ਲਈ ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਨੂੰ ਸੈਕਰੋਨਾਈਜ਼ ਕਰਨਾ ਹੈ?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
