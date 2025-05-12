@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 02:34+0000\n"
+"POT-Creation-Date: 2025-05-12 02:31+0000\n"
 "PO-Revision-Date: 2024-12-15 15:58+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -247,7 +247,7 @@ msgid "Import"
 msgstr ""
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:177
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr ""
@@ -272,22 +272,22 @@ msgstr ""
 msgid "Phone is connected"
 msgstr ""
 
-#: sendnotifications/notifyingapplicationmodel.cpp:181
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr ""
 
-#: sendnotifications/notifyingapplicationmodel.cpp:185
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr ""
 
-#: sendnotifications/notifyingapplicationmodel.cpp:187
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr ""
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"

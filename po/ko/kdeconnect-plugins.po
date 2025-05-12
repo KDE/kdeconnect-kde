@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 02:34+0000\n"
+"POT-Creation-Date: 2025-05-12 02:31+0000\n"
 "PO-Revision-Date: 2023-10-08 22:54+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -247,7 +247,7 @@ msgid "Import"
 msgstr "가져오기"
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:177
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "이름"
@@ -272,22 +272,22 @@ msgstr "명령 가져오기"
 msgid "Phone is connected"
 msgstr "휴대폰이 연결됨"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:181
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "차단됨"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:185
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "알림을 보내는 앱의 이름입니다."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:187
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "앱 알림을 동기화하시겠습니까?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"

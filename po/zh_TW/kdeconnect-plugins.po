@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 02:34+0000\n"
+"POT-Creation-Date: 2025-05-12 02:31+0000\n"
 "PO-Revision-Date: 2023-12-09 17:28+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -251,7 +251,7 @@ msgid "Import"
 msgstr "匯入"
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:177
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "名字"
@@ -276,22 +276,22 @@ msgstr "匯入指令"
 msgid "Phone is connected"
 msgstr "手機已連線"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:181
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "黑名單"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:185
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "通知應用程式的名稱。"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:187
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "同步應用程式的通知？"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"

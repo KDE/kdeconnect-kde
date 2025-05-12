@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 02:34+0000\n"
+"POT-Creation-Date: 2025-05-12 02:31+0000\n"
 "PO-Revision-Date: 2024-04-27 16:46+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -248,7 +248,7 @@ msgid "Import"
 msgstr "Importovať"
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:177
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "Názov"
@@ -273,22 +273,22 @@ msgstr "Importovať príkazy"
 msgid "Phone is connected"
 msgstr "Telefón je pripojený"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:181
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "Na čiernom zozname"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:185
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "Názov upozorňovanej aplikácie."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:187
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "Synchronizovať upozornenia aplikácie?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"

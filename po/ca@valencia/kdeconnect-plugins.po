@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 02:34+0000\n"
+"POT-Creation-Date: 2025-05-12 02:31+0000\n"
 "PO-Revision-Date: 2023-08-29 12:27+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -251,7 +251,7 @@ msgid "Import"
 msgstr "Importa"
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:177
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "Nom"
@@ -276,22 +276,22 @@ msgstr "Importa ordres"
 msgid "Phone is connected"
 msgstr "El telèfon està connectat"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:181
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "Es troba en la llista negra"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:185
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "Nom d'una aplicació amb notificacions."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:187
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "Sincronitze les notificacions d'una aplicació?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
