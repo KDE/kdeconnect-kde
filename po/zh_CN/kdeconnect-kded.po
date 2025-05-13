@@ -59,7 +59,7 @@ msgstr "KDE Connect守护进程"
 #: kdeconnectd.cpp:75
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr ""
+msgstr "(c) 2015-2025, KDE Connect Team"
 
 #: kdeconnectd.cpp:101
 #, kde-format

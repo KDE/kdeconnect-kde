@@ -342,6 +342,3 @@ msgstr ""
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Nebude nic provedeno"
-
-#~ msgid "(C) 2015 Aleix Pol Gonzalez"
-#~ msgstr "(C) 2015 Aleix Pol Gonzalez"

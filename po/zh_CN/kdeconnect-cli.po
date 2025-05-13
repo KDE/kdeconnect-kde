@@ -35,7 +35,7 @@ msgstr "KDE Connect命令行工具"
 #: kdeconnect-cli.cpp:34
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr ""
+msgstr "(c) 2015-2025, KDE Connect Team"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -330,6 +330,3 @@ msgstr "错误：应该指定短信收件人，传递参数 --destination <电�
 #, kde-format
 msgid "Nothing to be done"
 msgstr "无事可做"
-
-#~ msgid "(C) 2015 Aleix Pol Gonzalez"
-#~ msgstr "(C) 2015 Aleix Pol Gonzalez"

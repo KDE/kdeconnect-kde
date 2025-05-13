@@ -73,10 +73,9 @@ msgid "SMS Instant Messaging"
 msgstr "Chat přes SMS"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2022, KDE Connect Team"
+#, kde-format
 msgid "(C) 2018-2025, KDE Connect Team"
-msgstr "(C) 2018-2022, Tým KDE Connect"
+msgstr ""
 
 #: main.cpp:55
 #, kde-format
@@ -227,17 +226,7 @@ msgid "Clear attachments"
 msgstr ""
 
 #: qml/SendingArea.qml:173
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
-msgstr "Poslat správu"
-
-#~ msgid "Copy Message"
-#~ msgstr "Kopírovat zprávu"
-
-#~ msgid "Copy Selection"
-#~ msgstr "Zkopírovat výběr"
-
-#~ msgid "Compose message"
-#~ msgstr "Napsat zprávu"
+msgstr ""

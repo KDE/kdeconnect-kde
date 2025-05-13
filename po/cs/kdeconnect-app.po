@@ -132,14 +132,9 @@ msgid "Share File"
 msgstr "Sdílet soubor"
 
 #: qml/DevicePage.qml:183
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
 msgstr ""
-"Toto zařízení není spárováno\n"
-"Klíč: %1"
 
 #: qml/DevicePage.qml:187
 #, kde-format
@@ -188,11 +183,10 @@ msgid "Refresh"
 msgstr "Obnovit"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Zařízení"
+msgstr ""
 
 #: qml/Main.qml:112
 #, kde-format
@@ -383,9 +377,3 @@ msgstr ""
 "Pokud máte problémy, hledejte pomoc na <a href=\"https://community.kde.org/"
 "KDEConnect\"><span style=\" text-decoration: underline; \">Wiki komunity KDE "
 "Connect</span></a>."
-
-#~ msgid "(c) 2015, Aleix Pol Gonzalez"
-#~ msgstr "(C) 2015 Aleix Pol Gonzalez"
-
-#~ msgid "Maintainer"
-#~ msgstr "Správce"

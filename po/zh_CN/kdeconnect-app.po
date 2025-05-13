@@ -25,7 +25,7 @@ msgstr "KDE Connect"
 #: main.cpp:33
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr ""
+msgstr "(c) 2015-2025, KDE Connect Team"
 
 #: main.cpp:34
 #, kde-format
@@ -35,7 +35,7 @@ msgstr "Aleix Pol Gonzalez"
 #: main.cpp:35
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:36
 #, kde-format
@@ -378,9 +378,3 @@ msgstr ""
 "如果您遇到问题，请访问 <a href=\"https://userbase.kde.org/KDEConnect\"><span "
 "style=\" text-decoration: underline;\">KDE Connect 社区百科</span></a> 寻求帮"
 "助。"
-
-#~ msgid "(c) 2015, Aleix Pol Gonzalez"
-#~ msgstr "(c) 2015, Aleix Pol Gonzalez"
-
-#~ msgid "Maintainer"
-#~ msgstr "维护者"

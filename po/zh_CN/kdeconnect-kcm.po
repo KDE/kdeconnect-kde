@@ -213,11 +213,3 @@ msgstr "已连接"
 #, kde-format
 msgid "No devices found"
 msgstr "没有找到设备"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "KDE China, Guo Yunhe, Tyson Tan"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "kde-china@kde.org, i@guoyunhe.me, tds00@qq.com"
