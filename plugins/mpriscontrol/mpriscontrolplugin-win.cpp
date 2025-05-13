@@ -30,12 +30,17 @@ const QString DEFAULT_PLAYER =
 
 MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
+    , sessionManager(NULL)
 {
     try {
-        auto sessionManager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get();
-        sessionManager.SessionsChanged([this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
-            this->updatePlayerList();
-        });
+        sessionManager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get();
+        if (sessionManager) {
+            sessionManager.SessionsChanged([this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
+                this->updatePlayerList();
+            });
+        } else {
+            qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to obtain Session Manager.";
+        }
     } catch (winrt::hresult_error e) {
         qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to register mediaSessionsChanged listener";
     }
