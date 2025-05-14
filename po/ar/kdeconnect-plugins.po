@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-12 00:41+0000\n"
+"POT-Creation-Date: 2025-05-14 00:43+0000\n"
 "PO-Revision-Date: 2025-04-17 08:24+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -92,9 +92,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "المشغل الحالي"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:79
-#: mpriscontrol/mpriscontrolplugin-win.cpp:80
-#: mpriscontrol/mpriscontrolplugin-win.cpp:81
+#: mpriscontrol/mpriscontrolplugin-win.cpp:84
+#: mpriscontrol/mpriscontrolplugin-win.cpp:85
+#: mpriscontrol/mpriscontrolplugin-win.cpp:86
 #, kde-format
 msgid "N/A"
 msgstr "غ/م"

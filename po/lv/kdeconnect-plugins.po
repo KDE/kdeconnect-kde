@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-12 00:41+0000\n"
+"POT-Creation-Date: 2025-05-14 00:43+0000\n"
 "PO-Revision-Date: 2025-04-29 17:51+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -91,9 +91,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Pašreizējais atskaņotājs"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:79
-#: mpriscontrol/mpriscontrolplugin-win.cpp:80
-#: mpriscontrol/mpriscontrolplugin-win.cpp:81
+#: mpriscontrol/mpriscontrolplugin-win.cpp:84
+#: mpriscontrol/mpriscontrolplugin-win.cpp:85
+#: mpriscontrol/mpriscontrolplugin-win.cpp:86
 #, kde-format
 msgid "N/A"
 msgstr "N/P"
