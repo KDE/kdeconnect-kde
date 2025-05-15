@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
     aboutData.setBugAddress(QStringLiteral("https://bugs.kde.org/enter_bug.cgi?product=kdeconnect&component=messaging-application").toUtf8());
     KAboutData::setApplicationData(aboutData);
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
     // Ensure we have a suitable color theme set for light/dark mode. KColorSchemeManager implicitly applies
     // a suitable default theme.
     KColorSchemeManager::instance();

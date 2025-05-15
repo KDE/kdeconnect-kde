@@ -59,7 +59,7 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
     , devicesModel(new DevicesModel(this))
     , currentDevice(nullptr)
 {
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
     // Ensure we have a suitable color theme set for light/dark mode. KColorSchemeManager implicitly applies
     // a suitable default theme.
     KColorSchemeManager::instance();
