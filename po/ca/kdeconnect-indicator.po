@@ -3,14 +3,14 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
 # SPDX-FileCopyrightText: 2018, 2019, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-16 00:42+0000\n"
-"PO-Revision-Date: 2025-04-19 11:24+0200\n"
+"PO-Revision-Date: 2025-05-16 09:21+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -114,7 +114,7 @@ msgstr "Albert Vaca Cintora"
 #: main.cpp:104
 #, kde-format
 msgid "Open app"
-msgstr ""
+msgstr "Obre l'aplicació"
 
 #: main.cpp:109
 #, kde-format
@@ -179,15 +179,3 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
-
-#~ msgid "Launching"
-#~ msgstr "S'està llançant"
-
-#~ msgid "Launching daemon"
-#~ msgstr "S'està llançant el dimoni"
-
-#~ msgid "Waiting D-Bus"
-#~ msgstr "S'està a l'espera del D-Bus"
-
-#~ msgid "Loading modules"
-#~ msgstr "S'estan carregant els mòduls"
