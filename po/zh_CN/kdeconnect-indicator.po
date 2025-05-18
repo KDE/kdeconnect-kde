@@ -110,7 +110,7 @@ msgstr "Albert Vaca Cintora"
 #: main.cpp:104
 #, kde-format
 msgid "Open app"
-msgstr ""
+msgstr "打开应用"
 
 #: main.cpp:109
 #, kde-format
