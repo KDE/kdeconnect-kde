@@ -233,9 +233,9 @@ void KdeConnectKcm::devicesRemoved()
     }
     // If current device no longer exists, unselect it
     if (devicesModel->rowForDevice(currentDevice->id()) == -1) {
+        delete currentDevice;
         currentDevice = nullptr;
         kcmUi.deviceInfo->setVisible(false);
-        delete currentDevice;
     }
 }
 
