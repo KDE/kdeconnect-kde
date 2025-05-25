@@ -141,7 +141,7 @@ msgid ""
 "your device and then click Refresh."
 msgstr ""
 "S'estan carregant les converses del dispositiu. Si açò tarda massa, "
-"desperteu el dispositiu i feu clic en Actualitza."
+"desperteu el dispositiu i cliqueu damunt «Actualitza»."
 
 #: qml/ConversationList.qml:56
 #, kde-format

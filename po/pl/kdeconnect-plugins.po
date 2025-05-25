@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:43+0000\n"
-"PO-Revision-Date: 2023-09-24 08:26+0200\n"
+"PO-Revision-Date: 2025-05-24 08:34+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -95,7 +96,7 @@ msgstr "Aktualny gracz"
 #: mpriscontrol/mpriscontrolplugin-win.cpp:86
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "N/D"
 
 #: notifications/notification.cpp:108
 #, kde-format
@@ -107,7 +108,7 @@ msgstr "Odpowiedz"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
-msgstr "Odpowiedź do %1..."
+msgstr "Odpowiedź do %1…"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
