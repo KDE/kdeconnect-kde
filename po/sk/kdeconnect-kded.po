@@ -2,19 +2,20 @@
 # Roman Paholik <wizzardsk@gmail.com>, 2013, 2014, 2015, 2022.
 # Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2020, 2021.
 # Dusan Kazik <prescott66@gmail.com>, 2020.
+# SPDX-FileCopyrightText: 2025 Lucia Mrenica <lucia.mrenica@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 02:34+0000\n"
-"PO-Revision-Date: 2022-04-18 17:36+0200\n"
-"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
-"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"PO-Revision-Date: 2025-05-25 12:31+0200\n"
+"Last-Translator: Lucia Mrenica <lucia.mrenica@gmail.com>\n"
+"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -28,16 +29,13 @@ msgid "Your emails"
 msgstr "wizzardsk@gmail.com,prescott66@gmail.com"
 
 #: desktop_daemon.cpp:37
-#, fuzzy, kde-format
-#| msgid ""
-#| "Pairing request from %1\n"
-#| "Key: %2..."
+#, kde-format
 msgid ""
 "Pairing request from %1\n"
 "Key: %2"
 msgstr ""
 "Požiadavka na spárovanie z %1\n"
-"Kľúč: %2..."
+"Kľúč: %2"
 
 #: desktop_daemon.cpp:45
 #, kde-format

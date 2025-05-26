@@ -3,19 +3,20 @@
 # Mthw <jari_45@hotmail.com>, 2019.
 # SPDX-FileCopyrightText: 2020, 2021, 2022, 2024 Matej Mrenica <matejm98mthw@gmail.com>
 # Dusan Kazik <prescott66@gmail.com>, 2020.
+# SPDX-FileCopyrightText: 2025 Lucia Mrenica <lucia.mrenica@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-04-27 16:44+0200\n"
-"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"PO-Revision-Date: 2025-05-25 12:38+0200\n"
+"Last-Translator: Lucia Mrenica <lucia.mrenica@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 25.04.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: package/contents/ui/Battery.qml:33
@@ -44,11 +45,9 @@ msgid "No signal"
 msgstr "Žiadny signál"
 
 #: package/contents/ui/DeviceDelegate.qml:82
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "Spárované zariadenie nie je dostupné"
+msgstr "Virtuálny monitor nie je k dispozícii"
 
 #: package/contents/ui/DeviceDelegate.qml:87
 #, kde-format
@@ -98,17 +97,17 @@ msgstr "Virtuálna obrazovka"
 #: package/contents/ui/DeviceDelegate.qml:197
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "Vzdialené zariadenie nemá nainštalovaného klienta VNC (napr. krdc)."
 
 #: package/contents/ui/DeviceDelegate.qml:201
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "V miestnom zariadení sa vyžaduje balík krfb."
 
 #: package/contents/ui/DeviceDelegate.qml:208
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "Nepodarilo sa vytvoriť virtuálny monitor."
 
 #: package/contents/ui/DeviceDelegate.qml:259
 #, kde-format
@@ -187,10 +186,9 @@ msgstr ""
 "Nainštalujte KDE Connect na vašom Android zariadení na integráciu s Plasmou!"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "Spárovať zariadenie..."
+msgstr "Spárovať zariadenie…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -203,8 +201,7 @@ msgid "Install from F-Droid"
 msgstr "Nainštalovať z F-Droid"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
 msgstr "Nastavenia KDE Connect..."
 

@@ -3,19 +3,20 @@
 # Mthw <jari_45@hotmail.com>, 2019.
 # Dusan Kazik <prescott66@gmail.com>, 2020.
 # SPDX-FileCopyrightText: 2020, 2024 Matej Mrenica <matejm98mthw@gmail.com>
+# SPDX-FileCopyrightText: 2025 Lucia Mrenica <lucia.mrenica@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 02:34+0000\n"
-"PO-Revision-Date: 2024-04-27 16:46+0200\n"
-"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"PO-Revision-Date: 2025-05-25 12:36+0200\n"
+"Last-Translator: Lucia Mrenica <lucia.mrenica@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 25.04.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -29,34 +30,33 @@ msgid "Your emails"
 msgstr "wizzardsk@gmail.com,prescott66@gmail.com"
 
 #: kcm.cpp:110
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings"
+#, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "Nastavenia aplikácie KDE Connect"
+msgstr "Chyba: KDE Connect nie je spustené"
 
 #: kcm.cpp:134
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: kcm.cpp:136
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Loopback"
 
 #: kcm.cpp:138
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Sieť"
 
 #: kcm.cpp:141
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
-msgstr ""
+msgstr "Neznáme"
 
 #: kcm.cpp:340
 #, kde-format
@@ -121,7 +121,7 @@ msgstr "Obnoviť"
 #: kcm.ui:134
 #, kde-format
 msgid "Backends:"
-msgstr ""
+msgstr "Backendy:"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
 #: kcm.ui:216
@@ -139,7 +139,7 @@ msgstr "(stav)"
 #: kcm.ui:255
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:286
@@ -220,25 +220,22 @@ msgstr ""
 #: list.qml:52
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "Zapamätané"
 
 #: list.qml:54
-#, fuzzy, kde-format
-#| msgid "Available plugins"
+#, kde-format
 msgid "Available"
-msgstr "Dostupné zásuvné moduly"
+msgstr "Dostupný"
 
 #: list.qml:56
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "Connected"
-msgstr "KDE Connect"
+msgstr "Pripojené"
 
 #: list.qml:61
-#, fuzzy, kde-format
-#| msgid "No device selected."
+#, kde-format
 msgid "No devices found"
-msgstr "Nie je vybrané zariadenie."
+msgstr "Nenašli sa žiadne zariadenia"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"
