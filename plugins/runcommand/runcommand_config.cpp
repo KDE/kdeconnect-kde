@@ -30,7 +30,7 @@ RunCommandConfig::RunCommandConfig(QObject *parent, const KPluginMetaData &data,
     : KdeConnectPluginKcm(parent, data, args)
 {
     // The qdbus executable name is different on some systems
-    QString qdbusExe = QStringLiteral("qdbus-qt5");
+    QString qdbusExe = QStringLiteral("qdbus-qt6");
     if (QStandardPaths::findExecutable(qdbusExe).isEmpty()) {
         qdbusExe = QStringLiteral("qdbus");
     }
