@@ -1,24 +1,24 @@
 # Translation of kdeconnect-settings.po to Euskara/Basque (eu).
-# Copyright (C) 2020, This file is copyright:
+# Copyright (C) 2020-2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# KDE euskaratzeko proiektuaren arduraduna <xalba@euskalnet.net>.
+# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2020.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2020-03-22 09:58+0100\n"
-"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"PO-Revision-Date: 2025-05-26 17:45+0200\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -38,13 +38,12 @@ msgstr "KDE Connect ezarpenak"
 #: main.cpp:31
 #, kde-format
 msgid "(c) 2018-2025, KDE Connect Team"
-msgstr ""
+msgstr "(c) 2018-2025, KDE Connect taldea"
 
 #: main.cpp:32
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2020 Nicolas Fella"
+#, kde-format
 msgid "Nicolas Fella"
-msgstr "(C) 2018-2020 Nicolas Fella"
+msgstr "Nicolas Fella"
 
 #: main.cpp:57 main.cpp:76
 #, kde-format
