@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Tommi Nieminen <translator@legisign.org>, 2020.
+# SPDX-FileCopyrightText: 2020, 2025 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2020-06-10 16:01+0300\n"
+"PO-Revision-Date: 2025-05-25 16:22+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,6 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -34,13 +35,12 @@ msgstr "KDE Connectin asetukset"
 #: main.cpp:31
 #, kde-format
 msgid "(c) 2018-2025, KDE Connect Team"
-msgstr ""
+msgstr "© 2018–2025, KDE Connect -työryhmä"
 
 #: main.cpp:32
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2020 Nicolas Fella"
+#, kde-format
 msgid "Nicolas Fella"
-msgstr "© 2018–2020 Nicolas Fella"
+msgstr "Nicolas Fella"
 
 #: main.cpp:57 main.cpp:76
 #, kde-format
