@@ -2,15 +2,16 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # SPDX-FileCopyrightText: 2025 Sohrab Behdani <behdanisohrab@gmail.com>
+# SPDX-FileCopyrightText: 2025 Alireza Rashidi <injaneb@dock.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 02:34+0000\n"
-"PO-Revision-Date: 2025-05-23 16:53+0330\n"
+"PO-Revision-Date: 2025-05-27 14:36+0330\n"
 "Last-Translator: Sohrab Behdani <behdanisohrab@gmail.com>\n"
-"Language-Team: English <kde-i18n-doc@kde.org>\n"
-"Language: en_US\n"
+"Language-Team: fa\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,127 +21,127 @@ msgstr ""
 #: main.cpp:29 main.cpp:31
 #, kde-format
 msgid "KDE Connect"
-msgstr ""
+msgstr "کی‌دی‌ای کانکت"
 
 #: main.cpp:33
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr ""
+msgstr "(C) 2015 Aleix Pol Gonzalez"
 
 #: main.cpp:34
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr ""
+msgstr "Aleix Pol Gonzalez"
 
 #: main.cpp:34
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "نگهدارنده"
 
 #: main.cpp:35
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "علیرضا رشیدی"
 
 #: main.cpp:35
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "injaneb@duck.com"
 
 #: main.cpp:63
 #, kde-format
 msgid "URL to share"
-msgstr ""
+msgstr "پیوند برای هم‌رسانی"
 
 #: qml/DevicePage.qml:28
 #, kde-format
 msgid "Unpair"
-msgstr ""
+msgstr "جداسازی"
 
 #: qml/DevicePage.qml:33
 #, kde-format
 msgid "Send Ping"
-msgstr ""
+msgstr "صدا زدن"
 
 #: qml/DevicePage.qml:41 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
-msgstr ""
+msgstr "تنظیمات افزونه"
 
 #: qml/DevicePage.qml:60
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "کنش‌ها"
 
 #: qml/DevicePage.qml:62
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr ""
+msgstr "کنترل‌ها"
 
 #: qml/DevicePage.qml:108
 #, kde-format
 msgid "Multimedia control"
-msgstr ""
+msgstr "کنترل رسانه"
 
 #: qml/DevicePage.qml:116
 #, kde-format
 msgid "Remote input"
-msgstr ""
+msgstr "ورودی دوردست"
 
 #: qml/DevicePage.qml:124 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
-msgstr ""
+msgstr "اجرای دستور"
 
 #: qml/DevicePage.qml:132 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
-msgstr ""
+msgstr "کنترل نمایش"
 
 #: qml/DevicePage.qml:140 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
-msgstr ""
+msgstr "کنترل صدا"
 
 #: qml/DevicePage.qml:150 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
-msgstr ""
+msgstr "قفل"
 
 #: qml/DevicePage.qml:150
 #, kde-format
 msgid "Unlock"
-msgstr ""
+msgstr "قفل‌گشایی"
 
 #: qml/DevicePage.qml:158
 #, kde-format
 msgid "Find Device"
-msgstr ""
+msgstr "یافتن دستگاه"
 
 #: qml/DevicePage.qml:166
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "فرستادن بریده‌دان"
 
 #: qml/DevicePage.qml:173
 #, kde-format
 msgid "Share File"
-msgstr ""
+msgstr "هم‌رسانی پرونده"
 
 #: qml/DevicePage.qml:183
 #, kde-format
 msgid "This device is not paired."
-msgstr ""
+msgstr "این دستگاه جفت نشده است."
 
 #: qml/DevicePage.qml:187
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
-msgstr ""
+msgstr "جفت کردن"
 
 #: qml/DevicePage.qml:194 qml/DevicePage.qml:203
 #, kde-format
@@ -148,222 +149,224 @@ msgid ""
 "Pair requested\n"
 "Key: "
 msgstr ""
+"درخواست جفت‌سازی\n"
+"کلید: "
 
 #: qml/DevicePage.qml:209
 #, kde-format
 msgid "Accept"
-msgstr ""
+msgstr "پذیرش"
 
 #: qml/DevicePage.qml:215
 #, kde-format
 msgid "Reject"
-msgstr ""
+msgstr "رد"
 
 #: qml/DevicePage.qml:226
 #, kde-format
 msgid "This device is not reachable"
-msgstr ""
+msgstr "این دستگاه در دسترس نیست"
 
 #: qml/DevicePage.qml:234
 #, kde-format
 msgid "Please choose a file"
-msgstr ""
+msgstr "پرونده‌ای برگزینید"
 
 #: qml/Main.qml:66
 #, kde-format
 msgid "Devices"
-msgstr ""
+msgstr "دستگاه‌ها"
 
 #: qml/Main.qml:74
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "نوسازی"
 
 #: qml/Main.qml:76
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr ""
+msgstr "نوسازی دستگاه‌ها"
 
 #: qml/Main.qml:112
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "شناخته شده"
 
 #: qml/Main.qml:114
 #, kde-format
 msgid "Available"
-msgstr ""
+msgstr "در دسترس"
 
 #: qml/Main.qml:116
 #, kde-format
 msgid "Connected"
-msgstr ""
+msgstr "پیوسته"
 
 #: qml/Main.qml:121
 #, kde-format
 msgid "No devices found"
-msgstr ""
+msgstr "دستگاهی یافت نشد"
 
 #: qml/Main.qml:193 qml/Main.qml:208
 #, kde-format
 msgid "Settings"
-msgstr ""
+msgstr "تنظیمات"
 
 #: qml/mousepad.qml:16
 #, kde-format
 msgid "Remote Control"
-msgstr ""
+msgstr "کنترل دوردست"
 
 #: qml/mousepad.qml:61
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr ""
+msgstr "برای گشودن قفل، %1 یا دکمه‌های چپ و راست موشواره را همزمان فشار دهید"
 
 #: qml/mousepad.qml:213
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "کلیک چپ"
 
 #: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "کلیک میانی"
 
 #: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "کلیک راست"
 
 #: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
-msgstr ""
+msgstr "کنترل‌های رسانه"
 
 #: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
-msgstr ""
+msgstr "پخش‌کننده‌ای در دسترس نیست"
 
 #: qml/mpris.qml:111
 #, kde-format
 msgid "%1 - %2"
-msgstr ""
+msgstr "%1 - %2"
 
 #: qml/PluginSettings.qml:121
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "پیکربندی افزونه"
 
 #: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
-msgstr ""
+msgstr "فعال‌سازی تمام‌صفحه"
 
 #: qml/runcommand.qml:23
 #, kde-format
 msgid "Edit commands"
-msgstr ""
+msgstr "ویرایش دستورها"
 
 #: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
-msgstr ""
+msgstr "می‌توانید دستورها را در دستگاه پیوسته ویرایش کنید"
 
 #: qml/runcommand.qml:53
 #, kde-format
 msgid "No commands defined"
-msgstr ""
+msgstr "دستوری تعریف نشده"
 
 #: qml/Settings.qml:13
 #, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr ""
+msgstr "تنظیمات"
 
 #: qml/Settings.qml:21
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "نام دستگاه"
 
 #: qml/Settings.qml:33
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "پشتوانه‌ها"
 
 #: qml/Settings.qml:54
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "بلوتوث"
 
 #: qml/Settings.qml:56
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "محلی"
 
 #: qml/Settings.qml:58
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "شبکه"
 
 #: qml/Settings.qml:73
 #, kde-format
 msgid "About KDE Connect"
-msgstr ""
+msgstr "درباره کی‌دی‌ای کانکت"
 
 #: qml/Settings.qml:81
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "درباره کی‌دی‌ای"
 
 #: qml/WelcomePage.qml:27
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "دستگاهی برگزیده نشده"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
-msgstr ""
+msgstr "مطمئن شوید که کی‌دی‌ای کانکت را روی دستگاه‌های دیگرتان نصب کرده‌اید."
 
 #: qml/WelcomePage.qml:42
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr ""
+msgstr "برنامه کی‌دی‌ای کانکت برای اندروید"
 
 #: qml/WelcomePage.qml:49
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "اف‌دروید"
 
 #: qml/WelcomePage.qml:56
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "فروشگاه پلی"
 
 #: qml/WelcomePage.qml:62
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr ""
+msgstr "برنامه کی‌دی‌ای کانکت برای آی‌اواس"
 
 #: qml/WelcomePage.qml:67
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "فروشگاه اپل"
 
 #: qml/WelcomePage.qml:73
 #, kde-format
@@ -372,3 +375,6 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+"اگر به مشکل خوردید، برای راهنمایی به <a href=\"https://userbase.kde.org/"
+"KDEConnect\"><span style=\" text-decoration: underline;\">ویکی جامعه KDE "
+"Connect</span></a> بروید."
