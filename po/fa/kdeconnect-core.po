@@ -11,11 +11,11 @@ msgstr ""
 "PO-Revision-Date: 2025-05-27 13:56+0330\n"
 "Last-Translator: Alireza Rashidi <injaneb@dock.com>\n"
 "Language-Team: Persian\n"
-"Language: en_US\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 25.04.0\n"
 
 #: backends/lan/compositeuploadjob.cpp:78

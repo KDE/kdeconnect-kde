@@ -11,11 +11,11 @@ msgstr ""
 "PO-Revision-Date: 2025-05-27 14:36+0330\n"
 "Last-Translator: Sohrab Behdani <behdanisohrab@gmail.com>\n"
 "Language-Team: fa\n"
-"Language: fa_IR\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 25.04.1\n"
 
 #: main.cpp:29 main.cpp:31
