@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2022.
-# SPDX-FileCopyrightText: 2023, 2024 gummi <gudmundure@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-16 00:42+0000\n"
-"PO-Revision-Date: 2024-09-26 13:48+0000\n"
+"PO-Revision-Date: 2025-05-28 20:23+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -96,23 +96,22 @@ msgstr "KDE Connect-vísir"
 #: main.cpp:61
 #, kde-format
 msgid "(c) 2016-2025, KDE Connect Team"
-msgstr ""
+msgstr "(C) 2016-2025, KDE Connect þróunarteymið"
 
 #: main.cpp:62
-#, fuzzy, kde-format
-#| msgid "(C) 2016 Aleix Pol Gonzalez"
+#, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "(C) 2016 Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
 
 #: main.cpp:63
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:104
 #, kde-format
 msgid "Open app"
-msgstr ""
+msgstr "Opna forrit"
 
 #: main.cpp:109
 #, kde-format
