@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2015.
-# SPDX-FileCopyrightText: 2021, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-12-26 09:09+0400\n"
+"PO-Revision-Date: 2025-05-31 17:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -22,12 +22,12 @@ msgstr ""
 #: kiokdeconnect.cpp:75
 #, kde-format
 msgid "Listing devices..."
-msgstr "يسرد الأجهزة..."
+msgstr "يسرد الأجهزة…"
 
 #: kiokdeconnect.cpp:120
 #, kde-format
 msgid "Accessing device..."
-msgstr "ينفذ إلى الجهاز..."
+msgstr "ينفذ إلى الجهاز…"
 
 #: kiokdeconnect.cpp:135
 #, kde-format
