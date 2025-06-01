@@ -5,7 +5,7 @@
             {
                 "Email": "apparle@gmail.com",
                 "Name": "Apoorv Parle",
-                "Name[ar]": "Apoorv Parle",
+                "Name[ar]": "أبورف بارلي",
                 "Name[az]": "Apoorv Parle",
                 "Name[bg]": "Apoorv Parle",
                 "Name[ca@valencia]": "Apoorv Parle",
@@ -167,7 +167,7 @@
         "Icon": "edit-find",
         "License": "GPL",
         "Name": "Ring my phone",
-        "Name[ar]": "رنّ هاتفي",
+        "Name[ar]": "رنّ على هاتفي",
         "Name[az]": "Telfonuma zəng göndərmək",
         "Name[bg]": "Позвъняване на моя телефон",
         "Name[ca@valencia]": "Fes sonar el meu telèfon",
