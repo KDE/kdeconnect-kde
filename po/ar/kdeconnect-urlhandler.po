@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2025-04-19 13:17+0400\n"
+"PO-Revision-Date: 2025-05-31 17:39+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -55,12 +55,12 @@ msgstr "افتح على الجهاز المقترن"
 #: kdeconnect-handler.cpp:44
 #, kde-format
 msgid "KDE Connect URL handler"
-msgstr "معالج عناوين «كِيدِي المتّصل»"
+msgstr "معالج عناوين «جسر كِيدِي»"
 
 #: kdeconnect-handler.cpp:50
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr "© 2015-2025 فريق كِيدِي المتّصل"
+msgstr "© 2015-2025 فريق جسر كِيدِي"
 
 #: kdeconnect-handler.cpp:51
 #, kde-format

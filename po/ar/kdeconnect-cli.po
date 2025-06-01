@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2025-04-19 13:16+0400\n"
+"PO-Revision-Date: 2025-05-31 17:32+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -32,22 +32,22 @@ msgstr "safa1996alfulaij@gmail.com"
 #: kdeconnect-cli.cpp:32
 #, kde-format
 msgid "KDE Connect CLI tool"
-msgstr "أداة سطر أوامر ل‍«كِيدِي المتّصل»"
+msgstr "أداة سطر أوامر ل‍ـ«جسر كِيدِي»"
 
 #: kdeconnect-cli.cpp:34
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr "© 2015-2025 فريق كِيدِي المتّصل"
+msgstr "© 2015-2025 فريق جسر كِيدِي"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr "أليكس بول غونزاليس"
 
 #: kdeconnect-cli.cpp:36
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
+msgstr "ألبرت فاكا سينتورا"
 
 #: kdeconnect-cli.cpp:42
 #, kde-format
@@ -261,7 +261,7 @@ msgstr[5] "وُجد %1 جهاز"
 #: kdeconnect-cli.cpp:136
 #, kde-format
 msgid "No devices found"
-msgstr "لا أجهزة"
+msgstr "لا يوجد أجهزة"
 
 #: kdeconnect-cli.cpp:154
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-21 00:41+0000\n"
-"PO-Revision-Date: 2025-04-19 13:17+0400\n"
+"PO-Revision-Date: 2025-05-31 18:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -22,12 +22,12 @@ msgstr ""
 #: main.cpp:29 main.cpp:31
 #, kde-format
 msgid "KDE Connect"
-msgstr "كِيدِي المتّصل"
+msgstr "جسر كِيدِي"
 
 #: main.cpp:33
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr "© 2015-2025 فريق كِيدِي المتّصل"
+msgstr "© 2015-2025 فريق جسر كِيدِي"
 
 #: main.cpp:34
 #, kde-format
@@ -182,13 +182,13 @@ msgstr "الأجهزة"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr "أنعش"
+msgstr "حدّث"
 
 #: qml/Main.qml:76
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "أنعش الأجهزة"
+msgstr "حدّث الأجهزة"
 
 #: qml/Main.qml:112
 #, kde-format
@@ -321,7 +321,7 @@ msgstr "شبكة"
 #: qml/Settings.qml:73
 #, kde-format
 msgid "About KDE Connect"
-msgstr "عن كِيدِي المتّصل"
+msgstr "عن جسر كِيدِي"
 
 #: qml/Settings.qml:81
 #, kde-format
@@ -338,13 +338,13 @@ msgstr "لم يحدد جهاز"
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
-msgstr "تأكد من تثبيت برنامج كيدي المتصل على أجهزتك الأخرى."
+msgstr "تأكد من تثبيت برنامج جسر كِيدِي على أجهزتك الأخرى."
 
 #: qml/WelcomePage.qml:43
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr "تطبيق كِيدِي المتّصل لأندرويد"
+msgstr "تطبيق جسر كِيدِي لأندرويد"
 
 #: qml/WelcomePage.qml:50
 #, kde-format
@@ -362,7 +362,7 @@ msgstr "متجر غوغل"
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr "تطبيق كِيدِي المتّصل لاي أو أس"
+msgstr "تطبيق جسر كِيدِي لاي أو أس"
 
 #: qml/WelcomePage.qml:68
 #, kde-format

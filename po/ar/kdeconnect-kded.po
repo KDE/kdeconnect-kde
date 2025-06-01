@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2025-04-19 13:17+0400\n"
+"PO-Revision-Date: 2025-05-31 17:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -56,12 +56,12 @@ msgstr "ارفض"
 #: kdeconnectd.cpp:71 kdeconnectd.cpp:73
 #, kde-format
 msgid "KDE Connect Daemon"
-msgstr "عفريت كِيدِي المتصل"
+msgstr "عفريت جسر كِيدِي"
 
 #: kdeconnectd.cpp:75
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr "© 2015-2025 فريق كِيدِي المتّصل"
+msgstr "© 2015-2025 فريق جسر كِيدِي"
 
 #: kdeconnectd.cpp:101
 #, kde-format

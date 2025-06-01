@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2015, 2016, 2017.
-# SPDX-FileCopyrightText: 2021, 2023, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2023, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2024-12-26 09:12+0400\n"
+"PO-Revision-Date: 2025-05-31 17:55+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: kcm.cpp:109
 #, kde-format
 msgid "Error: KDE Connect is not running"
-msgstr "خطأ: كيدي متصل لا يعمل"
+msgstr "خطأ: جسر كِيدِي لا يعمل"
 
 #: kcm.cpp:133
 #, kde-format
@@ -87,7 +87,7 @@ msgstr "(طُلب الاقتران)"
 #: kcm.ui:58
 #, kde-format
 msgid "KDE Connect"
-msgstr "كِيدِي المتّصل"
+msgstr "جسر كِيدِي"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
 #: kcm.ui:81
@@ -186,16 +186,16 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>لم يحدد أي جهاز.<br><br>إن كنت تملك جهاز أندرويد، تأكّد "
 "من تثبيت <a href=\"https://play.google.com/store/apps/details?id=org.kde."
-"kdeconnect_tp\"><span style=\" text-decoration: underline;\">تطبيق «كِيدِي "
-"المتّصل» لأندويد</span></a> (متوفّر أيضًا <a href=\"https://f-droid.org/"
+"kdeconnect_tp\"><span style=\" text-decoration: underline;\">تطبيق «جسر "
+"كِيدِي» لأندويد</span></a> (متوفّر أيضًا <a href=\"https://f-droid.org/"
 "repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
 "decoration: underline; color:#cba;\">في F-Droid</span></a>) وسيظهر الجهاز في "
 "القائمة. إذا كنت تملك هاتف أيفون، تأكد من تثبيت  <a href=\"https://apps."
 "apple.com/us/app/kde-connect/id1580245991\"><span style=\" text-decoration: "
-"underline;\">KDE Connect iOS app</span></a>  <br><br>إذا واجهتك مشكلة فزر <a "
-"href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
-"underline; color:#cba;\">ويكي كِيدِي المتصل</span></a> للمساعدة.</p></body></"
-"html>"
+"underline;\">تطبيق جسر كِيدِي أي أوس</span></a>  <br><br>إذا واجهتك مشكلة فزر "
+"<a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-"
+"decoration: underline; color:#cba;\">ويكي جسر كِيدِي</span></a> للمساعدة.</p></"
+"body></html>"
 
 #: list.qml:52
 #, kde-format
