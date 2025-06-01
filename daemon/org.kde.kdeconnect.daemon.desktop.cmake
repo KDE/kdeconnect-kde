@@ -8,7 +8,7 @@ NoDisplay=true
 Icon=kdeconnect
 
 Name=KDE Connect
-Name[ar]=كِيدِي المتّصل
+Name[ar]=جسر كِيدِي
 Name[ast]=KDE Connect
 Name[az]=KDE Connect
 Name[bg]=KDE Connect
