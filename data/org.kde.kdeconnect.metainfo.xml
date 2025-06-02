@@ -4,7 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KDE Connect</name>
-  <name xml:lang="ar">كِيدِي المتّصل</name>
+  <name xml:lang="ar">جسر كِيدِي</name>
   <name xml:lang="ast">KDE Connect</name>
   <name xml:lang="az">KDE Connect</name>
   <name xml:lang="bg">KDE Connect</name>
@@ -111,7 +111,7 @@
   <description>
     <p>KDE Connect makes your phone and computer work better together: share your clipboard and access files across devices, turn your phone into a remote control for your computer, find your phone when it has slipped down the back of your couch, see your phone notifications from your computer, and much more!
     </p>
-    <p xml:lang="ar">يجعل كيدي المتصل هاتفك والحاسوب يعملان معًا بشكل أفضل: شارك حافظتك وقم بالوصول إلى الملفات عبر الأجهزة، وحول هاتفك إلى جهاز تحكم عن بعد لحاسوبك وابحث عن هاتفك عندما ينزلق إلى أسفل الأريكة، وشاهد إشعارات هاتفك من حاسوبك، وأكثر من ذلك بكثير!</p>
+    <p xml:lang="ar">يجعل جسر كِيدِي هاتفك والحاسوب يعملان معًا بشكل أفضل: شارك حافظتك وقم بالوصول إلى الملفات عبر الأجهزة، وحول هاتفك إلى جهاز تحكم عن بعد لحاسوبك وابحث عن هاتفك عندما ينزلق أسفل الأريكة، وشاهد إشعارات هاتفك من حاسوبك، وأكثر من ذلك بكثير!</p>
     <p xml:lang="bg">KDE Connect подобрява връзката между телефона и компютъра с допълнителни функции като: споделяне на вашите данни от клипборда и достъп до файлове на различни устройства, превръщане на телефона в дистанционно за вашия компютър, намиране на телефона (например, когато се е плъзнал зад дивана), възможност за преглед на телефонните известия на вашия компютър и много други!</p>
     <p xml:lang="ca">El KDE Connect fa que el telèfon i l'ordinador funcionin millor junts: compartiu el porta-retalls i accediu a fitxers entre els dispositius, convertiu el telèfon en un control remot de l'ordinador, trobeu el telèfon quan s'escoli per la part posterior del sofà, vegeu les notificacions del telèfon des de l'ordinador i molt més!</p>
     <p xml:lang="ca-valencia">KDE Connect fa que el telèfon i l'ordinador funcionen millor junts: compartiu el porta-retalls i accediu a fitxers entre els dispositius, convertiu el telèfon en un control remot de l'ordinador, trobeu el telèfon quan s'escoli per la part posterior del sofà, vegeu les notificacions del telèfon des de l'ordinador i molt més!</p>
