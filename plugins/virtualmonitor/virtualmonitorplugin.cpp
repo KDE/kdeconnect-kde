@@ -215,7 +215,7 @@ bool VirtualMonitorPlugin::requestVnc()
 
 bool VirtualMonitorPlugin::requestRdp()
 {
-    QUuid uuid = QUuid::createUuid();
+    QString password = QUuid::createUuid().toString(QUuid::WithoutBraces);
     const QString port = QString::number(s_port++);
 
     m_process = new QProcess(this);
@@ -226,7 +226,7 @@ bool VirtualMonitorPlugin::requestRdp()
                         QS("--username"),
                         QS("user"),
                         QS("--password"),
-                        uuid.toString(),
+                        password,
                         QS("--port"),
                         port};
 
@@ -256,7 +256,7 @@ bool VirtualMonitorPlugin::requestRdp()
     NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR_REQUEST);
     np.set(QS("protocol"), QS("rdp"));
     np.set(QS("username"), QS("user"));
-    np.set(QS("password"), uuid.toString());
+    np.set(QS("password"), password);
     np.set(QS("port"), port);
     sendPacket(np);
     return true;
