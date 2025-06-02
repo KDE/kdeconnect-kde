@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 # KDE Release Service Version, managed by release script
 set (RELEASE_SERVICE_VERSION_MAJOR "25")
-set (RELEASE_SERVICE_VERSION_MINOR "03")
+set (RELEASE_SERVICE_VERSION_MINOR "07")
 set (RELEASE_SERVICE_VERSION_MICRO "70")
 set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}")
 
@@ -96,8 +96,19 @@ ecm_find_qmlmodule(QtQuick.Particles 2.0)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII)
 
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Quick QuickWidgets QuickControls2 Network Multimedia)
+
+if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
+    find_package(Qt6GuiPrivate ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+endif()
+
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications
-    KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons DocTools Crash)
+    KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons Crash)
+
+find_package(KF6DocTools ${KF_MIN_VERSION})
+set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
+    "Tools to generate documentation"
+    TYPE OPTIONAL
+)
 
 if (WIN32)
     get_filename_component(WINDOWS_KITS_DIR
@@ -136,10 +147,11 @@ if(NOT WIN32 AND NOT APPLE)
     add_subdirectory(plasmoid)
 endif()
 
-add_subdirectory(doc)
-kdoctools_install(po)
-
 ki18n_install(po)
+if(KF6DocTools_FOUND)
+    kdoctools_install(po)
+    add_subdirectory(doc)
+endif()
 
 if(BUILD_TESTING)
     add_subdirectory(tests)

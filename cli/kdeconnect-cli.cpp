@@ -26,18 +26,18 @@
 int main(int argc, char **argv)
 {
     QCoreApplication app(argc, argv);
-    KAboutData about(QStringLiteral("kdeconnect-cli"),
-                     QStringLiteral("kdeconnect-cli"),
-                     QStringLiteral(KDECONNECT_VERSION_STRING),
-                     i18n("KDE Connect CLI tool"),
-                     KAboutLicense::GPL,
-                     i18n("(C) 2015 Aleix Pol Gonzalez"));
-    KAboutData::setApplicationData(about);
+    KAboutData aboutData(QStringLiteral("kdeconnect-cli"),
+                         QStringLiteral("kdeconnect-cli"),
+                         QStringLiteral(KDECONNECT_VERSION_STRING),
+                         i18n("KDE Connect CLI tool"),
+                         KAboutLicense::GPL,
+                         i18n("(c) 2015-2025, KDE Connect Team"));
+    aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
+    aboutData.addAuthor(i18n("Albert Vaca Cintora"), {}, QStringLiteral("albertvaka@kde.org"));
+    KAboutData::setApplicationData(aboutData);
 
     KCrash::initialize();
 
-    about.addAuthor(i18n("Aleix Pol Gonzalez"), QString(), QStringLiteral("aleixpol@kde.org"));
-    about.addAuthor(i18n("Albert Vaca Cintora"), QString(), QStringLiteral("albertvaka@gmail.com"));
     QCommandLineParser parser;
     parser.addOption(QCommandLineOption(QStringList{QStringLiteral("l"), QStringLiteral("list-devices")}, i18n("List all devices")));
     parser.addOption(
@@ -84,10 +84,10 @@ int main(int argc, char **argv)
         QStringLiteral("Outputs all available devices id's with their name and paired status")); // Not visible, so no translation needed
     deviceAutocomplete.setValueName(QStringLiteral("shell"));
     parser.addOption(deviceAutocomplete);
-    about.setupCommandLine(&parser);
+    aboutData.setupCommandLine(&parser);
 
     parser.process(app);
-    about.processCommandLine(&parser);
+    aboutData.processCommandLine(&parser);
 
     DaemonDbusInterface iface;
 

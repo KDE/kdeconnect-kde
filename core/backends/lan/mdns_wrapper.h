@@ -7,6 +7,7 @@
 #ifndef KDECONNECT_MDNS_WRAPPER_H
 #define KDECONNECT_MDNS_WRAPPER_H
 
+#include <QHash>
 #include <QHostAddress>
 #include <QMap>
 #include <QSocketNotifier>

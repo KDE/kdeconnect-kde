@@ -43,6 +43,7 @@ private Q_SLOTS:
     void setCurrentDevicePairState(int pairStateAsInt);
     void acceptPairing();
     void cancelPairing();
+    void devicesRemoved();
 
 private:
     void resetDeviceView();

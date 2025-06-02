@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:39+0000\n"
-"PO-Revision-Date: 2023-08-29 09:39+0200\n"
+"POT-Creation-Date: 2025-04-14 00:41+0000\n"
+"PO-Revision-Date: 2025-04-14 06:53+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.6\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -83,13 +83,20 @@ msgstr "Oddaljeni zaklep uspešen"
 msgid "Remote lock failed"
 msgstr "Oddaljeni zaklep ni uspel"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:30
+#: mpriscontrol/mpriscontrolplugin-win.cpp:28
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
 msgstr "Trenutni predvajalnik"
+
+#: mpriscontrol/mpriscontrolplugin-win.cpp:79
+#: mpriscontrol/mpriscontrolplugin-win.cpp:80
+#: mpriscontrol/mpriscontrolplugin-win.cpp:81
+#, kde-format
+msgid "N/A"
+msgstr "N/A"
 
 #: notifications/notification.cpp:108
 #, kde-format

@@ -6,13 +6,13 @@
 # Automatically generated, 2019.
 # pan93412 <pan93412@gmail.com>, 2019, 2020.
 # Chaoting Liu <brli@chakralinux.org>, 2021.
-# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
-"PO-Revision-Date: 2024-11-28 16:39+0900\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-19 15:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -67,7 +67,7 @@ msgstr "%1：%2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect 簡訊"
@@ -79,8 +79,8 @@ msgstr "SMS 即時通訊"
 
 #: main.cpp:54
 #, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018-2022, KDE Connect 團隊"
+msgid "(C) 2018-2025, KDE Connect Team"
+msgstr "(C) 2018-2025, KDE Connect 團隊"
 
 #: main.cpp:55
 #, kde-format
@@ -97,17 +97,17 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "選擇裝置"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "傳送訊息"
@@ -115,7 +115,7 @@ msgstr "傳送訊息"
 # Options with a value assigned need to set a name for the expected value, for the documentation of the option in the help output. An option with names o and output, and a value name of file will appear as -o, --output <file>.
 #
 # https://doc.qt.io/qt-5/qcommandlineoption.html#setValueName
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "訊息"
@@ -124,16 +124,6 @@ msgstr "訊息"
 #, kde-format
 msgid "Open with default"
 msgstr "以預設程式開啟"
-
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "複製訊息"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "複製選擇的部份"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -161,7 +151,7 @@ msgid ""
 msgstr ""
 "提示：如果您插入裝置，它應該就不會進入省電 (doze) 模式而應該就會比較快載入。"
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "重新整理"
@@ -176,31 +166,36 @@ msgstr "選擇收件者"
 msgid "Cancel"
 msgstr "取消"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "搜尋或開始新對話"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "開始新對話"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "無相符的簡訊"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "裝置"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
 msgstr "關於"
+
+#: qml/Main.qml:115
+#, kde-format
+msgid "About KDE"
+msgstr "關於 KDE"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -219,8 +214,35 @@ msgstr "已達簡訊最大字數"
 
 #: qml/SendingArea.qml:63
 #, kde-format
-msgid "Compose message"
-msgstr "撰寫訊息"
+msgid "Send a message…"
+msgstr "傳送訊息…"
+
+#: qml/SendingArea.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr "附加影像或檔案"
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr "清除附件"
+
+#: qml/SendingArea.qml:173
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "傳送訊息"
+
+#~ msgid "Copy Message"
+#~ msgstr "複製訊息"
+
+#~ msgid "Copy Selection"
+#~ msgstr "複製選擇的部份"
+
+#~ msgid "Compose message"
+#~ msgstr "撰寫訊息"
 
 #~ msgid "New"
 #~ msgstr "新增"

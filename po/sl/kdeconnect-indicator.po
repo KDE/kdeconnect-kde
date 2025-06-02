@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-12 00:38+0000\n"
-"PO-Revision-Date: 2024-07-23 07:29+0200\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-19 07:34+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -83,48 +83,58 @@ msgstr ""
 msgid "Cannot find kdeconnectd"
 msgstr "Ni mogoče najti kdeconnectd"
 
-#: main.cpp:58
+#: main.cpp:57
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "Indikator KDE Connect"
 
-#: main.cpp:60
+#: main.cpp:59
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "Orodje indikatorja KDE Connect"
 
+#: main.cpp:61
+#, kde-format
+msgid "(c) 2016-2025, KDE Connect Team"
+msgstr "(c) 2016-2025, Ekipa KDE Connect"
+
 #: main.cpp:62
 #, kde-format
-msgid "(C) 2016 Aleix Pol Gonzalez"
-msgstr "(C) 2016 Aleix Pol Gonzalez"
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:94
+#: main.cpp:63
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
+
+#: main.cpp:102
 #, kde-format
 msgid "Configure..."
 msgstr "Nastavi..."
 
-#: main.cpp:120
+#: main.cpp:128
 #, kde-format
 msgid "Pairing requests"
 msgstr "Zahtevki za uparjanje"
 
-#: main.cpp:125
+#: main.cpp:133
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Upari"
 
-#: main.cpp:126
+#: main.cpp:134
 #, kde-format
 msgid "Reject"
 msgstr "Zavrni"
 
-#: main.cpp:131 main.cpp:141
+#: main.cpp:139 main.cpp:148
 #, kde-format
 msgid "Quit"
 msgstr "Zapusti"
 
-#: main.cpp:160 main.cpp:184
+#: main.cpp:167 main.cpp:191
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

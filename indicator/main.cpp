@@ -5,6 +5,7 @@
  */
 
 #include <QApplication>
+#include <QIcon>
 #include <QPointer>
 #include <QProcess>
 #include <QQuickStyle>
@@ -47,26 +48,34 @@ int main(int argc, char **argv)
     }
 #endif
 
-    QIcon::setFallbackThemeName(QStringLiteral("breeze"));
-
     QApplication app(argc, argv);
 
     IndicatorHelper helper;
     helper.startDaemon();
 
-    KAboutData about(QStringLiteral("kdeconnect-indicator"),
-                     i18n("KDE Connect Indicator"),
-                     QStringLiteral(KDECONNECT_VERSION_STRING),
-                     i18n("KDE Connect Indicator tool"),
-                     KAboutLicense::GPL,
-                     i18n("(C) 2016 Aleix Pol Gonzalez"));
-    KAboutData::setApplicationData(about);
-
-    KCrash::initialize();
+    KAboutData aboutData(QStringLiteral("kdeconnect-indicator"),
+                         i18n("KDE Connect Indicator"),
+                         QStringLiteral(KDECONNECT_VERSION_STRING),
+                         i18n("KDE Connect Indicator tool"),
+                         KAboutLicense::GPL,
+                         i18n("(c) 2016-2025, KDE Connect Team"));
+    aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
+    aboutData.addAuthor(i18n("Albert Vaca Cintora"), {}, QStringLiteral("albertvaka@kde.org"));
+    aboutData.setProgramLogo(QIcon::fromTheme(QStringLiteral("kdeconnect")));
+    KAboutData::setApplicationData(aboutData);
 
 #ifdef Q_OS_WIN
+    // Ensure we have a suitable color theme set for light/dark mode. KColorSchemeManager implicitly applies
+    // a suitable default theme.
     KColorSchemeManager::instance();
+    // Force breeze style to ensure coloring works consistently in dark mode. Specifically tab colors have
+    // troubles on windows.
     QApplication::setStyle(QStringLiteral("breeze"));
+    // Force breeze icon theme to ensure we can correctly adapt icons to color changes WRT dark/light mode.
+    // Without this we may end up with hicolor and fail to support icon recoloring.
+    QIcon::setThemeName(QStringLiteral("breeze"));
+#else
+    QIcon::setFallbackThemeName(QStringLiteral("breeze"));
 #endif
 
     // Default to org.kde.desktop style unless the user forces another style
@@ -74,10 +83,9 @@ int main(int argc, char **argv)
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
 
-    KDBusService dbusService(KDBusService::Unique);
+    KCrash::initialize();
 
-    // Trigger loading the KIconLoader plugin
-    about.setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
+    KDBusService dbusService(KDBusService::Unique);
 
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
@@ -137,7 +145,6 @@ int main(int argc, char **argv)
             qApp->quit();
         });
 #elif defined Q_OS_WIN
-
         menu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), i18n("Quit"), []() {
             qApp->quit();
         });

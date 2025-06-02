@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-22 00:40+0000\n"
-"PO-Revision-Date: 2024-05-19 07:31+0200\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-19 07:37+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -52,20 +52,23 @@ msgstr "Sprejmi"
 msgid "Reject"
 msgstr "Zavrni"
 
-#: desktop_daemon.cpp:54
-#, kde-format
-msgid "View key"
-msgstr "Poglej ključ"
-
-#: kdeconnectd.cpp:77 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:71 kdeconnectd.cpp:73
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "Demon KDE Connect"
 
-#: kdeconnectd.cpp:87
+#: kdeconnectd.cpp:75
+#, kde-format
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr "(c) 2015-2025, Ekipa KDE Connect"
+
+#: kdeconnectd.cpp:101
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Zamenjaj obstoječ pojavek"
+
+#~ msgid "View key"
+#~ msgstr "Poglej ključ"
 
 #~ msgid ""
 #~ "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

@@ -6,12 +6,14 @@
 
 #include <QApplication>
 #include <QCommandLineParser>
+#include <QIcon>
+#include <QQuickStyle>
 #include <QStandardPaths>
-#include <QStyle>
 
 #include "kdeconnect-version.h"
 #include <KAboutData>
 #include <KCMultiDialog>
+#include <KColorSchemeManager>
 #include <KCrash>
 #include <KDBusService>
 #include <KLocalizedString>
@@ -19,26 +21,44 @@
 
 int main(int argc, char **argv)
 {
-    QIcon::setFallbackThemeName(QStringLiteral("breeze"));
-
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
-    KAboutData about(QStringLiteral("kdeconnect-settings"),
-                     i18n("KDE Connect Settings"),
-                     QStringLiteral(KDECONNECT_VERSION_STRING),
-                     i18n("KDE Connect Settings"),
-                     KAboutLicense::GPL,
-                     i18n("(C) 2018-2020 Nicolas Fella"));
-    KAboutData::setApplicationData(about);
+    KAboutData aboutData(QStringLiteral("kdeconnect-settings"),
+                         i18n("KDE Connect Settings"),
+                         QStringLiteral(KDECONNECT_VERSION_STRING),
+                         i18n("KDE Connect Settings"),
+                         KAboutLicense::GPL,
+                         i18n("(c) 2018-2025, KDE Connect Team"));
+    aboutData.addAuthor(i18n("Nicolas Fella"), {}, QStringLiteral("nicolas.fella@gmx.de"));
+    KAboutData::setApplicationData(aboutData);
+
+#ifdef Q_OS_WIN
+    // Ensure we have a suitable color theme set for light/dark mode. KColorSchemeManager implicitly applies
+    // a suitable default theme.
+    KColorSchemeManager::instance();
+    // Force breeze style to ensure coloring works consistently in dark mode. Specifically tab colors have
+    // troubles on windows.
+    QApplication::setStyle(QStringLiteral("breeze"));
+    // Force breeze icon theme to ensure we can correctly adapt icons to color changes WRT dark/light mode.
+    // Without this we may end up with hicolor and fail to support icon recoloring.
+    QIcon::setThemeName(QStringLiteral("breeze"));
+#else
+    QIcon::setFallbackThemeName(QStringLiteral("breeze"));
+#endif
+
+    // Default to org.kde.desktop style unless the user forces another style
+    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
+    }
 
     KCrash::initialize();
 
     QCommandLineParser parser;
     parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the config module"), QStringLiteral("args")));
 
-    about.setupCommandLine(&parser);
+    aboutData.setupCommandLine(&parser);
     parser.process(app);
-    about.processCommandLine(&parser);
+    aboutData.processCommandLine(&parser);
 
     KDBusService dbusService(KDBusService::Unique);
 

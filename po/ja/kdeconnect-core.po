@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2025-02-24 00:41+0000\n"
 "PO-Revision-Date: 2024-02-24 20:19+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: ja\n"
@@ -38,32 +38,37 @@ msgstr "%1 に送信中"
 msgid "File"
 msgstr "ファイル"
 
-#: backends/pairinghandler.cpp:59
+#: backends/pairinghandler.cpp:61
+#, kde-format
+msgid "Device clocks are out of sync"
+msgstr ""
+
+#: backends/pairinghandler.cpp:80
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "他ピアによってキャンセルされました"
 
-#: backends/pairinghandler.cpp:75
+#: backends/pairinghandler.cpp:96
 #, kde-format
 msgid "%1: Already paired"
 msgstr "%1: ペアリング済み"
 
-#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
+#: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: デバイスに到達できません"
 
-#: backends/pairinghandler.cpp:113
+#: backends/pairinghandler.cpp:139
 #, kde-format
 msgid "Device not reachable"
 msgstr "デバイスに到達できません"
 
-#: backends/pairinghandler.cpp:124
+#: backends/pairinghandler.cpp:150
 #, kde-format
 msgid "Cancelled by user"
 msgstr "ユーザによってキャンセルされました"
 
-#: backends/pairinghandler.cpp:140
+#: backends/pairinghandler.cpp:166
 #, kde-format
 msgid "Timed out"
 msgstr "タイムアウト"
@@ -87,15 +92,20 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "行き先"
 
-#: device.cpp:459
+#: device.cpp:461
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "あなたのデバイスの SHA256 フィンガープリント証明書: %1\n"
 
-#: device.cpp:465
+#: device.cpp:467
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "リモートデバイスの SHA256 フィンガープリント証明書: %1\n"
+
+#: device.cpp:469
+#, kde-format
+msgid "Protocol version: %1\n"
+msgstr ""
 
 #: filetransferjob.cpp:53
 #, kde-format
@@ -107,27 +117,27 @@ msgstr "そのファイル名は既に存在します"
 msgid "Received incomplete file from: %1"
 msgstr "不完全なファイルを %1 から受信しました"
 
-#: kdeconnectconfig.cpp:338 kdeconnectconfig.cpp:372
+#: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connect の起動に失敗しました"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "秘密鍵を生成できませんでした。"
 
-#: kdeconnectconfig.cpp:357
+#: kdeconnectconfig.cpp:367
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "秘密鍵ファイル %1 を保存できませんでした"
 
-#: kdeconnectconfig.cpp:372
+#: kdeconnectconfig.cpp:382
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "デバイスの証明書を生成できませんでした。"
 
-#: kdeconnectconfig.cpp:388
+#: kdeconnectconfig.cpp:398
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "証明書ファイル %1 を保存できませんでした"

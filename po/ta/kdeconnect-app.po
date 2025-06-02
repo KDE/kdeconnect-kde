@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-12-08 12:30+0530\n"
+"POT-Creation-Date: 2025-04-21 00:41+0000\n"
+"PO-Revision-Date: 2025-03-16 15:29+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,126 +15,134 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.3\n"
 
-#: main.cpp:31 main.cpp:33
+#: main.cpp:29 main.cpp:31
 #, kde-format
 msgid "KDE Connect"
 msgstr "கே.டீ.யீ. கனெக்ட்"
 
-#: main.cpp:35
+#: main.cpp:33
 #, kde-format
-msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "(C) 2015 அலேயிக்சு போல் ஈ கொன்ஸாலெசு"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: main.cpp:36
+#: main.cpp:34
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "அலேயிக்சு போல் கொன்ஸாலெசு"
 
-#: main.cpp:36
+#: main.cpp:35
 #, kde-format
-msgid "Maintainer"
-msgstr "பராமரிப்பாளர்"
+msgid "Albert Vaca Cintora"
+msgstr ""
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "கோ. கிஷோர்"
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Kde-l10n-ta@kde.org"
 
-#: main.cpp:56
+#: main.cpp:65
 #, kde-format
 msgid "URL to share"
 msgstr "பகிர வேண்டிய முகவரி"
 
-#: qml/DevicePage.qml:27
+#: qml/DevicePage.qml:28
 #, kde-format
 msgid "Unpair"
 msgstr "இணைப்பை துண்டி"
 
-#: qml/DevicePage.qml:32
+#: qml/DevicePage.qml:33
 #, kde-format
 msgid "Send Ping"
 msgstr "பிங் அனுப்பு"
 
-#: qml/DevicePage.qml:40 qml/PluginSettings.qml:20
+#: qml/DevicePage.qml:41 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
 msgstr "செருகுநிரல் அமைப்புகள்"
 
-#: qml/DevicePage.qml:64
+#: qml/DevicePage.qml:60
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Actions"
+msgstr "செயல்கள்"
+
+#: qml/DevicePage.qml:62
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Controls"
+msgstr "கட்டுப்படுத்திகள்"
+
+#: qml/DevicePage.qml:108
 #, kde-format
 msgid "Multimedia control"
 msgstr "பல்லூடக கட்டுப்பாடு"
 
-#: qml/DevicePage.qml:71
+#: qml/DevicePage.qml:116
 #, kde-format
 msgid "Remote input"
 msgstr "தொலை உள்ளீடு"
 
-#: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
-#, kde-format
-msgid "Presentation Remote"
-msgstr "வில்லைக்காட்சி தொலையியக்கி"
-
-#: qml/DevicePage.qml:87 qml/mousepad.qml:44
-#, kde-format
-msgid "Lock"
-msgstr "பூட்டு"
-
-#: qml/DevicePage.qml:87
-#, kde-format
-msgid "Unlock"
-msgstr "திற"
-
-#: qml/DevicePage.qml:94
-#, kde-format
-msgid "Find Device"
-msgstr "சாதனத்தை கண்டுபிடி"
-
-#: qml/DevicePage.qml:99 qml/runcommand.qml:16
+#: qml/DevicePage.qml:124 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "கட்டளையை இயக்கு"
 
-#: qml/DevicePage.qml:108
+#: qml/DevicePage.qml:132 qml/presentationRemote.qml:15
 #, kde-format
-msgid "Send Clipboard"
-msgstr "பிடிப்புப்பலகையை அனுப்பு"
+msgid "Presentation Remote"
+msgstr "வில்லைக்காட்சி தொலையியக்கி"
 
-#: qml/DevicePage.qml:114
-#, kde-format
-msgid "Share File"
-msgstr "கோப்பை பகிர்"
-
-#: qml/DevicePage.qml:119 qml/volume.qml:16
+#: qml/DevicePage.qml:140 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "ஒலியளவு கட்டுப்பாடு"
 
-#: qml/DevicePage.qml:130
+#: qml/DevicePage.qml:150 qml/mousepad.qml:44
 #, kde-format
-msgid ""
-"This device is not paired.\n"
-"Key: %1"
-msgstr ""
-"இச்சாதனம் இணைக்கப்படவில்லை.\n"
-"சாவி: %1"
+msgid "Lock"
+msgstr "பூட்டு"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:150
+#, kde-format
+msgid "Unlock"
+msgstr "திற"
+
+#: qml/DevicePage.qml:158
+#, kde-format
+msgid "Find Device"
+msgstr "சாதனத்தை கண்டுபிடி"
+
+#: qml/DevicePage.qml:166
+#, kde-format
+msgid "Send Clipboard"
+msgstr "பிடிப்புப்பலகையை அனுப்பு"
+
+#: qml/DevicePage.qml:173
+#, kde-format
+msgid "Share File"
+msgstr "கோப்பை பகிர்"
+
+#: qml/DevicePage.qml:183
+#, kde-format
+msgid "This device is not paired."
+msgstr "இச்சாதனம் இணைக்கப்படவில்லை."
+
+#: qml/DevicePage.qml:187
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "இணை"
 
-#: qml/DevicePage.qml:141 qml/DevicePage.qml:150
+#: qml/DevicePage.qml:194 qml/DevicePage.qml:203
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -143,22 +151,22 @@ msgstr ""
 "இணைப்பு கோரப்பட்டுள்ளது\n"
 "சாவி: "
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:209
 #, kde-format
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
-#: qml/DevicePage.qml:162
+#: qml/DevicePage.qml:215
 #, kde-format
 msgid "Reject"
 msgstr "மறு"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:226
 #, kde-format
 msgid "This device is not reachable"
 msgstr "சாதனத்தைத் தொடர்புகொள்ள முடியவில்லை"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:234
 #, kde-format
 msgid "Please choose a file"
 msgstr "கோப்பைத் தேர்ந்தெடுங்கள்"
@@ -174,27 +182,33 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr "புதுப்பி"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:76
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Refresh Devices"
+msgstr "சாதனப்பட்டியலை புதுப்பி"
+
+#: qml/Main.qml:112
 #, kde-format
 msgid "Remembered"
 msgstr "நினைவிலுள்ளது"
 
-#: qml/Main.qml:103
+#: qml/Main.qml:114
 #, kde-format
 msgid "Available"
 msgstr "கிடைக்கக்கூடியது"
 
-#: qml/Main.qml:105
+#: qml/Main.qml:116
 #, kde-format
 msgid "Connected"
 msgstr "இணைந்துள்ளது"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:121
 #, kde-format
 msgid "No devices found"
 msgstr "எந்த சாதனங்களும் கண்டுபிடிக்கப்படவில்லை"
 
-#: qml/Main.qml:170 qml/Main.qml:179
+#: qml/Main.qml:193 qml/Main.qml:208
 #, kde-format
 msgid "Settings"
 msgstr "அமைப்புகள்"
@@ -204,48 +218,66 @@ msgstr "அமைப்புகள்"
 msgid "Remote Control"
 msgstr "தொலையியக்கி"
 
-#: qml/mousepad.qml:59
+#: qml/mousepad.qml:61
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
 "திறக்க, இடது மற்றும் வலது சுட்டி பட்டன்களை சேர்த்து அழுத்துங்கள் அல்லது %1 தனை அழுத்துங்கள்"
 
-#: qml/mpris.qml:19
+#: qml/mousepad.qml:213
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Left Click"
+msgstr "இடது கிளிக்"
+
+#: qml/mousepad.qml:222
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Middle Click"
+msgstr "நடு கிளிக்"
+
+#: qml/mousepad.qml:231
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Right Click"
+msgstr "வலது கிளிக்"
+
+#: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
 msgstr "பல்லூடக கட்டுப்பாடு"
 
-#: qml/mpris.qml:67
+#: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
 msgstr "இயக்கிகள் இல்லை"
 
-#: qml/mpris.qml:107
+#: qml/mpris.qml:111
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:103
+#: qml/PluginSettings.qml:121
 #, kde-format
 msgid "Configure plugin"
 msgstr "செருகுநிரலை அமை"
 
-#: qml/presentationRemote.qml:21
+#: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
 msgstr "முழுத்திரை முறையை இயக்கு"
 
-#: qml/runcommand.qml:22
+#: qml/runcommand.qml:23
 #, kde-format
 msgid "Edit commands"
 msgstr "கட்டளைகளை திருத்து"
 
-#: qml/runcommand.qml:25
+#: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr "இணைக்கப்பட்டுள்ள சாதனத்திலிருந்து கட்டளைகளை திருத்தலாம்"
 
-#: qml/runcommand.qml:52
+#: qml/runcommand.qml:53
 #, kde-format
 msgid "No commands defined"
 msgstr "எந்த கட்டளையும் வரையறுக்கப்படவில்லை"
@@ -265,13 +297,13 @@ msgstr "சாதனத்தின் பெயர்"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "பின்நிலைகள்"
 
 #: qml/Settings.qml:54
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "ஊடலை"
 
 #: qml/Settings.qml:56
 #, kde-format
@@ -283,7 +315,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "பிணையம்"
 
 #: qml/Settings.qml:73
 #, kde-format
@@ -299,52 +331,59 @@ msgstr "கே.டீ.யீ. பற்றி"
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "எந்த சாதனமும் தேர்ந்தெடுக்கப்படவில்லை"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
-msgstr ""
+msgstr "இன்னொரு சாதனத்திலும் கே.டீ.யீ. கனெக்ட் தனை நிறுவ வேண்டும்."
 
-#: qml/WelcomePage.qml:42
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#: qml/WelcomePage.qml:43
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr "கே.டீ.யீ. கனெக்ட்"
+msgstr "கே.டீ.யீ. கனெக்ட் ஆண்ட்ராய்டு செயலி"
 
-#: qml/WelcomePage.qml:49
+#: qml/WelcomePage.qml:50
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "எஃப்-டிராய்டு"
 
-#: qml/WelcomePage.qml:56
+#: qml/WelcomePage.qml:57
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "கூகுள் கடை"
 
-#: qml/WelcomePage.qml:62
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#: qml/WelcomePage.qml:63
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr "கே.டீ.யீ. கனெக்ட்"
+msgstr "கே.டீ.யீ. கனெக்ட் iOS செயலி"
 
-#: qml/WelcomePage.qml:67
+#: qml/WelcomePage.qml:68
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "ஆப்பிள் கடை"
 
-#: qml/WelcomePage.qml:73
+#: qml/WelcomePage.qml:74
 #, kde-format
 msgid ""
 "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+"ஏதேனும் பிரச்சனை ஏற்பட்டால், <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline;\">கே.டீ.யீ. கனெக்டின் சமூக "
+"விக்கியில்</span></a> உங்களுக்கு உதவியாக ஏதாவது உள்ளதா என பார்க்கவும்."
+
+#~ msgid "(c) 2015, Aleix Pol Gonzalez"
+#~ msgstr "(C) 2015 அலேயிக்சு போல் ஈ கொன்ஸாலெசு"
+
+#~ msgid "Maintainer"
+#~ msgstr "பராமரிப்பாளர்"
 
 #~ msgid "Find devices..."
 #~ msgstr "சாதனங்களை கண்டுபிடி..."

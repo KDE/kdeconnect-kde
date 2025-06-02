@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-10-10 09:00+0400\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2024-12-26 09:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -19,76 +19,66 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "صفا الفليج"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "safa1996alfulaij@gmail.com"
-
-#: kcm.cpp:91
+#: kcm.cpp:109
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "خطأ: كيدي متصل لا يعمل"
 
-#: kcm.cpp:115
+#: kcm.cpp:133
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "بلوتوث"
 
-#: kcm.cpp:117
+#: kcm.cpp:135
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "حلقة راجعة"
 
-#: kcm.cpp:119
+#: kcm.cpp:137
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "شبكة"
 
-#: kcm.cpp:122
+#: kcm.cpp:140
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
-msgstr ""
+msgstr "مجهول"
 
-#: kcm.cpp:282
-#, kde-format
-msgid "Key: %1"
-msgstr "المفتاح: %1"
-
-#: kcm.cpp:307
+#: kcm.cpp:339
 #, kde-format
 msgid "Available plugins"
 msgstr "الملحقات المتوفّرة"
 
-#: kcm.cpp:354
+#: kcm.cpp:386
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "خطأ في محاولة الاقتران: %1"
 
-#: kcm.cpp:370
+#: kcm.cpp:403
 #, kde-format
 msgid "(paired)"
 msgstr "(مقترن)"
 
-#: kcm.cpp:373
+#: kcm.cpp:406
 #, kde-format
 msgid "(not paired)"
 msgstr "(غير مقترن)"
 
-#: kcm.cpp:376
+#: kcm.cpp:409
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(ورد طلب اقتران)"
 
-#: kcm.cpp:379
+#: kcm.cpp:410 kcm.cpp:414
+#, kde-format
+msgid "Key: %1"
+msgstr "المفتاح: %1"
+
+#: kcm.cpp:413
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(طُلب الاقتران)"
@@ -121,7 +111,7 @@ msgstr "أنعش"
 #: kcm.ui:134
 #, kde-format
 msgid "Backends:"
-msgstr ""
+msgstr "الخلفيات:"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
 #: kcm.ui:216
@@ -226,6 +216,14 @@ msgstr "متّصل"
 #, kde-format
 msgid "No devices found"
 msgstr "لم يُعثر على أجهزة"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "صفا الفليج"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "safa1996alfulaij@gmail.com"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"

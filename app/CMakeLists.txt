@@ -1,7 +1,7 @@
 qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
 ecm_setup_version(${PROJECT_VERSION}
-    VARIABLE_PREFIX KDE_CONNECT
+    VARIABLE_PREFIX KDECONNECT
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h
 )
 
@@ -9,14 +9,12 @@ if (WIN32)
     include(ECMAddAppIcon)
     ecm_add_app_icon(kdeconnect_SRCS ICONS
         ${CMAKE_SOURCE_DIR}/icons/app/sc-apps-kdeconnect.svg
-        ${CMAKE_SOURCE_DIR}/icons/app/16-apps-kdeconnect.png
-        ${CMAKE_SOURCE_DIR}/icons/app/24-apps-kdeconnect.png
-        ${CMAKE_SOURCE_DIR}/icons/app/32-apps-kdeconnect.png
-        ${CMAKE_SOURCE_DIR}/icons/app/48-apps-kdeconnect.png
-        ${CMAKE_SOURCE_DIR}/icons/app/64-apps-kdeconnect.png
-        ${CMAKE_SOURCE_DIR}/icons/app/128-apps-kdeconnect.png
-        ${CMAKE_SOURCE_DIR}/icons/app/256-apps-kdeconnect.png
-        ${CMAKE_SOURCE_DIR}/icons/app/1024-apps-kdeconnect.png
+        ${CMAKE_SOURCE_DIR}/icons/windows/32-apps-kdeconnect.png
+        ${CMAKE_SOURCE_DIR}/icons/windows/48-apps-kdeconnect.png
+        ${CMAKE_SOURCE_DIR}/icons/windows/64-apps-kdeconnect.png
+        ${CMAKE_SOURCE_DIR}/icons/windows/128-apps-kdeconnect.png
+        ${CMAKE_SOURCE_DIR}/icons/windows/256-apps-kdeconnect.png
+        ${CMAKE_SOURCE_DIR}/icons/windows/512-apps-kdeconnect.png
     )
 endif()
 

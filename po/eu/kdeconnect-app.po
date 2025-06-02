@@ -1,16 +1,16 @@
 # Translation for kdeconnect-app.po to Euskara/Basque (eu).
-# Copyright (C) 2020-2024 This file is copyright:
+# Copyright (C) 2020-2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2023, 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021, 2022, 2023, 2024.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-12-24 09:20+0100\n"
+"POT-Creation-Date: 2025-04-21 00:41+0000\n"
+"PO-Revision-Date: 2025-04-02 14:37+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,126 +18,134 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
-#: main.cpp:31 main.cpp:33
+#: main.cpp:29 main.cpp:31
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:35
+#: main.cpp:33
 #, kde-format
-msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "(c) 2015, Aleix Pol Gonzalez"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: main.cpp:36
+#: main.cpp:34
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:36
+#: main.cpp:35
 #, kde-format
-msgid "Maintainer"
-msgstr "Arduraduna"
+msgid "Albert Vaca Cintora"
+msgstr ""
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Iñigo Salvador Azurmendi"
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus"
 
-#: main.cpp:56
+#: main.cpp:65
 #, kde-format
 msgid "URL to share"
 msgstr "Partekatzeko URLa"
 
-#: qml/DevicePage.qml:27
+#: qml/DevicePage.qml:28
 #, kde-format
 msgid "Unpair"
 msgstr "Desparekatu"
 
-#: qml/DevicePage.qml:32
+#: qml/DevicePage.qml:33
 #, kde-format
 msgid "Send Ping"
 msgstr "Bidali Ping"
 
-#: qml/DevicePage.qml:40 qml/PluginSettings.qml:20
+#: qml/DevicePage.qml:41 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Pluginen ezarpenak"
 
-#: qml/DevicePage.qml:64
+#: qml/DevicePage.qml:60
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Actions"
+msgstr "Ekintzak"
+
+#: qml/DevicePage.qml:62
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Controls"
+msgstr "Aginteak"
+
+#: qml/DevicePage.qml:108
 #, kde-format
 msgid "Multimedia control"
 msgstr "Multimedia agintea"
 
-#: qml/DevicePage.qml:71
+#: qml/DevicePage.qml:116
 #, kde-format
 msgid "Remote input"
 msgstr "Urrutiko sarrerakoa"
 
-#: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
-#, kde-format
-msgid "Presentation Remote"
-msgstr "Aurkezpenetarako urruneko agintea"
-
-#: qml/DevicePage.qml:87 qml/mousepad.qml:44
-#, kde-format
-msgid "Lock"
-msgstr "Giltzatu"
-
-#: qml/DevicePage.qml:87
-#, kde-format
-msgid "Unlock"
-msgstr "Giltzapetik askatu"
-
-#: qml/DevicePage.qml:94
-#, kde-format
-msgid "Find Device"
-msgstr "Aurkitu nire gailua"
-
-#: qml/DevicePage.qml:99 qml/runcommand.qml:16
+#: qml/DevicePage.qml:124 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Exekutatu komandoa"
 
-#: qml/DevicePage.qml:108
+#: qml/DevicePage.qml:132 qml/presentationRemote.qml:15
 #, kde-format
-msgid "Send Clipboard"
-msgstr "Bidali arbela"
+msgid "Presentation Remote"
+msgstr "Aurkezpenetarako urruneko agintea"
 
-#: qml/DevicePage.qml:114
-#, kde-format
-msgid "Share File"
-msgstr "Partekatu fitxategia"
-
-#: qml/DevicePage.qml:119 qml/volume.qml:16
+#: qml/DevicePage.qml:140 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Bolumenaren agintea"
 
-#: qml/DevicePage.qml:130
+#: qml/DevicePage.qml:150 qml/mousepad.qml:44
 #, kde-format
-msgid ""
-"This device is not paired.\n"
-"Key: %1"
-msgstr ""
-"Gailu hau ez dago parekatuta.\n"
-"Gakoa: %1"
+msgid "Lock"
+msgstr "Giltzatu"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:150
+#, kde-format
+msgid "Unlock"
+msgstr "Giltzapetik askatu"
+
+#: qml/DevicePage.qml:158
+#, kde-format
+msgid "Find Device"
+msgstr "Aurkitu nire gailua"
+
+#: qml/DevicePage.qml:166
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Bidali arbela"
+
+#: qml/DevicePage.qml:173
+#, kde-format
+msgid "Share File"
+msgstr "Partekatu fitxategia"
+
+#: qml/DevicePage.qml:183
+#, kde-format
+msgid "This device is not paired."
+msgstr "Gailu hau ez dago parekatuta."
+
+#: qml/DevicePage.qml:187
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Parekatu"
 
-#: qml/DevicePage.qml:141 qml/DevicePage.qml:150
+#: qml/DevicePage.qml:194 qml/DevicePage.qml:203
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -146,22 +154,22 @@ msgstr ""
 "Parekatzea eskatu da\n"
 "Gakoa:"
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:209
 #, kde-format
 msgid "Accept"
 msgstr "Onartu"
 
-#: qml/DevicePage.qml:162
+#: qml/DevicePage.qml:215
 #, kde-format
 msgid "Reject"
 msgstr "Errefuxatu"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:226
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Gailu hau ez da irisgarria"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:234
 #, kde-format
 msgid "Please choose a file"
 msgstr "Mesedez aukeratu fitxategi bat"
@@ -177,27 +185,33 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Berritu"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:76
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Refresh Devices"
+msgstr "Berritu gailuak"
+
+#: qml/Main.qml:112
 #, kde-format
 msgid "Remembered"
 msgstr "Oroitua"
 
-#: qml/Main.qml:103
+#: qml/Main.qml:114
 #, kde-format
 msgid "Available"
 msgstr "Erabilgarria"
 
-#: qml/Main.qml:105
+#: qml/Main.qml:116
 #, kde-format
 msgid "Connected"
 msgstr "Konektatua"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:121
 #, kde-format
 msgid "No devices found"
 msgstr "Ez da gailurik aurkitu"
 
-#: qml/Main.qml:170 qml/Main.qml:179
+#: qml/Main.qml:193 qml/Main.qml:208
 #, kde-format
 msgid "Settings"
 msgstr "Ezarpenak"
@@ -207,49 +221,67 @@ msgstr "Ezarpenak"
 msgid "Remote Control"
 msgstr "Urruneko agintea"
 
-#: qml/mousepad.qml:59
+#: qml/mousepad.qml:61
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
 "Sakatu %1 edo saguaren ezker eta eskuin botoiak aldi berean giltzapetik "
 "askatzeko"
 
-#: qml/mpris.qml:19
+#: qml/mousepad.qml:213
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Left Click"
+msgstr "Ezkerreko klik"
+
+#: qml/mousepad.qml:222
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Middle Click"
+msgstr "Erdiko klik"
+
+#: qml/mousepad.qml:231
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Right Click"
+msgstr "Eskuineko klik"
+
+#: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
 msgstr "Multimedia aginteak"
 
-#: qml/mpris.qml:67
+#: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
 msgstr "Ez dago jotzaile erabilgarririk"
 
-#: qml/mpris.qml:107
+#: qml/mpris.qml:111
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:103
+#: qml/PluginSettings.qml:121
 #, kde-format
 msgid "Configure plugin"
 msgstr "Configuratu plugina"
 
-#: qml/presentationRemote.qml:21
+#: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
 msgstr "Gaitu pantaila-betea"
 
-#: qml/runcommand.qml:22
+#: qml/runcommand.qml:23
 #, kde-format
 msgid "Edit commands"
 msgstr "Editatu komandoak"
 
-#: qml/runcommand.qml:25
+#: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr "Komandoak editatu ditzakezu konektatutako gailuan"
 
-#: qml/runcommand.qml:52
+#: qml/runcommand.qml:53
 #, kde-format
 msgid "No commands defined"
 msgstr "Ez da komandorik definitu"
@@ -311,36 +343,36 @@ msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
 msgstr "Ziurtatu zure gainerako gailuetan KDE Connect instalatzen duzula."
 
-#: qml/WelcomePage.qml:42
+#: qml/WelcomePage.qml:43
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
 msgstr "KDE Connect Android aplikazioa"
 
-#: qml/WelcomePage.qml:49
+#: qml/WelcomePage.qml:50
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
 msgstr "F-Droid"
 
-#: qml/WelcomePage.qml:56
+#: qml/WelcomePage.qml:57
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
 msgstr "Play saltokia"
 
-#: qml/WelcomePage.qml:62
+#: qml/WelcomePage.qml:63
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
 msgstr "KDE Connect iOS aplikazioa"
 
-#: qml/WelcomePage.qml:67
+#: qml/WelcomePage.qml:68
 #, kde-format
 msgid "Apple Store"
 msgstr "Apple saltokia"
 
-#: qml/WelcomePage.qml:73
+#: qml/WelcomePage.qml:74
 #, kde-format
 msgid ""
 "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
@@ -350,6 +382,12 @@ msgstr ""
 "Arazoak badituzu, bisitatu<a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">KDE Connect Komunitatearen "
 "wikia</span></a> laguntza bila."
+
+#~ msgid "(c) 2015, Aleix Pol Gonzalez"
+#~ msgstr "(c) 2015, Aleix Pol Gonzalez"
+
+#~ msgid "Maintainer"
+#~ msgstr "Arduraduna"
 
 #~ msgid ""
 #~ "<html><head/><body><p>No device selected<br><br>If you own an Android "

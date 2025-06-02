@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2023, 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2023, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-12-05 20:23+0100\n"
+"POT-Creation-Date: 2025-04-21 00:41+0000\n"
+"PO-Revision-Date: 2025-02-28 19:31+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,126 +15,134 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
-#: main.cpp:31 main.cpp:33
+#: main.cpp:29 main.cpp:31
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE-anslut"
 
-#: main.cpp:35
+#: main.cpp:33
 #, kde-format
-msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "© 2015, Aleix Pol Gonzalez"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: main.cpp:36
+#: main.cpp:34
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:36
+#: main.cpp:35
 #, kde-format
-msgid "Maintainer"
-msgstr "Underhåll"
+msgid "Albert Vaca Cintora"
+msgstr ""
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stefan Asserhäll"
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@gmail.com"
 
-#: main.cpp:56
+#: main.cpp:65
 #, kde-format
 msgid "URL to share"
 msgstr "Webbadress att dela"
 
-#: qml/DevicePage.qml:27
+#: qml/DevicePage.qml:28
 #, kde-format
 msgid "Unpair"
 msgstr "Ta bort parkoppling"
 
-#: qml/DevicePage.qml:32
+#: qml/DevicePage.qml:33
 #, kde-format
 msgid "Send Ping"
 msgstr "Skicka ping"
 
-#: qml/DevicePage.qml:40 qml/PluginSettings.qml:20
+#: qml/DevicePage.qml:41 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Insticksprograminställningar"
 
-#: qml/DevicePage.qml:64
+#: qml/DevicePage.qml:60
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Actions"
+msgstr "Åtgärder"
+
+#: qml/DevicePage.qml:62
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Controls"
+msgstr "Kontroller"
+
+#: qml/DevicePage.qml:108
 #, kde-format
 msgid "Multimedia control"
 msgstr "Multimediakontroll"
 
-#: qml/DevicePage.qml:71
+#: qml/DevicePage.qml:116
 #, kde-format
 msgid "Remote input"
 msgstr "Fjärrinmatning"
 
-#: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
-#, kde-format
-msgid "Presentation Remote"
-msgstr "Fjärrpresentation"
-
-#: qml/DevicePage.qml:87 qml/mousepad.qml:44
-#, kde-format
-msgid "Lock"
-msgstr "Lås"
-
-#: qml/DevicePage.qml:87
-#, kde-format
-msgid "Unlock"
-msgstr "Lås upp"
-
-#: qml/DevicePage.qml:94
-#, kde-format
-msgid "Find Device"
-msgstr "Hitta apparat"
-
-#: qml/DevicePage.qml:99 qml/runcommand.qml:16
+#: qml/DevicePage.qml:124 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Kör kommando"
 
-#: qml/DevicePage.qml:108
+#: qml/DevicePage.qml:132 qml/presentationRemote.qml:15
 #, kde-format
-msgid "Send Clipboard"
-msgstr "Skicka klippbord"
+msgid "Presentation Remote"
+msgstr "Fjärrpresentation"
 
-#: qml/DevicePage.qml:114
-#, kde-format
-msgid "Share File"
-msgstr "Dela fil"
-
-#: qml/DevicePage.qml:119 qml/volume.qml:16
+#: qml/DevicePage.qml:140 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Volymkontroll"
 
-#: qml/DevicePage.qml:130
+#: qml/DevicePage.qml:150 qml/mousepad.qml:44
 #, kde-format
-msgid ""
-"This device is not paired.\n"
-"Key: %1"
-msgstr ""
-"Apparaten är inte parkopplad.\n"
-"Nyckel: %1"
+msgid "Lock"
+msgstr "Lås"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:150
+#, kde-format
+msgid "Unlock"
+msgstr "Lås upp"
+
+#: qml/DevicePage.qml:158
+#, kde-format
+msgid "Find Device"
+msgstr "Hitta apparat"
+
+#: qml/DevicePage.qml:166
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Skicka klippbord"
+
+#: qml/DevicePage.qml:173
+#, kde-format
+msgid "Share File"
+msgstr "Dela fil"
+
+#: qml/DevicePage.qml:183
+#, kde-format
+msgid "This device is not paired."
+msgstr "Apparaten är inte parkopplad."
+
+#: qml/DevicePage.qml:187
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Parkoppla"
 
-#: qml/DevicePage.qml:141 qml/DevicePage.qml:150
+#: qml/DevicePage.qml:194 qml/DevicePage.qml:203
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -143,22 +151,22 @@ msgstr ""
 "Parkoppling begärd\n"
 "Nyckel: "
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:209
 #, kde-format
 msgid "Accept"
 msgstr "Acceptera"
 
-#: qml/DevicePage.qml:162
+#: qml/DevicePage.qml:215
 #, kde-format
 msgid "Reject"
 msgstr "Neka"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:226
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Apparaten går inte att nå"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:234
 #, kde-format
 msgid "Please choose a file"
 msgstr "Välj en fil"
@@ -174,27 +182,33 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Uppdatera"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:76
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Refresh Devices"
+msgstr "Uppdatera apparater"
+
+#: qml/Main.qml:112
 #, kde-format
 msgid "Remembered"
 msgstr "Ihågkommen"
 
-#: qml/Main.qml:103
+#: qml/Main.qml:114
 #, kde-format
 msgid "Available"
 msgstr "Tillgänglig"
 
-#: qml/Main.qml:105
+#: qml/Main.qml:116
 #, kde-format
 msgid "Connected"
 msgstr "Ansluten"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:121
 #, kde-format
 msgid "No devices found"
 msgstr "Inga apparater hittades"
 
-#: qml/Main.qml:170 qml/Main.qml:179
+#: qml/Main.qml:193 qml/Main.qml:208
 #, kde-format
 msgid "Settings"
 msgstr "Inställningar"
@@ -204,48 +218,66 @@ msgstr "Inställningar"
 msgid "Remote Control"
 msgstr "Fjärrkontroll"
 
-#: qml/mousepad.qml:59
+#: qml/mousepad.qml:61
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
 "Tryck på %1 eller vänster och höger musknappar samtidigt för att låsa upp"
 
-#: qml/mpris.qml:19
+#: qml/mousepad.qml:213
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Left Click"
+msgstr "Vänsterklick"
+
+#: qml/mousepad.qml:222
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Middle Click"
+msgstr "Mittenklick"
+
+#: qml/mousepad.qml:231
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Right Click"
+msgstr "Högerklick"
+
+#: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
 msgstr "Multimediakontroller"
 
-#: qml/mpris.qml:67
+#: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
 msgstr "Inga spelare tillgängliga"
 
-#: qml/mpris.qml:107
+#: qml/mpris.qml:111
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:103
+#: qml/PluginSettings.qml:121
 #, kde-format
 msgid "Configure plugin"
 msgstr "Anpassa insticksprogram"
 
-#: qml/presentationRemote.qml:21
+#: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
 msgstr "Aktivera fullskärmsläge"
 
-#: qml/runcommand.qml:22
+#: qml/runcommand.qml:23
 #, kde-format
 msgid "Edit commands"
 msgstr "Redigera kommandon"
 
-#: qml/runcommand.qml:25
+#: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr "Du kan redigera kommandon på den anslutna apparaten"
 
-#: qml/runcommand.qml:52
+#: qml/runcommand.qml:53
 #, kde-format
 msgid "No commands defined"
 msgstr "Inga kommandon definierade"
@@ -265,25 +297,25 @@ msgstr "Apparatnamn"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "Gränssnitt"
 
 #: qml/Settings.qml:54
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Blåtand"
 
 #: qml/Settings.qml:56
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Slingkrets"
 
 #: qml/Settings.qml:58
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Nätverk"
 
 #: qml/Settings.qml:73
 #, kde-format
@@ -299,52 +331,59 @@ msgstr "Om KDE"
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "Ingen apparat vald"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
-msgstr ""
+msgstr "Se till att installera KDE-anslut på dina andra apparater."
 
-#: qml/WelcomePage.qml:42
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#: qml/WelcomePage.qml:43
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr "KDE-anslut"
+msgstr "KDE-anslut Android-applikation"
 
-#: qml/WelcomePage.qml:49
+#: qml/WelcomePage.qml:50
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "F-Droid"
 
-#: qml/WelcomePage.qml:56
+#: qml/WelcomePage.qml:57
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "Play Store"
 
-#: qml/WelcomePage.qml:62
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#: qml/WelcomePage.qml:63
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr "KDE-anslut"
+msgstr "KDE-anslut IOS-applikation"
 
-#: qml/WelcomePage.qml:67
+#: qml/WelcomePage.qml:68
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "Apple Store"
 
-#: qml/WelcomePage.qml:73
+#: qml/WelcomePage.qml:74
 #, kde-format
 msgid ""
 "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+"Om du har problem, besök <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline;\">gemenskapens wiki för KDE-"
+"anslut</span></a> för hjälp."
+
+#~ msgid "(c) 2015, Aleix Pol Gonzalez"
+#~ msgstr "© 2015, Aleix Pol Gonzalez"
+
+#~ msgid "Maintainer"
+#~ msgstr "Underhåll"
 
 #~ msgid ""
 #~ "<html><head/><body><p>No device selected<br><br>If you own an Android "

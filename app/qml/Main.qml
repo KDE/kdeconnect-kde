@@ -73,10 +73,17 @@ Kirigami.ApplicationWindow {
                     QQC2.ToolButton {
                         text: i18nc("@action:button", "Refresh")
                         icon.name: 'view-refresh-symbolic'
+                        Accessible.name: i18nc("@action:button accessible", "Refresh Devices")
 
                         QQC2.ToolTip.text: text
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         QQC2.ToolTip.visible: hovered
+
+                        Keys.onDownPressed: event => {
+                            devices.currentIndex = 0;
+                            event.accepted = false // Pass to KeyNavigation.down
+                        }
+                        KeyNavigation.down: devices
 
                         onClicked: {
                             //refresh
@@ -87,10 +94,14 @@ Kirigami.ApplicationWindow {
             }
             QQC2.ScrollView {
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 ListView {
                     id: devices
                     Layout.fillWidth: true
                     clip: true
+                    activeFocusOnTab: true
+                    keyNavigationEnabled: true
+                    Accessible.role: Accessible.List
 
                     section {
                         property: "status"
@@ -119,9 +130,21 @@ Kirigami.ApplicationWindow {
                     delegate: QQC2.ItemDelegate {
                         id: delegate
                         icon.name: iconName
-                        text: model.name
+                        text: Kirigami.MnemonicData.richTextLabel
+                        Accessible.name: Kirigami.MnemonicData.plainTextLabel ?? model.name // fallback needed for KF < 6.12
                         width: ListView.view.width
                         highlighted: false
+                        Accessible.role: Accessible.PageTab
+                        Accessible.description: toolTip
+
+                        Kirigami.MnemonicData.enabled: enabled && visible
+                        Kirigami.MnemonicData.controlType: Kirigami.MnemonicData.MenuItem
+                        Kirigami.MnemonicData.label: model.name
+
+                        Shortcut {
+                            sequence: delegate.Kirigami.MnemonicData.sequence
+                            onActivated: clicked()
+                        }
 
                         contentItem: Kirigami.IconTitleSubtitle {
                             title: delegate.text
@@ -175,6 +198,12 @@ Kirigami.ApplicationWindow {
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         QQC2.ToolTip.visible: hovered
 
+                        Keys.onUpPressed: event => {
+                            devices.currentIndex = devices.count-1;
+                            event.accepted = false; // Pass to KeyNavigation.up
+                        }
+                        KeyNavigation.up: devices
+
                         onClicked: pageStack.pushDialogLayer(Qt.resolvedUrl("Settings.qml"), {}, {
                             title: i18n("Settings")
                         })
@@ -189,4 +218,11 @@ Kirigami.ApplicationWindow {
     }
 
     pageStack.initialPage: Qt.resolvedUrl("WelcomePage.qml")
+    pageStack.Keys.onEscapePressed: {
+        if (pageStack.currentIndex) {
+            pageStack.removePage(pageStack.currentIndex)
+        }
+    }
+
+    Component.onCompleted: devices.forceActiveFocus()
 }

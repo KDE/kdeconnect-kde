@@ -23,7 +23,6 @@ class FileTransferJob;
 class KDECONNECTCORE_EXPORT NetworkPacket
 {
     Q_GADGET
-    Q_PROPERTY(QString id READ id MEMBER m_id)
     Q_PROPERTY(QString type READ type MEMBER m_type)
     Q_PROPERTY(QVariantMap body READ body MEMBER m_body)
     Q_PROPERTY(QVariantMap payloadTransferInfo READ payloadTransferInfo MEMBER m_payloadTransferInfo)
@@ -39,14 +38,11 @@ public:
     QByteArray serialize() const;
     static bool unserialize(const QByteArray &json, NetworkPacket *out);
 
-    inline QString id() const
-    {
-        return m_id;
-    }
     inline QString type() const
     {
         return m_type;
     }
+
     QVariantMap body() const
     {
         return m_body;
@@ -56,7 +52,7 @@ public:
     template<typename T>
     T get(const QString &key, const T &defaultValue = {}) const
     {
-        return m_body.value(key, defaultValue).template value<T>(); // Important note: Awesome template syntax is awesome
+        return m_body.value(key, QVariant::fromValue(defaultValue)).template value<T>(); // Important note: Awesome template syntax is awesome
     }
     template<typename T>
     void set(const QString &key, const T &value)
@@ -103,7 +99,6 @@ public:
     }
 
 private:
-    QString m_id;
     QString m_type;
     QVariantMap m_body;
 

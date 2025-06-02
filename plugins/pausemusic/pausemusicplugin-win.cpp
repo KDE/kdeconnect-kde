@@ -16,7 +16,6 @@ K_PLUGIN_CLASS_WITH_JSON(PauseMusicPlugin, "kdeconnect_pausemusic.json")
 
 PauseMusicPlugin::PauseMusicPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
-    , sessionManager(GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get())
 {
     CoInitialize(nullptr);
     deviceEnumerator = nullptr;
@@ -85,16 +84,20 @@ bool PauseMusicPlugin::updateSinksList()
 void PauseMusicPlugin::updatePlayersList()
 {
     playersList.clear();
-    auto sessions = sessionManager.GetSessions();
-    for (uint32_t i = 0; i < sessions.Size(); i++) {
-        const auto player = sessions.GetAt(i);
-        auto playerName = player.SourceAppUserModelId();
+    try {
+        auto sessions = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get().GetSessions();
+        for (uint32_t i = 0; i < sessions.Size(); i++) {
+            const auto player = sessions.GetAt(i);
+            auto playerName = player.SourceAppUserModelId();
 
-        QString uniqueName = QString::fromWCharArray(playerName.c_str());
-        for (int i = 2; playersList.contains(uniqueName); ++i) {
-            uniqueName += QStringLiteral(" [") + QString::number(i) + QStringLiteral("]");
+            QString uniqueName = QString::fromWCharArray(playerName.c_str());
+            for (int i = 2; playersList.contains(uniqueName); ++i) {
+                uniqueName += QStringLiteral(" [") + QString::number(i) + QStringLiteral("]");
+            }
+            playersList.insert(uniqueName, player);
         }
-        playersList.insert(uniqueName, player);
+    } catch (winrt::hresult_error e) {
+        qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Failed to update player list";
     }
 }
 

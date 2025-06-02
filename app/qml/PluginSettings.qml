@@ -43,10 +43,18 @@ Kirigami.ScrollablePage {
             id: searchField
             onTextChanged: root.filterString = text;
             autoAccept: false
+            focus: true
+            Keys.onDownPressed: event => {
+                pluginList.currentIndex = 0;
+                event.accepted = false; // Pass to KeyNavigation.down
+            }
+            KeyNavigation.down: pluginList
         }
     }
 
     ListView {
+        id: pluginList
+        Accessible.role: Accessible.List
         model: KItemModels.KSortFilterProxyModel {
             filterString: root.filterString
             filterRoleName: "name"
@@ -59,14 +67,24 @@ Kirigami.ScrollablePage {
 
         delegate: Kirigami.SwipeListItem {
 
+            checked: serviceCheck.checked
+            onPressed: {
+                pluginList.currentIndex = model.index
+                serviceCheck.toggle()
+            }
+
             contentItem: RowLayout {
                 CheckBox {
                     id: serviceCheck
                     Layout.alignment: Qt.AlignVCenter
                     checked: model.isChecked
-                    onToggled: model.isChecked = checked
+                    onToggled: {
+                        pluginList.currentIndex = model.index
+                        model.isChecked = checked
+                    }
                     Accessible.name: model.name
                     Accessible.description: model.description
+                    activeFocusOnTab: false
                 }
 
                 Kirigami.Icon {

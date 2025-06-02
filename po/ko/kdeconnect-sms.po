@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
-"PO-Revision-Date: 2024-08-19 22:46+0200\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-22 01:23+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -62,7 +62,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect SMS"
@@ -74,8 +74,8 @@ msgstr "SMS 인스턴트 메시징"
 
 #: main.cpp:54
 #, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018-2022, KDE Connect Team"
+msgid "(C) 2018-2025, KDE Connect Team"
+msgstr "(C) 2018-2025, KDE Connect Team"
 
 #: main.cpp:55
 #, kde-format
@@ -92,22 +92,22 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "장치 선택"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "메시지 보내기"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "메시지"
@@ -116,16 +116,6 @@ msgstr "메시지"
 #, kde-format
 msgid "Open with default"
 msgstr "기본값으로 열기"
-
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "메시지 복사"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "선택 영역 복사"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -157,7 +147,7 @@ msgstr ""
 "팁: 전원을 연결해 두면 절전 모드로 전환되지 않으며 더 빨리 불러올 수 있습니"
 "다."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "새로 고침"
@@ -172,31 +162,36 @@ msgstr "받는 사람 선택"
 msgid "Cancel"
 msgstr "취소"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "새 대화 시작 또는 검색"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "새 대화 시작하기"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "검색 결과 없음"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "장치"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
 msgstr "정보"
+
+#: qml/Main.qml:115
+#, kde-format
+msgid "About KDE"
+msgstr "KDE 정보"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -215,8 +210,35 @@ msgstr "최대 메시지 크기 제한을 초과했습니다."
 
 #: qml/SendingArea.qml:63
 #, kde-format
-msgid "Compose message"
-msgstr "메시지 작성"
+msgid "Send a message…"
+msgstr "메시지 보내기…"
+
+#: qml/SendingArea.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr "그림이나 파일 첨부"
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr "첨부 파일 지우기"
+
+#: qml/SendingArea.qml:173
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "메시지 보내기"
+
+#~ msgid "Copy Message"
+#~ msgstr "메시지 복사"
+
+#~ msgid "Copy Selection"
+#~ msgstr "선택 영역 복사"
+
+#~ msgid "Compose message"
+#~ msgstr "메시지 작성"
 
 #~ msgid "New"
 #~ msgstr "새로 만들기"

@@ -28,6 +28,8 @@ public:
         return m_pairState;
     }
 
+    QString verificationKey() const;
+
 public Q_SLOTS:
     bool requestPairing();
     bool acceptPairing();
@@ -44,6 +46,8 @@ private:
     void pairingDone();
 
     QTimer m_pairingTimeout;
+    long m_pairingTimestamp;
+
     Device *m_device;
     PairState m_pairState;
 

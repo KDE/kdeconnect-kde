@@ -10,6 +10,7 @@
 
 #include <variant>
 
+#include <QBuffer>
 #include <QHash>
 #include <vector>
 
@@ -34,23 +35,25 @@ public:
 
     void receivePacket(const NetworkPacket &np) override;
 
+public Q_SLOTS:
+    bool sendAlbumArt(const std::variant<NetworkPacket, QString> &packetOrName, const QSharedPointer<QBuffer> qdata, const QString artUrl);
+
 private:
-    GlobalSystemMediaTransportControlsSessionManager sessionManager;
     QHash<QString, GlobalSystemMediaTransportControlsSession> playerList;
 
     std::vector<GlobalSystemMediaTransportControlsSession::PlaybackInfoChanged_revoker> playbackInfoChangedHandlers;
     std::vector<GlobalSystemMediaTransportControlsSession::MediaPropertiesChanged_revoker> mediaPropertiesChangedHandlers;
     std::vector<GlobalSystemMediaTransportControlsSession::TimelinePropertiesChanged_revoker> timelinePropertiesChangedHandlers;
 
-    std::optional<QString> getPlayerName(GlobalSystemMediaTransportControlsSession const &player);
-    void sendMediaProperties(std::variant<NetworkPacket, QString> const &packetOrName, GlobalSystemMediaTransportControlsSession const &player);
-    void sendPlaybackInfo(std::variant<NetworkPacket, QString> const &packetOrName, GlobalSystemMediaTransportControlsSession const &player);
-    void sendTimelineProperties(std::variant<NetworkPacket, QString> const &packetOrName,
-                                GlobalSystemMediaTransportControlsSession const &player,
+    std::optional<QString> getPlayerName(const GlobalSystemMediaTransportControlsSession &player);
+    void sendMediaProperties(const std::variant<NetworkPacket, QString> &packetOrName, const GlobalSystemMediaTransportControlsSession &player);
+    void sendPlaybackInfo(const std::variant<NetworkPacket, QString> &packetOrName, const GlobalSystemMediaTransportControlsSession &player);
+    void sendTimelineProperties(const std::variant<NetworkPacket, QString> &packetOrName,
+                                const GlobalSystemMediaTransportControlsSession &player,
                                 bool lengthOnly = false);
     void updatePlayerList();
     void sendPlayerList();
-    bool sendAlbumArt(std::variant<NetworkPacket, QString> const &packetOrName, GlobalSystemMediaTransportControlsSession const &player, QString artUrl);
+    void getThumbnail(const std::variant<NetworkPacket, QString> &packetOrName, const GlobalSystemMediaTransportControlsSession &player, const QString artUrl);
 
     void handleDefaultPlayer(const NetworkPacket &np);
 

@@ -6,15 +6,15 @@
 # Sebastien Renard <renard@kde.org>, 2014, 2015.
 # Maxime Corteel <mcorteel@gmail.com>, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2019, 2020.
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-22 00:40+0000\n"
-"PO-Revision-Date: 2024-05-21 13:06+0200\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-20 08:58+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -22,9 +22,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
-"X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
+"X-Environment: kde\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -61,20 +61,23 @@ msgstr "Accepter"
 msgid "Reject"
 msgstr "Rejeter"
 
-#: desktop_daemon.cpp:54
-#, kde-format
-msgid "View key"
-msgstr "Afficher la clé"
-
-#: kdeconnectd.cpp:77 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:71 kdeconnectd.cpp:73
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "Démon de KDEConnect"
 
-#: kdeconnectd.cpp:87
+#: kdeconnectd.cpp:75
+#, kde-format
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr "(c) 2015-2025, L'équipe de développement de KDEConnect"
+
+#: kdeconnectd.cpp:101
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Remplacer une instance existante"
+
+#~ msgid "View key"
+#~ msgstr "Afficher la clé"
 
 #~ msgid ""
 #~ "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

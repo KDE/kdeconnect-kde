@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2025-02-24 00:41+0000\n"
 "PO-Revision-Date: 2024-06-08 20:26+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -37,32 +37,37 @@ msgstr "%1 को भेज रहा है"
 msgid "File"
 msgstr "फ़ाइल"
 
-#: backends/pairinghandler.cpp:59
+#: backends/pairinghandler.cpp:61
+#, kde-format
+msgid "Device clocks are out of sync"
+msgstr ""
+
+#: backends/pairinghandler.cpp:80
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "अन्य जोडीदार द्वारा रद्द कर दिया गया"
 
-#: backends/pairinghandler.cpp:75
+#: backends/pairinghandler.cpp:96
 #, kde-format
 msgid "%1: Already paired"
 msgstr "%1: पहले से ही युग्मित है"
 
-#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
+#: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: उपकरण पहुंच योग्य नहीं"
 
-#: backends/pairinghandler.cpp:113
+#: backends/pairinghandler.cpp:139
 #, kde-format
 msgid "Device not reachable"
 msgstr "उपकरण पहुंच योग्य नहीं"
 
-#: backends/pairinghandler.cpp:124
+#: backends/pairinghandler.cpp:150
 #, kde-format
 msgid "Cancelled by user"
 msgstr "उपयोगकर्ता द्वारा रद्द कर दिया गया"
 
-#: backends/pairinghandler.cpp:140
+#: backends/pairinghandler.cpp:166
 #, kde-format
 msgid "Timed out"
 msgstr "समय समााप्त"
@@ -87,15 +92,20 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "गन्तव्य"
 
-#: device.cpp:459
+#: device.cpp:461
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "आपके उपकरण प्रमाणपत्र का SHA256 अंगुलांक है: %1\n"
 
-#: device.cpp:465
+#: device.cpp:467
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "दूरस्थ उपकरण प्रमाणपत्र का SHA256 अंगुलांक है: %1\n"
+
+#: device.cpp:469
+#, kde-format
+msgid "Protocol version: %1\n"
+msgstr ""
 
 #: filetransferjob.cpp:53
 #, kde-format
@@ -107,27 +117,27 @@ msgstr "फ़ाइलनाम पहले से मौजूद है"
 msgid "Received incomplete file from: %1"
 msgstr "यहाँ से अपूर्ण फ़ाइल प्राप्त हुई: %1"
 
-#: kdeconnectconfig.cpp:338 kdeconnectconfig.cpp:372
+#: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "केडीई कनेक्ट प्रारंभ होने में विफल रहा"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "निजी कुंजी संग्रहित उत्पन्न नहीं की जा सकी"
 
-#: kdeconnectconfig.cpp:357
+#: kdeconnectconfig.cpp:367
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "निजी कुंजी फ़ाइल संग्रहित नहीं किया जा सका: %1"
 
-#: kdeconnectconfig.cpp:372
+#: kdeconnectconfig.cpp:382
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "उपकरण प्रमाणपत्र उत्पन्न नहीं हो सका।"
 
-#: kdeconnectconfig.cpp:388
+#: kdeconnectconfig.cpp:398
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "प्रमाणपत्र फ़ाइल संग्रहित नहीं किया जा सका: %1"

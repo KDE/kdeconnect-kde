@@ -6,7 +6,6 @@
 
 #include "kcm.h"
 
-#include <KAboutData>
 #include <KColorSchemeManager>
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -44,6 +43,16 @@ class QQuickWidgetPaleteChangeWatcher : public QObject
     }
 };
 
+void adjustListWidgetHeight(QListWidget *listWidget)
+{
+    int totalHeight = 0;
+    for (int i = 0; i < listWidget->count(); ++i) {
+        totalHeight += listWidget->sizeHintForRow(i);
+    }
+    totalHeight += 2 * listWidget->frameWidth();
+    listWidget->setFixedHeight(totalHeight);
+}
+
 KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const QVariantList &args)
     : KCModule(parent, md)
     , daemon(new DaemonDbusInterface(this))
@@ -51,8 +60,17 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
     , currentDevice(nullptr)
 {
 #ifdef Q_OS_WIN
+    // Ensure we have a suitable color theme set for light/dark mode. KColorSchemeManager implicitly applies
+    // a suitable default theme.
     KColorSchemeManager::instance();
+    // Force breeze style to ensure coloring works consistently in dark mode. Specifically tab colors have
+    // troubles on windows.
     QApplication::setStyle(QStringLiteral("breeze"));
+    // Force breeze icon theme to ensure we can correctly adapt icons to color changes WRT dark/light mode.
+    // Without this we may end up with hicolor and fail to support icon recoloring.
+    QIcon::setThemeName(QStringLiteral("breeze"));
+#else
+    QIcon::setFallbackThemeName(QStringLiteral("breeze"));
 #endif
 
     // Default to org.kde.desktop style unless the user forces another style
@@ -134,6 +152,8 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
 
                     kcmUi.linkProviders_list->addItem(linkProviderItem);
                 }
+                // Hack to make the list widget resize to fit the contents
+                adjustListWidgetHeight(kcmUi.linkProviders_list);
             }
 
             connect(kcmUi.linkProviders_list, &QListWidget::itemChanged, this, [this](const QListWidgetItem *item) {
@@ -176,6 +196,7 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
 
     setButtons(KCModule::Help | KCModule::NoAdditionalButton);
 
+    connect(devicesModel, &QAbstractItemModel::rowsRemoved, this, &KdeConnectKcm::devicesRemoved);
     connect(kcmUi.accept_button, &QAbstractButton::clicked, this, &KdeConnectKcm::acceptPairing);
     connect(kcmUi.reject_button, &QAbstractButton::clicked, this, &KdeConnectKcm::cancelPairing);
     connect(kcmUi.cancel_button, &QAbstractButton::clicked, this, &KdeConnectKcm::cancelPairing);
@@ -202,6 +223,19 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
             }
             disconnect(devicesModel, &DevicesModel::rowsInserted, this, nullptr);
         });
+    }
+}
+
+void KdeConnectKcm::devicesRemoved()
+{
+    if (!currentDevice) {
+        return;
+    }
+    // If current device no longer exists, unselect it
+    if (devicesModel->rowForDevice(currentDevice->id()) == -1) {
+        currentDevice = nullptr;
+        kcmUi.deviceInfo->setVisible(false);
+        delete currentDevice;
     }
 }
 
@@ -279,8 +313,6 @@ void KdeConnectKcm::resetCurrentDevice()
 
 void KdeConnectKcm::resetDeviceView()
 {
-    kcmUi.verificationKey->setText(i18n("Key: %1", currentDevice->verificationKey()));
-
     kcmUi.name_label->setText(currentDevice->name());
     setWhenAvailable(
         currentDevice->pairStateAsInt(),
@@ -365,6 +397,7 @@ void KdeConnectKcm::setCurrentDevicePairState(int pairStateAsInt)
     kcmUi.unpair_button->setVisible(state == PairState::Paired);
     kcmUi.progressBar->setVisible(state == PairState::Requested);
     kcmUi.ping_button->setVisible(state == PairState::Paired);
+    kcmUi.verificationKey->setVisible(state == PairState::Requested || state == PairState::RequestedByPeer);
     switch (state) {
     case PairState::Paired:
         kcmUi.status_label->setText(i18n("(paired)"));
@@ -374,9 +407,11 @@ void KdeConnectKcm::setCurrentDevicePairState(int pairStateAsInt)
         break;
     case PairState::RequestedByPeer:
         kcmUi.status_label->setText(i18n("(incoming pair request)"));
+        kcmUi.verificationKey->setText(i18n("Key: %1", currentDevice->verificationKey()));
         break;
     case PairState::Requested:
         kcmUi.status_label->setText(i18n("(pairing requested)"));
+        kcmUi.verificationKey->setText(i18n("Key: %1", currentDevice->verificationKey()));
         break;
     }
 }

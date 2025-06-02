@@ -10,6 +10,7 @@
 #include <QDBusMessage>
 #include <QIcon>
 #include <QProcess>
+#include <QQuickStyle>
 #include <QSessionManager>
 #include <QStandardPaths>
 #include <QTimer>
@@ -19,22 +20,15 @@
 #endif
 
 #include <KAboutData>
+#include <KColorSchemeManager>
 #include <KCrash>
 #include <KDBusService>
-#include <KIO/Global>
-#include <KIO/JobTracker>
 #include <KLocalizedString>
-#include <KNotification>
-#include <KWindowSystem>
 
 #include <dbushelper.h>
 
-#include "core/backends/pairinghandler.h"
-#include "core/device.h"
-#include "core/openconfig.h"
 #include "desktop_daemon.h"
 #include "kdeconnect-version.h"
-#include "kdeconnectd_debug.h"
 
 // Copied from plasma-workspace/libkworkspace/kworkspace.cpp
 static void detectPlatform(int argc, char **argv)
@@ -77,9 +71,29 @@ int main(int argc, char *argv[])
                          i18n("KDE Connect Daemon"),
                          QStringLiteral(KDECONNECT_VERSION_STRING),
                          i18n("KDE Connect Daemon"),
-                         KAboutLicense::GPL);
+                         KAboutLicense::GPL,
+                         i18n("(c) 2015-2025, KDE Connect Team"));
     KAboutData::setApplicationData(aboutData);
     app.setQuitOnLastWindowClosed(false);
+
+#ifdef Q_OS_WIN
+    // Ensure we have a suitable color theme set for light/dark mode. KColorSchemeManager implicitly applies
+    // a suitable default theme.
+    KColorSchemeManager::instance();
+    // Force breeze style to ensure coloring works consistently in dark mode. Specifically tab colors have
+    // troubles on windows.
+    QApplication::setStyle(QStringLiteral("breeze"));
+    // Force breeze icon theme to ensure we can correctly adapt icons to color changes WRT dark/light mode.
+    // Without this we may end up with hicolor and fail to support icon recoloring.
+    QIcon::setThemeName(QStringLiteral("breeze"));
+#else
+    QIcon::setFallbackThemeName(QStringLiteral("breeze"));
+#endif
+
+    // Default to org.kde.desktop style unless the user forces another style
+    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
+    }
 
     KCrash::initialize();
 
@@ -114,8 +128,6 @@ int main(int argc, char *argv[])
     };
     QObject::connect(&app, &QGuiApplication::commitDataRequest, disableSessionManagement);
     QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
-
-    qSetMessagePattern(QStringLiteral("%{time} %{category}: %{message}"));
 
     return app.exec();
 }

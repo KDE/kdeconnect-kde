@@ -12,8 +12,6 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <QBuffer>
-
 #include <chrono>
 #include <random>
 
@@ -32,15 +30,19 @@ const QString DEFAULT_PLAYER =
 
 MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
-    , sessionManager(GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get())
 {
-    sessionManager.SessionsChanged([this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
-        this->updatePlayerList();
-    });
+    try {
+        auto sessionManager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get();
+        sessionManager.SessionsChanged([this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
+            this->updatePlayerList();
+        });
+    } catch (winrt::hresult_error e) {
+        qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to register mediaSessionsChanged listener";
+    }
     this->updatePlayerList();
 }
 
-std::optional<QString> MprisControlPlugin::getPlayerName(GlobalSystemMediaTransportControlsSession const &player)
+std::optional<QString> MprisControlPlugin::getPlayerName(const GlobalSystemMediaTransportControlsSession &player)
 {
     auto entry = std::find(this->playerList.constBegin(), this->playerList.constEnd(), player);
 
@@ -55,7 +57,8 @@ std::optional<QString> MprisControlPlugin::getPlayerName(GlobalSystemMediaTransp
 QString MprisControlPlugin::randomUrl()
 {
     const QString VALID_CHARS = QStringLiteral("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    std::default_random_engine generator;
+    std::random_device rd;
+    std::default_random_engine generator(rd());
     std::uniform_int_distribution<int> distribution(0, VALID_CHARS.size() - 1);
 
     const int size = 10;
@@ -67,17 +70,30 @@ QString MprisControlPlugin::randomUrl()
     return QStringLiteral("file://") + fileUrl;
 }
 
-void MprisControlPlugin::sendMediaProperties(std::variant<NetworkPacket, QString> const &packetOrName, GlobalSystemMediaTransportControlsSession const &player)
+void MprisControlPlugin::sendMediaProperties(const std::variant<NetworkPacket, QString> &packetOrName, const GlobalSystemMediaTransportControlsSession &player)
 {
     NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
     if (packetOrName.index() == 1)
         np.set(QStringLiteral("player"), std::get<1>(packetOrName));
 
-    auto mediaProperties = player.TryGetMediaPropertiesAsync().get();
+    QString title = i18n("N/A");
+    QString artist = i18n("N/A");
+    QString album = i18n("N/A");
+    // Calling GlobalSystemMediaTransportControlsSession.TryGetMediaPropertiesAsync().get()
+    // can trigger a RuntimeError: Element not found in some scenarios.
+    // See: https://bugs.kde.org/show_bug.cgi?id=502269
+    try {
+        auto mediaProperties = player.TryGetMediaPropertiesAsync().get();
+        title = QString::fromWCharArray(mediaProperties.Title().c_str());
+        artist = QString::fromWCharArray(mediaProperties.Artist().c_str());
+        album = QString::fromWCharArray(mediaProperties.AlbumTitle().c_str());
+    } catch (winrt::hresult_error e) {
+        qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to get media properties";
+    }
 
-    np.set(QStringLiteral("title"), QString::fromWCharArray(mediaProperties.Title().c_str()));
-    np.set(QStringLiteral("artist"), QString::fromWCharArray(mediaProperties.Artist().c_str()));
-    np.set(QStringLiteral("album"), QString::fromWCharArray(mediaProperties.AlbumTitle().c_str()));
+    np.set(QStringLiteral("title"), title);
+    np.set(QStringLiteral("artist"), artist);
+    np.set(QStringLiteral("album"), album);
     np.set(QStringLiteral("albumArtUrl"), randomUrl());
 
     np.set(QStringLiteral("url"), QString());
@@ -87,7 +103,7 @@ void MprisControlPlugin::sendMediaProperties(std::variant<NetworkPacket, QString
         sendPacket(np);
 }
 
-void MprisControlPlugin::sendPlaybackInfo(std::variant<NetworkPacket, QString> const &packetOrName, GlobalSystemMediaTransportControlsSession const &player)
+void MprisControlPlugin::sendPlaybackInfo(const std::variant<NetworkPacket, QString> &packetOrName, const GlobalSystemMediaTransportControlsSession &player)
 {
     NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
     if (packetOrName.index() == 1)
@@ -135,8 +151,8 @@ void MprisControlPlugin::sendPlaybackInfo(std::variant<NetworkPacket, QString> c
         sendPacket(np);
 }
 
-void MprisControlPlugin::sendTimelineProperties(std::variant<NetworkPacket, QString> const &packetOrName,
-                                                GlobalSystemMediaTransportControlsSession const &player,
+void MprisControlPlugin::sendTimelineProperties(const std::variant<NetworkPacket, QString> &packetOrName,
+                                                const GlobalSystemMediaTransportControlsSession &player,
                                                 bool lengthOnly)
 {
     NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
@@ -166,77 +182,82 @@ void MprisControlPlugin::updatePlayerList()
     mediaPropertiesChangedHandlers.clear();
     timelinePropertiesChangedHandlers.clear();
 
-    auto sessions = sessionManager.GetSessions();
-    playbackInfoChangedHandlers.resize(sessions.Size());
-    mediaPropertiesChangedHandlers.resize(sessions.Size());
-    timelinePropertiesChangedHandlers.resize(sessions.Size());
+    try {
+        auto sessions = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get().GetSessions();
+        playbackInfoChangedHandlers.resize(sessions.Size());
+        mediaPropertiesChangedHandlers.resize(sessions.Size());
+        timelinePropertiesChangedHandlers.resize(sessions.Size());
 
-    for (uint32_t i = 0; i < sessions.Size(); i++) {
-        const auto player = sessions.GetAt(i);
-        auto playerName = player.SourceAppUserModelId();
+        for (uint32_t i = 0; i < sessions.Size(); i++) {
+            const auto player = sessions.GetAt(i);
+            auto playerName = player.SourceAppUserModelId();
 
 #if WIN_SDK_VERSION >= 19041
-        // try to resolve the AUMID to a user-friendly name
-        try {
-            playerName = AppInfo::GetFromAppUserModelId(playerName).DisplayInfo().DisplayName();
-        } catch (winrt::hresult_error e) {
-            qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << QString::fromWCharArray(playerName.c_str()) << "doesn\'t have a valid AppUserModelID! Sending as-is..";
-        }
+            // try to resolve the AUMID to a user-friendly name
+            try {
+                playerName = AppInfo::GetFromAppUserModelId(playerName).DisplayInfo().DisplayName();
+            } catch (winrt::hresult_error e) {
+                qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL)
+                    << QString::fromWCharArray(playerName.c_str()) << "doesn\'t have a valid AppUserModelID! Sending as-is..";
+            }
 #endif
-        QString uniqueName = QString::fromWCharArray(playerName.c_str());
-        for (int i = 2; playerList.contains(uniqueName); ++i) {
-            uniqueName += QStringLiteral(" [") + QString::number(i) + QStringLiteral("]");
+            QString uniqueName = QString::fromWCharArray(playerName.c_str());
+            for (int i = 2; playerList.contains(uniqueName); ++i) {
+                uniqueName += QStringLiteral(" [") + QString::number(i) + QStringLiteral("]");
+            }
+
+            playerList.insert(uniqueName, player);
+
+            player
+                .PlaybackInfoChanged(auto_revoke,
+                                     [this](GlobalSystemMediaTransportControlsSession player, PlaybackInfoChangedEventArgs args) {
+                                         if (auto name = getPlayerName(player))
+                                             this->sendPlaybackInfo(name.value(), player);
+                                     })
+                .swap(playbackInfoChangedHandlers[i]);
+            concurrency::create_task([this, player] {
+                std::chrono::milliseconds timespan(50);
+                std::this_thread::sleep_for(timespan);
+
+                if (auto name = getPlayerName(player))
+                    this->sendPlaybackInfo(name.value(), player);
+            });
+
+            if (auto name = getPlayerName(player))
+                sendPlaybackInfo(name.value(), player);
+
+            player
+                .MediaPropertiesChanged(auto_revoke,
+                                        [this](GlobalSystemMediaTransportControlsSession player, MediaPropertiesChangedEventArgs args) {
+                                            if (auto name = getPlayerName(player))
+                                                this->sendMediaProperties(name.value(), player);
+                                        })
+                .swap(mediaPropertiesChangedHandlers[i]);
+            concurrency::create_task([this, player] {
+                std::chrono::milliseconds timespan(50);
+                std::this_thread::sleep_for(timespan);
+
+                if (auto name = getPlayerName(player))
+                    this->sendMediaProperties(name.value(), player);
+            });
+
+            player
+                .TimelinePropertiesChanged(auto_revoke,
+                                           [this](GlobalSystemMediaTransportControlsSession player, TimelinePropertiesChangedEventArgs args) {
+                                               if (auto name = getPlayerName(player))
+                                                   this->sendTimelineProperties(name.value(), player);
+                                           })
+                .swap(timelinePropertiesChangedHandlers[i]);
+            concurrency::create_task([this, player] {
+                std::chrono::milliseconds timespan(50);
+                std::this_thread::sleep_for(timespan);
+
+                if (auto name = getPlayerName(player))
+                    this->sendTimelineProperties(name.value(), player);
+            });
         }
-
-        playerList.insert(uniqueName, player);
-
-        player
-            .PlaybackInfoChanged(auto_revoke,
-                                 [this](GlobalSystemMediaTransportControlsSession player, PlaybackInfoChangedEventArgs args) {
-                                     if (auto name = getPlayerName(player))
-                                         this->sendPlaybackInfo(name.value(), player);
-                                 })
-            .swap(playbackInfoChangedHandlers[i]);
-        concurrency::create_task([this, player] {
-            std::chrono::milliseconds timespan(50);
-            std::this_thread::sleep_for(timespan);
-
-            if (auto name = getPlayerName(player))
-                this->sendPlaybackInfo(name.value(), player);
-        });
-
-        if (auto name = getPlayerName(player))
-            sendPlaybackInfo(name.value(), player);
-
-        player
-            .MediaPropertiesChanged(auto_revoke,
-                                    [this](GlobalSystemMediaTransportControlsSession player, MediaPropertiesChangedEventArgs args) {
-                                        if (auto name = getPlayerName(player))
-                                            this->sendMediaProperties(name.value(), player);
-                                    })
-            .swap(mediaPropertiesChangedHandlers[i]);
-        concurrency::create_task([this, player] {
-            std::chrono::milliseconds timespan(50);
-            std::this_thread::sleep_for(timespan);
-
-            if (auto name = getPlayerName(player))
-                this->sendMediaProperties(name.value(), player);
-        });
-
-        player
-            .TimelinePropertiesChanged(auto_revoke,
-                                       [this](GlobalSystemMediaTransportControlsSession player, TimelinePropertiesChangedEventArgs args) {
-                                           if (auto name = getPlayerName(player))
-                                               this->sendTimelineProperties(name.value(), player);
-                                       })
-            .swap(timelinePropertiesChangedHandlers[i]);
-        concurrency::create_task([this, player] {
-            std::chrono::milliseconds timespan(50);
-            std::this_thread::sleep_for(timespan);
-
-            if (auto name = getPlayerName(player))
-                this->sendTimelineProperties(name.value(), player);
-        });
+    } catch (winrt::hresult_error e) {
+        qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to update player list";
     }
 
     sendPlayerList();
@@ -247,44 +268,58 @@ void MprisControlPlugin::sendPlayerList()
     NetworkPacket np(PACKET_TYPE_MPRIS);
 
     np.set(QStringLiteral("playerList"), playerList.keys() + QStringList(DEFAULT_PLAYER));
-    np.set(QStringLiteral("supportAlbumArtPayload"), false); // TODO: Sending albumArt doesn't work
+    np.set(QStringLiteral("supportAlbumArtPayload"), true);
 
     sendPacket(np);
 }
 
-bool MprisControlPlugin::sendAlbumArt(std::variant<NetworkPacket, QString> const &packetOrName,
-                                      GlobalSystemMediaTransportControlsSession const &player,
-                                      QString artUrl)
+void MprisControlPlugin::getThumbnail(const std::variant<NetworkPacket, QString> &packetOrName,
+                                      const GlobalSystemMediaTransportControlsSession &player,
+                                      const QString artUrl)
+{
+    QSharedPointer<QBuffer> qdata = QSharedPointer<QBuffer>(new QBuffer());
+
+    try {
+        auto mediaProperties = player.TryGetMediaPropertiesAsync().get();
+        auto thumbnail = mediaProperties.Thumbnail();
+        if (thumbnail) {
+            auto stream = thumbnail.OpenReadAsync().get();
+            if (stream && stream.CanRead()) {
+                IBuffer data = Buffer(stream.Size());
+                data = stream.ReadAsync(data, stream.Size(), InputStreamOptions::None).get();
+                qdata->setData((char *)data.data(), data.Capacity());
+            }
+        }
+    } catch (const winrt::hresult_error &ex) {
+        qWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Unable to get thumbnails: " << QString::fromWCharArray(ex.message().c_str());
+        return;
+    }
+
+    // We now obtain the thumbnail, but we are in a background thread.
+    // Calling QMetaObject::invokeMethod with Qt::QueuedConnection ensures
+    // the subsequent operations happen in the original object's thread,
+    // preventing crashes due to cross-thread operations in Qt.
+    QMetaObject::invokeMethod(
+        this,
+        [=]() {
+            sendAlbumArt(packetOrName, qdata, artUrl);
+        },
+        Qt::QueuedConnection);
+}
+
+bool MprisControlPlugin::sendAlbumArt(const std::variant<NetworkPacket, QString> &packetOrName, const QSharedPointer<QBuffer> qdata, const QString artUrl)
 {
     qWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Sending Album Art";
     NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
     if (packetOrName.index() == 1)
         np.set(QStringLiteral("player"), std::get<1>(packetOrName));
 
-    auto thumbnail = player.TryGetMediaPropertiesAsync().get().Thumbnail();
-    if (thumbnail) {
-        auto stream = thumbnail.OpenReadAsync().get();
-        if (stream && stream.CanRead()) {
-            IBuffer data = Buffer(stream.Size());
-            data = stream.ReadAsync(data, stream.Size(), InputStreamOptions::None).get();
-            QSharedPointer<QBuffer> qdata = QSharedPointer<QBuffer>(new QBuffer());
-            qdata->setData((char *)data.data(), data.Capacity());
+    np.set(QStringLiteral("transferringAlbumArt"), true);
+    np.set(QStringLiteral("albumArtUrl"), artUrl);
+    np.setPayload(qdata, qdata->size());
 
-            np.set(QStringLiteral("transferringAlbumArt"), true);
-            np.set(QStringLiteral("albumArtUrl"), artUrl);
-
-            np.setPayload(qdata, qdata->size());
-
-            if (packetOrName.index() == 1)
-                sendPacket(np);
-
-            return true;
-        }
-
-        return false;
-    } else {
-        return false;
-    }
+    sendPacket(np);
+    return true;
 }
 
 void MprisControlPlugin::handleDefaultPlayer(const NetworkPacket &np)
@@ -371,7 +406,13 @@ void MprisControlPlugin::receivePacket(const NetworkPacket &np)
     auto player = it.value();
 
     if (np.has(QStringLiteral("albumArtUrl"))) {
-        sendAlbumArt(name, player, np.get<QString>(QStringLiteral("albumArtUrl")));
+        // Obtain the thumbnail in a separate working thread because the task
+        // calling IRandomAccessStreamReference.OpenReadAsync().get() seems to
+        // block the Qt main event loop. This prevents freezes during thumbnail
+        // retrieval.
+        concurrency::create_task([=] {
+            getThumbnail(name, player, np.get<QString>(QStringLiteral("albumArtUrl")));
+        });
         return;
     }
 

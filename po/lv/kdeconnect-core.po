@@ -1,23 +1,23 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2025 Toms Trasuns <toms.trasuns@posteo.net>
 # Māris Nartišs <maris.kde@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2024-01-14 10:58+0200\n"
-"Last-Translator: Māris Nartišs <maris.kde@gmail.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2025-02-24 00:41+0000\n"
+"PO-Revision-Date: 2025-02-28 15:14+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -39,32 +39,37 @@ msgstr "Nosūta uz %1"
 msgid "File"
 msgstr "Datne"
 
-#: backends/pairinghandler.cpp:59
+#: backends/pairinghandler.cpp:61
+#, kde-format
+msgid "Device clocks are out of sync"
+msgstr "Ierīču pulksteņi nav sinhronizēti"
+
+#: backends/pairinghandler.cpp:80
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "Atcēla otra puse"
 
-#: backends/pairinghandler.cpp:75
+#: backends/pairinghandler.cpp:96
 #, kde-format
 msgid "%1: Already paired"
 msgstr "%1: Jau ir sapārota"
 
-#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
+#: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: Ierīce nav sasniedzama"
 
-#: backends/pairinghandler.cpp:113
+#: backends/pairinghandler.cpp:139
 #, kde-format
 msgid "Device not reachable"
 msgstr "Ierīce nav sasniedzama"
 
-#: backends/pairinghandler.cpp:124
+#: backends/pairinghandler.cpp:150
 #, kde-format
 msgid "Cancelled by user"
 msgstr "Atcēla lietotājs"
 
-#: backends/pairinghandler.cpp:140
+#: backends/pairinghandler.cpp:166
 #, kde-format
 msgid "Timed out"
 msgstr "Izbeidzās laiks"
@@ -90,47 +95,52 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Galamērķis"
 
-#: device.cpp:459
+#: device.cpp:461
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Jūsu ierīces sertifikāta SHA256 digitālnospiedums ir: %1\n"
 
-#: device.cpp:465
+#: device.cpp:467
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Attālinātās ierīces sertifikāta SHA256 digitālnospiedums ir: %1\n"
 
+#: device.cpp:469
+#, kde-format
+msgid "Protocol version: %1\n"
+msgstr "Protokola versija: %1\n"
+
 #: filetransferjob.cpp:53
 #, kde-format
 msgid "Filename already present"
-msgstr "Šāds datnes nosaukums jau eksistē"
+msgstr "Šāds datnes nosaukums jau pastāv"
 
 #: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Saņēma nepabeigtu datni no: %1"
 
-#: kdeconnectconfig.cpp:338 kdeconnectconfig.cpp:372
+#: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Neizdevās palaist „KDE Connect“"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "Neizdevās ģenerēt privāto atslēgu."
 
-#: kdeconnectconfig.cpp:357
+#: kdeconnectconfig.cpp:367
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Neizdevās saglabāt privāto atslēgu: %1"
 
-#: kdeconnectconfig.cpp:372
+#: kdeconnectconfig.cpp:382
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Neizdevās ģenerēt ierīces sertifikātu."
 
-#: kdeconnectconfig.cpp:388
+#: kdeconnectconfig.cpp:398
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Neizdevās saglabāt sertifikāta datni: %1"

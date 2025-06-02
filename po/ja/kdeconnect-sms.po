@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2019-12-24 22:22-0800\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -59,7 +59,7 @@ msgstr ""
 msgid "%1"
 msgstr ""
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr ""
@@ -71,7 +71,7 @@ msgstr ""
 
 #: main.cpp:54
 #, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
+msgid "(C) 2018-2025, KDE Connect Team"
 msgstr ""
 
 #: main.cpp:55
@@ -89,22 +89,22 @@ msgstr ""
 msgid "Nicolas Fella"
 msgstr ""
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr ""
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr ""
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr ""
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr ""
@@ -112,16 +112,6 @@ msgstr ""
 #: qml/AttachmentViewer.qml:21
 #, kde-format
 msgid "Open with default"
-msgstr ""
-
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr ""
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
 msgstr ""
 
 #: qml/ConversationList.qml:23
@@ -149,7 +139,7 @@ msgid ""
 "load quickly."
 msgstr ""
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr ""
@@ -164,30 +154,35 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr ""
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr ""
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr ""
 
-#: qml/Main.qml:83
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr ""
 
-#: qml/Main.qml:96
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
+msgstr ""
+
+#: qml/Main.qml:115
+#, kde-format
+msgid "About KDE"
 msgstr ""
 
 #: qml/MessageAttachments.qml:114
@@ -207,5 +202,23 @@ msgstr ""
 
 #: qml/SendingArea.qml:63
 #, kde-format
-msgid "Compose message"
+msgid "Send a message…"
+msgstr ""
+
+#: qml/SendingArea.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Send message"
 msgstr ""

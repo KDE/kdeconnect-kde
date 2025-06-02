@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2025-02-24 00:41+0000\n"
 "PO-Revision-Date: 2023-07-31 21:12+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -40,32 +40,37 @@ msgstr "Sender til %1"
 msgid "File"
 msgstr "Fil"
 
-#: backends/pairinghandler.cpp:59
+#: backends/pairinghandler.cpp:61
+#, kde-format
+msgid "Device clocks are out of sync"
+msgstr ""
+
+#: backends/pairinghandler.cpp:80
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "Avbroten av den andre eininga"
 
-#: backends/pairinghandler.cpp:75
+#: backends/pairinghandler.cpp:96
 #, kde-format
 msgid "%1: Already paired"
 msgstr "%1: Allereie para"
 
-#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
+#: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: Får ikkje kontakt med eininga"
 
-#: backends/pairinghandler.cpp:113
+#: backends/pairinghandler.cpp:139
 #, kde-format
 msgid "Device not reachable"
 msgstr "Får ikkje kontakt med eininga"
 
-#: backends/pairinghandler.cpp:124
+#: backends/pairinghandler.cpp:150
 #, kde-format
 msgid "Cancelled by user"
 msgstr "Avbroten av brukar"
 
-#: backends/pairinghandler.cpp:140
+#: backends/pairinghandler.cpp:166
 #, kde-format
 msgid "Timed out"
 msgstr "Tidsavbrot"
@@ -90,15 +95,20 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Mål"
 
-#: device.cpp:459
+#: device.cpp:461
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "SHA-256-fingeravtrykket til einingssertifikatet er: %1\n"
 
-#: device.cpp:465
+#: device.cpp:467
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "SHA-256-fingeravtrykket til fjerneiningssertifikatet er: %1\n"
+
+#: device.cpp:469
+#, kde-format
+msgid "Protocol version: %1\n"
+msgstr ""
 
 #: filetransferjob.cpp:53
 #, kde-format
@@ -110,27 +120,27 @@ msgstr "Filnamnet finst frå før"
 msgid "Received incomplete file from: %1"
 msgstr "Fekk ufullstendig fil frå: %1"
 
-#: kdeconnectconfig.cpp:338 kdeconnectconfig.cpp:372
+#: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Klarte ikkje starta KDE Connect"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "Klarte ikkje generera privatnøkkelen."
 
-#: kdeconnectconfig.cpp:357
+#: kdeconnectconfig.cpp:367
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Klarte ikkje lagra privatnøkkelfila: %1"
 
-#: kdeconnectconfig.cpp:372
+#: kdeconnectconfig.cpp:382
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Klarte ikkje generera einingssertifikatet."
 
-#: kdeconnectconfig.cpp:388
+#: kdeconnectconfig.cpp:398
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Klarte ikkje lagra sertifikatfila: %1"

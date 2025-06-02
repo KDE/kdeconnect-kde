@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -34,15 +34,15 @@ msgstr "KDE Connect命令行工具"
 
 #: kdeconnect-cli.cpp:34
 #, kde-format
-msgid "(C) 2015 Aleix Pol Gonzalez"
-msgstr "(C) 2015 Aleix Pol Gonzalez"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: kdeconnect-cli.cpp:39
+#: kdeconnect-cli.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: kdeconnect-cli.cpp:40
+#: kdeconnect-cli.cpp:36
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
@@ -330,3 +330,6 @@ msgstr "错误：应该指定短信收件人，传递参数 --destination <电�
 #, kde-format
 msgid "Nothing to be done"
 msgstr "无事可做"
+
+#~ msgid "(C) 2015 Aleix Pol Gonzalez"
+#~ msgstr "(C) 2015 Aleix Pol Gonzalez"

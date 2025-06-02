@@ -17,5 +17,5 @@ class FindThisDeviceHelper : public QObject
 
 public:
     static Q_INVOKABLE QString defaultSound();
-    bool pathExists(const QString &path);
+    Q_INVOKABLE bool pathExists(const QString &path);
 };

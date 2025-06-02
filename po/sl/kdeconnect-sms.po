@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
-"PO-Revision-Date: 2024-03-24 07:41+0100\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-19 07:38+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -63,7 +63,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect SMS"
@@ -75,8 +75,8 @@ msgstr "SMS neposredno sporočanje"
 
 #: main.cpp:54
 #, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018-2022, Ekipa KDE Connect"
+msgid "(C) 2018-2025, KDE Connect Team"
+msgstr "(C) 2018-2025, Ekipa KDE Connect"
 
 #: main.cpp:55
 #, kde-format
@@ -93,22 +93,22 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "Izberi napravo"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "Pošlji sporočilo"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "sporočilo"
@@ -117,16 +117,6 @@ msgstr "sporočilo"
 #, kde-format
 msgid "Open with default"
 msgstr "Odpri s privzetimi nastavitvami"
-
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Kopiraj sporočilo"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Kopiraj izbrano"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -159,7 +149,7 @@ msgstr ""
 "Namig: Če priključite vašo napravo, se ne bi smela uspavati in bi morala "
 "hitro naložiti."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Osveži"
@@ -174,31 +164,36 @@ msgstr "Izberi prejemnika"
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Poišči ali začni pogovor"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Začni nov pogovor"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Ni zadetkov"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "Naprave"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
 msgstr "O programu"
+
+#: qml/Main.qml:115
+#, kde-format
+msgid "About KDE"
+msgstr "O KDE"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -217,8 +212,35 @@ msgstr "Maksimalna velikost sporočila presežena."
 
 #: qml/SendingArea.qml:63
 #, kde-format
-msgid "Compose message"
-msgstr "Sestavi sporočilo"
+msgid "Send a message…"
+msgstr "Pošlji sporočilo…"
+
+#: qml/SendingArea.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr "Priloži sliko ali datoteko"
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr "Počisti priloge"
+
+#: qml/SendingArea.qml:173
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Pošlji sporočilo"
+
+#~ msgid "Copy Message"
+#~ msgstr "Kopiraj sporočilo"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Kopiraj izbrano"
+
+#~ msgid "Compose message"
+#~ msgstr "Sestavi sporočilo"
 
 #~ msgid "New"
 #~ msgstr "Nov"

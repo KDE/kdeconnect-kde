@@ -30,7 +30,9 @@ Kirigami.ScrollablePage {
         QQC2.CheckBox {
             id: autoShare
             text: i18n("Automatically share the clipboard from this device")
+            focus: true
             onClicked: config.set("autoShare", checked)
+            KeyNavigation.down: password
         }
 
         QQC2.CheckBox {

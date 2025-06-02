@@ -11,10 +11,14 @@
 #include <dbushelper.h>
 
 #include <KPluginFactory>
+#include <KSystemClipboard>
+
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
 #include <KStartupInfo>
 #include <private/qtx11extras_p.h>
 #endif
+
+#include <QMimeData>
 
 K_PLUGIN_CLASS_WITH_JSON(NotificationsPlugin, "kdeconnect_notifications.json")
 
@@ -175,6 +179,32 @@ void NotificationsPlugin::sendAction(const QString &key, const QString &action)
     np.set<QString>(QStringLiteral("key"), key);
     np.set<QString>(QStringLiteral("action"), action);
     sendPacket(np);
+
+    copyAuthCodeIfPresent(action);
+}
+
+void NotificationsPlugin::copyAuthCodeIfPresent(const QString &action)
+{
+    // The auth code we receive has invisible characters in it for some reason.
+    // (U+2063 INVISIBLE SEPARATOR between each digit).
+    // Remove them if present before continuing.
+    QString sanitizedAction = action;
+    sanitizedAction.remove(QChar(0x2063));
+
+    // Match blocks of digits, 4-10 digits long. This should match auth codes
+    // in any language without relying on the action text having a specific
+    // keyword in it such as "Copy" in English.
+    QRegularExpression authCodeRegex(QStringLiteral("\\b(\\d{4,10})\\b"));
+    QRegularExpressionMatch match = authCodeRegex.match(sanitizedAction);
+
+    if (!match.hasMatch()) {
+        return;
+    }
+
+    QString text = match.captured(1);
+    auto mimeData = new QMimeData;
+    mimeData->setText(text);
+    KSystemClipboard::instance()->setMimeData(mimeData, QClipboard::Clipboard);
 }
 
 QString NotificationsPlugin::newId()

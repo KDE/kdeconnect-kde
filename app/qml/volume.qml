@@ -15,11 +15,13 @@ Kirigami.Page
     id: root
     title: i18nd("kdeconnect-app", "Volume control")
     property QtObject pluginInterface
+    property QtObject device
 
     ListView {
         id: sinkList
         anchors.fill: parent
         spacing: Kirigami.Units.largeSpacing
+        focus: true
 
         model: RemoteSinksModel {
             deviceId: pluginInterface.deviceId
@@ -27,6 +29,7 @@ Kirigami.Page
         delegate: ColumnLayout {
 
             width: parent.width
+            onActiveFocusChanged: if (activeFocus) muteButton.forceActiveFocus(Qt.TabFocusReason)
 
             Label {
                 text: description
@@ -37,11 +40,14 @@ Kirigami.Page
             RowLayout {
 
                 Button {
+                    id: muteButton
                     icon.name: muted ? "player-volume-muted" : "player-volume"
+                    KeyNavigation.right: volumeSlider
                     onClicked: muted = !muted
                 }
 
                 Slider {
+                    id: volumeSlider
                     Layout.fillWidth: true
                     from: 0
                     value: volume

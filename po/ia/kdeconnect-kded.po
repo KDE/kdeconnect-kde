@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# giovanni <g.sora@tiscali.it>, 2017, 2020, 2021, 2022, 2024.
+# SPDX-FileCopyrightText: 2017, 2020, 2021, 2022, 2024, 2025 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-22 00:40+0000\n"
-"PO-Revision-Date: 2024-05-20 12:35+0200\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-22 12:03+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -51,20 +51,23 @@ msgstr "Accepta"
 msgid "Reject"
 msgstr "Rejecta"
 
-#: desktop_daemon.cpp:54
-#, kde-format
-msgid "View key"
-msgstr "Vide clave"
-
-#: kdeconnectd.cpp:77 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:71 kdeconnectd.cpp:73
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect Daemon"
 
-#: kdeconnectd.cpp:87
+#: kdeconnectd.cpp:75
+#, kde-format
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr "(C) 2015-2025, KDE Connect Team (Equipa de KDE Connect)"
+
+#: kdeconnectd.cpp:101
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Reimplacia un instantia existente"
+
+#~ msgid "View key"
+#~ msgstr "Vide clave"
 
 #~ msgid ""
 #~ "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

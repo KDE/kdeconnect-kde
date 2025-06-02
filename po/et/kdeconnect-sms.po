@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2020-11-20 01:14+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -63,7 +63,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connecti SMS"
@@ -76,7 +76,7 @@ msgstr "SMS-kiirsuhtlus"
 #: main.cpp:54
 #, fuzzy, kde-format
 #| msgid "(C) 2018-2019, KDE Connect Team"
-msgid "(C) 2018-2022, KDE Connect Team"
+msgid "(C) 2018-2025, KDE Connect Team"
 msgstr "(C) 2018-2019: KDE Connecti meeskond"
 
 #: main.cpp:55
@@ -94,22 +94,22 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "Seadme valimine"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "ID"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "Sõnumi saatmine"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "sõnum"
@@ -118,16 +118,6 @@ msgstr "sõnum"
 #, kde-format
 msgid "Open with default"
 msgstr "Ava vaikerakendusega"
-
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Kopeeri sõnum"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Kopeeri valik"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -156,7 +146,7 @@ msgid ""
 "load quickly."
 msgstr ""
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Värskenda"
@@ -171,32 +161,38 @@ msgstr "Saaja valimine"
 msgid "Cancel"
 msgstr "Loobu"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, fuzzy, kde-format
 #| msgid "Start new conversation"
 msgid "Search or start a conversation"
 msgstr "Alusta uut vestlust"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Alusta uut vestlust"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr ""
 
-#: qml/Main.qml:83
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr ""
 
-#: qml/Main.qml:96
+#: qml/Main.qml:106
 #, fuzzy, kde-format
 #| msgid "About..."
 msgid "About"
+msgstr "Teave ..."
+
+#: qml/Main.qml:115
+#, fuzzy, kde-format
+#| msgid "About..."
+msgid "About KDE"
 msgstr "Teave ..."
 
 #: qml/MessageAttachments.qml:114
@@ -215,9 +211,38 @@ msgid "Max message size limit exceeded."
 msgstr "Sõnumi mahupiirang ületati."
 
 #: qml/SendingArea.qml:63
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgid "Send a message…"
+msgstr "Sõnumi saatmine"
+
+#: qml/SendingArea.qml:119
 #, kde-format
-msgid "Compose message"
-msgstr "Sõnumi kirjutamine"
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Sõnumi saatmine"
+
+#~ msgid "Copy Message"
+#~ msgstr "Kopeeri sõnum"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Kopeeri valik"
+
+#~ msgid "Compose message"
+#~ msgstr "Sõnumi kirjutamine"
 
 #~ msgid "New"
 #~ msgstr "Uus"

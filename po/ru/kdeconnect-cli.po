@@ -5,13 +5,13 @@
 # Dmitry Serov <dmitri.s93@gmail.com>, 2015.
 # Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2021.
 # Дронова Юлия <juliette.tux@gmail.com>, 2021.
-# Olesya Gerasimenko <translation-team@basealt.ru>, 2023.
+# SPDX-FileCopyrightText: 2023, 2025 Olesya Gerasimenko <translation-team@basealt.ru>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
-"PO-Revision-Date: 2023-11-16 14:45+0300\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-03-25 09:56+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -41,15 +41,15 @@ msgstr "Утилита командной строки для KDE Connect"
 
 #: kdeconnect-cli.cpp:34
 #, kde-format
-msgid "(C) 2015 Aleix Pol Gonzalez"
-msgstr "© Aleix Pol Gonzalez, 2015"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: kdeconnect-cli.cpp:39
+#: kdeconnect-cli.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: kdeconnect-cli.cpp:40
+#: kdeconnect-cli.cpp:36
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
@@ -67,24 +67,22 @@ msgstr "Показать список доступных устройств (с�
 #: kdeconnect-cli.cpp:45
 #, kde-format
 msgid "List all backends and status"
-msgstr ""
+msgstr "Показать список всех модулей и состояние"
 
 #: kdeconnect-cli.cpp:46
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Enable the specified backend"
-msgstr "Разблокировать указанное устройство"
+msgstr "Включить указанный модуль"
 
 #: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
 #, kde-format
 msgid "backend"
-msgstr ""
+msgstr "модуль"
 
 #: kdeconnect-cli.cpp:47
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Disable the specified backend"
-msgstr "Разблокировать указанное устройство"
+msgstr "Отключить указанный модуль"
 
 #: kdeconnect-cli.cpp:49
 #, kde-format
@@ -355,6 +353,9 @@ msgstr ""
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Нет действий для выполнения"
+
+#~ msgid "(C) 2015 Aleix Pol Gonzalez"
+#~ msgstr "© Aleix Pol Gonzalez, 2015"
 
 #~ msgid "Open the connected device's camera and transfer the photo"
 #~ msgstr ""

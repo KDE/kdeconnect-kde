@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2024, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
-"PO-Revision-Date: 2024-03-24 09:18+0100\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-19 15:44+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Freek de Kruijf - 2019 t/m 2024"
+msgstr "Freek de Kruijf - 2019 t/m 2025"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -62,7 +62,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect SMS"
@@ -74,8 +74,8 @@ msgstr "SMS Instant Messaging"
 
 #: main.cpp:54
 #, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018-2022, KDE Connect Team"
+msgid "(C) 2018-2025, KDE Connect Team"
+msgstr "(c) 2018-2025, team van KDE Connect"
 
 #: main.cpp:55
 #, kde-format
@@ -92,22 +92,22 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "Een apparaat selecteren"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "Een bericht verzenden"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "bericht"
@@ -116,16 +116,6 @@ msgstr "bericht"
 #, kde-format
 msgid "Open with default"
 msgstr "Met standaard openen"
-
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Bericht kopiëren"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Selectie kopiëren"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -158,7 +148,7 @@ msgstr ""
 "Tip: als u uw apparaat inplugt, zou het niet in modus slapen moeten gaan en "
 "zou snel moeten laden."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Vernieuwen"
@@ -173,31 +163,36 @@ msgstr "Ontvanger kiezen"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Zoeken of een conversatie beginnen"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Nieuwe conversatie beginnen"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Geen overeenkomsten"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "Apparaten"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
 msgstr "Info over"
+
+#: qml/Main.qml:115
+#, kde-format
+msgid "About KDE"
+msgstr "Over KDE"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -216,8 +211,35 @@ msgstr "Limiet voor maximale grootte van bericht overschreden."
 
 #: qml/SendingArea.qml:63
 #, kde-format
-msgid "Compose message"
-msgstr "Bericht opstellen"
+msgid "Send a message…"
+msgstr "Een bericht verzenden…"
+
+#: qml/SendingArea.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr "Een afbeelding of bestand bijvoegen"
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr "Bijlagen wissen"
+
+#: qml/SendingArea.qml:173
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Bericht verzenden"
+
+#~ msgid "Copy Message"
+#~ msgstr "Bericht kopiëren"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Selectie kopiëren"
+
+#~ msgid "Compose message"
+#~ msgstr "Bericht opstellen"
 
 #~ msgid "New"
 #~ msgstr "Nieuw"

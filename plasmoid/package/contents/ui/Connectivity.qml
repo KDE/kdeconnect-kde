@@ -87,8 +87,7 @@ QtObject {
         // If we understand the network type, append to the icon name to show the type
         const networkTypeSuffix =
             (networkType === "5G") ?
-                // No icon for this case!
-                "" :
+                "-5g" :
             (networkType === "LTE") ?
                 "-lte" :
             (networkType === "HSPA") ?

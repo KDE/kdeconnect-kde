@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 18:53+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -20,76 +20,66 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Юрій Чорноіван"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "yurchor@ukr.net"
-
-#: kcm.cpp:91
+#: kcm.cpp:109
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "Помилка: KDE Connect не запущено"
 
-#: kcm.cpp:115
+#: kcm.cpp:133
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: kcm.cpp:117
+#: kcm.cpp:135
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
 msgstr "Заглушка"
 
-#: kcm.cpp:119
+#: kcm.cpp:137
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
 msgstr "Мережа"
 
-#: kcm.cpp:122
+#: kcm.cpp:140
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
 msgstr "Невідомий"
 
-#: kcm.cpp:282
-#, kde-format
-msgid "Key: %1"
-msgstr "Ключ: %1"
-
-#: kcm.cpp:307
+#: kcm.cpp:339
 #, kde-format
 msgid "Available plugins"
 msgstr "Доступні додатки"
 
-#: kcm.cpp:354
+#: kcm.cpp:386
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Помилка під час спроби пов’язати: %1"
 
-#: kcm.cpp:370
+#: kcm.cpp:403
 #, kde-format
 msgid "(paired)"
 msgstr "(пов’язано)"
 
-#: kcm.cpp:373
+#: kcm.cpp:406
 #, kde-format
 msgid "(not paired)"
 msgstr "(не пов’язано)"
 
-#: kcm.cpp:376
+#: kcm.cpp:409
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(вхідний запит щодо прив’язування)"
 
-#: kcm.cpp:379
+#: kcm.cpp:410 kcm.cpp:414
+#, kde-format
+msgid "Key: %1"
+msgstr "Ключ: %1"
+
+#: kcm.cpp:413
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(отримано запит щодо прив’язування)"
@@ -227,6 +217,14 @@ msgstr "З'єднаний"
 #, kde-format
 msgid "No devices found"
 msgstr "Пристроїв не виявлено"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Юрій Чорноіван"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "yurchor@ukr.net"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"

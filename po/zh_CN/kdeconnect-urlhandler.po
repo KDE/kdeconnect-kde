@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-19 00:39+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -52,62 +52,73 @@ msgstr "发送文件"
 msgid "Open on peer device"
 msgstr "在对等点设备上打开"
 
-#: kdeconnect-handler.cpp:43
+#: kdeconnect-handler.cpp:44
 #, kde-format
 msgid "KDE Connect URL handler"
 msgstr "KDE Connect URL 处理程序"
 
-#: kdeconnect-handler.cpp:49
+#: kdeconnect-handler.cpp:50
 #, kde-format
-msgid "(C) 2017 Aleix Pol Gonzalez"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
+
+#: kdeconnect-handler.cpp:51
+#, fuzzy, kde-format
+#| msgid "(C) 2017 Aleix Pol Gonzalez"
+msgid "Aleix Pol Gonzalez"
 msgstr "(C) 2017 Aleix Pol Gonzalez"
 
-#: kdeconnect-handler.cpp:73
+#: kdeconnect-handler.cpp:52
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr ""
+
+#: kdeconnect-handler.cpp:84
 #, kde-format
 msgid "URL to share"
 msgstr "要分享的 URL"
 
-#: kdeconnect-handler.cpp:74
+#: kdeconnect-handler.cpp:85
 #, kde-format
 msgid "Select a device"
 msgstr "选择设备"
 
-#: kdeconnect-handler.cpp:74
+#: kdeconnect-handler.cpp:85
 #, kde-format
 msgid "id"
 msgstr "ID"
 
-#: kdeconnect-handler.cpp:121
+#: kdeconnect-handler.cpp:132
 #, kde-format
 msgid "Enter URL here"
 msgstr "在此处输入 URL"
 
-#: kdeconnect-handler.cpp:129
+#: kdeconnect-handler.cpp:140
 #, kde-format
 msgid "Enter file location here"
 msgstr "在此处输入文件位置"
 
-#: kdeconnect-handler.cpp:154
+#: kdeconnect-handler.cpp:165
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "用于呼叫 %1 的设备："
 
-#: kdeconnect-handler.cpp:157
+#: kdeconnect-handler.cpp:168
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "用于打开 %1 的设备："
 
-#: kdeconnect-handler.cpp:160
+#: kdeconnect-handler.cpp:171
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "用于发送短信的设备："
 
-#: kdeconnect-handler.cpp:163
+#: kdeconnect-handler.cpp:174
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "用于发送 %1 的设备："
 
-#: kdeconnect-handler.cpp:192
+#: kdeconnect-handler.cpp:203
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "无法分享 %1"

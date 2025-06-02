@@ -3,13 +3,13 @@
 #
 # Julia Dronova <juliette.tux@gmail.com>, 2013, 2021.
 # Alexander Potashev <aspotashev@gmail.com>, 2015, 2017.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2023, 2024.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-11-17 17:44+0300\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-02-13 11:58+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -20,78 +20,66 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 21.08.3\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Юлия Дронова,Александр Поташев,Дмитрий Серов,Ярослав Сидловский"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr ""
-"juliette.tux@gmail.com,aspotashev@gmail.com,dmitri.s93@gmail.com,"
-"zawertun@gmail.com"
-
-#: kcm.cpp:91
+#: kcm.cpp:109
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "Ошибка: приложение KDE Connect не запущено"
 
-#: kcm.cpp:115
+#: kcm.cpp:133
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
-#: kcm.cpp:117
+#: kcm.cpp:135
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Петлевой интерфейс (Loopback)"
 
-#: kcm.cpp:119
+#: kcm.cpp:137
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Сеть"
 
-#: kcm.cpp:122
+#: kcm.cpp:140
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестно"
 
-#: kcm.cpp:282
-#, kde-format
-msgid "Key: %1"
-msgstr "Ключ: %1"
-
-#: kcm.cpp:307
+#: kcm.cpp:339
 #, kde-format
 msgid "Available plugins"
 msgstr "Доступные модули"
 
-#: kcm.cpp:354
+#: kcm.cpp:386
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Ошибка при попытке сопряжения: %1"
 
-#: kcm.cpp:370
+#: kcm.cpp:403
 #, kde-format
 msgid "(paired)"
 msgstr "(сопряжено)"
 
-#: kcm.cpp:373
+#: kcm.cpp:406
 #, kde-format
 msgid "(not paired)"
 msgstr "(не сопряжено)"
 
-#: kcm.cpp:376
+#: kcm.cpp:409
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(входящий запрос на сопряжение)"
 
-#: kcm.cpp:379
+#: kcm.cpp:410 kcm.cpp:414
+#, kde-format
+msgid "Key: %1"
+msgstr "Ключ: %1"
+
+#: kcm.cpp:413
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(запрошено сопряжение)"
@@ -125,7 +113,7 @@ msgstr "Обновить"
 #: kcm.ui:134
 #, kde-format
 msgid "Backends:"
-msgstr ""
+msgstr "Модули:"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
 #: kcm.ui:216
@@ -231,6 +219,16 @@ msgstr "Подключено"
 #, kde-format
 msgid "No devices found"
 msgstr "Не найдено ни одного устройства"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Юлия Дронова,Александр Поташев,Дмитрий Серов,Ярослав Сидловский"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "juliette.tux@gmail.com,aspotashev@gmail.com,dmitri.s93@gmail.com,"
+#~ "zawertun@gmail.com"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"

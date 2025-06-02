@@ -26,7 +26,7 @@ class KDECONNECTCORE_EXPORT Device : public QObject
     Q_PROPERTY(QString type READ typeAsString NOTIFY typeChanged)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
-    Q_PROPERTY(QString verificationKey READ verificationKey CONSTANT)
+    Q_PROPERTY(QString verificationKey READ verificationKey NOTIFY pairStateChanged)
     Q_PROPERTY(QString statusIconName READ statusIconName NOTIFY statusIconNameChanged)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChanged)
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChanged)
@@ -75,6 +75,7 @@ public:
     bool updateDeviceInfo(const DeviceInfo &deviceInfo);
 
     bool hasInvalidCertificate();
+    QSslCertificate certificate() const;
 
     PairState pairState() const;
     Q_SCRIPTABLE int pairStateAsInt() const; // Hack because qdbus doesn't like enums
@@ -129,9 +130,6 @@ Q_SIGNALS:
     Q_SCRIPTABLE void nameChanged(const QString &name);
     Q_SCRIPTABLE void typeChanged(const QString &type);
     Q_SCRIPTABLE void statusIconNameChanged();
-
-private: // Methods
-    QSslCertificate certificate() const;
 
 private:
     class DevicePrivate;

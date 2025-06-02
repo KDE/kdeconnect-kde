@@ -75,7 +75,6 @@ bool CompositeFileTransferJob::addSubjob(KJob *job)
         qCDebug(KDECONNECT_CORE) << "CompositeFileTransferJob::addSubjob() - you can only add FileTransferJob's, ignoring";
         return false;
     }
-    return true;
 }
 
 bool CompositeFileTransferJob::doKill()

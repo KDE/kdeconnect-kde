@@ -57,6 +57,7 @@ class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface : public OrgKdeKdeconnectD
     Q_PROPERTY(bool isPairRequestedByPeer READ isPairRequestedByPeer NOTIFY pairStateChangedProxy)
     Q_PROPERTY(int pairState READ pairState NOTIFY pairStateChangedProxy)
     Q_PROPERTY(QString name READ name NOTIFY nameChangedProxy)
+    Q_PROPERTY(QString verificationKey READ verificationKey NOTIFY pairStateChangedProxy)
 
 public:
     explicit DeviceDbusInterface(const QString &deviceId, QObject *parent = nullptr);
@@ -184,6 +185,7 @@ class KDECONNECTINTERFACES_EXPORT RemoteCommandsDbusInterface : public OrgKdeKde
     Q_OBJECT
     // Workaround because qdbusxml2cpp is not generating CONSTANT for properties and qml complains at runtime
     Q_PROPERTY(QString deviceId READ deviceId CONSTANT)
+    Q_PROPERTY(bool canAddCommand READ canAddCommand CONSTANT)
 public:
     explicit RemoteCommandsDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };

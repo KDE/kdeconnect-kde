@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-10-12 10:19+0200\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2024-12-29 08:35+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,78 +16,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.0\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Łukasz Wojniłowicz"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "lukasz.wojnilowicz@gmail.com"
-
-#: kcm.cpp:91
+#: kcm.cpp:109
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "Błąd: KDE Connect nie jest uruchomiony"
 
-#: kcm.cpp:115
+#: kcm.cpp:133
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
-#: kcm.cpp:117
+#: kcm.cpp:135
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Pętla zwrotna"
 
-#: kcm.cpp:119
+#: kcm.cpp:137
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Sieć"
 
-#: kcm.cpp:122
+#: kcm.cpp:140
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
-msgstr ""
+msgstr "Nieznany"
 
-#: kcm.cpp:282
-#, kde-format
-msgid "Key: %1"
-msgstr "Klucz: %1"
-
-#: kcm.cpp:307
+#: kcm.cpp:339
 #, kde-format
 msgid "Available plugins"
 msgstr "Dostępne wtyczki"
 
-#: kcm.cpp:354
+#: kcm.cpp:386
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Błąd przy próbie parowania: %1"
 
-#: kcm.cpp:370
+#: kcm.cpp:403
 #, kde-format
 msgid "(paired)"
 msgstr "(sparowane)"
 
-#: kcm.cpp:373
+#: kcm.cpp:406
 #, kde-format
 msgid "(not paired)"
 msgstr "(niesparowane)"
 
-#: kcm.cpp:376
+#: kcm.cpp:409
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(przychodzące żądanie sparowania)"
 
-#: kcm.cpp:379
+#: kcm.cpp:410 kcm.cpp:414
+#, kde-format
+msgid "Key: %1"
+msgstr "Klucz: %1"
+
+#: kcm.cpp:413
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(żądanie sparowania)"
@@ -120,7 +110,7 @@ msgstr "Odśwież"
 #: kcm.ui:134
 #, kde-format
 msgid "Backends:"
-msgstr ""
+msgstr "Silniki:"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
 #: kcm.ui:216
@@ -226,6 +216,14 @@ msgstr "Połączony"
 #, kde-format
 msgid "No devices found"
 msgstr "Nie znaleziono żadnych urządzeń"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Łukasz Wojniłowicz"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "lukasz.wojnilowicz@gmail.com"
 
 #~ msgid "🔑 abababab"
 #~ msgstr "🔑 abababab"

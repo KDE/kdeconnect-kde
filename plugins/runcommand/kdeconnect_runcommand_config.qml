@@ -24,6 +24,7 @@ Kirigami.ScrollablePage {
 
     ListView {
         id: view
+        focus: view.count > 0
 
         model: CommandsModel {
             id: commandModel

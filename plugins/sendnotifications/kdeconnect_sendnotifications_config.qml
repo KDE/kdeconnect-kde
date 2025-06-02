@@ -32,19 +32,23 @@ Kirigami.ScrollablePage {
         CheckBox {
             id: persistent
             text: i18n("Persistent notifications only")
+            focus: true
             onClicked: config.set("generalPersistent", checked)
+            KeyNavigation.down: includeBody
         }
 
         CheckBox {
             id: includeBody
             text: i18n("Include body")
             onClicked: config.set("generalIncludeBody", checked)
+            KeyNavigation.down: includeIcon
         }
 
         CheckBox {
             id: includeIcon
             text: i18n("Include icon")
             onClicked: config.set("generalSynchronizeIcons", checked)
+            KeyNavigation.down: urgency
         }
 
         SpinBox {

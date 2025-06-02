@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-09-21 10:41+0200\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2024-12-28 17:41+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -18,76 +18,66 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Oliver Kellogg"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "olivermkellogg@gmail.com"
-
-#: kcm.cpp:91
+#: kcm.cpp:109
 #, kde-format
 msgid "Error: KDE Connect is not running"
 msgstr "Eraro: KDE Connect ne estas rulanta"
 
-#: kcm.cpp:115
+#: kcm.cpp:133
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
-#: kcm.cpp:117
+#: kcm.cpp:135
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Loopback"
 
-#: kcm.cpp:119
+#: kcm.cpp:137
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Reto"
 
-#: kcm.cpp:122
+#: kcm.cpp:140
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Unknown"
-msgstr ""
+msgstr "Nekonata"
 
-#: kcm.cpp:282
-#, kde-format
-msgid "Key: %1"
-msgstr "Ŝlosilo: %1"
-
-#: kcm.cpp:307
+#: kcm.cpp:339
 #, kde-format
 msgid "Available plugins"
 msgstr "Disponeblaj kromprogramoj"
 
-#: kcm.cpp:354
+#: kcm.cpp:386
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Eraro provante parigi: %1"
 
-#: kcm.cpp:370
+#: kcm.cpp:403
 #, kde-format
 msgid "(paired)"
 msgstr "(parigita)"
 
-#: kcm.cpp:373
+#: kcm.cpp:406
 #, kde-format
 msgid "(not paired)"
 msgstr "(ne parigita)"
 
-#: kcm.cpp:376
+#: kcm.cpp:409
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(alvenanta parpeto)"
 
-#: kcm.cpp:379
+#: kcm.cpp:410 kcm.cpp:414
+#, kde-format
+msgid "Key: %1"
+msgstr "Ŝlosilo: %1"
+
+#: kcm.cpp:413
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(pariĝo petita)"
@@ -120,7 +110,7 @@ msgstr "Refreŝigi"
 #: kcm.ui:134
 #, kde-format
 msgid "Backends:"
-msgstr ""
+msgstr "Backends:"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
 #: kcm.ui:216
@@ -138,7 +128,7 @@ msgstr "(statuso)"
 #: kcm.ui:255
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:286
@@ -206,24 +196,27 @@ msgstr ""
 #: list.qml:52
 #, kde-format
 msgid "Remembered"
-msgstr ""
+msgstr "Memorigita"
 
 #: list.qml:54
-#, fuzzy, kde-format
-#| msgid "Available plugins"
+#, kde-format
 msgid "Available"
-msgstr "Disponeblaj kromprogramoj"
+msgstr "Disponebla"
 
 #: list.qml:56
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "Connected"
-msgstr "KDE Connect"
+msgstr "Konektita"
 
 #: list.qml:61
 #, kde-format
 msgid "No devices found"
-msgstr ""
+msgstr "Trovis neniujn aparatojn"
 
-#~ msgid "🔑 abababab"
-#~ msgstr "🔑 abababab"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Oliver Kellogg"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "olivermkellogg@gmail.com"

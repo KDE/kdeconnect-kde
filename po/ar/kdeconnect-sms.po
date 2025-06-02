@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
+# SPDX-FileCopyrightText: 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
-# SPDX-FileCopyrightText: 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
-"PO-Revision-Date: 2024-03-30 10:47+0400\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-19 13:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -62,7 +63,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "رسائل نصية لكِيدِي المتّصل"
@@ -74,8 +75,8 @@ msgstr "الرسائل النصية الفورية"
 
 #: main.cpp:54
 #, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(©) 2018-2022 فريق كِيدِي المتّصل"
+msgid "(C) 2018-2025, KDE Connect Team"
+msgstr "© 2018-2025 فريق كِيدِي المتّصل"
 
 #: main.cpp:55
 #, kde-format
@@ -92,22 +93,22 @@ msgstr "ألكس بول غنزالز"
 msgid "Nicolas Fella"
 msgstr "نيكولاس فلا"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "اختر جهازًا"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "المعرّف"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "أرسل رسالة"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "رسالة"
@@ -116,16 +117,6 @@ msgstr "رسالة"
 #, kde-format
 msgid "Open with default"
 msgstr "افتح في المبدئي"
-
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "انسخ الرِّسالة"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "انسخ التحديد"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -156,7 +147,7 @@ msgid ""
 msgstr ""
 "نصيحة: إذا قمت بتوصيل جهازك، فيجب ألا يذهب إلى وضع الغفوة ويجب تحميله بسرعة."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "أنعش"
@@ -171,31 +162,36 @@ msgstr "اختر مستلم"
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "ابحث أو ابدأ محادثة"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "ابدأ محادثة جديدة"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "لا يوجد متطابقات"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "الأجهزة"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
 msgstr "عن"
+
+#: qml/Main.qml:115
+#, kde-format
+msgid "About KDE"
+msgstr "عن كِيدِي"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -214,8 +210,35 @@ msgstr "تخطى الحد الأقصى لحجم الرسالة"
 
 #: qml/SendingArea.qml:63
 #, kde-format
-msgid "Compose message"
-msgstr "اكتب رسالة"
+msgid "Send a message…"
+msgstr "أرسل رسالة…"
+
+#: qml/SendingArea.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr "أرفق صورة أو ملف"
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr "امسح المرفقات"
+
+#: qml/SendingArea.qml:173
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "أرسل رسالة"
+
+#~ msgid "Copy Message"
+#~ msgstr "انسخ الرِّسالة"
+
+#~ msgid "Copy Selection"
+#~ msgstr "انسخ التحديد"
+
+#~ msgid "Compose message"
+#~ msgstr "اكتب رسالة"
 
 #~ msgid "New"
 #~ msgstr "جديد"

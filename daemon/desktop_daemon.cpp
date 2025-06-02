@@ -24,7 +24,7 @@
 DesktopDaemon::DesktopDaemon(QObject *parent)
     : Daemon(parent)
 {
-    qApp->setWindowIcon(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.png")));
+    qApp->setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
 }
 
 void DesktopDaemon::askPairingConfirmation(Device *device)
@@ -51,8 +51,6 @@ void DesktopDaemon::askPairingConfirmation(Device *device)
     KNotificationAction *rejectAction = notification->addAction(i18n("Reject"));
     connect(rejectAction, &KNotificationAction::activated, device, &Device::cancelPairing);
 
-    KNotificationAction *viewKeyAction = notification->addAction(i18n("View key"));
-    connect(viewKeyAction, &KNotificationAction::activated, openSettings);
     notification->sendEvent();
 }
 

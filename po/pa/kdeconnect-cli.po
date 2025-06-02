@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-23 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-02-10 10:04-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -34,15 +34,15 @@ msgstr "KDE ਕਨੈਕਟ CLI ਟੂਲ"
 
 #: kdeconnect-cli.cpp:34
 #, kde-format
-msgid "(C) 2015 Aleix Pol Gonzalez"
-msgstr "(C) 2015 Aleix Pol Gonzalez"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
-#: kdeconnect-cli.cpp:39
+#: kdeconnect-cli.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "ਐਲਿਕਸ ਪੋਲ ਗੋਨਜ਼ਾਵੇਜ"
 
-#: kdeconnect-cli.cpp:40
+#: kdeconnect-cli.cpp:36
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr ""
@@ -330,3 +330,6 @@ msgstr ""
 #, kde-format
 msgid "Nothing to be done"
 msgstr "ਕਰਨ ਲਈ ਕੁਝ ਵੀ ਨਹੀਂ ਹੈ"
+
+#~ msgid "(C) 2015 Aleix Pol Gonzalez"
+#~ msgstr "(C) 2015 Aleix Pol Gonzalez"

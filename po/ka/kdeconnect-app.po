@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-12-24 05:20+0100\n"
+"POT-Creation-Date: 2025-04-21 00:41+0000\n"
+"PO-Revision-Date: 2025-04-19 04:10+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -18,122 +18,132 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.5\n"
 
-#: main.cpp:31 main.cpp:33
+#: main.cpp:29 main.cpp:31
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:35
+#: main.cpp:33
 #, kde-format
-msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "(c) 2015, Aleix Pol Gonzalez"
+msgid "(c) 2015-2025, KDE Connect Team"
+msgstr "(c) 2015-2025, KDE Connect-ის გუნდი"
 
-#: main.cpp:36
+#: main.cpp:34
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:36
+#: main.cpp:35
 #, kde-format
-msgid "Maintainer"
-msgstr "წამყვანი პროგრამისტი"
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Temuri Doghonadze"
 
-#: main.cpp:37
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: main.cpp:56
+#: main.cpp:65
 #, kde-format
 msgid "URL to share"
 msgstr "გასაზიარებელი URL"
 
-#: qml/DevicePage.qml:27
+#: qml/DevicePage.qml:28
 #, kde-format
 msgid "Unpair"
 msgstr "დაწყვილების მოხსნა"
 
-#: qml/DevicePage.qml:32
+#: qml/DevicePage.qml:33
 #, kde-format
 msgid "Send Ping"
 msgstr "პინგის გაგზავნა"
 
-#: qml/DevicePage.qml:40 qml/PluginSettings.qml:20
+#: qml/DevicePage.qml:41 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
 msgstr "მოდულის პარამეტრები"
 
-#: qml/DevicePage.qml:64
+#: qml/DevicePage.qml:60
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Actions"
+msgstr "ქმედებები"
+
+#: qml/DevicePage.qml:62
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Controls"
+msgstr "მართვის ელემენტები"
+
+#: qml/DevicePage.qml:108
 #, kde-format
 msgid "Multimedia control"
 msgstr "მულტიმედიის კონტროლი"
 
-#: qml/DevicePage.qml:71
+#: qml/DevicePage.qml:116
 #, kde-format
 msgid "Remote input"
 msgstr "დაშორებული შეყვანა"
 
-#: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
-#, kde-format
-msgid "Presentation Remote"
-msgstr "დაშორებული პრეზენტაცია"
-
-#: qml/DevicePage.qml:87 qml/mousepad.qml:44
-#, kde-format
-msgid "Lock"
-msgstr "ჩაკეტვა"
-
-#: qml/DevicePage.qml:87
-#, kde-format
-msgid "Unlock"
-msgstr "განბლოკვა"
-
-#: qml/DevicePage.qml:94
-#, kde-format
-msgid "Find Device"
-msgstr "მოწყობილობის მოძებნა"
-
-#: qml/DevicePage.qml:99 qml/runcommand.qml:16
+#: qml/DevicePage.qml:124 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "ბრძანების გაშვება"
 
-#: qml/DevicePage.qml:108
+#: qml/DevicePage.qml:132 qml/presentationRemote.qml:15
 #, kde-format
-msgid "Send Clipboard"
-msgstr "ბუფერის გაგზავნა"
+msgid "Presentation Remote"
+msgstr "დაშორებული პრეზენტაცია"
 
-#: qml/DevicePage.qml:114
-#, kde-format
-msgid "Share File"
-msgstr "ფაილის გაზიარება"
-
-#: qml/DevicePage.qml:119 qml/volume.qml:16
+#: qml/DevicePage.qml:140 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "ხმის კონტროლი"
 
-#: qml/DevicePage.qml:130
+#: qml/DevicePage.qml:150 qml/mousepad.qml:44
 #, kde-format
-msgid ""
-"This device is not paired.\n"
-"Key: %1"
-msgstr "ეს მოწყობილობა დაწყვილებული არაა.\vგასაღები: %1"
+msgid "Lock"
+msgstr "ჩაკეტვა"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:150
+#, kde-format
+msgid "Unlock"
+msgstr "განბლოკვა"
+
+#: qml/DevicePage.qml:158
+#, kde-format
+msgid "Find Device"
+msgstr "მოწყობილობის მოძებნა"
+
+#: qml/DevicePage.qml:166
+#, kde-format
+msgid "Send Clipboard"
+msgstr "ბუფერის გაგზავნა"
+
+#: qml/DevicePage.qml:173
+#, kde-format
+msgid "Share File"
+msgstr "ფაილის გაზიარება"
+
+#: qml/DevicePage.qml:183
+#, kde-format
+msgid "This device is not paired."
+msgstr "ეს მოწყობილობა დაწყვილებული არაა."
+
+#: qml/DevicePage.qml:187
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "დაწყვილება"
 
-#: qml/DevicePage.qml:141 qml/DevicePage.qml:150
+#: qml/DevicePage.qml:194 qml/DevicePage.qml:203
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -142,22 +152,22 @@ msgstr ""
 "დაწყვილების მოთხოვნა\n"
 "გასაღები: "
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:209
 #, kde-format
 msgid "Accept"
 msgstr "დასტური"
 
-#: qml/DevicePage.qml:162
+#: qml/DevicePage.qml:215
 #, kde-format
 msgid "Reject"
 msgstr "უარყოფა"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:226
 #, kde-format
 msgid "This device is not reachable"
 msgstr "ეს მოწყობილობა მიუწვდომელია"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:234
 #, kde-format
 msgid "Please choose a file"
 msgstr "გთხოვთ, აირჩიოთ ფაილი"
@@ -173,27 +183,33 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr "განახლება"
 
-#: qml/Main.qml:101
+#: qml/Main.qml:76
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Refresh Devices"
+msgstr "მოწყობილობების სიის განახლება"
+
+#: qml/Main.qml:112
 #, kde-format
 msgid "Remembered"
 msgstr "დამახსოვრებულია"
 
-#: qml/Main.qml:103
+#: qml/Main.qml:114
 #, kde-format
 msgid "Available"
 msgstr "ხელმისაწვდომია"
 
-#: qml/Main.qml:105
+#: qml/Main.qml:116
 #, kde-format
 msgid "Connected"
 msgstr "დაკავშირებულია"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:121
 #, kde-format
 msgid "No devices found"
 msgstr "მოწყობილობების პოვნა ვერ მოხერხდა"
 
-#: qml/Main.qml:170 qml/Main.qml:179
+#: qml/Main.qml:193 qml/Main.qml:208
 #, kde-format
 msgid "Settings"
 msgstr "მორგება"
@@ -203,49 +219,67 @@ msgstr "მორგება"
 msgid "Remote Control"
 msgstr "დაშორებული მართვა"
 
-#: qml/mousepad.qml:59
+#: qml/mousepad.qml:61
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
 "განბლოკვისთვის დააჭირეთ %1-ს ან თაგუნას მარცხენა და მარჯვენა ღილაკებს "
 "ერთდროულად"
 
-#: qml/mpris.qml:19
+#: qml/mousepad.qml:213
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Left Click"
+msgstr "მარცხენა-წკაპი"
+
+#: qml/mousepad.qml:222
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Middle Click"
+msgstr "შუა-წკაპი"
+
+#: qml/mousepad.qml:231
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Right Click"
+msgstr "მარჯვენა-წკაპი"
+
+#: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
 msgstr "მულტიმედიის მართვა"
 
-#: qml/mpris.qml:67
+#: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
 msgstr "დამკვირებელები ვერ ვიპოვე"
 
-#: qml/mpris.qml:107
+#: qml/mpris.qml:111
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:103
+#: qml/PluginSettings.qml:121
 #, kde-format
 msgid "Configure plugin"
 msgstr "დამატების მორგება"
 
-#: qml/presentationRemote.qml:21
+#: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
 msgstr "სრული ეკრანის ჩართვა"
 
-#: qml/runcommand.qml:22
+#: qml/runcommand.qml:23
 #, kde-format
 msgid "Edit commands"
 msgstr "ბრძანებების ჩასწორება"
 
-#: qml/runcommand.qml:25
+#: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr "თქვენ შეგიძლიათ შეცვალოთ ბრძანებები დაკავშირებულ მოწყობილობაზე"
 
-#: qml/runcommand.qml:52
+#: qml/runcommand.qml:53
 #, kde-format
 msgid "No commands defined"
 msgstr "ბრძანებები აღწერილი არაა"
@@ -307,36 +341,36 @@ msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
 msgstr "დარწმუნდით, რომ დააყენეთ KDE Connect სხვ მოწყობილობებზეც."
 
-#: qml/WelcomePage.qml:42
+#: qml/WelcomePage.qml:43
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
 msgstr "KDE Connect-ის Android-ის აპლიკაცია"
 
-#: qml/WelcomePage.qml:49
+#: qml/WelcomePage.qml:50
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
 msgstr "F-Droid"
 
-#: qml/WelcomePage.qml:56
+#: qml/WelcomePage.qml:57
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
 msgstr "Play Store"
 
-#: qml/WelcomePage.qml:62
+#: qml/WelcomePage.qml:63
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
 msgstr "KDE Connect-ის iOS-ის აპლიკაცია"
 
-#: qml/WelcomePage.qml:67
+#: qml/WelcomePage.qml:68
 #, kde-format
 msgid "Apple Store"
 msgstr "Apple Store"
 
-#: qml/WelcomePage.qml:73
+#: qml/WelcomePage.qml:74
 #, kde-format
 msgid ""
 "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
@@ -346,6 +380,12 @@ msgstr ""
 "პრობლემების ქონის შემთხვევაში დახმარებისთვის ეწვიეთ <a href=\"https://"
 "userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline;"
 "\">KDE Connect-ის საზოგადოების ვიკის</span></a>."
+
+#~ msgid "(c) 2015, Aleix Pol Gonzalez"
+#~ msgstr "(c) 2015, Aleix Pol Gonzalez"
+
+#~ msgid "Maintainer"
+#~ msgstr "წამყვანი პროგრამისტი"
 
 #~ msgid ""
 #~ "<html><head/><body><p>No device selected<br><br>If you own an Android "

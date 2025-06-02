@@ -42,7 +42,9 @@ Kirigami.Page
                 id: lockButton
                 anchors.centerIn: parent
                 text: i18n("Lock")
+                focus: true
                 visible: !Kirigami.Settings.tabletMode && !PointerLocker.isLocked
+                KeyNavigation.down: middleClickButton
                 onClicked: {
                     PointerLocker.isLocked = true
                     area.pressedPos = Qt.point(-1, -1);
@@ -57,6 +59,11 @@ Kirigami.Page
                 horizontalAlignment: Text.AlignHCenter
 
                 text: i18n("Press %1 or the left and right mouse buttons at the same time to unlock", unlockShortcut.nativeText)
+                onVisibleChanged: {
+                    if (visible && Accessible.announce) {
+                        Accessible.announce(text);
+                    }
+                }
             }
 
             Connections {
@@ -84,7 +91,7 @@ Kirigami.Page
                 }
             }
 
-            onClicked: {
+            onClicked: (mouse) => {
                 var clickType = "";
                 var packet = {};
                 switch (mouse.button) {
@@ -112,7 +119,7 @@ Kirigami.Page
                 }
             }
 
-            onPressAndHold: {
+            onPressAndHold: (mouse) => {
                 if (PointerLocker.isLocked)
                     return;                     // we send singlehold and singlerelease twice instead through onPressed and onReleased
                 var clickType = "";
@@ -132,7 +139,7 @@ Kirigami.Page
                 }
             }
 
-            onPositionChanged: {
+            onPositionChanged: (mouse) => {
                 if (lastPos.x > -1) {
     //                 console.log("move", mouse.x, mouse.y, lastPos)
                     var delta = Qt.point(mouse.x-lastPos.x, mouse.y-lastPos.y);
@@ -142,13 +149,13 @@ Kirigami.Page
                 lastPos = Qt.point(mouse.x, mouse.y);
             }
 
-            Keys.onPressed: {
+            Keys.onPressed: (event) => {
                 if (event.key == Qt.Key_X) {
                     PointerLocker.isLocked = false
                     event.accepted = true;
                 }
             }
-            onPressed: {
+            onPressed: (mouse) => {
                 if (PointerLocker.isLocked) {
                     if (pressedButtons === (Qt.LeftButton | Qt.RightButton)) {
                         PointerLocker.isLocked = false
@@ -172,7 +179,7 @@ Kirigami.Page
                 }
             }
 
-            onWheel: {
+            onWheel: (wheel) => {
                 var packet = {};
                 packet["scroll"] = true;
                 packet["dy"] = wheel.angleDelta.y;
@@ -180,7 +187,7 @@ Kirigami.Page
                 mousepad.pluginInterface.sendCommand(packet);
             }
 
-            onReleased: {
+            onReleased: (mouse) => {
                 if (!PointerLocker.isLocked) {
                     lastPos = Qt.point(-1,-1);
                     releasedPos = Qt.point(mouse.x, mouse.y);
@@ -200,18 +207,29 @@ Kirigami.Page
             Layout.fillWidth: true
 
             Button {
+                id: leftClickButton
                 Layout.fillWidth: true
                 icon.name: "input-mouse-click-left"
+                Accessible.name: i18nc("@action:button accessible", "Left Click")
+                KeyNavigation.right: middleClickButton
+                KeyNavigation.up: lockButton
                 onClicked: mousepad.pluginInterface.sendCommand({"singleclick": true});
             }
             Button {
+                id: middleClickButton
                 Layout.fillWidth: true
                 icon.name: "input-mouse-click-middle"
+                Accessible.name: i18nc("@action:button accessible", "Middle Click")
+                KeyNavigation.right: rightClickButton
+                KeyNavigation.up: lockButton
                 onClicked: mousepad.pluginInterface.sendCommand({"middleclick": true});
             }
             Button {
+                id: rightClickButton
                 Layout.fillWidth: true
                 icon.name: "input-mouse-click-right"
+                Accessible.name: i18nc("@action:button accessible", "Right Click")
+                KeyNavigation.up: lockButton
                 onClicked: mousepad.pluginInterface.sendCommand({"rightclick": true});
             }
         }

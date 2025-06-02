@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2020-06-10 16:01+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -33,10 +33,16 @@ msgstr "KDE Connectin asetukset"
 
 #: main.cpp:31
 #, kde-format
-msgid "(C) 2018-2020 Nicolas Fella"
+msgid "(c) 2018-2025, KDE Connect Team"
+msgstr ""
+
+#: main.cpp:32
+#, fuzzy, kde-format
+#| msgid "(C) 2018-2020 Nicolas Fella"
+msgid "Nicolas Fella"
 msgstr "© 2018–2020 Nicolas Fella"
 
-#: main.cpp:37 main.cpp:56
+#: main.cpp:57 main.cpp:76
 #, kde-format
 msgid "Arguments for the config module"
 msgstr "Asetusmoduulin parametrit"

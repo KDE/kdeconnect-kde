@@ -1,20 +1,20 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
-"PO-Revision-Date: 2024-03-24 10:25+0200\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-19 18:25+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -63,7 +63,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "מסרונים עם KDE Connect"
@@ -75,8 +75,8 @@ msgstr "הודעות מיידיות במסרונים"
 
 #: main.cpp:54
 #, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018‏-2022, צוות KDE Connect"
+msgid "(C) 2018-2025, KDE Connect Team"
+msgstr "‏(C) 2018‏-2025, צוות KDE Connect"
 
 #: main.cpp:55
 #, kde-format
@@ -93,22 +93,22 @@ msgstr "אלש פול גונזלז"
 msgid "Nicolas Fella"
 msgstr "ניקולס פלה"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "נא לבחור מכשיר"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "מזהה"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "שליחת הודעה"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "הודעה"
@@ -117,16 +117,6 @@ msgstr "הודעה"
 #, kde-format
 msgid "Open with default"
 msgstr "פתיחה עם ברירת המחדל"
-
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "העתקת הודעה"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "העתקת בחירה"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -146,7 +136,7 @@ msgid ""
 "your device and then click Refresh."
 msgstr ""
 "הדיונים נטענים מהמכשיר. אם זה לוקח זמן רב, נא להעיר את המכשיר שלך ואז ללחוץ "
-"על רענון."
+"על ריענון."
 
 #: qml/ConversationList.qml:56
 #, kde-format
@@ -155,10 +145,10 @@ msgid ""
 "load quickly."
 msgstr "עצה: חיבור המכשיר לחשמל אמור לדחות מצב נמנום וההודעות תיטענה במהרה."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
-msgstr "רענון"
+msgstr "ריענון"
 
 #: qml/ConversationList.qml:82
 #, kde-format
@@ -170,31 +160,36 @@ msgstr "בחירת נמען"
 msgid "Cancel"
 msgstr "ביטול"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "חיפוש או התחלת שיחה"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "התחלת שיחה חדשה"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "אין תוצאות"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "מכשירים"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
 msgstr "על אודות"
+
+#: qml/Main.qml:115
+#, kde-format
+msgid "About KDE"
+msgstr "על KDE"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -213,8 +208,35 @@ msgstr "חרגת ממגבלת הגודל המרבי להודעה."
 
 #: qml/SendingArea.qml:63
 #, kde-format
-msgid "Compose message"
-msgstr "כתיבת הודעה"
+msgid "Send a message…"
+msgstr "שליחת הודעה…"
+
+#: qml/SendingArea.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr "צירוף תמונה או קובץ"
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr "פינוי קבצים מצורפים"
+
+#: qml/SendingArea.qml:173
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "שליחת הודעה"
+
+#~ msgid "Copy Message"
+#~ msgstr "העתקת הודעה"
+
+#~ msgid "Copy Selection"
+#~ msgstr "העתקת בחירה"
+
+#~ msgid "Compose message"
+#~ msgstr "כתיבת הודעה"
 
 #~ msgid "New"
 #~ msgstr "חדש"

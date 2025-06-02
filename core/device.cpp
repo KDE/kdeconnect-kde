@@ -298,10 +298,12 @@ void Device::addLink(DeviceLink *link)
 bool Device::updateDeviceInfo(const DeviceInfo &newDeviceInfo)
 {
     bool hasChanges = false;
-    if (d->m_deviceInfo.name != newDeviceInfo.name || d->m_deviceInfo.type != newDeviceInfo.type) {
+    if (d->m_deviceInfo.name != newDeviceInfo.name || d->m_deviceInfo.type != newDeviceInfo.type
+        || d->m_deviceInfo.protocolVersion != newDeviceInfo.protocolVersion) {
         hasChanges = true;
         d->m_deviceInfo.name = newDeviceInfo.name;
         d->m_deviceInfo.type = newDeviceInfo.type;
+        d->m_deviceInfo.protocolVersion = newDeviceInfo.protocolVersion;
         Q_EMIT typeChanged(d->m_deviceInfo.type.toString());
         Q_EMIT nameChanged(d->m_deviceInfo.name);
         if (isPaired()) {
@@ -464,6 +466,8 @@ QString Device::encryptionInfo() const
     }
     result += i18n("SHA256 fingerprint of remote device certificate is: %1\n", remoteChecksum);
 
+    result += i18n("Protocol version: %1\n", d->m_deviceInfo.protocolVersion);
+
     return result;
 }
 
@@ -474,16 +478,7 @@ QSslCertificate Device::certificate() const
 
 QString Device::verificationKey() const
 {
-    auto a = KdeConnectConfig::instance().certificate().publicKey().toDer();
-    auto b = certificate().publicKey().toDer();
-    if (a < b) {
-        std::swap(a, b);
-    }
-
-    QCryptographicHash hash(QCryptographicHash::Sha256);
-    hash.addData(a);
-    hash.addData(b);
-    return QString::fromLatin1(hash.result().toHex().left(8).toUpper());
+    return d->m_pairingHandler->verificationKey();
 }
 
 QString Device::pluginIconName(const QString &pluginName)

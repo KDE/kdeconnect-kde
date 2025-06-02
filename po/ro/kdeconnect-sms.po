@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-06-09 11:32+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -63,7 +63,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "SMS KDE Connect"
@@ -74,8 +74,9 @@ msgid "SMS Instant Messaging"
 msgstr "Mesagerie instantanee SMS"
 
 #: main.cpp:54
-#, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
+#, fuzzy, kde-format
+#| msgid "(C) 2018-2022, KDE Connect Team"
+msgid "(C) 2018-2025, KDE Connect Team"
 msgstr "(C) 2018-2022, Echipa KDE Connect"
 
 #: main.cpp:55
@@ -93,22 +94,22 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "Alegeți un dispozitiv"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "Trimite mesaj"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "mesaj"
@@ -117,16 +118,6 @@ msgstr "mesaj"
 #, kde-format
 msgid "Open with default"
 msgstr "Deschide cu implicit"
-
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Copiază mesaj"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Copiază selecția"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -159,7 +150,7 @@ msgstr ""
 "Sfat: Dacă conectați dispozitivul la încărcător, acesta nu ar trebui să "
 "intre în regim de ațipire și ar conversațiile trebui să se încarce rapid."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Reîmprospătează"
@@ -174,30 +165,36 @@ msgstr "Alege destinatarul"
 msgid "Cancel"
 msgstr "Renunță"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Caută sau începe conversație"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Începe conversație nouă"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Nicio potrivire"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "Dispozitive"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
+msgstr "Despre"
+
+#: qml/Main.qml:115
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
 msgstr "Despre"
 
 #: qml/MessageAttachments.qml:114
@@ -216,9 +213,38 @@ msgid "Max message size limit exceeded."
 msgstr "Limita maximă de dimensiune a mesajului a fost depășită."
 
 #: qml/SendingArea.qml:63
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgid "Send a message…"
+msgstr "Trimite mesaj"
+
+#: qml/SendingArea.qml:119
 #, kde-format
-msgid "Compose message"
-msgstr "Compune mesaj"
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Trimite mesaj"
+
+#~ msgid "Copy Message"
+#~ msgstr "Copiază mesaj"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Copiază selecția"
+
+#~ msgid "Compose message"
+#~ msgstr "Compune mesaj"
 
 #~ msgid "New"
 #~ msgstr "Nouă"

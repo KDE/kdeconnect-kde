@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2020, 2021, 2022, 2024.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025 Giovanni Sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
-"PO-Revision-Date: 2024-03-25 12:00+0100\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-22 12:03+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -62,7 +62,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect SMS"
@@ -74,8 +74,8 @@ msgstr "Messageria instantanee de SMS"
 
 #: main.cpp:54
 #, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018-2022, KDE Connect Team (Equipa de KDE Connect)"
+msgid "(C) 2018-2025, KDE Connect Team"
+msgstr "(C) 2018-2025, KDE Connect Team (Equipa de KDE Connect)"
 
 #: main.cpp:55
 #, kde-format
@@ -92,22 +92,22 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "Selige un dispositivo"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "Invia un message"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "message"
@@ -116,16 +116,6 @@ msgstr "message"
 #, kde-format
 msgid "Open with default"
 msgstr "Aperi con predefinite"
-
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Copia message"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Copia selection"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -158,7 +148,7 @@ msgstr ""
 "Consilio:Si tu insere tu dispositivo, illo non deberea vader in modo de "
 "somno curte e deberea crgar rapidemente."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Refresca"
@@ -173,31 +163,36 @@ msgstr "Selige destinatario"
 msgid "Cancel"
 msgstr "Cancella"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Cerca o Initia un conversation"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Initia nove conversation"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Nulle correspondentias"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
 msgstr "A proposito"
+
+#: qml/Main.qml:115
+#, kde-format
+msgid "About KDE"
+msgstr "A proposito de KDE"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -216,8 +211,35 @@ msgstr "Excedeva le limite de grandor maxime de message."
 
 #: qml/SendingArea.qml:63
 #, kde-format
-msgid "Compose message"
-msgstr "Compone message"
+msgid "Send a message…"
+msgstr "Invia un message…"
+
+#: qml/SendingArea.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr "Attacha un image o un file"
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr "Netta attachamentos"
+
+#: qml/SendingArea.qml:173
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Invia message"
+
+#~ msgid "Copy Message"
+#~ msgstr "Copia message"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Copia selection"
+
+#~ msgid "Compose message"
+#~ msgstr "Compone message"
 
 #~ msgid "New"
 #~ msgstr "Nove "

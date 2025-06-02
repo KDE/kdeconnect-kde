@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-10-25 21:56-0500\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -62,7 +62,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE ਕਨੈਕਟ SMS"
@@ -73,8 +73,9 @@ msgid "SMS Instant Messaging"
 msgstr "SMS ਫੌਰੀ ਸੁਨੇਹੇ"
 
 #: main.cpp:54
-#, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
+#, fuzzy, kde-format
+#| msgid "(C) 2018-2022, KDE Connect Team"
+msgid "(C) 2018-2025, KDE Connect Team"
 msgstr "(C) 2018-2022, KDE ਕਨੈਕਟ ਟੀਮ"
 
 #: main.cpp:55
@@ -92,22 +93,22 @@ msgstr "ਐਲਿਕਸ ਪੋਲ ਗੋਨਜ਼ਾਵੇਜ"
 msgid "Nicolas Fella"
 msgstr "ਨਿਕੋਲਸ ਫੇਲਾ"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "ਡਿਵਾਈਸ ਚੁਣੋ"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "ਸੁਨੇਹਾ"
@@ -116,16 +117,6 @@ msgstr "ਸੁਨੇਹਾ"
 #, kde-format
 msgid "Open with default"
 msgstr "ਮੂਲ ਨਾਲ ਖੋਲ੍ਹੋ"
-
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "ਸੁਨੇਹੇ ਨੂੰ ਕਾਪੀ ਕਰੋ"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "ਚੋਣ ਨੂੰ ਕਾਪੀ ਕਰੋ"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -154,7 +145,7 @@ msgid ""
 "load quickly."
 msgstr ""
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "ਤਾਜ਼ਾ ਕਰੋ"
@@ -169,30 +160,36 @@ msgstr "ਪ੍ਰਾਪਤ ਕਰਤਾ ਚੁਣੋ"
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "ਗੱਲਬਾਤ ਖੋਜੋ ਜਾਂ ਸ਼ੁਰੂ ਕਰੋ"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "ਨਵੀਂ ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "ਕੋਈ ਮੇਲ ਨਹੀਂ"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "ਡਿਵਾਈਸ"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
+msgstr "ਇਸ ਬਾਰੇ"
+
+#: qml/Main.qml:115
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
 msgstr "ਇਸ ਬਾਰੇ"
 
 #: qml/MessageAttachments.qml:114
@@ -211,9 +208,38 @@ msgid "Max message size limit exceeded."
 msgstr ""
 
 #: qml/SendingArea.qml:63
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgid "Send a message…"
+msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
+
+#: qml/SendingArea.qml:119
 #, kde-format
-msgid "Compose message"
-msgstr "ਸੁਨੇਹਾ ਬਣਾਓ"
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
+
+#~ msgid "Copy Message"
+#~ msgstr "ਸੁਨੇਹੇ ਨੂੰ ਕਾਪੀ ਕਰੋ"
+
+#~ msgid "Copy Selection"
+#~ msgstr "ਚੋਣ ਨੂੰ ਕਾਪੀ ਕਰੋ"
+
+#~ msgid "Compose message"
+#~ msgstr "ਸੁਨੇਹਾ ਬਣਾਓ"
 
 #~ msgid "New"
 #~ msgstr "ਨਵੀਂ"

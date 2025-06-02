@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:40+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-03-26 17:48+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Deutsches KDE-Übersetzerteam"
+msgstr "Deutsches KDE-Übersetzungsteam"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -64,7 +64,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:68
+#: main.cpp:50 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect-SMS"
@@ -75,8 +75,9 @@ msgid "SMS Instant Messaging"
 msgstr "SMS Instant-Messaging"
 
 #: main.cpp:54
-#, kde-format
-msgid "(C) 2018-2022, KDE Connect Team"
+#, fuzzy, kde-format
+#| msgid "(C) 2018-2022, KDE Connect Team"
+msgid "(C) 2018-2025, KDE Connect Team"
 msgstr "Copyright 2018-2022, KDE-Connect-Team"
 
 #: main.cpp:55
@@ -94,22 +95,22 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "Select a device"
 msgstr "Wählen Sie ein Gerät"
 
-#: main.cpp:77
+#: main.cpp:86
 #, kde-format
 msgid "id"
 msgstr "Id"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "Send a message"
 msgstr "Nachricht senden"
 
-#: main.cpp:78
+#: main.cpp:87
 #, kde-format
 msgid "message"
 msgstr "Nachricht"
@@ -118,16 +119,6 @@ msgstr "Nachricht"
 #, kde-format
 msgid "Open with default"
 msgstr "Mit Standard-Anwendung öffnen"
-
-#: qml/ChatMessage.qml:153
-#, kde-format
-msgid "Copy Message"
-msgstr "Nachricht kopieren"
-
-#: qml/ChatMessage.qml:158
-#, kde-format
-msgid "Copy Selection"
-msgstr "Auswahl kopieren"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -161,7 +152,7 @@ msgstr ""
 "Tipp: Wenn das Gerät angeschlossen ist, sollte es nicht in den Doze-Modus "
 "wechseln und sollte schnell laden."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:88
+#: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Aktualisieren"
@@ -176,30 +167,36 @@ msgstr "Empfänger auswählen"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: qml/ConversationList.qml:102
+#: qml/ConversationList.qml:106
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Eine Unterhaltung suchen oder beginnen"
 
-#: qml/ConversationList.qml:136
+#: qml/ConversationList.qml:141
 #, kde-format
 msgid "Start new conversation"
 msgstr "Neue Unterhaltung beginnen"
 
-#: qml/ConversationList.qml:186
+#: qml/ConversationList.qml:191
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Keine Übereinstimmungen"
 
-#: qml/Main.qml:83
+#: qml/Main.qml:93
 #, kde-format
 msgid "Devices"
 msgstr "Geräte"
 
-#: qml/Main.qml:96
+#: qml/Main.qml:106
 #, kde-format
 msgid "About"
+msgstr "Über"
+
+#: qml/Main.qml:115
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
 msgstr "Über"
 
 #: qml/MessageAttachments.qml:114
@@ -218,9 +215,38 @@ msgid "Max message size limit exceeded."
 msgstr "Maximale Nachrichtengröße überschritten"
 
 #: qml/SendingArea.qml:63
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgid "Send a message…"
+msgstr "Nachricht senden"
+
+#: qml/SendingArea.qml:119
 #, kde-format
-msgid "Compose message"
-msgstr "Nachricht erstellen"
+msgctxt "@info:tooltip"
+msgid "Attach an image or file"
+msgstr ""
+
+#: qml/SendingArea.qml:144
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear attachments"
+msgstr ""
+
+#: qml/SendingArea.qml:173
+#, fuzzy, kde-format
+#| msgid "Send a message"
+msgctxt "@info:tooltip"
+msgid "Send message"
+msgstr "Nachricht senden"
+
+#~ msgid "Copy Message"
+#~ msgstr "Nachricht kopieren"
+
+#~ msgid "Copy Selection"
+#~ msgstr "Auswahl kopieren"
+
+#~ msgid "Compose message"
+#~ msgstr "Nachricht erstellen"
 
 #~ msgid "New"
 #~ msgstr "Neu"

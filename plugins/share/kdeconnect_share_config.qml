@@ -8,6 +8,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import QtQuick.Dialogs
+import QtCore
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kdeconnect 1.0
 
@@ -47,9 +48,12 @@ Kirigami.ScrollablePage {
 
             QQC2.TextField {
                 id: path
+                focus: true
+                KeyNavigation.right: folderPickerButton
             }
 
             QQC2.Button {
+                id: folderPickerButton
                 icon.name: "document-open"
                 onClicked: folderDialog.open()
             }
