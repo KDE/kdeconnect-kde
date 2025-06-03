@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-16 00:42+0000\n"
-"PO-Revision-Date: 2024-07-26 14:09+0200\n"
+"PO-Revision-Date: 2025-06-01 14:59+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -96,23 +96,22 @@ msgstr "KDE Connect-indikatorverktøy"
 #: main.cpp:61
 #, kde-format
 msgid "(c) 2016-2025, KDE Connect Team"
-msgstr ""
+msgstr "© 2018–2025 KDE Connect-gruppa"
 
 #: main.cpp:62
-#, fuzzy, kde-format
-#| msgid "(C) 2016 Aleix Pol Gonzalez"
+#, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "© 2016 Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
 
 #: main.cpp:63
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:104
 #, kde-format
 msgid "Open app"
-msgstr ""
+msgstr "Opna app"
 
 #: main.cpp:109
 #, kde-format

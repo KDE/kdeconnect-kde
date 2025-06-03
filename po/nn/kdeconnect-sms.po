@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2024-05-15 20:36+0200\n"
+"PO-Revision-Date: 2025-06-01 15:00+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 25.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -74,10 +74,9 @@ msgid "SMS Instant Messaging"
 msgstr "Lynmeldingar via SMS"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2022, KDE Connect Team"
+#, kde-format
 msgid "(C) 2018-2025, KDE Connect Team"
-msgstr "© 2018–2022 KDE Connect-gruppa"
+msgstr "© 2018–2025 KDE Connect-gruppa"
 
 #: main.cpp:55
 #, kde-format
@@ -192,9 +191,9 @@ msgid "About"
 msgstr "Om"
 
 #: qml/Main.qml:115
-#, fuzzy, kde-format
+#, kde-format
 msgid "About KDE"
-msgstr "Om"
+msgstr "Om KDE"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -212,24 +211,24 @@ msgid "Max message size limit exceeded."
 msgstr "Over grensa for meldingsstorleik."
 
 #: qml/SendingArea.qml:63
-#, fuzzy, kde-format
+#, kde-format
 msgid "Send a message…"
-msgstr "Send ei melding"
+msgstr "Send ei melding …"
 
 #: qml/SendingArea.qml:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
-msgstr ""
+msgstr "Legg ved bilete eller fil"
 
 #: qml/SendingArea.qml:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
-msgstr ""
+msgstr "Fjern vedlegg"
 
 #: qml/SendingArea.qml:173
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
-msgstr "Send ei melding"
+msgstr "Send meldinga"

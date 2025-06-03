@@ -1,12 +1,11 @@
 # Translation of kdeconnect-urlhandler to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2017, 2018, 2019, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2023-01-15 11:18+0100\n"
+"PO-Revision-Date: 2025-06-01 14:58+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 25.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -61,18 +60,17 @@ msgstr "KDE Connect adressehandsamar"
 #: kdeconnect-handler.cpp:50
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr ""
+msgstr "© 2018–2025 KDE Connect-gruppa"
 
 #: kdeconnect-handler.cpp:51
-#, fuzzy, kde-format
-#| msgid "(C) 2017 Aleix Pol Gonzalez"
+#, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "© 2017 Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
 
 #: kdeconnect-handler.cpp:52
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: kdeconnect-handler.cpp:84
 #, kde-format

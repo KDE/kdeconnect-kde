@@ -1,12 +1,11 @@
 # Translation of kdeconnect-settings to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2020-04-02 20:52+0200\n"
+"PO-Revision-Date: 2025-06-01 14:58+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 25.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -37,13 +36,12 @@ msgstr "Innstillingar for KDE Connect"
 #: main.cpp:31
 #, kde-format
 msgid "(c) 2018-2025, KDE Connect Team"
-msgstr ""
+msgstr "© 2018–2025 KDE Connect-gruppa"
 
 #: main.cpp:32
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2020 Nicolas Fella"
+#, kde-format
 msgid "Nicolas Fella"
-msgstr "© 2018–2020 Nicolas Fella"
+msgstr "Nicolas Fella"
 
 #: main.cpp:57 main.cpp:76
 #, kde-format

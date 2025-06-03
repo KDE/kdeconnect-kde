@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-21 00:41+0000\n"
-"PO-Revision-Date: 2024-07-06 14:27+0200\n"
+"PO-Revision-Date: 2025-06-01 14:57+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 25.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -26,7 +26,7 @@ msgstr "KDE Connect"
 #: main.cpp:33
 #, kde-format
 msgid "(c) 2015-2025, KDE Connect Team"
-msgstr ""
+msgstr "© 2018–2025 KDE Connect-gruppa"
 
 #: main.cpp:34
 #, kde-format
@@ -36,7 +36,7 @@ msgstr "Aleix Pol Gonzalez"
 #: main.cpp:35
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:36
 #, kde-format
@@ -74,13 +74,13 @@ msgstr "Programtillegg-oppsett"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "Handlingar"
 
 #: qml/DevicePage.qml:62
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr "Fjernstyring"
+msgstr "Styring"
 
 #: qml/DevicePage.qml:108
 #, kde-format
@@ -133,11 +133,9 @@ msgid "Share File"
 msgstr "Del fil"
 
 #: qml/DevicePage.qml:183
-#, fuzzy, kde-format
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"Eininga er ikkje para.\n"
-"Nøkkel: %1"
+msgstr "Eininga er ikkje para."
 
 #: qml/DevicePage.qml:187
 #, kde-format
@@ -175,7 +173,7 @@ msgid "Please choose a file"
 msgstr "Vel ei fil"
 
 #: qml/Main.qml:66
-#, fuzzy, kde-format
+#, kde-format
 msgid "Devices"
 msgstr "Einingar"
 
@@ -183,13 +181,13 @@ msgstr "Einingar"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Oppdater"
 
 #: qml/Main.qml:76
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Einingar"
+msgstr "Oppdater einingar"
 
 #: qml/Main.qml:112
 #, kde-format
@@ -230,19 +228,19 @@ msgstr "Trykk på %1 eller venstre og høgre museknapp samtidig for å låsa opp
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Venstreklikk"
 
 #: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Midtklikk"
 
 #: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Høgreklikk"
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -299,25 +297,25 @@ msgstr "Einingsnamn"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "Motorar"
 
 #: qml/Settings.qml:54
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: qml/Settings.qml:56
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Loopback"
 
 #: qml/Settings.qml:58
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Nettverk"
 
 #: qml/Settings.qml:73
 #, kde-format
@@ -333,42 +331,42 @@ msgstr "Om KDE"
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "Inga eining er vald"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
-msgstr ""
+msgstr "Sjå til at KDE Connect er installert på dei andre einingane."
 
 #: qml/WelcomePage.qml:43
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr "KDE Connect"
+msgstr "KDE Connect Android-app"
 
 #: qml/WelcomePage.qml:50
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "F-Droid"
 
 #: qml/WelcomePage.qml:57
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "Play Store"
 
 #: qml/WelcomePage.qml:63
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr "KDE Connect"
+msgstr "KDE Connect iOS-app"
 
 #: qml/WelcomePage.qml:68
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "Apple Store"
 
 #: qml/WelcomePage.qml:74
 #, kde-format
