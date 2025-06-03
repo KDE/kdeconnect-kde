@@ -18,8 +18,6 @@
 #include <ppltasks.h>
 #include <windows.h>
 
-using namespace Windows::Foundation;
-
 K_PLUGIN_CLASS_WITH_JSON(MprisControlPlugin, "kdeconnect_mpriscontrol.json")
 
 namespace
@@ -57,6 +55,17 @@ std::optional<QString> MprisControlPlugin::getPlayerName(const GlobalSystemMedia
     }
 
     return entry.key();
+}
+
+TimeSpan MprisControlPlugin::getPlayerPosition(const GlobalSystemMediaTransportControlsSession &player)
+{
+    auto playbackInfo = player.GetPlaybackInfo();
+    bool isPlaying = playbackInfo.PlaybackStatus() == GlobalSystemMediaTransportControlsSessionPlaybackStatus::Playing;
+    auto position = player.GetTimelineProperties().Position();
+    if (isPlaying)
+        return position + winrt::clock::now() - player.GetTimelineProperties().LastUpdatedTime();
+    else
+        return position;
 }
 
 QString MprisControlPlugin::randomUrl()
@@ -443,7 +452,7 @@ void MprisControlPlugin::receivePacket(const NetworkPacket &np)
     if (np.has(QStringLiteral("Seek"))) {
         TimeSpan offset = std::chrono::microseconds(np.get<int>(QStringLiteral("Seek")));
         qWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Seeking" << offset.count() << "ns to" << name;
-        player.TryChangePlaybackPositionAsync((player.GetTimelineProperties().Position() + offset).count()).get();
+        player.TryChangePlaybackPositionAsync((getPlayerPosition(player) + offset).count()).get();
     }
 
     if (np.has(QStringLiteral("SetPosition"))) {

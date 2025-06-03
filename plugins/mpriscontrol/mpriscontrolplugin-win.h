@@ -23,6 +23,7 @@ using namespace winrt;
 using namespace Windows::Media::Control;
 using namespace Windows::Storage::Streams;
 using namespace Windows::ApplicationModel;
+using namespace Windows::Foundation;
 
 #define PACKET_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
 
@@ -46,6 +47,7 @@ private:
     std::vector<GlobalSystemMediaTransportControlsSession::TimelinePropertiesChanged_revoker> timelinePropertiesChangedHandlers;
 
     std::optional<QString> getPlayerName(const GlobalSystemMediaTransportControlsSession &player);
+    TimeSpan getPlayerPosition(const GlobalSystemMediaTransportControlsSession &player);
     void sendMediaProperties(const std::variant<NetworkPacket, QString> &packetOrName, const GlobalSystemMediaTransportControlsSession &player);
     void sendPlaybackInfo(const std::variant<NetworkPacket, QString> &packetOrName, const GlobalSystemMediaTransportControlsSession &player);
     void sendTimelineProperties(const std::variant<NetworkPacket, QString> &packetOrName,
