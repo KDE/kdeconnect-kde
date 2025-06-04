@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:43+0000\n"
+"POT-Creation-Date: 2025-06-04 00:42+0000\n"
 "PO-Revision-Date: 2025-05-31 17:38+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -84,7 +84,7 @@ msgstr "نجح القفل عن بعد"
 msgid "Remote lock failed"
 msgstr "فشل القفل عن بعد"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:28
+#: mpriscontrol/mpriscontrolplugin-win.cpp:26
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
@@ -92,9 +92,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "المشغل الحالي"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:84
-#: mpriscontrol/mpriscontrolplugin-win.cpp:85
-#: mpriscontrol/mpriscontrolplugin-win.cpp:86
+#: mpriscontrol/mpriscontrolplugin-win.cpp:93
+#: mpriscontrol/mpriscontrolplugin-win.cpp:94
+#: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #, kde-format
 msgid "N/A"
 msgstr "غ/م"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:43+0000\n"
+"POT-Creation-Date: 2025-06-04 00:42+0000\n"
 "PO-Revision-Date: 2025-05-25 16:21+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -83,7 +83,7 @@ msgstr "Etälukitus onnistui"
 msgid "Remote lock failed"
 msgstr "Etälukitus epäonnistui"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:28
+#: mpriscontrol/mpriscontrolplugin-win.cpp:26
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
@@ -91,9 +91,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Nykyinen soitin"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:84
-#: mpriscontrol/mpriscontrolplugin-win.cpp:85
-#: mpriscontrol/mpriscontrolplugin-win.cpp:86
+#: mpriscontrol/mpriscontrolplugin-win.cpp:93
+#: mpriscontrol/mpriscontrolplugin-win.cpp:94
+#: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #, kde-format
 msgid "N/A"
 msgstr "Ei käyt."

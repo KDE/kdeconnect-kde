@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:43+0000\n"
+"POT-Creation-Date: 2025-06-04 00:42+0000\n"
 "PO-Revision-Date: 2025-04-14 11:34+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -86,7 +86,7 @@ msgstr "Bloqueig remot amb èxit"
 msgid "Remote lock failed"
 msgstr "Ha fallat el bloqueig remot"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:28
+#: mpriscontrol/mpriscontrolplugin-win.cpp:26
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
@@ -94,9 +94,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Reproductor actual"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:84
-#: mpriscontrol/mpriscontrolplugin-win.cpp:85
-#: mpriscontrol/mpriscontrolplugin-win.cpp:86
+#: mpriscontrol/mpriscontrolplugin-win.cpp:93
+#: mpriscontrol/mpriscontrolplugin-win.cpp:94
+#: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #, kde-format
 msgid "N/A"
 msgstr "N/D"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:43+0000\n"
+"POT-Creation-Date: 2025-06-04 00:42+0000\n"
 "PO-Revision-Date: 2025-04-14 10:06+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -85,7 +85,7 @@ msgstr "Успішне віддалене блокування"
 msgid "Remote lock failed"
 msgstr "Помилка під час віддаленого блокування"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:28
+#: mpriscontrol/mpriscontrolplugin-win.cpp:26
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
@@ -93,9 +93,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Поточний програвач"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:84
-#: mpriscontrol/mpriscontrolplugin-win.cpp:85
-#: mpriscontrol/mpriscontrolplugin-win.cpp:86
+#: mpriscontrol/mpriscontrolplugin-win.cpp:93
+#: mpriscontrol/mpriscontrolplugin-win.cpp:94
+#: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #, kde-format
 msgid "N/A"
 msgstr "н/д"
