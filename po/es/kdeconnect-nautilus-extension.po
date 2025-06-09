@@ -1,15 +1,15 @@
 # Spanish translations for kdeconnect-nautilus-extension.po package.
-# Copyright (C) 2019 This file is copyright:
+# Copyright (C) 2019-2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-#
 # Automatically generated, 2019.
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2019.
+#
+# SPDX-FileCopyrightText: 2019, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-nautilus-extension\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2019-07-13 17:31+0100\n"
+"PO-Revision-Date: 2025-06-09 02:03+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"

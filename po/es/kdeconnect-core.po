@@ -1,5 +1,5 @@
-# Translation of kdeconnect-core.po to Spanish
-# Copyright (C) 2014-2025 This_file_is_part_of_KDE
+# Spanish translations for kdeconnect-core.po package.
+# Copyright (C) 2014-2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-24 00:41+0000\n"
-"PO-Revision-Date: 2025-03-01 17:18+0100\n"
+"PO-Revision-Date: 2025-06-09 02:01+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"

@@ -1,15 +1,16 @@
-# Translation of kdeconnect-kcm to Spanish
-# Copyright (C) YEAR This_file_is_part_of_KDE
+# Spanish translations for kdeconnect-kcm.po package.
+# Copyright (C) 2013-2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # SPDX-FileCopyrightText: 2013, 2014 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2023, 2024, 2025 Victor Rodrigo Cordoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2025-01-04 20:06+0100\n"
+"PO-Revision-Date: 2025-06-09 02:02+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -217,11 +218,3 @@ msgstr "Conectado"
 #, kde-format
 msgid "No devices found"
 msgstr "No se han encontrado dispositivos"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Víctor Rodrigo Córdoba"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "vrcordoba@gmail.com"

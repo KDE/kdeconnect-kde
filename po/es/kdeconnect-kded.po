@@ -1,5 +1,5 @@
 # Spanish translations for kdeconnect-kded.po package.
-# Copyright (C) 2013-2025 This_file_is_part_of_KDE
+# Copyright (C) 2013-2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # SPDX-FileCopyrightText: 2013, 2014, 2020 Eloy Cuadra <ecuadra@eloihr.net>
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2025-04-27 05:00+0100\n"
+"PO-Revision-Date: 2025-06-09 02:03+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"

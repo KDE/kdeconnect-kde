@@ -1,5 +1,5 @@
 # Spanish translations for kdeconnect-urlhandler.po package.
-# Copyright (C) 2017-2025 This_file_is_part_of_KDE
+# Copyright (C) 2017-2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # SPDX-FileCopyrightText: 2017, 2018, 2020, 2021, 2022, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2025-04-27 05:03+0100\n"
+"PO-Revision-Date: 2025-06-09 02:04+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
