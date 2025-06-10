@@ -179,7 +179,7 @@ QVariant NotifyingApplicationModel::headerData(int section, Qt::Orientation /*or
         else if (section == 0)
             return QVariant(); // i18n("Sync");
         else
-            return i18n("Blacklisted");
+            return i18n("Excluded");
     }
     case Qt::ToolTipRole: {
         if (section == 1)

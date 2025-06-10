@@ -329,7 +329,7 @@
                </sizepolicy>
               </property>
               <property name="text">
-               <string>Request pair</string>
+               <string>Request pairing</string>
               </property>
              </widget>
             </item>
