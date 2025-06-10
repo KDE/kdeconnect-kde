@@ -114,7 +114,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
     // SMS Messages
     const QString kdeconnectsmsExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-sms"), {QCoreApplication::applicationDirPath()});
     if (!kdeconnectsmsExecutable.isEmpty()) {
-        auto smsapp = addAction(QIcon::fromTheme(QStringLiteral("message-new")), i18n("SMS Messages..."));
+        auto smsapp = addAction(QIcon::fromTheme(QStringLiteral("message-new")), i18n("SMS Messages…"));
         QObject::connect(smsapp, &QAction::triggered, device, [device, kdeconnectsmsExecutable]() {
             QProcess::startDetached(kdeconnectsmsExecutable, {QStringLiteral("--device"), device->id()});
         });

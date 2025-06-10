@@ -31,7 +31,7 @@ int main(int argc, char **argv)
                          QStringLiteral(KDECONNECT_VERSION_STRING),
                          i18n("KDE Connect CLI tool"),
                          KAboutLicense::GPL,
-                         i18n("(c) 2015-2025, KDE Connect Team"));
+                         i18n("© 2015–2025, KDE Connect Team"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
     aboutData.addAuthor(i18n("Albert Vaca Cintora"), {}, QStringLiteral("albertvaka@kde.org"));
     KAboutData::setApplicationData(aboutData);
@@ -254,7 +254,7 @@ int main(int argc, char **argv)
             if (!dev.isReachable()) {
                 // Device doesn't exist, go into discovery mode and wait up to 30 seconds for the device to appear
                 QEventLoop wait;
-                QTextStream(stderr) << i18n("waiting for device...") << Qt::endl;
+                QTextStream(stderr) << i18n("waiting for device…") << Qt::endl;
 
                 QObject::connect(&iface, &DaemonDbusInterface::deviceAdded, &iface, [&](const QString &deviceAddedId) {
                     if (device == deviceAddedId) {

@@ -106,7 +106,7 @@ void Notification::createKNotification(const NetworkPacket &np)
 
     if (!m_requestReplyId.isEmpty()) {
         auto replyAction = std::make_unique<KNotificationReplyAction>(i18nc("@action:button", "Reply"));
-        replyAction->setPlaceholderText(i18nc("@info:placeholder", "Reply to %1...", m_appName));
+        replyAction->setPlaceholderText(i18nc("@info:placeholder", "Reply to %1…", m_appName));
         replyAction->setFallbackBehavior(KNotificationReplyAction::FallbackBehavior::UseRegularAction);
         QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, &Notification::replied);
         QObject::connect(replyAction.get(), &KNotificationReplyAction::activated, this, &Notification::reply);

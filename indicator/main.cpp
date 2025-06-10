@@ -58,7 +58,7 @@ int main(int argc, char **argv)
                          QStringLiteral(KDECONNECT_VERSION_STRING),
                          i18n("KDE Connect Indicator tool"),
                          KAboutLicense::GPL,
-                         i18n("(c) 2016-2025, KDE Connect Team"));
+                         i18n("© 2016–2025 KDE Connect Team"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
     aboutData.addAuthor(i18n("Albert Vaca Cintora"), {}, QStringLiteral("albertvaka@kde.org"));
     aboutData.setProgramLogo(QIcon::fromTheme(QStringLiteral("kdeconnect")));
@@ -106,7 +106,7 @@ int main(int argc, char **argv)
             QProcess::startDetached(appPath);
         });
 #endif
-        auto configure = menu->addAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("Configure..."));
+        auto configure = menu->addAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("Configure…"));
         QObject::connect(configure, &QAction::triggered, configure, [&dialog]() {
             if (dialog == nullptr) {
                 dialog = new KCMultiDialog;

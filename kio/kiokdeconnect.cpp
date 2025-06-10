@@ -72,7 +72,7 @@ KioKdeconnect::KioKdeconnect(const QByteArray &pool, const QByteArray &app)
 
 KIO::WorkerResult KioKdeconnect::listAllDevices()
 {
-    infoMessage(i18n("Listing devices..."));
+    infoMessage(i18n("Listing devices…"));
 
     // TODO: Change to all devices and show different icons for connected and disconnected?
     const QStringList devices = m_dbusInterface->devices(true, true);
@@ -117,7 +117,7 @@ KIO::WorkerResult KioKdeconnect::listAllDevices()
 
 KIO::WorkerResult KioKdeconnect::listDevice(const QString &device)
 {
-    infoMessage(i18n("Accessing device..."));
+    infoMessage(i18n("Accessing device…"));
 
     qCDebug(KDECONNECT_KIO) << "ListDevice" << device;
 

@@ -47,7 +47,7 @@ int main(int argc, char **argv)
                          QStringLiteral(KDECONNECT_VERSION_STRING),
                          description,
                          KAboutLicense::GPL,
-                         i18n("(c) 2015-2025, KDE Connect Team"));
+                         i18n("© 2015–2025 KDE Connect Team"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
     aboutData.addAuthor(i18n("Albert Vaca Cintora"), {}, QStringLiteral("albertvaka@gmail.org"));
     aboutData.setProgramLogo(QIcon::fromTheme(QStringLiteral("kdeconnect")));

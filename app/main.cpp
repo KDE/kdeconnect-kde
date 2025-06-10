@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
                          QStringLiteral(KDECONNECT_VERSION_STRING),
                          i18n("KDE Connect"),
                          KAboutLicense::GPL,
-                         i18n("(c) 2015-2025, KDE Connect Team"));
+                         i18n("© 2015–2025 KDE Connect Team"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
     aboutData.addAuthor(i18n("Albert Vaca Cintora"), {}, QStringLiteral("albertvaka@kde.org"));
     aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));

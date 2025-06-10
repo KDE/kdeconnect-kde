@@ -28,7 +28,7 @@ int main(int argc, char **argv)
                          QStringLiteral(KDECONNECT_VERSION_STRING),
                          i18n("KDE Connect Settings"),
                          KAboutLicense::GPL,
-                         i18n("(c) 2018-2025, KDE Connect Team"));
+                         i18n("© 2018–2025 KDE Connect Team"));
     aboutData.addAuthor(i18n("Nicolas Fella"), {}, QStringLiteral("nicolas.fella@gmx.de"));
     KAboutData::setApplicationData(aboutData);
 
