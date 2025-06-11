@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-02-10 17:41+0100\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -186,15 +186,19 @@ msgid "phone number"
 msgstr "telefonní číslo"
 
 #: kdeconnect-cli.cpp:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "File urls to send attachments with the message (can be passed multiple "
+#| "times)"
 msgid ""
-"File urls to send attachments with the message (can be passed multiple times)"
+"File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
 "URL souborů po posílání příloh se zprávou (může být předáno několikrát)"
 
 #: kdeconnect-cli.cpp:70
-#, kde-format
-msgid "file urls"
+#, fuzzy, kde-format
+#| msgid "file urls"
+msgid "file URLs"
 msgstr "URL souborů"
 
 #: kdeconnect-cli.cpp:71

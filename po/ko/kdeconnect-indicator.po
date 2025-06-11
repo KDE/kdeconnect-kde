@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-16 00:42+0000\n"
-"PO-Revision-Date: 2025-04-22 01:23+0200\n"
+"PO-Revision-Date: 2025-06-10 23:53+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -110,7 +110,7 @@ msgstr "Albert Vaca Cintora"
 #: main.cpp:104
 #, kde-format
 msgid "Open app"
-msgstr ""
+msgstr "앱 열기"
 
 #: main.cpp:109
 #, kde-format

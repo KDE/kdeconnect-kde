@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-04-19 15:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -284,9 +284,10 @@ msgid "Phone is connected"
 msgstr "手機已連線"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "黑名單"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "包含本文"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -492,6 +493,9 @@ msgstr "錯過 %1 的來電"
 #, kde-format
 msgid "Mute Call"
 msgstr "通話靜音"
+
+#~ msgid "Blacklisted"
+#~ msgstr "黑名單"
 
 #~ msgid "Reply"
 #~ msgstr "回覆"

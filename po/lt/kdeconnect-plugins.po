@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-02-02 21:15+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -282,9 +282,10 @@ msgid "Phone is connected"
 msgstr "Telefonas prijungtas"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Įtrauktas į juodąjį sąrašą"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Įtraukti pagrindinį tekstą"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -496,6 +497,9 @@ msgstr "Praleistas skambutis nuo %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Nutildyti skambutį"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Įtrauktas į juodąjį sąrašą"
 
 #~ msgid "Reply"
 #~ msgstr "Atsakyti"

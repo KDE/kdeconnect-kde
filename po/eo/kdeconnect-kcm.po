@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-12-28 17:41+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -150,8 +150,9 @@ msgstr "Malakcepti"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
 #: kcm.ui:332
-#, kde-format
-msgid "Request pair"
+#, fuzzy, kde-format
+#| msgid "Request pair"
+msgid "Request pairing"
 msgstr "Alpeti parigon"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)

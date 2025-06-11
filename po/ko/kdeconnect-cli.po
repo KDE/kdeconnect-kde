@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-04-22 01:23+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -185,14 +185,18 @@ msgid "phone number"
 msgstr "전화번호"
 
 #: kdeconnect-cli.cpp:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "File urls to send attachments with the message (can be passed multiple "
+#| "times)"
 msgid ""
-"File urls to send attachments with the message (can be passed multiple times)"
+"File URLs to send attachments with the message (can be passed multiple times)"
 msgstr "메시지에 첨부할 파일 URL(여러 번 지정할 수 있음)"
 
 #: kdeconnect-cli.cpp:70
-#, kde-format
-msgid "file urls"
+#, fuzzy, kde-format
+#| msgid "file urls"
+msgid "file URLs"
 msgstr "파일 URL"
 
 #: kdeconnect-cli.cpp:71

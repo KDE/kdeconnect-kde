@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-05-31 17:38+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -282,9 +282,10 @@ msgid "Phone is connected"
 msgstr "الهاتف متصل"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "ممنوع"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "ضمّن المتن"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -490,6 +491,9 @@ msgstr "مكالمة فائتة من %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "اكتم المكالمة"
+
+#~ msgid "Blacklisted"
+#~ msgstr "ممنوع"
 
 #~ msgid "Reply"
 #~ msgstr "رُدّ"

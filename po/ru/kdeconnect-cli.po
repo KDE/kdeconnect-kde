@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-03-25 09:56+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -192,16 +192,20 @@ msgid "phone number"
 msgstr "номер телефона"
 
 #: kdeconnect-cli.cpp:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "File urls to send attachments with the message (can be passed multiple "
+#| "times)"
 msgid ""
-"File urls to send attachments with the message (can be passed multiple times)"
+"File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
 "Адреса URL файлов для отправки прикреплённого содержимого (можно указывать "
 "более одного раза)"
 
 #: kdeconnect-cli.cpp:70
-#, kde-format
-msgid "file urls"
+#, fuzzy, kde-format
+#| msgid "file urls"
+msgid "file URLs"
 msgstr "адреса URL файлов"
 
 #: kdeconnect-cli.cpp:71

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-05-28 20:23+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -186,15 +186,19 @@ msgid "phone number"
 msgstr "símanúmer"
 
 #: kdeconnect-cli.cpp:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "File urls to send attachments with the message (can be passed multiple "
+#| "times)"
 msgid ""
-"File urls to send attachments with the message (can be passed multiple times)"
+"File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
 "Skráaslóðir til að senda viðhengi með skilaboðunum (má setja mörgum sinnum)"
 
 #: kdeconnect-cli.cpp:70
-#, kde-format
-msgid "file urls"
+#, fuzzy, kde-format
+#| msgid "file urls"
+msgid "file URLs"
 msgstr "skráaslóðir"
 
 #: kdeconnect-cli.cpp:71

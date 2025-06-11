@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-04-14 03:41+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -281,9 +281,10 @@ msgid "Phone is connected"
 msgstr "ტელეფონი დაკავშირებულია"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "შავ სიაშია"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "სხეულის ჩასმა"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -495,6 +496,9 @@ msgstr "გამოტოვებული ზარი %1-დან"
 #, kde-format
 msgid "Mute Call"
 msgstr "ზარის დადუმება"
+
+#~ msgid "Blacklisted"
+#~ msgstr "შავ სიაშია"
 
 #~ msgid "Reply"
 #~ msgstr "პასუხი"

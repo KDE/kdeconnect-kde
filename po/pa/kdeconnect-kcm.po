@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-01-28 13:20-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -149,8 +149,9 @@ msgstr "ਇਨਕਾਰ"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
 #: kcm.ui:332
-#, kde-format
-msgid "Request pair"
+#, fuzzy, kde-format
+#| msgid "Request pair"
+msgid "Request pairing"
 msgstr "ਪੇਅਰ ਦੀ ਬੇਨਤੀ"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)

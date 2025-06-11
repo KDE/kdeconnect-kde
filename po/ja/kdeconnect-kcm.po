@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-09-15 11:32+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -150,8 +150,9 @@ msgstr "拒否"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
 #: kcm.ui:332
-#, kde-format
-msgid "Request pair"
+#, fuzzy, kde-format
+#| msgid "Request pair"
+msgid "Request pairing"
 msgstr "ペアリングを要求"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)

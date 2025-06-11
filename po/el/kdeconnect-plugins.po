@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-09-19 21:43+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -284,9 +284,10 @@ msgid "Phone is connected"
 msgstr "Το τηλέφωνο είναι συνδεδεμένο"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Σε μαύρη λίστα"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Συμπερίληψη σώματος"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -505,6 +506,9 @@ msgstr "Αναπάντητη κλήση από %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Σίγαση κλήσης"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Σε μαύρη λίστα"
 
 #~ msgid "Reply"
 #~ msgstr "Απάντηση"

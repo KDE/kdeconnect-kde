@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -282,9 +282,10 @@ msgid "Phone is connected"
 msgstr "दूरभाषः सम्बद्धः अस्ति"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "कृष्णसूचीकृतम्"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "शरीरं समावेशयतु"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -490,3 +491,6 @@ msgstr "%1 तः गम्यमानः आह्वानः"
 #, kde-format
 msgid "Mute Call"
 msgstr "मूक आह्वान"
+
+#~ msgid "Blacklisted"
+#~ msgstr "कृष्णसूचीकृतम्"

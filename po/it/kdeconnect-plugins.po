@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-04-17 11:43+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -281,9 +281,10 @@ msgid "Phone is connected"
 msgstr "Il telefono è connesso"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Nella lista nera"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Includi il corpo"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -501,6 +502,9 @@ msgstr "Chiamata persa da %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Silenzia chiamata"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Nella lista nera"
 
 #~ msgid "Reply"
 #~ msgstr "Rispondi"

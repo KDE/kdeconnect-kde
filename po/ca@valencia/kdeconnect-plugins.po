@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-04-14 11:34+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -284,9 +284,10 @@ msgid "Phone is connected"
 msgstr "El telèfon està connectat"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Es troba en la llista negra"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Inclou el cos"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -500,3 +501,6 @@ msgstr "Tocada perduda de %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Silencia la tocada"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Es troba en la llista negra"

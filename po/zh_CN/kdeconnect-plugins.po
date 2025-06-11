@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -280,9 +280,10 @@ msgid "Phone is connected"
 msgstr "手机未连接"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "已加入黑名单的"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "包括正文"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -488,3 +489,6 @@ msgstr "%1 的未接来电"
 #, kde-format
 msgid "Mute Call"
 msgstr "静音来电"
+
+#~ msgid "Blacklisted"
+#~ msgstr "已加入黑名单的"

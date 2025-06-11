@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-04-14 08:09+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -283,9 +283,10 @@ msgid "Phone is connected"
 msgstr "הטלפון מחובר"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "ברשימת החסימה"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "כולל התוכן"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -491,6 +492,9 @@ msgstr "שיחה שלא נענתה מאת %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "השתקת שיחה"
+
+#~ msgid "Blacklisted"
+#~ msgstr "ברשימת החסימה"
 
 #~ msgid "Reply"
 #~ msgstr "השב"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-02-05 18:04-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -152,8 +152,9 @@ msgstr "Rejeitar"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
 #: kcm.ui:332
-#, kde-format
-msgid "Request pair"
+#, fuzzy, kde-format
+#| msgid "Request pair"
+msgid "Request pairing"
 msgstr "Solicitar emparelhamento"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2020-10-06 15:33+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -284,7 +284,7 @@ msgstr "Телефон пайваст шуд"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
-msgid "Blacklisted"
+msgid "Excluded"
 msgstr ""
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2015-02-22 23:17+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -286,7 +286,7 @@ msgstr ""
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
-msgid "Blacklisted"
+msgid "Excluded"
 msgstr ""
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186

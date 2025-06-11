@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-02-18 10:12+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -287,9 +287,10 @@ msgid "Phone is connected"
 msgstr "Телефон подключён"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "В чёрном списке"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Включая тело"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -503,6 +504,9 @@ msgstr "Пропущенный вызов от %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Выключить звук звонка"
+
+#~ msgid "Blacklisted"
+#~ msgstr "В чёрном списке"
 
 #~ msgid "Reply"
 #~ msgstr "Ответить"

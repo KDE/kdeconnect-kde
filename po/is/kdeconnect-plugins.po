@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-05-28 20:24+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -281,9 +281,10 @@ msgid "Phone is connected"
 msgstr "Sími er tengdur"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Á bannlista"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Hafa meginmál með"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -494,6 +495,9 @@ msgstr "Ósvarað símtal frá %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Þagga símtal"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Á bannlista"
 
 #~ msgid "Reply"
 #~ msgstr "Svara"

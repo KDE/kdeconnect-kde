@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-04-16 10:45+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -281,9 +281,10 @@ msgid "Phone is connected"
 msgstr "Telephono es connectite"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Ponite inlista nigre"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Include corpore"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -498,6 +499,9 @@ msgstr "Appello perdite ab %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Appello silente"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Ponite inlista nigre"
 
 #~ msgid "Reply"
 #~ msgstr "Responde"

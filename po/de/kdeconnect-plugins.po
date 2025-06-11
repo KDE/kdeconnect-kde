@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2023-12-28 17:05+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -281,9 +281,10 @@ msgid "Phone is connected"
 msgstr "Telefon ist verbunden"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Sperrliste"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Benachrichtigungskörper anhängen"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -497,6 +498,9 @@ msgstr "Verpasster Anruf von %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Anruf Stummschalten"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Sperrliste"
 
 #~ msgid "Reply"
 #~ msgstr "Antworten"

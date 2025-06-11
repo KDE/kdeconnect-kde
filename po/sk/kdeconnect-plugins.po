@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-04-27 16:46+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -281,9 +281,10 @@ msgid "Phone is connected"
 msgstr "Telefón je pripojený"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Na čiernom zozname"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Zahrnúť telo"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -492,6 +493,9 @@ msgstr "Zmeškaný hovor od %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Stlmiť hovor"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Na čiernom zozname"
 
 #~ msgid "Reply"
 #~ msgstr "Odpovedať"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-05-10 11:33+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -281,9 +281,10 @@ msgid "Phone is connected"
 msgstr "Telefono estas konektita"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Nigrolistigita"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Inkluzivi korpon"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -491,3 +492,6 @@ msgstr "Maltrafita voko de %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Silentigi Vokon"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Nigrolistigita"

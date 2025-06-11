@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2017-09-28 17:57+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -286,9 +286,10 @@ msgid "Phone is connected"
 msgstr ""
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Na crnoj listi"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Uključi sadržaj"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -498,6 +499,9 @@ msgstr "Propušten poziv: %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Utišaj poziv"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Na crnoj listi"
 
 #~ msgid "Use your phone as a touchpad and keyboard"
 #~ msgstr "Koristite telefon kao dodirnik i tastaturu"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2023-06-09 03:03+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -282,9 +282,10 @@ msgid "Phone is connected"
 msgstr "O telefone está ligado"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Proibido"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Incluir o conteúdo"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -503,6 +504,9 @@ msgstr "Chamada perdida de %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Silenciar a Chamada"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Proibido"
 
 #~ msgid "Reply"
 #~ msgstr "Responder"

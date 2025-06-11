@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -284,9 +284,10 @@ msgid "Phone is connected"
 msgstr "Ponsel telah terkoneksi"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Didaftarhitamkan"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Sisipkan bodi"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -496,6 +497,9 @@ msgstr "Panggilan tidak terjawab dari %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Bungkam Panggilan"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Didaftarhitamkan"
 
 #~ msgid "Reply"
 #~ msgstr "Balas"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-10-25 21:54-0500\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -280,9 +280,10 @@ msgid "Phone is connected"
 msgstr "ਫ਼ੋਨ ਕਨੈਕਟ ਹੈ"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "ਪਾਬੰਦੀ-ਸੂਚੀ"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "ਮੁੱਖ ਹਿੱਸੇ ਸਮੇਤ"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -486,3 +487,6 @@ msgstr "%1 ਤੋਂ ਖੁੰਝੀ ਕਾਲ"
 #, kde-format
 msgid "Mute Call"
 msgstr "ਕਾਲ ਨੂੰ ਮੌਨ ਕਰੋ"
+
+#~ msgid "Blacklisted"
+#~ msgstr "ਪਾਬੰਦੀ-ਸੂਚੀ"

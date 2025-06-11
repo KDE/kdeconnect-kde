@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 15:58+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -281,7 +281,7 @@ msgstr ""
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
-msgid "Blacklisted"
+msgid "Excluded"
 msgstr ""
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186

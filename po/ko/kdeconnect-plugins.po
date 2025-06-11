@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-04-15 23:37+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -280,9 +280,10 @@ msgid "Phone is connected"
 msgstr "휴대폰이 연결됨"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "차단됨"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "본문 포함"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -490,6 +491,9 @@ msgstr "부재 중 전화: %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "통화 음소거"
+
+#~ msgid "Blacklisted"
+#~ msgstr "차단됨"
 
 #~ msgid "Reply"
 #~ msgstr "답장"

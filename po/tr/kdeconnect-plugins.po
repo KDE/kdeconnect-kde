@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-02-04 18:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -281,9 +281,10 @@ msgid "Phone is connected"
 msgstr "Telefon bağlandı"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Kara listeye alındı"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Gövdeyi dahil et"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -494,3 +495,6 @@ msgstr "Yanıtsız arama: %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Aramayı Sessize Al"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Kara listeye alındı"

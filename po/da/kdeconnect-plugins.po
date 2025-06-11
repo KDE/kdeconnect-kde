@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2024-07-17 13:53+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -281,9 +281,10 @@ msgid "Phone is connected"
 msgstr "Telefonen er tilsluttet"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Sortlistet"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Medtag brødtekst"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -494,6 +495,9 @@ msgstr "Ubesvaret opkald fra %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Sæt opkald på lydløs"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Sortlistet"
 
 #~ msgid "Reply"
 #~ msgstr "Svar"

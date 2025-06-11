@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:42+0000\n"
 "PO-Revision-Date: 2025-04-18 13:59+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -282,9 +282,10 @@ msgid "Phone is connected"
 msgstr "Телефонът е свързан"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, kde-format
-msgid "Blacklisted"
-msgstr "Блокиран"
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Excluded"
+msgstr "Включване на тялото"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -494,3 +495,6 @@ msgstr "Пропуснато обаждане от %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Заглушаване на обаждането"
+
+#~ msgid "Blacklisted"
+#~ msgstr "Блокиран"
