@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:42+0000\n"
-"PO-Revision-Date: 2024-12-24 05:20+0100\n"
+"PO-Revision-Date: 2025-06-11 05:06+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: kcm.cpp:109
 #, kde-format
@@ -150,10 +150,9 @@ msgstr "უარყოფა"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
 #: kcm.ui:332
-#, fuzzy, kde-format
-#| msgid "Request pair"
+#, kde-format
 msgid "Request pairing"
-msgstr "შეწყვილების მოთხოვნა"
+msgstr "დაწყვილების მოთხოვნა"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
 #: kcm.ui:345

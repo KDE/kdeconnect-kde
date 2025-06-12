@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:42+0000\n"
-"PO-Revision-Date: 2025-04-21 10:46+0300\n"
+"PO-Revision-Date: 2025-06-11 12:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.2\n"
 "X-POOTLE-MTIME: 1497612949.000000\n"
 
 #, kde-format
@@ -187,20 +187,16 @@ msgid "phone number"
 msgstr "telefon numarası"
 
 #: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
+#, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
-"İletiyle ekleri göndermek için dosya url’leri (birden çok kez girilebilir)"
+"İletiyle ekleri göndermek için dosya URL’leri (birden çok kez girilebilir)"
 
 #: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
+#, kde-format
 msgid "file URLs"
-msgstr "dosya url’leri"
+msgstr "dosya URL’leri"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format

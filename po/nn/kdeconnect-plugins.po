@@ -496,6 +496,3 @@ msgstr "Tapt oppringing frå %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Demp samtale"
-
-#~ msgid "Blacklisted"
-#~ msgstr "Svartelista"

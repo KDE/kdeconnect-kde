@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:42+0000\n"
-"PO-Revision-Date: 2025-04-14 10:06+0300\n"
+"PO-Revision-Date: 2025-06-11 16:47+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -283,10 +283,9 @@ msgid "Phone is connected"
 msgstr "З'єднано телефон"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "Включати текст"
+msgstr "Виключені"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format

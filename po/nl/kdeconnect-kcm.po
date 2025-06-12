@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2013, 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2023, 2024 Freek de Kruijf <freek@opensuse.org>
+# SPDX-FileCopyrightText: 2013, 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2023, 2024, 2025 Freek de Kruijf <freek@opensuse.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:42+0000\n"
-"PO-Revision-Date: 2024-12-24 11:12+0100\n"
+"PO-Revision-Date: 2025-06-11 16:11+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: kcm.cpp:109
 #, kde-format
@@ -149,10 +149,9 @@ msgstr "Afwijzen"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
 #: kcm.ui:332
-#, fuzzy, kde-format
-#| msgid "Request pair"
+#, kde-format
 msgid "Request pairing"
-msgstr "Om een paar verzoeken"
+msgstr "Verzoek voor maken van paar"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
 #: kcm.ui:345
