@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:42+0000\n"
-"PO-Revision-Date: 2025-01-11 12:45+0100\n"
+"PO-Revision-Date: 2025-06-12 17:26+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: kcm.cpp:109
 #, kde-format
@@ -149,10 +149,9 @@ msgstr "Avslå"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
 #: kcm.ui:332
-#, fuzzy, kde-format
-#| msgid "Request pair"
+#, kde-format
 msgid "Request pairing"
-msgstr "Begär ihopparning"
+msgstr "Begär parkoppling"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
 #: kcm.ui:345

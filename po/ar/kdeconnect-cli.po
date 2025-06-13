@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:42+0000\n"
-"PO-Revision-Date: 2025-05-31 17:32+0400\n"
+"PO-Revision-Date: 2025-06-12 12:25+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -187,17 +187,13 @@ msgid "phone number"
 msgstr "رقم الهاتف"
 
 #: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
+#, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr "عناوين الملف لإرسال المرفقات بالرسالة (يمكن تمريره عدة مرات)"
 
 #: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
+#, kde-format
 msgid "file URLs"
 msgstr "عناوين الملف"
 

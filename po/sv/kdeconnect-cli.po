@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:42+0000\n"
-"PO-Revision-Date: 2025-05-30 21:39+0200\n"
+"PO-Revision-Date: 2025-06-12 17:25+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -185,10 +185,7 @@ msgid "phone number"
 msgstr "telefonnummer"
 
 #: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
+#, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
@@ -196,10 +193,9 @@ msgstr ""
 "gånger)"
 
 #: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
+#, kde-format
 msgid "file URLs"
-msgstr "Filwebbadresser"
+msgstr "filwebbadresser"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
