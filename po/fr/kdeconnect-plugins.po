@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:42+0000\n"
-"PO-Revision-Date: 2025-04-15 08:12+0200\n"
+"PO-Revision-Date: 2025-06-13 13:04+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.2\n"
 "X-Text-Markup: kde4\n"
 
 #: battery/batteryplugin.cpp:119
@@ -289,10 +289,9 @@ msgid "Phone is connected"
 msgstr "Le téléphone est connecté"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "Inclure le corps"
+msgstr "Exclus"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format

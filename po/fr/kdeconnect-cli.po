@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:42+0000\n"
-"PO-Revision-Date: 2025-04-20 08:58+0200\n"
+"PO-Revision-Date: 2025-06-13 13:05+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.2\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -194,21 +194,17 @@ msgid "phone number"
 msgstr "numéro de téléphone"
 
 #: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
+#, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
 "Les « URL » des fichiers à envoyer comme pièces jointes avec le message "
-"(peut être attachés plusieurs fois)"
+"(Peut être attachés plusieurs fois)"
 
 #: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
+#, kde-format
 msgid "file URLs"
-msgstr "« URL » des fichiers"
+msgstr "URL des fichiers"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
