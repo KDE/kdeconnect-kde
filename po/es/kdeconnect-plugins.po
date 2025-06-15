@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:42+0000\n"
-"PO-Revision-Date: 2025-06-09 02:03+0100\n"
+"PO-Revision-Date: 2025-06-15 00:47+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -284,10 +284,9 @@ msgid "Phone is connected"
 msgstr "El teléfono está conectado"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "Incluir cuerpo"
+msgstr "Excluido"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -505,6 +504,3 @@ msgstr "Llamada perdida de %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Silenciar llamada"
-
-#~ msgid "Blacklisted"
-#~ msgstr "Excluida"

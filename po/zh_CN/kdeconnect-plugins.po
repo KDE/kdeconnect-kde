@@ -280,10 +280,9 @@ msgid "Phone is connected"
 msgstr "手机未连接"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "包括正文"
+msgstr ""
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -489,6 +488,3 @@ msgstr "%1 的未接来电"
 #, kde-format
 msgid "Mute Call"
 msgstr "静音来电"
-
-#~ msgid "Blacklisted"
-#~ msgstr "已加入黑名单的"

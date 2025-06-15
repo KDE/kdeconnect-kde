@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:42+0000\n"
-"PO-Revision-Date: 2025-05-24 08:34+0200\n"
+"PO-Revision-Date: 2025-06-14 13:59+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -281,10 +281,9 @@ msgid "Phone is connected"
 msgstr "Telefon jest podłączony"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "Dołącz treść"
+msgstr "Wykluczone"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
