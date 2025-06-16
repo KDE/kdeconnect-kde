@@ -92,7 +92,7 @@ void TelephonyPlugin::sendMutePacket()
 
 QString TelephonyPlugin::dbusPath() const
 {
-    return QLatin1String("/modules/kdeconnect/devices/%1/telepony").arg(device()->id());
+    return QLatin1String("/modules/kdeconnect/devices/%1/telephony").arg(device()->id());
 }
 
 #include "moc_telephonyplugin.cpp"
