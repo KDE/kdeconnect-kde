@@ -151,7 +151,7 @@ msgstr "拒绝"
 #: kcm.ui:332
 #, kde-format
 msgid "Request pairing"
-msgstr ""
+msgstr "请求配对"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
 #: kcm.ui:345

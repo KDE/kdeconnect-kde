@@ -282,7 +282,7 @@ msgstr "手机未连接"
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Excluded"
-msgstr ""
+msgstr "排除"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format

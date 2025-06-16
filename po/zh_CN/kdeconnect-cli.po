@@ -182,12 +182,12 @@ msgstr "手机号码"
 #, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
-msgstr ""
+msgstr "发送消息附件的文件 URL (可发送多次)"
 
 #: kdeconnect-cli.cpp:70
 #, kde-format
 msgid "file URLs"
-msgstr ""
+msgstr "文件 URL"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
