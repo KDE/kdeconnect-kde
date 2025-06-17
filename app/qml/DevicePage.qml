@@ -174,6 +174,14 @@ Kirigami.ScrollablePage {
                 onClick: () => fileDialog.open()
                 section: "action"
                 device: root.currentDevice
+            },
+            PluginItem {
+                readonly property QtObject sftp: SftpDbusInterfaceFactory.create(root.currentDevice.id())
+                pluginName: "sftp"
+                name: i18n("Browse this device")
+                onClick: () => sftp.startBrowsing();
+                section: "action"
+                device: root.currentDevice
             }
         ]
 
