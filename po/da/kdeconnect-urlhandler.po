@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2024-07-17 13:36+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -59,7 +59,7 @@ msgstr "URL-håndtering til KDE Connect"
 
 #: kdeconnect-handler.cpp:50
 #, kde-format
-msgid "(c) 2015-2025, KDE Connect Team"
+msgid "© 2015–2025 KDE Connect Team"
 msgstr ""
 
 #: kdeconnect-handler.cpp:51

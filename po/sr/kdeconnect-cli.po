@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:42+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2017-05-26 11:26+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -37,7 +37,7 @@ msgstr "КДЕ‑конекцијина алатка командне линиј
 
 #: kdeconnect-cli.cpp:34
 #, kde-format
-msgid "(c) 2015-2025, KDE Connect Team"
+msgid "© 2015–2025, KDE Connect Team"
 msgstr ""
 
 #: kdeconnect-cli.cpp:35
@@ -312,8 +312,9 @@ msgid "Requested to unlock %1."
 msgstr ""
 
 #: kdeconnect-cli.cpp:257
-#, kde-format
-msgid "waiting for device..."
+#, fuzzy, kde-format
+#| msgid "waiting for device..."
+msgid "waiting for device…"
 msgstr "чекам на уређај..."
 
 #: kdeconnect-cli.cpp:270

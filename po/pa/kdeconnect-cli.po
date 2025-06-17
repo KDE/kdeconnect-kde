@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:42+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2024-02-10 10:04-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr "KDE ਕਨੈਕਟ CLI ਟੂਲ"
 
 #: kdeconnect-cli.cpp:34
 #, kde-format
-msgid "(c) 2015-2025, KDE Connect Team"
+msgid "© 2015–2025, KDE Connect Team"
 msgstr ""
 
 #: kdeconnect-cli.cpp:35
@@ -290,8 +290,9 @@ msgid "Requested to unlock %1."
 msgstr ""
 
 #: kdeconnect-cli.cpp:257
-#, kde-format
-msgid "waiting for device..."
+#, fuzzy, kde-format
+#| msgid "waiting for device..."
+msgid "waiting for device…"
 msgstr "...ਡਿਵਾਈਸ ਦੀ ਉਡੀਕ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"
 
 #: kdeconnect-cli.cpp:270

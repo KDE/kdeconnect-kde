@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:42+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2014-07-06 00:29-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -31,7 +31,7 @@ msgstr ""
 
 #: kdeconnect-cli.cpp:34
 #, kde-format
-msgid "(c) 2015-2025, KDE Connect Team"
+msgid "© 2015–2025, KDE Connect Team"
 msgstr ""
 
 #: kdeconnect-cli.cpp:35
@@ -285,7 +285,7 @@ msgstr ""
 
 #: kdeconnect-cli.cpp:257
 #, kde-format
-msgid "waiting for device..."
+msgid "waiting for device…"
 msgstr ""
 
 #: kdeconnect-cli.cpp:270

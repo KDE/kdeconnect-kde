@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:42+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2025-06-11 16:44+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -36,8 +36,9 @@ msgid "KDE Connect CLI tool"
 msgstr "Інструмент керування KDE Connect з командного рядка"
 
 #: kdeconnect-cli.cpp:34
-#, kde-format
-msgid "(c) 2015-2025, KDE Connect Team"
+#, fuzzy, kde-format
+#| msgid "(c) 2015-2025, KDE Connect Team"
+msgid "© 2015–2025, KDE Connect Team"
 msgstr "© Команда KDE Connect, 2015–2025"
 
 #: kdeconnect-cli.cpp:35
@@ -308,8 +309,9 @@ msgid "Requested to unlock %1."
 msgstr "Отримано запит на розблокування %1."
 
 #: kdeconnect-cli.cpp:257
-#, kde-format
-msgid "waiting for device..."
+#, fuzzy, kde-format
+#| msgid "waiting for device..."
+msgid "waiting for device…"
 msgstr "очікуємо на пристрій…"
 
 #: kdeconnect-cli.cpp:270

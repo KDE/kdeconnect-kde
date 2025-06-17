@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-16 00:42+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2024-10-20 16:20+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -49,8 +49,9 @@ msgid "Send files"
 msgstr "கோப்புகளை அனுப்பு"
 
 #: deviceindicator.cpp:117
-#, kde-format
-msgid "SMS Messages..."
+#, fuzzy, kde-format
+#| msgid "SMS Messages..."
+msgid "SMS Messages…"
 msgstr "SMS குறுஞ்செய்திகள்..."
 
 #: deviceindicator.cpp:130
@@ -94,7 +95,7 @@ msgstr "கே.டீ.யீ. கனெக்ட் நிலைகாட்ட�
 
 #: main.cpp:61
 #, kde-format
-msgid "(c) 2016-2025, KDE Connect Team"
+msgid "© 2016–2025 KDE Connect Team"
 msgstr ""
 
 #: main.cpp:62
@@ -114,8 +115,9 @@ msgid "Open app"
 msgstr ""
 
 #: main.cpp:109
-#, kde-format
-msgid "Configure..."
+#, fuzzy, kde-format
+#| msgid "Configure..."
+msgid "Configure…"
 msgstr "அமை..."
 
 #: main.cpp:135

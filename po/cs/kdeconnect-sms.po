@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2024-04-03 11:49+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -74,7 +74,7 @@ msgstr "Chat přes SMS"
 
 #: main.cpp:54
 #, kde-format
-msgid "(C) 2018-2025, KDE Connect Team"
+msgid "© 2018–2025 KDE Connect Team"
 msgstr ""
 
 #: main.cpp:55

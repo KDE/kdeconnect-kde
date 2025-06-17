@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2025-03-25 10:07+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -78,7 +78,7 @@ msgstr "Обмен сообщениями SMS"
 #: main.cpp:54
 #, fuzzy, kde-format
 #| msgid "(C) 2018-2022, KDE Connect Team"
-msgid "(C) 2018-2025, KDE Connect Team"
+msgid "© 2018–2025 KDE Connect Team"
 msgstr "© Команда KDE Connect, 2018–2022"
 
 #: main.cpp:55

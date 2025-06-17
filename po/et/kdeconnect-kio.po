@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2019-11-19 23:41+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -18,13 +18,15 @@ msgstr ""
 "X-Generator: Lokalize 19.08.1\n"
 
 #: kiokdeconnect.cpp:75
-#, kde-format
-msgid "Listing devices..."
+#, fuzzy, kde-format
+#| msgid "Listing devices..."
+msgid "Listing devices…"
 msgstr "Seadmete tuvastamine..."
 
 #: kiokdeconnect.cpp:120
-#, kde-format
-msgid "Accessing device..."
+#, fuzzy, kde-format
+#| msgid "Accessing device..."
+msgid "Accessing device…"
 msgstr "Seadmega ühendumine..."
 
 #: kiokdeconnect.cpp:135

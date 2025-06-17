@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 07:39+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -21,13 +21,15 @@ msgstr ""
 "X-Generator: Lokalize 24.12.0\n"
 
 #: kiokdeconnect.cpp:75
-#, kde-format
-msgid "Listing devices..."
+#, fuzzy, kde-format
+#| msgid "Listing devices..."
+msgid "Listing devices…"
 msgstr "מכשירים מוצגים…"
 
 #: kiokdeconnect.cpp:120
-#, kde-format
-msgid "Accessing device..."
+#, fuzzy, kde-format
+#| msgid "Accessing device..."
+msgid "Accessing device…"
 msgstr "מתבצעת גישה למכשיר…"
 
 #: kiokdeconnect.cpp:135

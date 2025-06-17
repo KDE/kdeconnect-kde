@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:42+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2025-04-22 01:23+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -33,8 +33,9 @@ msgid "KDE Connect CLI tool"
 msgstr "KDE Connect 명령행 도구"
 
 #: kdeconnect-cli.cpp:34
-#, kde-format
-msgid "(c) 2015-2025, KDE Connect Team"
+#, fuzzy, kde-format
+#| msgid "(c) 2015-2025, KDE Connect Team"
+msgid "© 2015–2025, KDE Connect Team"
 msgstr "(c) 2015-2025, KDE Connect Team"
 
 #: kdeconnect-cli.cpp:35
@@ -301,8 +302,9 @@ msgid "Requested to unlock %1."
 msgstr "%1의 잠금을 해제하기를 요청했습니다."
 
 #: kdeconnect-cli.cpp:257
-#, kde-format
-msgid "waiting for device..."
+#, fuzzy, kde-format
+#| msgid "waiting for device..."
+msgid "waiting for device…"
 msgstr "장치 대기 중..."
 
 #: kdeconnect-cli.cpp:270

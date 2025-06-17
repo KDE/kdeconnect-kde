@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 15:58+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -19,12 +19,12 @@ msgstr ""
 
 #: kiokdeconnect.cpp:75
 #, kde-format
-msgid "Listing devices..."
+msgid "Listing devices…"
 msgstr ""
 
 #: kiokdeconnect.cpp:120
 #, kde-format
-msgid "Accessing device..."
+msgid "Accessing device…"
 msgstr ""
 
 #: kiokdeconnect.cpp:135

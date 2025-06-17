@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2015-01-04 13:56+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -21,13 +21,15 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: kiokdeconnect.cpp:75
-#, kde-format
-msgid "Listing devices..."
+#, fuzzy, kde-format
+#| msgid "Listing devices..."
+msgid "Listing devices…"
 msgstr "Listanje uređaja..."
 
 #: kiokdeconnect.cpp:120
-#, kde-format
-msgid "Accessing device..."
+#, fuzzy, kde-format
+#| msgid "Accessing device..."
+msgid "Accessing device…"
 msgstr "Pristup uređajima...."
 
 #: kiokdeconnect.cpp:135

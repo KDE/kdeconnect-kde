@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:42+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2025-06-13 13:05+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -41,8 +41,9 @@ msgid "KDE Connect CLI tool"
 msgstr "Outil en ligne de commandes pour KDEConnect"
 
 #: kdeconnect-cli.cpp:34
-#, kde-format
-msgid "(c) 2015-2025, KDE Connect Team"
+#, fuzzy, kde-format
+#| msgid "(c) 2015-2025, KDE Connect Team"
+msgid "© 2015–2025, KDE Connect Team"
 msgstr "(c) 2015-2025, L'équipe de développement de KDEConnect"
 
 #: kdeconnect-cli.cpp:35
@@ -310,8 +311,9 @@ msgid "Requested to unlock %1."
 msgstr "Déverrouillage demandé pour %1."
 
 #: kdeconnect-cli.cpp:257
-#, kde-format
-msgid "waiting for device..."
+#, fuzzy, kde-format
+#| msgid "waiting for device..."
+msgid "waiting for device…"
 msgstr "en attente du périphérique..."
 
 #: kdeconnect-cli.cpp:270

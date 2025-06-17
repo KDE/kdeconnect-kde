@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -77,7 +77,7 @@ msgstr "एस एम एस तत्काल सन्देश"
 #: main.cpp:54
 #, fuzzy, kde-format
 #| msgid "(C) 2018-2022, KDE Connect Team"
-msgid "(C) 2018-2025, KDE Connect Team"
+msgid "© 2018–2025 KDE Connect Team"
 msgstr "(C) 2018-2022, केडीई कनेक्ट टीम"
 
 #: main.cpp:55

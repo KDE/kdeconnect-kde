@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:23+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -20,13 +20,15 @@ msgstr ""
 "X-Generator: Lokalize 24.08.2\n"
 
 #: kiokdeconnect.cpp:75
-#, kde-format
-msgid "Listing devices..."
+#, fuzzy, kde-format
+#| msgid "Listing devices..."
+msgid "Listing devices…"
 msgstr "उपकरणानां सूचीकरणम्..."
 
 #: kiokdeconnect.cpp:120
-#, kde-format
-msgid "Accessing device..."
+#, fuzzy, kde-format
+#| msgid "Accessing device..."
+msgid "Accessing device…"
 msgstr "उपकरणं प्राप्तुं..."
 
 #: kiokdeconnect.cpp:135

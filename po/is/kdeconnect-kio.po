@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2025-05-28 20:24+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -19,13 +19,15 @@ msgstr ""
 "X-Generator: Lokalize 24.12.3\n"
 
 #: kiokdeconnect.cpp:75
-#, kde-format
-msgid "Listing devices..."
+#, fuzzy, kde-format
+#| msgid "Listing devices..."
+msgid "Listing devices…"
 msgstr "Tel upp tæki..."
 
 #: kiokdeconnect.cpp:120
-#, kde-format
-msgid "Accessing device..."
+#, fuzzy, kde-format
+#| msgid "Accessing device..."
+msgid "Accessing device…"
 msgstr "Fæ aðgang að tæki..."
 
 #: kiokdeconnect.cpp:135

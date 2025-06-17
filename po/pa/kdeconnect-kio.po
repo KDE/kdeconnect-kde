@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2024-01-29 22:59-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -18,13 +18,15 @@ msgstr ""
 "X-Generator: Lokalize 23.08.4\n"
 
 #: kiokdeconnect.cpp:75
-#, kde-format
-msgid "Listing devices..."
+#, fuzzy, kde-format
+#| msgid "Listing devices..."
+msgid "Listing devices…"
 msgstr "...ਡਿਵਾਈਸ ਲਿਸਟ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ"
 
 #: kiokdeconnect.cpp:120
-#, kde-format
-msgid "Accessing device..."
+#, fuzzy, kde-format
+#| msgid "Accessing device..."
+msgid "Accessing device…"
 msgstr "...ਡਿਵਾਈਸ ਅਸੈਸ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: kiokdeconnect.cpp:135

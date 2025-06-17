@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2017-06-18 23:13+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -59,7 +59,7 @@ msgstr "КДЕ‑конекцијин руковалац УРЛ‑овима"
 
 #: kdeconnect-handler.cpp:50
 #, kde-format
-msgid "(c) 2015-2025, KDE Connect Team"
+msgid "© 2015–2025 KDE Connect Team"
 msgstr ""
 
 #: kdeconnect-handler.cpp:51

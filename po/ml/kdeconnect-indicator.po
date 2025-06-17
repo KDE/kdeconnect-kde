@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-16 00:42+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -50,8 +50,9 @@ msgid "Send files"
 msgstr "ഫയൽ അയയ്ക്കുക"
 
 #: deviceindicator.cpp:117
-#, kde-format
-msgid "SMS Messages..."
+#, fuzzy, kde-format
+#| msgid "SMS Messages..."
+msgid "SMS Messages…"
 msgstr "എസ്.എം.എസ്. സന്ദേശങ്ങൾ"
 
 #: deviceindicator.cpp:130
@@ -93,7 +94,7 @@ msgstr ""
 
 #: main.cpp:61
 #, kde-format
-msgid "(c) 2016-2025, KDE Connect Team"
+msgid "© 2016–2025 KDE Connect Team"
 msgstr ""
 
 #: main.cpp:62
@@ -113,7 +114,7 @@ msgstr ""
 
 #: main.cpp:109
 #, kde-format
-msgid "Configure..."
+msgid "Configure…"
 msgstr ""
 
 #: main.cpp:135

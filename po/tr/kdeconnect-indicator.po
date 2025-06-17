@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-16 00:42+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2025-05-16 19:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -50,8 +50,9 @@ msgid "Send files"
 msgstr "Dosyalar gönder"
 
 #: deviceindicator.cpp:117
-#, kde-format
-msgid "SMS Messages..."
+#, fuzzy, kde-format
+#| msgid "SMS Messages..."
+msgid "SMS Messages…"
 msgstr "SMS İletileri…"
 
 #: deviceindicator.cpp:130
@@ -94,8 +95,9 @@ msgid "KDE Connect Indicator tool"
 msgstr "KDE Bağlan Indicator aracı"
 
 #: main.cpp:61
-#, kde-format
-msgid "(c) 2016-2025, KDE Connect Team"
+#, fuzzy, kde-format
+#| msgid "(c) 2016-2025, KDE Connect Team"
+msgid "© 2016–2025 KDE Connect Team"
 msgstr "© 2015–2025, KDE Bağlan Takımı"
 
 #: main.cpp:62
@@ -114,8 +116,9 @@ msgid "Open app"
 msgstr "Uygulamayı aç"
 
 #: main.cpp:109
-#, kde-format
-msgid "Configure..."
+#, fuzzy, kde-format
+#| msgid "Configure..."
+msgid "Configure…"
 msgstr "Yapılandır…"
 
 #: main.cpp:135

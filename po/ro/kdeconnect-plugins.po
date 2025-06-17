@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:42+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2024-01-07 13:14+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -106,9 +106,11 @@ msgid "Reply"
 msgstr "Răspunde"
 
 #: notifications/notification.cpp:109
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reply to %1..."
 msgctxt "@info:placeholder"
-msgid "Reply to %1..."
+msgid "Reply to %1…"
 msgstr "Răspuns pentru %1..."
 
 #: notifications/sendreplydialog.cpp:29

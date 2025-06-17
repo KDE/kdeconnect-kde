@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-16 00:42+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2024-07-17 13:32+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -50,8 +50,9 @@ msgid "Send files"
 msgstr "Send en fil/URL"
 
 #: deviceindicator.cpp:117
-#, kde-format
-msgid "SMS Messages..."
+#, fuzzy, kde-format
+#| msgid "SMS Messages..."
+msgid "SMS Messages…"
 msgstr "Sms-beskeder..."
 
 #: deviceindicator.cpp:130
@@ -95,7 +96,7 @@ msgstr "KDE Connect-indikatorværktøj"
 
 #: main.cpp:61
 #, kde-format
-msgid "(c) 2016-2025, KDE Connect Team"
+msgid "© 2016–2025 KDE Connect Team"
 msgstr ""
 
 #: main.cpp:62
@@ -115,8 +116,9 @@ msgid "Open app"
 msgstr ""
 
 #: main.cpp:109
-#, kde-format
-msgid "Configure..."
+#, fuzzy, kde-format
+#| msgid "Configure..."
+msgid "Configure…"
 msgstr "Indstil..."
 
 #: main.cpp:135

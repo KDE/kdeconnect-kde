@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:42+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -106,9 +106,11 @@ msgid "Reply"
 msgstr "उत्तरं"
 
 #: notifications/notification.cpp:109
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reply to %1..."
 msgctxt "@info:placeholder"
-msgid "Reply to %1..."
+msgid "Reply to %1…"
 msgstr "%1 इत्यस्य उत्तरं ददातु..."
 
 #: notifications/sendreplydialog.cpp:29

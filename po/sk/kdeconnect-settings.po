@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-settings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
 "PO-Revision-Date: 2020-04-06 09:37+0200\n"
 "Last-Translator: Dusan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -33,7 +33,7 @@ msgstr "Nastavenia aplikácie KDE Connect"
 
 #: main.cpp:31
 #, kde-format
-msgid "(c) 2018-2025, KDE Connect Team"
+msgid "© 2018–2025 KDE Connect Team"
 msgstr ""
 
 #: main.cpp:32
