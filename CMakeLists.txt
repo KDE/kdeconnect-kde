@@ -102,13 +102,7 @@ if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
 endif()
 
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications
-    KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons Crash ItemModels)
-
-find_package(KF6DocTools ${KF_MIN_VERSION})
-set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
-    "Tools to generate documentation"
-    TYPE OPTIONAL
-)
+    KIO ColorScheme Service Solid Kirigami People WindowSystem GuiAddons Crash ItemModels)
 
 if (WIN32)
     get_filename_component(WINDOWS_KITS_DIR
@@ -130,9 +124,6 @@ add_subdirectory(icons)
 add_subdirectory(data)
 add_subdirectory(cli)
 add_subdirectory(declarativeplugin)
-
-add_subdirectory(kcm)
-add_subdirectory(kcmplugin)
 add_subdirectory(daemon)
 add_subdirectory(app)
 add_subdirectory(indicator)
@@ -140,7 +131,6 @@ add_subdirectory(urlhandler)
 add_subdirectory(nautilus-extension)
 add_subdirectory(fileitemactionplugin)
 add_subdirectory(smsapp)
-add_subdirectory(settings)
 
 if(NOT WIN32 AND NOT APPLE)
     add_subdirectory(kio)
@@ -148,10 +138,6 @@ if(NOT WIN32 AND NOT APPLE)
 endif()
 
 ki18n_install(po)
-if(KF6DocTools_FOUND)
-    kdoctools_install(po)
-    add_subdirectory(doc)
-endif()
 
 if(BUILD_TESTING)
     add_subdirectory(tests)

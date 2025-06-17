@@ -41,7 +41,7 @@ ecm_target_qml_sources(kdeconnect-app SOURCES
     qml/WelcomePage.qml
 )
 
-target_link_libraries(kdeconnect-app PRIVATE Qt::Quick Qt::QuickControls2 Qt::Widgets KF6::CoreAddons KF6::I18n KF6::KCMUtils KF6::Crash KF6::ItemModels KF6::DBusAddons KF6::WindowSystem)
+target_link_libraries(kdeconnect-app PRIVATE Qt::Quick Qt::QuickControls2 Qt::Widgets KF6::CoreAddons KF6::I18n KF6::ColorScheme KF6::Crash KF6::ItemModels KF6::DBusAddons KF6::WindowSystem)
 
 install(TARGETS kdeconnect-app ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.kdeconnect.app.desktop DESTINATION ${KDE_INSTALL_APPDIR})

@@ -212,7 +212,6 @@
         "Name[zh_CN]": "执行命令",
         "Name[zh_TW]": "執行命令"
     },
-    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_runcommand_config",
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.runcommand"
     ],

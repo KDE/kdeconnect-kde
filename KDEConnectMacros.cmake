@@ -14,7 +14,3 @@ function(kdeconnect_add_plugin plugin_name)
         EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin ${PlUGIN_WITHOUT_PREFIX})")
 endfunction()
 
-function(kdeconnect_add_kcm plugin)
-    kcoreaddons_add_plugin(${plugin} ${ARGN} INSTALL_NAMESPACE kdeconnect/kcms)
-    install(FILES "${plugin}.qml" DESTINATION ${KDE_INSTALL_DATADIR}/kdeconnect)
-endfunction()

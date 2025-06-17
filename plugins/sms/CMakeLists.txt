@@ -17,5 +17,6 @@ target_link_libraries(kdeconnect_sms
     Qt::DBus
     KF6::I18n
     KF6::Notifications
+    KF6::ColorScheme
     Qt::Widgets
 )

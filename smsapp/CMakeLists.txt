@@ -66,7 +66,7 @@ target_link_libraries(kdeconnect-sms PRIVATE
     KF6::DBusAddons
     KF6::I18n
     KF6::People
-    KF6::KCMUtils
+    KF6::ColorScheme
     KF6::Crash
     )
 

@@ -157,7 +157,6 @@
         "Name[zh_CN]": "来电时暂停媒体",
         "Name[zh_TW]": "在通話過程中暫停媒體"
     },
-    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_pausemusic_config",
     "X-KdeConnect-OutgoingPacketType": [],
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.telephony"
