@@ -53,6 +53,12 @@ static void detectPlatform(int argc, char **argv)
     }
 }
 
+static bool isPlasma()
+{
+    const QByteArray sessionDesktop = qgetenv("XDG_SESSION_DESKTOP");
+    return qstrcmp(sessionDesktop.constData(), "KDE") == 0;
+}
+
 int main(int argc, char *argv[])
 {
 #ifdef Q_OS_WIN
@@ -114,9 +120,13 @@ int main(int argc, char *argv[])
 
     DesktopDaemon daemon;
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN)
     // make sure indicator shows up in the tray whenever daemon is spawned
     QProcess::startDetached(QStringLiteral("kdeconnect-indicator.exe"), QStringList());
+#elif !defined(Q_OS_MAC)
+    if (!isPlasma()) {
+        QProcess::startDetached(QStringLiteral("kdeconnect-indicator"), QStringList());
+    }
 #endif
 
     // kdeconnectd is autostarted, so disable session management to speed up startup

@@ -21,10 +21,76 @@
 #include "core/device.h"
 #include "core/openconfig.h"
 
+#ifdef Q_OS_WIN
+static void terminateProcess(const QString &processName, const QUrl &indicatorUrl) const
+{
+    HANDLE hProcessSnap;
+    HANDLE hProcess;
+
+    hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (hProcessSnap == INVALID_HANDLE_VALUE) {
+        qCWarning(KDECONNECT_INDICATOR) << "Failed to get snapshot of processes.";
+        return FALSE;
+    }
+
+    PROCESSENTRY32 pe32;
+    pe32.dwSize = sizeof(PROCESSENTRY32);
+
+    if (!Process32First(hProcessSnap, &pe32)) {
+        qCWarning(KDECONNECT_INDICATOR) << "Failed to get handle for the first process.";
+        CloseHandle(hProcessSnap);
+        return FALSE;
+    }
+
+    do {
+        if (QString::fromWCharArray((wchar_t *)pe32.szExeFile) == processName) {
+            hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pe32.th32ProcessID);
+
+            if (hProcess == NULL) {
+                qCWarning(KDECONNECT_INDICATOR) << "Failed to get handle for the process:" << processName;
+                return FALSE;
+            } else {
+                const DWORD processPathSize = 4096;
+                CHAR processPathString[processPathSize];
+
+                BOOL gotProcessPath = QueryFullProcessImageNameA(hProcess, 0, (LPSTR)processPathString, (PDWORD)&processPathSize);
+
+                if (gotProcessPath) {
+                    const QUrl processUrl = QUrl::fromLocalFile(QString::fromStdString(processPathString)); // to replace \\ with /
+                    if (indicatorUrl.isParentOf(processUrl)) {
+                        BOOL terminateSuccess = TerminateProcess(hProcess, 0);
+                        if (!terminateSuccess) {
+                            qCWarning(KDECONNECT_INDICATOR) << "Failed to terminate process:" << processName;
+                            return FALSE;
+                        }
+                    }
+                }
+            }
+        }
+    } while (Process32Next(hProcessSnap, &pe32));
+
+    CloseHandle(hProcessSnap);
+    return TRUE;
+}
+#endif
+
 DesktopDaemon::DesktopDaemon(QObject *parent)
     : Daemon(parent)
 {
     qApp->setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
+}
+
+DesktopDaemon::~DesktopDaemon()
+{
+#ifdef Q_OS_WIN
+    // TODO: Killing the other apps when the daemon dies seems like a good
+    // idea that we probably want to replicate on all platforms (minus dbus-daemon)
+    QUrl m_indicatorUrl = QUrl::fromLocalFile(QApplication::applicationDirPath());
+    terminateProcess(QStringLiteral("dbus-daemon.exe"), m_indicatorUrl);
+    terminateProcess(QStringLiteral("kdeconnect-app.exe"), m_indicatorUrl);
+    terminateProcess(QStringLiteral("kdeconnect-handler.exe"), m_indicatorUrl);
+    terminateProcess(QStringLiteral("kdeconnect-sms.exe"), m_indicatorUrl);
+#endif
 }
 
 void DesktopDaemon::askPairingConfirmation(Device *device)

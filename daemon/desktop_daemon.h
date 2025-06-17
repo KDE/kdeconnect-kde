@@ -20,6 +20,7 @@ class DesktopDaemon : public Daemon
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.daemon")
 public:
     DesktopDaemon(QObject *parent = nullptr);
+    ~DesktopDaemon();
 
     void askPairingConfirmation(Device *device) override;
     void reportError(const QString &title, const QString &description) override;

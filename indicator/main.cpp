@@ -131,9 +131,7 @@ int main(int argc, char **argv)
                 pairMenu->addAction(i18n("Reject"), dev, &DeviceDbusInterface::cancelPairing);
             }
         }
-        // Add quit menu
-#if defined Q_OS_MAC
-        menu->addAction(i18n("Quit"), []() {
+        menu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), i18n("Quit"), []() {
             auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect.daemon"),
                                                           QStringLiteral("/MainApplication"),
                                                           QStringLiteral("org.qtproject.Qt.QCoreApplication"),
@@ -141,11 +139,6 @@ int main(int argc, char **argv)
             QDBusConnection::sessionBus().call(message, QDBus::NoBlock);
             qApp->quit();
         });
-#elif defined Q_OS_WIN
-        menu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), i18n("Quit"), []() {
-            qApp->quit();
-        });
-#endif
     };
 
     QObject::connect(&iface, &DaemonDbusInterface::pairingRequestsChanged, &model, refreshMenu);
