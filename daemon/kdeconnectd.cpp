@@ -105,15 +105,12 @@ int main(int argc, char *argv[])
     parser.process(app);
 
     aboutData.processCommandLine(&parser);
-    if (parser.isSet(replaceOption)) {
-        auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                      QStringLiteral("/MainApplication"),
-                                                      QStringLiteral("org.qtproject.Qt.QCoreApplication"),
-                                                      QStringLiteral("quit"));
-        QDBusConnection::sessionBus().call(message); // deliberately block until it's done, so we register the name after the app quits
-    }
 
-    KDBusService dbusService(KDBusService::Unique);
+    KDBusService::StartupOptions flags = KDBusService::Unique;
+    if (parser.isSet(replaceOption)) {
+        flags |= KDBusService::Replace;
+    }
+    KDBusService dbusService(flags);
 
     DesktopDaemon daemon;
 
