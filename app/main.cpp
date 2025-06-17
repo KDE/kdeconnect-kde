@@ -12,13 +12,22 @@
 #include <QQmlContext>
 #include <QQuickStyle>
 #include <QStandardPaths>
+#include <QWindow>
 
 #include "kdeconnect-version.h"
 #include <KAboutData>
 #include <KColorSchemeManager>
 #include <KCrash>
+#include <KDBusService>
 #include <KLocalizedContext>
 #include <KLocalizedString>
+#include <KWindowSystem>
+
+static void raiseWindow(QWindow *window)
+{
+    KWindowSystem::updateStartupId(window);
+    KWindowSystem::activateWindow(window);
+}
 
 int main(int argc, char *argv[])
 {
@@ -61,6 +70,7 @@ int main(int argc, char *argv[])
 
     QString device;
     QString config;
+    bool replace = false;
     {
         QCommandLineParser parser;
         QCommandLineOption deviceOption(QStringLiteral("device"), i18nc("@info:shell", "Device id to open the app in"), QStringLiteral("device-id"));
@@ -69,6 +79,10 @@ int main(int argc, char *argv[])
                                         i18nc("@info:shell", "Configuration module to show, requires --device to be set."),
                                         QStringLiteral("plugin-id"));
         parser.addOption(configOption);
+
+        QCommandLineOption replaceOption({QStringLiteral("replace")}, i18nc("command line description", "Replace an existing instance"));
+        parser.addOption(replaceOption);
+
         parser.addPositionalArgument(QStringLiteral("url"), i18n("URL to share"));
         aboutData.setupCommandLine(&parser);
         parser.process(app);
@@ -82,14 +96,21 @@ int main(int argc, char *argv[])
                 return 0; // exit the app once kdeconnect-handler is started
             }
         }
+        replace = parser.isSet(replaceOption);
         if (parser.isSet(deviceOption)) {
             device = parser.value(deviceOption);
+            replace = true;
         }
         if (parser.isSet(configOption)) {
             config = parser.value(configOption);
         }
     }
 
+    KDBusService::StartupOptions flags = KDBusService::Unique;
+    if (replace) {
+        flags |= KDBusService::Replace;
+    }
+    KDBusService dbusService(flags);
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.loadFromModule("org.kde.kdeconnect.app", "Main");
@@ -98,10 +119,13 @@ int main(int argc, char *argv[])
         qWarning() << "Failed to load the app" << engine.hasError();
         return 1;
     }
-    auto obj = engine.rootObjects().constFirst();
+    auto obj = qobject_cast<QWindow *>(engine.rootObjects().constFirst());
     if (!device.isEmpty()) {
         auto mo = obj->metaObject();
         mo->invokeMethod(obj, "openDevice", Qt::QueuedConnection, Q_ARG(QVariant, device), Q_ARG(QVariant, config));
     }
+    QObject::connect(&dbusService, &KDBusService::activateRequested, obj, [obj](const QStringList & /*arguments*/, const QString & /*workingDirectory*/) {
+        raiseWindow(obj);
+    });
     return app.exec();
 }
