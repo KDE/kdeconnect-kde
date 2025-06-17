@@ -10,7 +10,6 @@ pragma ComponentBehavior: Bound
 import QtQuick
 
 import org.kde.config as KConfig
-import org.kde.kcmutils as KCMUtils
 import org.kde.kdeconnect as KDEConnect
 import org.kde.kquickcontrolsaddons as KQuickControlsAddons
 import org.kde.plasma.core as PlasmaCore
@@ -54,10 +53,7 @@ PlasmoidItem {
         id: configureAction
         text: i18n("KDE Connect Settings…")
         icon.name: "configure"
-        visible: KConfig.KAuthorized.authorizeControlModule("kcm_kdeconnect")
-        onTriggered: checked => {
-            KCMUtils.KCMLauncher.openSystemSettings("kcm_kdeconnect");
-        }
+        onTriggered: KDEConnect.OpenConfig.openConfiguration()
     }
 
     Component.onCompleted: {
