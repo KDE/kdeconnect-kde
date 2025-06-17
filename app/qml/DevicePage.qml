@@ -18,6 +18,14 @@ Kirigami.ScrollablePage {
     property QtObject currentDevice
     title: currentDevice.name
 
+    function openSettings()
+    {
+        return pageStack.push(
+            Qt.resolvedUrl("PluginSettings.qml"),
+            {device: currentDevice.id()}
+        );
+    }
+
     actions: [
         Kirigami.Action {
             icon.name: "network-disconnect"
@@ -41,10 +49,7 @@ Kirigami.ScrollablePage {
             text: i18n("Plugin Settings")
             visible: root.currentDevice && root.currentDevice.isPaired && root.currentDevice.isReachable
             onTriggered: {
-                pageStack.push(
-                    Qt.resolvedUrl("PluginSettings.qml"),
-                    {device: currentDevice.id()}
-                );
+                root.openSettings();
             }
         }
     ]

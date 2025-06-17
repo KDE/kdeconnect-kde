@@ -55,6 +55,7 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     Q_SCRIPTABLE DeviceDbusInterface *getDevice(int row) const;
+    Q_SCRIPTABLE DeviceDbusInterface *deviceForId(const QString &id) const;
     QHash<int, QByteArray> roleNames() const override;
     Q_SCRIPTABLE int rowForDevice(const QString &id) const;
 

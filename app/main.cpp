@@ -59,15 +59,22 @@ int main(int argc, char *argv[])
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
 
-    QString urlToShare;
+    QString device;
+    QString config;
     {
         QCommandLineParser parser;
+        QCommandLineOption deviceOption(QStringLiteral("device"), i18nc("@info:shell", "Device id to open the app in"), QStringLiteral("device-id"));
+        parser.addOption(deviceOption);
+        QCommandLineOption configOption(QStringLiteral("plugin-config"),
+                                        i18nc("@info:shell", "Configuration module to show, requires --device to be set."),
+                                        QStringLiteral("plugin-id"));
+        parser.addOption(configOption);
         parser.addPositionalArgument(QStringLiteral("url"), i18n("URL to share"));
         aboutData.setupCommandLine(&parser);
         parser.process(app);
         aboutData.processCommandLine(&parser);
         if (parser.positionalArguments().count() == 1) {
-            urlToShare = parser.positionalArguments().constFirst();
+            const QString urlToShare = parser.positionalArguments().constFirst();
             const QString kdeconnectHandlerExecutable =
                 QStandardPaths::findExecutable(QStringLiteral("kdeconnect-handler"), {QCoreApplication::applicationDirPath()});
             if (!kdeconnectHandlerExecutable.isEmpty()) {
@@ -75,11 +82,26 @@ int main(int argc, char *argv[])
                 return 0; // exit the app once kdeconnect-handler is started
             }
         }
+        if (parser.isSet(deviceOption)) {
+            device = parser.value(deviceOption);
+        }
+        if (parser.isSet(configOption)) {
+            config = parser.value(configOption);
+        }
     }
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.loadFromModule("org.kde.kdeconnect.app", "Main");
 
+    if (engine.rootObjects().isEmpty()) {
+        qWarning() << "Failed to load the app" << engine.hasError();
+        return 1;
+    }
+    auto obj = engine.rootObjects().constFirst();
+    if (!device.isEmpty()) {
+        auto mo = obj->metaObject();
+        mo->invokeMethod(obj, "openDevice", Qt::QueuedConnection, Q_ARG(QVariant, device), Q_ARG(QVariant, config));
+    }
     return app.exec();
 }

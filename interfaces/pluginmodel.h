@@ -39,6 +39,9 @@ public:
     void setDeviceId(const QString &deviceId);
     QString deviceId();
 
+    Q_INVOKABLE QString pluginDisplayName(const QString &pluginId) const;
+    Q_INVOKABLE QUrl pluginSource(const QString &pluginId) const;
+
 Q_SIGNALS:
     void deviceIdChanged(const QString &value);
     void rowsChanged();

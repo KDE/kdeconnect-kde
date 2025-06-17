@@ -242,6 +242,16 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     }
 }
 
+DeviceDbusInterface *DevicesModel::deviceForId(const QString &id) const
+{
+    for (auto dev : m_deviceList) {
+        if (dev->id() == id) {
+            return dev;
+        }
+    }
+    return nullptr;
+}
+
 DeviceDbusInterface *DevicesModel::getDevice(int row) const
 {
     if (row < 0 || row >= m_deviceList.size()) {

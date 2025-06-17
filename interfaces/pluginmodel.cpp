@@ -35,6 +35,20 @@ void PluginModel::setDeviceId(const QString &deviceId)
     Q_EMIT deviceIdChanged(deviceId);
 }
 
+QString PluginModel::pluginDisplayName(const QString &pluginId) const
+{
+    return KPluginMetaData::findPluginById(QStringLiteral("kdeconnect"), pluginId).name();
+}
+
+QUrl PluginModel::pluginSource(const QString &pluginId) const
+{
+    const QString configFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kdeconnect/%1_config.qml").arg(pluginId));
+    if (configFile.isEmpty())
+        return {};
+
+    return QUrl::fromLocalFile(configFile);
+}
+
 QVariant PluginModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
@@ -54,14 +68,8 @@ QVariant PluginModel::data(const QModelIndex &index, int role) const
         return pluginEntry.iconName();
     case IdRole:
         return pluginEntry.pluginId();
-    case ConfigSourceRole: {
-        const QString configFile =
-            QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kdeconnect/%1_config.qml").arg(pluginEntry.pluginId()));
-        if (configFile.isEmpty())
-            return QUrl();
-
-        return QUrl::fromLocalFile(configFile);
-    }
+    case ConfigSourceRole:
+        return pluginSource(pluginEntry.pluginId());
     case DescriptionRole:
         return pluginEntry.description();
     default:

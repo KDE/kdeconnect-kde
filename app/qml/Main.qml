@@ -29,6 +29,27 @@ Kirigami.ApplicationWindow {
         DevicePage {}
     }
 
+    function openDevice(deviceId, pluginConfig) {
+        pageStack.clear();
+        let device = devicesModel.deviceForId(deviceId);
+        if (!device) {
+            console.warn("Could not find", deviceId);
+            return;
+        }
+        let devicePage = pageStack.push(deviceComp, {
+            currentDevice: device
+        });
+
+        if (pluginConfig) {
+            let settingsPage = devicePage.openSettings();
+            settingsPage.openConfiguration(pluginConfig, pluginConfig)
+        }
+    }
+
+    DevicesModel {
+        id: devicesModel
+    }
+
     globalDrawer: Kirigami.OverlayDrawer {
         id: drawer
         edge: Qt.application.layoutDirection === Qt.RightToLeft ? Qt.RightEdge : Qt.LeftEdge
@@ -125,7 +146,7 @@ Kirigami.ApplicationWindow {
                         visible: devices.count === 0
                     }
                     model: DevicesSortProxyModel {
-                        sourceModel: DevicesModel {}
+                        sourceModel: devicesModel
                     }
                     delegate: QQC2.ItemDelegate {
                         id: delegate

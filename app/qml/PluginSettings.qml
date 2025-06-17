@@ -19,6 +19,15 @@ Kirigami.ScrollablePage {
 
     title: i18n("Plugin Settings")
 
+    function openConfiguration(pluginName) {
+        let source = pluginModel.pluginSource(pluginName);
+        console.log("source", source);
+        return devicePage = pageStack.push(source, {
+            title: pluginModel.pluginDisplayName(pluginName),
+            device: root.device,
+        });
+    }
+
     header: Control {
         topPadding: Kirigami.Units.smallSpacing
         bottomPadding: Kirigami.Units.smallSpacing
@@ -61,6 +70,7 @@ Kirigami.ScrollablePage {
             filterCaseSensitivity: Qt.CaseInsensitive
 
             sourceModel: PluginModel {
+                id: pluginModel
                 deviceId: device
             }
         }
