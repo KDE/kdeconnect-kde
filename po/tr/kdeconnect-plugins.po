@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-11 12:40+0300\n"
+"PO-Revision-Date: 2025-06-17 08:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,12 +22,12 @@ msgstr ""
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
-msgstr "%1: Düşük Pil"
+msgstr "%1: Pil doluluğu düşük"
 
 #: battery/batteryplugin.cpp:120
 #, kde-format
 msgid "Battery at %1%"
-msgstr "Pil düzeyi %​%1"
+msgstr "Pil doluluğu %​%1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
 #: clipboard/clipboard_config.ui:17
@@ -105,12 +105,10 @@ msgid "Reply"
 msgstr "Yanıtla"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr "%1 Kişisini Yanıtla…"
+msgstr "%1 kişisini yanıtla…"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format

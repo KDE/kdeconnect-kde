@@ -57,10 +57,9 @@ msgid "KDE Connect Daemon"
 msgstr "KDE Connect守护进程"
 
 #: kdeconnectd.cpp:75
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
 #: kdeconnectd.cpp:101
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-05-16 09:11+0300\n"
+"PO-Revision-Date: 2025-06-17 09:53+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -52,8 +52,7 @@ msgid "Send files"
 msgstr "Надіслати файли"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
 msgstr "SMS-повідомлення…"
 
@@ -97,8 +96,7 @@ msgid "KDE Connect Indicator tool"
 msgstr "Інструмент-індикатор KDE Connect"
 
 #: main.cpp:61
-#, fuzzy, kde-format
-#| msgid "(c) 2016-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2016–2025 KDE Connect Team"
 msgstr "© Команда KDE Connect, 2016–2025"
 
@@ -118,8 +116,7 @@ msgid "Open app"
 msgstr "Відкрити програму"
 
 #: main.cpp:109
-#, fuzzy, kde-format
-#| msgid "Configure..."
+#, kde-format
 msgid "Configure…"
 msgstr "Налаштувати…"
 

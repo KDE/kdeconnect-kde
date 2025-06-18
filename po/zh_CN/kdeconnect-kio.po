@@ -18,16 +18,14 @@ msgstr ""
 "X-Crowdin-File-ID: 49034\n"
 
 #: kiokdeconnect.cpp:75
-#, fuzzy, kde-format
-#| msgid "Listing devices..."
+#, kde-format
 msgid "Listing devices…"
-msgstr "正在列出设备..."
+msgstr ""
 
 #: kiokdeconnect.cpp:120
-#, fuzzy, kde-format
-#| msgid "Accessing device..."
+#, kde-format
 msgid "Accessing device…"
-msgstr "正在访问设备..."
+msgstr ""
 
 #: kiokdeconnect.cpp:135
 #, kde-format

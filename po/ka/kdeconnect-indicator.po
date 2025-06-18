@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-05-16 03:52+0200\n"
+"PO-Revision-Date: 2025-06-17 04:34+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -50,10 +50,9 @@ msgid "Send files"
 msgstr "ფაილების გაგზავნა"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
-msgstr "SMS შეტყობინებები..."
+msgstr "SMS შეტყობინებები…"
 
 #: deviceindicator.cpp:130
 #, kde-format
@@ -95,10 +94,9 @@ msgid "KDE Connect Indicator tool"
 msgstr "KDE Connect -ის მაჩვნებელი ხელსაწყო"
 
 #: main.cpp:61
-#, fuzzy, kde-format
-#| msgid "(c) 2016-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr "(c) 2016-2025, KDE Connect-ის გუნდი"
+msgstr "© 2016-2025, KDE Connect-ის გუნდი"
 
 #: main.cpp:62
 #, kde-format
@@ -116,10 +114,9 @@ msgid "Open app"
 msgstr "აპის გახსნა"
 
 #: main.cpp:109
-#, fuzzy, kde-format
-#| msgid "Configure..."
+#, kde-format
 msgid "Configure…"
-msgstr "მორგება..."
+msgstr "მორგება…"
 
 #: main.cpp:135
 #, kde-format

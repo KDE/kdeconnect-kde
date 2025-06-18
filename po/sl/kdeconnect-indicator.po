@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-05-16 11:41+0200\n"
+"PO-Revision-Date: 2025-06-17 06:45+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -50,10 +50,9 @@ msgid "Send files"
 msgstr "Pošlji datoteke"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
-msgstr "SMS sporočila..."
+msgstr "SMS sporočila…"
 
 #: deviceindicator.cpp:130
 #, kde-format
@@ -95,10 +94,9 @@ msgid "KDE Connect Indicator tool"
 msgstr "Orodje indikatorja KDE Connect"
 
 #: main.cpp:61
-#, fuzzy, kde-format
-#| msgid "(c) 2016-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr "(c) 2016-2025, Ekipa KDE Connect"
+msgstr "© 2016-2025, Ekipa KDE Connect"
 
 #: main.cpp:62
 #, kde-format
@@ -116,10 +114,9 @@ msgid "Open app"
 msgstr "Odpri aplikacijo"
 
 #: main.cpp:109
-#, fuzzy, kde-format
-#| msgid "Configure..."
+#, kde-format
 msgid "Configure…"
-msgstr "Nastavi..."
+msgstr "Konfiguriraj…"
 
 #: main.cpp:135
 #, kde-format

@@ -33,10 +33,9 @@ msgid "KDE Connect Settings"
 msgstr "KDE Connect 设置"
 
 #: main.cpp:31
-#, fuzzy, kde-format
-#| msgid "(c) 2018-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2018–2025 KDE Connect Team"
-msgstr "(c) 2018-2025, KDE Connect Team"
+msgstr ""
 
 #: main.cpp:32
 #, kde-format

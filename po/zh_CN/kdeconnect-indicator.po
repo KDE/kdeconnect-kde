@@ -49,10 +49,9 @@ msgid "Send files"
 msgstr "发送文件"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
-msgstr "短信..."
+msgstr ""
 
 #: deviceindicator.cpp:130
 #, kde-format
@@ -94,10 +93,9 @@ msgid "KDE Connect Indicator tool"
 msgstr "KDE Connect 指示器工具"
 
 #: main.cpp:61
-#, fuzzy, kde-format
-#| msgid "(c) 2016-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr "(c) 2016-2025, KDE Connect Team"
+msgstr ""
 
 #: main.cpp:62
 #, kde-format
@@ -115,10 +113,9 @@ msgid "Open app"
 msgstr "打开应用"
 
 #: main.cpp:109
-#, fuzzy, kde-format
-#| msgid "Configure..."
+#, kde-format
 msgid "Configure…"
-msgstr "配置..."
+msgstr ""
 
 #: main.cpp:135
 #, kde-format

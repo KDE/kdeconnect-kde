@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-11 06:08+0200\n"
+"PO-Revision-Date: 2025-06-17 06:45+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -34,10 +34,9 @@ msgid "KDE Connect CLI tool"
 msgstr "Orodje za besedilne ukaze KDE Connect"
 
 #: kdeconnect-cli.cpp:34
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr "(c) 2015-2025, Ekipa KDE Connect"
+msgstr "© 2015-2025, Ekipa KDE Connect"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -304,10 +303,9 @@ msgid "Requested to unlock %1."
 msgstr "Zahtevano odklepanje %1."
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "čakam na napravo..."
+msgstr "čakanje na napravo..."
 
 #: kdeconnect-cli.cpp:270
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-11 05:06+0200\n"
+"PO-Revision-Date: 2025-06-17 04:34+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -34,10 +34,9 @@ msgid "KDE Connect CLI tool"
 msgstr "KDE Connect CLI-ის ხელსაწყო"
 
 #: kdeconnect-cli.cpp:34
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr "(c) 2015-2025, KDE Connect-ის გუნდი"
+msgstr "© 2015-2025, KDE Connect-ის გუნდი"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -303,10 +302,9 @@ msgid "Requested to unlock %1."
 msgstr "%1-ის განბლოკვის მოთხოვნა."
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "მოწყობილობის მოლოდინი..."
+msgstr "მოწყობილობის მოლოდინი…"
 
 #: kdeconnect-cli.cpp:270
 #, kde-format

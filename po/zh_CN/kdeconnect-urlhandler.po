@@ -58,10 +58,9 @@ msgid "KDE Connect URL handler"
 msgstr "KDE Connect URL 处理程序"
 
 #: kdeconnect-handler.cpp:50
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
 #: kdeconnect-handler.cpp:51
 #, kde-format

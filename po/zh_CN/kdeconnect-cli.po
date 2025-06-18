@@ -33,10 +33,9 @@ msgid "KDE Connect CLI tool"
 msgstr "KDE Connect命令行工具"
 
 #: kdeconnect-cli.cpp:34
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr "(c) 2015-2025, KDE Connect Team"
+msgstr ""
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -291,10 +290,9 @@ msgid "Requested to unlock %1."
 msgstr "已请求解锁 %1。"
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "正在等待设备..."
+msgstr ""
 
 #: kdeconnect-cli.cpp:270
 #, kde-format

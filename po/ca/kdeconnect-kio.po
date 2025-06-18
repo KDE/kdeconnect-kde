@@ -1,16 +1,16 @@
 # Translation of kdeconnect-kio.po to Catalan
-# Copyright (C) 2014-2024 This_file_is_part_of_KDE
+# Copyright (C) 2014-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2019, 2020.
-# Josep M. Ferrer <txemaq@gmail.com>, 2021, 2024.
+# Josep M. Ferrer <txemaq@gmail.com>, 2021, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2024-12-24 08:22+0100\n"
+"PO-Revision-Date: 2025-06-17 08:28+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -22,16 +22,14 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 
 #: kiokdeconnect.cpp:75
-#, fuzzy, kde-format
-#| msgid "Listing devices..."
+#, kde-format
 msgid "Listing devices…"
-msgstr "S'estan llistant els dispositius..."
+msgstr "S'estan llistant els dispositius…"
 
 #: kiokdeconnect.cpp:120
-#, fuzzy, kde-format
-#| msgid "Accessing device..."
+#, kde-format
 msgid "Accessing device…"
-msgstr "S'està accedint al dispositiu..."
+msgstr "S'està accedint al dispositiu…"
 
 #: kiokdeconnect.cpp:135
 #, kde-format

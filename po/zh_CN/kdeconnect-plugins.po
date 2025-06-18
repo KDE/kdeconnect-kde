@@ -104,12 +104,10 @@ msgid "Reply"
 msgstr "回复"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr "回复给 %1..."
+msgstr ""
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format

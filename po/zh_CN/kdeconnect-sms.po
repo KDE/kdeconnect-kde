@@ -73,10 +73,9 @@ msgid "SMS Instant Messaging"
 msgstr "短信即时通讯"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2018–2025 KDE Connect Team"
-msgstr "(C) 2018-2025, KDE Connect Team"
+msgstr ""
 
 #: main.cpp:55
 #, kde-format
