@@ -1,17 +1,17 @@
 # Spanish translations for kdeconnect-sms.po package.
 # Copyright (C) 2020-2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-#
 # Automatically generated, 2020.
-# SPDX-FileCopyrightText: 2020 Eloy Cuadra <ecuadra@eloihr.net>
+#
+# SPDX-FileCopyrightText: 2020, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 02:34+0000\n"
-"PO-Revision-Date: 2025-03-02 18:09+0100\n"
-"Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
+"PO-Revision-Date: 2025-06-18 02:02+0100\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -234,15 +234,3 @@ msgstr "Borrar adjuntos"
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Enviar mensaje"
-
-#~ msgid "Copy Message"
-#~ msgstr "Copiar mensaje"
-
-#~ msgid "Copy Selection"
-#~ msgstr "Copiar selección"
-
-#~ msgid "Compose message"
-#~ msgstr "Componer mensaje"
-
-#~ msgid "New"
-#~ msgstr "Nueva"

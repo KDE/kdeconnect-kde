@@ -1,17 +1,16 @@
 # Spanish translations for kdeconnect-indicator.po package.
-# Copyright (C) 2020 This file is copyright:
+# Copyright (C) 2020-2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-#
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, %Y.
 # Automatically generated, 2020.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2020.
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2023, 2024.
+#
+# SPDX-FileCopyrightText: 2020 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 02:34+0000\n"
-"PO-Revision-Date: 2024-07-26 17:22+0200\n"
+"PO-Revision-Date: 2025-06-18 01:44+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -55,7 +54,7 @@ msgstr "Enviar archivos"
 #: deviceindicator.cpp:117
 #, kde-format
 msgid "SMS Messages..."
-msgstr "Mensajes SMS..."
+msgstr "Mensajes SMS…"
 
 #: deviceindicator.cpp:130
 #, kde-format
@@ -104,7 +103,7 @@ msgstr "© 2016 Aleix Pol Gonzalez"
 #: main.cpp:102
 #, kde-format
 msgid "Configure..."
-msgstr "Configurar..."
+msgstr "Configurar…"
 
 #: main.cpp:128
 #, kde-format
@@ -164,15 +163,3 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
-
-#~ msgid "Launching"
-#~ msgstr "Lanzando"
-
-#~ msgid "Launching daemon"
-#~ msgstr "Lanzando demonio"
-
-#~ msgid "Waiting D-Bus"
-#~ msgstr "Esperando a D-Bus"
-
-#~ msgid "Loading modules"
-#~ msgstr "Cargando módulos"

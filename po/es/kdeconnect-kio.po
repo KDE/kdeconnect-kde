@@ -1,4 +1,5 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
+# Spanish translations for kdeconnect-kio.po package.
+# Copyright (C) 2014-2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # SPDX-FileCopyrightText: 2014 Eloy Cuadra <ecuadra@eloihr.net>
@@ -8,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2025-01-04 20:06+0100\n"
+"PO-Revision-Date: 2025-06-18 01:46+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -21,12 +22,12 @@ msgstr ""
 #: kiokdeconnect.cpp:75
 #, kde-format
 msgid "Listing devices..."
-msgstr "Listando dispositivos..."
+msgstr "Listando dispositivos…"
 
 #: kiokdeconnect.cpp:120
 #, kde-format
 msgid "Accessing device..."
-msgstr "Accediendo al dispositivo..."
+msgstr "Accediendo al dispositivo…"
 
 #: kiokdeconnect.cpp:135
 #, kde-format

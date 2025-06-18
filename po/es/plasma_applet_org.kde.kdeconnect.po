@@ -1,14 +1,15 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for plasma_applet_org.kde.kdeconnect.po package.
+# Copyright (C) 2015-2025 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, %Y.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2019.
+# SPDX-FileCopyrightText: 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2024, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2019 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-07-20 18:17+0200\n"
+"PO-Revision-Date: 2025-06-18 01:47+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -149,7 +150,7 @@ msgstr "Cancelar"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr "Contestar a %1..."
+msgstr "Contestar a %1…"
 
 #: package/contents/ui/DeviceDelegate.qml:430
 #, kde-format
@@ -187,7 +188,7 @@ msgstr ""
 #: package/contents/ui/FullRepresentation.qml:71
 #, kde-format
 msgid "Pair a Device…"
-msgstr "Vincular un dispositivo..."
+msgstr "Vincular un dispositivo…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -202,4 +203,4 @@ msgstr "Instalar desde F-Droid"
 #: package/contents/ui/main.qml:55
 #, kde-format
 msgid "KDE Connect Settings…"
-msgstr "Preferencias de KDE Connect..."
+msgstr "Preferencias de KDE Connect…"
