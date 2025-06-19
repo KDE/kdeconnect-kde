@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 08:26+0200\n"
+"PO-Revision-Date: 2025-06-18 08:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -57,19 +57,19 @@ msgstr "antonibella5@yahoo.com"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "ID de dispositiu en el qual obrir-hi l'aplicació"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "Mòdul de configuració a mostrar, requerix que s'establisca «--device»."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Substituïx una instància existent"
 
 #: main.cpp:86
 #, kde-format
@@ -156,7 +156,7 @@ msgstr "Compartix el fitxer"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Navega per este dispositiu"
 
 #: qml/DevicePage.qml:196
 #, kde-format

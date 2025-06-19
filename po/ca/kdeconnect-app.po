@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 08:26+0200\n"
+"PO-Revision-Date: 2025-06-18 08:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -57,19 +57,20 @@ msgstr "antonibella5@yahoo.com"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "ID de dispositiu en el qual obrir-hi l'aplicació"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
 msgstr ""
+"Mòdul de configuració a mostrar, requereix que s'estableixi «--device»."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Substitueix una instància existent"
 
 #: main.cpp:86
 #, kde-format
@@ -156,7 +157,7 @@ msgstr "Comparteix el fitxer"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Navega per aquest dispositiu"
 
 #: qml/DevicePage.qml:196
 #, kde-format
@@ -407,9 +408,3 @@ msgstr ""
 "Si trobeu problemes, visiteu el <a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">wiki Community del KDE "
 "Connect</span></a> per a trobar ajuda."
-
-#~ msgid "(c) 2015, Aleix Pol Gonzalez"
-#~ msgstr "(c) 2015, Aleix Pol Gonzalez"
-
-#~ msgid "Maintainer"
-#~ msgstr "Mantenidor"

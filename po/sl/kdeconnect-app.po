@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 06:45+0200\n"
+"PO-Revision-Date: 2025-06-18 06:56+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -54,19 +54,19 @@ msgstr "matjaz.jeran@amis.net"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "ID naprave za odpiranje aplikacije"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "Za prikaz konfiguracijskega modula je potrebna nastavitev --device."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Zamenjaj obstoječi pojavek"
 
 #: main.cpp:86
 #, kde-format
@@ -153,7 +153,7 @@ msgstr "Deli datoteko"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Prebrskaj to napravo"
 
 #: qml/DevicePage.qml:196
 #, kde-format

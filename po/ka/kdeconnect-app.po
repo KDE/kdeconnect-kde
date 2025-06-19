@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 04:34+0200\n"
+"PO-Revision-Date: 2025-06-18 04:36+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -54,19 +54,19 @@ msgstr "Temuri.doghonadze@gmail.com"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "მოწყობილობის id, რომელშიც აპი გაიხსნება"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "საჩვენებელი კონფიგურაციის მოდული. სჭირდება --device."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "გაშვებული ასლის ჩანაცვლება"
 
 #: main.cpp:86
 #, kde-format
@@ -153,7 +153,7 @@ msgstr "ფაილის გაზიარება"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "ამ მოწყობილობის დათვალიერება"
 
 #: qml/DevicePage.qml:196
 #, kde-format

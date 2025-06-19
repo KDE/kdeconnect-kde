@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 09:52+0300\n"
+"PO-Revision-Date: 2025-06-18 08:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -56,19 +56,20 @@ msgstr "yurchor@ukr.net"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "Ідентифікатор пристрою для відкриття програми"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
 msgstr ""
+"Модуль налаштувань, який слід відкрити, потребує встановлення --device."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Замінити наявний екземпляр"
 
 #: main.cpp:86
 #, kde-format
@@ -155,7 +156,7 @@ msgstr "Оприлюднити файл"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Навігація цим пристроєм"
 
 #: qml/DevicePage.qml:196
 #, kde-format

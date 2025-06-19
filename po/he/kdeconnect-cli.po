@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-11 10:41+0300\n"
+"PO-Revision-Date: 2025-06-17 21:38+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -34,10 +34,9 @@ msgid "KDE Connect CLI tool"
 msgstr "כלי שורת הפקודה של KDE Connect"
 
 #: kdeconnect-cli.cpp:34
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr "‏(C) 2015‏-2025, צוות KDE Connect"
+msgstr "© 2015‏-2025, צוות KDE Connect"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -302,8 +301,7 @@ msgid "Requested to unlock %1."
 msgstr "ביקש לנעול את %1."
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
 msgstr "בהמתנה למכשיר…"
 

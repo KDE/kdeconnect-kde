@@ -152,7 +152,7 @@ msgstr "Sdílet soubor"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Procházet toto zařízení"
 
 #: qml/DevicePage.qml:196
 #, kde-format
