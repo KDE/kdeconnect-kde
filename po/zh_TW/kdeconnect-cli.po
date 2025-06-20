@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-15 18:13+0900\n"
+"PO-Revision-Date: 2025-06-19 22:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: Traditional Chinese\n"
@@ -36,10 +36,9 @@ msgid "KDE Connect CLI tool"
 msgstr "KDE Connect 指令列工具"
 
 #: kdeconnect-cli.cpp:34
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr "(c) 2015-2025, KDE Connect 團隊"
+msgstr "© 2015–2025, KDE Connect 團隊"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -300,10 +299,9 @@ msgid "Requested to unlock %1."
 msgstr "向裝置 %1 提出解鎖需求。"
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "等待裝置中..."
+msgstr "等待裝置中…"
 
 #: kdeconnect-cli.cpp:270
 #, kde-format
