@@ -51,7 +51,7 @@ msgstr "发送文件"
 #: deviceindicator.cpp:117
 #, kde-format
 msgid "SMS Messages…"
-msgstr ""
+msgstr "短信…"
 
 #: deviceindicator.cpp:130
 #, kde-format
@@ -95,7 +95,7 @@ msgstr "KDE Connect 指示器工具"
 #: main.cpp:61
 #, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2016–2025 KDE Connect Team"
 
 #: main.cpp:62
 #, kde-format
@@ -115,7 +115,7 @@ msgstr "打开应用"
 #: main.cpp:109
 #, kde-format
 msgid "Configure…"
-msgstr ""
+msgstr "配置…"
 
 #: main.cpp:135
 #, kde-format

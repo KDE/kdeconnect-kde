@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-06-18 17:14+0200\n"
+"PO-Revision-Date: 2025-06-19 13:20+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -52,19 +52,21 @@ msgstr "sdepiets@gmail.com, xavier.besnard@kde.org"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "Identifiant du périphérique sur lequel ouvrir l'application"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
 msgstr ""
+"Module de configuration afficher. Nécessite que l'option « --device » soit "
+"définie."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Remplacer une instance existante"
 
 #: main.cpp:86
 #, kde-format
@@ -151,7 +153,7 @@ msgstr "Partager un fichier"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Naviguer dans ce périphérique"
 
 #: qml/DevicePage.qml:196
 #, kde-format
