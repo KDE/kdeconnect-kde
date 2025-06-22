@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-12 10:11+0200\n"
+"PO-Revision-Date: 2025-06-21 12:14+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -106,12 +106,10 @@ msgid "Reply"
 msgstr "Отговор"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr "Отговор до „%1“..."
+msgstr "Отговор до „%1“…"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -496,6 +494,3 @@ msgstr "Пропуснато обаждане от %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Заглушаване на обаждането"
-
-#~ msgid "Blacklisted"
-#~ msgstr "Блокиран"

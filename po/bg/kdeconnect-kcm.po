@@ -217,14 +217,3 @@ msgstr "Свързани"
 #, kde-format
 msgid "No devices found"
 msgstr "Не са открити устройства"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Минчо Кондарев"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "mkondarev@yahoo.de"
-
-#~ msgid "🔑 abababab"
-#~ msgstr "🔑 abababab"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-12 10:13+0200\n"
+"PO-Revision-Date: 2025-06-21 12:48+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -33,10 +33,9 @@ msgid "KDE Connect CLI tool"
 msgstr "KDE Connect CLI tool"
 
 #: kdeconnect-cli.cpp:34
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr "(c) 2015-2025, Екипът на KDE Connect"
+msgstr "© 2015–2025, Екип на KDE Connect"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -303,10 +302,9 @@ msgid "Requested to unlock %1."
 msgstr "Заявено е отключване на %1"
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "изчакване на устройство..."
+msgstr "изчакване на устройство…"
 
 #: kdeconnect-cli.cpp:270
 #, kde-format
@@ -346,6 +344,3 @@ msgstr ""
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Няма нищо за правене"
-
-#~ msgid "(C) 2015 Aleix Pol Gonzalez"
-#~ msgstr "(C) 2015 Aleix Pol Gonzalez"

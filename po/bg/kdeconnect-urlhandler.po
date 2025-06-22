@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-04-19 12:39+0200\n"
+"PO-Revision-Date: 2025-06-21 12:48+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -57,10 +57,9 @@ msgid "KDE Connect URL handler"
 msgstr "KDE Connect URL манипулатор"
 
 #: kdeconnect-handler.cpp:50
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr "(c) 2015-2025, Екипът на KDE Connect"
+msgstr "© 2015–2025 Екип на KDE Connect"
 
 #: kdeconnect-handler.cpp:51
 #, kde-format

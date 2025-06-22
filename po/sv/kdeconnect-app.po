@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-05-30 21:39+0200\n"
+"PO-Revision-Date: 2025-06-21 21:31+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -23,8 +23,7 @@ msgid "KDE Connect"
 msgstr "KDE-anslut"
 
 #: main.cpp:42
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025 KDE Connect Team"
 msgstr "© 2015-2025, KDE-anslutgruppen"
 
@@ -54,19 +53,19 @@ msgstr "stefan.asserhall@gmail.com"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "Apparatidentifierare att öppna programmet i"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "Inställningsmodul att visa, kräver att --device anges."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Ersätt en befintlig instans"
 
 #: main.cpp:86
 #, kde-format
@@ -153,7 +152,7 @@ msgstr "Dela fil"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Bläddra på apparaten"
 
 #: qml/DevicePage.qml:196
 #, kde-format
