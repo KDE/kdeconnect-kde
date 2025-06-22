@@ -231,12 +231,3 @@ msgstr "Прикачени файлове"
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Изпращане на съобщение"
-
-#~ msgid "Copy Message"
-#~ msgstr "Копиране на съобщение"
-
-#~ msgid "Copy Selection"
-#~ msgstr "Копиране на селекцията"
-
-#~ msgid "Compose message"
-#~ msgstr "Съставяне на съобщение"

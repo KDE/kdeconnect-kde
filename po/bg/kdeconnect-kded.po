@@ -62,6 +62,3 @@ msgstr "Демон на KDE Connect"
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Заменяне на съществуваща инстанция"
-
-#~ msgid "View key"
-#~ msgstr "Преглед на ключ"

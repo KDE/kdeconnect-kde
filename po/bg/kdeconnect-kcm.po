@@ -227,6 +227,3 @@ msgstr "Свързани"
 #, kde-format
 msgid "No devices found"
 msgstr "Не са открити устройства"
-
-#~ msgid "🔑 abababab"
-#~ msgstr "🔑 abababab"
