@@ -25,7 +25,7 @@ msgstr "KDE Connect"
 #: main.cpp:42
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025 KDE Connect Team"
 
 #: main.cpp:43
 #, kde-format
@@ -54,19 +54,19 @@ msgstr ""
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "用于打开此应用的设备 ID"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "配置需要显示的模块，需要设置 --device 参数。"
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "替换已有实例"
 
 #: main.cpp:86
 #, kde-format
@@ -153,7 +153,7 @@ msgstr "共享文件"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "浏览此设备"
 
 #: qml/DevicePage.qml:196
 #, kde-format

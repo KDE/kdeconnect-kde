@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-09 02:03+0100\n"
+"PO-Revision-Date: 2025-06-22 18:44+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,17 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: kiokdeconnect.cpp:75
-#, fuzzy, kde-format
-#| msgid "Listing devices..."
+#, kde-format
 msgid "Listing devices…"
 msgstr "Listando dispositivos…"
 
 #: kiokdeconnect.cpp:120
-#, fuzzy, kde-format
-#| msgid "Accessing device..."
+#, kde-format
 msgid "Accessing device…"
 msgstr "Accediendo al dispositivo…"
 

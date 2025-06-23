@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-06-09 02:00+0100\n"
+"PO-Revision-Date: 2025-06-22 18:44+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -25,10 +25,9 @@ msgid "KDE Connect"
 msgstr "KDE Connect"
 
 #: main.cpp:42
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr "(c) 2015-2025, el equipo de KDE Connect"
+msgstr "© 2015-2025 el equipo de KDE Connect"
 
 #: main.cpp:43
 #, kde-format
@@ -56,19 +55,19 @@ msgstr "vrcordoba@gmail.com"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "El identificador del dispositivo en el que abrir la aplicación"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "Módulo de configuración a mostrar, require haber pasado --device."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Remplazar una instancia existente"
 
 #: main.cpp:86
 #, kde-format
@@ -155,7 +154,7 @@ msgstr "Compartir archivo"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Navegar por este dispositivo"
 
 #: qml/DevicePage.qml:196
 #, kde-format

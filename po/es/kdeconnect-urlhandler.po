@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-09 02:04+0100\n"
+"PO-Revision-Date: 2025-06-22 18:44+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -58,10 +58,9 @@ msgid "KDE Connect URL handler"
 msgstr "Controlador de URL de KDE Connect"
 
 #: kdeconnect-handler.cpp:50
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr "(c) 2015-2025, el equipo de KDE Connect"
+msgstr "© 2015-2025 el equipo de KDE Connect"
 
 #: kdeconnect-handler.cpp:51
 #, kde-format

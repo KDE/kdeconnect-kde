@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-09 02:03+0100\n"
+"PO-Revision-Date: 2025-06-22 18:44+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -76,10 +76,9 @@ msgid "SMS Instant Messaging"
 msgstr "Mensajería instantánea SMS"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2018–2025 KDE Connect Team"
-msgstr "(c) 2018-2025,  el equipo de KDE Connect"
+msgstr "© 2018-2025  el equipo de KDE Connect"
 
 #: main.cpp:55
 #, kde-format

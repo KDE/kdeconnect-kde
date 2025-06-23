@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-09 02:01+0100\n"
+"PO-Revision-Date: 2025-06-22 18:44+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -52,8 +52,7 @@ msgid "Send files"
 msgstr "Enviar archivos"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
 msgstr "Mensajes SMS…"
 
@@ -97,10 +96,9 @@ msgid "KDE Connect Indicator tool"
 msgstr "Herramienta del indicador de KDE Connect"
 
 #: main.cpp:61
-#, fuzzy, kde-format
-#| msgid "(c) 2016-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr "(c) 2016-2025, el equipo de KDE Connect"
+msgstr "© 2016-2025 el equipo de KDE Connect"
 
 #: main.cpp:62
 #, kde-format
@@ -118,8 +116,7 @@ msgid "Open app"
 msgstr "Abrir aplicación"
 
 #: main.cpp:109
-#, fuzzy, kde-format
-#| msgid "Configure..."
+#, kde-format
 msgid "Configure…"
 msgstr "Configurar…"
 
