@@ -6,8 +6,11 @@
 
 #pragma once
 
+#include <KJob>
 #include <QClipboard>
 #include <QObject>
+#include <QPointer>
+#include <QVariant>
 
 #ifdef Q_OS_MAC
 #include <QTimer>
@@ -27,12 +30,13 @@ public:
     enum ClipboardContentType {
         ClipboardContentTypeUnknown = 0,
         ClipboardContentTypePassword = 1,
+        ClipboardContentTypeFile = 2
     };
 
 protected:
     ClipboardListener();
-    void refreshContent(const QString &content, ClipboardContentType contentType);
-    QString m_currentContent;
+    void refreshContent(const QVariant &content, ClipboardContentType contentType);
+    QVariant m_currentContent;
     ClipboardContentType m_currentContentType;
 
 private:
@@ -42,13 +46,14 @@ public:
     static ClipboardListener *instance();
 
     void setText(const QString &content);
+    void setFile(const KJob *job);
 
-    QString currentContent();
+    QVariant currentContent();
     ClipboardContentType currentContentType();
     qint64 updateTimestamp();
 
 Q_SIGNALS:
-    void clipboardChanged(const QString &content, ClipboardContentType contentType);
+    void clipboardChanged(const QVariant &content, ClipboardContentType contentType);
 
 private:
     void updateClipboard(QClipboard::Mode mode);

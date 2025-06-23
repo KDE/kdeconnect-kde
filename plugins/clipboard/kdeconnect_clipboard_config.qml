@@ -14,10 +14,12 @@ Kirigami.ScrollablePage {
     id: root
 
     property string device
+    readonly property string max_clipboard_file_size: "maxClipboardFileSizeMB"
 
     Component.onCompleted: {
         autoShare.checked = config.getBool("autoShare", config.getBool("sendUnknown", true))
         password.checked = config.getBool("sendPassword", true)
+        maxClipboardFileSizeMB.value = config.getInt(max_clipboard_file_size, 50)
     }
 
     Kirigami.FormLayout {
@@ -39,6 +41,19 @@ Kirigami.ScrollablePage {
             id: password
             text: i18n("Including passwords (as marked by password managers)")
             onClicked: config.set("sendPassword", checked)
+        }
+
+        RowLayout {          
+            QQC2.SpinBox {
+                id: maxClipboardFileSizeMB
+                from: 0
+                to: 1000000
+                onValueModified: config.set(max_clipboard_file_size, value)
+            }
+
+            QQC2.Label {
+                text: i18n("Max Clipboard File Size (MB)")
+            }
         }
     }
 }

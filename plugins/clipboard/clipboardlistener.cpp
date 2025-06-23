@@ -5,13 +5,22 @@
  */
 
 #include "clipboardlistener.h"
+#include "filetransferjob.h"
+#include "plugin_clipboard_debug.h"
 
 #include <KSystemClipboard>
 
 #include <QDateTime>
+#include <QImage>
 #include <QMimeData>
+#include <QPixmap>
+#include <QStringLiteral>
+#include <QUrl>
+#include <QVariant>
+#include <QtCore>
+#include <QtWidgets/qapplication.h>
 
-QString ClipboardListener::currentContent()
+QVariant ClipboardListener::currentContent()
 {
     return m_currentContent;
 }
@@ -35,7 +44,7 @@ ClipboardListener *ClipboardListener::instance()
     return me;
 }
 
-void ClipboardListener::refreshContent(const QString &content, ClipboardListener::ClipboardContentType contentType)
+void ClipboardListener::refreshContent(const QVariant &content, ClipboardListener::ClipboardContentType contentType)
 {
     m_updateTimestamp = QDateTime::currentDateTime().toMSecsSinceEpoch();
     m_currentContent = content;
@@ -65,12 +74,35 @@ void ClipboardListener::updateClipboard(QClipboard::Mode mode)
         contentType = ClipboardListener::ClipboardContentTypePassword;
     }
 
-    const QString content = clipboard->text(QClipboard::Clipboard);
-    if ((content.isEmpty() || content == m_currentContent) && contentType == m_currentContentType) {
-        return;
+    const QMimeData *currentMime = clipboard->mimeData(QClipboard::Clipboard);
+    if (currentMime && currentMime->hasUrls()) {
+        const QList<QUrl> &urls = currentMime->urls();
+        const QUrl url = urls.first();
+
+        if (url == m_currentContent) {
+            return;
+        }
+
+        refreshContent(url, ClipboardListener::ClipboardContentTypeFile);
+        Q_EMIT clipboardChanged(url, ClipboardListener::ClipboardContentTypeFile);
+    } else if (currentMime && currentMime->hasImage()) {
+        const QImage imageData = qvariant_cast<QImage>(currentMime->imageData());
+
+        if (imageData == m_currentContent) {
+            return;
+        }
+
+        refreshContent(imageData, ClipboardListener::ClipboardContentTypeFile);
+        Q_EMIT clipboardChanged(imageData, ClipboardListener::ClipboardContentTypeFile);
+    } else {
+        const QString content = clipboard->text(QClipboard::Clipboard);
+        if ((content.isEmpty() || content == m_currentContent) && contentType == m_currentContentType) {
+            return;
+        }
+
+        refreshContent(content, contentType);
+        Q_EMIT clipboardChanged(content, contentType);
     }
-    refreshContent(content, contentType);
-    Q_EMIT clipboardChanged(content, contentType);
 }
 
 void ClipboardListener::setText(const QString &content)
@@ -79,6 +111,27 @@ void ClipboardListener::setText(const QString &content)
     auto mime = new QMimeData;
     mime->setText(content);
     clipboard->setMimeData(mime, QClipboard::Clipboard);
+}
+
+void ClipboardListener::setFile(const KJob *job)
+{
+    const auto *ftjob = qobject_cast<const FileTransferJob *>(job);
+    if (ftjob && !job->error()) {
+        QUrl url = ftjob->destination();
+
+        if (url.isEmpty()) {
+            qCDebug(KDECONNECT_PLUGIN_CLIPBOARD) << "Could not open the image for clipboard";
+            return;
+        }
+
+        refreshContent(url, ClipboardContentType::ClipboardContentTypeFile);
+
+        auto mime = new QMimeData;
+        mime->setUrls({url});
+        clipboard->setMimeData(mime, QClipboard::Clipboard);
+    } else {
+        qCDebug(KDECONNECT_PLUGIN_CLIPBOARD) << "Could not receive the image for clipboard";
+    }
 }
 
 #include "moc_clipboardlistener.cpp"

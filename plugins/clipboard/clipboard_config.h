@@ -21,5 +21,7 @@ public:
 
 private:
     void autoShareChanged();
+    void maxClipboardSizeChanged(int value);
+
     Ui::ClipboardConfigUi m_ui;
 };

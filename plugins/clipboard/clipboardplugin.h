@@ -23,6 +23,17 @@
 #define PACKET_TYPE_CLIPBOARD QStringLiteral("kdeconnect.clipboard")
 
 /**
+ * Packet containing file data, sent or received when a device updates its clipboard and the top element is a file
+ * <p>
+ * Binary file data is transferred via payload.
+ * The body should look like so:
+ * {
+ * "filename": "image.jpg"
+ * }
+ */
+#define PACKET_TYPE_CLIPBOARD_FILE QStringLiteral("kdeconnect.clipboard.file")
+
+/**
  * Packet containing clipboard contents and a timestamp that the contents were last updated, sent
  * on first connection
  * <p>
@@ -37,6 +48,12 @@
  */
 #define PACKET_TYPE_CLIPBOARD_CONNECT QStringLiteral("kdeconnect.clipboard.connect")
 
+// Format to use when sending clipboard picture
+#define CLIPBOARD_IMAGE_FORMAT "PNG"
+
+// File extension when sending clipboard picture
+#define CLIPBOARD_IMAGE_EXTENSION QStringLiteral(".") + QStringLiteral(CLIPBOARD_IMAGE_FORMAT)
+
 class ClipboardPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
@@ -46,7 +63,7 @@ public:
     explicit ClipboardPlugin(QObject *parent, const QVariantList &args);
 
     Q_SCRIPTABLE void sendClipboard();
-    Q_SCRIPTABLE void sendClipboard(const QString &content);
+    Q_SCRIPTABLE void sendClipboard(const QVariant &content);
     QString dbusPath() const override;
 
     void receivePacket(const NetworkPacket &np) override;
@@ -57,7 +74,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void autoShareDisabledChanged(bool b);
 
 private Q_SLOTS:
-    void clipboardChanged(const QString &content, ClipboardListener::ClipboardContentType contentType);
+    void clipboardChanged(const QVariant &content, ClipboardListener::ClipboardContentType contentType);
     void sendConnectPacket();
     void configChanged();
 
