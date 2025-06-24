@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-06-24 00:42+0000\n"
 "PO-Revision-Date: 2024-02-18 10:12+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -57,6 +57,12 @@ msgstr "Автоматически делиться содержимым буф�
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
 msgstr "Включая пароли (обозначенные как таковые диспетчерами паролей)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
+#: clipboard/clipboard_config.ui:67
+#, kde-format
+msgid "Max Clipboard File Size (MB)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17

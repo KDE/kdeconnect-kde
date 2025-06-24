@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-06-24 00:42+0000\n"
 "PO-Revision-Date: 2025-06-17 21:37+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -54,6 +54,12 @@ msgstr "לשתף את לוח הגזירים מהמכשיר הזה אוטומטי
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
 msgstr "כולל סיסמאות (כפי שמסומן על ידי מנהלי סיסמאות)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
+#: clipboard/clipboard_config.ui:67
+#, kde-format
+msgid "Max Clipboard File Size (MB)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17

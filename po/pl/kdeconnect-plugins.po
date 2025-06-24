@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-06-24 00:42+0000\n"
 "PO-Revision-Date: 2025-06-14 13:59+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -52,6 +52,12 @@ msgstr "Sam udostępniaj schowek tego urządzenia"
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
 msgstr "Uwzględniając w tym hasła (wg oznaczenia programów do haseł)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
+#: clipboard/clipboard_config.ui:67
+#, kde-format
+msgid "Max Clipboard File Size (MB)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17

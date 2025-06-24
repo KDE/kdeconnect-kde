@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-06-24 00:42+0000\n"
 "PO-Revision-Date: 2024-04-07 17:37+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -50,6 +50,12 @@ msgstr ""
 #: clipboard/clipboard_config.ui:45
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
+#: clipboard/clipboard_config.ui:67
+#, kde-format
+msgid "Max Clipboard File Size (MB)"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)

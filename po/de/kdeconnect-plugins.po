@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-06-24 00:42+0000\n"
 "PO-Revision-Date: 2023-12-28 17:05+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -52,6 +52,12 @@ msgstr "Die Zwischenablage dieses Geräts automatisch teilen"
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
 msgstr "Einschließlich Passwörter (wie von Passwortverwaltungen vorgegeben)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
+#: clipboard/clipboard_config.ui:67
+#, kde-format
+msgid "Max Clipboard File Size (MB)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
