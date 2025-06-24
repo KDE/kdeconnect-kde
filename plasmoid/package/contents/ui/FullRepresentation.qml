@@ -12,7 +12,6 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.config as KConfig
-import org.kde.kcmutils as KCMUtils
 import org.kde.kdeconnect as KDEConnect
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.components as PlasmaComponents3
@@ -70,8 +69,8 @@ PlasmaExtras.Representation {
                 helpfulAction: QQC2.Action {
                     text: i18n("Pair a Device…")
                     icon.name: "list-add"
-                    onTriggered: KCMUtils.KCMLauncher.openSystemSettings("kcm_kdeconnect")
-                    enabled: pairedDevicesModel.count === 0 && KConfig.KAuthorized.authorizeControlModule("kcm_kdeconnect")
+                    onTriggered: KDEConnect.OpenConfig.openConfiguration()
+                    enabled: pairedDevicesModel.count === 0
                 }
 
                 PlasmaComponents3.Button {

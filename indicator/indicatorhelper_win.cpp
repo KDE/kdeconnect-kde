@@ -33,7 +33,6 @@ IndicatorHelper::~IndicatorHelper()
     this->terminateProcess(processes::dbus_daemon, m_indicatorUrl);
     this->terminateProcess(processes::kdeconnect_app, m_indicatorUrl);
     this->terminateProcess(processes::kdeconnect_handler, m_indicatorUrl);
-    this->terminateProcess(processes::kdeconnect_settings, m_indicatorUrl);
     this->terminateProcess(processes::kdeconnect_sms, m_indicatorUrl);
     this->terminateProcess(processes::kdeconnect_daemon, m_indicatorUrl);
 }

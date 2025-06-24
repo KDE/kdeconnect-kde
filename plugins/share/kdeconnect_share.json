@@ -157,7 +157,6 @@
         "Name[zh_CN]": "分享和接收",
         "Name[zh_TW]": "分享及接收"
     },
-    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_share_config",
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.share.request",
         "kdeconnect.share.request.update"

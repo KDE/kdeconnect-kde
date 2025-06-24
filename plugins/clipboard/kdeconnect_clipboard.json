@@ -158,7 +158,6 @@
         "Name[zh_CN]": "剪切板",
         "Name[zh_TW]": "剪貼簿"
     },
-    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_clipboard_config",
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.clipboard",
         "kdeconnect.clipboard.connect",
