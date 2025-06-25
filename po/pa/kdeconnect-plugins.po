@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2024-10-25 21:54-0500\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -27,54 +27,6 @@ msgstr "%1: ਘੱਟ ਬੈਟਰੀ"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "ਬੈਟਰੀ %1% ਉੱਤੇ ਹੈ"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "ਕਲਿੱਪਬੋਰਡ ਪਲੱਗਇਨ"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "ਆਪਣੇ-ਆਪ ਸਿੰਕ ਕਰੋ"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "ਇਸ ਡਿਵਾਈਸ ਤੋਂ ਕਲਿੱਪਬੋਰਡ ਨੂੰ ਆਪਣੇ-ਆਪ ਸਾਂਝਾ ਕਰੋ"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "ਪਾਸਵਰਡਾਂ ਸਮੇਤ (ਪਾਸਵਰਡ ਮੈਨੇਜਰਾਂ ਵਲੋਂ ਨਿਸ਼ਾਨਬੱਧ ਕੀਤੇ ਵਜੋਂ)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "ਸਹੂਲਤਾਂ ਦੀ ਖੋਜ ਕਰੋ"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "ਚਲਾਉਣ ਲਈ ਸਾਊਂਡ:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "ਚਲਾਉਣ ਲਈ ਸਾਊਂਡ ਚੁਣੋ"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -128,164 +80,20 @@ msgstr "ਭੇਜੋ"
 msgid "Dialog"
 msgstr "ਡਾਈਲਾਗ"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "ਸੰਗੀਤ ਵਿਰਾਮ ਪਲੱਗਇਨ"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "ਸ਼ਰਤ"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "ਫ਼ੋਨ ਦੀ ਘੰਟੀ ਵੱਜਣ ਦੇ ਨਾਲ ਹੀ ਰੋਕੋ"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "ਸਿਰਫ਼ ਗੱਲ ਕਰਨ ਦੇ ਦੌਰਾਨ ਹੀ ਵਿਰਾਮ ਕਰੋ"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "ਕਾਰਵਾਈਆਂ"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "ਸੰਗੀਤ ਪਲੇਅਰਾਂ ਨੂੰ ਵਿਰਾਮ ਕਰੋ"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "ਜਦੋਂ ਵੀ ਕਾਲ ਖ਼ਤਮ ਹੋਵੇ ਤਾਂ ਆਪਣੇ ਆਪ ਮੀਡਿਆ ਨੂੰ ਮੁੜ-ਚਾਲੂ ਕਰੋ"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "ਪਿੰਗ!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "ਬੰਦ ਕਰਨ ਲਈ ਸਮਾਂ ਤੈਅ ਕਰੋ"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "ਹੁਣੇ ਬੰਦ ਕਰੋ"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "ਆਖਰੀ ਬੰਦ ਕਰੋ ਨੂੰ ਰੱਦ ਕਰੋ"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "ਮੁੜ-ਚਾਲੂ ਕਰਨ ਨੂੰ ਸਮਾਂ ਤੈਅ ਕਰੋ"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "ਸਸਪੈਂਡ ਕਰੋ"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "ਸਕਰੀਨ ਲਾਕ ਕਰੋ"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "ਹੈਲੋ ਕਹੋ"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "ਬੰਦ ਕਰੋ"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "ਮੁੜ-ਚਾਲੂ ਕਰੋ"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "ਵੱਧ ਤੋਂ ਵੱਧ ਚਮਕ"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "ਸਕਰੀਨ ਨੂੰ ਅਣ-ਲਾਕ ਕਰੋ"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "ਸਭ ਵਾਲਟਾਂ ਨੂੰ ਬੰਦ ਕਰੋ"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "ਸਭ ਵਾਲਟਾਂ ਨੂੰ ਬੰਦ ਹੋਣ ਲਈ ਮਜ਼ਬੂਰ ਕਰੋ"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "ਸਰਲ ਕਮਾਡਾ"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "ਐਕਸਪੋਰਟ"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "ਇੰਪੋਰਟ"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "ਨਾਂ"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "ਕਮਾਂਡ"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "ਕਮਾਡਾਂ ਐਕਸਪੋਰਟ ਕਰੋ"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "ਕਮਾਡਾਂ ਇੰਪੋਰਟ ਕਰੋ"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "ਫ਼ੋਨ ਕਨੈਕਟ ਹੈ"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "ਨਾਂ"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -310,75 +118,6 @@ msgid ""
 "This pattern is applied to the summary and, if selected above, the body of "
 "notifications."
 msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "ਆਮ"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "ਸਿਰਫ਼ ਅਟੱਲ ਨੋਟੀਫਿਕੇਸ਼ਨ ਹੀ"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "ਮੁੱਖ ਹਿੱਸੇ ਸਮੇਤ"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "ਜੇ ਸੰਭਵ ਹੋਵੇ ਤਾਂ ਨੋਟੀਫਾਈ ਕਰਨ ਵਾਲੀਆਂ ਐਪਲੀਕੇਸ਼ਨਾਂ ਦੇ ਆਈਕਾਨਾਂ ਨੂੰ ਸੈਕਰੋਨਾਈਜ਼ ਕਰਨਾ ਹੈ?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "ਆਈਕਾਨਾਂ ਨੂੰ ਸੈਕਰੋਨਾਈਜ਼ ਕਰੋ"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr "<html><head/><body><p>ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਲਈ ਘੱਟੋ-ਘੱਟ ਲੋੜਵੰਦੀ ਪੱਧਰ</p></body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "ਜੇ ਦਿੱਤਾ ਲੋੜਵੰਦੀ ਪੱਧਰ ਹੋਵੇ ਤਾਂ ਹੀ ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਨੂੰ ਸੈਕਰੋਨਾਈਜ਼ ਕਰੋ।"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "ਘੱਟੋ-ਘੱਟ ਲੋੜਵੰਦੀ ਪੱਧਰ"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "ਐਪਲੀਕੇਸ਼ਨਾਂ"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -424,29 +163,6 @@ msgstr "ਸਭ ਫਾਇਲਾਂ"
 #, kde-format
 msgid "Camera pictures"
 msgstr "ਕੈਮਰਾ ਤਸਵੀਰਾਂ"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr ""
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "ਸਾਂਝਾ ਕਰੋ ਪਲੱਗਇਨ ਦੀਆਂ ਸੈਟਿੰਗਾਂ"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "ਪ੍ਰਾਪਤ"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "ਫਾਇਲਾਂ ਨੂੰ ਇੱਥੇ ਸੰਭਾਲੋ:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -495,6 +211,144 @@ msgstr "%1 ਤੋਂ ਖੁੰਝੀ ਕਾਲ"
 #, kde-format
 msgid "Mute Call"
 msgstr "ਕਾਲ ਨੂੰ ਮੌਨ ਕਰੋ"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "ਕਲਿੱਪਬੋਰਡ ਪਲੱਗਇਨ"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "ਆਪਣੇ-ਆਪ ਸਿੰਕ ਕਰੋ"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "ਇਸ ਡਿਵਾਈਸ ਤੋਂ ਕਲਿੱਪਬੋਰਡ ਨੂੰ ਆਪਣੇ-ਆਪ ਸਾਂਝਾ ਕਰੋ"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "ਪਾਸਵਰਡਾਂ ਸਮੇਤ (ਪਾਸਵਰਡ ਮੈਨੇਜਰਾਂ ਵਲੋਂ ਨਿਸ਼ਾਨਬੱਧ ਕੀਤੇ ਵਜੋਂ)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "ਸਹੂਲਤਾਂ ਦੀ ਖੋਜ ਕਰੋ"
+
+#~ msgid "Sound to play:"
+#~ msgstr "ਚਲਾਉਣ ਲਈ ਸਾਊਂਡ:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "ਚਲਾਉਣ ਲਈ ਸਾਊਂਡ ਚੁਣੋ"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "ਸੰਗੀਤ ਵਿਰਾਮ ਪਲੱਗਇਨ"
+
+#~ msgid "Condition"
+#~ msgstr "ਸ਼ਰਤ"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "ਫ਼ੋਨ ਦੀ ਘੰਟੀ ਵੱਜਣ ਦੇ ਨਾਲ ਹੀ ਰੋਕੋ"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "ਸਿਰਫ਼ ਗੱਲ ਕਰਨ ਦੇ ਦੌਰਾਨ ਹੀ ਵਿਰਾਮ ਕਰੋ"
+
+#~ msgid "Actions"
+#~ msgstr "ਕਾਰਵਾਈਆਂ"
+
+#~ msgid "Pause media players"
+#~ msgstr "ਸੰਗੀਤ ਪਲੇਅਰਾਂ ਨੂੰ ਵਿਰਾਮ ਕਰੋ"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "ਜਦੋਂ ਵੀ ਕਾਲ ਖ਼ਤਮ ਹੋਵੇ ਤਾਂ ਆਪਣੇ ਆਪ ਮੀਡਿਆ ਨੂੰ ਮੁੜ-ਚਾਲੂ ਕਰੋ"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "ਬੰਦ ਕਰਨ ਲਈ ਸਮਾਂ ਤੈਅ ਕਰੋ"
+
+#~ msgid "Shutdown now"
+#~ msgstr "ਹੁਣੇ ਬੰਦ ਕਰੋ"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "ਆਖਰੀ ਬੰਦ ਕਰੋ ਨੂੰ ਰੱਦ ਕਰੋ"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "ਮੁੜ-ਚਾਲੂ ਕਰਨ ਨੂੰ ਸਮਾਂ ਤੈਅ ਕਰੋ"
+
+#~ msgid "Suspend"
+#~ msgstr "ਸਸਪੈਂਡ ਕਰੋ"
+
+#~ msgid "Lock Screen"
+#~ msgstr "ਸਕਰੀਨ ਲਾਕ ਕਰੋ"
+
+#~ msgid "Say Hello"
+#~ msgstr "ਹੈਲੋ ਕਹੋ"
+
+#~ msgid "Shutdown"
+#~ msgstr "ਬੰਦ ਕਰੋ"
+
+#~ msgid "Reboot"
+#~ msgstr "ਮੁੜ-ਚਾਲੂ ਕਰੋ"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "ਵੱਧ ਤੋਂ ਵੱਧ ਚਮਕ"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "ਸਕਰੀਨ ਨੂੰ ਅਣ-ਲਾਕ ਕਰੋ"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "ਸਭ ਵਾਲਟਾਂ ਨੂੰ ਬੰਦ ਕਰੋ"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "ਸਭ ਵਾਲਟਾਂ ਨੂੰ ਬੰਦ ਹੋਣ ਲਈ ਮਜ਼ਬੂਰ ਕਰੋ"
+
+#~ msgid "Sample commands"
+#~ msgstr "ਸਰਲ ਕਮਾਡਾ"
+
+#~ msgid "Export"
+#~ msgstr "ਐਕਸਪੋਰਟ"
+
+#~ msgid "Import"
+#~ msgstr "ਇੰਪੋਰਟ"
+
+#~ msgid "Command"
+#~ msgstr "ਕਮਾਂਡ"
+
+#~ msgid "Export Commands"
+#~ msgstr "ਕਮਾਡਾਂ ਐਕਸਪੋਰਟ ਕਰੋ"
+
+#~ msgid "Import Commands"
+#~ msgstr "ਕਮਾਡਾਂ ਇੰਪੋਰਟ ਕਰੋ"
+
+#~ msgid "General"
+#~ msgstr "ਆਮ"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "ਸਿਰਫ਼ ਅਟੱਲ ਨੋਟੀਫਿਕੇਸ਼ਨ ਹੀ"
+
+#~ msgid "Include body"
+#~ msgstr "ਮੁੱਖ ਹਿੱਸੇ ਸਮੇਤ"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr "ਜੇ ਸੰਭਵ ਹੋਵੇ ਤਾਂ ਨੋਟੀਫਾਈ ਕਰਨ ਵਾਲੀਆਂ ਐਪਲੀਕੇਸ਼ਨਾਂ ਦੇ ਆਈਕਾਨਾਂ ਨੂੰ ਸੈਕਰੋਨਾਈਜ਼ ਕਰਨਾ ਹੈ?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "ਆਈਕਾਨਾਂ ਨੂੰ ਸੈਕਰੋਨਾਈਜ਼ ਕਰੋ"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਲਈ ਘੱਟੋ-ਘੱਟ ਲੋੜਵੰਦੀ ਪੱਧਰ</p></body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "ਜੇ ਦਿੱਤਾ ਲੋੜਵੰਦੀ ਪੱਧਰ ਹੋਵੇ ਤਾਂ ਹੀ ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਨੂੰ ਸੈਕਰੋਨਾਈਜ਼ ਕਰੋ।"
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "ਘੱਟੋ-ਘੱਟ ਲੋੜਵੰਦੀ ਪੱਧਰ"
+
+#~ msgid "Applications"
+#~ msgstr "ਐਪਲੀਕੇਸ਼ਨਾਂ"
+
+#~ msgid "Share plugin settings"
+#~ msgstr "ਸਾਂਝਾ ਕਰੋ ਪਲੱਗਇਨ ਦੀਆਂ ਸੈਟਿੰਗਾਂ"
+
+#~ msgid "Receiving"
+#~ msgstr "ਪ੍ਰਾਪਤ"
+
+#~ msgid "Save files in:"
+#~ msgstr "ਫਾਇਲਾਂ ਨੂੰ ਇੱਥੇ ਸੰਭਾਲੋ:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "ਪਾਬੰਦੀ-ਸੂਚੀ"

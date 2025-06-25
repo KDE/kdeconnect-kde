@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 06:43+0200\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"PO-Revision-Date: 2025-06-24 06:57+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -28,54 +28,6 @@ msgstr "%1: Prazna baterija"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Baterija na %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "Vtičnik odložišča"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "Samodejna sinhronizacija"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "Samodejno deli odložišče iz te naprave"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "Vključno z gesli (kot so jih označili upravljalniki gesel)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Pomožni programi za raziskovanje"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Zvok za predvajanje:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Izberi zvok za predvajanje"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -127,164 +79,20 @@ msgstr "Pošlji"
 msgid "Dialog"
 msgstr "Dialog"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Zaustavi glasbeni vtičnik"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Pogoj"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Prekini takoj, ko telefon zazvoni"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Prekini samo med pogovorom"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Dejavnosti"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Zaustavite predvajalnike predstavnosti"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Izklop zvoka sistema"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Samodejno nadaljuj predstavnost, ko je klic končan"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Planiraj zaustavitev"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "Zaustavi zdaj"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Prekliči zadnjo zaustavitev"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Planiraj ponovni zagon"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Prekini"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Zakleni zaslon"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Reci Zdravo"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Zaustavi"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Ponovno zaženi"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Največja svetlost"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Odkleni zaslon"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Zapri vse trezorje"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Prisilno zapri vse trezorje"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Vzorec ukazov"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "Izvoz"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "Uvoz"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Ime"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Ukaz"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "Izvozi ukaze"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "Uvozi ukaze"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Telefon je povezan"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Ime"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
@@ -311,76 +119,6 @@ msgstr ""
 "Regularni izraz, ki določa, katera obvestil ne bi smela biti poslana.\n"
 "Ta vzorec se uporablja za povzetek in, če je izbran zgoraj, telo telesa "
 "obvestil."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Splošno"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Uskladi samo obvestila s časovno omejitvijo 0?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Samo obstojna obvestila"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr "Ob usklajevanju obvestil dodaj povzetku še telo sporočila?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Vključi telo"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "Uskladi ikone sporočil aplikacij, če je mogoče?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Uskladi ikone"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Najnižja stopnja nujnih obvestil</p></body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "Uskladi samo obvestila z dano stopnjo nujnosti."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Najnižja stopnja nujnosti"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Aplikacije"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -426,29 +164,6 @@ msgstr "Vse datoteke"
 #, kde-format
 msgid "Camera pictures"
 msgstr "Posnetki kamere"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 na poti bo nadomeščen z določenim imenom naprave."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Deli nastavitve vtičnikov"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Sprejemanje"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Shrani datoteke v:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -497,6 +212,162 @@ msgstr "Zgrešeni klic od %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Klic brez zvoka"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "Vtičnik odložišča"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "Samodejna sinhronizacija"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "Samodejno deli odložišče iz te naprave"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "Vključno z gesli (kot so jih označili upravljalniki gesel)"
+
+#~ msgid "Max Clipboard File Size (MB)"
+#~ msgstr "Maksimalna velikost datoteke odložišča (MB)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Pomožni programi za raziskovanje"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Zvok za predvajanje:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Izberi zvok za predvajanje"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Zaustavi glasbeni vtičnik"
+
+#~ msgid "Condition"
+#~ msgstr "Pogoj"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Prekini takoj, ko telefon zazvoni"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Prekini samo med pogovorom"
+
+#~ msgid "Actions"
+#~ msgstr "Dejavnosti"
+
+#~ msgid "Pause media players"
+#~ msgstr "Zaustavite predvajalnike predstavnosti"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Izklop zvoka sistema"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "Samodejno nadaljuj predstavnost, ko je klic končan"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Planiraj zaustavitev"
+
+#~ msgid "Shutdown now"
+#~ msgstr "Zaustavi zdaj"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Prekliči zadnjo zaustavitev"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Planiraj ponovni zagon"
+
+#~ msgid "Suspend"
+#~ msgstr "Prekini"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Zakleni zaslon"
+
+#~ msgid "Say Hello"
+#~ msgstr "Reci Zdravo"
+
+#~ msgid "Shutdown"
+#~ msgstr "Zaustavi"
+
+#~ msgid "Reboot"
+#~ msgstr "Ponovno zaženi"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Največja svetlost"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Odkleni zaslon"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Zapri vse trezorje"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Prisilno zapri vse trezorje"
+
+#~ msgid "Sample commands"
+#~ msgstr "Vzorec ukazov"
+
+#~ msgid "Export"
+#~ msgstr "Izvoz"
+
+#~ msgid "Import"
+#~ msgstr "Uvoz"
+
+#~ msgid "Command"
+#~ msgstr "Ukaz"
+
+#~ msgid "Export Commands"
+#~ msgstr "Izvozi ukaze"
+
+#~ msgid "Import Commands"
+#~ msgstr "Uvozi ukaze"
+
+#~ msgid "General"
+#~ msgstr "Splošno"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "Uskladi samo obvestila s časovno omejitvijo 0?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Samo obstojna obvestila"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr "Ob usklajevanju obvestil dodaj povzetku še telo sporočila?"
+
+#~ msgid "Include body"
+#~ msgstr "Vključi telo"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr "Uskladi ikone sporočil aplikacij, če je mogoče?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Uskladi ikone"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Najnižja stopnja nujnih obvestil</p></body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "Uskladi samo obvestila z dano stopnjo nujnosti."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Najnižja stopnja nujnosti"
+
+#~ msgid "Applications"
+#~ msgstr "Aplikacije"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr "&percnt;1 na poti bo nadomeščen z določenim imenom naprave."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Deli nastavitve vtičnikov"
+
+#~ msgid "Receiving"
+#~ msgstr "Sprejemanje"
+
+#~ msgid "Save files in:"
+#~ msgstr "Shrani datoteke v:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Na črnem seznamu"

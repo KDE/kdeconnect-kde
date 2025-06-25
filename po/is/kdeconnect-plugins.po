@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2025-05-28 20:24+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -28,54 +28,6 @@ msgstr "%1: lítil hleðsla á rafhlöðu"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Rafhlaða í %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "Klippispjaldsviðbót"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "Sjálfvirk samstilling"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "Deila klippispjaldinu sjálfvirkt úr þessu tæki"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "Lykilorð innifalin (merkt af lykilorðastjórum)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Uppgötvunarverkfæri"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Hljóð til að spila:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Veldu hljóð til að spila"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -129,164 +81,20 @@ msgstr "Senda"
 msgid "Dialog"
 msgstr "Svargluggi"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Setja tónlistarviðbót á pásu"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Skilyrði"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Setja á pásu um leið og síminn hringir"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Setja bara á pásu þegar talað er"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Aðgerðir"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Setja miðlaspilara á pásu"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Þagga kerfishljóð"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Halda sjálfkrafa áfram að spila þegar símtali lýkur"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Tímasetja slökkviaðgerð"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "Slökkva núna"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Hætta við síðustu slökkviaðgerð"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Tímasetja endurræsingu"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Svæfa"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Læsa skjá"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Segðu halló"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Slökkva"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Endurræsa"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Hámarks birtustig"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Aflæsa skjá"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Loka öllum öryggisgeymslum"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Loka öllum öryggisgeymslum með valdi"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Dæmi um skipanir"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "Flytja út"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "Flytja inn"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Nafn"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Skipun"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "Flytja út skipanir"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "Flytja inn skipanir"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Sími er tengdur"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Nafn"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -314,77 +122,6 @@ msgstr ""
 "Regluleg segð sem skilgreinir hvaða tilkynningar ætti ekki að senda.\n"
 "Þessu mynstri er beitt á yfirlit tilkynninga og meginmál þeirra, ef það er "
 "valið hér fyrir ofan."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Almennt"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Samstilla einungis tilkynningar með tímamörkunum 0?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Einungis viðvarandi tilkynningar"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr ""
-"Bæta meginmáli tilkynningar við yfirlitið þegar tilkynningar eru samstilltar?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Hafa meginmál með"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "Samstilla tákn forrita sem birta tilkynningar, ef hægt er?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Samstilla tákn"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Lægsta forgangsstig tilkynninganna</p></body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "Samstilla einungis tilkynningar með tilgreindu forgangsstigi."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Lægsta forgangsstig"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Forrit"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -433,29 +170,6 @@ msgstr "Allar skrár"
 msgid "Camera pictures"
 msgstr "Myndir úr myndavél"
 
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 í slóðinni verður skipt út fyrir heiti tilgreinda tækisins."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Stillingar samnýtingarviðbótar"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Tek á móti"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Vista skrár í:"
-
 #: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
@@ -503,6 +217,162 @@ msgstr "Ósvarað símtal frá %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Þagga símtal"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "Klippispjaldsviðbót"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "Sjálfvirk samstilling"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "Deila klippispjaldinu sjálfvirkt úr þessu tæki"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "Lykilorð innifalin (merkt af lykilorðastjórum)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Uppgötvunarverkfæri"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Hljóð til að spila:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Veldu hljóð til að spila"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Setja tónlistarviðbót á pásu"
+
+#~ msgid "Condition"
+#~ msgstr "Skilyrði"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Setja á pásu um leið og síminn hringir"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Setja bara á pásu þegar talað er"
+
+#~ msgid "Actions"
+#~ msgstr "Aðgerðir"
+
+#~ msgid "Pause media players"
+#~ msgstr "Setja miðlaspilara á pásu"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Þagga kerfishljóð"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "Halda sjálfkrafa áfram að spila þegar símtali lýkur"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Tímasetja slökkviaðgerð"
+
+#~ msgid "Shutdown now"
+#~ msgstr "Slökkva núna"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Hætta við síðustu slökkviaðgerð"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Tímasetja endurræsingu"
+
+#~ msgid "Suspend"
+#~ msgstr "Svæfa"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Læsa skjá"
+
+#~ msgid "Say Hello"
+#~ msgstr "Segðu halló"
+
+#~ msgid "Shutdown"
+#~ msgstr "Slökkva"
+
+#~ msgid "Reboot"
+#~ msgstr "Endurræsa"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Hámarks birtustig"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Aflæsa skjá"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Loka öllum öryggisgeymslum"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Loka öllum öryggisgeymslum með valdi"
+
+#~ msgid "Sample commands"
+#~ msgstr "Dæmi um skipanir"
+
+#~ msgid "Export"
+#~ msgstr "Flytja út"
+
+#~ msgid "Import"
+#~ msgstr "Flytja inn"
+
+#~ msgid "Command"
+#~ msgstr "Skipun"
+
+#~ msgid "Export Commands"
+#~ msgstr "Flytja út skipanir"
+
+#~ msgid "Import Commands"
+#~ msgstr "Flytja inn skipanir"
+
+#~ msgid "General"
+#~ msgstr "Almennt"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "Samstilla einungis tilkynningar með tímamörkunum 0?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Einungis viðvarandi tilkynningar"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr ""
+#~ "Bæta meginmáli tilkynningar við yfirlitið þegar tilkynningar eru "
+#~ "samstilltar?"
+
+#~ msgid "Include body"
+#~ msgstr "Hafa meginmál með"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr "Samstilla tákn forrita sem birta tilkynningar, ef hægt er?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Samstilla tákn"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Lægsta forgangsstig tilkynninganna</p></body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "Samstilla einungis tilkynningar með tilgreindu forgangsstigi."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Lægsta forgangsstig"
+
+#~ msgid "Applications"
+#~ msgstr "Forrit"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr ""
+#~ "&percnt;1 í slóðinni verður skipt út fyrir heiti tilgreinda tækisins."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Stillingar samnýtingarviðbótar"
+
+#~ msgid "Receiving"
+#~ msgstr "Tek á móti"
+
+#~ msgid "Save files in:"
+#~ msgstr "Vista skrár í:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Á bannlista"

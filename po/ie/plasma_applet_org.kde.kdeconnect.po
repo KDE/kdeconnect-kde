@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2022-11-16 16:04+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -167,41 +167,41 @@ msgstr "Lansar un comande"
 msgid "Add command"
 msgstr "Adjunter un comande"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "No paired devices"
 msgstr "Null acuplat aparates"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "Li acuplat aparate es índisponibil"
 msgstr[1] "Omni acuplat aparates es índisponibil"
 
-#: package/contents/ui/FullRepresentation.qml:67
+#: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
 "Installar KDE Connect a vor aparate Android por integrar it con Plasma!"
 
-#: package/contents/ui/FullRepresentation.qml:71
+#: package/contents/ui/FullRepresentation.qml:70
 #, fuzzy, kde-format
 #| msgid "Pair a Device..."
 msgid "Pair a Device…"
 msgstr "Acuplar un aparate..."
 
-#: package/contents/ui/FullRepresentation.qml:83
+#: package/contents/ui/FullRepresentation.qml:82
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Installar de Google Play"
 
-#: package/contents/ui/FullRepresentation.qml:93
+#: package/contents/ui/FullRepresentation.qml:92
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "Installar de F-Droid"
 
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:54
 #, fuzzy, kde-format
 #| msgid "KDE Connect Settings..."
 msgid "KDE Connect Settings…"

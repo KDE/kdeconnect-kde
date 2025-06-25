@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -167,42 +167,42 @@ msgstr "Jalankan perintah"
 msgid "Add command"
 msgstr "Tambahkan komentar"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "No paired devices"
 msgstr "Tidak ada peranti tersanding"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "Perangkat yang tersanding tidak tersedia"
 msgstr[1] "Semua peranti yang tersanding tidak tersedia"
 
-#: package/contents/ui/FullRepresentation.qml:67
+#: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
 "Instal KDE Connect di peranti Android-mu untuk mengintegrasikannya dengan "
 "Plasma!"
 
-#: package/contents/ui/FullRepresentation.qml:71
+#: package/contents/ui/FullRepresentation.qml:70
 #, fuzzy, kde-format
 #| msgid "Pair a Device..."
 msgid "Pair a Device…"
 msgstr "Sandingkan sebuah Peranti..."
 
-#: package/contents/ui/FullRepresentation.qml:83
+#: package/contents/ui/FullRepresentation.qml:82
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Instal dari Google Play"
 
-#: package/contents/ui/FullRepresentation.qml:93
+#: package/contents/ui/FullRepresentation.qml:92
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "Instal dari F-Droid"
 
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:54
 #, fuzzy, kde-format
 #| msgid "KDE Connect Settings..."
 msgid "KDE Connect Settings…"

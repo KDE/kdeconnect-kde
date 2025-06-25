@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2025-05-25 16:21+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -28,54 +28,6 @@ msgstr "%1: akku vähissä"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Akku tasolla %1 %"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "Leikepöytäliitännäinen"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "Automaattinen tahdistus"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "Jaa tämän laitteen leikepöytä automaattisesti"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "Myös (salasanahallinnan sellaisiksi osoittamat) salasanat"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Hakutyökalut"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Soitettava ääni:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Valitse soitettava ääni"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -129,167 +81,20 @@ msgstr "Lähetä"
 msgid "Dialog"
 msgstr "Valintaikkuna"
 
-# Kyse on liitännäisestä, joka keskeyttää musiikin toiston tietyn ehdon täyttyessä.
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Keskeytä musiikki -liitännäinen"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Ehto"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Keskeytä heti puhelimen soidessa"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Keskeytä vain puhuttaessa"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Toiminnot"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Keskeytä mediasoittimet"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Vaimenna järjestelmä-äänet"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Jatka automaattisesti mediaa puhelun päätyttyä"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Ajasta sammutus"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "Sammuta nyt"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Peru viimeisin sammutus"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Ajasta uudelleenkäynnistys"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Valmiustila"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Lukitse näyttö"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Sano hei"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Sammuta"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Käynnistä uudelleen"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Enimmäiskirkkaus"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Poista näytön lukitus"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Sulje kaikki holvit"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Pakota sulkemaan kaikki holvit"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Esimerkkikomentoja"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "Vie"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "Tuo"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Nimi"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Komento"
-
-# *** TARKISTA: Voisi olla myös ”vie komentoja”?
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "Vientikomennot"
-
-# *** TARKISTA: Voisi olla myös ”tuo komentoja”?
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "Tuontikomennot"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Puhelin on kytketty"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Nimi"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -318,80 +123,6 @@ msgstr ""
 "Lauseketta käytetään yhteenvedolle, ja jos sisällön sisällyttäminen on "
 "valittu\n"
 "yllä, myös ilmoitusten sisällölle."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Yleistä"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Synkronoidaanko  vain ilmoitukset, joiden aikakatkaisuarvo on 0?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Vain pysyvät ilmoitukset"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr ""
-"Lisätäänkö ilmoituksen sisältö yhteenvedon perään synkronoitaessa "
-"ilmoituksia?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Sisällytä sisältö"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr ""
-"Synkronoidaanko ilmoituksia lähettävien sovellusten kuvakkeet mikäli "
-"mahdollista?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Synkronoi kuvakkeet"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Ilmoitusten vähimmäistärkeysaste</p></body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "Synkronoi vain ilmoitukset, joiden tärkeysaste on vähintään annettu."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Vähimmäistärkeysaste"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Sovellukset"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -438,29 +169,6 @@ msgstr "Kaikki tiedostot"
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamerakuvat"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "Hakupolun &percnt;1 korvataan annetulla laitenimellä."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Jakoliitännäisen asetukset"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Vastaanottaa"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Tallenna tiedostot kohteeseen:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -510,6 +218,167 @@ msgstr "Vastaamaton puhelu: %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Vaimenna soitto"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "Leikepöytäliitännäinen"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "Automaattinen tahdistus"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "Jaa tämän laitteen leikepöytä automaattisesti"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "Myös (salasanahallinnan sellaisiksi osoittamat) salasanat"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Hakutyökalut"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Soitettava ääni:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Valitse soitettava ääni"
+
+# Kyse on liitännäisestä, joka keskeyttää musiikin toiston tietyn ehdon täyttyessä.
+#~ msgid "Pause music plugin"
+#~ msgstr "Keskeytä musiikki -liitännäinen"
+
+#~ msgid "Condition"
+#~ msgstr "Ehto"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Keskeytä heti puhelimen soidessa"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Keskeytä vain puhuttaessa"
+
+#~ msgid "Actions"
+#~ msgstr "Toiminnot"
+
+#~ msgid "Pause media players"
+#~ msgstr "Keskeytä mediasoittimet"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Vaimenna järjestelmä-äänet"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "Jatka automaattisesti mediaa puhelun päätyttyä"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Ajasta sammutus"
+
+#~ msgid "Shutdown now"
+#~ msgstr "Sammuta nyt"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Peru viimeisin sammutus"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Ajasta uudelleenkäynnistys"
+
+#~ msgid "Suspend"
+#~ msgstr "Valmiustila"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Lukitse näyttö"
+
+#~ msgid "Say Hello"
+#~ msgstr "Sano hei"
+
+#~ msgid "Shutdown"
+#~ msgstr "Sammuta"
+
+#~ msgid "Reboot"
+#~ msgstr "Käynnistä uudelleen"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Enimmäiskirkkaus"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Poista näytön lukitus"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Sulje kaikki holvit"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Pakota sulkemaan kaikki holvit"
+
+#~ msgid "Sample commands"
+#~ msgstr "Esimerkkikomentoja"
+
+#~ msgid "Export"
+#~ msgstr "Vie"
+
+#~ msgid "Import"
+#~ msgstr "Tuo"
+
+#~ msgid "Command"
+#~ msgstr "Komento"
+
+# *** TARKISTA: Voisi olla myös ”vie komentoja”?
+#~ msgid "Export Commands"
+#~ msgstr "Vientikomennot"
+
+# *** TARKISTA: Voisi olla myös ”tuo komentoja”?
+#~ msgid "Import Commands"
+#~ msgstr "Tuontikomennot"
+
+#~ msgid "General"
+#~ msgstr "Yleistä"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "Synkronoidaanko  vain ilmoitukset, joiden aikakatkaisuarvo on 0?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Vain pysyvät ilmoitukset"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr ""
+#~ "Lisätäänkö ilmoituksen sisältö yhteenvedon perään synkronoitaessa "
+#~ "ilmoituksia?"
+
+#~ msgid "Include body"
+#~ msgstr "Sisällytä sisältö"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr ""
+#~ "Synkronoidaanko ilmoituksia lähettävien sovellusten kuvakkeet mikäli "
+#~ "mahdollista?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Synkronoi kuvakkeet"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Ilmoitusten vähimmäistärkeysaste</p></body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr ""
+#~ "Synkronoi vain ilmoitukset, joiden tärkeysaste on vähintään annettu."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Vähimmäistärkeysaste"
+
+#~ msgid "Applications"
+#~ msgstr "Sovellukset"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr "Hakupolun &percnt;1 korvataan annetulla laitenimellä."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Jakoliitännäisen asetukset"
+
+#~ msgid "Receiving"
+#~ msgstr "Vastaanottaa"
+
+#~ msgid "Save files in:"
+#~ msgstr "Tallenna tiedostot kohteeseen:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Estetty"

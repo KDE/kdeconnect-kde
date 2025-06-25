@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2024-10-21 17:41+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -165,40 +165,40 @@ msgstr "Suorita komento"
 msgid "Add command"
 msgstr "Lisää komento"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "No paired devices"
 msgstr "Ei pariksi kytkettyjä laitteita"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "Pariksi kytkettyä laitetta ei löydy"
 msgstr[1] "Pariksi kytkettyjä laitteita ei löydy"
 
-#: package/contents/ui/FullRepresentation.qml:67
+#: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
 "Yhdistä Android-laitteesi Plasman kanssa asentamalla siihen KDE Connect!"
 
-#: package/contents/ui/FullRepresentation.qml:71
+#: package/contents/ui/FullRepresentation.qml:70
 #, kde-format
 msgid "Pair a Device…"
 msgstr "Kytke laite pariksi…"
 
-#: package/contents/ui/FullRepresentation.qml:83
+#: package/contents/ui/FullRepresentation.qml:82
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Asenna Google Playstä"
 
-#: package/contents/ui/FullRepresentation.qml:93
+#: package/contents/ui/FullRepresentation.qml:92
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "Asenna F-Droidista"
 
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:54
 #, kde-format
 msgid "KDE Connect Settings…"
 msgstr "KDE Connectin asetukset…"

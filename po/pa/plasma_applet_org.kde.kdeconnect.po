@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2024-10-25 21:57-0500\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -164,39 +164,39 @@ msgstr "ਕਮਾਂਡ ਨੂੰ ਚਲਾਓ"
 msgid "Add command"
 msgstr "ਕਮਾਂਡ ਨੂੰ ਜੋੜੋ"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "No paired devices"
 msgstr "ਕੋਈ ਪੇਅਰ ਹੋਏ ਡਿਵਾਈਸ ਨਹੀਂ ਹਨ"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "ਪੇਅਰ ਕੀਤਾ ਡਿਵਾਈਸ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 msgstr[1] "ਸਭ ਪੇਅਰ ਕੀਤੇ ਡਿਵਾਈਸ ਮੌਜੂਦ ਨਹੀਂ ਹਨ"
 
-#: package/contents/ui/FullRepresentation.qml:67
+#: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr "ਆਪਣੇ ਐਂਡਰਾਇਡ ਡਿਵਾਈਸ ਨੂੰ ਪਲਾਜ਼ਮਾ ਨਾਲ ਜੋੜਨ ਲਈ ਉਸ ਉੱਤੇ KDE ਕਨੈਕਟ ਇੰਸਟਾਲ ਕਰੋ!"
 
-#: package/contents/ui/FullRepresentation.qml:71
+#: package/contents/ui/FullRepresentation.qml:70
 #, kde-format
 msgid "Pair a Device…"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਪੇਅਰ ਕਰੋ…"
 
-#: package/contents/ui/FullRepresentation.qml:83
+#: package/contents/ui/FullRepresentation.qml:82
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Google Play ਤੋਂ ਇੰਸਟਾਲ ਕਰੋ"
 
-#: package/contents/ui/FullRepresentation.qml:93
+#: package/contents/ui/FullRepresentation.qml:92
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "F-Droid ਤੋਂ ਇੰਸਟਾਲ ਕਰੋ"
 
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:54
 #, kde-format
 msgid "KDE Connect Settings…"
 msgstr "KDE ਕਨੈਕਟ ਸੈਟਿੰਗਾਂ…"

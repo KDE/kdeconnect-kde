@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2025-04-29 17:51+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -28,54 +28,6 @@ msgstr "%1: zems akumulators"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Akumulatora līmenis ir %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "Starpliktuves papildinājums"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "Automātiska sinhronizācija"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "Automātiski dalīties ar starpliktuvi no šīs ierīces"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "Tostarp paroles (kā tās marķē paroļu pārvaldnieks)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Atrašanas rīki"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Atskaņojamā skaņa:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Atlasīt atskaņojamo skaņu"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -129,164 +81,20 @@ msgstr "Nosūtīt"
 msgid "Dialog"
 msgstr "Lodziņš"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Pauzēt mūzikas papildinājumu"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Nosacījums"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Pauzēt tiklīdz sāk zvanīt telefons"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Pauzēt tikai sarunas laikā"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Darbības"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Pauzēt multivides atskaņotājus"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Apklusināt sistēmas skaņas"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Automātiski turpināt multivides atskaņošanu, beidzoties zvanam"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Ieplānot izslēgšanu"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "Izslēgt tagad"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Atcelt pēdējo izslēgšanu"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Ieplānot pārstartēšanu"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Iesnaudināt"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Bloķēt ekrānu"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Sasveicināties"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Izslēgt"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Pārstartēt"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Maksimālais gaišums"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Atbloķēt ekrānu"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Aizvērt visus seifus"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Piespiedu aizvērt visus seifus"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Komandu paraugi"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "Eksportēt"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "Importēt"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Nosaukums"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Komanda"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "Eksporta komandas"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "Importa komandas"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Tālrunis ir savienots"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Nosaukums"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -314,77 +122,6 @@ msgstr ""
 "Šīs regulārās izteiksmes nosaka, kādus paziņojumus nav jāsūt.\n"
 "Šis paraugs tiek izmantots paziņojuma kopsavilkumam un, ja ir augstāk "
 "atzīmēts, arī tā saturam."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Vispārīgi"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Sinhronizēt tikai paziņojumus, kuru pazušanas vērtība ir 0?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Tikai paliekošos paziņojumus"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr "Kopsavilkumam pievienot paziņojuma saturu, sinhronizējot paziņojumus?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Iekļaut saturu"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "Sinhronizēt paziņojošo programmu ikonas, ja iespējams?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Sinhronizēt ikonas"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Minimālais paziņojuma svarīguma līmenis</p></body></"
-"html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "Sinhronizēt tikai paziņojumus ar norādīt svarīguma līmeni."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Minimālais svarīguma līmenis"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Programmas"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -431,29 +168,6 @@ msgstr "Visas datnes"
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kameras attēli"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "Simbols &percnt;1 ceļā tiks aizvietots ar attiecīgo ierīces nosaukumu."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Nosūtīšanas papildinājuma iestatījumi"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Saņemšana"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Saglabāt datnes:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -502,6 +216,162 @@ msgstr "Neatbildēts zvans no %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Apklusināt zvanu"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "Starpliktuves papildinājums"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "Automātiska sinhronizācija"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "Automātiski dalīties ar starpliktuvi no šīs ierīces"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "Tostarp paroles (kā tās marķē paroļu pārvaldnieks)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Atrašanas rīki"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Atskaņojamā skaņa:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Atlasīt atskaņojamo skaņu"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Pauzēt mūzikas papildinājumu"
+
+#~ msgid "Condition"
+#~ msgstr "Nosacījums"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Pauzēt tiklīdz sāk zvanīt telefons"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Pauzēt tikai sarunas laikā"
+
+#~ msgid "Actions"
+#~ msgstr "Darbības"
+
+#~ msgid "Pause media players"
+#~ msgstr "Pauzēt multivides atskaņotājus"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Apklusināt sistēmas skaņas"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "Automātiski turpināt multivides atskaņošanu, beidzoties zvanam"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Ieplānot izslēgšanu"
+
+#~ msgid "Shutdown now"
+#~ msgstr "Izslēgt tagad"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Atcelt pēdējo izslēgšanu"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Ieplānot pārstartēšanu"
+
+#~ msgid "Suspend"
+#~ msgstr "Iesnaudināt"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Bloķēt ekrānu"
+
+#~ msgid "Say Hello"
+#~ msgstr "Sasveicināties"
+
+#~ msgid "Shutdown"
+#~ msgstr "Izslēgt"
+
+#~ msgid "Reboot"
+#~ msgstr "Pārstartēt"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Maksimālais gaišums"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Atbloķēt ekrānu"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Aizvērt visus seifus"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Piespiedu aizvērt visus seifus"
+
+#~ msgid "Sample commands"
+#~ msgstr "Komandu paraugi"
+
+#~ msgid "Export"
+#~ msgstr "Eksportēt"
+
+#~ msgid "Import"
+#~ msgstr "Importēt"
+
+#~ msgid "Command"
+#~ msgstr "Komanda"
+
+#~ msgid "Export Commands"
+#~ msgstr "Eksporta komandas"
+
+#~ msgid "Import Commands"
+#~ msgstr "Importa komandas"
+
+#~ msgid "General"
+#~ msgstr "Vispārīgi"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "Sinhronizēt tikai paziņojumus, kuru pazušanas vērtība ir 0?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Tikai paliekošos paziņojumus"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr ""
+#~ "Kopsavilkumam pievienot paziņojuma saturu, sinhronizējot paziņojumus?"
+
+#~ msgid "Include body"
+#~ msgstr "Iekļaut saturu"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr "Sinhronizēt paziņojošo programmu ikonas, ja iespējams?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Sinhronizēt ikonas"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Minimālais paziņojuma svarīguma līmenis</p></body></"
+#~ "html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "Sinhronizēt tikai paziņojumus ar norādīt svarīguma līmeni."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Minimālais svarīguma līmenis"
+
+#~ msgid "Applications"
+#~ msgstr "Programmas"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr ""
+#~ "Simbols &percnt;1 ceļā tiks aizvietots ar attiecīgo ierīces nosaukumu."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Nosūtīšanas papildinājuma iestatījumi"
+
+#~ msgid "Receiving"
+#~ msgstr "Saņemšana"
+
+#~ msgid "Save files in:"
+#~ msgstr "Saglabāt datnes:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Ievietots melnajā sarakstā"

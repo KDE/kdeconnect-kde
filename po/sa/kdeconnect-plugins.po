@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -29,54 +29,6 @@ msgstr "%1: न्यून बैटरी"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "बैटरी %1% ."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "क्लिपबोर्ड प्लगइन"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "स्वचालित समन्वयन"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "अस्मात् उपकरणात् स्वयमेव क्लिप्बोर्ड् साझां कुर्वन्तु"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "गुप्तशब्दान् सहितम् (गुप्तशब्दप्रबन्धकैः यथा चिह्नितं)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "आविष्कार उपयोगिताएँ"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "वादयितुं ध्वनिः :"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "वादयितुं ध्वनिं चिनोतु"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -130,164 +82,20 @@ msgstr "प्रेषयतु"
 msgid "Dialog"
 msgstr "संवादः"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "संगीतप्लगिन् विरामयतु"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "दशा"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "दूरभाषस्य ध्वनिः भवति एव विरामं कुर्वन्तु"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "केवलं वार्तालापं कुर्वन् विरामं कुरुत"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "कर्माणि"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "मीडिया प्लेयरं विरामयन्तु"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "प्रणाली ध्वनिं निःशब्दं कुर्वन्तु"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "यदा आह्वानं समाप्तं भवति तदा स्वयमेव माध्यमं पुनः आरभत"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "पिंग !"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "एकं बन्दीकरणस्य समयनिर्धारणं कुर्वन्तु"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "अधुना बन्दं कुर्वन्तु"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "अन्तिमनिरोधं रद्दं कुर्वन्तु"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "पुनः आरम्भस्य समयनिर्धारणं कुर्वन्तु"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "निलम्बनम्"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "लॉक स्क्रीन"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "नमस्कार वदतु"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "शटडाउन"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "पुनः आरम्भं कुर्वन्तु"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "अधिकतम प्रकाशता"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "स्क्रीन अनलॉक करें"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "सर्वाणि तिजोरियाणि बन्दं कुर्वन्तु"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "बलात् सर्वाणि तिजोरियाणि बन्दं कुर्वन्तु"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "नमूना आदेशाः"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "निर्यात"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "आयात"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "नामः"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "आदेश"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "निर्यात आदेशाः"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "आयात आदेशाः"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "दूरभाषः सम्बद्धः अस्ति"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "नामः"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -314,75 +122,6 @@ msgid ""
 msgstr ""
 "काः सूचनाः न प्रेषणीयाः इति परिभाषितं नियमितव्यञ्जनम्।\n"
 "एतत् प्रतिरूपं सारांशस्य उपरि, यदि उपरि चयनितं तर्हि सूचनानां निकायस्य कृते प्रयुक्तं भवति ।"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "सामान्य"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "केवलं 0 इत्यस्य समयसमाप्तिमूल्येन सह सूचनानां समन्वयनं कुर्वन्तु?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "केवलं निरन्तरं सूचनाः"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr "सूचनानां समन्वयनकाले सूचनाशरीरं सारांशे योजयन्तु?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "शरीरं समावेशयतु"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "यदि सम्भवं तर्हि अनुप्रयोगानाम् सूचनानां चिह्नानि समन्वययन्तु?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "चिह्नानि समन्वययन्तु"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr "<html><head/><body><p>सूचनानां न्यूनतम तात्कालिकतास्तरः</p></body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "केवलं सूचनानां समन्वयं दत्तस्य तात्कालिकतास्तरस्य सह कुर्वन्तु।"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "न्यूनतम तात्कालिकता स्तर"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "अनुप्रयोगाः"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -428,29 +167,6 @@ msgstr "सर्वाणि सञ्चिकानि"
 #, kde-format
 msgid "Camera pictures"
 msgstr "कॅमेरा चित्र"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "मार्गे &percnt;1 इति विशिष्टयन्त्रनाम्ना प्रतिस्थापितं भविष्यति ।"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "प्लगिन् सेटिंग्स् साझां कुर्वन्तु"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "प्राप्य"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "सञ्चिकाः अत्र रक्षन्तु :"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -499,6 +215,158 @@ msgstr "%1 तः गम्यमानः आह्वानः"
 #, kde-format
 msgid "Mute Call"
 msgstr "मूक आह्वान"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "क्लिपबोर्ड प्लगइन"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "स्वचालित समन्वयन"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "अस्मात् उपकरणात् स्वयमेव क्लिप्बोर्ड् साझां कुर्वन्तु"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "गुप्तशब्दान् सहितम् (गुप्तशब्दप्रबन्धकैः यथा चिह्नितं)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "आविष्कार उपयोगिताएँ"
+
+#~ msgid "Sound to play:"
+#~ msgstr "वादयितुं ध्वनिः :"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "वादयितुं ध्वनिं चिनोतु"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "संगीतप्लगिन् विरामयतु"
+
+#~ msgid "Condition"
+#~ msgstr "दशा"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "दूरभाषस्य ध्वनिः भवति एव विरामं कुर्वन्तु"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "केवलं वार्तालापं कुर्वन् विरामं कुरुत"
+
+#~ msgid "Actions"
+#~ msgstr "कर्माणि"
+
+#~ msgid "Pause media players"
+#~ msgstr "मीडिया प्लेयरं विरामयन्तु"
+
+#~ msgid "Mute system sound"
+#~ msgstr "प्रणाली ध्वनिं निःशब्दं कुर्वन्तु"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "यदा आह्वानं समाप्तं भवति तदा स्वयमेव माध्यमं पुनः आरभत"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "एकं बन्दीकरणस्य समयनिर्धारणं कुर्वन्तु"
+
+#~ msgid "Shutdown now"
+#~ msgstr "अधुना बन्दं कुर्वन्तु"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "अन्तिमनिरोधं रद्दं कुर्वन्तु"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "पुनः आरम्भस्य समयनिर्धारणं कुर्वन्तु"
+
+#~ msgid "Suspend"
+#~ msgstr "निलम्बनम्"
+
+#~ msgid "Lock Screen"
+#~ msgstr "लॉक स्क्रीन"
+
+#~ msgid "Say Hello"
+#~ msgstr "नमस्कार वदतु"
+
+#~ msgid "Shutdown"
+#~ msgstr "शटडाउन"
+
+#~ msgid "Reboot"
+#~ msgstr "पुनः आरम्भं कुर्वन्तु"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "अधिकतम प्रकाशता"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "स्क्रीन अनलॉक करें"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "सर्वाणि तिजोरियाणि बन्दं कुर्वन्तु"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "बलात् सर्वाणि तिजोरियाणि बन्दं कुर्वन्तु"
+
+#~ msgid "Sample commands"
+#~ msgstr "नमूना आदेशाः"
+
+#~ msgid "Export"
+#~ msgstr "निर्यात"
+
+#~ msgid "Import"
+#~ msgstr "आयात"
+
+#~ msgid "Command"
+#~ msgstr "आदेश"
+
+#~ msgid "Export Commands"
+#~ msgstr "निर्यात आदेशाः"
+
+#~ msgid "Import Commands"
+#~ msgstr "आयात आदेशाः"
+
+#~ msgid "General"
+#~ msgstr "सामान्य"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "केवलं 0 इत्यस्य समयसमाप्तिमूल्येन सह सूचनानां समन्वयनं कुर्वन्तु?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "केवलं निरन्तरं सूचनाः"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr "सूचनानां समन्वयनकाले सूचनाशरीरं सारांशे योजयन्तु?"
+
+#~ msgid "Include body"
+#~ msgstr "शरीरं समावेशयतु"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr "यदि सम्भवं तर्हि अनुप्रयोगानाम् सूचनानां चिह्नानि समन्वययन्तु?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "चिह्नानि समन्वययन्तु"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr "<html><head/><body><p>सूचनानां न्यूनतम तात्कालिकतास्तरः</p></body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "केवलं सूचनानां समन्वयं दत्तस्य तात्कालिकतास्तरस्य सह कुर्वन्तु।"
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "न्यूनतम तात्कालिकता स्तर"
+
+#~ msgid "Applications"
+#~ msgstr "अनुप्रयोगाः"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr "मार्गे &percnt;1 इति विशिष्टयन्त्रनाम्ना प्रतिस्थापितं भविष्यति ।"
+
+#~ msgid "Share plugin settings"
+#~ msgstr "प्लगिन् सेटिंग्स् साझां कुर्वन्तु"
+
+#~ msgid "Receiving"
+#~ msgstr "प्राप्य"
+
+#~ msgid "Save files in:"
+#~ msgstr "सञ्चिकाः अत्र रक्षन्तु :"
 
 #~ msgid "Blacklisted"
 #~ msgstr "कृष्णसूचीकृतम्"

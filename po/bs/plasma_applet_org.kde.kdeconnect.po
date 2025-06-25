@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: $2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2015-02-16 11:58+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: none\n"
@@ -171,13 +171,13 @@ msgstr ""
 msgid "Add command"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, fuzzy, kde-format
 #| msgid "No paired devices available"
 msgid "No paired devices"
 msgstr "Nema uparenih dostupnih uređaja"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, fuzzy, kde-format
 #| msgid "No paired devices available"
 msgid "Paired device is unavailable"
@@ -186,27 +186,27 @@ msgstr[0] "Nema uparenih dostupnih uređaja"
 msgstr[1] "Nema uparenih dostupnih uređaja"
 msgstr[2] "Nema uparenih dostupnih uređaja"
 
-#: package/contents/ui/FullRepresentation.qml:67
+#: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:71
+#: package/contents/ui/FullRepresentation.qml:70
 #, kde-format
 msgid "Pair a Device…"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:83
+#: package/contents/ui/FullRepresentation.qml:82
 #, kde-format
 msgid "Install from Google Play"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:93
+#: package/contents/ui/FullRepresentation.qml:92
 #, kde-format
 msgid "Install from F-Droid"
 msgstr ""
 
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:54
 #, fuzzy, kde-format
 #| msgid "KDE Connect device notifications"
 msgid "KDE Connect Settings…"

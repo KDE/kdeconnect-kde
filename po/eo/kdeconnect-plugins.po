@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2024-05-10 11:33+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -28,54 +28,6 @@ msgstr "%1: Malalta Baterio"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Baterio ĉe %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "Kromprogramo de tondujo"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "Aŭtomata sinkronigo"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "Aŭtomate kundividi la tondujon de ĉi tiu aparato"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "Inkluzive de pasvortoj (kiel markite de pasvortmanaĝeroj)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Discovery Utilaĵoj"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Sono por ludi:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Elekti la sonon por ludi"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -129,164 +81,20 @@ msgstr "Sendi"
 msgid "Dialog"
 msgstr "Dialogo"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Paŭzi muzikan kromprogramon"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Kondiĉo"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Paŭzi tuj kiam telefono sonoras"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Paŭzi nur dum parolado"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Agoj"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Paŭzi plurmediajn ludilojn"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Silentigi sisteman sonon"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Aŭtomate daŭrigi aŭdvidaĵon kiam la voko finiĝis"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Plani sistemfermon"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "Fermi nun"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Nuligi lastan sistemfermon"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Plani sistemrekomencon"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Suspendi"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Ŝlosi Ekranon"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Diri Saluton"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Malŝalti"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Rekomenci"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Maksimuma Brilo"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Malŝlosi Ekranon"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Fermi Ĉiujn Trezorejojn"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Perforte Fermi Ĉiujn Trezorejojn"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Ekzemplaj komandoj"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "Eksporti"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "Importi"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Nomo"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Komando"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "Eksporti Komandojn"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "Importi Komandojn"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Telefono estas konektita"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Nomo"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -314,76 +122,6 @@ msgstr ""
 "Regula esprimo difinanta kiajn sciigojn ne devas esti senditaj.\n"
 "Tiu ŝablono estas aplikata al la resumo kaj, se elektita supre, al la korpo "
 "de sciigoj."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Ĝenerala"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Sinkronigi nur sciigojn kun tempofinvaloro de 0?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Nur konstantaj sciigoj"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr "Ĉu aldoni la sciigan korpon al la resumo dum sinkronigado de sciigoj?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Inkluzivi korpon"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "Sinkronigi piktogramojn de sciigaj aplikoj se eble?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Sinkronigi piktogramojn"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Minimuma urĝnivelo de la sciigoj</p></body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "Sinkronigu nur sciigojn kun la donita urĝecnivelo."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Minimuma urĝnivelo"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Aplikoj"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -429,29 +167,6 @@ msgstr "Ĉiuj dosieroj"
 #, kde-format
 msgid "Camera pictures"
 msgstr "Fotilaj bildoj"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 en la vojo estos anstataŭigita per la specifa aparato nomo."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Kunhavigi kromprogramojn"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Ricevante"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Konservi dosierojn en:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -500,6 +215,161 @@ msgstr "Maltrafita voko de %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Silentigi Vokon"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "Kromprogramo de tondujo"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "Aŭtomata sinkronigo"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "Aŭtomate kundividi la tondujon de ĉi tiu aparato"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "Inkluzive de pasvortoj (kiel markite de pasvortmanaĝeroj)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Discovery Utilaĵoj"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Sono por ludi:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Elekti la sonon por ludi"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Paŭzi muzikan kromprogramon"
+
+#~ msgid "Condition"
+#~ msgstr "Kondiĉo"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Paŭzi tuj kiam telefono sonoras"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Paŭzi nur dum parolado"
+
+#~ msgid "Actions"
+#~ msgstr "Agoj"
+
+#~ msgid "Pause media players"
+#~ msgstr "Paŭzi plurmediajn ludilojn"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Silentigi sisteman sonon"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "Aŭtomate daŭrigi aŭdvidaĵon kiam la voko finiĝis"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Plani sistemfermon"
+
+#~ msgid "Shutdown now"
+#~ msgstr "Fermi nun"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Nuligi lastan sistemfermon"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Plani sistemrekomencon"
+
+#~ msgid "Suspend"
+#~ msgstr "Suspendi"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Ŝlosi Ekranon"
+
+#~ msgid "Say Hello"
+#~ msgstr "Diri Saluton"
+
+#~ msgid "Shutdown"
+#~ msgstr "Malŝalti"
+
+#~ msgid "Reboot"
+#~ msgstr "Rekomenci"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Maksimuma Brilo"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Malŝlosi Ekranon"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Fermi Ĉiujn Trezorejojn"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Perforte Fermi Ĉiujn Trezorejojn"
+
+#~ msgid "Sample commands"
+#~ msgstr "Ekzemplaj komandoj"
+
+#~ msgid "Export"
+#~ msgstr "Eksporti"
+
+#~ msgid "Import"
+#~ msgstr "Importi"
+
+#~ msgid "Command"
+#~ msgstr "Komando"
+
+#~ msgid "Export Commands"
+#~ msgstr "Eksporti Komandojn"
+
+#~ msgid "Import Commands"
+#~ msgstr "Importi Komandojn"
+
+#~ msgid "General"
+#~ msgstr "Ĝenerala"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "Sinkronigi nur sciigojn kun tempofinvaloro de 0?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Nur konstantaj sciigoj"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr ""
+#~ "Ĉu aldoni la sciigan korpon al la resumo dum sinkronigado de sciigoj?"
+
+#~ msgid "Include body"
+#~ msgstr "Inkluzivi korpon"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr "Sinkronigi piktogramojn de sciigaj aplikoj se eble?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Sinkronigi piktogramojn"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Minimuma urĝnivelo de la sciigoj</p></body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "Sinkronigu nur sciigojn kun la donita urĝecnivelo."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Minimuma urĝnivelo"
+
+#~ msgid "Applications"
+#~ msgstr "Aplikoj"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr ""
+#~ "&percnt;1 en la vojo estos anstataŭigita per la specifa aparato nomo."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Kunhavigi kromprogramojn"
+
+#~ msgid "Receiving"
+#~ msgstr "Ricevante"
+
+#~ msgid "Save files in:"
+#~ msgstr "Konservi dosierojn en:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Nigrolistigita"

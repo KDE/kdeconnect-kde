@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2025-06-19 22:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -31,54 +31,6 @@ msgstr "%1：低電量"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "電池剩餘 %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "剪貼簿外掛程式"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "自動同步"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "自動分享這個裝置的剪貼簿"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "包含密碼（由密碼管理員所標記）"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "探索工具程式"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "欲播放聲音："
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "選擇要播放的聲音"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -130,164 +82,20 @@ msgstr "傳送"
 msgid "Dialog"
 msgstr "對話框"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "暫停音樂外掛程式"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "條件"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "手機響鈴後立即暫停"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "只在說話時暫停"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "動作"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "暫停媒體播放程式"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "系統聲音消音"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "結束通話後自動繼續播放媒體"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "預約關機時間"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "立刻關機"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "取消最新的關機指令"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "預約重新開機的時間"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "暫停"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "鎖定螢幕"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "說嗨"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "關機"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "重新開機"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "最大亮度"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "解鎖螢幕"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "關閉所有 Vaults"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "強制關閉所有 Vaults"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "範例指令"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "匯出"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "匯入"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "名字"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "指令"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "匯出指令"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "匯入指令"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "手機已連線"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "名字"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
@@ -313,75 +121,6 @@ msgid ""
 msgstr ""
 "正則表達式定義了哪些通知不應該被傳送。這個型式將會被套用到通知的概覽，以及若"
 "有在上面選取的話，通知的本文上。"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "一般"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "僅以逾時值為 0 同步？"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "僅永久通知"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr "當同步通知時將通知本文附加到概覽中？"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "包含本文"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "若可能的話，同步通知的應用程式的圖示？"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "同步圖示"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr "<html><head/><body><p>通知的最低緊急程度</p></body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "僅同步指定緊急程度的通知。"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "最低緊急程度"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "應用程式"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -427,29 +166,6 @@ msgstr "所有檔案"
 #, kde-format
 msgid "Camera pictures"
 msgstr "相機照片"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "在路徑中的 &percnt;1 將會以指定的裝置名稱取代。"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "共享外掛程式設定"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "接收中"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "儲存檔案到："
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -498,6 +214,158 @@ msgstr "錯過 %1 的來電"
 #, kde-format
 msgid "Mute Call"
 msgstr "通話靜音"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "剪貼簿外掛程式"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "自動同步"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "自動分享這個裝置的剪貼簿"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "包含密碼（由密碼管理員所標記）"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "探索工具程式"
+
+#~ msgid "Sound to play:"
+#~ msgstr "欲播放聲音："
+
+#~ msgid "Select the sound to play"
+#~ msgstr "選擇要播放的聲音"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "暫停音樂外掛程式"
+
+#~ msgid "Condition"
+#~ msgstr "條件"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "手機響鈴後立即暫停"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "只在說話時暫停"
+
+#~ msgid "Actions"
+#~ msgstr "動作"
+
+#~ msgid "Pause media players"
+#~ msgstr "暫停媒體播放程式"
+
+#~ msgid "Mute system sound"
+#~ msgstr "系統聲音消音"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "結束通話後自動繼續播放媒體"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "預約關機時間"
+
+#~ msgid "Shutdown now"
+#~ msgstr "立刻關機"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "取消最新的關機指令"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "預約重新開機的時間"
+
+#~ msgid "Suspend"
+#~ msgstr "暫停"
+
+#~ msgid "Lock Screen"
+#~ msgstr "鎖定螢幕"
+
+#~ msgid "Say Hello"
+#~ msgstr "說嗨"
+
+#~ msgid "Shutdown"
+#~ msgstr "關機"
+
+#~ msgid "Reboot"
+#~ msgstr "重新開機"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "最大亮度"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "解鎖螢幕"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "關閉所有 Vaults"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "強制關閉所有 Vaults"
+
+#~ msgid "Sample commands"
+#~ msgstr "範例指令"
+
+#~ msgid "Export"
+#~ msgstr "匯出"
+
+#~ msgid "Import"
+#~ msgstr "匯入"
+
+#~ msgid "Command"
+#~ msgstr "指令"
+
+#~ msgid "Export Commands"
+#~ msgstr "匯出指令"
+
+#~ msgid "Import Commands"
+#~ msgstr "匯入指令"
+
+#~ msgid "General"
+#~ msgstr "一般"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "僅以逾時值為 0 同步？"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "僅永久通知"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr "當同步通知時將通知本文附加到概覽中？"
+
+#~ msgid "Include body"
+#~ msgstr "包含本文"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr "若可能的話，同步通知的應用程式的圖示？"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "同步圖示"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr "<html><head/><body><p>通知的最低緊急程度</p></body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "僅同步指定緊急程度的通知。"
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "最低緊急程度"
+
+#~ msgid "Applications"
+#~ msgstr "應用程式"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr "在路徑中的 &percnt;1 將會以指定的裝置名稱取代。"
+
+#~ msgid "Share plugin settings"
+#~ msgstr "共享外掛程式設定"
+
+#~ msgid "Receiving"
+#~ msgstr "接收中"
+
+#~ msgid "Save files in:"
+#~ msgstr "儲存檔案到："
 
 #~ msgid "Blacklisted"
 #~ msgstr "黑名單"

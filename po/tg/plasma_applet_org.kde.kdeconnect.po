@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2019-09-30 19:52+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -166,13 +166,13 @@ msgstr "Иҷро кардани фармон"
 msgid "Add command"
 msgstr "Илова кардани фармон"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, fuzzy, kde-format
 #| msgid "No paired devices available"
 msgid "No paired devices"
 msgstr "Ягон дастгоҳи пайвастшуда дастрас нест"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, fuzzy, kde-format
 #| msgid "No paired devices available"
 msgid "Paired device is unavailable"
@@ -180,29 +180,29 @@ msgid_plural "All paired devices are unavailable"
 msgstr[0] "Ягон дастгоҳи пайвастшуда дастрас нест"
 msgstr[1] "Ягон дастгоҳи пайвастшуда дастрас нест"
 
-#: package/contents/ui/FullRepresentation.qml:67
+#: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
 "Пайвасти KDE-ро ба дастгоҳи Android насб карда, бо мизи кории Плазма "
 "муттаҳид намоед!"
 
-#: package/contents/ui/FullRepresentation.qml:71
+#: package/contents/ui/FullRepresentation.qml:70
 #, kde-format
 msgid "Pair a Device…"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:83
+#: package/contents/ui/FullRepresentation.qml:82
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Насб кардан аз Google Play"
 
-#: package/contents/ui/FullRepresentation.qml:93
+#: package/contents/ui/FullRepresentation.qml:92
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "Насб кардан аз F-Droid"
 
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:54
 #, fuzzy, kde-format
 #| msgid "KDE Connect Settings..."
 msgid "KDE Connect Settings…"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2024-07-17 13:53+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -28,54 +28,6 @@ msgstr "%1: Lavt batteri"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Batteri på %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "Udklipsholder-plugin"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "Automatisk synkronisering"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "Del automatisk udklipsholderen fra denne enhed"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "Inkluderer adgangskoder (som markeret af adgangskodemanageren)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Opdagelsesværktøjer"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Lyd som skal spilles:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Vælg den lyd der skal spilles"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -129,164 +81,20 @@ msgstr "Send"
 msgid "Dialog"
 msgstr "Dialog"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Plugin til at sætte musik på pause"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Betingelse"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Sæt på pause når telefonen ringer"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Sæt kun på pause når der tales"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Handlinger"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Sæt medieafspillere på pause"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Sæt systemlyde på lydløs"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Genoptag automatisk medie når opkald er afsluttet"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Skemalæg et nedlukning"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "Luk ned nu"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Annullér sidste nedlukning"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Skemalæg en genstart"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Suspendér"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Lås skærmen"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Sig hej"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Luk ned"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Genstart"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Maksimal lysstyrke"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Lås skærmen op"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Luk alle sikkerhedsbokse"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Gennemtving lukning af alle sikkerhedsbokse"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Sample-kommandoer"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "Eksportér"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "Importér"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Navn"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Kommando"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "Eksportér kommandoer"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "Importér kommandoer"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Telefonen er tilsluttet"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Navn"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -314,79 +122,6 @@ msgstr ""
 "Regulært udtryk som definerer hvilke bekendtgørelser der ikke skal sendes.\n"
 "Dette mønster anvendes på resumeet, og hvis valgt ovenfor også på "
 "bekendtgørelsernes brødtekst."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Generelt"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Synkronisér kun bekendtgørelser med et tidsudløb på 0?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Kun vedvarende bekendtgørelser"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr ""
-"Tilføj bekendtgørelsesbrødteksten til resumeet når bekendtgørelser "
-"synkroniseres?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Medtag brødtekst"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "Synkronisér ikoner for programmer der bekendtgør hvis muligt?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Synkronisér ikoner"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Mindste alvorlighedsgrad for bekendtgørelserne</p></"
-"body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "Synkronisér kun bekendtgørelser med det givne niveau af alvor."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Mindste niveau af alvor"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Programmer"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -432,29 +167,6 @@ msgstr "Alle filer"
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamerabilleder"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 i stien vil blive erstattet med det specifikke enhedsnavn."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Indstilling af deling-plugin"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Modtager"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Gem filer i:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -503,6 +215,163 @@ msgstr "Ubesvaret opkald fra %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Sæt opkald på lydløs"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "Udklipsholder-plugin"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "Automatisk synkronisering"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "Del automatisk udklipsholderen fra denne enhed"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "Inkluderer adgangskoder (som markeret af adgangskodemanageren)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Opdagelsesværktøjer"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Lyd som skal spilles:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Vælg den lyd der skal spilles"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Plugin til at sætte musik på pause"
+
+#~ msgid "Condition"
+#~ msgstr "Betingelse"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Sæt på pause når telefonen ringer"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Sæt kun på pause når der tales"
+
+#~ msgid "Actions"
+#~ msgstr "Handlinger"
+
+#~ msgid "Pause media players"
+#~ msgstr "Sæt medieafspillere på pause"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Sæt systemlyde på lydløs"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "Genoptag automatisk medie når opkald er afsluttet"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Skemalæg et nedlukning"
+
+#~ msgid "Shutdown now"
+#~ msgstr "Luk ned nu"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Annullér sidste nedlukning"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Skemalæg en genstart"
+
+#~ msgid "Suspend"
+#~ msgstr "Suspendér"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Lås skærmen"
+
+#~ msgid "Say Hello"
+#~ msgstr "Sig hej"
+
+#~ msgid "Shutdown"
+#~ msgstr "Luk ned"
+
+#~ msgid "Reboot"
+#~ msgstr "Genstart"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Maksimal lysstyrke"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Lås skærmen op"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Luk alle sikkerhedsbokse"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Gennemtving lukning af alle sikkerhedsbokse"
+
+#~ msgid "Sample commands"
+#~ msgstr "Sample-kommandoer"
+
+#~ msgid "Export"
+#~ msgstr "Eksportér"
+
+#~ msgid "Import"
+#~ msgstr "Importér"
+
+#~ msgid "Command"
+#~ msgstr "Kommando"
+
+#~ msgid "Export Commands"
+#~ msgstr "Eksportér kommandoer"
+
+#~ msgid "Import Commands"
+#~ msgstr "Importér kommandoer"
+
+#~ msgid "General"
+#~ msgstr "Generelt"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "Synkronisér kun bekendtgørelser med et tidsudløb på 0?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Kun vedvarende bekendtgørelser"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr ""
+#~ "Tilføj bekendtgørelsesbrødteksten til resumeet når bekendtgørelser "
+#~ "synkroniseres?"
+
+#~ msgid "Include body"
+#~ msgstr "Medtag brødtekst"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr "Synkronisér ikoner for programmer der bekendtgør hvis muligt?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Synkronisér ikoner"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Mindste alvorlighedsgrad for bekendtgørelserne</p></"
+#~ "body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "Synkronisér kun bekendtgørelser med det givne niveau af alvor."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Mindste niveau af alvor"
+
+#~ msgid "Applications"
+#~ msgstr "Programmer"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr ""
+#~ "&percnt;1 i stien vil blive erstattet med det specifikke enhedsnavn."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Indstilling af deling-plugin"
+
+#~ msgid "Receiving"
+#~ msgstr "Modtager"
+
+#~ msgid "Save files in:"
+#~ msgstr "Gem filer i:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Sortlistet"

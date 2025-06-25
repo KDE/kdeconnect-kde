@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2024-02-02 21:15+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -29,54 +29,6 @@ msgstr "%1: Akumuliatorius baigia išsikrauti"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Akumuliatorius ties %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "Iškarpinės įskiepis"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "Automatinis sinchronizavimas"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "Automatiškai bendrinti iškarpinę iš šio įrenginio"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "Įskaitant slaptažodžius (kaip juos žymi slaptažodžių tvarkytuvės)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Atradimo paslaugų programos"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Garsas, kurį atkurti:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Pasirinkite kurį garsą atkurti"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -130,164 +82,20 @@ msgstr "Siųsti"
 msgid "Dialog"
 msgstr "Dialogas"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Muzikos pristabdymo įskiepis"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Sąlyga"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Pristabdyti, kai tik suskamba telefonas"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Pristabdyti tik kalbant telefonu"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Veiksmai"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Pristabdyti medijos leistuves"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Nutildyti sistemos garsą"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Užbaigus skambutį, automatiškai pratęsti medijos atkūrimą"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ryšio patikrinimas!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Suplanuoti išjungimą"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "Išjungti dabar"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Atsisakyti paskutinio išjungimo"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Suplanuoti paleidimą iš naujo"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Užmigdyti"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Užrakinti ekraną"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Pasisveikinti"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Išjungti"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Paleisti iš naujo"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Didžiausias ryškumas"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Atrakinti ekraną"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Uždaryti visas saugyklas"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Priverstinai uždaryti visas saugyklas"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Pavyzdinės komandos"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "Eksportuoti"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "Importuoti"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Pavadinimas"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Komanda"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "Eksportuoti komandas"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "Importuoti komandas"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Telefonas prijungtas"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Pavadinimas"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -316,78 +124,6 @@ msgstr ""
 "išsiunčiami.\n"
 "Šis šablonas yra taikomas pranešimų santraukai ir, jei pažymėta aukščiau, "
 "pagrindiniam pranešimų tekstui."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Bendri"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Sinchronizuoti tik pranešimus, kurių laiko limito reikšmė yra 0?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Tik pastovūs pranešimai"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr ""
-"Sinchronizuojant pranešimus pridėti pagrindinį pranešimo tekstą prie "
-"santraukos?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Įtraukti pagrindinį tekstą"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "Jei įmanoma, sinchronizuoti pranešančių programų piktogramas?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Sinchronizuoti piktogramas"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Mažiausias pranešimų skubumo lygis</p></body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "Sinchronizuoti tik pranešimus su nurodytu skubumo lygiu."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Mažiausias skubumo lygis"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Programos"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -434,29 +170,6 @@ msgstr "Visi failai"
 #, kde-format
 msgid "Camera pictures"
 msgstr "Nuotraukos"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 kelyje bus pakeista tam tikru įrenginio pavadinimu."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Bendrinimo įskiepio nuostatos"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Gaunama"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Įrašyti failus į:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -505,6 +218,161 @@ msgstr "Praleistas skambutis nuo %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Nutildyti skambutį"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "Iškarpinės įskiepis"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "Automatinis sinchronizavimas"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "Automatiškai bendrinti iškarpinę iš šio įrenginio"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "Įskaitant slaptažodžius (kaip juos žymi slaptažodžių tvarkytuvės)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Atradimo paslaugų programos"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Garsas, kurį atkurti:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Pasirinkite kurį garsą atkurti"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Muzikos pristabdymo įskiepis"
+
+#~ msgid "Condition"
+#~ msgstr "Sąlyga"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Pristabdyti, kai tik suskamba telefonas"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Pristabdyti tik kalbant telefonu"
+
+#~ msgid "Actions"
+#~ msgstr "Veiksmai"
+
+#~ msgid "Pause media players"
+#~ msgstr "Pristabdyti medijos leistuves"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Nutildyti sistemos garsą"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "Užbaigus skambutį, automatiškai pratęsti medijos atkūrimą"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Suplanuoti išjungimą"
+
+#~ msgid "Shutdown now"
+#~ msgstr "Išjungti dabar"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Atsisakyti paskutinio išjungimo"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Suplanuoti paleidimą iš naujo"
+
+#~ msgid "Suspend"
+#~ msgstr "Užmigdyti"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Užrakinti ekraną"
+
+#~ msgid "Say Hello"
+#~ msgstr "Pasisveikinti"
+
+#~ msgid "Shutdown"
+#~ msgstr "Išjungti"
+
+#~ msgid "Reboot"
+#~ msgstr "Paleisti iš naujo"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Didžiausias ryškumas"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Atrakinti ekraną"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Uždaryti visas saugyklas"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Priverstinai uždaryti visas saugyklas"
+
+#~ msgid "Sample commands"
+#~ msgstr "Pavyzdinės komandos"
+
+#~ msgid "Export"
+#~ msgstr "Eksportuoti"
+
+#~ msgid "Import"
+#~ msgstr "Importuoti"
+
+#~ msgid "Command"
+#~ msgstr "Komanda"
+
+#~ msgid "Export Commands"
+#~ msgstr "Eksportuoti komandas"
+
+#~ msgid "Import Commands"
+#~ msgstr "Importuoti komandas"
+
+#~ msgid "General"
+#~ msgstr "Bendri"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "Sinchronizuoti tik pranešimus, kurių laiko limito reikšmė yra 0?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Tik pastovūs pranešimai"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr ""
+#~ "Sinchronizuojant pranešimus pridėti pagrindinį pranešimo tekstą prie "
+#~ "santraukos?"
+
+#~ msgid "Include body"
+#~ msgstr "Įtraukti pagrindinį tekstą"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr "Jei įmanoma, sinchronizuoti pranešančių programų piktogramas?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Sinchronizuoti piktogramas"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Mažiausias pranešimų skubumo lygis</p></body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "Sinchronizuoti tik pranešimus su nurodytu skubumo lygiu."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Mažiausias skubumo lygis"
+
+#~ msgid "Applications"
+#~ msgstr "Programos"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr "&percnt;1 kelyje bus pakeista tam tikru įrenginio pavadinimu."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Bendrinimo įskiepio nuostatos"
+
+#~ msgid "Receiving"
+#~ msgstr "Gaunama"
+
+#~ msgid "Save files in:"
+#~ msgstr "Įrašyti failus į:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Įtrauktas į juodąjį sąrašą"

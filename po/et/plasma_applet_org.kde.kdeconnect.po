@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2020-03-16 18:34+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -167,40 +167,40 @@ msgstr "Käivita käsk"
 msgid "Add command"
 msgstr "Lisa käsk"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "No paired devices"
 msgstr "Paardunud seadmeid pole"
 
-#: package/contents/ui/FullRepresentation.qml:65
+#: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "Paardunud seade pole kättesaadav"
 msgstr[1] "Kõik paardunud seadmed on kättesaamatud"
 
-#: package/contents/ui/FullRepresentation.qml:67
+#: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr "Paigalda oma Androidi seadmele KDE Connect, et pääseda ligi Plasmale!"
 
-#: package/contents/ui/FullRepresentation.qml:71
+#: package/contents/ui/FullRepresentation.qml:70
 #, fuzzy, kde-format
 #| msgid "Pair a Device..."
 msgid "Pair a Device…"
 msgstr "Paarita seade ..."
 
-#: package/contents/ui/FullRepresentation.qml:83
+#: package/contents/ui/FullRepresentation.qml:82
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Paigalda Google Playst"
 
-#: package/contents/ui/FullRepresentation.qml:93
+#: package/contents/ui/FullRepresentation.qml:92
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "Paigalda F-Droidist"
 
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:54
 #, fuzzy, kde-format
 #| msgid "KDE Connect Settings..."
 msgid "KDE Connect Settings…"

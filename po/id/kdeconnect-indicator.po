@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -111,40 +111,40 @@ msgstr "(C) 2016 Aleix Pol Gonzalez"
 msgid "Albert Vaca Cintora"
 msgstr ""
 
-#: main.cpp:104
+#: main.cpp:102
 #, kde-format
 msgid "Open app"
 msgstr ""
 
-#: main.cpp:109
+#: main.cpp:107
 #, fuzzy, kde-format
 #| msgid "Configure..."
-msgid "Configure…"
+msgid "Configure..."
 msgstr "Konfigurasikan..."
 
-#: main.cpp:135
+#: main.cpp:125
 #, kde-format
 msgid "Pairing requests"
 msgstr "Permintaan persandingan"
 
-#: main.cpp:140
+#: main.cpp:130
 #, fuzzy, kde-format
 #| msgid "Pair"
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Sandingkan"
 
-#: main.cpp:141
+#: main.cpp:131
 #, kde-format
 msgid "Reject"
 msgstr "Apkir"
 
-#: main.cpp:146 main.cpp:155
+#: main.cpp:136 main.cpp:145
 #, kde-format
 msgid "Quit"
 msgstr "Berhenti"
 
-#: main.cpp:174 main.cpp:198
+#: main.cpp:164 main.cpp:186
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2023-10-11 18:10+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,55 +27,6 @@ msgstr "%1: Zəif batareya"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Batareya %1%-dir"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "Mübadilə yaddaşı qoşması"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "Avtomatik eyniləşdirmə"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "Cihazin mübadilə yaddaşını avtomatik paylaşmaq"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr ""
-"Şifrələr daxil olmaqla (şifrələmə menecerləri tərəfindən işarələnmiş kimi)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Aşkar etmə vasitələri"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Səsləndirmək:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Səsləndirəcəyiniz səsi seçin"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -129,164 +80,20 @@ msgstr "Göndərmək"
 msgid "Dialog"
 msgstr "Dialoq"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Musiqiyə fasilə qoşması"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Fasilə şərtləri"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Telefon zəngi zamanı dərhal fasilə"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Yalnız danışıq zamanı fasilə"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Fəaliyyətlər"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Media pleyerlərə fasilə"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Sistem səsini susdurmaq"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Zəng bitikdən sonra musiqi və ya video oxunması davam etsin"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Dümsükləmək!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Söndürməni planlayın"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "İndi söndürün"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Sonuncu söndürməni ləğv edin"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Yenidən başlatmanı planlayın"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Dayandırmaq"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Ekranı kilidləmək"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Salam göndərin"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Söndürmək"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Yenidən başlatmaq"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Maksimum işıqlanma"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Ekranın kilidini açmaq"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Bütün seyfləri bağlamaq"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Bütün seyfləri məcburi bağlamaq"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Əmrlər nümunəsi"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "İxrac et"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "İdxal et"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Adı"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Əmr"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "İxrac əmrləri"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "İdxal əmrləri"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Telefon qoşulub"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Adı"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -314,78 +121,6 @@ msgstr ""
 "Hansı bildiriləri göndərməyəcəyini təyin edən müntəzəm ifadə.\n"
 "Bu nümunə yekun məlumata və yuxarıda seçildiyi təqdirdə bildirişlər "
 "hissəsinə tətbiq olunur."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Ümumi"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Bildirişlər yalnız bitmə vaxtı 0 ilə eyniləşdirilsin?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Yalnız daimi bildirişlər"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr "Bildirişləri eyniləşdirərkən yekuna bildiriş mətni əlavə edilsin?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Mətn daxil etmək"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr ""
-"Əgər mümkündürsə tətbiqlərin bildirişlərinin nişanlarını eyniləşdirilsin?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Nişanları eyniləşdirmək"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Bildirişlərin minimum təcililik səviyyəsi</p></body></"
-"html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "Yalnız minimum vaciblik səviyyəsi ilə bildirişləri eyniləşdirmək."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Minimum vaciblik səviyyəsi"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Tətbiqlər"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -431,29 +166,6 @@ msgstr "Bütün fayllar"
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamera şəkilləri"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 yolda cihaz adı ilə əvəz olunacaq"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Mübadilə qoşmasının ayarları"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Faylların alınması"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Faylları burda saxlamaq:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -502,6 +214,162 @@ msgstr "Buraxılan zəng: %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Zəngi səsini susdurmaq"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "Mübadilə yaddaşı qoşması"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "Avtomatik eyniləşdirmə"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "Cihazin mübadilə yaddaşını avtomatik paylaşmaq"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr ""
+#~ "Şifrələr daxil olmaqla (şifrələmə menecerləri tərəfindən işarələnmiş kimi)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Aşkar etmə vasitələri"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Səsləndirmək:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Səsləndirəcəyiniz səsi seçin"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Musiqiyə fasilə qoşması"
+
+#~ msgid "Condition"
+#~ msgstr "Fasilə şərtləri"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Telefon zəngi zamanı dərhal fasilə"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Yalnız danışıq zamanı fasilə"
+
+#~ msgid "Actions"
+#~ msgstr "Fəaliyyətlər"
+
+#~ msgid "Pause media players"
+#~ msgstr "Media pleyerlərə fasilə"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Sistem səsini susdurmaq"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "Zəng bitikdən sonra musiqi və ya video oxunması davam etsin"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Söndürməni planlayın"
+
+#~ msgid "Shutdown now"
+#~ msgstr "İndi söndürün"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Sonuncu söndürməni ləğv edin"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Yenidən başlatmanı planlayın"
+
+#~ msgid "Suspend"
+#~ msgstr "Dayandırmaq"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Ekranı kilidləmək"
+
+#~ msgid "Say Hello"
+#~ msgstr "Salam göndərin"
+
+#~ msgid "Shutdown"
+#~ msgstr "Söndürmək"
+
+#~ msgid "Reboot"
+#~ msgstr "Yenidən başlatmaq"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Maksimum işıqlanma"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Ekranın kilidini açmaq"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Bütün seyfləri bağlamaq"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Bütün seyfləri məcburi bağlamaq"
+
+#~ msgid "Sample commands"
+#~ msgstr "Əmrlər nümunəsi"
+
+#~ msgid "Export"
+#~ msgstr "İxrac et"
+
+#~ msgid "Import"
+#~ msgstr "İdxal et"
+
+#~ msgid "Command"
+#~ msgstr "Əmr"
+
+#~ msgid "Export Commands"
+#~ msgstr "İxrac əmrləri"
+
+#~ msgid "Import Commands"
+#~ msgstr "İdxal əmrləri"
+
+#~ msgid "General"
+#~ msgstr "Ümumi"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "Bildirişlər yalnız bitmə vaxtı 0 ilə eyniləşdirilsin?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Yalnız daimi bildirişlər"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr "Bildirişləri eyniləşdirərkən yekuna bildiriş mətni əlavə edilsin?"
+
+#~ msgid "Include body"
+#~ msgstr "Mətn daxil etmək"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr ""
+#~ "Əgər mümkündürsə tətbiqlərin bildirişlərinin nişanlarını eyniləşdirilsin?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Nişanları eyniləşdirmək"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Bildirişlərin minimum təcililik səviyyəsi</p></"
+#~ "body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "Yalnız minimum vaciblik səviyyəsi ilə bildirişləri eyniləşdirmək."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Minimum vaciblik səviyyəsi"
+
+#~ msgid "Applications"
+#~ msgstr "Tətbiqlər"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr "&percnt;1 yolda cihaz adı ilə əvəz olunacaq"
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Mübadilə qoşmasının ayarları"
+
+#~ msgid "Receiving"
+#~ msgstr "Faylların alınması"
+
+#~ msgid "Save files in:"
+#~ msgstr "Faylları burda saxlamaq:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Qara siyahıda"

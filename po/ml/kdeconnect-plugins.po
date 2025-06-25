@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -27,54 +27,6 @@ msgstr "%1: ബാറ്ററി കുറവാണ്"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "ബാറ്ററി ചാർജ് %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "ശബ്ദിക്കേണ്ട ശബ്ദം:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "ശബ്ദിക്കേണ്ട ശബ്ദം തിരഞ്ഞെടുക്കുക"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -127,166 +79,20 @@ msgstr "അയക്കുക"
 msgid "Dialog"
 msgstr "ചെറുജാലകം"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "സംഗീത പ്ലഗ്ഗിൻ താൽകാലികമായി നിർത്തുക"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "അവസ്ഥ"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "ഫോൺ റിങ് ചെയ്യുമ്പോൾ താൽകാലികമായി നിർത്തുക"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "സംസാരിക്കുമ്പോൾ മാത്രം നിർത്തുക"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "നടപടികൾ"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "മാധ്യമ പ്ലെയറുകൾ താൽകാലികമായി നിർത്തുക"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "സിസ്റ്റത്തിന്റെ ശബ്ദം നിശബ്ദമാക്കുക"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr ""
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr ""
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "മയങ്ങുക"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "സ്ക്രീൻ ലോക്ക് ചെയ്യുക"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "പരമാവധി തെളിച്ചം"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "സ്‌ക്രീനിന്റെ പൂട്ട് തുറക്കുക"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "ഉദ്ദാഹരണ ആജ്ഞകൾ"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "പേര്"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "ആജ്ഞ"
-
-#: runcommand/runcommand_config.cpp:98
-#, fuzzy, kde-format
-#| msgid "Command"
-msgid "Export Commands"
-msgstr "ആജ്ഞ"
-
-#: runcommand/runcommand_config.cpp:123
-#, fuzzy, kde-format
-#| msgid "Sample commands"
-msgid "Import Commands"
-msgstr "ഉദ്ദാഹരണ ആജ്ഞകൾ"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "ഫോൺ ബന്ധപ്പെടുത്തിയിരിക്കുന്നു"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "പേര്"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -311,76 +117,6 @@ msgid ""
 "This pattern is applied to the summary and, if selected above, the body of "
 "notifications."
 msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "പൊതുവായത്"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "സ്ഥിരമായിട്ടുള്ള അറിയിപ്പുകൾ മാത്രം"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "ബോഡി ഉൾപ്പെടുത്തുക"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>അറിയിപ്പുകളുടെ ഏറ്റവും കുറഞ്ഞ അത്യാവിശ്യകത</p></body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "ഏറ്റവും കുറഞ്ഞ ആവശ്യകത"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "ആപ്ലിക്കേഷനുകൾ"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -426,29 +162,6 @@ msgstr "എല്ലാ ഫയലുകളും"
 #, kde-format
 msgid "Camera pictures"
 msgstr "ക്യാമറ ചിത്രങ്ങൾ"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr ""
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "പ്ലഗ്ഗിൻ സജ്ജീകരണങ്ങൾ പങ്കുവെയ്കുക"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "കിട്ടുന്നു "
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "ഫയലുകൾ സേവ് ചെയ്യേണ്ടത്:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -497,6 +210,91 @@ msgstr "%1-ൽ നിന്നും ഒരു മിസ്ഡ് കോൾ"
 #, kde-format
 msgid "Mute Call"
 msgstr "കോൾ ശബ്ദരഹിതമാക്കുക"
+
+#~ msgid "Sound to play:"
+#~ msgstr "ശബ്ദിക്കേണ്ട ശബ്ദം:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "ശബ്ദിക്കേണ്ട ശബ്ദം തിരഞ്ഞെടുക്കുക"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "സംഗീത പ്ലഗ്ഗിൻ താൽകാലികമായി നിർത്തുക"
+
+#~ msgid "Condition"
+#~ msgstr "അവസ്ഥ"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "ഫോൺ റിങ് ചെയ്യുമ്പോൾ താൽകാലികമായി നിർത്തുക"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "സംസാരിക്കുമ്പോൾ മാത്രം നിർത്തുക"
+
+#~ msgid "Actions"
+#~ msgstr "നടപടികൾ"
+
+#~ msgid "Pause media players"
+#~ msgstr "മാധ്യമ പ്ലെയറുകൾ താൽകാലികമായി നിർത്തുക"
+
+#~ msgid "Mute system sound"
+#~ msgstr "സിസ്റ്റത്തിന്റെ ശബ്ദം നിശബ്ദമാക്കുക"
+
+#~ msgid "Suspend"
+#~ msgstr "മയങ്ങുക"
+
+#~ msgid "Lock Screen"
+#~ msgstr "സ്ക്രീൻ ലോക്ക് ചെയ്യുക"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "പരമാവധി തെളിച്ചം"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "സ്‌ക്രീനിന്റെ പൂട്ട് തുറക്കുക"
+
+#~ msgid "Sample commands"
+#~ msgstr "ഉദ്ദാഹരണ ആജ്ഞകൾ"
+
+#~ msgid "Command"
+#~ msgstr "ആജ്ഞ"
+
+#, fuzzy
+#~| msgid "Command"
+#~ msgid "Export Commands"
+#~ msgstr "ആജ്ഞ"
+
+#, fuzzy
+#~| msgid "Sample commands"
+#~ msgid "Import Commands"
+#~ msgstr "ഉദ്ദാഹരണ ആജ്ഞകൾ"
+
+#~ msgid "General"
+#~ msgstr "പൊതുവായത്"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "സ്ഥിരമായിട്ടുള്ള അറിയിപ്പുകൾ മാത്രം"
+
+#~ msgid "Include body"
+#~ msgstr "ബോഡി ഉൾപ്പെടുത്തുക"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>അറിയിപ്പുകളുടെ ഏറ്റവും കുറഞ്ഞ അത്യാവിശ്യകത</p></body></html>"
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "ഏറ്റവും കുറഞ്ഞ ആവശ്യകത"
+
+#~ msgid "Applications"
+#~ msgstr "ആപ്ലിക്കേഷനുകൾ"
+
+#~ msgid "Share plugin settings"
+#~ msgstr "പ്ലഗ്ഗിൻ സജ്ജീകരണങ്ങൾ പങ്കുവെയ്കുക"
+
+#~ msgid "Receiving"
+#~ msgstr "കിട്ടുന്നു "
+
+#~ msgid "Save files in:"
+#~ msgstr "ഫയലുകൾ സേവ് ചെയ്യേണ്ടത്:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "ബ്ലാക്ക്ലിസ്റ്റ് ചെയ്തിരിക്കുന്നു"

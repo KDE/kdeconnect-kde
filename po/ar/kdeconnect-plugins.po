@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2025-06-12 12:25+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -29,54 +29,6 @@ msgstr "%1: البطّاريّة ضعيفة"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "البطّاريّة عند %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "ملحق الحافظة"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "المزامنة الآلية"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "شارك الحافظة من هذا الجهاز آليا"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "بما فيها كلمات السر (معلّمة كما في مديرو الكلمات السر)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "أدوات الاستكشاف"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "صوت ليُشغل:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "اختر الصوت الذي تريد تشغيله"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -130,164 +82,20 @@ msgstr "أرسل"
 msgid "Dialog"
 msgstr "حواريّ"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "ملحقة إلباث الموسيقى"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "الشّرط"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "ألبث بمجرّد رنّ الهاتف"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "ألبث فقط عند التحدّث"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "إجراءات"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "ألبث مشغّلات الوسائط"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "اكتم صوت النّظام"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "استأنف الوسائط عندما تنتهي المكالمة"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "وخزة!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "جدول إطفاء"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "أطفئ الآن"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "ألغ أخر إطفاء"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "جدول إعادة تشغيل"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "علّق"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "اقفل الشّاشة"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "قل مرحبا"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "أطفئ"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "أعِد التشغيل"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "أقصى سطوع"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "فك قفل الشاشة"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "أغلق كل الخزنات"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "أغلق كل الخزنات بالقوة"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "أمثلة أوامر"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "صدّر"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "استورد"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "الاسم"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "الأمر"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "صدر الأوامر"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "استورد أوامر"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "الهاتف متصل"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "الاسم"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
@@ -313,75 +121,6 @@ msgid ""
 msgstr ""
 "تعبير نمطيّ يحدّد أيّ الإخطارات يجب ألّا تُرسل.\n"
 "يُطبّق هذا النّمط على الملخّص ومتن الإخطارات (إن كان محدّدًا أعلاه)."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "عامّ"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "أأزامن فقط الإخطارات ذات قيمة المهلة 0؟"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "الإخطارات المستمرّة فقط"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr "أأضيف متن الإخطار إلى الملخّص عند مزامنة الإخطارات؟"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "ضمّن المتن"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "أأزامن أيقونات البرمجيّات المُخطرة إن كان ممكنًا؟"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "زامن الأيقونات"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr "<html><head/><body><p>أدنى مستوى أهميّة للإخطارات</p></body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "زامن فقط الإخطارات ذات مستوى أهميّة عالٍ."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "أدنى مستوى أهميّة"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "التّطبيقات"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -427,29 +166,6 @@ msgstr "كلّ الملفّات"
 #, kde-format
 msgid "Camera pictures"
 msgstr "صور الكاميرا"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 هو المسار الذي سيُستبدل باسم الجهاز المحدّد."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "إعدادات ملحقة المشاركة"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "الاستقبال"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "احفظ الملفّات في:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -498,6 +214,158 @@ msgstr "مكالمة فائتة من %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "اكتم المكالمة"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "ملحق الحافظة"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "المزامنة الآلية"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "شارك الحافظة من هذا الجهاز آليا"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "بما فيها كلمات السر (معلّمة كما في مديرو الكلمات السر)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "أدوات الاستكشاف"
+
+#~ msgid "Sound to play:"
+#~ msgstr "صوت ليُشغل:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "اختر الصوت الذي تريد تشغيله"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "ملحقة إلباث الموسيقى"
+
+#~ msgid "Condition"
+#~ msgstr "الشّرط"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "ألبث بمجرّد رنّ الهاتف"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "ألبث فقط عند التحدّث"
+
+#~ msgid "Actions"
+#~ msgstr "إجراءات"
+
+#~ msgid "Pause media players"
+#~ msgstr "ألبث مشغّلات الوسائط"
+
+#~ msgid "Mute system sound"
+#~ msgstr "اكتم صوت النّظام"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "استأنف الوسائط عندما تنتهي المكالمة"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "جدول إطفاء"
+
+#~ msgid "Shutdown now"
+#~ msgstr "أطفئ الآن"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "ألغ أخر إطفاء"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "جدول إعادة تشغيل"
+
+#~ msgid "Suspend"
+#~ msgstr "علّق"
+
+#~ msgid "Lock Screen"
+#~ msgstr "اقفل الشّاشة"
+
+#~ msgid "Say Hello"
+#~ msgstr "قل مرحبا"
+
+#~ msgid "Shutdown"
+#~ msgstr "أطفئ"
+
+#~ msgid "Reboot"
+#~ msgstr "أعِد التشغيل"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "أقصى سطوع"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "فك قفل الشاشة"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "أغلق كل الخزنات"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "أغلق كل الخزنات بالقوة"
+
+#~ msgid "Sample commands"
+#~ msgstr "أمثلة أوامر"
+
+#~ msgid "Export"
+#~ msgstr "صدّر"
+
+#~ msgid "Import"
+#~ msgstr "استورد"
+
+#~ msgid "Command"
+#~ msgstr "الأمر"
+
+#~ msgid "Export Commands"
+#~ msgstr "صدر الأوامر"
+
+#~ msgid "Import Commands"
+#~ msgstr "استورد أوامر"
+
+#~ msgid "General"
+#~ msgstr "عامّ"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "أأزامن فقط الإخطارات ذات قيمة المهلة 0؟"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "الإخطارات المستمرّة فقط"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr "أأضيف متن الإخطار إلى الملخّص عند مزامنة الإخطارات؟"
+
+#~ msgid "Include body"
+#~ msgstr "ضمّن المتن"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr "أأزامن أيقونات البرمجيّات المُخطرة إن كان ممكنًا؟"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "زامن الأيقونات"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr "<html><head/><body><p>أدنى مستوى أهميّة للإخطارات</p></body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "زامن فقط الإخطارات ذات مستوى أهميّة عالٍ."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "أدنى مستوى أهميّة"
+
+#~ msgid "Applications"
+#~ msgstr "التّطبيقات"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr "&percnt;1 هو المسار الذي سيُستبدل باسم الجهاز المحدّد."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "إعدادات ملحقة المشاركة"
+
+#~ msgid "Receiving"
+#~ msgstr "الاستقبال"
+
+#~ msgid "Save files in:"
+#~ msgstr "احفظ الملفّات في:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "ممنوع"

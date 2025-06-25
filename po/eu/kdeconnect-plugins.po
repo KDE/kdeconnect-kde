@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
-"PO-Revision-Date: 2025-04-14 22:29+0200\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"PO-Revision-Date: 2025-06-24 20:12+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -32,54 +32,6 @@ msgstr "%1: Bateria baxu"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Bateria maila %%1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "Arbeleko plugina"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "Sinkronizatze automatikoa"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "Automatikoki partekatu gailu honetako arbela"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "Pasahitzak barne (pasahitz kudeatzaileek zehaztu bezala)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Discovery baliagarritasunak"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Jo beharreko soinua:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Aukeratu jo beharreko soinua"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -115,9 +67,7 @@ msgid "Reply"
 msgstr "Erantzun"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Erantzun %1(e)ri..."
@@ -133,170 +83,25 @@ msgstr "Bidali"
 msgid "Dialog"
 msgstr "Elkarrizketa-koadroa"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Eten musikaren plugina"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Baldintza"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Eten telefono deiak jo bezain laster"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Eten soilik hitz egin bitartean"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Ekintzak"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Eten euskarri jotzaileak"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Isilarazi sistemako soinua"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Berrekin multimedia automatikoki deia amaitzen denean"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
-
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Itzaltze bat programatu"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "Itzali orain"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Bertan behera utzi azken itzaltzea"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Berrabiatze bat programatu"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Eseki"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Giltzatu pantaila"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Esan Kaixo"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Itzali"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Berrabiarazi"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Distira maximoa"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Pantaila giltzapetik askatu"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Itxi kutxa-gotor guztiak"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Behartu kutxa-gotor guztiak ixtera"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Komandoen adibideak"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "Esportatu"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "Inportatu"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Izena"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Komandoa"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "Esportatu aginduak"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "Inportatu aginduak"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Telefonoa konektatuta dago"
 
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Izena"
+
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "Barneratu gorputza"
+msgstr "Barneratua"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -318,79 +123,6 @@ msgstr ""
 "Zein jakinarazpen ez bidali definitzen duen adierazpen erregularra.\n"
 "Eredu hau laburpenari ezartzen zaio, goian hautatuz gero, jakinarazpenen "
 "gorputzari."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Orokorra"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Sinkronizatu soilik denbora-muga 0 duten jakinarazpenak?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Jakinarazpen iraunkorrak soilik"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr ""
-"Erantsi jakinarazpenaren gorputza laburpenera jakinarazpenak sinkronizatzean?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Barneratu gorputza"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "Sinkronizatu jakinarazpen aplikazioen ikonoak ahal izanez gero?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Sinkronizatu ikonoak"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Jakinarazpenen gutxieneko larritasun maila</p></body></"
-"html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr ""
-"Sinkronizatu soilik adierazitako larritasun maila duten jakinarazpenak."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Gutxieneko larritasun maila"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Aplikazioak"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -437,29 +169,6 @@ msgstr "Fitxategi guztiak"
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamerako irudiak"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "bide-izeneko &percnt;1 gailu-izen jakin batekin ordeztuko da."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Partekatu pluginaren ezarpenak"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Jasotzen"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Gorde fitxategiak hemen:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -508,6 +217,166 @@ msgstr "Galdutako deia, %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Isilarazi deia"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "Arbeleko plugina"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "Sinkronizatze automatikoa"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "Automatikoki partekatu gailu honetako arbela"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "Pasahitzak barne (pasahitz kudeatzaileek zehaztu bezala)"
+
+#~ msgid "Max Clipboard File Size (MB)"
+#~ msgstr "Arbel-fitxategiaren gehienezko neurria (MB)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Discovery baliagarritasunak"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Jo beharreko soinua:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Aukeratu jo beharreko soinua"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Eten musikaren plugina"
+
+#~ msgid "Condition"
+#~ msgstr "Baldintza"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Eten telefono deiak jo bezain laster"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Eten soilik hitz egin bitartean"
+
+#~ msgid "Actions"
+#~ msgstr "Ekintzak"
+
+#~ msgid "Pause media players"
+#~ msgstr "Eten euskarri jotzaileak"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Isilarazi sistemako soinua"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "Berrekin multimedia automatikoki deia amaitzen denean"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Itzaltze bat programatu"
+
+#~ msgid "Shutdown now"
+#~ msgstr "Itzali orain"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Bertan behera utzi azken itzaltzea"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Berrabiatze bat programatu"
+
+#~ msgid "Suspend"
+#~ msgstr "Eseki"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Giltzatu pantaila"
+
+#~ msgid "Say Hello"
+#~ msgstr "Esan Kaixo"
+
+#~ msgid "Shutdown"
+#~ msgstr "Itzali"
+
+#~ msgid "Reboot"
+#~ msgstr "Berrabiarazi"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Distira maximoa"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Pantaila giltzapetik askatu"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Itxi kutxa-gotor guztiak"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Behartu kutxa-gotor guztiak ixtera"
+
+#~ msgid "Sample commands"
+#~ msgstr "Komandoen adibideak"
+
+#~ msgid "Export"
+#~ msgstr "Esportatu"
+
+#~ msgid "Import"
+#~ msgstr "Inportatu"
+
+#~ msgid "Command"
+#~ msgstr "Komandoa"
+
+#~ msgid "Export Commands"
+#~ msgstr "Esportatu aginduak"
+
+#~ msgid "Import Commands"
+#~ msgstr "Inportatu aginduak"
+
+#~ msgid "General"
+#~ msgstr "Orokorra"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "Sinkronizatu soilik denbora-muga 0 duten jakinarazpenak?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Jakinarazpen iraunkorrak soilik"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr ""
+#~ "Erantsi jakinarazpenaren gorputza laburpenera jakinarazpenak "
+#~ "sinkronizatzean?"
+
+#~ msgid "Include body"
+#~ msgstr "Barneratu gorputza"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr "Sinkronizatu jakinarazpen aplikazioen ikonoak ahal izanez gero?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Sinkronizatu ikonoak"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Jakinarazpenen gutxieneko larritasun maila</p></"
+#~ "body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr ""
+#~ "Sinkronizatu soilik adierazitako larritasun maila duten jakinarazpenak."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Gutxieneko larritasun maila"
+
+#~ msgid "Applications"
+#~ msgstr "Aplikazioak"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr "bide-izeneko &percnt;1 gailu-izen jakin batekin ordeztuko da."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Partekatu pluginaren ezarpenak"
+
+#~ msgid "Receiving"
+#~ msgstr "Jasotzen"
+
+#~ msgid "Save files in:"
+#~ msgstr "Gorde fitxategiak hemen:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Zerrenda beltzean"

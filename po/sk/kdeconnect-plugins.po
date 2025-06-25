@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2024-04-27 16:46+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -28,54 +28,6 @@ msgstr "%1: Nízka úroveň batérie"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Batéria na %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Nástroje objavovania"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Zvuk na prehranie:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Vyberte zvuk na prehranie"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -129,164 +81,20 @@ msgstr "Odoslať"
 msgid "Dialog"
 msgstr "Dialógové okno"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Zásuvný modul pozastavenia hudby"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Podmienka"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Pozastaviť ihneď, ako zazvoní telefón"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Pozastaviť iba počas hovoru"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Akcie"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Pozastaviť prehrávače médií"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Stlmiť systémové zvuky"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Po ukončení hovoru automaticky obnoviť prehrávanie médií"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Naplánovať vypnutie"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "Vypnúť teraz"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Zrušiť posledné vypnutie"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Naplánovať reštart"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Uspať"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Uzamknutá obrazovka"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Povedz ahoj"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Vypnúť"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Reštartovať"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Maximálny jas"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Odomknúť obrazovku"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Zatvoriť všetky klenby"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Vynútiť uzavretie všetkých klenieb"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Vzorové príkazy"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "Exportovať"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "Importovať"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Názov"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Príkaz"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "Exportovať príkazy"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "Importovať príkazy"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Telefón je pripojený"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Názov"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -313,77 +121,6 @@ msgid ""
 msgstr ""
 "Regulárne výrazy definujúce, ktoré upozornenia sa nemajú odoslať.\n"
 "Tento vzor sa použije na súhrn, a ak je vybrané vyššie, na telo upozornení."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Všeobecné"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Synchronizovať iba upozornenia s hodnotou času 0?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Iba trvalé upozornenia"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr "Pripojiť telo upozornenia k súhrnu pri synchronizácii upozornení?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Zahrnúť telo"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "Synchronizovať ikony upozorňovanej aplikácie, ak je to možné?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Synchronizovať ikony"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Minimálna úroveň závažnosti upozornení</p></body></"
-"html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "Synchronizovať iba upozornenia s danou úrovňou závažnosti."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Minimálna úroveň závažnosti"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Aplikácie"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -430,29 +167,6 @@ msgstr "Všetky súbory"
 #, kde-format
 msgid "Camera pictures"
 msgstr "Obrázky fotoaparátu"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 v ceste sa nahradí názvom určeného zariadenia."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Nastavenia zásuvného modulu zdieľania"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Prijímanie"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Uložiť súbory do:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -501,6 +215,148 @@ msgstr "Zmeškaný hovor od %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Stlmiť hovor"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Nástroje objavovania"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Zvuk na prehranie:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Vyberte zvuk na prehranie"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Zásuvný modul pozastavenia hudby"
+
+#~ msgid "Condition"
+#~ msgstr "Podmienka"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Pozastaviť ihneď, ako zazvoní telefón"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Pozastaviť iba počas hovoru"
+
+#~ msgid "Actions"
+#~ msgstr "Akcie"
+
+#~ msgid "Pause media players"
+#~ msgstr "Pozastaviť prehrávače médií"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Stlmiť systémové zvuky"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "Po ukončení hovoru automaticky obnoviť prehrávanie médií"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Naplánovať vypnutie"
+
+#~ msgid "Shutdown now"
+#~ msgstr "Vypnúť teraz"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Zrušiť posledné vypnutie"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Naplánovať reštart"
+
+#~ msgid "Suspend"
+#~ msgstr "Uspať"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Uzamknutá obrazovka"
+
+#~ msgid "Say Hello"
+#~ msgstr "Povedz ahoj"
+
+#~ msgid "Shutdown"
+#~ msgstr "Vypnúť"
+
+#~ msgid "Reboot"
+#~ msgstr "Reštartovať"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Maximálny jas"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Odomknúť obrazovku"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Zatvoriť všetky klenby"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Vynútiť uzavretie všetkých klenieb"
+
+#~ msgid "Sample commands"
+#~ msgstr "Vzorové príkazy"
+
+#~ msgid "Export"
+#~ msgstr "Exportovať"
+
+#~ msgid "Import"
+#~ msgstr "Importovať"
+
+#~ msgid "Command"
+#~ msgstr "Príkaz"
+
+#~ msgid "Export Commands"
+#~ msgstr "Exportovať príkazy"
+
+#~ msgid "Import Commands"
+#~ msgstr "Importovať príkazy"
+
+#~ msgid "General"
+#~ msgstr "Všeobecné"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "Synchronizovať iba upozornenia s hodnotou času 0?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Iba trvalé upozornenia"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr "Pripojiť telo upozornenia k súhrnu pri synchronizácii upozornení?"
+
+#~ msgid "Include body"
+#~ msgstr "Zahrnúť telo"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr "Synchronizovať ikony upozorňovanej aplikácie, ak je to možné?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Synchronizovať ikony"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Minimálna úroveň závažnosti upozornení</p></body></"
+#~ "html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "Synchronizovať iba upozornenia s danou úrovňou závažnosti."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Minimálna úroveň závažnosti"
+
+#~ msgid "Applications"
+#~ msgstr "Aplikácie"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr "&percnt;1 v ceste sa nahradí názvom určeného zariadenia."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Nastavenia zásuvného modulu zdieľania"
+
+#~ msgid "Receiving"
+#~ msgstr "Prijímanie"
+
+#~ msgid "Save files in:"
+#~ msgstr "Uložiť súbory do:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Na čiernom zozname"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 04:35+0200\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"PO-Revision-Date: 2025-06-24 05:44+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -28,54 +28,6 @@ msgstr "%1: ელემენტი დასატენია"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "ელემენტის მუხტია %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "ბუფერის დამატება"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "ავტომატური სინქრონიზაცია"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "ამ მოწყობილობის ბუფერის ავტომატური გაზიარება"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr "პაროლების ჩათვლით (როგორც მონიშნულია პაროლის მმართველების მიერ)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "ხელსაწყოების აღმოჩენა"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "დასაკრავი ხმა:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "აირჩიეთ დასაკრავი ხმა"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -127,164 +79,20 @@ msgstr "გაგზავნა"
 msgid "Dialog"
 msgstr "ფანჯარა"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "მუსიკის შეჩერების დამატება"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "მდგომარეობა"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "მუსიკის შეჩერება, როცა ტელეფონი დარეკავს"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "შეჩერება საუბრის დროს"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "ქმედებები"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "მედია დამკვრელების შეჩერება"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "სისტემის ხმის დადუმება"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "საუბრის დასრულებისა მედიის დაკვრის გაგრძელება"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "პინგ!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "გათიშვის დაგეგმვა"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "ახლა გამორთვა"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "ბოლო გამორთვის გაუქმება"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "გადატვირთვის დაგეგმვა"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "ძილი"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "ეკრანის დაბლოკვა"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "თქვი: \"გამარჯობა, კინო\""
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "გამორთვა"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "გადატვირთვა"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "მაქსიმალური სიკაშკაშე"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "ეკრანის განბლოკვა"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "ყველა საცავის დახურვა"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "ყველა საცავის ძალით დახურვა"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "სანიმუშო ბრძანებები"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "გატანა"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "შემოტანა"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "სახელი"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "ბრძანება"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "ბრძანებების გატანა"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "ბრძანებების შემოტანა"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "ტელეფონი დაკავშირებულია"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "სახელი"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
@@ -311,80 +119,6 @@ msgstr ""
 "რეგულარული გამოსახულებები, რომლებიც აღწერენ, რომელი შეტყობინებები არ უნდა "
 "გაიგზავნოს.\n"
 "ეს ნიმუში გადატარდება შეჯამებებზე და თუ ჩართულია, გაფრთხილების სხეულზე."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "ძირითადი"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr ""
-"მოხდეს მხოლოდ ნულოვანი მოლოდინის მნიშვნელობის მქონე გაფრთხილებების "
-"სინქრონიზაცია?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "მხოლოდ მუდმივი შეტყობინებები"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr ""
-"მივაწერო გაფრთხილების სხეული შეჯამებას გაფრთხილებების სინქრონიზაციისას?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "სხეულის ჩასმა"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr "დავასინქრონო გაფრთხილებების აპლიკაციების ხატულები, თუ ეს შესაძლებელია?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "ხატულების სინქრონიზაცია"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>შეტყობინებების მინიმალური გადაუდებლობის დონე</p></"
-"body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "სინქრონიზაცია მხოლოდ შეტყობინებებს მოცემული გადაუდებელი დონით."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "გადაუდებლობის მინიმალური დონე"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "აპლიკაციები"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -430,29 +164,6 @@ msgstr "ყველა ფაილი"
 #, kde-format
 msgid "Camera pictures"
 msgstr "კამერის სურათები"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 ბილიკში მითითებული მოწყობილობის სახელით შეიცვლება."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "გაზიარების დამატების მორგება"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "მიღება"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "ფაილების შენახვა:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -501,6 +212,167 @@ msgstr "გამოტოვებული ზარი %1-დან"
 #, kde-format
 msgid "Mute Call"
 msgstr "ზარის დადუმება"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "ბუფერის დამატება"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "ავტომატური სინქრონიზაცია"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "ამ მოწყობილობის ბუფერის ავტომატური გაზიარება"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr "პაროლების ჩათვლით (როგორც მონიშნულია პაროლის მმართველების მიერ)"
+
+#~ msgid "Max Clipboard File Size (MB)"
+#~ msgstr "ბუფერის ფაილის მაქს. ზომა (მბ)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "ხელსაწყოების აღმოჩენა"
+
+#~ msgid "Sound to play:"
+#~ msgstr "დასაკრავი ხმა:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "აირჩიეთ დასაკრავი ხმა"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "მუსიკის შეჩერების დამატება"
+
+#~ msgid "Condition"
+#~ msgstr "მდგომარეობა"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "მუსიკის შეჩერება, როცა ტელეფონი დარეკავს"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "შეჩერება საუბრის დროს"
+
+#~ msgid "Actions"
+#~ msgstr "ქმედებები"
+
+#~ msgid "Pause media players"
+#~ msgstr "მედია დამკვრელების შეჩერება"
+
+#~ msgid "Mute system sound"
+#~ msgstr "სისტემის ხმის დადუმება"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "საუბრის დასრულებისა მედიის დაკვრის გაგრძელება"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "გათიშვის დაგეგმვა"
+
+#~ msgid "Shutdown now"
+#~ msgstr "ახლა გამორთვა"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "ბოლო გამორთვის გაუქმება"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "გადატვირთვის დაგეგმვა"
+
+#~ msgid "Suspend"
+#~ msgstr "ძილი"
+
+#~ msgid "Lock Screen"
+#~ msgstr "ეკრანის დაბლოკვა"
+
+#~ msgid "Say Hello"
+#~ msgstr "თქვი: \"გამარჯობა, კინო\""
+
+#~ msgid "Shutdown"
+#~ msgstr "გამორთვა"
+
+#~ msgid "Reboot"
+#~ msgstr "გადატვირთვა"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "მაქსიმალური სიკაშკაშე"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "ეკრანის განბლოკვა"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "ყველა საცავის დახურვა"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "ყველა საცავის ძალით დახურვა"
+
+#~ msgid "Sample commands"
+#~ msgstr "სანიმუშო ბრძანებები"
+
+#~ msgid "Export"
+#~ msgstr "გატანა"
+
+#~ msgid "Import"
+#~ msgstr "შემოტანა"
+
+#~ msgid "Command"
+#~ msgstr "ბრძანება"
+
+#~ msgid "Export Commands"
+#~ msgstr "ბრძანებების გატანა"
+
+#~ msgid "Import Commands"
+#~ msgstr "ბრძანებების შემოტანა"
+
+#~ msgid "General"
+#~ msgstr "ძირითადი"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr ""
+#~ "მოხდეს მხოლოდ ნულოვანი მოლოდინის მნიშვნელობის მქონე გაფრთხილებების "
+#~ "სინქრონიზაცია?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "მხოლოდ მუდმივი შეტყობინებები"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr ""
+#~ "მივაწერო გაფრთხილების სხეული შეჯამებას გაფრთხილებების სინქრონიზაციისას?"
+
+#~ msgid "Include body"
+#~ msgstr "სხეულის ჩასმა"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr ""
+#~ "დავასინქრონო გაფრთხილებების აპლიკაციების ხატულები, თუ ეს შესაძლებელია?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "ხატულების სინქრონიზაცია"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>შეტყობინებების მინიმალური გადაუდებლობის დონე</p></"
+#~ "body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "სინქრონიზაცია მხოლოდ შეტყობინებებს მოცემული გადაუდებელი დონით."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "გადაუდებლობის მინიმალური დონე"
+
+#~ msgid "Applications"
+#~ msgstr "აპლიკაციები"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr "&percnt;1 ბილიკში მითითებული მოწყობილობის სახელით შეიცვლება."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "გაზიარების დამატების მორგება"
+
+#~ msgid "Receiving"
+#~ msgstr "მიღება"
+
+#~ msgid "Save files in:"
+#~ msgstr "ფაილების შენახვა:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "შავ სიაშია"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2024-01-07 13:14+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -28,55 +28,6 @@ msgstr "%1: Acumulator scăzut"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Acumulator la %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "Extensie pentru clipboard"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "Sincronizare automată"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "Partajează automat clipboard-ul acestui dispozitiv"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr ""
-"Inclusiv parolele (după cum sunt marcate de către gestionarul de parole)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Utilitare de descoperire"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Sunet de redat:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Alegeți sunetul de redat"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -130,164 +81,20 @@ msgstr "Trimite"
 msgid "Dialog"
 msgstr "Dialog"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Extensie de întrerupere a muzicii"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Condiție"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Întrerupe de îndată ce sună telefonul"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Întrerupe numai pe durata apelului"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Acțiuni"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Întrerupe redarea multimedia"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Muțește sunetul sistemului"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Reia automat redarea multimedia la finalul apelului"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Planifică o oprire"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "Oprește acum"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Anulează ultima oprire"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Planifică o repornire"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Suspendă"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Blochează ecranul"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Spune „Salut”"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Oprește"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Repornește"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Luminozitate maximă"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Deblochează ecranul"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Închide toate bolțile"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Închide forțat toate bolțile"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Comenzi pentru exemplu"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "Exportă"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "Importă"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Denumire"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Comandă"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "Exportă comenzile"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "Importă comenzi"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Telefonul e conectat"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Denumire"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -315,79 +122,6 @@ msgstr ""
 "Expresie regulată ce definește notificările ce nu trebuiesc trimise.\n"
 "Acest model se aplică sumarului și, dacă e ales mai sus, corpului "
 "notificărilor."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Generale"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Să se sincronizeze numai notificările cu valoarea expirării 0?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Numai notificări persistente"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr ""
-"Să se adauge corpul notificării la sumar când se sincronizează notificările?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Include corpul"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr ""
-"Să se sincronizeze pictogramele aplicațiilor ce notifică dacă e posibil?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Sincronizează pictogramele"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Nivelul minim de urgență al notificărilor</p></body></"
-"html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "Sincronizează numai notificările cu nivelul dat de urgență."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Nivel minim de urgență"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Aplicații"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -436,29 +170,6 @@ msgstr "Toate fișierele"
 msgid "Camera pictures"
 msgstr "Fotografii"
 
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 în cale se va înlocui cu denumirea dispozitivului specific."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Configurările extensiei de partajare"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Primire"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Salvează fișierele în:"
-
 #: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
@@ -506,6 +217,165 @@ msgstr "Apel pierdut de la %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Muțește apelul"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "Extensie pentru clipboard"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "Sincronizare automată"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "Partajează automat clipboard-ul acestui dispozitiv"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr ""
+#~ "Inclusiv parolele (după cum sunt marcate de către gestionarul de parole)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Utilitare de descoperire"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Sunet de redat:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Alegeți sunetul de redat"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Extensie de întrerupere a muzicii"
+
+#~ msgid "Condition"
+#~ msgstr "Condiție"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Întrerupe de îndată ce sună telefonul"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Întrerupe numai pe durata apelului"
+
+#~ msgid "Actions"
+#~ msgstr "Acțiuni"
+
+#~ msgid "Pause media players"
+#~ msgstr "Întrerupe redarea multimedia"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Muțește sunetul sistemului"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "Reia automat redarea multimedia la finalul apelului"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Planifică o oprire"
+
+#~ msgid "Shutdown now"
+#~ msgstr "Oprește acum"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Anulează ultima oprire"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Planifică o repornire"
+
+#~ msgid "Suspend"
+#~ msgstr "Suspendă"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Blochează ecranul"
+
+#~ msgid "Say Hello"
+#~ msgstr "Spune „Salut”"
+
+#~ msgid "Shutdown"
+#~ msgstr "Oprește"
+
+#~ msgid "Reboot"
+#~ msgstr "Repornește"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Luminozitate maximă"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Deblochează ecranul"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Închide toate bolțile"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Închide forțat toate bolțile"
+
+#~ msgid "Sample commands"
+#~ msgstr "Comenzi pentru exemplu"
+
+#~ msgid "Export"
+#~ msgstr "Exportă"
+
+#~ msgid "Import"
+#~ msgstr "Importă"
+
+#~ msgid "Command"
+#~ msgstr "Comandă"
+
+#~ msgid "Export Commands"
+#~ msgstr "Exportă comenzile"
+
+#~ msgid "Import Commands"
+#~ msgstr "Importă comenzi"
+
+#~ msgid "General"
+#~ msgstr "Generale"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "Să se sincronizeze numai notificările cu valoarea expirării 0?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Numai notificări persistente"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr ""
+#~ "Să se adauge corpul notificării la sumar când se sincronizează "
+#~ "notificările?"
+
+#~ msgid "Include body"
+#~ msgstr "Include corpul"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr ""
+#~ "Să se sincronizeze pictogramele aplicațiilor ce notifică dacă e posibil?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Sincronizează pictogramele"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Nivelul minim de urgență al notificărilor</p></"
+#~ "body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "Sincronizează numai notificările cu nivelul dat de urgență."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Nivel minim de urgență"
+
+#~ msgid "Applications"
+#~ msgstr "Aplicații"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr ""
+#~ "&percnt;1 în cale se va înlocui cu denumirea dispozitivului specific."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Configurările extensiei de partajare"
+
+#~ msgid "Receiving"
+#~ msgstr "Primire"
+
+#~ msgid "Save files in:"
+#~ msgstr "Salvează fișierele în:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "În lista neagră"

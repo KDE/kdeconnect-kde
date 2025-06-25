@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2025-06-21 12:14+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -27,56 +27,6 @@ msgstr "%1: Ниско ниво на батерията"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Батерия на %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr "Приставка за клипборд"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr "Автоматично синхронизиране"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr "Автоматично споделяне на клипборда от това устройство"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr ""
-"Включително и пароли (маркирани като такива от системата за управление на "
-"пароли)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Инструменти за откриване"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Звук за възпроизвеждане:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Избиране на звук за възпроизвеждане"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -128,164 +78,20 @@ msgstr "Изпращане"
 msgid "Dialog"
 msgstr "Диалогов прозорец"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Приставката за поставяне на пауза"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Условие"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Паузиране при звънене на телефона"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Паузиране само по време на разговор"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Действия"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Паузиране на медийното възпроизвеждане"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Изключване на системния звук"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Автоматично пускане на медийното възпроизвеждане при край на разговора"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Сигнализиране!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Планиране на изключване"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "Изключване сега"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Отмяна на последното изключване"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Планиране на рестартиране"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Приспиване"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Заключване на екрана"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Кажи Здравей"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Изключване"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Рестартиране"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Максимална яркост"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Отключване на екрана"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Затваряне на всички трезори"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Принудително затваряне на всички трезори"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Пробни команди"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr "Експортиране"
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr "Импортиране"
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Име"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Команда"
-
-#: runcommand/runcommand_config.cpp:98
-#, kde-format
-msgid "Export Commands"
-msgstr "Команда за експортиране"
-
-#: runcommand/runcommand_config.cpp:123
-#, kde-format
-msgid "Import Commands"
-msgstr "Команда за импортиране"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Телефонът е свързан"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Име"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
@@ -312,78 +118,6 @@ msgstr ""
 "Регулярен израз, определящ, кои известия не трябва да се показват.\n"
 "Този шаблон се прилага към обобщението или, ако е избрано по-горе, към "
 "тялото на известието."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Общи"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "Да се синхронизират ли само известия с време на изтичане 0?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Само настоятелни съобщения"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr ""
-"Да се добави ли тялото на съобщението към обобщението при синхронизиране на "
-"известията?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Включване на тялото"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr ""
-"Да се синхронизират ли иконите на известяващото приложение, ако е възможно?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Синхронизиране на иконите"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr "<html><head/><body><p>Минимална спешност на известие</p></body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "Синхронизиране само на известия със зададеното ниво на спешност."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Минимална спешност на известие"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Приложения"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -429,29 +163,6 @@ msgstr "Всички файлове"
 #, kde-format
 msgid "Camera pictures"
 msgstr "Снимки от камерата"
-
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 в пътя ще бъде заменен със специфичното име на устройството."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Настройки на приставката за споделяне"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Получаване"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Запазване на файлове като:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -500,3 +211,164 @@ msgstr "Пропуснато обаждане от %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Заглушаване на обаждането"
+
+#~ msgid "Clipboard plugin"
+#~ msgstr "Приставка за клипборд"
+
+#~ msgid "Automatic synchronization"
+#~ msgstr "Автоматично синхронизиране"
+
+#~ msgid "Automatically share the clipboard from this device"
+#~ msgstr "Автоматично споделяне на клипборда от това устройство"
+
+#~ msgid "Including passwords (as marked by password managers)"
+#~ msgstr ""
+#~ "Включително и пароли (маркирани като такива от системата за управление на "
+#~ "пароли)"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Инструменти за откриване"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Звук за възпроизвеждане:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Избиране на звук за възпроизвеждане"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Приставката за поставяне на пауза"
+
+#~ msgid "Condition"
+#~ msgstr "Условие"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Паузиране при звънене на телефона"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Паузиране само по време на разговор"
+
+#~ msgid "Actions"
+#~ msgstr "Действия"
+
+#~ msgid "Pause media players"
+#~ msgstr "Паузиране на медийното възпроизвеждане"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Изключване на системния звук"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr ""
+#~ "Автоматично пускане на медийното възпроизвеждане при край на разговора"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Планиране на изключване"
+
+#~ msgid "Shutdown now"
+#~ msgstr "Изключване сега"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Отмяна на последното изключване"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Планиране на рестартиране"
+
+#~ msgid "Suspend"
+#~ msgstr "Приспиване"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Заключване на екрана"
+
+#~ msgid "Say Hello"
+#~ msgstr "Кажи Здравей"
+
+#~ msgid "Shutdown"
+#~ msgstr "Изключване"
+
+#~ msgid "Reboot"
+#~ msgstr "Рестартиране"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Максимална яркост"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Отключване на екрана"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Затваряне на всички трезори"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Принудително затваряне на всички трезори"
+
+#~ msgid "Sample commands"
+#~ msgstr "Пробни команди"
+
+#~ msgid "Export"
+#~ msgstr "Експортиране"
+
+#~ msgid "Import"
+#~ msgstr "Импортиране"
+
+#~ msgid "Command"
+#~ msgstr "Команда"
+
+#~ msgid "Export Commands"
+#~ msgstr "Команда за експортиране"
+
+#~ msgid "Import Commands"
+#~ msgstr "Команда за импортиране"
+
+#~ msgid "General"
+#~ msgstr "Общи"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr "Да се синхронизират ли само известия с време на изтичане 0?"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Само настоятелни съобщения"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr ""
+#~ "Да се добави ли тялото на съобщението към обобщението при синхронизиране "
+#~ "на известията?"
+
+#~ msgid "Include body"
+#~ msgstr "Включване на тялото"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr ""
+#~ "Да се синхронизират ли иконите на известяващото приложение, ако е "
+#~ "възможно?"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Синхронизиране на иконите"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Минимална спешност на известие</p></body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr "Синхронизиране само на известия със зададеното ниво на спешност."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Минимална спешност на известие"
+
+#~ msgid "Applications"
+#~ msgstr "Приложения"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr ""
+#~ "&percnt;1 в пътя ще бъде заменен със специфичното име на устройството."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Настройки на приставката за споделяне"
+
+#~ msgid "Receiving"
+#~ msgstr "Получаване"
+
+#~ msgid "Save files in:"
+#~ msgstr "Запазване на файлове като:"

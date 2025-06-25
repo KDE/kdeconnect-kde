@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2024-09-19 21:43+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -29,54 +29,6 @@ msgstr "%1: Χαμηλή ισχύς μπαταρίας"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Η μπαταρία είναι στο %1%"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
-#: clipboard/clipboard_config.ui:17
-#, kde-format
-msgid "Clipboard plugin"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
-#: clipboard/clipboard_config.ui:32
-#, kde-format
-msgid "Automatic synchronization"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
-#: clipboard/clipboard_config.ui:38
-#, kde-format
-msgid "Automatically share the clipboard from this device"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
-#: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Including passwords (as marked by password managers)"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_max_clipboard_size)
-#: clipboard/clipboard_config.ui:67
-#, kde-format
-msgid "Max Clipboard File Size (MB)"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: findthisdevice/findthisdevice_config.ui:17
-#, kde-format
-msgid "Discovery Utilities"
-msgstr "Εργαλεία ανακάλυψης"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: findthisdevice/findthisdevice_config.ui:25
-#, kde-format
-msgid "Sound to play:"
-msgstr "Ήχος στην αναπαραγωγή:"
-
-#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
-#: findthisdevice/findthisdevice_config.ui:39
-#, kde-format
-msgid "Select the sound to play"
-msgstr "Επιλογή ήχου στην αναπαραγωγή"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -130,166 +82,20 @@ msgstr "Αποστολή"
 msgid "Dialog"
 msgstr "Διάλογος"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
-#: pausemusic/pausemusic_config.ui:17
-#, kde-format
-msgid "Pause music plugin"
-msgstr "Πρόσθετο παύσης μουσικής"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: pausemusic/pausemusic_config.ui:32
-#, kde-format
-msgid "Condition"
-msgstr "Συνθήκη"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
-#: pausemusic/pausemusic_config.ui:38
-#, kde-format
-msgid "Pause as soon as phone rings"
-msgstr "Παύση αμέσως μόλις χτυπήσει το τηλέφωνο"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
-#: pausemusic/pausemusic_config.ui:45
-#, kde-format
-msgid "Pause only while talking"
-msgstr "Παύση μόνο κατά τη συνομιλία"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: pausemusic/pausemusic_config.ui:61
-#, kde-format
-msgid "Actions"
-msgstr "Ενέργειες"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
-#: pausemusic/pausemusic_config.ui:67
-#, kde-format
-msgid "Pause media players"
-msgstr "Παύση αναπαραγωγής πολυμέσων"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
-#: pausemusic/pausemusic_config.ui:74
-#, kde-format
-msgid "Mute system sound"
-msgstr "Σίγαση ήχου συστήματος"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
-#: pausemusic/pausemusic_config.ui:81
-#, kde-format
-msgid "Automatically resume media when call has finished"
-msgstr "Αυτόματη συνέχιση των πολυμέσων μετά το πέρας της κλήσης"
-
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:41
-#, kde-format
-msgid "Schedule a shutdown"
-msgstr "Χρονοπρογραμματισμός τερματισμού"
-
-#: runcommand/runcommand_config.cpp:42
-#, kde-format
-msgid "Shutdown now"
-msgstr "Τερματισμός τώρα"
-
-#: runcommand/runcommand_config.cpp:43
-#, kde-format
-msgid "Cancel last shutdown"
-msgstr "Ακύρωση τελευταίου τερματισμού"
-
-#: runcommand/runcommand_config.cpp:44
-#, kde-format
-msgid "Schedule a reboot"
-msgstr "Χρονοπρογραμματισμός επανεκκίνησης"
-
-#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
-#, kde-format
-msgid "Suspend"
-msgstr "Αναστολή"
-
-#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
-#, kde-format
-msgid "Lock Screen"
-msgstr "Κλείδωμα οθόνης"
-
-#: runcommand/runcommand_config.cpp:49
-#, kde-format
-msgid "Say Hello"
-msgstr "Πείτε ένα γεια"
-
-#: runcommand/runcommand_config.cpp:52
-#, kde-format
-msgid "Shutdown"
-msgstr "Τερματισμός"
-
-#: runcommand/runcommand_config.cpp:53
-#, kde-format
-msgid "Reboot"
-msgstr "Επανεκκίνηση"
-
-#: runcommand/runcommand_config.cpp:57
-#, kde-format
-msgid "Maximum Brightness"
-msgstr "Μέγιστη λαμπρότητα"
-
-#: runcommand/runcommand_config.cpp:63
-#, kde-format
-msgid "Unlock Screen"
-msgstr "Ξεκλείδωμα οθόνης"
-
-#: runcommand/runcommand_config.cpp:64
-#, kde-format
-msgid "Close All Vaults"
-msgstr "Κλείσιμο όλων των θόλων"
-
-#: runcommand/runcommand_config.cpp:66
-#, kde-format
-msgid "Forcefully Close All Vaults"
-msgstr "Αναγκαστικό κλείσιμο όλων των θόλων"
-
-#: runcommand/runcommand_config.cpp:73
-#, kde-format
-msgid "Sample commands"
-msgstr "Ενδεικτικές εντολές"
-
-#: runcommand/runcommand_config.cpp:77
-#, kde-format
-msgid "Export"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:80
-#, kde-format
-msgid "Import"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
-#, kde-format
-msgid "Name"
-msgstr "Όνομα"
-
-#: runcommand/runcommand_config.cpp:93
-#, kde-format
-msgid "Command"
-msgstr "Εντολή"
-
-#: runcommand/runcommand_config.cpp:98
-#, fuzzy, kde-format
-#| msgid "Command"
-msgid "Export Commands"
-msgstr "Εντολή"
-
-#: runcommand/runcommand_config.cpp:123
-#, fuzzy, kde-format
-#| msgid "Sample commands"
-msgid "Import Commands"
-msgstr "Ενδεικτικές εντολές"
-
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Το τηλέφωνο είναι συνδεδεμένο"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "Όνομα"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
@@ -317,82 +123,6 @@ msgstr ""
 "Κανονική έκφραση που καθορίζει ποιες ειδοποιήσεις δεν πρέπει να στέλνονται.\n"
 "Το πρότυπο αυτό εφαρμόζεται στην περίληψη και, αν επιλεχθεί παραπάνω, στο "
 "σώμα των ειδοποιήσεων."
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: sendnotifications/sendnotifications_config.ui:38
-#, kde-format
-msgid "General"
-msgstr "Γενικά"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:44
-#, kde-format
-msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr ""
-"Συγχρονισμός μόνο των ειδοποιήσεων που έχουν τιμή χρονικού ορίου ίση με 0;"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
-#: sendnotifications/sendnotifications_config.ui:47
-#, kde-format
-msgid "Persistent notifications only"
-msgstr "Μόνο μόνιμες ειδοποιήσεις"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:60
-#, kde-format
-msgid ""
-"Append the notification body to the summary when synchronizing notifications?"
-msgstr ""
-"Προσθήκη του σώματος της ειδοποίησης στην περίληψη κατά τον συγχρονισμό των "
-"ειδοποιήσεων;"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_body)
-#: sendnotifications/sendnotifications_config.ui:63
-#, kde-format
-msgid "Include body"
-msgstr "Συμπερίληψη σώματος"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:76
-#, kde-format
-msgid "Synchronize icons of notifying applications if possible?"
-msgstr ""
-"Συγχρονισμός, εφόσον είναι εφικτό, των εικονιδίων των εφαρμογών της "
-"ειδοποίησης;"
-
-#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
-#: sendnotifications/sendnotifications_config.ui:79
-#, kde-format
-msgid "Synchronize icons"
-msgstr "Συγχρονισμός εικονιδίων"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
-#: sendnotifications/sendnotifications_config.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Ελάχιστο επίπεδο επείγοντος για τις ειδοποιήσεις</p></"
-"body></html>"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:123
-#, kde-format
-msgid "Synchronize only notifications with the given urgency level."
-msgstr "Συγχρονισμός μόνο των ειδοποιήσεων με το δοσμένο επίπεδο επείγοντος."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: sendnotifications/sendnotifications_config.ui:126
-#, kde-format
-msgid "Minimum urgency level"
-msgstr "Ελάχιστο επίπεδο επείγοντος"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: sendnotifications/sendnotifications_config.ui:148
-#, kde-format
-msgid "Applications"
-msgstr "Εφαρμογές"
 
 #: sftp/mounter.cpp:165
 #, kde-format
@@ -442,31 +172,6 @@ msgstr "Όλα τα αρχεία"
 msgid "Camera pictures"
 msgstr "Εικόνες κάμερας"
 
-#: share/share_config.cpp:22
-#, kde-format
-msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr ""
-"Το &percnt;1 στη διαδρομή θα αντικατασταθεί με το όνομα της συγκεκριμένης "
-"συσκευής."
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
-#: share/share_config.ui:17
-#, kde-format
-msgid "Share plugin settings"
-msgstr "Ρυθμίσεις προσθέτου κοινής χρήσης"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: share/share_config.ui:23
-#, kde-format
-msgid "Receiving"
-msgstr "Λήψη"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: share/share_config.ui:31
-#, kde-format
-msgid "Save files in:"
-msgstr "Αποθήκευση αρχείων στο:"
-
 #: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
@@ -514,6 +219,154 @@ msgstr "Αναπάντητη κλήση από %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Σίγαση κλήσης"
+
+#~ msgid "Discovery Utilities"
+#~ msgstr "Εργαλεία ανακάλυψης"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Ήχος στην αναπαραγωγή:"
+
+#~ msgid "Select the sound to play"
+#~ msgstr "Επιλογή ήχου στην αναπαραγωγή"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Πρόσθετο παύσης μουσικής"
+
+#~ msgid "Condition"
+#~ msgstr "Συνθήκη"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Παύση αμέσως μόλις χτυπήσει το τηλέφωνο"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Παύση μόνο κατά τη συνομιλία"
+
+#~ msgid "Actions"
+#~ msgstr "Ενέργειες"
+
+#~ msgid "Pause media players"
+#~ msgstr "Παύση αναπαραγωγής πολυμέσων"
+
+#~ msgid "Mute system sound"
+#~ msgstr "Σίγαση ήχου συστήματος"
+
+#~ msgid "Automatically resume media when call has finished"
+#~ msgstr "Αυτόματη συνέχιση των πολυμέσων μετά το πέρας της κλήσης"
+
+#~ msgid "Schedule a shutdown"
+#~ msgstr "Χρονοπρογραμματισμός τερματισμού"
+
+#~ msgid "Shutdown now"
+#~ msgstr "Τερματισμός τώρα"
+
+#~ msgid "Cancel last shutdown"
+#~ msgstr "Ακύρωση τελευταίου τερματισμού"
+
+#~ msgid "Schedule a reboot"
+#~ msgstr "Χρονοπρογραμματισμός επανεκκίνησης"
+
+#~ msgid "Suspend"
+#~ msgstr "Αναστολή"
+
+#~ msgid "Lock Screen"
+#~ msgstr "Κλείδωμα οθόνης"
+
+#~ msgid "Say Hello"
+#~ msgstr "Πείτε ένα γεια"
+
+#~ msgid "Shutdown"
+#~ msgstr "Τερματισμός"
+
+#~ msgid "Reboot"
+#~ msgstr "Επανεκκίνηση"
+
+#~ msgid "Maximum Brightness"
+#~ msgstr "Μέγιστη λαμπρότητα"
+
+#~ msgid "Unlock Screen"
+#~ msgstr "Ξεκλείδωμα οθόνης"
+
+#~ msgid "Close All Vaults"
+#~ msgstr "Κλείσιμο όλων των θόλων"
+
+#~ msgid "Forcefully Close All Vaults"
+#~ msgstr "Αναγκαστικό κλείσιμο όλων των θόλων"
+
+#~ msgid "Sample commands"
+#~ msgstr "Ενδεικτικές εντολές"
+
+#~ msgid "Command"
+#~ msgstr "Εντολή"
+
+#, fuzzy
+#~| msgid "Command"
+#~ msgid "Export Commands"
+#~ msgstr "Εντολή"
+
+#, fuzzy
+#~| msgid "Sample commands"
+#~ msgid "Import Commands"
+#~ msgstr "Ενδεικτικές εντολές"
+
+#~ msgid "General"
+#~ msgstr "Γενικά"
+
+#~ msgid "Synchronize only notifications with a timeout value of 0?"
+#~ msgstr ""
+#~ "Συγχρονισμός μόνο των ειδοποιήσεων που έχουν τιμή χρονικού ορίου ίση με 0;"
+
+#~ msgid "Persistent notifications only"
+#~ msgstr "Μόνο μόνιμες ειδοποιήσεις"
+
+#~ msgid ""
+#~ "Append the notification body to the summary when synchronizing "
+#~ "notifications?"
+#~ msgstr ""
+#~ "Προσθήκη του σώματος της ειδοποίησης στην περίληψη κατά τον συγχρονισμό "
+#~ "των ειδοποιήσεων;"
+
+#~ msgid "Include body"
+#~ msgstr "Συμπερίληψη σώματος"
+
+#~ msgid "Synchronize icons of notifying applications if possible?"
+#~ msgstr ""
+#~ "Συγχρονισμός, εφόσον είναι εφικτό, των εικονιδίων των εφαρμογών της "
+#~ "ειδοποίησης;"
+
+#~ msgid "Synchronize icons"
+#~ msgstr "Συγχρονισμός εικονιδίων"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Ελάχιστο επίπεδο επείγοντος για τις ειδοποιήσεις</"
+#~ "p></body></html>"
+
+#~ msgid "Synchronize only notifications with the given urgency level."
+#~ msgstr ""
+#~ "Συγχρονισμός μόνο των ειδοποιήσεων με το δοσμένο επίπεδο επείγοντος."
+
+#~ msgid "Minimum urgency level"
+#~ msgstr "Ελάχιστο επίπεδο επείγοντος"
+
+#~ msgid "Applications"
+#~ msgstr "Εφαρμογές"
+
+#~ msgid ""
+#~ "&percnt;1 in the path will be replaced with the specific device name."
+#~ msgstr ""
+#~ "Το &percnt;1 στη διαδρομή θα αντικατασταθεί με το όνομα της συγκεκριμένης "
+#~ "συσκευής."
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Ρυθμίσεις προσθέτου κοινής χρήσης"
+
+#~ msgid "Receiving"
+#~ msgstr "Λήψη"
+
+#~ msgid "Save files in:"
+#~ msgstr "Αποθήκευση αρχείων στο:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Σε μαύρη λίστα"
