@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-25 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 04:34+0200\n"
+"PO-Revision-Date: 2025-06-25 04:18+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -114,10 +114,9 @@ msgid "Open app"
 msgstr "აპის გახსნა"
 
 #: main.cpp:107
-#, fuzzy, kde-format
-#| msgid "Configure…"
+#, kde-format
 msgid "Configure..."
-msgstr "მორგება…"
+msgstr "მორგება..."
 
 #: main.cpp:125
 #, kde-format

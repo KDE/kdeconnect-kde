@@ -113,10 +113,9 @@ msgid "Open app"
 msgstr "打开应用"
 
 #: main.cpp:107
-#, fuzzy, kde-format
-#| msgid "Configure…"
+#, kde-format
 msgid "Configure..."
-msgstr "配置…"
+msgstr "配置..."
 
 #: main.cpp:125
 #, kde-format

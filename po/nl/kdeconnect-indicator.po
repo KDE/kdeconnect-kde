@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-25 00:42+0000\n"
-"PO-Revision-Date: 2025-06-18 14:47+0200\n"
+"PO-Revision-Date: 2025-06-25 11:30+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -113,10 +113,9 @@ msgid "Open app"
 msgstr "Toepassing openen"
 
 #: main.cpp:107
-#, fuzzy, kde-format
-#| msgid "Configure…"
+#, kde-format
 msgid "Configure..."
-msgstr "Configureren…"
+msgstr "Configureren..."
 
 #: main.cpp:125
 #, kde-format
