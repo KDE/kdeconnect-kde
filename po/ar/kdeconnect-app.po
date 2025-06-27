@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-05-31 18:06+0400\n"
+"PO-Revision-Date: 2025-06-26 10:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -25,10 +25,9 @@ msgid "KDE Connect"
 msgstr "جسر كِيدِي"
 
 #: main.cpp:42
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr "© 2015-2025 فريق جسر كِيدِي"
+msgstr "© 2015–2025 فريق جسر كِيدِي"
 
 #: main.cpp:43
 #, kde-format
@@ -56,19 +55,19 @@ msgstr "zayed.alsaidi@gmail.com"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "معرّف الجهاز لفتح التطبيق في"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "وحدة التهيئة للعرض، تتطلب ضبط --device."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "استبدل نسخة موجودة"
 
 #: main.cpp:86
 #, kde-format
@@ -155,7 +154,7 @@ msgstr "شارك ملف"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "تصفّح هذا الجهاز"
 
 #: qml/DevicePage.qml:196
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-12 12:25+0400\n"
+"PO-Revision-Date: 2025-06-26 10:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -35,10 +35,9 @@ msgid "KDE Connect CLI tool"
 msgstr "أداة سطر أوامر ل‍ـ«جسر كِيدِي»"
 
 #: kdeconnect-cli.cpp:34
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr "© 2015-2025 فريق جسر كِيدِي"
+msgstr "© 2015–2025 فريق جسر كِيدِي"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -304,10 +303,9 @@ msgid "Requested to unlock %1."
 msgstr "مطلوب منه فك قفل %1."
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "ينتظر الجهاز..."
+msgstr "ينتظر الجهاز…"
 
 #: kdeconnect-cli.cpp:270
 #, kde-format

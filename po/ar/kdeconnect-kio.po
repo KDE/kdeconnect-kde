@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-05-31 17:37+0400\n"
+"PO-Revision-Date: 2025-06-26 10:44+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -20,14 +20,12 @@ msgstr ""
 "X-Generator: Lokalize 23.08.5\n"
 
 #: kiokdeconnect.cpp:75
-#, fuzzy, kde-format
-#| msgid "Listing devices..."
+#, kde-format
 msgid "Listing devices…"
 msgstr "يسرد الأجهزة…"
 
 #: kiokdeconnect.cpp:120
-#, fuzzy, kde-format
-#| msgid "Accessing device..."
+#, kde-format
 msgid "Accessing device…"
 msgstr "ينفذ إلى الجهاز…"
 

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-25 00:42+0000\n"
-"PO-Revision-Date: 2025-06-12 12:25+0400\n"
+"PO-Revision-Date: 2025-06-26 10:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -64,12 +64,10 @@ msgid "Reply"
 msgstr "رُدّ"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr "ردّ على %1..."
+msgstr "ردّ على %1…"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format

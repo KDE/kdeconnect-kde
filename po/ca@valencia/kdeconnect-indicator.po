@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-25 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 08:27+0200\n"
+"PO-Revision-Date: 2025-06-25 16:51+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -117,8 +117,7 @@ msgid "Open app"
 msgstr "Obri l'aplicació"
 
 #: main.cpp:107
-#, fuzzy, kde-format
-#| msgid "Configure…"
+#, kde-format
 msgid "Configure..."
 msgstr "Configura…"
 

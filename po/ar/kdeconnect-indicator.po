@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-25 00:42+0000\n"
-"PO-Revision-Date: 2025-05-31 17:34+0400\n"
+"PO-Revision-Date: 2025-06-26 10:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -50,10 +50,9 @@ msgid "Send files"
 msgstr "أرسل ملفّات"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
-msgstr "الرسائل النصية القصيرة..."
+msgstr "الرسائل النصية القصيرة…"
 
 #: deviceindicator.cpp:130
 #, kde-format
@@ -95,10 +94,9 @@ msgid "KDE Connect Indicator tool"
 msgstr "أداة مؤشر جسر كِيدِي"
 
 #: main.cpp:61
-#, fuzzy, kde-format
-#| msgid "(c) 2016-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr "© 2016-2025 فريق جسر كِيدِي"
+msgstr "© 2016–2025 فريق جسر كِيدِي"
 
 #: main.cpp:62
 #, kde-format
@@ -116,8 +114,7 @@ msgid "Open app"
 msgstr "افتح تطبيق"
 
 #: main.cpp:107
-#, fuzzy, kde-format
-#| msgid "Configure..."
+#, kde-format
 msgid "Configure..."
 msgstr "اضبط…"
 
