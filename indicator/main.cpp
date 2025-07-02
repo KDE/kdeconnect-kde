@@ -97,15 +97,8 @@ int main(int argc, char **argv)
 
     auto refreshMenu = [&iface, &proxyModel, &menu]() {
         menu->clear();
-#if defined Q_OS_MAC
-        // On macOS, a single click on the icon doesn't open the app like on other platforms.
+        // Note: This is needed on macOS since a single click on the icon doesn't open the app like on other platforms.
         menu->addAction(i18n("Open app"), []() {
-            QString appPath = QCoreApplication::applicationDirPath() + QLatin1String("/kdeconnect-app");
-            QProcess::startDetached(appPath);
-        });
-#endif
-        auto configure = menu->addAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("Configure..."));
-        QObject::connect(configure, &QAction::triggered, configure, []() {
             OpenConfig oc;
             oc.openConfiguration();
         });
