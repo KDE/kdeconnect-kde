@@ -64,13 +64,7 @@ int IndicatorHelper::startDaemon()
 
 void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
 {
-    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("kdeconnect-icons"), QStandardPaths::LocateDirectory);
-    if (!iconPath.isNull()) {
-        auto icon = QIcon::fromTheme(QStringLiteral("kdeconnectindicator"));
-        icon.setIsMask(true); // Make icon adapt to menu bar color
-        systray.setIconByPixmap(icon);
-    } else {
-        // We are in macOS dev env, just continue
-        qWarning() << "Fail to find indicator icon, continue anyway";
-    }
+    auto icon = QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnectindicator.svg"))
+    icon.setIsMask(true); // Make icon adapt to menu bar color
+    systray.setIconByPixmap(icon);
 }
