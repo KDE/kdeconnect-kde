@@ -42,10 +42,10 @@ public:
     QString dbusPath() const override;
     void receivePacket(const NetworkPacket &np) override;
 
-    // The remote device has a VNC client installed
+    // The remote device has a RDP client installed
     bool hasRemoteClient() const
     {
-        return m_capabilitiesRemote.vncClient || m_capabilitiesRemote.rdpClient;
+        return m_capabilitiesRemote.rdpClient;
     }
 
     // krfb is installed on local device, virtual monitors is supported
@@ -61,15 +61,12 @@ Q_SIGNALS:
     Q_SCRIPTABLE void activeChanged();
 
 private:
-    bool checkVncClient() const;
     bool checkRdpClient() const;
     bool checkDefaultSchemeHandler(const QString &scheme) const;
-    bool requestVnc();
     bool requestRdp();
 
     struct Capabilities {
         bool virtualMonitor = false;
-        bool vncClient = false;
         bool rdpClient = false;
     };
 
@@ -80,6 +77,4 @@ private:
     QJsonObject m_remoteResolution;
     uint m_retries = 0;
     QString m_lastError;
-
-    static uint s_port;
 };

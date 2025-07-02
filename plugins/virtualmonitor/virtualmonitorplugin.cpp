@@ -86,33 +86,13 @@ void VirtualMonitorPlugin::stop()
     m_process = nullptr;
 }
 
-static bool krdpHasVirtualMonitor()
-{
-    static std::optional<bool> hasIt;
-    if (!hasIt.has_value()) {
-        QProcess p;
-        p.start(QS("krdpserver"), {QS("--help")});
-        if (!p.waitForStarted()) {
-            *hasIt = false;
-            return false;
-        }
-        if (!p.waitForFinished(1000)) {
-            *hasIt = false;
-            return false;
-        }
-        hasIt = p.readAllStandardOutput().contains("--virtual-monitor");
-    }
-    return *hasIt;
-}
-
 void VirtualMonitorPlugin::connected()
 {
     // Get local capabilities
     // We test again, since the user may have installed the necessary packages in the meantime
-    m_capabilitiesLocal.vncClient = checkVncClient();
     m_capabilitiesLocal.rdpClient = checkRdpClient();
-    m_capabilitiesLocal.virtualMonitor = !QStandardPaths::findExecutable(QS("krfb-virtualmonitor")).isEmpty() || krdpHasVirtualMonitor();
-    qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Local device supports VNC:" << m_capabilitiesLocal.vncClient << "RDP: " << m_capabilitiesLocal.rdpClient;
+    m_capabilitiesLocal.virtualMonitor = !QStandardPaths::findExecutable(QS("krdpserver")).isEmpty();
+    qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Local device supports RDP: " << m_capabilitiesLocal.rdpClient;
     qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Local device supports Virtual Monitor:" << m_capabilitiesLocal.virtualMonitor;
 
     auto screen = QGuiApplication::primaryScreen();
@@ -125,7 +105,6 @@ void VirtualMonitorPlugin::connected()
                               {QS("resolution"), resolutionString},
                               {QS("scale"), screen->devicePixelRatio()},
                           }}},
-                         {QS("supports_vnc"), m_capabilitiesLocal.vncClient},
                          {QS("supports_rdp"), m_capabilitiesLocal.rdpClient},
                          {QS("supports_virt_mon"), m_capabilitiesLocal.virtualMonitor},
                      });
@@ -167,16 +146,15 @@ void VirtualMonitorPlugin::receivePacket(const NetworkPacket &received)
             m_remoteResolution = received.get<QJsonArray>(QS("resolutions")).first().toObject();
         }
         if (received.has(QS("failed"))) {
+            m_lastError = received.get<QString>(QS("failed"));
             stop();
         }
 
         // Get device's capabilities
-        m_capabilitiesRemote.vncClient = received.get<bool>(QS("supports_vnc"), false);
         m_capabilitiesRemote.rdpClient = received.get<bool>(QS("supports_rdp"), false);
         m_capabilitiesRemote.virtualMonitor = received.get<bool>(QS("supports_virt_mon"), false);
-        qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Remote device supports VNC:" << m_capabilitiesRemote.vncClient
-                                                  << "RDP:" << m_capabilitiesRemote.rdpClient;
-        qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Remote device supports Virtual Monitor:" << m_capabilitiesRemote.virtualMonitor;
+        qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Remote device supports RDP:" << m_capabilitiesRemote.rdpClient;
+        qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Remote device supports Virtual Monitor:" << m_capabilitiesRemote.virtualMonitor << m_remoteResolution;
     }
 }
 
@@ -202,7 +180,7 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
         addError(i18n("Remote device does not have a VNC or RDP client (eg. krdc) installed."));
     }
     if (!isVirtualMonitorAvailable()) {
-        addError(i18n("The krfb package is required on the local device."));
+        addError(i18n("The krdp package is required on the local device."));
     }
     if (m_remoteResolution.isEmpty()) {
         addError(i18n("Cannot start a request without a resolution"));
@@ -213,69 +191,20 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
     }
 
     bool ret = false;
-    qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Requesting display" << m_capabilitiesRemote.rdpClient << krdpHasVirtualMonitor();
-    if (m_capabilitiesRemote.rdpClient && krdpHasVirtualMonitor()) {
+    qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Requesting display" << m_capabilitiesRemote.rdpClient;
+    if (m_capabilitiesRemote.rdpClient && m_capabilitiesLocal.virtualMonitor) {
         ret = requestRdp();
-    } else {
-        ret = requestVnc();
     }
 
     qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Requested virtual display " << ret << m_lastError;
     return ret;
 }
 
-uint VirtualMonitorPlugin::s_port = DEFAULT_PORT;
-bool VirtualMonitorPlugin::requestVnc()
-{
-    const QString port = QString::number(s_port++);
-    QString password = QUuid::createUuid().toString(QUuid::Id128);
-
-    m_process = new QProcess(this);
-    m_process->setProgram(QS("krfb-virtualmonitor"));
-    const double scale = m_remoteResolution.value(QLatin1String("scale")).toDouble();
-    m_process->setArguments({QS("--name"),
-                             device()->name(),
-                             QS("--resolution"),
-                             m_remoteResolution.value(QLatin1String("resolution")).toString(),
-                             QS("--scale"),
-                             QString::number(scale),
-                             QS("--password"),
-                             password,
-                             QS("--port"),
-                             port});
-    connect(m_process, &QProcess::finished, this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
-        qCWarning(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "virtual display finished with" << device()->name() << m_process->readAllStandardError();
-
-        if (m_retries < 5 && (exitCode == 1 || exitStatus == QProcess::CrashExit)) {
-            m_retries++;
-            requestVnc();
-        } else {
-            m_process->deleteLater();
-            m_process = nullptr;
-        }
-    });
-
-    m_process->start();
-
-    if (!m_process->waitForStarted()) {
-        qCWarning(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Failed to start krfb-virtualmonitor" << m_process->error() << m_process->errorString();
-        m_lastError = m_process->errorString();
-        return false;
-    }
-
-    NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR_REQUEST);
-    np.set(QS("protocol"), QS("vnc"));
-    np.set(QS("username"), QS("user"));
-    np.set(QS("password"), password);
-    np.set(QS("port"), port);
-    sendPacket(np);
-    return true;
-}
-
 bool VirtualMonitorPlugin::requestRdp()
 {
     // Cutting by 8 because rdp gets confused when the password is longer
     QString password = QUuid::createUuid().toString(QUuid::Id128).left(20);
+    static uint s_port = DEFAULT_PORT;
     const QString port = QString::number(s_port++);
 
     m_process = new QProcess(this);
@@ -322,21 +251,6 @@ bool VirtualMonitorPlugin::requestRdp()
     np.set(QS("port"), port);
     sendPacket(np);
     return true;
-}
-
-bool VirtualMonitorPlugin::checkVncClient() const
-{
-#if defined(Q_OS_MAC)
-    // TODO: macOS has some VNC client preinstalled.. does it work for us?
-    return true;
-#else
-    // krdc is default on KDE
-    if (!QStandardPaths::findExecutable(QS("krdc")).isEmpty())
-        return true;
-
-    // Check if another client is available
-    return checkDefaultSchemeHandler(QS("vnc"));
-#endif
 }
 
 bool VirtualMonitorPlugin::checkRdpClient() const
