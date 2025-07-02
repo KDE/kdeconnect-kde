@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-02 10:13+0000\n"
 "PO-Revision-Date: 2025-06-19 09:47+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -107,39 +107,33 @@ msgstr "Aleix Pol i Gonzàlez"
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: main.cpp:102
+#: main.cpp:101
 #, kde-format
 msgid "Open app"
 msgstr "Abrir a aplicación"
 
-#: main.cpp:107
-#, fuzzy, kde-format
-#| msgid "Configure…"
-msgid "Configure..."
-msgstr "Configurar…"
-
-#: main.cpp:125
+#: main.cpp:118
 #, kde-format
 msgid "Pairing requests"
 msgstr "Solicitudes de emparellamento"
 
-#: main.cpp:130
+#: main.cpp:123
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Emparellar"
 
-#: main.cpp:131
+#: main.cpp:124
 #, kde-format
 msgid "Reject"
 msgstr "Rexeitar"
 
-#: main.cpp:136 main.cpp:145
+#: main.cpp:129 main.cpp:138
 #, kde-format
 msgid "Quit"
 msgstr "Saír"
 
-#: main.cpp:164 main.cpp:186
+#: main.cpp:157 main.cpp:179
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
@@ -176,6 +170,11 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#, fuzzy
+#~| msgid "Configure…"
+#~ msgid "Configure..."
+#~ msgstr "Configurar…"
 
 #~ msgid "Launching"
 #~ msgstr "Iniciando"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-02 10:13+0000\n"
 "PO-Revision-Date: 2025-06-26 09:34+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -108,38 +108,33 @@ msgstr "אלש פול גונזלז"
 msgid "Albert Vaca Cintora"
 msgstr "אלברט ואקה סינטורה"
 
-#: main.cpp:102
+#: main.cpp:101
 #, kde-format
 msgid "Open app"
 msgstr "פתיחת יישומון"
 
-#: main.cpp:107
-#, kde-format
-msgid "Configure..."
-msgstr "הגדרה…"
-
-#: main.cpp:125
+#: main.cpp:118
 #, kde-format
 msgid "Pairing requests"
 msgstr "בקשות צימוד"
 
-#: main.cpp:130
+#: main.cpp:123
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "צימוד"
 
-#: main.cpp:131
+#: main.cpp:124
 #, kde-format
 msgid "Reject"
 msgstr "דחייה"
 
-#: main.cpp:136 main.cpp:145
+#: main.cpp:129 main.cpp:138
 #, kde-format
 msgid "Quit"
 msgstr "יציאה"
 
-#: main.cpp:164 main.cpp:186
+#: main.cpp:157 main.cpp:179
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
@@ -178,6 +173,9 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#~ msgid "Configure..."
+#~ msgstr "הגדרה…"
 
 #~ msgid "Launching"
 #~ msgstr "מופעל"

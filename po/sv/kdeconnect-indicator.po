@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-02 10:13+0000\n"
 "PO-Revision-Date: 2025-06-28 19:53+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -107,38 +107,33 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: main.cpp:102
+#: main.cpp:101
 #, kde-format
 msgid "Open app"
 msgstr "Öppna program"
 
-#: main.cpp:107
-#, kde-format
-msgid "Configure..."
-msgstr "Anpassa..."
-
-#: main.cpp:125
+#: main.cpp:118
 #, kde-format
 msgid "Pairing requests"
 msgstr "Begäran om att para ihop"
 
-#: main.cpp:130
+#: main.cpp:123
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Para ihop"
 
-#: main.cpp:131
+#: main.cpp:124
 #, kde-format
 msgid "Reject"
 msgstr "Neka"
 
-#: main.cpp:136 main.cpp:145
+#: main.cpp:129 main.cpp:138
 #, kde-format
 msgid "Quit"
 msgstr "Avsluta"
 
-#: main.cpp:164 main.cpp:186
+#: main.cpp:157 main.cpp:179
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
@@ -175,6 +170,9 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#~ msgid "Configure..."
+#~ msgstr "Anpassa..."
 
 #~ msgid "Launching"
 #~ msgstr "Startar"

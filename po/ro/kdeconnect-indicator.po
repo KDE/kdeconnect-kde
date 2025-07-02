@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-02 10:13+0000\n"
 "PO-Revision-Date: 2024-01-07 13:08+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -111,39 +111,33 @@ msgstr "(C) 2016 Aleix Pol Gonzalez"
 msgid "Albert Vaca Cintora"
 msgstr ""
 
-#: main.cpp:102
+#: main.cpp:101
 #, kde-format
 msgid "Open app"
 msgstr ""
 
-#: main.cpp:107
-#, fuzzy, kde-format
-#| msgid "Configure..."
-msgid "Configure..."
-msgstr "Configurare..."
-
-#: main.cpp:125
+#: main.cpp:118
 #, kde-format
 msgid "Pairing requests"
 msgstr "Cereri de asociere"
 
-#: main.cpp:130
+#: main.cpp:123
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Asociază"
 
-#: main.cpp:131
+#: main.cpp:124
 #, kde-format
 msgid "Reject"
 msgstr "Refuză"
 
-#: main.cpp:136 main.cpp:145
+#: main.cpp:129 main.cpp:138
 #, kde-format
 msgid "Quit"
 msgstr "Termină"
 
-#: main.cpp:164 main.cpp:186
+#: main.cpp:157 main.cpp:179
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
@@ -181,6 +175,11 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#, fuzzy
+#~| msgid "Configure..."
+#~ msgid "Configure..."
+#~ msgstr "Configurare..."
 
 #~ msgid "Launching"
 #~ msgstr "Se lansează"
