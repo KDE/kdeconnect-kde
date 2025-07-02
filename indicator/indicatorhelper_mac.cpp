@@ -64,7 +64,9 @@ int IndicatorHelper::startDaemon()
 
 void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
 {
-    auto icon = QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnectindicator.svg")));
+    QString iconPathInBundle = QStringLiteral("kdeconnect-icons/hicolor/scalable/apps/kdeconnectindicator.svg");
+    QString iconPath = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, iconPathInBundle);
+    QIcon icon(iconPath);
     icon.setIsMask(true); // Make icon adapt to menu bar color
     systray.setIconByPixmap(icon);
 }
