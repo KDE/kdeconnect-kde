@@ -32,9 +32,9 @@ void OpenConfig::openConfiguration(const QString &deviceId, const QString &plugi
         }
     }
 
-#if defined Q_OS_WIN
+#if defined(Q_OS_WIN)
     QProcess::startDetached(QStringLiteral("kdeconnect-app.exe"), args);
-#elif defined Q_OS_MAC
+#elif defined(Q_OS_MAC)
     QProcess::startDetached(QCoreApplication::applicationDirPath() + QLatin1String("/kdeconnect-app"), args);
 #else
     auto job = new KIO::CommandLauncherJob(QStringLiteral("kdeconnect-app"), args);

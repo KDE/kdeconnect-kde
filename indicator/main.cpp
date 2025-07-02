@@ -125,7 +125,7 @@ int main(int argc, char **argv)
             }
         }
         // Add quit menu
-#if defined Q_OS_MAC
+#if defined(Q_OS_MAC)
         menu->addAction(i18n("Quit"), []() {
             auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect.daemon"),
                                                           QStringLiteral("/MainApplication"),
@@ -134,7 +134,7 @@ int main(int argc, char **argv)
             QDBusConnection::sessionBus().call(message, QDBus::NoBlock);
             qApp->quit();
         });
-#elif defined Q_OS_WIN
+#elif defined(Q_OS_WIN)
         menu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), i18n("Quit"), []() {
             qApp->quit();
         });
