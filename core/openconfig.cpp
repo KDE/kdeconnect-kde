@@ -6,6 +6,7 @@
 
 #include "openconfig.h"
 
+#include <QCoreApplication>
 #include <QDebug>
 #include <QProcess>
 
