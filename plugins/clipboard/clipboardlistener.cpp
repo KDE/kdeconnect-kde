@@ -77,8 +77,12 @@ void ClipboardListener::updateClipboard(QClipboard::Mode mode)
     const QMimeData *currentMime = clipboard->mimeData(QClipboard::Clipboard);
     if (currentMime && currentMime->hasUrls()) {
         const QList<QUrl> &urls = currentMime->urls();
-        const QUrl url = urls.first();
+        // Even though the mime data announces URLs, fetching them might still fail.
+        if (urls.isEmpty()) {
+            return;
+        }
 
+        const QUrl url = urls.first();
         if (url == m_currentContent) {
             return;
         }
