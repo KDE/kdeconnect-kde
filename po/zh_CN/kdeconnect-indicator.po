@@ -169,6 +169,3 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
-
-#~ msgid "Configure..."
-#~ msgstr "配置..."
