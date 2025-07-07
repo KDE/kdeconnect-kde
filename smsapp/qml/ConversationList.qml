@@ -183,12 +183,11 @@ Kirigami.ScrollablePage
         }
 
         Kirigami.PlaceholderMessage {
-            // FIXME: not accessible. screen readers won't read this.
-            //        https://invent.kde.org/frameworks/kirigami/-/merge_requests/1482
             anchors.centerIn: parent
             width: parent.width - (Kirigami.Units.largeSpacing * 4)
-            visible: deviceConnected && view.count === 0 && currentSearchText.length != 0
-            text: i18ndc("kdeconnect-sms", "Placeholder message text when no messages are found", "No matches")
+            visible: deviceConnected && view.count === 0 && currentSearchText.length !== 0
+            icon.name: "search"
+            text: i18ndc("kdeconnect-sms", "Placeholder message text when no messages are found", "No Matches")
         }
 
         Kirigami.PlaceholderMessage {
