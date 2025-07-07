@@ -221,20 +221,11 @@ Kirigami.ScrollablePage
 
             function startChat() {
                 view.currentItem.forceActiveFocus();
-                const chatProperties = {
-                    addresses: listItem.addresses,
-                    conversationId: listItem.conversationId,
-                    isMultitarget: listItem.isMultitarget,
-                    initialMessage: page.initialMessage,
-                };
-                if (applicationWindow().pageStack.wideMode) {
-                    // We are in wide mode. Window is wide enough to show 2 columns, and we have 2 columns shown.
-                    // Let's not add a new one, but replace the last one!
-                    applicationWindow().pageStack.replace(chatView, chatProperties)
-                } else {
-                    // We're not in wide mode. We can just push a new view!
-                    applicationWindow().pageStack.push(chatView, chatProperties)
-                }
+                applicationWindow().pageStack.push(chatView, {
+                                                       addresses: listItem.addresses,
+                                                       conversationId: listItem.conversationId,
+                                                       isMultitarget: listItem.isMultitarget,
+                                                       initialMessage: page.initialMessage})
                 initialMessage = ""
             }
 
