@@ -191,6 +191,16 @@ Kirigami.ScrollablePage
             text: i18ndc("kdeconnect-sms", "Placeholder message text when no messages are found", "No matches")
         }
 
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            width: parent.width - (Kirigami.Units.largeSpacing * 4)
+
+            visible: view.count === 0 && currentSearchText.length === 0
+
+            icon.name: "view-conversation-balloon"
+            text: i18ndc("kdeconnect-sms", "@info:placeholder", "No Conversations")
+        }
+
         Keys.forwardTo: [headerItem]
 
         delegate: ItemDelegate {
