@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-07-08 00:41+0000\n"
 "PO-Revision-Date: 2022-11-16 22:41+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -176,11 +176,20 @@ msgstr "Cari atau mulai obrolan baru..."
 msgid "Start new conversation"
 msgstr "Mulai obrolan baru"
 
-#: qml/ConversationList.qml:191
-#, kde-format
+#: qml/ConversationList.qml:190
+#, fuzzy, kde-format
+#| msgctxt "Placeholder message text when no messages are found"
+#| msgid "No matches"
 msgctxt "Placeholder message text when no messages are found"
-msgid "No matches"
+msgid "No Matches"
 msgstr "Tidak ada yang cocok"
+
+#: qml/ConversationList.qml:200
+#, fuzzy, kde-format
+#| msgid "Start new conversation"
+msgctxt "@info:placeholder"
+msgid "No Conversations"
+msgstr "Mulai obrolan baru"
 
 #: qml/Main.qml:93
 #, kde-format

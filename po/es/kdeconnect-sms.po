@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-07-08 00:41+0000\n"
 "PO-Revision-Date: 2025-06-22 18:44+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -176,11 +176,20 @@ msgstr "Buscar o iniciar una conversación"
 msgid "Start new conversation"
 msgstr "Iniciar una nueva conversación"
 
-#: qml/ConversationList.qml:191
-#, kde-format
+#: qml/ConversationList.qml:190
+#, fuzzy, kde-format
+#| msgctxt "Placeholder message text when no messages are found"
+#| msgid "No matches"
 msgctxt "Placeholder message text when no messages are found"
-msgid "No matches"
+msgid "No Matches"
 msgstr "Sin resultados"
+
+#: qml/ConversationList.qml:200
+#, fuzzy, kde-format
+#| msgid "Start new conversation"
+msgctxt "@info:placeholder"
+msgid "No Conversations"
+msgstr "Iniciar una nueva conversación"
 
 #: qml/Main.qml:93
 #, kde-format

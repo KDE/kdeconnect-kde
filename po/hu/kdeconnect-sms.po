@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-07-08 00:41+0000\n"
 "PO-Revision-Date: 2025-06-21 22:07+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -174,11 +174,20 @@ msgstr "Beszélgetés keresése vagy indítása"
 msgid "Start new conversation"
 msgstr "Új beszélgetés"
 
-#: qml/ConversationList.qml:191
-#, kde-format
+#: qml/ConversationList.qml:190
+#, fuzzy, kde-format
+#| msgctxt "Placeholder message text when no messages are found"
+#| msgid "No matches"
 msgctxt "Placeholder message text when no messages are found"
-msgid "No matches"
+msgid "No Matches"
 msgstr "Nincs találat"
+
+#: qml/ConversationList.qml:200
+#, fuzzy, kde-format
+#| msgid "Start new conversation"
+msgctxt "@info:placeholder"
+msgid "No Conversations"
+msgstr "Új beszélgetés"
 
 #: qml/Main.qml:93
 #, kde-format

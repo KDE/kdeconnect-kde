@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-07-08 00:41+0000\n"
 "PO-Revision-Date: 2020-11-20 01:14+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -172,11 +172,18 @@ msgstr "Alusta uut vestlust"
 msgid "Start new conversation"
 msgstr "Alusta uut vestlust"
 
-#: qml/ConversationList.qml:191
+#: qml/ConversationList.qml:190
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
-msgid "No matches"
+msgid "No Matches"
 msgstr ""
+
+#: qml/ConversationList.qml:200
+#, fuzzy, kde-format
+#| msgid "Start new conversation"
+msgctxt "@info:placeholder"
+msgid "No Conversations"
+msgstr "Alusta uut vestlust"
 
 #: qml/Main.qml:93
 #, kde-format
