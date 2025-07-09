@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-08 00:41+0000\n"
-"PO-Revision-Date: 2025-06-17 09:54+0300\n"
+"PO-Revision-Date: 2025-07-08 12:14+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -178,19 +178,16 @@ msgid "Start new conversation"
 msgstr "Розпочати нове спілкування"
 
 #: qml/ConversationList.qml:190
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message text when no messages are found"
-#| msgid "No matches"
+#, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
-msgstr "Немає відповідників"
+msgstr "Нічого не знайдено"
 
 #: qml/ConversationList.qml:200
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"
-msgstr "Розпочати нове спілкування"
+msgstr "Немає спілкувань"
 
 #: qml/Main.qml:93
 #, kde-format

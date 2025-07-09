@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-06-21 21:55+0200\n"
+"PO-Revision-Date: 2025-07-08 22:50+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -26,7 +26,7 @@ msgstr "KDE Connect"
 #: main.cpp:42
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© A KDE Connect fejlesztői, 2015-2025."
 
 #: main.cpp:43
 #, kde-format
@@ -36,7 +36,7 @@ msgstr "Aleix Pol Gonzalez"
 #: main.cpp:44
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:45
 #, kde-format
@@ -54,19 +54,19 @@ msgstr "ulysses@fsf.hu"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "Az alkalmazás megnyitásához használt eszköz azonosítója"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "Megjelenítendő konfigurációs modul, a --device beállítása szükséges."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Meglévő példány cseréje"
 
 #: main.cpp:86
 #, kde-format
@@ -153,7 +153,7 @@ msgstr "Fájl megosztása"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Eszköz böngészése"
 
 #: qml/DevicePage.qml:196
 #, kde-format

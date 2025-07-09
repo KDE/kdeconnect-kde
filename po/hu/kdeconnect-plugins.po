@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2021, 2024 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2021, 2024, 2025 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-25 00:42+0000\n"
-"PO-Revision-Date: 2024-01-18 09:57+0100\n"
+"PO-Revision-Date: 2025-07-08 22:51+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.01.90\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -53,7 +53,7 @@ msgstr "Jelenlegi lejátszó"
 #: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "-"
 
 #: notifications/notification.cpp:108
 #, kde-format
@@ -62,9 +62,7 @@ msgid "Reply"
 msgstr "Válasz"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Válasz erre: %1…"
@@ -96,10 +94,9 @@ msgid "Name"
 msgstr "Név"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "Törzs belefoglalása"
+msgstr "Kizárva"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format

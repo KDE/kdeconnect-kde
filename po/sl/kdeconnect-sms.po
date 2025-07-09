@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-08 00:41+0000\n"
-"PO-Revision-Date: 2025-06-17 06:42+0200\n"
+"PO-Revision-Date: 2025-07-08 06:48+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -175,19 +175,16 @@ msgid "Start new conversation"
 msgstr "Začni nov pogovor"
 
 #: qml/ConversationList.qml:190
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message text when no messages are found"
-#| msgid "No matches"
+#, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "Ni zadetkov"
 
 #: qml/ConversationList.qml:200
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"
-msgstr "Začni nov pogovor"
+msgstr "Ni pogovorov"
 
 #: qml/Main.qml:93
 #, kde-format
