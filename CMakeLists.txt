@@ -101,7 +101,7 @@ if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
     find_package(Qt6GuiPrivate ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 endif()
 
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n DBusAddons IconThemes Notifications
     KIO ColorScheme Service Solid Kirigami People WindowSystem GuiAddons Crash ItemModels)
 
 if (WIN32)
