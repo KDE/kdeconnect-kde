@@ -14,7 +14,7 @@ target_link_libraries(kdeconnect-handler
     Qt::Widgets
     Qt::QuickControls2
     KF6::CoreAddons
-    KF6::ConfigWidgets
+    KF6::ColorScheme
     KF6::DBusAddons
     KF6::I18n
     KF6::KIOCore
