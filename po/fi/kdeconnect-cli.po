@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-05-25 16:21+0300\n"
+"PO-Revision-Date: 2025-07-07 20:57+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -34,10 +34,9 @@ msgid "KDE Connect CLI tool"
 msgstr "KDE Connectin komentorivityökalu"
 
 #: kdeconnect-cli.cpp:34
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr "© 2015–2025, KDE Connect -työryhmä"
+msgstr "© 2015–2025 KDE Connect -työryhmä"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -189,10 +188,7 @@ msgid "phone number"
 msgstr "puhelinnumero"
 
 #: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
+#, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
@@ -200,8 +196,7 @@ msgstr ""
 "useamman kerran)"
 
 #: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
+#, kde-format
 msgid "file URLs"
 msgstr "tiedostojen verkko-osoitteet"
 
@@ -310,10 +305,9 @@ msgstr "Pyysi avaamaan laitteen %1 lukituksen."
 
 # skip-rule: orthography-three-dots-in-msgstr
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "odotetaan laitetta..."
+msgstr "odotetaan laitetta…"
 
 #: kdeconnect-cli.cpp:270
 #, kde-format
