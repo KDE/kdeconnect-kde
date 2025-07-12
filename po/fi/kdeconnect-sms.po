@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-08 00:41+0000\n"
-"PO-Revision-Date: 2025-05-25 16:22+0300\n"
+"PO-Revision-Date: 2025-07-07 20:57+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -73,10 +73,9 @@ msgid "SMS Instant Messaging"
 msgstr "Tekstiviestipalvelu"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2018–2025 KDE Connect Team"
-msgstr "© 2018–2025, KDE Connect -työryhmä"
+msgstr "© 2018–2025 KDE Connect -työryhmä"
 
 #: main.cpp:55
 #, kde-format

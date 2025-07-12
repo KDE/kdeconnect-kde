@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-25 00:42+0000\n"
-"PO-Revision-Date: 2025-05-25 16:21+0300\n"
+"PO-Revision-Date: 2025-07-07 20:57+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -63,9 +63,7 @@ msgid "Reply"
 msgstr "Vastaa"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Vastaa: %1…"
@@ -97,10 +95,9 @@ msgid "Name"
 msgstr "Nimi"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "Sisällytä sisältö"
+msgstr "Ohitettu"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
