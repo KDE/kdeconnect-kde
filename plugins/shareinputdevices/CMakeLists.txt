@@ -9,11 +9,3 @@ target_link_libraries(kdeconnect_shareinputdevices
     Qt::GuiPrivate
     PkgConfig::PKG_libei
 )
-
-kdeconnect_add_kcm(kdeconnect_shareinputdevices_config SOURCES shareinputdevices_config.cpp)
-ki18n_wrap_ui(kdeconnect_shareinputdevices_config shareinputdevices_config.ui)
-target_link_libraries(kdeconnect_shareinputdevices_config
-    kdeconnectpluginkcm
-    kdeconnectinterfaces
-    KF6::I18n
-)
