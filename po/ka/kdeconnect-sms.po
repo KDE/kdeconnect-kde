@@ -116,7 +116,7 @@ msgstr "შეტყობინება"
 #: qml/AttachmentViewer.qml:21
 #, kde-format
 msgid "Open with default"
-msgstr "ნაგულისხმებით გახსნა"
+msgstr "ნაგულისხმევით გახსნა"
 
 #: qml/ConversationList.qml:23
 #, kde-format
