@@ -235,7 +235,16 @@ void DBusNotificationsListenerThread::handleNotifyCall(DBusMessage *message)
     QVariantMap hints = nextVariantMap(&iter);
     int timeout = nextInt(&iter);
 
-    Q_EMIT notificationReceived(appName, replacesId, appIcon, summary, body, actions, hints, timeout);
+    NotificationManager::Notification notification(replacesId);
+    notification.setApplicationName(appName);
+    notification.setApplicationIconName(appIcon);
+    notification.setSummary(summary);
+    notification.setBody(body); // sanitizes
+    notification.setActions(actions);
+    notification.setTimeout(timeout);
+    notification.processHints(hints);
+
+    Q_EMIT notificationReceived(notification);
 }
 
 DBusNotificationsListener::DBusNotificationsListener(KdeConnectPlugin *aPlugin)
@@ -252,32 +261,22 @@ DBusNotificationsListener::~DBusNotificationsListener()
     m_thread->quit();
 }
 
-void DBusNotificationsListener::onNotify(const QString &appName,
-                                         uint replacesId,
-                                         const QString &appIcon,
-                                         const QString &summary,
-                                         const QString &body,
-                                         const QStringList &actions,
-                                         const QVariantMap &hints,
-                                         int timeout)
+void DBusNotificationsListener::onNotify(const NotificationManager::Notification &notification)
 {
-    Q_UNUSED(actions);
-
-    // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Got notification appName=" << appName << "replacesId=" << replacesId
-    // << "appIcon=" << appIcon << "summary=" << summary << "body=" << body << "actions=" << actions << "hints=" << hints << "timeout=" << timeout;
+    qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Got notification from " << notification.applicationName() << " with id " << notification.id();
 
     auto *config = m_plugin->config();
-    if (timeout > 0 && config->getBool(QStringLiteral("generalPersistent"), false)) {
+    if (notification.timeout() > 0 && config->getBool(QStringLiteral("generalPersistent"), false)) {
         return;
     }
 
-    if (!checkApplicationName(appName, appIcon)) {
+    if (!checkApplicationName(notification.applicationName(), notification.applicationIconName())) {
         return;
     }
 
     int urgency = -1;
-    auto urgencyHint = hints.constFind(QStringLiteral("urgency"));
-    if (urgencyHint != hints.cend()) {
+    auto urgencyHint = notification.hints().constFind(QStringLiteral("urgency"));
+    if (urgencyHint != notification.hints().cend()) {
         bool ok = false;
         urgency = urgencyHint->toInt(&ok);
         if (!ok) {
@@ -288,22 +287,23 @@ void DBusNotificationsListener::onNotify(const QString &appName,
         return;
     }
 
-    if (summary.isEmpty()) {
+    if (notification.summary().isEmpty()) {
         return;
     }
 
     const bool includeBody = config->getBool(QStringLiteral("generalIncludeBody"), true);
 
-    QString ticker = summary;
-    if (!body.isEmpty() && includeBody) {
-        ticker += QLatin1String(": ") + body;
+    QString ticker = notification.summary();
+    if (!notification.rawBody().isEmpty() && includeBody) {
+        ticker += QLatin1String(": ") + notification.rawBody();
     }
 
-    if (checkIsInBlacklist(appName, ticker)) {
+    if (checkIsInBlacklist(notification.applicationName(), ticker)) {
         return;
     }
 
-    // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Sending notification from" << appName << ":" <<ticker << "; appIcon=" << appIcon;
+    qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Sending notification from" << notification.applicationName() << " with id " << notification.id()
+                                                 << " summary: " << notification.summary() << " body: " << notification.body();
 
     static unsigned id = 0;
     if (id == std::numeric_limits<unsigned>::max()) {
@@ -311,118 +311,27 @@ void DBusNotificationsListener::onNotify(const QString &appName,
     }
     NetworkPacket np(PACKET_TYPE_NOTIFICATION,
                      {
-                         {QStringLiteral("id"), replacesId > 0 ? replacesId : id++},
-                         {QStringLiteral("appName"), appName},
+                         {QStringLiteral("id"), notification.id() > 0 ? notification.id() : id++},
+                         {QStringLiteral("appName"), notification.applicationName()},
                          {QStringLiteral("ticker"), ticker},
-                         {QStringLiteral("isClearable"), timeout == -1},
-                         {QStringLiteral("title"), summary},
+                         {QStringLiteral("isClearable"), notification.timeout() == -1},
+                         {QStringLiteral("title"), notification.summary()},
                          {QStringLiteral("silent"), false},
                      });
 
-    if (!body.isEmpty() && includeBody) {
-        np.set(QStringLiteral("text"), body);
+    if (!notification.rawBody().isEmpty() && includeBody) {
+        np.set(QStringLiteral("text"), notification.rawBody());
     }
 
     // Only send icon on first notify (replacesId == 0)
-    if (config->getBool(QStringLiteral("generalSynchronizeIcons"), true) && replacesId == 0) {
-        QSharedPointer<QIODevice> iconSource;
-        // try different image sources according to priorities in notifications-spec version 1.2:
-        auto it = hints.constFind(QStringLiteral("image-data"));
-        if (it != hints.cend() || (it = hints.constFind(QStringLiteral("image_data"))) != hints.cend()) {
-            iconSource = iconForImageData(it.value());
-        } else if ((it = hints.constFind(QStringLiteral("image-path"))) != hints.cend()
-                   || (it = hints.constFind(QStringLiteral("image_path"))) != hints.cend()) {
-            iconSource = iconForIconName(it.value().toString());
-        } else if (!appIcon.isEmpty()) {
-            iconSource = iconForIconName(appIcon);
-        } else if ((it = hints.constFind(QStringLiteral("icon_data"))) != hints.cend()) {
-            iconSource = iconForImageData(it.value());
-        }
+    if (config->getBool(QStringLiteral("generalSynchronizeIcons"), true) && notification.id() == 0) {
+        QSharedPointer<QIODevice> iconSource = iconFromQImage(notification.image());
         if (iconSource) {
             np.setPayload(iconSource, iconSource->size());
         }
     }
 
     m_plugin->sendPacket(np);
-}
-
-bool DBusNotificationsListener::parseImageDataArgument(const QVariant &argument,
-                                                       int &width,
-                                                       int &height,
-                                                       int &rowStride,
-                                                       int &bitsPerSample,
-                                                       int &channels,
-                                                       bool &hasAlpha,
-                                                       QByteArray &imageData) const
-{
-    // FIXME
-    // if (!argument.canConvert<QDBusArgument>()) {
-    //     return false;
-    // }
-    // const QDBusArgument dbusArg = argument.value<QDBusArgument>();
-    // dbusArg.beginStructure();
-    // dbusArg >> width >> height >> rowStride >> hasAlpha >> bitsPerSample >> channels >> imageData;
-    // dbusArg.endStructure();
-    return true;
-}
-
-QSharedPointer<QIODevice> DBusNotificationsListener::iconForImageData(const QVariant &argument) const
-{
-    int width, height, rowStride, bitsPerSample, channels;
-    bool hasAlpha;
-    QByteArray imageData;
-
-    if (!parseImageDataArgument(argument, width, height, rowStride, bitsPerSample, channels, hasAlpha, imageData))
-        return QSharedPointer<QIODevice>();
-
-    if (bitsPerSample != 8) {
-        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Unsupported image format:"
-                                                       << "width=" << width << "height=" << height << "rowStride=" << rowStride
-                                                       << "bitsPerSample=" << bitsPerSample << "channels=" << channels << "hasAlpha=" << hasAlpha;
-        return QSharedPointer<QIODevice>();
-    }
-
-    QImage image(reinterpret_cast<uchar *>(imageData.data()), width, height, rowStride, hasAlpha ? QImage::Format_ARGB32 : QImage::Format_RGB32);
-    if (hasAlpha) {
-        image = std::move(image).rgbSwapped(); // RGBA --> ARGB
-    }
-
-    QSharedPointer<QIODevice> buffer = iconFromQImage(image);
-    if (!buffer) {
-        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Could not initialize image buffer";
-        return QSharedPointer<QIODevice>();
-    }
-
-    return buffer;
-}
-
-QSharedPointer<QIODevice> DBusNotificationsListener::iconForIconName(const QString &iconName) const
-{
-    int size = KIconLoader::SizeHuge; // use big size to allow for good quality on high-DPI mobile devices
-    QString iconPath = iconName;
-    if (!QFile::exists(iconName)) {
-        const KIconTheme *iconTheme = KIconLoader::global()->theme();
-        if (iconTheme) {
-            iconPath = iconTheme->iconPath(iconName + QLatin1String(".png"), size, KIconLoader::MatchBest);
-            if (iconPath.isEmpty()) {
-                iconPath = iconTheme->iconPath(iconName + QLatin1String(".svg"), size, KIconLoader::MatchBest);
-                if (iconPath.isEmpty()) {
-                    iconPath = iconTheme->iconPath(iconName + QLatin1String(".svgz"), size, KIconLoader::MatchBest);
-                }
-            }
-        } else {
-            qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "KIconLoader has no theme set";
-        }
-    }
-    if (iconPath.isEmpty()) {
-        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Could not find notification icon:" << iconName;
-        return QSharedPointer<QIODevice>();
-    } else if (iconPath.endsWith(QLatin1String(".png"))) {
-        return QSharedPointer<QIODevice>(new QFile(iconPath));
-    } else {
-        // TODO: cache icons
-        return iconFromQImage(QImage(iconPath));
-    }
 }
 
 #include "moc_dbusnotificationslistener.cpp"

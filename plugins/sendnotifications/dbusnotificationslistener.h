@@ -9,6 +9,8 @@
 
 #include "notificationslistener.h"
 
+#include "pw_libnotificationmanager/notification.h"
+
 #include <atomic>
 
 #include <QThread>
@@ -25,7 +27,7 @@ public:
     void handleNotifyCall(DBusMessage *message);
 
 Q_SIGNALS:
-    void notificationReceived(const QString &, uint, const QString &, const QString &, const QString &, const QStringList &, const QVariantMap &, int);
+    void notificationReceived(const NotificationManager::Notification &);
 
 private:
     std::atomic<DBusConnection *> m_connection = nullptr;
@@ -40,7 +42,7 @@ public:
     ~DBusNotificationsListener() override;
 
 private:
-    void onNotify(const QString &, uint, const QString &, const QString &, const QString &, const QStringList &, const QVariantMap &, int);
+    void onNotify(const NotificationManager::Notification &);
 
     bool parseImageDataArgument(const QVariant &argument,
                                 int &width,

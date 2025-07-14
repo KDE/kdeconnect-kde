@@ -26,7 +26,7 @@ public:
     ~NotificationsListener() override;
 
 protected:
-    bool checkApplicationName(const QString &appName, std::optional<std::reference_wrapper<const QString>> iconName = std::nullopt);
+    bool checkApplicationName(const QString &appName, const QString iconName);
     bool checkIsInBlacklist(const QString &appName, const QString &content);
     QSharedPointer<QIODevice> iconFromQImage(const QImage &image) const;
 

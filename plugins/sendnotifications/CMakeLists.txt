@@ -6,6 +6,8 @@ target_sources(kdeconnect_sendnotifications PRIVATE
     notifyingapplication.cpp
 )
 
+add_subdirectory(pw_libnotificationmanager)
+
 target_link_libraries(kdeconnect_sendnotifications
     kdeconnectcore
     KF6::I18n

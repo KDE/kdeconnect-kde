@@ -61,7 +61,7 @@ void NotificationsListener::loadApplications()
     // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Loaded" << m_applications.size() << " applications";
 }
 
-bool NotificationsListener::checkApplicationName(const QString &appName, std::optional<std::reference_wrapper<const QString>> iconName)
+bool NotificationsListener::checkApplicationName(const QString &appName, const QString iconName)
 {
     if (m_translatedAppName == appName) {
         return false;
@@ -72,9 +72,7 @@ bool NotificationsListener::checkApplicationName(const QString &appName, std::op
         // new application -> add to config
         NotifyingApplication app;
         app.name = appName;
-        if (iconName.has_value()) {
-            app.icon = iconName.value();
-        }
+        app.icon = iconName;
         app.active = true;
         m_applications.insert(app.name, app);
         // update config:

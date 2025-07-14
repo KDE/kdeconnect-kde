@@ -63,7 +63,7 @@ void WindowsNotificationsListener::onNotificationChanged(const UserNotificationL
     const AppDisplayInfo appDisplayInfo = userNotification.AppInfo().DisplayInfo();
     const std::wstring_view appDisplayName = appDisplayInfo.DisplayName();
     const QString appName = QString::fromWCharArray(appDisplayName.data(), appDisplayName.size());
-    if (!checkApplicationName(appName)) {
+    if (!checkApplicationName(appName, QString())) {
         return;
     }
 
