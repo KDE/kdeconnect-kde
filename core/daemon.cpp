@@ -62,7 +62,7 @@ Daemon::Daemon(QObject *parent, bool testMode)
 void Daemon::init()
 {
     qCDebug(KDECONNECT_CORE) << "Daemon starting";
-    
+
     // Register on DBus
     // This must happen as early as possible in the process startup to ensure
     // the absolute minimum amount of blocking on logon/autostart
