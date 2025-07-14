@@ -9,6 +9,7 @@ set(backends_kdeconnect_SRCS
     backends/bluetooth/bluetoothdevicelink.cpp
     backends/bluetooth/bluetoothdownloadjob.cpp
     backends/bluetooth/bluetoothuploadjob.cpp
+    backends/bluetooth/asynclinkprovider.cpp
 
     PARENT_SCOPE
 )

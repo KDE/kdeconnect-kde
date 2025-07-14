@@ -19,6 +19,7 @@
 #include "notificationserverinfo.h"
 
 #ifdef KDECONNECT_BLUETOOTH
+#include "backends/bluetooth/asynclinkprovider.h"
 #include "backends/bluetooth/bluetoothlinkprovider.h"
 #endif
 
@@ -61,7 +62,7 @@ Daemon::Daemon(QObject *parent, bool testMode)
 void Daemon::init()
 {
     qCDebug(KDECONNECT_CORE) << "Daemon starting";
-
+    
     // Register on DBus
     // This must happen as early as possible in the process startup to ensure
     // the absolute minimum amount of blocking on logon/autostart
@@ -75,16 +76,21 @@ void Daemon::init()
     auto configInstance = KdeConnectConfig::instance();
     const auto disabledLinkProviders = configInstance.disabledLinkProviders();
 
+    qCDebug(KDECONNECT_CORE) << "Constructing Backends";
     // Load backends
     if (d->m_testMode) {
         d->m_linkProviders.insert(new LoopbackLinkProvider());
+        qCDebug(KDECONNECT_CORE) << "Constructed LoopbackLink Backend";
     } else {
         d->m_linkProviders.insert(new LanLinkProvider(false, disabledLinkProviders.contains(QStringLiteral("LanLinkProvider"))));
+        qCDebug(KDECONNECT_CORE) << "Constructed LanLinkProvider Backend";
 #ifdef KDECONNECT_BLUETOOTH
-        d->m_linkProviders.insert(new BluetoothLinkProvider(disabledLinkProviders.contains(QStringLiteral("BluetoothLinkProvider"))));
+        d->m_linkProviders.insert(new AsyncLinkProvider(disabledLinkProviders.contains(QStringLiteral("BluetoothLinkProvider"))));
+        qCDebug(KDECONNECT_CORE) << "Constructed AsyncLinkProvider<BluetoothLinkProvider> Backend";
 #endif
 #ifdef KDECONNECT_LOOPBACK
         d->m_linkProviders.insert(new LoopbackLinkProvider());
+        qCDebug(KDECONNECT_CORE) << "Constructed LoopbackLinkProvider Backend";
 #endif
     }
     Q_EMIT linkProvidersChanged(linkProviders());
@@ -97,7 +103,7 @@ void Daemon::init()
         Device *d = new Device(this, id);
         // prune away devices with malformed certificates
         if (d->hasInvalidCertificate()) {
-            qCDebug(KDECONNECT_CORE) << "Certificate for device " << id << "illegal, deleting the device";
+            qCDebug(KDECONNECT_CORE) << "Certificate for device " << id << "invalid, deleting the device";
             KdeConnectConfig::instance().removeTrustedDevice(id);
         } else {
             addDevice(d);
@@ -116,7 +122,7 @@ void Daemon::init()
 
     NotificationServerInfo::instance().init();
 
-    qCDebug(KDECONNECT_CORE) << "Daemon started";
+    qCDebug(KDECONNECT_CORE) << "Daemon start completed";
 }
 
 void Daemon::removeDevice(Device *device)
@@ -256,10 +262,10 @@ void Daemon::onDeviceStatusChanged()
 {
     Device *device = (Device *)sender();
 
-    // qCDebug(KDECONNECT_CORE) << "Device" << device->name() << "status changed. Reachable:" << device->isReachable() << ". Paired: " << device->isPaired();
+    qCDebug(KDECONNECT_CORE) << "Device" << device->name() << "status changed. Reachable:" << device->isReachable() << ". Paired: " << device->isPaired();
 
     if (!device->isReachable() && !device->isPaired()) {
-        // qCDebug(KDECONNECT_CORE) << "Destroying device" << device->name();
+        qCDebug(KDECONNECT_CORE) << "Destroying device" << device->name();
         removeDevice(device);
     } else {
         Q_EMIT deviceVisibilityChanged(device->id(), device->isReachable());

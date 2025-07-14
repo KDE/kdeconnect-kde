@@ -16,18 +16,14 @@
 BluetoothLinkProvider::BluetoothLinkProvider(bool isDisabled)
     : mServiceUuid(QBluetoothUuid(QStringLiteral("185f3df4-3268-4e3f-9fca-d4d5059915bd")))
     , mServiceDiscoveryAgent(new QBluetoothServiceDiscoveryAgent(this))
-    , connectTimer(new QTimer(this))
     , mDisabled(isDisabled)
 {
-    connectTimer->setInterval(30000);
-    connectTimer->setSingleShot(false);
+    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::ctor executed";
 
     mServiceDiscoveryAgent->setUuidFilter(mServiceUuid);
-    connect(connectTimer, &QTimer::timeout, this, [this]() {
-        mServiceDiscoveryAgent->start();
-    });
-
     connect(mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothLinkProvider::serviceDiscovered);
+
+    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::ctor finished";
 }
 
 void BluetoothLinkProvider::onStart()
@@ -38,6 +34,12 @@ void BluetoothLinkProvider::onStart()
     }
 }
 
+void BluetoothLinkProvider::onStartDiscovery()
+{
+    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStartDiscovery executed";
+    mServiceDiscoveryAgent->start();
+}
+
 void BluetoothLinkProvider::tryToInitialise()
 {
     QBluetoothLocalDevice localDevice;
@@ -45,15 +47,16 @@ void BluetoothLinkProvider::tryToInitialise()
         qCWarning(KDECONNECT_CORE) << "No local bluetooth adapter found";
         return;
     }
-
     if (!mBluetoothServer) {
-        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onNetworkChange re-setting up mBluetoothServer";
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::tryToInitialise re-setting up mBluetoothServer";
 
         mBluetoothServer = new QBluetoothServer(QBluetoothServiceInfo::RfcommProtocol, this);
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::tryToInitialise new mBluetoothServer completed";
+
         mBluetoothServer->setSecurityFlags(QBluetooth::Security::Encryption | QBluetooth::Security::Secure);
         connect(mBluetoothServer, &QBluetoothServer::newConnection, this, &BluetoothLinkProvider::serverNewConnection);
 
-        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onNetworkChange About to start server listen";
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::tryToInitialise About to start server listen";
         mKdeconnectService = mBluetoothServer->listen(mServiceUuid, QStringLiteral("KDE Connect"));
     }
 }
@@ -65,8 +68,6 @@ void BluetoothLinkProvider::onStop()
         if (!mBluetoothServer) {
             return;
         }
-
-        connectTimer->stop();
 
         mKdeconnectService.unregisterService();
         mBluetoothServer->close();
@@ -319,10 +320,17 @@ void BluetoothLinkProvider::serverDataReceived(const QBluetoothAddress &peer, QS
         qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::serverDataReceived but socket no longer exists";
         return;
     }
+
     socket->startTransaction();
+    if (socket->isReadable() == false || socket->canReadLine() == false) {
+        qCWarning(KDECONNECT_CORE) << "BluetoothLinkProvider::serverDataReceived socket is not readable, bailing out";
+        socket->rollbackTransaction();
+        return;
+    }
     identityArray = socket->readLine();
 
     if (identityArray.isEmpty()) {
+        qCWarning(KDECONNECT_CORE) << "BluetoothLinkProvider::serverDataReceived identity array is empty, bailing out";
         socket->rollbackTransaction();
         return;
     }

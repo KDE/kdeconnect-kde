@@ -16,7 +16,6 @@
 #include <QBluetoothUuid>
 #include <QObject>
 #include <QPointer>
-#include <QTimer>
 
 #include "../linkprovider.h"
 
@@ -35,7 +34,7 @@ public:
 
     QString name() override
     {
-        return QStringLiteral("BluetoothLinkProvider");
+        return QStringLiteral("SynchronousBluetoothLinkProvider");
     }
 
     int priority() override
@@ -52,6 +51,7 @@ public Q_SLOTS:
     virtual void onStart() override;
     virtual void onStop() override;
     virtual void onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr) override;
+    void onStartDiscovery();
     void connectError();
 
 private Q_SLOTS:
@@ -73,7 +73,6 @@ private:
     QPointer<QBluetoothServer> mBluetoothServer;
     QBluetoothServiceInfo mKdeconnectService;
     QBluetoothServiceDiscoveryAgent *mServiceDiscoveryAgent;
-    QTimer *connectTimer;
     bool mDisabled;
 
     QMap<QString, DeviceLink *> mLinks;
