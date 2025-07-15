@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
 "PO-Revision-Date: 2024-02-18 10:12+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -224,6 +224,21 @@ msgstr "Пропущенный вызов от %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Выключить звук звонка"
+
+#: virtualmonitor/virtualmonitorplugin.cpp:180
+#, kde-format
+msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
+msgstr ""
+
+#: virtualmonitor/virtualmonitorplugin.cpp:183
+#, kde-format
+msgid "The krdp package is required on the local device."
+msgstr ""
+
+#: virtualmonitor/virtualmonitorplugin.cpp:186
+#, kde-format
+msgid "Cannot start a request without a resolution"
+msgstr ""
 
 #~ msgid "Clipboard plugin"
 #~ msgstr "Модуль буфера обмена"

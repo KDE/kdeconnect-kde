@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
 "PO-Revision-Date: 2024-08-19 22:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -92,74 +92,59 @@ msgstr "파일을 끌어다 놓으면 휴대폰으로 전송합니다."
 msgid "Virtual Display"
 msgstr "가상 디스플레이"
 
-#: package/contents/ui/DeviceDelegate.qml:197
-#, kde-format
-msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr "원격 장치에 VNC 클라이언트(예: krdc)가 설치되어 있지 않습니다."
-
-#: package/contents/ui/DeviceDelegate.qml:201
-#, kde-format
-msgid "The krfb package is required on the local device."
-msgstr "로컬 장치에 krfb 패키지가 설치되어 있어야 합니다."
-
-#: package/contents/ui/DeviceDelegate.qml:208
-#, kde-format
-msgid "Failed to create the virtual monitor."
-msgstr "가상 모니터를 만들 수 없습니다."
-
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:254
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:285
+#: package/contents/ui/DeviceDelegate.qml:280
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "원격 키보드"
 
-#: package/contents/ui/DeviceDelegate.qml:306
+#: package/contents/ui/DeviceDelegate.qml:301
 #, kde-format
 msgid "Notifications:"
 msgstr "알림:"
 
-#: package/contents/ui/DeviceDelegate.qml:314
+#: package/contents/ui/DeviceDelegate.qml:309
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "모든 알림 지우기"
 
-#: package/contents/ui/DeviceDelegate.qml:372
+#: package/contents/ui/DeviceDelegate.qml:367
 #, kde-format
 msgid "Reply"
 msgstr "답장"
 
-#: package/contents/ui/DeviceDelegate.qml:385
+#: package/contents/ui/DeviceDelegate.qml:380
 #, kde-format
 msgid "Dismiss"
 msgstr "끄기"
 
-#: package/contents/ui/DeviceDelegate.qml:398
+#: package/contents/ui/DeviceDelegate.qml:393
 #, kde-format
 msgid "Cancel"
 msgstr "취소"
 
-#: package/contents/ui/DeviceDelegate.qml:412
+#: package/contents/ui/DeviceDelegate.qml:407
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "%1 님에게 답장…"
 
-#: package/contents/ui/DeviceDelegate.qml:430
+#: package/contents/ui/DeviceDelegate.qml:425
 #, kde-format
 msgid "Send"
 msgstr "보내기"
 
-#: package/contents/ui/DeviceDelegate.qml:451
+#: package/contents/ui/DeviceDelegate.qml:446
 #, kde-format
 msgid "Run command"
 msgstr "명령 실행"
 
-#: package/contents/ui/DeviceDelegate.qml:458
+#: package/contents/ui/DeviceDelegate.qml:453
 #, kde-format
 msgid "Add command"
 msgstr "명령 추가"
@@ -199,6 +184,15 @@ msgstr "F-Droid에서 설치"
 #, kde-format
 msgid "KDE Connect Settings…"
 msgstr "KDE Connect 설정…"
+
+#~ msgid "Remote device does not have a VNC client (eg. krdc) installed."
+#~ msgstr "원격 장치에 VNC 클라이언트(예: krdc)가 설치되어 있지 않습니다."
+
+#~ msgid "The krfb package is required on the local device."
+#~ msgstr "로컬 장치에 krfb 패키지가 설치되어 있어야 합니다."
+
+#~ msgid "Failed to create the virtual monitor."
+#~ msgstr "가상 모니터를 만들 수 없습니다."
 
 #~ msgid "Save As"
 #~ msgstr "다른 이름으로 저장"

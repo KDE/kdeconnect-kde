@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
 "PO-Revision-Date: 2024-06-09 11:34+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -93,74 +93,59 @@ msgstr "Lăsați un fișier pentru a-l transfera pe telefon."
 msgid "Virtual Display"
 msgstr "Afișaj virtual"
 
-#: package/contents/ui/DeviceDelegate.qml:197
-#, kde-format
-msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr "Dispozitivul distant nu are un client VNC instalat (ca „krdc”)."
-
-#: package/contents/ui/DeviceDelegate.qml:201
-#, kde-format
-msgid "The krfb package is required on the local device."
-msgstr "Pachetul krfb e necesar pe dispozitivul local."
-
-#: package/contents/ui/DeviceDelegate.qml:208
-#, kde-format
-msgid "Failed to create the virtual monitor."
-msgstr "Crearea monitorului virtual a eșuat."
-
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:254
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:285
+#: package/contents/ui/DeviceDelegate.qml:280
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Tastatură la distanță"
 
-#: package/contents/ui/DeviceDelegate.qml:306
+#: package/contents/ui/DeviceDelegate.qml:301
 #, kde-format
 msgid "Notifications:"
 msgstr "Notificări:"
 
-#: package/contents/ui/DeviceDelegate.qml:314
+#: package/contents/ui/DeviceDelegate.qml:309
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Revocă toate notificările"
 
-#: package/contents/ui/DeviceDelegate.qml:372
+#: package/contents/ui/DeviceDelegate.qml:367
 #, kde-format
 msgid "Reply"
 msgstr "Răspunde"
 
-#: package/contents/ui/DeviceDelegate.qml:385
+#: package/contents/ui/DeviceDelegate.qml:380
 #, kde-format
 msgid "Dismiss"
 msgstr "Revocă"
 
-#: package/contents/ui/DeviceDelegate.qml:398
+#: package/contents/ui/DeviceDelegate.qml:393
 #, kde-format
 msgid "Cancel"
 msgstr "Renunță"
 
-#: package/contents/ui/DeviceDelegate.qml:412
+#: package/contents/ui/DeviceDelegate.qml:407
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Răspunde pentru %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:430
+#: package/contents/ui/DeviceDelegate.qml:425
 #, kde-format
 msgid "Send"
 msgstr "Expediază"
 
-#: package/contents/ui/DeviceDelegate.qml:451
+#: package/contents/ui/DeviceDelegate.qml:446
 #, kde-format
 msgid "Run command"
 msgstr "Rulează o comandă"
 
-#: package/contents/ui/DeviceDelegate.qml:458
+#: package/contents/ui/DeviceDelegate.qml:453
 #, kde-format
 msgid "Add command"
 msgstr "Adaugă o comandă"
@@ -205,6 +190,15 @@ msgstr "Instalează din F-Droid"
 #| msgid "KDE Connect Settings..."
 msgid "KDE Connect Settings…"
 msgstr "Configurări KDE Connect…"
+
+#~ msgid "Remote device does not have a VNC client (eg. krdc) installed."
+#~ msgstr "Dispozitivul distant nu are un client VNC instalat (ca „krdc”)."
+
+#~ msgid "The krfb package is required on the local device."
+#~ msgstr "Pachetul krfb e necesar pe dispozitivul local."
+
+#~ msgid "Failed to create the virtual monitor."
+#~ msgstr "Crearea monitorului virtual a eșuat."
 
 #~ msgid "Configure..."
 #~ msgstr "Configurare..."

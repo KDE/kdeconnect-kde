@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: $2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
 "PO-Revision-Date: 2015-02-16 11:58+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: none\n"
@@ -97,76 +97,61 @@ msgstr ""
 msgid "Virtual Display"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:197
-#, kde-format
-msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
-
-#: package/contents/ui/DeviceDelegate.qml:201
-#, kde-format
-msgid "The krfb package is required on the local device."
-msgstr ""
-
-#: package/contents/ui/DeviceDelegate.qml:208
-#, kde-format
-msgid "Failed to create the virtual monitor."
-msgstr ""
-
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:254
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:285
+#: package/contents/ui/DeviceDelegate.qml:280
 #, kde-format
 msgid "Remote Keyboard"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:306
+#: package/contents/ui/DeviceDelegate.qml:301
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Notifications:"
 msgstr "Napomene"
 
-#: package/contents/ui/DeviceDelegate.qml:314
+#: package/contents/ui/DeviceDelegate.qml:309
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Dismiss all notifications"
 msgstr "Napomene"
 
-#: package/contents/ui/DeviceDelegate.qml:372
+#: package/contents/ui/DeviceDelegate.qml:367
 #, kde-format
 msgid "Reply"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:385
+#: package/contents/ui/DeviceDelegate.qml:380
 #, kde-format
 msgid "Dismiss"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:398
+#: package/contents/ui/DeviceDelegate.qml:393
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:412
+#: package/contents/ui/DeviceDelegate.qml:407
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:430
+#: package/contents/ui/DeviceDelegate.qml:425
 #, kde-format
 msgid "Send"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:451
+#: package/contents/ui/DeviceDelegate.qml:446
 #, kde-format
 msgid "Run command"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:458
+#: package/contents/ui/DeviceDelegate.qml:453
 #, kde-format
 msgid "Add command"
 msgstr ""

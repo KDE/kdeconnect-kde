@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-18 00:42+0000\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
 "PO-Revision-Date: 2025-06-19 13:20+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -155,18 +155,28 @@ msgstr "Partager un fichier"
 msgid "Browse this device"
 msgstr "Naviguer dans ce périphérique"
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:194
+#, kde-format
+msgid "Stop virtual monitor session"
+msgstr ""
+
+#: qml/DevicePage.qml:194
+#, kde-format
+msgid "Use device as an external monitor"
+msgstr ""
+
+#: qml/DevicePage.qml:213
 #, kde-format
 msgid "This device is not paired."
 msgstr "Ce périphérique n'est pas associé."
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:217
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Associer"
 
-#: qml/DevicePage.qml:207 qml/DevicePage.qml:216
+#: qml/DevicePage.qml:224 qml/DevicePage.qml:233
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -175,22 +185,22 @@ msgstr ""
 "Association demandée\n"
 "Clé :"
 
-#: qml/DevicePage.qml:222
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Accept"
 msgstr "Accepter"
 
-#: qml/DevicePage.qml:228
+#: qml/DevicePage.qml:245
 #, kde-format
 msgid "Reject"
 msgstr "Rejeter"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:256
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Ce périphérique est injoignable"
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:264
 #, kde-format
 msgid "Please choose a file"
 msgstr "Veuillez choisir un fichier"

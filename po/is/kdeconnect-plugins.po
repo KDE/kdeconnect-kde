@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
 "PO-Revision-Date: 2025-05-28 20:24+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -217,6 +217,21 @@ msgstr "Ósvarað símtal frá %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Þagga símtal"
+
+#: virtualmonitor/virtualmonitorplugin.cpp:180
+#, kde-format
+msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
+msgstr ""
+
+#: virtualmonitor/virtualmonitorplugin.cpp:183
+#, kde-format
+msgid "The krdp package is required on the local device."
+msgstr ""
+
+#: virtualmonitor/virtualmonitorplugin.cpp:186
+#, kde-format
+msgid "Cannot start a request without a resolution"
+msgstr ""
 
 #~ msgid "Clipboard plugin"
 #~ msgstr "Klippispjaldsviðbót"

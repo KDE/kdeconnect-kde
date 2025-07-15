@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
 "PO-Revision-Date: 2024-07-14 10:04+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -94,76 +94,59 @@ msgstr "Déposez un fichier pour le transférer vers votre téléphone."
 msgid "Virtual Display"
 msgstr "Affichage virtuel"
 
-#: package/contents/ui/DeviceDelegate.qml:197
-#, kde-format
-msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
-"Il n'y a aucun client « VNC » installé (Par exemple, krdc) sur le "
-"périphérique distant."
-
-#: package/contents/ui/DeviceDelegate.qml:201
-#, kde-format
-msgid "The krfb package is required on the local device."
-msgstr "Le paquet « krfb » est nécessaire sur votre périphérique local."
-
-#: package/contents/ui/DeviceDelegate.qml:208
-#, kde-format
-msgid "Failed to create the virtual monitor."
-msgstr "Il est impossible de créer la surveillance virtuelle."
-
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:254
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1 %"
 
-#: package/contents/ui/DeviceDelegate.qml:285
+#: package/contents/ui/DeviceDelegate.qml:280
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Clavier distant"
 
-#: package/contents/ui/DeviceDelegate.qml:306
+#: package/contents/ui/DeviceDelegate.qml:301
 #, kde-format
 msgid "Notifications:"
 msgstr "Notifications :"
 
-#: package/contents/ui/DeviceDelegate.qml:314
+#: package/contents/ui/DeviceDelegate.qml:309
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Rejeter toutes les notifications"
 
-#: package/contents/ui/DeviceDelegate.qml:372
+#: package/contents/ui/DeviceDelegate.qml:367
 #, kde-format
 msgid "Reply"
 msgstr "Répondre"
 
-#: package/contents/ui/DeviceDelegate.qml:385
+#: package/contents/ui/DeviceDelegate.qml:380
 #, kde-format
 msgid "Dismiss"
 msgstr "Rejeter"
 
-#: package/contents/ui/DeviceDelegate.qml:398
+#: package/contents/ui/DeviceDelegate.qml:393
 #, kde-format
 msgid "Cancel"
 msgstr "Annuler"
 
-#: package/contents/ui/DeviceDelegate.qml:412
+#: package/contents/ui/DeviceDelegate.qml:407
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Répondre à %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:430
+#: package/contents/ui/DeviceDelegate.qml:425
 #, kde-format
 msgid "Send"
 msgstr "Envoyer"
 
-#: package/contents/ui/DeviceDelegate.qml:451
+#: package/contents/ui/DeviceDelegate.qml:446
 #, kde-format
 msgid "Run command"
 msgstr "Exécuter une commande"
 
-#: package/contents/ui/DeviceDelegate.qml:458
+#: package/contents/ui/DeviceDelegate.qml:453
 #, kde-format
 msgid "Add command"
 msgstr "Ajouter une commande"
@@ -206,6 +189,17 @@ msgstr "Installer depuis F-Droid"
 #, kde-format
 msgid "KDE Connect Settings…"
 msgstr "Configuration de KDEConnect..."
+
+#~ msgid "Remote device does not have a VNC client (eg. krdc) installed."
+#~ msgstr ""
+#~ "Il n'y a aucun client « VNC » installé (Par exemple, krdc) sur le "
+#~ "périphérique distant."
+
+#~ msgid "The krfb package is required on the local device."
+#~ msgstr "Le paquet « krfb » est nécessaire sur votre périphérique local."
+
+#~ msgid "Failed to create the virtual monitor."
+#~ msgstr "Il est impossible de créer la surveillance virtuelle."
 
 #~ msgid "Save As"
 #~ msgstr "Enregistrer sous"

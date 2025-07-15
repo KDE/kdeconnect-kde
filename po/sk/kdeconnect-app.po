@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-18 00:42+0000\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
 "PO-Revision-Date: 2024-04-27 16:45+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -155,19 +155,29 @@ msgstr "Zdieľať súbor"
 msgid "Browse this device"
 msgstr ""
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:194
+#, kde-format
+msgid "Stop virtual monitor session"
+msgstr ""
+
+#: qml/DevicePage.qml:194
+#, kde-format
+msgid "Use device as an external monitor"
+msgstr ""
+
+#: qml/DevicePage.qml:213
 #, fuzzy, kde-format
 #| msgid "This device is not paired"
 msgid "This device is not paired."
 msgstr "Toto zariadenie nie je spárované"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:217
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Spárovať"
 
-#: qml/DevicePage.qml:207 qml/DevicePage.qml:216
+#: qml/DevicePage.qml:224 qml/DevicePage.qml:233
 #, fuzzy, kde-format
 #| msgid "Pair requested"
 msgid ""
@@ -175,22 +185,22 @@ msgid ""
 "Key: "
 msgstr "Žiadosť o párovanie"
 
-#: qml/DevicePage.qml:222
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Accept"
 msgstr "Prijať"
 
-#: qml/DevicePage.qml:228
+#: qml/DevicePage.qml:245
 #, kde-format
 msgid "Reject"
 msgstr "Odmietnuť"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:256
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Toto zariadenie nie je dosiahnuteľné"
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:264
 #, kde-format
 msgid "Please choose a file"
 msgstr "Prosím, vyberte súbor"

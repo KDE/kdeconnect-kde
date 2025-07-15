@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-18 00:42+0000\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
 "PO-Revision-Date: 2020-01-28 02:48+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -155,41 +155,51 @@ msgstr "ഫയൽ പങ്കിടുക"
 msgid "Browse this device"
 msgstr ""
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:194
+#, kde-format
+msgid "Stop virtual monitor session"
+msgstr ""
+
+#: qml/DevicePage.qml:194
+#, kde-format
+msgid "Use device as an external monitor"
+msgstr ""
+
+#: qml/DevicePage.qml:213
 #, fuzzy, kde-format
 msgid "This device is not paired."
 msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴിയുന്നതല്ല"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:217
 #, fuzzy, kde-format
 #| msgid "Pair"
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "ജോഡിചേരുക"
 
-#: qml/DevicePage.qml:207 qml/DevicePage.qml:216
+#: qml/DevicePage.qml:224 qml/DevicePage.qml:233
 #, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
 msgstr ""
 
-#: qml/DevicePage.qml:222
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Accept"
 msgstr "അംഗീകരിക്കുക"
 
-#: qml/DevicePage.qml:228
+#: qml/DevicePage.qml:245
 #, kde-format
 msgid "Reject"
 msgstr "നിരസിക്കുക"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:256
 #, kde-format
 msgid "This device is not reachable"
 msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴിയുന്നതല്ല"
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:264
 #, kde-format
 msgid "Please choose a file"
 msgstr "ഒരു ഫയൽ തിരഞ്ഞെടുക്കുക"

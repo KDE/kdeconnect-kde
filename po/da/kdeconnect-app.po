@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-18 00:42+0000\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
 "PO-Revision-Date: 2024-07-17 13:46+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -156,7 +156,17 @@ msgstr "Del fil"
 msgid "Browse this device"
 msgstr ""
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:194
+#, kde-format
+msgid "Stop virtual monitor session"
+msgstr ""
+
+#: qml/DevicePage.qml:194
+#, kde-format
+msgid "Use device as an external monitor"
+msgstr ""
+
+#: qml/DevicePage.qml:213
 #, fuzzy, kde-format
 #| msgid ""
 #| "This device is not paired.\n"
@@ -166,13 +176,13 @@ msgstr ""
 "Denne enhed er ikke parret.\n"
 "Nøgle: %1"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:217
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Par"
 
-#: qml/DevicePage.qml:207 qml/DevicePage.qml:216
+#: qml/DevicePage.qml:224 qml/DevicePage.qml:233
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -181,22 +191,22 @@ msgstr ""
 "Anmodet om parring\n"
 "Nøgle: "
 
-#: qml/DevicePage.qml:222
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Accept"
 msgstr "Acceptér"
 
-#: qml/DevicePage.qml:228
+#: qml/DevicePage.qml:245
 #, kde-format
 msgid "Reject"
 msgstr "Afvis"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:256
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Enheden kan ikke nås"
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:264
 #, kde-format
 msgid "Please choose a file"
 msgstr "Vælg venligst en fil"

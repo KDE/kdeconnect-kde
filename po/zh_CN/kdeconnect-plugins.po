@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -210,3 +210,18 @@ msgstr "%1 的未接来电"
 #, kde-format
 msgid "Mute Call"
 msgstr "静音来电"
+
+#: virtualmonitor/virtualmonitorplugin.cpp:180
+#, kde-format
+msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
+msgstr ""
+
+#: virtualmonitor/virtualmonitorplugin.cpp:183
+#, kde-format
+msgid "The krdp package is required on the local device."
+msgstr ""
+
+#: virtualmonitor/virtualmonitorplugin.cpp:186
+#, kde-format
+msgid "Cannot start a request without a resolution"
+msgstr ""

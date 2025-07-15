@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-18 00:42+0000\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
 "PO-Revision-Date: 2025-06-18 08:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -159,18 +159,28 @@ msgstr "Comparteix el fitxer"
 msgid "Browse this device"
 msgstr "Navega per aquest dispositiu"
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:194
+#, kde-format
+msgid "Stop virtual monitor session"
+msgstr ""
+
+#: qml/DevicePage.qml:194
+#, kde-format
+msgid "Use device as an external monitor"
+msgstr ""
+
+#: qml/DevicePage.qml:213
 #, kde-format
 msgid "This device is not paired."
 msgstr "Aquest dispositiu no està aparellat."
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:217
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Aparella"
 
-#: qml/DevicePage.qml:207 qml/DevicePage.qml:216
+#: qml/DevicePage.qml:224 qml/DevicePage.qml:233
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -179,22 +189,22 @@ msgstr ""
 "S'ha demanat aparellar\n"
 "Clau:"
 
-#: qml/DevicePage.qml:222
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
-#: qml/DevicePage.qml:228
+#: qml/DevicePage.qml:245
 #, kde-format
 msgid "Reject"
 msgstr "Rebutja"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:256
 #, kde-format
 msgid "This device is not reachable"
 msgstr "No es pot accedir a aquest dispositiu"
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:264
 #, kde-format
 msgid "Please choose a file"
 msgstr "Si us plau, seleccioneu un fitxer"
