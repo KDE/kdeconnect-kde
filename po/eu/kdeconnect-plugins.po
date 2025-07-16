@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-25 00:42+0000\n"
-"PO-Revision-Date: 2025-06-24 20:12+0200\n"
+"PO-Revision-Date: 2025-07-15 21:07+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -20,13 +20,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
-msgstr "%1: Bateria baxu"
+msgstr "%1: Bateria baxua"
 
 #: battery/batteryplugin.cpp:120
 #, kde-format
@@ -101,17 +101,17 @@ msgstr "Izena"
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Excluded"
-msgstr "Barneratua"
+msgstr "Baztertuta"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
-msgstr "Jakinarazteko aplikazio baten izena."
+msgstr "Jakinarazpen-aplikazio baten izena."
 
 #: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
-msgstr "Sinkronizatu aplikazio baten jakinarazpenak?"
+msgstr "Aplikazio baten jakinarazpenak sinkronizatu?"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
@@ -120,35 +120,36 @@ msgid ""
 "This pattern is applied to the summary and, if selected above, the body of "
 "notifications."
 msgstr ""
-"Zein jakinarazpen ez bidali definitzen duen adierazpen erregularra.\n"
-"Eredu hau laburpenari ezartzen zaio, goian hautatuz gero, jakinarazpenen "
-"gorputzari."
+"Zein jakinarazpen ez diren bidali behar definitzen duen adierazpen "
+"erregularra.\n"
+"Eredu hau laburpenari aplikatzen zaio eta, goian hautatuz gero, "
+"jakinarazpenen gorputzari."
 
 #: sftp/mounter.cpp:165
 #, kde-format
 msgid "Failed to start sshfs"
-msgstr "Huts egin du «sshfs» abiatzea"
+msgstr "sshfs abiatzea huts egin du"
 
 #: sftp/mounter.cpp:169
 #, kde-format
 msgid "sshfs process crashed"
-msgstr "sshfs prozesua kraskatu da"
+msgstr "sshfs prozesua kraskatu egin da"
 
 #: sftp/mounter.cpp:173
 #, kde-format
 msgid "Unknown error in sshfs"
-msgstr "Errore ezezaguna «sshfs»en"
+msgstr "sshfs-en errore ezezaguna"
 
 #: sftp/mounter.cpp:184
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
-"Errorea fitxategi-sistema atzitzean. «sshfs» %0 ixte kodearekin amaitu da"
+"Errorea fitxategi-sistemara sartzean. sshfs %0 irteera-kodearekin amaitu da"
 
 #: sftp/mounter.cpp:193
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
-msgstr "Huts egin du fitxategi-sistema muntatzea: gailuak ez du erantzuten"
+msgstr "Fitxategi-sistema muntatzea huts egin du: gailuak ez du erantzuten"
 
 #: sftp/sftpplugin-win.cpp:79
 #, kde-format
@@ -158,17 +159,17 @@ msgstr "KDE Connect"
 #: sftp/sftpplugin-win.cpp:80
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
-msgstr "Ezin da SFTP protokoloa kudeatu. Barkatu eragozpenak"
+msgstr "Ezin du SFTP protokoloa maneiatu. Barkatu eragozpenak"
 
 #: sftp/sftpplugin.cpp:140
 #, kde-format
 msgid "All files"
-msgstr "Fitxategi guztiak"
+msgstr "Fitxategi denak"
 
 #: sftp/sftpplugin.cpp:141
 #, kde-format
 msgid "Camera pictures"
-msgstr "Kamerako irudiak"
+msgstr "Kamerako argazkiak"
 
 #: share/shareplugin.cpp:160
 #, kde-format
@@ -201,17 +202,17 @@ msgstr "%1 ez da existitzen"
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
 msgid "unknown number"
-msgstr "kopuru ezezaguna"
+msgstr "zenbaki ezezaguna"
 
 #: telephony/telephonyplugin.cpp:32
 #, kde-format
 msgid "Incoming call from %1"
-msgstr "Sarrerako deia, %1"
+msgstr "%1(e)ren sarrerako deia"
 
 #: telephony/telephonyplugin.cpp:36
 #, kde-format
 msgid "Missed call from %1"
-msgstr "Galdutako deia, %1"
+msgstr "%1(e)ren dei galdua"
 
 #: telephony/telephonyplugin.cpp:65
 #, kde-format

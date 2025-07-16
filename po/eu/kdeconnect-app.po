@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-06-24 20:14+0200\n"
+"PO-Revision-Date: 2025-07-15 20:50+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -56,14 +56,14 @@ msgstr "xalba@ni.eus"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr "Aplikazioa irekitzeko gailuaren IDa"
+msgstr "Aplikazioa irekitzeko, gailuaren ID"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
 msgstr ""
-"Erakutsi beharreko konfiguratzeko modulua, «--device» ezarri beharra dago."
+"Erakutsi beharreko konfigurazio-modulua, «--device» ezarri beharra dago."
 
 #: main.cpp:83
 #, kde-format
@@ -74,7 +74,7 @@ msgstr "Ordezkatu aurrez dagoen instantzia bat"
 #: main.cpp:86
 #, kde-format
 msgid "URL to share"
-msgstr "Partekatzeko URLa"
+msgstr "Partekatu beharreko URL"
 
 #: qml/DevicePage.qml:36
 #, kde-format
@@ -106,12 +106,12 @@ msgstr "Aginteak"
 #: qml/DevicePage.qml:113
 #, kde-format
 msgid "Multimedia control"
-msgstr "Multimedia agintea"
+msgstr "Hedabide kontrola"
 
 #: qml/DevicePage.qml:121
 #, kde-format
 msgid "Remote input"
-msgstr "Urrutiko sarrerakoa"
+msgstr "Urrutiko sarrera"
 
 #: qml/DevicePage.qml:129 qml/runcommand.qml:16
 #, kde-format
@@ -126,7 +126,7 @@ msgstr "Aurkezpenetarako urruneko agintea"
 #: qml/DevicePage.qml:145 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
-msgstr "Bolumenaren agintea"
+msgstr "Bolumenaren kontrola"
 
 #: qml/DevicePage.qml:155 qml/mousepad.qml:44
 #, kde-format
@@ -141,7 +141,7 @@ msgstr "Giltzapetik askatu"
 #: qml/DevicePage.qml:163
 #, kde-format
 msgid "Find Device"
-msgstr "Aurkitu nire gailua"
+msgstr "Aurkitu gailua"
 
 #: qml/DevicePage.qml:171
 #, kde-format
@@ -176,7 +176,7 @@ msgid ""
 "Key: "
 msgstr ""
 "Parekatzea eskatu da\n"
-"Gakoa:"
+"Gakoa: "
 
 #: qml/DevicePage.qml:222
 #, kde-format
@@ -186,12 +186,12 @@ msgstr "Onartu"
 #: qml/DevicePage.qml:228
 #, kde-format
 msgid "Reject"
-msgstr "Errefuxatu"
+msgstr "Errefusatu"
 
 #: qml/DevicePage.qml:239
 #, kde-format
 msgid "This device is not reachable"
-msgstr "Gailu hau ez da irisgarria"
+msgstr "Gailu hau ez dago eskuragarri"
 
 #: qml/DevicePage.qml:247
 #, kde-format
@@ -223,12 +223,12 @@ msgstr "Oroitua"
 #: qml/Main.qml:135
 #, kde-format
 msgid "Available"
-msgstr "Erabilgarria"
+msgstr "Erabilgarri"
 
 #: qml/Main.qml:137
 #, kde-format
 msgid "Connected"
-msgstr "Konektatua"
+msgstr "Konektatuta"
 
 #: qml/Main.qml:142
 #, kde-format
@@ -273,12 +273,12 @@ msgstr "Eskuineko klik"
 #: qml/mpris.qml:20
 #, kde-format
 msgid "Multimedia Controls"
-msgstr "Multimedia aginteak"
+msgstr "Hedabide aginteak"
 
 #: qml/mpris.qml:68
 #, kde-format
 msgid "No players available"
-msgstr "Ez dago jotzaile erabilgarririk"
+msgstr "Ez dago jotzailerik erabilgarri"
 
 #: qml/mpris.qml:111
 #, kde-format
@@ -288,12 +288,12 @@ msgstr "%1 - %2"
 #: qml/PluginSettings.qml:131
 #, kde-format
 msgid "Configure plugin"
-msgstr "Configuratu plugina"
+msgstr "Konfiguratu plugina"
 
 #: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
-msgstr "Gaitu pantaila-betea"
+msgstr "Gaitu pantaila osoa"
 
 #: qml/runcommand.qml:23
 #, kde-format
@@ -303,7 +303,7 @@ msgstr "Editatu komandoak"
 #: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
-msgstr "Komandoak editatu ditzakezu konektatutako gailuan"
+msgstr "Konektatutako gailuan komandoak editatu ditzakezu"
 
 #: qml/runcommand.qml:53
 #, kde-format
