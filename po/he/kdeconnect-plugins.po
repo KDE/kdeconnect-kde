@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-06-17 21:37+0300\n"
+"PO-Revision-Date: 2025-07-15 07:59+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -217,17 +217,17 @@ msgstr "השתקת שיחה"
 #: virtualmonitor/virtualmonitorplugin.cpp:180
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
-msgstr ""
+msgstr "במכשיר המרוחק לא מותקן לקוח VNC או RDP (למשל: krdc)."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "חבילת krdp נחוצה במכשיר המקומי."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "Cannot start a request without a resolution"
-msgstr ""
+msgstr "לא ניתן להתחיל בקשה בלי רזולוציה"
 
 #~ msgid "Clipboard plugin"
 #~ msgstr "תוסף לוח גזירים"

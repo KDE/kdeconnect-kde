@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-06-24 20:08+0200\n"
+"PO-Revision-Date: 2025-07-15 21:38+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -20,17 +20,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Osoitz Elkorobarrutia,Gontzal M. Pujana"
+msgstr "Iñigo Salvador Azurmendi,Gontzal M. Pujana,Osoitz Elkorobarrutia"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "oelkoro@gmail.com,gontzalpujana@protonmail.com"
+msgstr "xalba@ni.eus,gontzalpujana@protonmail.com,oelkoro@gmail.com"
 
 #: kdeconnect-cli.cpp:32
 #, kde-format
@@ -65,7 +65,7 @@ msgstr "Zerrendatu gailu erabilgarriak (parekatuak eta irisgarriak)"
 #: kdeconnect-cli.cpp:45
 #, kde-format
 msgid "List all backends and status"
-msgstr "Zerrendatu bizkarraldeko eta egoera denak"
+msgstr "Zerrendatu bizkarraldeko denak eta egoera denak"
 
 #: kdeconnect-cli.cpp:46
 #, kde-format
@@ -88,8 +88,8 @@ msgid ""
 "Make --list-devices or --list-available print only the devices id, to ease "
 "scripting"
 msgstr ""
-"Scriptak errazteko, --list-devices edo --list-available gailuen id-ak "
-"besterik ez dituzte inprimatuko"
+"Gidoiak egitea errazteko, --list-devices edo --list-available aukerek "
+"gailuen IDak bakarrik inprimatu ditzaten egin"
 
 #: kdeconnect-cli.cpp:51
 #, kde-format
@@ -97,8 +97,8 @@ msgid ""
 "Make --list-devices or --list-available print only the devices name, to ease "
 "scripting"
 msgstr ""
-"Scriptak errazteko, --list-devices edo --list-available gailuen izenak "
-"besterik ez dituzte inprimatuko"
+"Gidoiak egitea errazteko, --list-devices edo --list-available aukerek "
+"gailuen izenak bakarrik inprimatu ditzaten egin"
 
 #: kdeconnect-cli.cpp:53
 #, kde-format
@@ -106,13 +106,13 @@ msgid ""
 "Make --list-devices or --list-available print only the devices id and name, "
 "to ease scripting"
 msgstr ""
-"Scriptak errazteko, --list-devices edo --list-available gailuen id eta "
-"izenak besterik ez dituzte inprimatuko"
+"Gidoiak egitea errazteko, --list-devices edo --list-available aukerek "
+"gailuen ID eta izenak bakarrik inprimatu ditzaten egin"
 
 #: kdeconnect-cli.cpp:54
 #, kde-format
 msgid "Search for devices in the network and re-establish connections"
-msgstr "Bilatu gailuak sarean eta birsortu konexioak"
+msgstr "Bilatu gailuak sarean eta konexioak birsortu"
 
 #: kdeconnect-cli.cpp:55
 #, kde-format
@@ -127,17 +127,17 @@ msgstr "Aurkitu adierazitako gailua bere dei-doinua joaz."
 #: kdeconnect-cli.cpp:57
 #, kde-format
 msgid "Stop pairing to a said device"
-msgstr "Gelditu adierazitako gailuarekin parekatzea"
+msgstr "Gelditu adierazitako gailuarekiko parekatzea"
 
 #: kdeconnect-cli.cpp:58
 #, kde-format
 msgid "Sends a ping to said device"
-msgstr "Adierazitako gailuari ping bat bidaltzen dio"
+msgstr "Adierazitako gailura ping bat bidaltzen du"
 
 #: kdeconnect-cli.cpp:59
 #, kde-format
 msgid "Same as ping but you can set the message to display"
-msgstr "Ping baten berdina, baina ikusiko den mezua idatzi dezakezu"
+msgstr "Ping-aren berdina, baina azaldu beharreko mezua ezar dezakezu"
 
 #: kdeconnect-cli.cpp:59 kdeconnect-cli.cpp:66
 #, kde-format
@@ -162,22 +162,22 @@ msgstr "Partekatu testua adierazitako gailuarekin"
 #: kdeconnect-cli.cpp:63
 #, kde-format
 msgid "Display the notifications on a said device"
-msgstr "Erakutsi jakinarazpenak adierazitako gailu batean"
+msgstr "Azaldu jakinarazpenak adierazitako gailuan"
 
 #: kdeconnect-cli.cpp:64
 #, kde-format
 msgid "Lock the specified device"
-msgstr "Blokeatu adierazitako gailua"
+msgstr "Giltzatu zehaztutako gailua"
 
 #: kdeconnect-cli.cpp:65
 #, kde-format
 msgid "Unlock the specified device"
-msgstr "Desblokeatu adierazitako gailua"
+msgstr "Giltzapetik askatu adierazitako gailua"
 
 #: kdeconnect-cli.cpp:66
 #, kde-format
 msgid "Sends an SMS. Requires destination"
-msgstr "SMS bat bidaltzen du. Hartzaile bat behar du"
+msgstr "SMS bat bidaltzen du. Hartzailea behar du"
 
 #: kdeconnect-cli.cpp:67
 #, kde-format
@@ -205,7 +205,7 @@ msgstr "fitxategien URLak"
 #: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "Device ID"
-msgstr "Gailuaren IDa"
+msgstr "Gailuaren ID"
 
 #: kdeconnect-cli.cpp:72
 #, kde-format
@@ -220,37 +220,37 @@ msgstr "Jaso adierazitako gailuari buruzko zifratze informazioa"
 #: kdeconnect-cli.cpp:74
 #, kde-format
 msgid "Lists remote commands and their ids"
-msgstr "Zerrendatu urruneko gailuak eta beraien IDak"
+msgstr "Urruneko komandoak eta haien IDak zerrendatzen ditu"
 
 #: kdeconnect-cli.cpp:75
 #, kde-format
 msgid "Executes a remote command by id"
-msgstr "Agindu bat exekutatzen du ID bidez"
+msgstr "ID bidez urruneko agindu bat exekutatzen du"
 
 #: kdeconnect-cli.cpp:77
 #, kde-format
 msgid "Sends keys to a said device"
-msgstr "Gakoak adierazitako gailura bidaltzen ditu"
+msgstr "Teklak adierazitako gailura bidaltzen ditu"
 
 #: kdeconnect-cli.cpp:78
 #, kde-format
 msgid "Display this device's id and exit"
-msgstr "Bistaratu gailu honen IDa eta irten"
+msgstr "Gailu honen ID azaldu eta irten egiten da"
 
 #: kdeconnect-cli.cpp:124
 #, kde-format
 msgid "(paired and reachable)"
-msgstr "(parekatua eta atzigarria)"
+msgstr "(parekatuta eta eskuragarri)"
 
 #: kdeconnect-cli.cpp:126
 #, kde-format
 msgid "(reachable)"
-msgstr "(atzigarria)"
+msgstr "(eskuragarri)"
 
 #: kdeconnect-cli.cpp:128 kdeconnect-cli.cpp:152
 #, kde-format
 msgid "(paired)"
-msgstr "(parekatua)"
+msgstr "(parekatuta)"
 
 #: kdeconnect-cli.cpp:134
 #, kde-format
@@ -267,7 +267,7 @@ msgstr "Ez da gailurik aurkitu"
 #: kdeconnect-cli.cpp:154
 #, kde-format
 msgid "(unpaired)"
-msgstr "(bereizita)"
+msgstr "(parekatu gabe)"
 
 #: kdeconnect-cli.cpp:197
 #, kde-format
@@ -277,9 +277,9 @@ msgid ""
 "Device ID's and names may be found using \"kdeconnect-cli -l\" \n"
 "View complete help with --help option"
 msgstr ""
-"Ez da gailurik zehaztu: Erabili -d <Gailu ID> edo -n <Gailu-izena> gailu bat "
-"zehazteko. \n"
-"Gailu IDak eta izenak aurki daitezke \"kdeconnect-cli -l\" erabiliz.\n"
+"Ez da gailurik zehaztu: Erabili -d <Gailu ID> edo -n <Gailuaren izena> gailu "
+"bat zehazteko. \n"
+"Gailu IDak eta izenak \"kdeconnect-cli -l\" erabiliz aurki daitezke.\n"
 "Ikusi laguntza osoa --help aukera erabiliz."
 
 #: kdeconnect-cli.cpp:232
@@ -296,13 +296,13 @@ msgstr "Partekatutako testua: %1"
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
-msgstr "%1 blokeatzea eskatu da"
+msgstr "%1 giltzatzea eskatu da."
 
 #: kdeconnect-cli.cpp:250
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
-msgstr "%1 desblokeatzea eskatu da."
+msgstr "%1 giltzapetik askatzea eskatu da."
 
 #: kdeconnect-cli.cpp:257
 #, kde-format
@@ -312,12 +312,12 @@ msgstr "gailuaren zain..."
 #: kdeconnect-cli.cpp:270
 #, kde-format
 msgid "Device not found"
-msgstr "Ez da gailua aurkitu"
+msgstr "Gailua ez da aurkitu"
 
 #: kdeconnect-cli.cpp:272
 #, kde-format
 msgid "Already paired"
-msgstr "Dagoeneko parekatua"
+msgstr "Dagoeneko parekatuta"
 
 #: kdeconnect-cli.cpp:274
 #, kde-format
@@ -327,7 +327,7 @@ msgstr "Parekatzea eskatu da"
 #: kdeconnect-cli.cpp:280
 #, kde-format
 msgid "Already not paired"
-msgstr "Dagoeneko desparekatua"
+msgstr "Dagoeneko parekatua gabe"
 
 #: kdeconnect-cli.cpp:282
 #, kde-format
@@ -340,8 +340,8 @@ msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
 "number>"
 msgstr ""
-"errorea: SMSaren jasotzailea zehaztu behar duzu --destination pasatuz<phone "
-"number>"
+"errorea: SMSaren hartzailea  --destination pasatuz zehaztu beharko "
+"litzateke<phone number>"
 
 #: kdeconnect-cli.cpp:382
 #, kde-format

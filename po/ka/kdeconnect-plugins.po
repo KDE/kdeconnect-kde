@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-06-24 05:44+0200\n"
+"PO-Revision-Date: 2025-07-15 04:00+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -217,16 +217,17 @@ msgstr "ზარის დადუმება"
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
+"დაშორებულ მოწყობილობაზე VNC ან RDP კლიენტი (მაგ: krdc) დაყენებული არაა."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "ლოკალურ მოწყობილობაზე აუცილებელია პაკეტი krdp."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "Cannot start a request without a resolution"
-msgstr ""
+msgstr "გაფართოების გარეშე მოთხოვნას ვერ გაუშვებთ"
 
 #~ msgid "Clipboard plugin"
 #~ msgstr "ბუფერის დამატება"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-06-26 10:41+0400\n"
+"PO-Revision-Date: 2025-07-15 23:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
 #: battery/batteryplugin.cpp:119
@@ -216,17 +216,17 @@ msgstr "اكتم المكالمة"
 #: virtualmonitor/virtualmonitorplugin.cpp:180
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
-msgstr ""
+msgstr "الجهاز البعيد غير مثبت عليه عميل VNC أو RDP (على سبيل المثال krdc)."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "حزمة krdp مطلوبة على الجهاز المحلي."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "Cannot start a request without a resolution"
-msgstr ""
+msgstr "لا يمكن بدء طلب بدون قرار"
 
 #~ msgid "Clipboard plugin"
 #~ msgstr "ملحق الحافظة"
