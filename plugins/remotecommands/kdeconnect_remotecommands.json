@@ -72,7 +72,7 @@
         "Description[eo]": "Ekigi komandojn antaŭdifinitajn sur la fora aparato",
         "Description[es]": "Ejecutar órdenes predefinidas en el dispositivo remoto",
         "Description[et]": "Kaugseadmes määratud käskude käivitamine",
-        "Description[eu]": "Exekutatu urruneko gailuan aurretiaz zehaztutako komandoak",
+        "Description[eu]": "Urruneko gailuan aurretiaz definitutako komandoak eragin",
         "Description[fi]": "Suorita ennakkoon määriteltyjä komentoja etälaitteella",
         "Description[fr]": "Exécuter des commandes prédéfinies sur le périphérique distant",
         "Description[gl]": "Activar ordes predefinidas no dispositivo remoto.",
