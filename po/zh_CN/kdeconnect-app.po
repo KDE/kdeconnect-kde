@@ -158,12 +158,12 @@ msgstr "浏览此设备"
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Stop virtual monitor session"
-msgstr ""
+msgstr "停止虚拟监视器会话"
 
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Use device as an external monitor"
-msgstr ""
+msgstr "使用设备作为外接监视器"
 
 #: qml/DevicePage.qml:213
 #, kde-format
