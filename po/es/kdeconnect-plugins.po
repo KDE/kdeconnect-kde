@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-06-22 18:44+0100\n"
+"PO-Revision-Date: 2025-07-20 00:14+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -220,178 +220,15 @@ msgstr "Silenciar llamada"
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
+"El dispositivo remoto no tiene ningún cliente VNC o RDP (por ejemplo: krdc) "
+"instalado."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "El paquete krdp es necesario en el dispositivo local."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "Cannot start a request without a resolution"
-msgstr ""
-
-#~ msgid "Clipboard plugin"
-#~ msgstr "Complemento del portapapeles"
-
-#~ msgid "Automatic synchronization"
-#~ msgstr "Sincronización automática"
-
-#~ msgid "Automatically share the clipboard from this device"
-#~ msgstr "Compartir automáticamente el portapapeles desde este dispositivo"
-
-#~ msgid "Including passwords (as marked by password managers)"
-#~ msgstr ""
-#~ "Incluyendo contraseñas (como indican los administradores de contraseñas)"
-
-#~ msgid "Discovery Utilities"
-#~ msgstr "Utilidades para descubrir dispositivos"
-
-#~ msgid "Sound to play:"
-#~ msgstr "Sonido a reproducir:"
-
-#~ msgid "Select the sound to play"
-#~ msgstr "Seleccione el sonido a reproducir"
-
-#~ msgid "Pause music plugin"
-#~ msgstr "Pausar complemento musical"
-
-#~ msgid "Condition"
-#~ msgstr "Condición"
-
-#~ msgid "Pause as soon as phone rings"
-#~ msgstr "Pausar cuando el teléfono suene"
-
-#~ msgid "Pause only while talking"
-#~ msgstr "Pausar solo mientras se habla"
-
-#~ msgid "Actions"
-#~ msgstr "Acciones"
-
-#~ msgid "Pause media players"
-#~ msgstr "Pausar reproductores de medios"
-
-#~ msgid "Mute system sound"
-#~ msgstr "Silenciar el sonido del sistema"
-
-#~ msgid "Automatically resume media when call has finished"
-#~ msgstr ""
-#~ "Continuar con la reproducción automáticamente una vez que la llamada "
-#~ "finalice"
-
-#~ msgid "Schedule a shutdown"
-#~ msgstr "Programar un apagado"
-
-#~ msgid "Shutdown now"
-#~ msgstr "Apagar ahora"
-
-#~ msgid "Cancel last shutdown"
-#~ msgstr "Cancelar el último apagado"
-
-#~ msgid "Schedule a reboot"
-#~ msgstr "Programar un reinicio"
-
-#~ msgid "Suspend"
-#~ msgstr "Suspender"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Bloquear pantalla"
-
-#~ msgid "Say Hello"
-#~ msgstr "Saludar"
-
-#~ msgid "Shutdown"
-#~ msgstr "Apagar"
-
-#~ msgid "Reboot"
-#~ msgstr "Reiniciar"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Brillo máximo"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Desbloquear pantalla"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Cerrar todas las cajas fuertes"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Cerrar todas las cajas fuertes de manera inmediata"
-
-#~ msgid "Sample commands"
-#~ msgstr "Órdenes de muestra"
-
-#~ msgid "Export"
-#~ msgstr "Exportar"
-
-#~ msgid "Import"
-#~ msgstr "Importar"
-
-#~ msgid "Command"
-#~ msgstr "Orden"
-
-#~ msgid "Export Commands"
-#~ msgstr "Exportar órdenes"
-
-#~ msgid "Import Commands"
-#~ msgstr "Importar órdenes"
-
-#~ msgid "General"
-#~ msgstr "General"
-
-#~ msgid "Synchronize only notifications with a timeout value of 0?"
-#~ msgstr ""
-#~ "¿Sincronizar solo las notificaciones con un valor de tiempo de espera de "
-#~ "0?"
-
-#~ msgid "Persistent notifications only"
-#~ msgstr "Solo notificaciones persistentes"
-
-#~ msgid ""
-#~ "Append the notification body to the summary when synchronizing "
-#~ "notifications?"
-#~ msgstr ""
-#~ "¿Añadir el cuerpo de la notificación al resumen al sincronizar "
-#~ "notificaciones?"
-
-#~ msgid "Include body"
-#~ msgstr "Incluir cuerpo"
-
-#~ msgid "Synchronize icons of notifying applications if possible?"
-#~ msgstr ""
-#~ "¿Sincronizar los iconos de las aplicaciones que notifican si es posible?"
-
-#~ msgid "Synchronize icons"
-#~ msgstr "Sincronizar iconos"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Nivel mínimo de importancia de las notificaciones</"
-#~ "p></body></html>"
-
-#~ msgid "Synchronize only notifications with the given urgency level."
-#~ msgstr ""
-#~ "Sincronizar solo aquellas notificaciones con un nivel de importancia dado."
-
-#~ msgid "Minimum urgency level"
-#~ msgstr "Nivel mínimo de importancia"
-
-#~ msgid "Applications"
-#~ msgstr "Aplicaciones"
-
-#~ msgid ""
-#~ "&percnt;1 in the path will be replaced with the specific device name."
-#~ msgstr ""
-#~ "&percnt;1 en la ruta será remplazado por el nombre específico del "
-#~ "dispositivo."
-
-#~ msgid "Share plugin settings"
-#~ msgstr "Preferencias del complemento de compartición"
-
-#~ msgid "Receiving"
-#~ msgstr "Recibiendo"
-
-#~ msgid "Save files in:"
-#~ msgstr "Guardar archivos en:"
+msgstr "No se puede iniciar la petición sin una resolución"
