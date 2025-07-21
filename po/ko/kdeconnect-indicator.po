@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-02 10:13+0000\n"
-"PO-Revision-Date: 2025-06-10 23:53+0200\n"
+"PO-Revision-Date: 2025-07-21 00:59+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -49,10 +49,9 @@ msgid "Send files"
 msgstr "파일 보내기"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
-msgstr "SMS 메시지..."
+msgstr "SMS 메시지…"
 
 #: deviceindicator.cpp:130
 #, kde-format
@@ -94,10 +93,9 @@ msgid "KDE Connect Indicator tool"
 msgstr "KDE Connect 표시기 도구"
 
 #: main.cpp:61
-#, fuzzy, kde-format
-#| msgid "(c) 2016-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr "(c) 2016-2025, KDE Connect Team"
+msgstr "© 2016–2025 KDE Connect Team"
 
 #: main.cpp:62
 #, kde-format

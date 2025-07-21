@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-25 00:42+0000\n"
-"PO-Revision-Date: 2025-04-15 23:37+0200\n"
+"PO-Revision-Date: 2025-07-21 01:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -62,12 +62,10 @@ msgid "Reply"
 msgstr "답장"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr "%1 님에게 답장하기..."
+msgstr "%1 님에게 답장…"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -96,10 +94,9 @@ msgid "Name"
 msgstr "이름"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "본문 포함"
+msgstr "제외됨"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
