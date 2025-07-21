@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-04-22 01:23+0200\n"
+"PO-Revision-Date: 2025-07-21 00:59+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -33,10 +33,9 @@ msgid "KDE Connect CLI tool"
 msgstr "KDE Connect 명령행 도구"
 
 #: kdeconnect-cli.cpp:34
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr "(c) 2015-2025, KDE Connect Team"
+msgstr "© 2015–2025, KDE Connect Team"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -186,17 +185,13 @@ msgid "phone number"
 msgstr "전화번호"
 
 #: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
+#, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr "메시지에 첨부할 파일 URL(여러 번 지정할 수 있음)"
 
 #: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
+#, kde-format
 msgid "file URLs"
 msgstr "파일 URL"
 
@@ -302,10 +297,9 @@ msgid "Requested to unlock %1."
 msgstr "%1의 잠금을 해제하기를 요청했습니다."
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "장치 대기 중..."
+msgstr "장치 대기 중…"
 
 #: kdeconnect-cli.cpp:270
 #, kde-format

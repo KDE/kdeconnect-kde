@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2014, 2019, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2014, 2019, 2024, 2025 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2024-12-24 16:46+0100\n"
+"PO-Revision-Date: 2025-07-21 00:59+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,19 +15,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: kiokdeconnect.cpp:75
-#, fuzzy, kde-format
-#| msgid "Listing devices..."
+#, kde-format
 msgid "Listing devices…"
-msgstr "장치 목록 표시 중..."
+msgstr "장치 목록 표시 중…"
 
 #: kiokdeconnect.cpp:120
-#, fuzzy, kde-format
-#| msgid "Accessing device..."
+#, kde-format
 msgid "Accessing device…"
-msgstr "장치에 접근 중..."
+msgstr "장치에 접근 중…"
 
 #: kiokdeconnect.cpp:135
 #, kde-format

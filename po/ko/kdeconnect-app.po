@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-04-22 01:23+0200\n"
+"PO-Revision-Date: 2025-07-21 00:59+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -23,10 +23,9 @@ msgid "KDE Connect"
 msgstr "KDE Connect"
 
 #: main.cpp:42
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr "(c) 2015-2025, KDE Connect Team"
+msgstr "© 2015–2025 KDE Connect Team"
 
 #: main.cpp:43
 #, kde-format
@@ -54,19 +53,19 @@ msgstr "kde@peremen.name"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "앱을 열 장치 ID"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "표시할 설정 모듈, --device를 지정해야 함"
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "실행 중인 인스턴스 대체"
 
 #: main.cpp:86
 #, kde-format
@@ -153,17 +152,17 @@ msgstr "파일 공유"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "이 장치 탐색"
 
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Stop virtual monitor session"
-msgstr ""
+msgstr "가상 모니터 세션 중단"
 
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Use device as an external monitor"
-msgstr ""
+msgstr "장치를 외부 모니터로 사용"
 
 #: qml/DevicePage.qml:213
 #, kde-format

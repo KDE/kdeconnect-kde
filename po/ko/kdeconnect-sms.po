@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-08 00:41+0000\n"
-"PO-Revision-Date: 2025-04-22 01:23+0200\n"
+"PO-Revision-Date: 2025-07-21 01:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -73,10 +73,9 @@ msgid "SMS Instant Messaging"
 msgstr "SMS 인스턴트 메시징"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2018–2025 KDE Connect Team"
-msgstr "(C) 2018-2025, KDE Connect Team"
+msgstr "© 2018–2025 KDE Connect Team"
 
 #: main.cpp:55
 #, kde-format
@@ -174,19 +173,16 @@ msgid "Start new conversation"
 msgstr "새 대화 시작하기"
 
 #: qml/ConversationList.qml:190
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message text when no messages are found"
-#| msgid "No matches"
+#, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "검색 결과 없음"
 
 #: qml/ConversationList.qml:200
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"
-msgstr "새 대화 시작하기"
+msgstr "대화 없음"
 
 #: qml/Main.qml:93
 #, kde-format
