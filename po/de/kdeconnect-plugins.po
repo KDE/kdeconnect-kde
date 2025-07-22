@@ -3,26 +3,27 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2014, 2015, 2017, 2018, 2019, 2021.
 # hkaelber <holger.k@elberer.de>, 2016.
 # Jannick Kuhr <opensource@kuhr.org>, 2023.
+# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2023-12-28 17:05+0100\n"
-"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
+"PO-Revision-Date: 2025-07-09 16:45+0200\n"
+"Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.01.85\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
-msgstr "%1: Niedriger Ladestand"
+msgstr "%1: Niedriger Akkustand"
 
 #: battery/batteryplugin.cpp:120
 #, kde-format
@@ -32,14 +33,14 @@ msgstr "Akku bei %1 %"
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
-msgstr "Entfernte Sperre ist erfolgreich"
+msgstr "Fernsperre erfolgreich"
 
 #: lockdevice/lockdeviceplugin-win.cpp:61
 #: lockdevice/lockdeviceplugin-win.cpp:62 lockdevice/lockdeviceplugin.cpp:92
 #: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
-msgstr "Entfernte Sperre ist fehlgeschlagen"
+msgstr "Fernsperre fehlgeschlagen"
 
 #: mpriscontrol/mpriscontrolplugin-win.cpp:26
 #, kde-format
@@ -54,7 +55,7 @@ msgstr "Aktuelles Wiedergabegerät"
 #: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "N/V"
 
 #: notifications/notification.cpp:108
 #, kde-format
@@ -63,12 +64,10 @@ msgid "Reply"
 msgstr "Antworten"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr "Antwort an %1 ..."
+msgstr "%1 antworten …"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -97,15 +96,14 @@ msgid "Name"
 msgstr "Name"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "Benachrichtigungskörper anhängen"
+msgstr "Ausgenommen"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
-msgstr "Name der benachrichtigenden Anwendung."
+msgstr "Name einer benachrichtigenden Anwendung."
 
 #: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
@@ -119,15 +117,15 @@ msgid ""
 "This pattern is applied to the summary and, if selected above, the body of "
 "notifications."
 msgstr ""
-"Regulärer Ausdruck, der definiert, welche Benachrichtigungen geschickt "
-"werden sollen.\n"
+"Regulärer Ausdruck, der definiert, welche Benachrichtigungen nicht geschickt "
+"werden sollten.\n"
 "Dieses Muster wird auf die Zusammenfassung und, wenn oben ausgewählt, den "
-"Textkörper der Benachrichtigungen angewendet."
+"Textkörper von Benachrichtigungen angewendet."
 
 #: sftp/mounter.cpp:165
 #, kde-format
 msgid "Failed to start sshfs"
-msgstr "Start von SSHFS ist fehlgeschlagen"
+msgstr "Start von sshfs ist fehlgeschlagen"
 
 #: sftp/mounter.cpp:169
 #, kde-format
@@ -159,7 +157,7 @@ msgstr "KDE Connect"
 #: sftp/sftpplugin-win.cpp:80
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
-msgstr "Leider kann das SFTP-Protokoll nicht verarbeitet werden"
+msgstr "Das SFTP-Protokoll kann leider nicht verarbeitet werden."
 
 #: sftp/sftpplugin.cpp:140
 #, kde-format
@@ -181,7 +179,7 @@ msgstr "Geteilter Text von %1 in die Zwischenablage kopiert"
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr "Im Texteditor öffnen"
+msgstr "In Texteditor öffnen"
 
 #: share/shareplugin.cpp:195
 #, kde-format
@@ -217,7 +215,7 @@ msgstr "Verpasster Anruf von %1"
 #: telephony/telephonyplugin.cpp:65
 #, kde-format
 msgid "Mute Call"
-msgstr "Anruf Stummschalten"
+msgstr "Anruf stummschalten"
 
 #: virtualmonitor/virtualmonitorplugin.cpp:180
 #, kde-format

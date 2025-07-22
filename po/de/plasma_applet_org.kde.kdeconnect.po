@@ -1,30 +1,31 @@
 # SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # Burkhard Lück <lueck@hube-lueck.de>, 2015, 2017, 2018, 2019, 2020, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2016, 2018, 2020, 2022, 2023.
+# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2024-08-26 18:40+0200\n"
-"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
+"PO-Revision-Date: 2025-07-09 16:59+0200\n"
+"Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: package/contents/ui/Battery.qml:33
 #, kde-format
 msgid "%1% charging"
-msgstr "%1% wird geladen"
+msgstr "%1 % wird geladen"
 
 #: package/contents/ui/Battery.qml:35
 #, kde-format
 msgid "%1%"
-msgstr "%1 %"
+msgstr "%1 %"
 
 #: package/contents/ui/Battery.qml:38
 #, kde-format
@@ -54,7 +55,7 @@ msgstr "Bitte wählen Sie eine Datei"
 #: package/contents/ui/DeviceDelegate.qml:105
 #, kde-format
 msgid "Share file"
-msgstr "Datei weitergeben"
+msgstr "Datei teilen"
 
 #: package/contents/ui/DeviceDelegate.qml:113
 #, kde-format
@@ -110,7 +111,7 @@ msgstr "Benachrichtigungen:"
 #: package/contents/ui/DeviceDelegate.qml:309
 #, kde-format
 msgid "Dismiss all notifications"
-msgstr "Alle Benachrichtigungen schließen"
+msgstr "Alle Benachrichtigungen verwerfen"
 
 #: package/contents/ui/DeviceDelegate.qml:367
 #, kde-format
@@ -120,7 +121,7 @@ msgstr "Antworten"
 #: package/contents/ui/DeviceDelegate.qml:380
 #, kde-format
 msgid "Dismiss"
-msgstr "Schließen"
+msgstr "Verwerfen"
 
 #: package/contents/ui/DeviceDelegate.qml:393
 #, kde-format
@@ -131,7 +132,7 @@ msgstr "Abbrechen"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr "Antwort an %1 ..."
+msgstr "%1 antworten …"
 
 #: package/contents/ui/DeviceDelegate.qml:425
 #, kde-format
@@ -151,26 +152,26 @@ msgstr "Befehl hinzufügen"
 #: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "No paired devices"
-msgstr "Keine verbundenen Geräte"
+msgstr "Keine gekoppelten Geräte"
 
 #: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
-msgstr[0] "Verbundenes Gerät ist nicht verfügbar"
-msgstr[1] "Kein verbundenes Gerät ist verfügbar"
+msgstr[0] "Gekoppeltes Gerät ist nicht verfügbar"
+msgstr[1] "Alle gekoppelten Geräte sind nicht verfügbar"
 
 #: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
-"Installieren Sie KDE Connect auf Ihren Android-Gerät, um es in Plasma zu "
-"integrieren."
+"Installieren Sie KDE Connect auf Ihrem Android-Gerät, um es in Plasma zu "
+"integrieren!"
 
 #: package/contents/ui/FullRepresentation.qml:70
 #, kde-format
 msgid "Pair a Device…"
-msgstr "Gerät verbinden …"
+msgstr "Ein Gerät koppeln …"
 
 #: package/contents/ui/FullRepresentation.qml:82
 #, kde-format
@@ -185,7 +186,7 @@ msgstr "Von F-Droid installieren"
 #: package/contents/ui/main.qml:54
 #, kde-format
 msgid "KDE Connect Settings…"
-msgstr "KDE-Connect-Einstellungen …"
+msgstr "Einstellungen von KDE Connect …"
 
 #~ msgid "Remote device does not have a VNC client (eg. krdc) installed."
 #~ msgstr ""

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-06-19 13:20+0200\n"
+"PO-Revision-Date: 2025-07-16 09:30+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.07.80\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -158,12 +158,12 @@ msgstr "Naviguer dans ce périphérique"
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Stop virtual monitor session"
-msgstr ""
+msgstr "Arrêter la session du moniteur virtuel"
 
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Use device as an external monitor"
-msgstr ""
+msgstr "Utiliser le périphérique comme écran externe"
 
 #: qml/DevicePage.qml:213
 #, kde-format
