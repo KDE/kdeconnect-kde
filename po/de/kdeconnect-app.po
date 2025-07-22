@@ -4,21 +4,22 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2022, 2023.
 # SPDX-FileCopyrightText: 2023, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # SPDX-FileCopyrightText: 2025 Flori G <Renner03@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-02-17 16:26+0100\n"
-"Last-Translator: Flori G <Renner03@protonmail.com>\n"
+"PO-Revision-Date: 2025-07-09 17:03+0200\n"
+"Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -28,7 +29,7 @@ msgstr "KDE Connect"
 #: main.cpp:42
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025 Das KDE Connect-Team"
 
 #: main.cpp:43
 #, kde-format
@@ -38,7 +39,7 @@ msgstr "Aleix Pol Gonzalez"
 #: main.cpp:44
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:45
 #, kde-format
@@ -56,29 +57,29 @@ msgstr "kde-i18n-de@kde.org"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "Gerätekennung des Geräts, auf dem die Anwendung geöffnet werden soll"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "Anzuzeigendes Einstellungsmodul, erfordert „--device“"
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Eine bestehende Instanz ersetzen"
 
 #: main.cpp:86
 #, kde-format
 msgid "URL to share"
-msgstr "URL (Adresse) zur Freigabe"
+msgstr "Zu teilende URL"
 
 #: qml/DevicePage.qml:36
 #, kde-format
 msgid "Unpair"
-msgstr "Verbindung trennen"
+msgstr "Entkoppeln"
 
 #: qml/DevicePage.qml:41
 #, kde-format
@@ -97,11 +98,10 @@ msgid "Actions"
 msgstr "Aktionen"
 
 #: qml/DevicePage.qml:67
-#, fuzzy, kde-format
-#| msgid "Remote Control"
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr "Fernsteuerung"
+msgstr "Steuerung"
 
 #: qml/DevicePage.qml:113
 #, kde-format
@@ -121,7 +121,7 @@ msgstr "Befehl ausführen"
 #: qml/DevicePage.qml:137 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
-msgstr "Fernpräsentation"
+msgstr "Präsentationsfernsteuerung"
 
 #: qml/DevicePage.qml:145 qml/volume.qml:16
 #, kde-format
@@ -156,23 +156,18 @@ msgstr "Datei teilen"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Dieses Gerät durchsuchen"
 
 #: qml/DevicePage.qml:196
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"Dieses Gerät ist nicht verbunden.\n"
-"Schlüssel: %1"
+msgstr "Dieses Gerät ist nicht gekoppelt."
 
 #: qml/DevicePage.qml:200
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
-msgstr "Verbinden"
+msgstr "Koppeln"
 
 #: qml/DevicePage.qml:207 qml/DevicePage.qml:216
 #, kde-format
@@ -180,8 +175,8 @@ msgid ""
 "Pair requested\n"
 "Key: "
 msgstr ""
-"Die Verbindung wurde angefordert.\n"
-"Schlüssel:"
+"Kopplung angefordert\n"
+"Schlüssel: "
 
 #: qml/DevicePage.qml:222
 #, kde-format
@@ -204,9 +199,7 @@ msgid "Please choose a file"
 msgstr "Bitte wählen Sie eine Datei"
 
 #: qml/Main.qml:87
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Geräte"
 
@@ -217,12 +210,10 @@ msgid "Refresh"
 msgstr "Aktualisieren"
 
 #: qml/Main.qml:97
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Geräte"
+msgstr "Geräte aktualisieren"
 
 #: qml/Main.qml:133
 #, kde-format
@@ -264,19 +255,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Linksklick"
 
 #: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Mittelklick"
 
 #: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Rechtsklick"
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -378,11 +369,10 @@ msgstr ""
 "ist."
 
 #: qml/WelcomePage.qml:43
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr "KDE Connect"
+msgstr "KDE Connect Android-App"
 
 #: qml/WelcomePage.qml:50
 #, kde-format
@@ -397,11 +387,10 @@ msgid "Play Store"
 msgstr "Play Store"
 
 #: qml/WelcomePage.qml:63
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr "KDE Connect"
+msgstr "KDE Connect iOS-App"
 
 #: qml/WelcomePage.qml:68
 #, kde-format
@@ -417,7 +406,7 @@ msgid ""
 msgstr ""
 "Bei Problemen besuchen Sie das <a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">Community Wiki von KDE "
-"Connect</span></a> für Hilfestellungen."
+"Connect</span></a>, um Hilfe zu bekommen."
 
 #~ msgid "(c) 2015, Aleix Pol Gonzalez"
 #~ msgstr "(c) 2015, Aleix Pol Gonzalez"
