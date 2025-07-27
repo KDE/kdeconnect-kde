@@ -1,0 +1,212 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2025 Alireza Rashidi <injaneb@dock.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"PO-Revision-Date: 2025-07-25 15:23+0330\n"
+"Last-Translator: Alireza Rashidi <injaneb@dock.com>\n"
+"Language-Team: Persian\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 25.04.3\n"
+
+#: battery/batteryplugin.cpp:119
+#, kde-format
+msgctxt "device name: low battery"
+msgid "%1: Low Battery"
+msgstr "%1: باتری کم"
+
+#: battery/batteryplugin.cpp:120
+#, kde-format
+msgid "Battery at %1%"
+msgstr "باتری در %1%"
+
+#: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
+#, kde-format
+msgid "Remote lock successful"
+msgstr "قفل راه دور موفق"
+
+#: lockdevice/lockdeviceplugin-win.cpp:61
+#: lockdevice/lockdeviceplugin-win.cpp:62 lockdevice/lockdeviceplugin.cpp:92
+#: lockdevice/lockdeviceplugin.cpp:94
+#, kde-format
+msgid "Remote lock failed"
+msgstr "قفل راه دور ناموفق"
+
+#: mpriscontrol/mpriscontrolplugin-win.cpp:26
+#, kde-format
+msgctxt ""
+"@title Users select this to control the current media player when we can't "
+"detect a specific player name like VLC"
+msgid "Current Player"
+msgstr "پخش‌کننده کنونی"
+
+#: mpriscontrol/mpriscontrolplugin-win.cpp:93
+#: mpriscontrol/mpriscontrolplugin-win.cpp:94
+#: mpriscontrol/mpriscontrolplugin-win.cpp:95
+#, kde-format
+msgid "N/A"
+msgstr "ناموجود"
+
+#: notifications/notification.cpp:108
+#, kde-format
+msgctxt "@action:button"
+msgid "Reply"
+msgstr "پاسخ"
+
+#: notifications/notification.cpp:109
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr "پاسخ به %1…"
+
+#: notifications/sendreplydialog.cpp:29
+#, kde-format
+msgid "Send"
+msgstr "فرستادن"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SendReplyDialog)
+#: notifications/sendreplydialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "گفت‌وگو"
+
+#: ping/pingplugin.cpp:26
+#, kde-format
+msgid "Ping!"
+msgstr "آزمایش!"
+
+#: screensaver-inhibit/screensaverinhibitplugin.cpp:24
+#, kde-format
+msgid "Phone is connected"
+msgstr "تلفن متصل است"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:178
+#, kde-format
+msgid "Name"
+msgstr "نام"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:182
+#, kde-format
+msgid "Excluded"
+msgstr "کنار گذاشته شده"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:186
+#, kde-format
+msgid "Name of a notifying application."
+msgstr "نام برنامه آگاه‌ساز"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:188
+#, kde-format
+msgid "Synchronize notifications of an application?"
+msgstr "همگام‌سازی آگاه‌سازهای یک برنامه؟"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:191
+#, kde-format
+msgid ""
+"Regular expression defining which notifications should not be sent.\n"
+"This pattern is applied to the summary and, if selected above, the body of "
+"notifications."
+msgstr ""
+"عبارت منظم مشخص‌کننده آگاه‌سازهایی که نباید فرستاده شوند.\n"
+"این الگو در خلاصه آگاه‌ساز، و با انتخاب بالا در بدنه آن پیاده می‌شود."
+
+#: sftp/mounter.cpp:165
+#, kde-format
+msgid "Failed to start sshfs"
+msgstr "آغاز sshfs ناموفق بود"
+
+#: sftp/mounter.cpp:169
+#, kde-format
+msgid "sshfs process crashed"
+msgstr "فرایند sshfs از کار افتاده است"
+
+#: sftp/mounter.cpp:173
+#, kde-format
+msgid "Unknown error in sshfs"
+msgstr "خطای ناشناخته در sshfs"
+
+#: sftp/mounter.cpp:184
+#, kde-format
+msgid "Error when accessing filesystem. sshfs finished with exit code %0"
+msgstr "خطا در دسترسی به سامانه پرونده. sshfs با کد خروج %0 پایان یافت"
+
+#: sftp/mounter.cpp:193
+#, kde-format
+msgid "Failed to mount filesystem: device not responding"
+msgstr "نصب سامانه پرونده ناموفق: دستگاه پاسخ نمی‌دهد"
+
+#: sftp/sftpplugin-win.cpp:79
+#, kde-format
+msgid "KDE Connect"
+msgstr "کی‌دی‌ای کانکت"
+
+#: sftp/sftpplugin-win.cpp:80
+#, kde-format
+msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
+msgstr "نمی‌توان قرارداد SFTP را مدیریت کرد. پوزش بابت مشکل"
+
+#: sftp/sftpplugin.cpp:140
+#, kde-format
+msgid "All files"
+msgstr "همه پرونده‌ها"
+
+#: sftp/sftpplugin.cpp:141
+#, kde-format
+msgid "Camera pictures"
+msgstr "تصاویر دوربین"
+
+#: share/shareplugin.cpp:160
+#, kde-format
+msgctxt "@info Some piece of text was received from a connected device"
+msgid "Shared text from %1 copied to clipboard"
+msgstr "متن هم‌رسانی‌شده از %1 به بریده‌دان رونوشت شد"
+
+#: share/shareplugin.cpp:191
+#, kde-format
+msgctxt "@action:button Edit text with default text editor"
+msgid "Open in Text Editor"
+msgstr "باز کردن در ویرایشگر متن"
+
+#: share/shareplugin.cpp:195
+#, kde-format
+msgctxt "@action:button Open URL with default app"
+msgid "Open Link"
+msgstr "باز کردن پیوند"
+
+#: share/shareplugin.cpp:237
+#, kde-format
+msgid "Could not share file"
+msgstr "نمی‌توان پرونده را هم‌رسانی کرد"
+
+#: share/shareplugin.cpp:237
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 وجود ندارد"
+
+#: telephony/telephonyplugin.cpp:23
+#, kde-format
+msgid "unknown number"
+msgstr "شماره ناشناخته"
+
+#: telephony/telephonyplugin.cpp:32
+#, kde-format
+msgid "Incoming call from %1"
+msgstr "تماس ورودی از %1"
+
+#: telephony/telephonyplugin.cpp:36
+#, kde-format
+msgid "Missed call from %1"
+msgstr "تماس از دست رفته از %1"
+
+#: telephony/telephonyplugin.cpp:65
+#, kde-format
+msgid "Mute Call"
+msgstr "بی‌صدا کردن تماس"

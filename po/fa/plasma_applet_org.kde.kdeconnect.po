@@ -1,0 +1,203 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2025 Alireza Rashidi <injaneb@dock.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"PO-Revision-Date: 2025-07-25 15:38+0330\n"
+"Last-Translator: Alireza Rashidi <injaneb@dock.com>\n"
+"Language-Team: Persian\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 25.04.3\n"
+
+#: package/contents/ui/Battery.qml:33
+#, kde-format
+msgid "%1% charging"
+msgstr "%1% در حال شارژ"
+
+#: package/contents/ui/Battery.qml:35
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/Battery.qml:38
+#, kde-format
+msgid "No info"
+msgstr "بدون اطلاعات"
+
+#: package/contents/ui/Connectivity.qml:43
+#, kde-format
+msgid "Unknown"
+msgstr "ناشناخته"
+
+#: package/contents/ui/Connectivity.qml:54
+#, kde-format
+msgid "No signal"
+msgstr "بدون سیگنال"
+
+#: package/contents/ui/DeviceDelegate.qml:82
+#, kde-format
+msgid "Virtual Monitor is not available"
+msgstr "نمایشگر مجازی در دسترس نیست"
+
+#: package/contents/ui/DeviceDelegate.qml:87
+#, kde-format
+msgid "Please choose a file"
+msgstr "پرونده‌ای را انتخاب کنید"
+
+#: package/contents/ui/DeviceDelegate.qml:105
+#, kde-format
+msgid "Share file"
+msgstr "هم‌رسانی پرونده"
+
+#: package/contents/ui/DeviceDelegate.qml:113
+#, kde-format
+msgid "Send Clipboard"
+msgstr "فرستادن بریده‌دان"
+
+#: package/contents/ui/DeviceDelegate.qml:124
+#, kde-format
+msgid "Ring my phone"
+msgstr "زنگ زدن به تلفن"
+
+#: package/contents/ui/DeviceDelegate.qml:135
+#, kde-format
+msgid "Browse this device"
+msgstr "مرور این دستگاه"
+
+#: package/contents/ui/DeviceDelegate.qml:146
+#, kde-format
+msgid "SMS Messages"
+msgstr "پیامک‌ها"
+
+#: package/contents/ui/DeviceDelegate.qml:170
+#, kde-format
+msgid "File Transfer"
+msgstr "جابه‌جایی پرونده"
+
+#: package/contents/ui/DeviceDelegate.qml:171
+#, kde-format
+msgid "Drop a file to transfer it onto your phone."
+msgstr "پرونده‌ای را رها کنید تا به تلفن شما فرستاده شود."
+
+#: package/contents/ui/DeviceDelegate.qml:193
+#, kde-format
+msgid "Virtual Display"
+msgstr "نمایشگر مجازی"
+
+#: package/contents/ui/DeviceDelegate.qml:197
+#, kde-format
+msgid "Remote device does not have a VNC client (eg. krdc) installed."
+msgstr "در دستگاه راه دور هیچ کارخواه VNC (مانند krdc) نصب نشده."
+
+#: package/contents/ui/DeviceDelegate.qml:201
+#, kde-format
+msgid "The krfb package is required on the local device."
+msgstr "روی دستگاه محلی بسته krfb لازم است."
+
+#: package/contents/ui/DeviceDelegate.qml:208
+#, kde-format
+msgid "Failed to create the virtual monitor."
+msgstr "ساخت نمایشگر مجازی ناموفق بود."
+
+#: package/contents/ui/DeviceDelegate.qml:259
+#, kde-format
+msgctxt "Battery charge percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/DeviceDelegate.qml:285
+#, kde-format
+msgid "Remote Keyboard"
+msgstr "صفحه‌کلید راه دور"
+
+#: package/contents/ui/DeviceDelegate.qml:306
+#, kde-format
+msgid "Notifications:"
+msgstr "آگاه‌سازها:"
+
+#: package/contents/ui/DeviceDelegate.qml:314
+#, kde-format
+msgid "Dismiss all notifications"
+msgstr "رد کردن همه آگاه‌سازها"
+
+#: package/contents/ui/DeviceDelegate.qml:372
+#, kde-format
+msgid "Reply"
+msgstr "پاسخ"
+
+#: package/contents/ui/DeviceDelegate.qml:385
+#, kde-format
+msgid "Dismiss"
+msgstr "نادیده گرفتن"
+
+#: package/contents/ui/DeviceDelegate.qml:398
+#, kde-format
+msgid "Cancel"
+msgstr "رد کردن"
+
+#: package/contents/ui/DeviceDelegate.qml:412
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr "پاسخ به %1…"
+
+#: package/contents/ui/DeviceDelegate.qml:430
+#, kde-format
+msgid "Send"
+msgstr "فرستادن"
+
+#: package/contents/ui/DeviceDelegate.qml:451
+#, kde-format
+msgid "Run command"
+msgstr "اجرای فرمان"
+
+#: package/contents/ui/DeviceDelegate.qml:458
+#, kde-format
+msgid "Add command"
+msgstr "افزودن فرمان"
+
+#: package/contents/ui/FullRepresentation.qml:64
+#, kde-format
+msgid "No paired devices"
+msgstr "هیچ دستگاه جفت‌شده‌ای نیست"
+
+#: package/contents/ui/FullRepresentation.qml:64
+#, kde-format
+msgid "Paired device is unavailable"
+msgid_plural "All paired devices are unavailable"
+msgstr[0] "دستگاه جفت‌شده در دسترس نیست"
+msgstr[1] "همه دستگاه‌های جفت‌شده در دسترس نیستند"
+
+#: package/contents/ui/FullRepresentation.qml:66
+#, kde-format
+msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
+msgstr ""
+"کی‌دی‌ای کانکت را روی دستگاه اندرویدی خود نصب کنید تا با پلاسما یکپارچه شود!"
+
+#: package/contents/ui/FullRepresentation.qml:70
+#, kde-format
+msgid "Pair a Device…"
+msgstr "جفت‌سازی دستگاه…"
+
+#: package/contents/ui/FullRepresentation.qml:82
+#, kde-format
+msgid "Install from Google Play"
+msgstr "نصب از گوگل پلی"
+
+#: package/contents/ui/FullRepresentation.qml:92
+#, kde-format
+msgid "Install from F-Droid"
+msgstr "نصب از اف‌دروید"
+
+#: package/contents/ui/main.qml:54
+#, kde-format
+msgid "KDE Connect Settings…"
+msgstr "تنظیمات کی‌دی‌ای کانکت…"
