@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-06-21 21:31+0200\n"
+"PO-Revision-Date: 2025-07-28 18:08+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -157,12 +157,12 @@ msgstr "Bläddra på apparaten"
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Stop virtual monitor session"
-msgstr ""
+msgstr "Stoppa virtuell bildskärmssession"
 
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Use device as an external monitor"
-msgstr ""
+msgstr "Använd enhet som en extern monitor"
 
 #: qml/DevicePage.qml:213
 #, kde-format

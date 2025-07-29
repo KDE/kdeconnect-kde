@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-06-21 12:48+0200\n"
+"PO-Revision-Date: 2025-07-28 18:23+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -159,12 +159,12 @@ msgstr "Преглед на това устройство"
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Stop virtual monitor session"
-msgstr ""
+msgstr "Спиране на сесията с виртуален монитор"
 
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Use device as an external monitor"
-msgstr ""
+msgstr "Използване на устройството като външен монитор"
 
 #: qml/DevicePage.qml:213
 #, kde-format

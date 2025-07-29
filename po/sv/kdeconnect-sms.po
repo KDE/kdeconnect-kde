@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-08 00:41+0000\n"
-"PO-Revision-Date: 2025-06-21 21:33+0200\n"
+"PO-Revision-Date: 2025-07-28 18:10+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -174,19 +174,16 @@ msgid "Start new conversation"
 msgstr "Starta ny konversation"
 
 #: qml/ConversationList.qml:190
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message text when no messages are found"
-#| msgid "No matches"
+#, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "Inga träffar"
 
 #: qml/ConversationList.qml:200
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"
-msgstr "Starta ny konversation"
+msgstr "Inga konversationer"
 
 #: qml/Main.qml:93
 #, kde-format

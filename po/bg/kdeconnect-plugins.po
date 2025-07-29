@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-06-21 12:14+0200\n"
+"PO-Revision-Date: 2025-07-28 18:28+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -216,16 +216,17 @@ msgstr "Заглушаване на обаждането"
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
+"На отдалеченото устройство не е инсталиран VNC или RDP клиент (напр. krdc)."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "Пакетът krdp е необходим на локалното устройство."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "Cannot start a request without a resolution"
-msgstr ""
+msgstr "Не може да се стартира заявка без резолюция"
 
 #~ msgid "Clipboard plugin"
 #~ msgstr "Приставка за клипборд"
