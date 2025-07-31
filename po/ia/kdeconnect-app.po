@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-04-22 12:01+0200\n"
+"PO-Revision-Date: 2025-07-30 18:28+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -24,10 +24,9 @@ msgid "KDE Connect"
 msgstr "KDE Connect"
 
 #: main.cpp:42
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr "(C) 2015-2025, KDE Connect Team (Equipa de KDE Connect)"
+msgstr "© 2015–2025 KDE Connect Team (Equipa de KDE Connect)"
 
 #: main.cpp:43
 #, kde-format
@@ -55,19 +54,20 @@ msgstr "g.sora@tiscali.it"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "Id de dispositivo ubi aperir le app"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
 msgstr ""
+"Modulo de configuration a monstrar, il require -device per esser assignate."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Reimplacia un instantia existente"
 
 #: main.cpp:86
 #, kde-format
@@ -154,7 +154,7 @@ msgstr "Comparti file"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Naviga iste dispositivo"
 
 #: qml/DevicePage.qml:196
 #, kde-format

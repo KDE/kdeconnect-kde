@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-04-22 12:01+0200\n"
+"PO-Revision-Date: 2025-07-30 18:29+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -33,10 +33,9 @@ msgid "KDE Connect CLI tool"
 msgstr "KDE Connect instrumento CLI"
 
 #: kdeconnect-cli.cpp:34
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr "(C) 2015-2025, KDE Connect Team (Equipa de KDE Connect)"
+msgstr "© 2015–2025 KDE Connect Team (Equipa de KDE Connect)"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -186,21 +185,17 @@ msgid "phone number"
 msgstr "Numero de tele&phono:"
 
 #: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
+#, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
-"Urls de file al qual inviar attachamentos con le message (pote esser passate "
+"URLs de file al qual inviar attachamentos con le message (pote esser passate "
 "multiple vices)"
 
 #: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
+#, kde-format
 msgid "file URLs"
-msgstr "urls de file"
+msgstr "URLs de file"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
@@ -306,10 +301,9 @@ msgid "Requested to unlock %1."
 msgstr "Requirite a disblocar %1."
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "attendente dispositivo..."
+msgstr "attendente dispositivo…"
 
 #: kdeconnect-cli.cpp:270
 #, kde-format
