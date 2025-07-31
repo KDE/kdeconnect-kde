@@ -52,15 +52,15 @@ int main(int argc, char **argv)
     parser.addOption(QCommandLineOption(QStringLiteral("id-name-only"),
                                         i18n("Make --list-devices or --list-available print only the devices id and name, to ease scripting")));
     parser.addOption(QCommandLineOption(QStringLiteral("refresh"), i18n("Search for devices in the network and re-establish connections")));
-    parser.addOption(QCommandLineOption(QStringLiteral("pair"), i18n("Request pairing to a said device")));
-    parser.addOption(QCommandLineOption(QStringLiteral("ring"), i18n("Find the said device by ringing it.")));
-    parser.addOption(QCommandLineOption(QStringLiteral("unpair"), i18n("Stop pairing to a said device")));
-    parser.addOption(QCommandLineOption(QStringLiteral("ping"), i18n("Sends a ping to said device")));
+    parser.addOption(QCommandLineOption(QStringLiteral("pair"), i18n("Request pairing with device")));
+    parser.addOption(QCommandLineOption(QStringLiteral("ring"), i18n("Find device by ringing it")));
+    parser.addOption(QCommandLineOption(QStringLiteral("unpair"), i18n("Unpair from device")));
+    parser.addOption(QCommandLineOption(QStringLiteral("ping"), i18n("Send ping to device")));
     parser.addOption(QCommandLineOption(QStringLiteral("ping-msg"), i18n("Same as ping but you can set the message to display"), i18n("message")));
-    parser.addOption(QCommandLineOption(QStringLiteral("send-clipboard"), i18n("Sends the current clipboard to said device")));
-    parser.addOption(QCommandLineOption(QStringLiteral("share"), i18n("Share a file/URL to a said device"), QStringLiteral("path or URL")));
-    parser.addOption(QCommandLineOption(QStringLiteral("share-text"), i18n("Share text to a said device"), QStringLiteral("text")));
-    parser.addOption(QCommandLineOption(QStringLiteral("list-notifications"), i18n("Display the notifications on a said device")));
+    parser.addOption(QCommandLineOption(QStringLiteral("send-clipboard"), i18n("Send clipboard to device")));
+    parser.addOption(QCommandLineOption(QStringLiteral("share"), i18n("Share file/URL to device"), QStringLiteral("path or URL")));
+    parser.addOption(QCommandLineOption(QStringLiteral("share-text"), i18n("Share text to device"), QStringLiteral("text")));
+    parser.addOption(QCommandLineOption(QStringLiteral("list-notifications"), i18n("Display notifications on device")));
     parser.addOption(QCommandLineOption(QStringLiteral("lock"), i18n("Lock the specified device")));
     parser.addOption(QCommandLineOption(QStringLiteral("unlock"), i18n("Unlock the specified device")));
     parser.addOption(QCommandLineOption(QStringLiteral("send-sms"), i18n("Sends an SMS. Requires destination"), i18n("message")));
@@ -70,11 +70,10 @@ int main(int argc, char **argv)
                                         i18n("file URLs")));
     parser.addOption(QCommandLineOption(QStringList{QStringLiteral("device"), QStringLiteral("d")}, i18n("Device ID"), QStringLiteral("dev")));
     parser.addOption(QCommandLineOption(QStringList{QStringLiteral("name"), QStringLiteral("n")}, i18n("Device Name"), QStringLiteral("name")));
-    parser.addOption(QCommandLineOption(QStringLiteral("encryption-info"), i18n("Get encryption info about said device")));
-    parser.addOption(QCommandLineOption(QStringLiteral("list-commands"), i18n("Lists remote commands and their ids")));
-    parser.addOption(QCommandLineOption(QStringLiteral("execute-command"), i18n("Executes a remote command by id"), QStringLiteral("id")));
-    parser.addOption(
-        QCommandLineOption(QStringList{QStringLiteral("k"), QStringLiteral("send-keys")}, i18n("Sends keys to a said device"), QStringLiteral("key")));
+    parser.addOption(QCommandLineOption(QStringLiteral("encryption-info"), i18n("Get encryption info about device")));
+    parser.addOption(QCommandLineOption(QStringLiteral("list-commands"), i18n("List remote commands and their ids")));
+    parser.addOption(QCommandLineOption(QStringLiteral("execute-command"), i18n("Execute remote command by id"), QStringLiteral("id")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("k"), QStringLiteral("send-keys")}, i18n("Send keys to device"), QStringLiteral("key")));
     parser.addOption(QCommandLineOption(QStringLiteral("my-id"), i18n("Display this device's id and exit")));
     parser.addOption(QCommandLineOption(QStringLiteral("mount"), i18n("Mount filesystem of a said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("get-mount-point"), i18n("Print mount point for the filesystem of a said device")));
@@ -281,7 +280,7 @@ int main(int argc, char **argv)
             if (!dev.isPaired()) {
                 QTextStream(stderr) << i18n("Already not paired") << Qt::endl;
             } else {
-                QTextStream(stderr) << i18n("Unpaired") << Qt::endl;
+                QTextStream(stderr) << i18n("Successfully unpaired") << Qt::endl;
                 blockOnReply(dev.unpair());
             }
         } else if (parser.isSet(QStringLiteral("send-clipboard"))) {
