@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Martin Schlander <mschlander@opensuse.org>, 2014, 2015, 2016, 2019, 2020.
 # scootergrisen, 2017.
-# SPDX-FileCopyrightText: 2024 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
+# SPDX-FileCopyrightText: 2024, 2025 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2024-07-17 13:53+0200\n"
+"PO-Revision-Date: 2025-07-31 12:08+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -54,7 +54,7 @@ msgstr "Nuværende spiller"
 #: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "Utilg."
 
 #: notifications/notification.cpp:108
 #, kde-format
@@ -63,9 +63,7 @@ msgid "Reply"
 msgstr "Svar"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Svar til %1…"
@@ -97,10 +95,9 @@ msgid "Name"
 msgstr "Navn"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "Medtag brødtekst"
+msgstr "Ekskluderet"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -220,16 +217,17 @@ msgstr "Sæt opkald på lydløs"
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
+"Ekstern enhed har ikke en VNC- eller RDP-klient (f.eks. krdc) installeret."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "Krdp-pakken er påkrævet på den lokale enhed."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "Cannot start a request without a resolution"
-msgstr ""
+msgstr "Kan ikke starte en forespørgsel uden en opløsning"
 
 #~ msgid "Clipboard plugin"
 #~ msgstr "Udklipsholder-plugin"
