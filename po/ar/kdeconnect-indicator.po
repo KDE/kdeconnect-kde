@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-02 10:13+0000\n"
-"PO-Revision-Date: 2025-06-26 10:42+0400\n"
+"PO-Revision-Date: 2025-07-31 18:25+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -148,7 +148,7 @@ msgstr[5] "%1 جهاز متصل"
 #: systray_actions/battery_action.cpp:28
 #, kde-format
 msgid "No Battery"
-msgstr "بدون بطارية"
+msgstr "بلا بطارية"
 
 #: systray_actions/battery_action.cpp:30
 #, kde-format
