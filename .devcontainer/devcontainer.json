@@ -1,0 +1,30 @@
+{
+  "name": "KDEConnect",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/cmake:1": {},
+    "ghcr.io/devcontainers/features/apt-packages:1": {
+      "packages": [
+        "ninja-build",
+        "extra-cmake-modules",
+        "qtbase5-dev",
+        "qtdeclarative5-dev",
+        "qttools5-dev",
+        "qttools5-dev-tools",
+        "libkf5coreaddons-dev",
+        "libkf5config-dev",
+        "libkf5i18n-dev",
+        "libkf5kio-dev",
+        "libkf5notifications-dev",
+        "libkf5solid-dev",
+        "libkf5dbusaddons-dev",
+        "libkf5networkmanagerqt-dev",
+        "libkf5bluezqt-dev",
+        "libssl-dev",
+        "libprotobuf-dev",
+        "protobuf-compiler"
+      ]
+    }
+  },
+  "postCreateCommand": "echo '✅ Dev container ready. You can now build KDE Connect.'"
+}
