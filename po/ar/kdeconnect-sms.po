@@ -229,7 +229,7 @@ msgstr "أرفق صورة أو ملف"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
-msgstr "امسح المرفقات"
+msgstr "امحُ المرفقات"
 
 #: qml/SendingArea.qml:173
 #, kde-format
