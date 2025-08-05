@@ -108,7 +108,7 @@ msgstr "اسم التّطبيق المُخطر."
 #: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
-msgstr "أأزامن إخطارات التّطبيق؟"
+msgstr "أأزامن إشعارات التّطبيق؟"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
@@ -117,8 +117,8 @@ msgid ""
 "This pattern is applied to the summary and, if selected above, the body of "
 "notifications."
 msgstr ""
-"تعبير نمطيّ يحدّد أيّ الإخطارات يجب ألّا تُرسل.\n"
-"يُطبّق هذا النّمط على الملخّص ومتن الإخطارات (إن كان محدّدًا أعلاه)."
+"تعبير نمطيّ يحدّد أيّ الإشعارات يجب ألّا تُرسل.\n"
+"يُطبّق هذا النّمط على الملخّص ومتن الإشعارات (إن كان محدّدًا أعلاه)."
 
 #: sftp/mounter.cpp:165
 #, kde-format

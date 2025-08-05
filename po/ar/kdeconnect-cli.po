@@ -159,7 +159,7 @@ msgstr "شارك نص مع الجهاز المذكور"
 #: kdeconnect-cli.cpp:63
 #, kde-format
 msgid "Display the notifications on a said device"
-msgstr "اعرض الإخطارات في الجهاز"
+msgstr "اعرض الإشعارات في الجهاز"
 
 #: kdeconnect-cli.cpp:64
 #, kde-format
