@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-25 00:42+0000\n"
-"PO-Revision-Date: 2025-06-26 10:41+0400\n"
+"PO-Revision-Date: 2025-08-03 11:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -108,7 +108,7 @@ msgstr "اسم التّطبيق المُخطر."
 #: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
-msgstr "أأزامن إخطارات التّطبيق؟"
+msgstr "أأزامن إشعارات التّطبيق؟"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
@@ -117,8 +117,8 @@ msgid ""
 "This pattern is applied to the summary and, if selected above, the body of "
 "notifications."
 msgstr ""
-"تعبير نمطيّ يحدّد أيّ الإخطارات يجب ألّا تُرسل.\n"
-"يُطبّق هذا النّمط على الملخّص ومتن الإخطارات (إن كان محدّدًا أعلاه)."
+"تعبير نمطيّ يحدّد أيّ الإشعارات يجب ألّا تُرسل.\n"
+"يُطبّق هذا النّمط على الملخّص ومتن الإشعارات (إن كان محدّدًا أعلاه)."
 
 #: sftp/mounter.cpp:165
 #, kde-format
