@@ -51,7 +51,7 @@
             }
         ],
         "Description": "Show notifications for incoming calls",
-        "Description[ar]": "أظهر إخطارات المكالمات الواردة",
+        "Description[ar]": "أظهر إشعارات المكالمات الواردة",
         "Description[az]": "Daxil olan zəng bildirişlərini göstərmək",
         "Description[bg]": "Показване на известие за входящо обаждане",
         "Description[ca@valencia]": "Mostra les notificacions de les tocades entrants",

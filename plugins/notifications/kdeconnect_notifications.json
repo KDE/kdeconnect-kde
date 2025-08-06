@@ -51,7 +51,7 @@
             }
         ],
         "Description": "Show device's notifications on this computer and keep them in sync",
-        "Description[ar]": "أظهر إخطارات الجهاز على هذا الحاسوب وأبقها متزامنة",
+        "Description[ar]": "أظهر إشعارات الجهاز على هذا الحاسوب وأبقها متزامنة",
         "Description[az]": "Cihaz bildirişlərini bu komputerdə göstərmək və onları eyniləşdirmək",
         "Description[bg]": "Показване и синхронизиране на известията на устройството с този компютър",
         "Description[ca@valencia]": "Mostra les notificacions del dispositiu en l'ordinador i les manté sincronitzades",
@@ -107,7 +107,7 @@
         "Icon": "preferences-desktop-notification",
         "License": "GPL",
         "Name": "Receive notifications",
-        "Name[ar]": "استقبل الإخطارات",
+        "Name[ar]": "استقبل الإشعارات",
         "Name[az]": "Bildirişləri almaq",
         "Name[bg]": "Получаване на известия",
         "Name[ca@valencia]": "Recepció de les notificacions",
