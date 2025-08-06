@@ -58,7 +58,7 @@
             }
         ],
         "Description": "Broadcast this computer's notifications, so they can be shown on other devices.",
-        "Description[ar]": "بُثّ إخطارات هذا الحاسوب، لتظهر على الأجهزة الأخرى.",
+        "Description[ar]": "بُثّ إشعارات هذا الحاسوب، لتظهر على الأجهزة الأخرى.",
         "Description[az]": "Bu kompyuterin bildirişlərini yaymaq, belə ki, onlar başqa cihazlarda göstəriləcək.",
         "Description[bg]": "Излъчване на известията на този компютър, така че да се показват на други устройства.",
         "Description[ca@valencia]": "Fa difusió de les notificacions d'este ordinador, de manera que es poden mostrar en altres dispositius.",
@@ -106,7 +106,7 @@
         "Icon": "preferences-desktop-notification",
         "License": "GPL",
         "Name": "Send notifications",
-        "Name[ar]": "أرسل إخطارات",
+        "Name[ar]": "أرسل إشعارات",
         "Name[az]": "Bildirişləri göndərin",
         "Name[bg]": "Изпращане на известие",
         "Name[ca@valencia]": "Envia les notificacions",
