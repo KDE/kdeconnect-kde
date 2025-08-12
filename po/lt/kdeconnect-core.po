@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-24 00:41+0000\n"
-"PO-Revision-Date: 2024-01-13 18:37+0200\n"
+"PO-Revision-Date: 2025-08-11 22:55+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.6\n"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -42,7 +42,7 @@ msgstr "Failas"
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
-msgstr ""
+msgstr "Įrenginių laikrodžiai yra nesinchronizuoti"
 
 #: backends/pairinghandler.cpp:80
 #, kde-format
@@ -109,7 +109,7 @@ msgstr "Nuotolinio įrenginio liudijimo SHA256 kontrolinis kodas yra: %1\n"
 #: device.cpp:469
 #, kde-format
 msgid "Protocol version: %1\n"
-msgstr ""
+msgstr "Protokolo versija: %1\n"
 
 #: filetransferjob.cpp:53
 #, kde-format

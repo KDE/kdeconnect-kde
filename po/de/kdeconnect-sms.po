@@ -1,7 +1,7 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Burkhard Lück <lueck@hube-lueck.de>, 2021.
-# Frederik Schwarzer <schwarzer@kde.org>, 2022.
+# SPDX-FileCopyrightText: 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2022 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2023, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
 #
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-08 00:41+0000\n"
-"PO-Revision-Date: 2025-07-09 16:49+0200\n"
+"PO-Revision-Date: 2025-08-06 16:03+0200\n"
 "Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -178,19 +178,16 @@ msgid "Start new conversation"
 msgstr "Eine neue Unterhaltung beginnen"
 
 #: qml/ConversationList.qml:190
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message text when no messages are found"
-#| msgid "No matches"
+#, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "Keine Übereinstimmungen"
 
 #: qml/ConversationList.qml:200
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"
-msgstr "Neue Unterhaltung beginnen"
+msgstr "Keine Unterhaltungen"
 
 #: qml/Main.qml:93
 #, kde-format

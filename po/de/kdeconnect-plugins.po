@@ -1,15 +1,15 @@
 # SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
-# Frederik Schwarzer <schwarzer@kde.org>, 2014, 2016, 2018, 2020, 2022, 2023.
-# Burkhard Lück <lueck@hube-lueck.de>, 2014, 2015, 2017, 2018, 2019, 2021.
-# hkaelber <holger.k@elberer.de>, 2016.
-# Jannick Kuhr <opensource@kuhr.org>, 2023.
+# SPDX-FileCopyrightText: 2014 2016 2018 2020 2022 2023 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2014 2015 2017 2018 2019 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2016 hkaelber <holger.k@elberer.de>
+# SPDX-FileCopyrightText: 2023 Jannick Kuhr <opensource@kuhr.org>
 # SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-07-09 16:45+0200\n"
+"PO-Revision-Date: 2025-08-06 16:02+0200\n"
 "Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -221,16 +221,18 @@ msgstr "Anruf stummschalten"
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
+"Auf dem entfernten Gerät ist kein VNC- oder RDP-Client (z. B. krdc) "
+"installiert."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "Das Paket „krdc“ ist auf dem lokalen Gerät erforderlich."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "Cannot start a request without a resolution"
-msgstr ""
+msgstr "Ohne Auflösung kann keine Anforderung begonnen werden"
 
 #~ msgid "Clipboard plugin"
 #~ msgstr "Zwischenablagenmodul"

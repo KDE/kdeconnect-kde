@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2024-02-02 21:15+0200\n"
+"PO-Revision-Date: 2025-08-11 23:07+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.6\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -55,7 +55,7 @@ msgstr "Dabartinė leistuvė"
 #: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "Neprieinama"
 
 #: notifications/notification.cpp:108
 #, kde-format
@@ -64,12 +64,10 @@ msgid "Reply"
 msgstr "Atsakyti"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr "Atsakyti %1..."
+msgstr "Atsakyti %1…"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -98,10 +96,9 @@ msgid "Name"
 msgstr "Pavadinimas"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "Įtraukti pagrindinį tekstą"
+msgstr "Išbrauktas"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -223,16 +220,18 @@ msgstr "Nutildyti skambutį"
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
+"Nuotoliniame įrenginyje nėra įdiegta VNC ar RDP (pvz., krdc) kliento "
+"programa."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "Vietiniame įrenginyje reikalingas krdp paketas."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "Cannot start a request without a resolution"
-msgstr ""
+msgstr "Nepavyksta pradėti užklausos be nutarimo"
 
 #~ msgid "Clipboard plugin"
 #~ msgstr "Iškarpinės įskiepis"

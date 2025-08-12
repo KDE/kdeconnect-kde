@@ -1,6 +1,6 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Burkhard Lück <lueck@hube-lueck.de>, 2021.
+# SPDX-FileCopyrightText: 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
 #
 msgid ""

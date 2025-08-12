@@ -1,7 +1,7 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Burkhard Lück <lueck@hube-lueck.de>, 2021.
-# Frederik Schwarzer <schwarzer@kde.org>, 2022, 2023.
+# SPDX-FileCopyrightText: 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2022 2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2023, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # SPDX-FileCopyrightText: 2025 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-07-09 17:03+0200\n"
+"PO-Revision-Date: 2025-08-06 16:04+0200\n"
 "Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -166,7 +166,7 @@ msgstr ""
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Use device as an external monitor"
-msgstr ""
+msgstr "Gerät als externen Bildschirm verwenden"
 
 #: qml/DevicePage.qml:213
 #, kde-format

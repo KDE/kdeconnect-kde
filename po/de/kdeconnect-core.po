@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
-# Frederik Schwarzer <schwarzer@kde.org>, 2014, 2016, 2018, 2020, 2023.
-# Burkhard Lück <lueck@hube-lueck.de>, 2014, 2015, 2016, 2018, 2019, 2021.
+# SPDX-FileCopyrightText: 2014 2016 2018 2020 2023 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2014 2015 2016 2018 2019 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
 msgid ""
 msgstr ""
