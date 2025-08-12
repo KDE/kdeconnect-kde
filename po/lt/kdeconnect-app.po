@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2025-01-06 22:24+0200\n"
+"PO-Revision-Date: 2025-08-11 22:51+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -27,7 +27,7 @@ msgstr "KDE Connect"
 #: main.cpp:42
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025 KDE Connect komanda"
 
 #: main.cpp:43
 #, kde-format
@@ -37,7 +37,7 @@ msgstr "Aleix Pol Gonzalez"
 #: main.cpp:44
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:45
 #, kde-format
@@ -55,19 +55,21 @@ msgstr "<>"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "Įrenginio, kuriame atverti programėlę, ID"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
 msgstr ""
+"Konfigūracijos modulis, kurį rodyti. Reikalauja, kad būtų nustatytas --"
+"device."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Pakeisti esamą egzempliorių"
 
 #: main.cpp:86
 #, kde-format
@@ -93,14 +95,13 @@ msgstr "Įskiepio nuostatos"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "Veiksmai"
 
 #: qml/DevicePage.qml:67
-#, fuzzy, kde-format
-#| msgid "Remote Control"
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr "Nuotolinis valdymas"
+msgstr "Valdikliai"
 
 #: qml/DevicePage.qml:113
 #, kde-format
@@ -155,17 +156,12 @@ msgstr "Bendrinti failą"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Naršyti šį įrenginį"
 
 #: qml/DevicePage.qml:196
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"Šis įrenginys nėra suporuotas.\n"
-"Raktas: %1"
+msgstr "Šis įrenginys nėra suporuotas."
 
 #: qml/DevicePage.qml:200
 #, kde-format
@@ -214,11 +210,10 @@ msgid "Refresh"
 msgstr "Įkelti iš naujo"
 
 #: qml/Main.qml:97
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Įrenginiai"
+msgstr "Įkelti įrenginius iš naujo"
 
 #: qml/Main.qml:133
 #, kde-format
@@ -261,19 +256,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Kairiojo mygtuko spustelėjimas"
 
 #: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Viduriniojo mygtuko spustelėjimas"
 
 #: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Dešiniojo mygtuko spustelėjimas"
 
 #: qml/mpris.qml:20
 #, kde-format

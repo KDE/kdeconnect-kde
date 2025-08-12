@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-01-06 22:25+0200\n"
+"PO-Revision-Date: 2025-08-11 22:54+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -37,7 +37,7 @@ msgstr "KDE Connect komandų eilutės įrankis"
 #: kdeconnect-cli.cpp:34
 #, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025, KDE Connect komanda"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -187,21 +187,17 @@ msgid "phone number"
 msgstr "telefono numeris"
 
 #: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
+#, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
-"Failų, kuriuos siųsti kaip priedus kartu su žinute, url adresai (gali būti "
+"Failų, kuriuos siųsti kaip priedus kartu su žinute, URL adresai (gali būti "
 "perduota keletą kartų)"
 
 #: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
+#, kde-format
 msgid "file URLs"
-msgstr "failų url"
+msgstr "failų URL adresai"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
@@ -308,10 +304,9 @@ msgid "Requested to unlock %1."
 msgstr "Užklausta atrakinti %1."
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "laukiama įrenginio..."
+msgstr "laukiama įrenginio…"
 
 #: kdeconnect-cli.cpp:270
 #, kde-format

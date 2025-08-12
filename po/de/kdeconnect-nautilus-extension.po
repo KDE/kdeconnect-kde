@@ -1,8 +1,8 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
+# SPDX-FileCopyrightText: 2019 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2020 Frederik Schwarzer <schwarzer@kde.org>
 #
-# Burkhard Lück <lueck@hube-lueck.de>, 2019.
-# Frederik Schwarzer <schwarzer@kde.org>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-nautilus-extension\n"
