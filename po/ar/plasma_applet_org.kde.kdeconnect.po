@@ -170,7 +170,7 @@ msgstr[5] "لا يوجد أجهزة مقترنة"
 #: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
-msgstr "قم بتثبيت جسر كِيدِي على جهاز أندرويد الخاص بك لدمجه مع بلازما!"
+msgstr "ثبّت جسر كِيدِي على جهاز أندرويد الخاص بك لدمجه مع بلازما!"
 
 #: package/contents/ui/FullRepresentation.qml:70
 #, kde-format
