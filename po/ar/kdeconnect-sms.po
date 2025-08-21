@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-08-14 11:49+0400\n"
+"PO-Revision-Date: 2025-08-20 22:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -128,7 +128,7 @@ msgstr "لا يوجد أجهزة متوفّرة"
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
 msgstr ""
-"لا يمكن إرسال أو استلام أي رسائل جديدة، ولكن يمكنك تصفح المحتوى المخبوء مؤقتًا"
+"لا يمكن إرسال أو استلام أي رسائل جديدة، ولكن يمكنك تصفح المحتوى المخبوء"
 
 #: qml/ConversationList.qml:48
 #, kde-format
