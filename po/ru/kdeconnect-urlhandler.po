@@ -3,14 +3,14 @@
 #
 # Dmitry Serov <dmitri.s93@gmail.com>, 2017.
 # Alexander Potashev <aspotashev@gmail.com>, 2017.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2023.
+# SPDX-FileCopyrightText: 2019, 2020, 2023, 2025 Alexander Yavorsky <kekcuha@gmail.com>
 # Дронова Юлия <juliette.tux@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2023-01-12 11:41+0300\n"
+"PO-Revision-Date: 2025-08-18 11:25+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 25.07.90\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -63,18 +63,17 @@ msgstr "Обработчик адресов URL в KDE Connect"
 #: kdeconnect-handler.cpp:50
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© Команда KDE Connect, 2015–2025"
 
 #: kdeconnect-handler.cpp:51
-#, fuzzy, kde-format
-#| msgid "(C) 2017 Aleix Pol Gonzalez"
+#, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "© Aleix Pol Gonzalez, 2017"
+msgstr "Aleix Pol Gonzalez"
 
 #: kdeconnect-handler.cpp:52
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: kdeconnect-handler.cpp:84
 #, kde-format
