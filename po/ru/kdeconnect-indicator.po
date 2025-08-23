@@ -1,7 +1,7 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2020, 2024 Alexander Yavorsky <kekcuha@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2024, 2025 Alexander Yavorsky <kekcuha@gmail.com>
 # Дронова Юлия <juliette.tux@gmail.com>, 2021.
 # Olesya Gerasimenko <translation-team@basealt.ru>, 2023.
 # Alexander Yavorsky <kekcuha@gmail.com>, 2024.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-02 10:13+0000\n"
-"PO-Revision-Date: 2024-11-17 17:42+0300\n"
+"PO-Revision-Date: 2025-08-18 11:24+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 25.07.90\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -53,8 +53,7 @@ msgid "Send files"
 msgstr "Передать файлы"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
 msgstr "Сообщения SMS…"
 
@@ -100,23 +99,22 @@ msgstr "Инструмент индикатора KDE Connect"
 #: main.cpp:61
 #, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr ""
+msgstr "© Команда KDE Connect, 2016–2025"
 
 #: main.cpp:62
-#, fuzzy, kde-format
-#| msgid "(C) 2016 Aleix Pol Gonzalez"
+#, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "© Aleix Pol Gonzalez, 2016"
+msgstr "Aleix Pol Gonzalez"
 
 #: main.cpp:63
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:101
 #, kde-format
 msgid "Open app"
-msgstr ""
+msgstr "Открыть приложение"
 
 #: main.cpp:118
 #, kde-format
