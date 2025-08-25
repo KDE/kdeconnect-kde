@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-08 00:41+0000\n"
-"PO-Revision-Date: 2025-04-29 17:53+0300\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2025-08-19 15:49+0300\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -74,10 +74,9 @@ msgid "SMS Instant Messaging"
 msgstr "Īsziņu sūtīšana"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2018–2025 KDE Connect Team"
-msgstr "(C) 2018—2025, „KDE Connect“ komanda"
+msgstr "© 2018—2025 „KDE Connect“ komanda"
 
 #: main.cpp:55
 #, kde-format
@@ -176,19 +175,16 @@ msgid "Start new conversation"
 msgstr "Sākt jaunu sarunu"
 
 #: qml/ConversationList.qml:190
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message text when no messages are found"
-#| msgid "No matches"
+#, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
-msgstr "Nav sakritību"
+msgstr "Nav atbilstību"
 
 #: qml/ConversationList.qml:200
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"
-msgstr "Sākt jaunu sarunu"
+msgstr "Nav sarunu"
 
 #: qml/Main.qml:93
 #, kde-format

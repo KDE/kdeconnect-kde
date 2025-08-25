@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-01-04 14:54+0200\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2025-08-19 15:44+0300\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -16,19 +16,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: kiokdeconnect.cpp:75
-#, fuzzy, kde-format
-#| msgid "Listing devices..."
+#, kde-format
 msgid "Listing devices…"
-msgstr "Uzskaita ierīces..."
+msgstr "Uzskaita ierīces…"
 
 #: kiokdeconnect.cpp:120
-#, fuzzy, kde-format
-#| msgid "Accessing device..."
+#, kde-format
 msgid "Accessing device…"
-msgstr "Piekļūst ierīcēm..."
+msgstr "Piekļūst ierīcei…"
 
 #: kiokdeconnect.cpp:135
 #, kde-format

@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-04-29 17:39+0300\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2025-08-19 15:43+0300\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -34,10 +34,9 @@ msgid "KDE Connect CLI tool"
 msgstr "„KDE Connect“ CLI rīks"
 
 #: kdeconnect-cli.cpp:34
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr "(c) 2015—2025, „KDE Connect“ komanda"
+msgstr "© 2015—2025, „KDE Connect“ komanda"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -187,21 +186,17 @@ msgid "phone number"
 msgstr "tālruņa numurs"
 
 #: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
+#, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
-"Datnes urls, kur nosūtīt pielikumus ar ziņojumu (iespējams padot vairākas "
+"Datņu URL, kur nosūtīt pielikumus ar ziņojumu (iespējams padot vairākas "
 "reizes)"
 
 #: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
+#, kde-format
 msgid "file URLs"
-msgstr "datnes urls"
+msgstr "datņu URL"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
@@ -307,15 +302,14 @@ msgid "Requested to unlock %1."
 msgstr "Pieprasīts atbloķēt %1."
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "gaid ierīci..."
+msgstr "gaida ierīci…"
 
 #: kdeconnect-cli.cpp:270
 #, kde-format
 msgid "Device not found"
-msgstr "Ierīces nav atrasta"
+msgstr "Ierīce nav atrasta"
 
 #: kdeconnect-cli.cpp:272
 #, kde-format
@@ -330,7 +324,7 @@ msgstr "Pieprasīta sapārošana"
 #: kdeconnect-cli.cpp:280
 #, kde-format
 msgid "Already not paired"
-msgstr "Jau vairs nav sapārota"
+msgstr "Nav vairs sapārota"
 
 #: kdeconnect-cli.cpp:282
 #, kde-format

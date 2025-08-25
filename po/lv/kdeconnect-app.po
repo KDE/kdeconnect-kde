@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-04-29 17:39+0300\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2025-08-19 15:43+0300\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -24,10 +24,9 @@ msgid "KDE Connect"
 msgstr "KDE Connect"
 
 #: main.cpp:42
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr "(c) 2015—2025, „KDE Connect“ komanda"
+msgstr "© 2015—2025 „KDE Connect“ komanda"
 
 #: main.cpp:43
 #, kde-format
@@ -55,19 +54,19 @@ msgstr "toms.trasuns@posteo.net"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "Ierīces ID, kurā atvērt lietotni"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "Parādāmais konfigurācijas modelis. Nepieciešamas iestatīt „--device“."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Aizstāt esošu instanci"
 
 #: main.cpp:86
 #, kde-format
@@ -154,17 +153,17 @@ msgstr "Dalīties ar datni"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Pārlūkot ierīci"
 
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Stop virtual monitor session"
-msgstr ""
+msgstr "Apturēt virtuālā monitora sesiju"
 
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Use device as an external monitor"
-msgstr ""
+msgstr "Lietot ierīci kā ārēju monitoru"
 
 #: qml/DevicePage.qml:213
 #, kde-format

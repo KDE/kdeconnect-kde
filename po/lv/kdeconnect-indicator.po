@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-02 10:13+0000\n"
-"PO-Revision-Date: 2025-04-29 17:50+0300\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2025-08-19 15:42+0300\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -50,10 +50,9 @@ msgid "Send files"
 msgstr "Nosūtīt datnes"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
-msgstr "Īsziņas..."
+msgstr "Īsziņas…"
 
 #: deviceindicator.cpp:130
 #, kde-format
@@ -95,10 +94,9 @@ msgid "KDE Connect Indicator tool"
 msgstr "KDE Connect indikatora rīks"
 
 #: main.cpp:61
-#, fuzzy, kde-format
-#| msgid "(c) 2016-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr "(c) 2016—2025, „KDE Connect“ komanda"
+msgstr "© 2016—2025 „KDE Connect“ komanda"
 
 #: main.cpp:62
 #, kde-format
@@ -113,7 +111,7 @@ msgstr "Albert Vaca Cintora"
 #: main.cpp:101
 #, kde-format
 msgid "Open app"
-msgstr ""
+msgstr "Atvērt lietotni"
 
 #: main.cpp:118
 #, kde-format
