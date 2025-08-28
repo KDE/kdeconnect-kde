@@ -186,20 +186,15 @@ msgid "phone number"
 msgstr "telefonní číslo"
 
 #: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
+#, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
-"URL souborů po posílání příloh se zprávou (může být předáno několikrát)"
 
 #: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
+#, kde-format
 msgid "file URLs"
-msgstr "URL souborů"
+msgstr ""
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
@@ -305,10 +300,9 @@ msgid "Requested to unlock %1."
 msgstr "Vyžádáno odemčení %1."
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "čeká se na zařízení..."
+msgstr ""
 
 #: kdeconnect-cli.cpp:270
 #, kde-format

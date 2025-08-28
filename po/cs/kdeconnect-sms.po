@@ -173,19 +173,16 @@ msgid "Start new conversation"
 msgstr "Spustit nový rozhovor"
 
 #: qml/ConversationList.qml:190
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message text when no messages are found"
-#| msgid "No matches"
+#, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
-msgstr "Žádné shody"
+msgstr ""
 
 #: qml/ConversationList.qml:200
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"
-msgstr "Spustit nový rozhovor"
+msgstr ""
 
 #: qml/Main.qml:93
 #, kde-format

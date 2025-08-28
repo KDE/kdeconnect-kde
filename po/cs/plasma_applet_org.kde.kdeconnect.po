@@ -190,12 +190,3 @@ msgstr "Instalovat z F-Droidu"
 #, kde-format
 msgid "KDE Connect Settings…"
 msgstr "Nastavení KDE Connect…"
-
-#~ msgid "Remote device does not have a VNC client (eg. krdc) installed."
-#~ msgstr "Vzdálené zařízení nemá nainstalován VNC klient (např. krdc)."
-
-#~ msgid "The krfb package is required on the local device."
-#~ msgstr "Na lokálním zařízení je potřeba balíček krfb."
-
-#~ msgid "Failed to create the virtual monitor."
-#~ msgstr "Virtuální monitor nelze vytvořit."
