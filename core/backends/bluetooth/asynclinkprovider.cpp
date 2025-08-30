@@ -65,7 +65,6 @@ void AsyncLinkProvider::onStop()
     eventsMutex.lock();
     events.enqueue(STOP);
     eventsMutex.unlock();
-    connectTimer->stop();
 }
 
 void AsyncLinkProvider::onNetworkChange()
@@ -126,9 +125,11 @@ void AsyncLinkProvider::runWorker()
             break;
         case START:
             wrappedInstance->onStart();
+            connectTimer->start();
             break;
         case STOP:
             wrappedInstance->onStop();
+            connectTimer->stop();
             break;
         case NETWORKCHANGE:
             wrappedInstance->onNetworkChange();
@@ -136,6 +137,5 @@ void AsyncLinkProvider::runWorker()
         }
     });
 
-    connectTimer->start();
     messagePumpTimer->start();
 }

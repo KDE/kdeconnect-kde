@@ -37,7 +37,9 @@ void BluetoothLinkProvider::onStart()
 void BluetoothLinkProvider::onStartDiscovery()
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStartDiscovery executed";
-    mServiceDiscoveryAgent->start();
+    if (!mDisabled && mServiceDiscoveryAgent != nullptr) {
+        mServiceDiscoveryAgent->start();
+    }
 }
 
 void BluetoothLinkProvider::tryToInitialise()
