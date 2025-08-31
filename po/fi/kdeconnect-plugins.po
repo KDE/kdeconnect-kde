@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:43+0000\n"
-"PO-Revision-Date: 2025-07-07 20:57+0300\n"
+"PO-Revision-Date: 2025-07-31 09:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -220,16 +220,18 @@ msgstr "Vaimenna soitto"
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
+"Etälaitteeseen ei ole asennettu VNC- tai RDP-asiakasta (esim. krdc:tä)."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "Paikallisella laitteella vaaditaan krdp-paketti."
 
+# *** TARKISTA: ”Resolution” voisi tässä olla myös ’ratkaisu’ (johonkin).
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "Cannot start a request without a resolution"
-msgstr ""
+msgstr "Pyyntöä ei voi käynnistää ilman tarkkuutta"
 
 #~ msgid "Clipboard plugin"
 #~ msgstr "Leikepöytäliitännäinen"
