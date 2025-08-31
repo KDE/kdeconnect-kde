@@ -107,7 +107,7 @@ Item {
                 Label {
                     id: dateLabel
                     width: parent.width
-                    text: Qt.formatDateTime(root.dateTime, "dd. MMM, hh:mm")
+                    text: Qt.formatDateTime(root.dateTime)
                     leftPadding: Kirigami.Units.largeSpacing
                     rightPadding: Kirigami.Units.largeSpacing
                     bottomPadding: Kirigami.Units.smallSpacing
