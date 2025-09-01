@@ -35,7 +35,7 @@ msgstr "txemaq@gmail.com"
 #: dialog.ui:31
 #, kde-format
 msgid "Select device:"
-msgstr "Seleccioneu un dispositiu:"
+msgstr "Trieu un dispositiu:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
 #: dialog.ui:55
@@ -83,7 +83,7 @@ msgstr "URL que s'ha de compartir"
 #: kdeconnect-handler.cpp:85
 #, kde-format
 msgid "Select a device"
-msgstr "Seleccioneu un dispositiu"
+msgstr "Trieu un dispositiu"
 
 #: kdeconnect-handler.cpp:85
 #, kde-format
