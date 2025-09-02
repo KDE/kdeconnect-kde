@@ -99,7 +99,7 @@ msgstr "Nicolas Fella"
 #: main.cpp:86
 #, kde-format
 msgid "Select a device"
-msgstr "Seleccioneu un dispositiu"
+msgstr "Trieu un dispositiu"
 
 #: main.cpp:86
 #, kde-format
@@ -160,7 +160,7 @@ msgstr "Actualitza"
 #: qml/ConversationList.qml:82
 #, kde-format
 msgid "Choose recipient"
-msgstr "Seleccioneu el destinatari"
+msgstr "Trieu el destinatari"
 
 #: qml/ConversationList.qml:87
 #, kde-format
