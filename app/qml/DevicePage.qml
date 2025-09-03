@@ -191,7 +191,7 @@ Kirigami.ScrollablePage {
             PluginItem {
                 readonly property QtObject virtualMonitor: VirtualmonitorDbusInterfaceFactory.create(root.currentDevice.id())
                 pluginName: "virtualmonitor"
-                name: (virtualMonitor.active ? i18n("Stop virtual monitor session") : i18n("Use device as an external monitor")) + "   " + virtualMonitor.active
+                name: virtualMonitor.active ? i18n("Stop virtual monitor session") : i18n("Use device as an external monitor")
                 onClick: () => {
                     if (virtualMonitor.active) {
                         virtualMonitor.stop();
