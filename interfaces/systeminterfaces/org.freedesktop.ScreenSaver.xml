@@ -37,10 +37,5 @@
       <arg direction="in" type="u" name="cookie"/>
     </method>
   </interface>
-  <interface name="org.kde.screensaver">
-    <method name="SwitchUser"/>
-    <method name="configure"/>
-    <signal name="AboutToLock"/>
-  </interface>
 </node>
 
