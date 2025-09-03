@@ -174,7 +174,7 @@ msgstr "新建对话"
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
-msgstr "无匹配项"
+msgstr "没有匹配的内容"
 
 #: qml/Main.qml:93
 #, kde-format
