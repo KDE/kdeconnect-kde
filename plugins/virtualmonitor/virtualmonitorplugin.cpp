@@ -77,6 +77,9 @@ void VirtualMonitorPlugin::stop()
     if (!m_process)
         return;
 
+    // Disconnect the slot to avoid re-entrancy and calling requestVirtualMonitor during destruction.
+    QObject::disconnect(m_process, &QProcess::finished, this, nullptr);
+
     m_process->terminate();
     if (!m_process->waitForFinished()) {
         m_process->kill();
