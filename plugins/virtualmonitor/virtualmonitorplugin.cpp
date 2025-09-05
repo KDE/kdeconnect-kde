@@ -82,7 +82,7 @@ void VirtualMonitorPlugin::stop()
         m_process->kill();
         m_process->waitForFinished();
     }
-    delete m_process;
+    m_process->deleteLater();
     m_process = nullptr;
 }
 
