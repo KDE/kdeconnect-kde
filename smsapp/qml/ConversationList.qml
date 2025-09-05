@@ -105,6 +105,7 @@ Kirigami.ScrollablePage
             id: filter
             Layout.fillWidth: true
             placeholderText: i18nd("kdeconnect-sms", "Search or start a conversation")
+            enabled: deviceConnected
             onTextChanged: {
                 currentSearchText = filter.text;
                 if (filter.text !== "") {
