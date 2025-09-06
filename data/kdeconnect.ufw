@@ -1,0 +1,4 @@
+[KDEConnect]
+title=KDE Connect
+description=KDE Connect makes your phone and computer work better together
+ports=1714:1764/tcp|1714:1764/udp
