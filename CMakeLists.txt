@@ -67,9 +67,15 @@ set_package_properties(KF6KirigamiAddons PROPERTIES
 if(UNIX AND NOT APPLE)
     option(WITH_X11 "Build with X11 support" ON)
     option(WITH_PULSEAUDIO "Build with Pulseaudio support" ON)
+
+    option(INSTALL_UFW_APPLICATION_RULE "Install application rule for ufw (firewall)" ON)
+    add_feature_info("INSTALL_UFW_APPLICATION_RULE"
+                 INSTALL_UFW_APPLICATION_RULE
+                 "Install application rule for ufw (firewall)")
 else()
     set(WITH_X11 OFF)
     set(WITH_PULSEAUDIO OFF)
+    set(INSTALL_UFW_APPLICATION_RULE OFF)
 endif()
 
 if(UNIX AND NOT APPLE)
