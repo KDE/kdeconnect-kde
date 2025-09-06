@@ -172,7 +172,7 @@ void SmsPlugin::getAttachment(const qint64 &partID, const QString &uniqueIdentif
     } else {
         bool ret = fileDirectory.mkpath(QStringLiteral("."));
         if (!ret) {
-            qWarning() << "couldn't create directorty " << fileDirectory.absolutePath();
+            qWarning() << "couldn't create directory " << fileDirectory.absolutePath();
         }
     }
 

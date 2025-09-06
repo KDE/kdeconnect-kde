@@ -141,7 +141,7 @@ Kirigami.ScrollablePage
             ToolTip.text: i18nd("kdeconnect-sms", "Start new conversation")
 
             onClicked: {
-                // We have to disable the filter temporarily in order to avoid getting key inputs accidently while processing the request
+                // We have to disable the filter temporarily in order to avoid getting key inputs accidentally while processing the request
                 filter.enabled = false
 
                 // If the address entered by the user already exists then ignore adding new contact

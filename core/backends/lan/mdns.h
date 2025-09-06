@@ -221,12 +221,12 @@ static inline size_t
 mdns_socket_listen(int sock, void* buffer, size_t capacity, mdns_record_callback_fn callback,
                    void* user_data);
 
-//! Send a multicast DNS-SD reqeuest on the given socket to discover available services. Returns 0
+//! Send a multicast DNS-SD request on the given socket to discover available services. Returns 0
 //! on success, or <0 if error.
 static inline int
 mdns_discovery_send(int sock);
 
-//! Recieve unicast responses to a DNS-SD sent with mdns_discovery_send. Any data will be piped to
+//! Receive unicast responses to a DNS-SD sent with mdns_discovery_send. Any data will be piped to
 //! the given callback for parsing. Buffer must be 32 bit aligned. Parsing is stopped when callback
 //! function returns non-zero. Returns the number of responses parsed.
 static inline size_t
@@ -266,9 +266,9 @@ mdns_query_recv(int sock, void* buffer, size_t capacity, mdns_record_callback_fn
 
 //! Send a variable unicast mDNS query answer to any question with variable number of records to the
 //! given address. Use the top bit of the query class field (MDNS_UNICAST_RESPONSE) in the query
-//! recieved to determine if the answer should be sent unicast (bit set) or multicast (bit not set).
+//! received to determine if the answer should be sent unicast (bit set) or multicast (bit not set).
 //! Buffer must be 32 bit aligned. The record type and name should match the data from the query
-//! recieved. Returns 0 if success, or <0 if error.
+//! received. Returns 0 if success, or <0 if error.
 static inline int
 mdns_query_answer_unicast(int sock, const void* address, size_t address_size, void* buffer,
                           size_t capacity, uint16_t query_id, mdns_record_type_t record_type,
@@ -277,7 +277,7 @@ mdns_query_answer_unicast(int sock, const void* address, size_t address_size, vo
                           const mdns_record_t* additional, size_t additional_count);
 
 //! Send a variable multicast mDNS query answer to any question with variable number of records. Use
-//! the top bit of the query class field (MDNS_UNICAST_RESPONSE) in the query recieved to determine
+//! the top bit of the query class field (MDNS_UNICAST_RESPONSE) in the query received to determine
 //! if the answer should be sent unicast (bit set) or multicast (bit not set). Buffer must be 32 bit
 //! aligned. Returns 0 if success, or <0 if error.
 static inline int

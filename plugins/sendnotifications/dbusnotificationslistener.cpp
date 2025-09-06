@@ -195,7 +195,7 @@ void DBusNotificationsListenerThread::run()
 
     if (!error.isEmpty()) {
         qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS).noquote() << "Failed to become a DBus monitor."
-                                                                 << "No notifictions will be sent. Error:" << error;
+                                                                 << "No notifications will be sent. Error:" << error;
     }
 
     // wake up every minute to see if we are still connected

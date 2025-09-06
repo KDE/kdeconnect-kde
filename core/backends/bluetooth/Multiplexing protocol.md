@@ -47,7 +47,7 @@ This message should be the first message send, and never at a later time. Its fo
 | 19 bytes (UUID ignored)         | 2 bytes (Big-Endian)     | 2 bytes (Big-Endian)      | Remaining data bytes |
 ```
 
-This message should be the first message to send. Use the maximum version supported by both endpoints (if any), or otherwise close the connection. The other data field is not used (and should be empty for protocol version 1), but it implies that message lengths of more than 4 need to be supported for future compatability.
+This message should be the first message to send. Use the maximum version supported by both endpoints (if any), or otherwise close the connection. The other data field is not used (and should be empty for protocol version 1), but it implies that message lengths of more than 4 need to be supported for future compatibility.
 
 Currently, no client will send this message with a version other than 1, but you *must* accept and check it, for forward compatibility.
 

@@ -8,7 +8,7 @@ This plugins receives and sends packages with type kdeconnect.mpris.
 It keeps a list of detected players it can control via MPRIS. When it receives
 a package that contains the boolean "requestPlayerList" set to true, it will
 send back the list of players in an array named "playerList". If a new player is
-detected or a known one dissappears, it should also send this list. Note that
+detected or a known one disappears, it should also send this list. Note that
 players are identified only by its name (its MPRIS Identity), so there can not
 be two players with the same display name.
 

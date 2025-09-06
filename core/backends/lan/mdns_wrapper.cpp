@@ -582,7 +582,7 @@ static int service_callback(int sock,
 }
 
 // Open sockets to listen to incoming mDNS queries on port 5353
-// When recieving, each socket can recieve data from all network interfaces
+// When receiving, each socket can receive data from all network interfaces
 // Thus we only need to open one socket for each address family
 int Announcer::listenForQueries()
 {
