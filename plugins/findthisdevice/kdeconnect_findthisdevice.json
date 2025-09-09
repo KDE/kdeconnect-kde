@@ -48,7 +48,6 @@
                 "Name[sv]": "Friedrich W. H. Kossebau",
                 "Name[tr]": "Friedrich W. H. Kossebau",
                 "Name[uk]": "Friedrich W. H. Kossebau",
-                "Name[x-test]": "xxFriedrich W. H. Kossebauxx",
                 "Name[zh_CN]": "Friedrich W. H. Kossebau",
                 "Name[zh_TW]": "Friedrich W. H. Kossebau"
             }
@@ -98,7 +97,6 @@
         "Description[ta]": "இச்சாதனத்தை கண்டுபிடிக்க அலார ஒலியை எழுப்பும்",
         "Description[tr]": "Bu aygıtı, bir alarm sesi çaldırarak bul",
         "Description[uk]": "Знайти цей пристрій, наказавши йому відтворити дзвінок",
-        "Description[x-test]": "xxFind this device by making it play an alarm soundxx",
         "Description[zh_CN]": "通过播放铃声来找到您不见的手机",
         "Description[zh_TW]": "讓手機發出警報聲，以讓您找到這個裝置",
         "EnabledByDefault": true,
@@ -150,7 +148,6 @@
         "Name[ta]": "சாதனத்தை கண்டுபிடி",
         "Name[tr]": "Bu aygıtı bul",
         "Name[uk]": "Знайти цей пристрій",
-        "Name[x-test]": "xxFind this devicexx",
         "Name[zh_CN]": "查找此设备",
         "Name[zh_TW]": "尋找這個裝置"
     },

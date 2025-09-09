@@ -52,7 +52,6 @@
                 "Name[sv]": "Samoilenko Yuri",
                 "Name[tr]": "Samoilenko Yuri",
                 "Name[uk]": "Юрій Самойленко",
-                "Name[x-test]": "xxSamoilenko Yurixx",
                 "Name[zh_CN]": "Samoilenko Yuri",
                 "Name[zh_TW]": "Samoilenko Yuri"
             }
@@ -106,7 +105,6 @@
         "Description[ta]": "தொலை சாதனத்திலுள்ள கோப்புகளை SFTP மூலம் அணுக விடும்",
         "Description[tr]": "Uzak aygıt dosya sistemine SFTP kullanarak göz at",
         "Description[uk]": "Перегляд файлових систем на сторонніх пристроях за допомогою SFTP",
-        "Description[x-test]": "xxBrowse the remote device filesystem using SFTPxx",
         "Description[zh_CN]": "通过 SFTP 浏览远程设备文件系统",
         "Description[zh_TW]": "使用 SFTP 來瀏覽遠端的檔案系統",
         "EnabledByDefault": true,
@@ -161,7 +159,6 @@
         "Name[ta]": "தொலை கோப்பு முறைமை உலாவி",
         "Name[tr]": "Uzak dosya sistemi tarayıcısı",
         "Name[uk]": "Перегляд віддалених файлових систем",
-        "Name[x-test]": "xxRemote filesystem browserxx",
         "Name[zh_CN]": "远程文件系统浏览器",
         "Name[zh_TW]": "遠端檔案瀏覽器"
     },

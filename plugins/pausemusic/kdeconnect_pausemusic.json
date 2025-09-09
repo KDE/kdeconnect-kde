@@ -44,7 +44,6 @@
                 "Name[sv]": "Albert Vaca Cintora",
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
-                "Name[x-test]": "xxAlbert Vaca Cintoraxx",
                 "Name[zh_CN]": "Albert Vaca Cintora",
                 "Name[zh_TW]": "Albert Vaca Cintora"
             }
@@ -98,7 +97,6 @@
         "Description[ta]": "அழைப்பின்போது பாடல்களையும் நிகழ்படங்களையும் இடைநிறுத்தும்",
         "Description[tr]": "Arama sırasında müzikleri/videoları duraklat",
         "Description[uk]": "Призупинка відтворення музики і відео на час телефонних дзвінків",
-        "Description[x-test]": "xxPause music/videos during a phone callxx",
         "Description[zh_CN]": "手机来电时暂停音乐/视频",
         "Description[zh_TW]": "在通話過程中暫停音樂與影片",
         "EnabledByDefault": true,
@@ -153,7 +151,6 @@
         "Name[ta]": "அழைப்புகளின்போது பாடல்களை இடைநிறுத்து",
         "Name[tr]": "Aramalar sırasında ortamı duraklat",
         "Name[uk]": "Призупинка відтворення під час дзвінків",
-        "Name[x-test]": "xxPause media during callsxx",
         "Name[zh_CN]": "来电时暂停媒体",
         "Name[zh_TW]": "在通話過程中暫停媒體"
     },

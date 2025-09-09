@@ -53,7 +53,6 @@
                 "Name[sv]": "Aleix Pol",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -106,7 +105,6 @@
         "Description[ta]": "MPRIS சேவைகளை கட்டுப்படுத்த விடும்",
         "Description[tr]": "MPRIS hizmetlerini denetle",
         "Description[uk]": "Керування службами MPRIS",
-        "Description[x-test]": "xxControl MPRIS servicesxx",
         "Description[zh_CN]": "控制 MPRIS 服务",
         "Description[zh_TW]": "控制 MPRIS 服務",
         "EnabledByDefault": true,
@@ -160,7 +158,6 @@
         "Name[sv]": "MPRIS-fjärrkontroll",
         "Name[tr]": "MprisRemote",
         "Name[uk]": "MprisRemote",
-        "Name[x-test]": "xxMprisRemotexx",
         "Name[zh_CN]": "远程 Mpris",
         "Name[zh_TW]": "遠端 Mpris"
     },

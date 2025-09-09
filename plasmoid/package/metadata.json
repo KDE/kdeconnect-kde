@@ -44,7 +44,6 @@
                 "Name[sv]": "Albert Vaca Cintora",
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
-                "Name[x-test]": "xxAlbert Vaca Cintoraxx",
                 "Name[zh_CN]": "Albert Vaca Cintora",
                 "Name[zh_TW]": "Albert Vaca Cintora"
             }
@@ -86,7 +85,6 @@
         "Description[ta]": "இணைந்துள்ள சாதனங்களை நிர்வகிக்க விடும்",
         "Description[tr]": "Bağlı aygıtları yönetin",
         "Description[uk]": "Керування з'єднаними пристроями",
-        "Description[x-test]": "xxManage connected devicesxx",
         "Description[zh_CN]": "管理已连接的设备",
         "Description[zh_TW]": "管理已連線裝置",
         "EnabledByDefault": true,
@@ -135,7 +133,6 @@
         "Name[ta]": "கே.டீ.யீ. கனெக்ட்",
         "Name[tr]": "KDE Bağlan",
         "Name[uk]": "KDE Connect",
-        "Name[x-test]": "xxKDE Connectxx",
         "Name[zh_CN]": "KDE Connect",
         "Name[zh_TW]": "KDE Connect",
         "Version": "0.1",

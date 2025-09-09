@@ -53,7 +53,6 @@
                 "Name[sv]": "Aleix Pol",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -107,7 +106,6 @@
         "Description[ta]": "தொலை சாதனங்களை கட்டுப்படுத்த விடும்",
         "Description[tr]": "Uzak sistemleri denetle",
         "Description[uk]": "Системи віддаленого керування",
-        "Description[x-test]": "xxControl Remote systemsxx",
         "Description[zh_CN]": "控制远程系统",
         "Description[zh_TW]": "控制遠端系統",
         "EnabledByDefault": true,
@@ -162,7 +160,6 @@
         "Name[ta]": "தொலையியக்கி",
         "Name[tr]": "UzaktanKumanda",
         "Name[uk]": "RemoteControl",
-        "Name[x-test]": "xxRemoteControlxx",
         "Name[zh_CN]": "远程控制",
         "Name[zh_TW]": "遠端控制"
     },

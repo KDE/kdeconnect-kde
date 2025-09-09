@@ -44,7 +44,6 @@
                 "Name[sv]": "Albert Vaca Cintora",
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
-                "Name[x-test]": "xxAlbert Vaca Cintoraxx",
                 "Name[zh_CN]": "Albert Vaca Cintora",
                 "Name[zh_TW]": "Albert Vaca Cintora"
             }
@@ -98,7 +97,6 @@
         "Description[ta]": "பாடல்களுக்கும் நிகழ்படங்களுக்குமான தொலையியக்கி",
         "Description[tr]": "Müziği ve videoyu uzaktan denetle",
         "Description[uk]": "Віддалене керування відтворенням музики та відео",
-        "Description[x-test]": "xxRemote control your music and videosxx",
         "Description[zh_CN]": "远程控制您的音乐和视频",
         "Description[zh_TW]": "遠端控制您的音樂與影片",
         "EnabledByDefault": true,
@@ -153,7 +151,6 @@
         "Name[ta]": "பல்லூடக கட்டுப்பாடு சேவை",
         "Name[tr]": "Çoklu ortam denetimi alıcısı",
         "Name[uk]": "Отримувач команд щодо керування мультимедійними функціями",
-        "Name[x-test]": "xxMultimedia control receiverxx",
         "Name[zh_CN]": "多媒体控制接收器",
         "Name[zh_TW]": "多媒體控制接收器"
     },

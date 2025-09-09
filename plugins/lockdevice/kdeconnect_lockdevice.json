@@ -53,7 +53,6 @@
                 "Name[sv]": "Aleix Pol",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -107,7 +106,6 @@
         "Description[ta]": "சாதனங்களைப் பூட்டும்",
         "Description[tr]": "Sistemleri kilitler",
         "Description[uk]": "Блокує вашу систему",
-        "Description[x-test]": "xxLocks your systemsxx",
         "Description[zh_CN]": "锁定您的系统",
         "Description[zh_TW]": "鎖定您的系統",
         "EnabledByDefault": true,
@@ -162,7 +160,6 @@
         "Name[ta]": "திரையை பூட்டு",
         "Name[tr]": "AygıtıKilitle",
         "Name[uk]": "LockDevice",
-        "Name[x-test]": "xxLockDevicexx",
         "Name[zh_CN]": "锁定设备",
         "Name[zh_TW]": "鎖定裝置"
     },

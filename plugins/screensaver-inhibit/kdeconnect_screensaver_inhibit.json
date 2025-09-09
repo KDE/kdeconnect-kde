@@ -52,7 +52,6 @@
                 "Name[sv]": "Pramod Dematagoda",
                 "Name[tr]": "Pramod Dematagoda",
                 "Name[uk]": "Pramod Dematagoda",
-                "Name[x-test]": "xxPramod Dematagodaxx",
                 "Name[zh_CN]": "Pramod Dematagoda",
                 "Name[zh_TW]": "Pramod Dematagoda"
             }
@@ -105,7 +104,6 @@
         "Description[ta]": "சாதனம் இணைக்கப்பட்டிருக்கும்போது திரைகாப்பியை முடக்கும்",
         "Description[tr]": "Aygıt bağlandığında ekran koruyucuyu engelle",
         "Description[uk]": "Забороняє зберігач екрана, якщо з’єднано пристрій",
-        "Description[x-test]": "xxInhibit the screensaver when the device is connectedxx",
         "Description[zh_CN]": "连接设备时禁止屏保",
         "Description[zh_TW]": "當裝置連接中時停止螢幕保護",
         "EnabledByDefault": false,
@@ -159,7 +157,6 @@
         "Name[ta]": "திரைகாப்பியை முடக்கு",
         "Name[tr]": "Ekran koruyucuyu engelle",
         "Name[uk]": "Заборона зберігача екрана",
-        "Name[x-test]": "xxInhibit screensaverxx",
         "Name[zh_CN]": "禁止屏保",
         "Name[zh_TW]": "停止螢幕保護"
     },

@@ -52,7 +52,6 @@
                 "Name[sv]": "Apoorv Parle",
                 "Name[tr]": "Apoorv Parle",
                 "Name[uk]": "Apoorv Parle",
-                "Name[x-test]": "xxApoorv Parlexx",
                 "Name[zh_CN]": "Apoorv Parle",
                 "Name[zh_TW]": "Apoorv Parle"
             },
@@ -106,7 +105,6 @@
                 "Name[sv]": "David Edmundson",
                 "Name[tr]": "David Edmundson",
                 "Name[uk]": "David Edmundson",
-                "Name[x-test]": "xxDavid Edmundsonxx",
                 "Name[zh_CN]": "David Edmundson",
                 "Name[zh_TW]": "David Edmundson"
             }
@@ -160,7 +158,6 @@
         "Description[ta]": "தொலைந்த சாதனத்தை ஒலிக்க செய்து அதை கண்டுபிடிக்க உதவும்",
         "Description[tr]": "Bir alarm sesi çalarak kayıp telefonları bul",
         "Description[uk]": "Знайти загублений телефон, наказавши йому відтворити дзвінок",
-        "Description[x-test]": "xxFind your lost phone by making it play an alarm soundxx",
         "Description[zh_CN]": "通过播放闹铃声来找到您不见的手机",
         "Description[zh_TW]": "讓您的手機發出警報聲，讓您找到您遺失的手機",
         "EnabledByDefault": true,
@@ -216,7 +213,6 @@
         "Name[ta]": "திறன்பேசியை ஒலிக்கச்செய்",
         "Name[tr]": "Telefonu çaldır",
         "Name[uk]": "Дзвінок на вашому телефоні",
-        "Name[x-test]": "xxRing my phonexx",
         "Name[zh_CN]": "让我的手机响铃",
         "Name[zh_TW]": "撥打我的電話"
     },

@@ -44,7 +44,6 @@
                 "Name[sv]": "Albert Vaca Cintora",
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
-                "Name[x-test]": "xxAlbert Vaca Cintoraxx",
                 "Name[zh_CN]": "Albert Vaca Cintora",
                 "Name[zh_TW]": "Albert Vaca Cintora"
             }
@@ -98,7 +97,6 @@
         "Description[ta]": "சாதனங்களுக்கிடையே பிடிப்புப்பலகையை பகிரும்",
         "Description[tr]": "Aygıtlar arasında panoyu paylaştır",
         "Description[uk]": "Спільне використання буфера обміну даними на пристроях",
-        "Description[x-test]": "xxShare the clipboard between devicesxx",
         "Description[zh_CN]": "在设备间共享剪贴板",
         "Description[zh_TW]": "在裝置之間共享剪貼簿",
         "EnabledByDefault": true,
@@ -154,7 +152,6 @@
         "Name[ta]": "பிடிப்புப்பலகை",
         "Name[tr]": "Geçici taşıma panosu",
         "Name[uk]": "Буфер обміну",
-        "Name[x-test]": "xxClipboardxx",
         "Name[zh_CN]": "剪切板",
         "Name[zh_TW]": "剪貼簿"
     },

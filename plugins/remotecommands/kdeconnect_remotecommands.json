@@ -53,7 +53,6 @@
                 "Name[sv]": "Aleix Pol",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -106,7 +105,6 @@
         "Description[ta]": "தொலை சாதனத்தில் முன்னமைத்த கட்டளைகளைத் தூண்ட விடும்",
         "Description[tr]": "Uzak aygıta önceden tanımlanmış komutları tetikle",
         "Description[uk]": "Запуск команд, попередньо визначених на віддаленому пристрої",
-        "Description[x-test]": "xxTrigger commands predefined on the remote devicexx",
         "Description[zh_CN]": "出发远程设备的预设命令",
         "Description[zh_TW]": "執行預先設定在遠端裝置上的命令",
         "EnabledByDefault": true,
@@ -161,7 +159,6 @@
         "Name[ta]": "தொலை கட்டளைகளை இயங்கவிடும்",
         "Name[tr]": "Sunucu uzaktan komutları",
         "Name[uk]": "Віддалені команди вузлу",
-        "Name[x-test]": "xxHost remote commandsxx",
         "Name[zh_CN]": "主机远程命令",
         "Name[zh_TW]": "主機與遠端指令"
     },

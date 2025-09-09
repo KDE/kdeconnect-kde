@@ -44,7 +44,6 @@
                 "Name[sv]": "Yoram Bar-Haim",
                 "Name[tr]": "Yoram Bar-Haim",
                 "Name[uk]": "Йорам Бар-Хаїм",
-                "Name[x-test]": "xxYoram Bar-Haimxx",
                 "Name[zh_CN]": "Yoram Bar-Haim",
                 "Name[zh_TW]": "Yoram Bar-Haim"
             }
@@ -94,7 +93,6 @@
         "Description[ta]": "உள்வரும் அழைப்புகளுக்கு அறிவிப்புகள் காட்டும்",
         "Description[tr]": "Gelen aramalar için bildirimleri göster",
         "Description[uk]": "Показ сповіщень щодо вхідних дзвінків",
-        "Description[x-test]": "xxShow notifications for incoming callsxx",
         "Description[zh_CN]": "显示来电通知",
         "Description[zh_TW]": "顯示來電通知",
         "EnabledByDefault": true,
@@ -139,7 +137,6 @@
         "Name[sv]": "Integrering av modemhanteraren Telephony",
         "Name[tr]": "ModemManager Telephony tümleştirmesi",
         "Name[uk]": "Інтеграція телефонії ModemManager",
-        "Name[x-test]": "xxModemManager Telephony integrationxx",
         "Name[zh_CN]": "ModemManager Telephony 集成",
         "Name[zh_TW]": "ModemManager 電話整合"
     },

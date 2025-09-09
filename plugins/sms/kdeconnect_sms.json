@@ -48,7 +48,6 @@
                 "Name[sv]": "Simon Redman",
                 "Name[tr]": "Simon Redman",
                 "Name[uk]": "Simon Redman",
-                "Name[x-test]": "xxSimon Redmanxx",
                 "Name[zh_CN]": "Simon Redman",
                 "Name[zh_TW]": "Simon Redman"
             }
@@ -98,7 +97,6 @@
         "Description[ta]": "SMS அனுப்பவும் பெறவும் உதவும்",
         "Description[tr]": "SMS gönder ve al",
         "Description[uk]": "Надсилання і отримання SMS",
-        "Description[x-test]": "xxSend and receive SMSxx",
         "Description[zh_CN]": "发送和接收短信",
         "Description[zh_TW]": "傳送和接收文字簡訊",
         "EnabledByDefault": true,
@@ -151,7 +149,6 @@
         "Name[tg]": "СМС",
         "Name[tr]": "SMS",
         "Name[uk]": "SMS",
-        "Name[x-test]": "xxSMSxx",
         "Name[zh_CN]": "短信",
         "Name[zh_TW]": "文字簡訊"
     },

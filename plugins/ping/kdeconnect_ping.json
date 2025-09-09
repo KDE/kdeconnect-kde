@@ -44,7 +44,6 @@
                 "Name[sv]": "Albert Vaca Cintora",
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
-                "Name[x-test]": "xxAlbert Vaca Cintoraxx",
                 "Name[zh_CN]": "Albert Vaca Cintora",
                 "Name[zh_TW]": "Albert Vaca Cintora"
             }
@@ -98,7 +97,6 @@
         "Description[ta]": "பிங்குகளை (ping) அனுப்பும் மற்றும் பெறும்",
         "Description[tr]": "Ping gönder ve al",
         "Description[uk]": "Надсилання і отримання сигналів підтримання зв’язку",
-        "Description[x-test]": "xxSend and receive pingsxx",
         "Description[zh_CN]": "发送和接受ping",
         "Description[zh_TW]": "傳送與接收 Ping 回應封包",
         "EnabledByDefault": true,
@@ -154,7 +152,6 @@
         "Name[tg]": "Садо додан",
         "Name[tr]": "Ping",
         "Name[uk]": "Луна-імпульс",
-        "Name[x-test]": "xxPingxx",
         "Name[zh_CN]": "Ping",
         "Name[zh_TW]": "Ping 回應封包"
     },

@@ -49,7 +49,6 @@
                 "Name[sv]": "Nicolas Fella",
                 "Name[tr]": "Nicolas Fella",
                 "Name[uk]": "Nicolas Fella",
-                "Name[x-test]": "xxNicolas Fellaxx",
                 "Name[zh_CN]": "Nicolas Fella",
                 "Name[zh_TW]": "Nicolas Fella"
             }
@@ -99,7 +98,6 @@
         "Description[ta]": "இணைந்துள்ள சாதனத்தின் ஒலியளவை மாற்ற விடும்",
         "Description[tr]": "Bağlı aygıtın ses düzeyini denetle",
         "Description[uk]": "Керування томом сховища даних на з'єднаному пристрої",
-        "Description[x-test]": "xxControl the volume of the connected devicexx",
         "Description[zh_CN]": "控制连接设备的音量",
         "Description[zh_TW]": "控制連線裝置的音量",
         "EnabledByDefault": true,
@@ -150,7 +148,6 @@
         "Name[ta]": "ஒலியளவு தொலையியக்கி",
         "Name[tr]": "Uzak sistem bölümü",
         "Name[uk]": "Віддалений системний том",
-        "Name[x-test]": "xxRemote system volumexx",
         "Name[zh_CN]": "远程系统音量",
         "Name[zh_TW]": "遠端系統音量"
     },
