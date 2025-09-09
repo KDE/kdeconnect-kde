@@ -54,7 +54,6 @@
                 "Name[sv]": "Aleix Pol",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -105,7 +104,6 @@
         "Description[ta]": "திரையிலுள்ளவற்றை சுட்டிக்காட்ட திறன்பேசியைப் பயன்படுத்த விடும்",
         "Description[tr]": "Ekrandaki şeylere işaret etmek için taşınabilir aygıtı kullan",
         "Description[uk]": "Використання мобільного пристрою для керування об'єктами на екрані",
-        "Description[x-test]": "xxUse your mobile device to point to things on the screenxx",
         "Description[zh_CN]": "使用您的移动设备在屏幕上指点",
         "Description[zh_TW]": "將您的行動裝置當作螢幕指標使用",
         "EnabledByDefault": true,
@@ -156,7 +154,6 @@
         "Name[sv]": "Presentatör",
         "Name[tr]": "Sunucu",
         "Name[uk]": "Презентатор",
-        "Name[x-test]": "xxPresenterxx",
         "Name[zh_CN]": "演讲者",
         "Name[zh_TW]": "提供者"
     },

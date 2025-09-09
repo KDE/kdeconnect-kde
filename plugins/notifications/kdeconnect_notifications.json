@@ -45,7 +45,6 @@
                 "Name[sv]": "Albert Vaca Cintora",
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
-                "Name[x-test]": "xxAlbert Vaca Cintoraxx",
                 "Name[zh_CN]": "Albert Vaca Cintora",
                 "Name[zh_TW]": "Albert Vaca Cintora"
             }
@@ -100,7 +99,6 @@
         "Description[ta]": "சாதனத்தின் அறிவிப்புகளை இக்கணினியில் காட்டி ஒத்திசைவில் வைக்கும்",
         "Description[tr]": "Aygıtın bildirimlerini bilgisayarda göster ve eşzamanlı tut",
         "Description[uk]": "Показ сповіщень з пристрою на цьому комп’ютері та підтримання синхронізації даних сповіщень",
-        "Description[x-test]": "xxShow device's notifications on this computer and keep them in syncxx",
         "Description[zh_CN]": "在电脑显示手机通知并保持同步",
         "Description[zh_TW]": "在電腦上顯示裝置通知並且保持同步",
         "EnabledByDefault": true,
@@ -156,7 +154,6 @@
         "Name[ta]": "அறிவிப்புகளை பெறு",
         "Name[tr]": "Bildirimleri al",
         "Name[uk]": "Отримати сповіщення",
-        "Name[x-test]": "xxReceive notificationsxx",
         "Name[zh_CN]": "接收通知",
         "Name[zh_TW]": "接收通知"
     },

@@ -48,7 +48,6 @@
                 "Name[sv]": "Aleix Pol i Gonzalez",
                 "Name[tr]": "Aleix Pol i Gonzalez",
                 "Name[uk]": "Aleix Pol i Gonzalez",
-                "Name[x-test]": "xxAleix Pol i Gonzalezxx",
                 "Name[zh_CN]": "Aleix Pol i Gonzalez",
                 "Name[zh_TW]": "Aleix Pol i Gonzalez"
             },
@@ -90,7 +89,6 @@
                 "Name[sv]": "Fabian Arndt",
                 "Name[tr]": "Fabian Arndt",
                 "Name[uk]": "Fabian Arndt",
-                "Name[x-test]": "xxFabian Arndtxx",
                 "Name[zh_CN]": "Fabian Arndt",
                 "Name[zh_TW]": "Fabian Arndt"
             }
@@ -139,7 +137,6 @@
         "Description[ta]": "சாதனங்களை மெய்நிகர் திரைகளாக பயன்படுத்த விடும்",
         "Description[tr]": "Aygıtları sanal ekranlar olarak kullan",
         "Description[uk]": "Використання ваших пристроїв як віртуальних моніторів",
-        "Description[x-test]": "xxUse your devices as virtual monitorsxx",
         "Description[zh_CN]": "使用您的设备作为虚拟显示器",
         "Description[zh_TW]": "將您的裝置作為虛擬螢幕使用",
         "EnabledByDefault": true,
@@ -189,7 +186,6 @@
         "Name[ta]": "மெய்நிகர் திரை",
         "Name[tr]": "Sanal Ekran",
         "Name[uk]": "Віртуальний монітор",
-        "Name[x-test]": "xxVirtual Monitorxx",
         "Name[zh_CN]": "虚拟显示器",
         "Name[zh_TW]": "虛擬螢幕"
     },

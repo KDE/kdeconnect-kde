@@ -45,7 +45,6 @@
                 "Name[sv]": "Albert Vaca Cintora",
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
-                "Name[x-test]": "xxAlbert Vaca Cintoraxx",
                 "Name[zh_CN]": "Albert Vaca Cintora",
                 "Name[zh_TW]": "Albert Vaca Cintora"
             }
@@ -100,7 +99,6 @@
         "Description[ta]": "கோப்புகள், முகவரிகள், மற்றும் உரை போன்றவற்றை ஏளிதில் அனுப்பவும் பெறவும் உதவும்",
         "Description[tr]": "Dosyaları, URL’leri ve düz metinleri kolayca al ve gönder",
         "Description[uk]": "Спрощене отримання і надсилання файлів, адрес або текстових фрагментів",
-        "Description[x-test]": "xxReceive and send files, URLs or plain text easilyxx",
         "Description[zh_CN]": "简单地接收和发送文件，URL 或者文本",
         "Description[zh_TW]": "簡單地接收與傳送檔案、URL 網址或純文字檔",
         "EnabledByDefault": true,
@@ -156,7 +154,6 @@
         "Name[ta]": "பகிர் மற்றும் பேறு",
         "Name[tr]": "Paylaş ve al",
         "Name[uk]": "Оприлюднення і отримання",
-        "Name[x-test]": "xxShare and receivexx",
         "Name[zh_CN]": "分享和接收",
         "Name[zh_TW]": "分享及接收"
     },

@@ -54,7 +54,6 @@
                 "Name[sv]": "Ahmed I. Khalil",
                 "Name[tr]": "Ahmed I. Khalil",
                 "Name[uk]": "Ahmed I. Khalil",
-                "Name[x-test]": "xxAhmed I. Khalilxx",
                 "Name[zh_CN]": "Ahmed I. Khalil",
                 "Name[zh_TW]": "Ahmed I. Khalil"
             }
@@ -109,7 +108,6 @@
         "Description[ta]": "திறன்பேசியை தொடுபலகையாகவும் விசைப்பலகையாகவும் பயன்படுத்த விடும்",
         "Description[tr]": "Telefonu dokunmatik yüzey ve klayve olarak kullan",
         "Description[uk]": "Скористайтеся телефоном як замінником сенсорної панелі і клавіатури",
-        "Description[x-test]": "xxUse your phone as a touchpad and keyboardxx",
         "Description[zh_CN]": "用您的手机作为触摸板和键盘",
         "Description[zh_TW]": "讓您的智慧型手機當作觸碰板與鍵盤",
         "EnabledByDefault": true,
@@ -165,7 +163,6 @@
         "Name[ta]": "தொலை உள்ளீடு",
         "Name[tr]": "Sanal giriş",
         "Name[uk]": "Віртуальне введення даних",
-        "Name[x-test]": "xxVirtual inputxx",
         "Name[zh_CN]": "虚拟输入",
         "Name[zh_TW]": "虛擬輸入"
     },

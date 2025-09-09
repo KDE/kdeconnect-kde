@@ -49,7 +49,6 @@
                 "Name[sv]": "Simon Redman",
                 "Name[tr]": "Simon Redman",
                 "Name[uk]": "Simon Redman",
-                "Name[x-test]": "xxSimon Redmanxx",
                 "Name[zh_CN]": "Simon Redman",
                 "Name[zh_TW]": "Simon Redman"
             }
@@ -97,7 +96,6 @@
         "Description[ta]": "இணைந்துள்ள சாதனத்திலுள்ள தொடர்புகளை கணினியுடன் பகிரும்",
         "Description[tr]": "Bağlı Aygıttaki Kişileri Masaüstüne Eşzamanla",
         "Description[uk]": "Синхронізація контактів зі з'єднаного пристрою на комп'ютер",
-        "Description[x-test]": "xxSynchronize Contacts from the Connected Device to the Desktopxx",
         "Description[zh_CN]": "同步已连接设备的联系人到桌面",
         "Description[zh_TW]": "將聯絡人從連線裝置同步至桌面",
         "EnabledByDefault": true,
@@ -150,7 +148,6 @@
         "Name[ta]": "தொடர்புகள்",
         "Name[tr]": "Kişiler",
         "Name[uk]": "Контакти",
-        "Name[x-test]": "xxContactsxx",
         "Name[zh_CN]": "联系人",
         "Name[zh_TW]": "聯絡人"
     },

@@ -48,7 +48,6 @@
                 "Name[sv]": "David Shlemayev",
                 "Name[tr]": "David Shlemayev",
                 "Name[uk]": "Давид Шлемаєв",
-                "Name[x-test]": "xxDavid Shlemayevxx",
                 "Name[zh_CN]": "David Shlemayev",
                 "Name[zh_TW]": "David Shlemayev"
             }
@@ -98,7 +97,6 @@
         "Description[ta]": "தொலைபேசியின் பிணைய பலத்தை காட்டும்",
         "Description[tr]": "Telefonun ağ sinyal gücünü göster",
         "Description[uk]": "Показ потужності сигналу мережі на вашому телефоні",
-        "Description[x-test]": "xxShow your phone's network signal strengthxx",
         "Description[zh_CN]": "显示您手机的网络信号强度",
         "Description[zh_TW]": "顯示手機網路訊號的強度",
         "EnabledByDefault": true,
@@ -149,7 +147,6 @@
         "Name[ta]": "இணைப்பு நிலைகாட்டி",
         "Name[tr]": "Bağlantı monitörü",
         "Name[uk]": "Монітор з'єднання",
-        "Name[x-test]": "xxConnectivity monitorxx",
         "Name[zh_CN]": "信号监视器",
         "Name[zh_TW]": "連線監視器"
     },

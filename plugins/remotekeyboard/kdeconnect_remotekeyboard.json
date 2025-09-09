@@ -53,7 +53,6 @@
                 "Name[sv]": "Holger Kaelberer",
                 "Name[tr]": "Holger Kaelberer",
                 "Name[uk]": "Holger Kaelberer",
-                "Name[x-test]": "xxHolger Kaelbererxx",
                 "Name[zh_CN]": "Holger Kaelberer",
                 "Name[zh_TW]": "Holger Kaelberer"
             }
@@ -107,7 +106,6 @@
         "Description[ta]": "இணைந்துள்ள சாதனத்தில் இச்சாதனத்தின் விசைப்பலகையை பயன்படுத்தலாம்",
         "Description[tr]": "Eşleşmiş aygıta önemli etkinlikler göndermek için klavyeyi kullan",
         "Description[uk]": "Скористайтеся вашою клавіатурою для надсилання подій натискання клавіш на пов’язаний пристрій",
-        "Description[x-test]": "xxUse your keyboard to send key-events to your paired devicexx",
         "Description[zh_CN]": "使用您的键盘发送按键事件给配对的设备",
         "Description[zh_TW]": "利用您的鍵盤去傳送按鍵活動至您的配對裝置",
         "EnabledByDefault": true,
@@ -163,7 +161,6 @@
         "Name[ta]": "மேசைக்கணினியிலிருந்து தொலை விசைப்பலகை",
         "Name[tr]": "Masaüstünden uzak klavye",
         "Name[uk]": "Віддалена клавіатура з комп’ютера",
-        "Name[x-test]": "xxRemote keyboard from the desktopxx",
         "Name[zh_CN]": "来自桌面的远程键盘",
         "Name[zh_TW]": "從桌面遠端控制鍵盤"
     },

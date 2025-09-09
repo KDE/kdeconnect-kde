@@ -50,7 +50,6 @@
                 "Name[sv]": "Nicolas Fella",
                 "Name[tr]": "Nicolas Fella",
                 "Name[uk]": "Nicolas Fella",
-                "Name[x-test]": "xxNicolas Fellaxx",
                 "Name[zh_CN]": "Nicolas Fella",
                 "Name[zh_TW]": "Nicolas Fella"
             }
@@ -101,7 +100,6 @@
         "Description[ta]": "திறன்பேசியிலிருந்து கணினியின் ஒலியளவை கட்டுப்படுத்த விடும்",
         "Description[tr]": "Sistem sesini telefondan denetle",
         "Description[uk]": "Керування системним томом з вашого телефону",
-        "Description[x-test]": "xxControl the system volume from your phonexx",
         "Description[zh_CN]": "用手机控制电脑音量",
         "Description[zh_TW]": "從手機控制系統音量",
         "EnabledByDefault": true,
@@ -153,7 +151,6 @@
         "Name[ta]": "ஒலியளவு",
         "Name[tr]": "Sistem sesi",
         "Name[uk]": "Системний том",
-        "Name[x-test]": "xxSystem volumexx",
         "Name[zh_CN]": "系统音量",
         "Name[zh_TW]": "系統音量"
     },

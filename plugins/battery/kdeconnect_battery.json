@@ -45,7 +45,6 @@
                 "Name[sv]": "Albert Vaca Cintora",
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
-                "Name[x-test]": "xxAlbert Vaca Cintoraxx",
                 "Name[zh_CN]": "Albert Vaca Cintora",
                 "Name[zh_TW]": "Albert Vaca Cintora"
             }
@@ -100,7 +99,6 @@
         "Description[ta]": "கணினியின் மின்கல நிலை காட்டப்படும் இடத்தில் திறன்பேசியினதையும் காட்டும்",
         "Description[tr]": "Bilgisayar pilinizin yanında telefon pil durumunu göster",
         "Description[uk]": "Показ даних щодо рівня заряду акумулятора на телефоні поряд з даними щодо рівня заряду акумулятора комп’ютера",
-        "Description[x-test]": "xxShow your phone battery next to your computer batteryxx",
         "Description[zh_CN]": "在计算机电池旁显示手机电池",
         "Description[zh_TW]": "在您的電腦電池電量旁邊顯示手機電池電量",
         "EnabledByDefault": true,
@@ -157,7 +155,6 @@
         "Name[ta]": "மின்கல நிலைகாட்டி",
         "Name[tr]": "Pil monitörü",
         "Name[uk]": "Монітор акумулятора",
-        "Name[x-test]": "xxBattery monitorxx",
         "Name[zh_CN]": "电池监视器",
         "Name[zh_TW]": "電池監視器"
     },

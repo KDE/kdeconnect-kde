@@ -50,7 +50,6 @@
                 "Name[sv]": "Aditya Mehra",
                 "Name[tr]": "Aditya Mehra",
                 "Name[uk]": "Aditya Mehra",
-                "Name[x-test]": "xxAditya Mehraxx",
                 "Name[zh_CN]": "Aditya Mehra",
                 "Name[zh_TW]": "Aditya Mehra"
             }
@@ -97,7 +96,6 @@
         "Description[ta]": "பிளாஸ்மா பெருந்திரையைப் பயன்படுத்தும் தொலைக்காட்சிக்கு குரல்வழி கட்டளைகளை அனுப்பும்",
         "Description[tr]": "Plasma Büyük ekran kullanan televizyonlara ses komutları gönder",
         "Description[uk]": "Надсилання голосових команд вашому телевізору, де запущено Plasma Bigscreen",
-        "Description[x-test]": "xxSend voice commands to your TV running Plasma Bigscreenxx",
         "Description[zh_CN]": "发送语音命令给运行 Plasma Bigscreen 的电视机",
         "Description[zh_TW]": "傳送人聲指令到您執行 Plasma 大螢幕的電視",
         "EnabledByDefault": true,
@@ -145,7 +143,6 @@
         "Name[ta]": "பெருந்திரை குரல்வழி கட்டுப்பாடு",
         "Name[tr]": "Büyük Ekran sesle denetim",
         "Name[uk]": "Голосове керування Bigscreen",
-        "Name[x-test]": "xxBigscreen voice controlxx",
         "Name[zh_CN]": "Bigscreen 语音控制",
         "Name[zh_TW]": "大螢幕人聲控制"
     },
