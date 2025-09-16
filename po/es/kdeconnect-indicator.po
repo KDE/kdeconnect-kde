@@ -151,12 +151,12 @@ msgstr "Sin batería"
 #: systray_actions/battery_action.cpp:30
 #, kde-format
 msgid "Battery: %1% (Charging)"
-msgstr "Batería: %1% (Cargando)"
+msgstr "Batería: %1 % (Cargando)"
 
 #: systray_actions/battery_action.cpp:32
 #, kde-format
 msgid "Battery: %1%"
-msgstr "Batería: %1%"
+msgstr "Batería: %1 %"
 
 #: systray_actions/connectivity_action.cpp:30
 #, kde-format
@@ -172,7 +172,4 @@ msgctxt ""
 "Display the cellular connection type and an approximate percentage of signal "
 "strength"
 msgid "%1  | ~%2%"
-msgstr "%1  | ~%2%"
-
-#~ msgid "Configure..."
-#~ msgstr "Configurar…"
+msgstr "%1  | ~%2 %"

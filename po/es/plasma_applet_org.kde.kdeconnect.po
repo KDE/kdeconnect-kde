@@ -22,12 +22,12 @@ msgstr ""
 #: package/contents/ui/Battery.qml:33
 #, kde-format
 msgid "%1% charging"
-msgstr "cargando %1%"
+msgstr "cargando %1 %"
 
 #: package/contents/ui/Battery.qml:35
 #, kde-format
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: package/contents/ui/Battery.qml:38
 #, kde-format
@@ -98,7 +98,7 @@ msgstr "Monitor virtual"
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: package/contents/ui/DeviceDelegate.qml:280
 #, kde-format
@@ -188,14 +188,3 @@ msgstr "Instalar desde F-Droid"
 #, kde-format
 msgid "KDE Connect Settings…"
 msgstr "Preferencias de KDE Connect…"
-
-#~ msgid "Remote device does not have a VNC client (eg. krdc) installed."
-#~ msgstr ""
-#~ "El dispositivo remoto no tiene el cliente VNC (por ejemplo: krdc) "
-#~ "instalado."
-
-#~ msgid "The krfb package is required on the local device."
-#~ msgstr "Se necesita el paquete krfb en el dispositivo local."
-
-#~ msgid "Failed to create the virtual monitor."
-#~ msgstr "Fallo al crear el monitor virtual."

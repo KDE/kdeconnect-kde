@@ -28,7 +28,7 @@ msgstr "%1: Batería baja"
 #: battery/batteryplugin.cpp:120
 #, kde-format
 msgid "Battery at %1%"
-msgstr "Batería al %1%"
+msgstr "Batería al %1 %"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
