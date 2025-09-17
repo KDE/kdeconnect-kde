@@ -210,8 +210,8 @@ bool VirtualMonitorPlugin::requestRdp()
     static uint s_port = DEFAULT_PORT;
     const QString port = QString::number(s_port++);
 
-    m_process = new QProcess(this);
-    m_process->setProgram(QS("krdpserver"));
+    auto process = new QProcess(this);
+    process->setProgram(QS("krdpserver"));
     const double scale = m_remoteResolution.value(QLatin1String("scale")).toDouble();
     QStringList args = {QS("--virtual-monitor"),
                         m_remoteResolution.value(QLatin1String("resolution")).toString() + u'@' + QString::number(scale),
@@ -226,19 +226,22 @@ bool VirtualMonitorPlugin::requestRdp()
     if (s_plasma) {
         args << QS("--plasma");
     }
-    m_process->setArguments(args);
-    connect(m_process, &QProcess::finished, this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
-        qCWarning(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "krdp virtual display finished with" << device()->name() << m_process->readAllStandardError();
+    process->setArguments(args);
+    connect(process, &QProcess::finished, this, [this, process](int exitCode, QProcess::ExitStatus exitStatus) {
+        qCWarning(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "krdp virtual display finished with" << device()->name() << process->readAllStandardError();
         if (m_retries < 5 && (exitCode == 1 || exitStatus == QProcess::CrashExit)) {
             m_retries++;
             requestRdp();
         } else {
             EmitActive emitter(this);
-            m_process->deleteLater();
-            m_process = nullptr;
+            process->deleteLater();
+            if (m_process == process) {
+                m_process = nullptr;
+            }
         }
     });
 
+    m_process = process;
     m_process->start();
 
     if (!m_process->waitForStarted()) {
