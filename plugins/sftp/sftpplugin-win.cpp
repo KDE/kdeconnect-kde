@@ -15,6 +15,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
+#include "daemon.h"
 #include "plugin_sftp_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SftpPlugin, "kdeconnect_sftp.json")
@@ -34,17 +35,18 @@ bool SftpPlugin::startBrowsing()
 
 void SftpPlugin::receivePacket(const NetworkPacket &np)
 {
-    QStringList receivedFieldsList = np.body().keys();
-    QSet<QString> receivedFields(receivedFieldsList.begin(), receivedFieldsList.end());
-    if (!(expectedFields - receivedFields).isEmpty()) {
-        qCWarning(KDECONNECT_PLUGIN_SFTP) << "Invalid packet received.";
-        for (QString missingField : (expectedFields - receivedFields)) {
-            qCWarning(KDECONNECT_PLUGIN_SFTP) << "Field" << missingField << "missing from packet.";
-        }
+    if (np.has(QStringLiteral("errorMessage"))) {
+        QString message = np.get<QString>(QStringLiteral("errorMessage"));
+        qCWarning(KDECONNECT_PLUGIN_SFTP) << message;
+        Daemon::instance()->reportError(device()->name(), message);
         return;
     }
-    if (np.has(QStringLiteral("errorMessage"))) {
-        qCWarning(KDECONNECT_PLUGIN_SFTP) << np.get<QString>(QStringLiteral("errorMessage"));
+
+    static const QSet<QString> expectedFields{QStringLiteral("user"), QStringLiteral("port"), QStringLiteral("path"), QStringLiteral("password")};
+    const QStringList receivedFieldsList = np.body().keys();
+    const QSet<QString> receivedFields(receivedFieldsList.begin(), receivedFieldsList.end());
+    if (!(expectedFields - receivedFields).isEmpty()) {
+        qCWarning(KDECONNECT_PLUGIN_SFTP) << "Invalid packet received.";
         return;
     }
 

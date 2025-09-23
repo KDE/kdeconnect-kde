@@ -58,11 +58,6 @@ bool Mounter::wait()
 
 void Mounter::onPacketReceived(const NetworkPacket &np)
 {
-    if (np.has(QStringLiteral("errorMessage"))) {
-        Q_EMIT failed(np.get<QString>(QStringLiteral("errorMessage")));
-        return;
-    }
-
     unmount(false);
 
     m_proc = new KProcess();
