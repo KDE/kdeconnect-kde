@@ -65,10 +65,20 @@ void SftpPlugin::receivePacket(const NetworkPacket &np)
         path += QChar::fromLatin1('/');
     }
 
+    QHostAddress addr = device()->getLocalIpAddress();
+    if (addr == QHostAddress::Null) {
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Device doesn't have a LanDeviceLink, unable to get IP address";
+        return;
+    }
+    QString ip = addr.toString();
+    if (addr.protocol() == QAbstractSocket::IPv6Protocol) {
+        ip.prepend(QLatin1Char('['));
+        ip.append(QLatin1Char(']'));
+    }
     QString url_string = QStringLiteral("sftp://%1:%2@%3:%4%5")
                              .arg(np.get<QString>(QStringLiteral("user")),
                                   np.get<QString>(QStringLiteral("password")),
-                                  np.get<QString>(QStringLiteral("ip")),
+                                  ip,
                                   np.get<QString>(QStringLiteral("port")),
                                   path);
     static QRegularExpression uriRegex(QStringLiteral("^sftp://kdeconnect:\\w+@\\d+.\\d+.\\d+.\\d+:17[3-6][0-9]/$"));
