@@ -58,30 +58,10 @@ bool Mounter::wait()
 
 void Mounter::onPacketReceived(const NetworkPacket &np)
 {
-    if (np.get<bool>(QStringLiteral("stop"), false)) {
-        qCDebug(KDECONNECT_PLUGIN_SFTP) << "SFTP server stopped";
-        unmount(false);
-        return;
-    }
-
     if (np.has(QStringLiteral("errorMessage"))) {
         Q_EMIT failed(np.get<QString>(QStringLiteral("errorMessage")));
         return;
     }
-
-    // This is the previous code, to access sftp server using KIO. Now we are
-    // using the external binary sshfs, and accessing it as a local filesystem.
-    /*
-     *    QUrl url;
-     *    url.setScheme("sftp");
-     *    url.setHost(np.get<QString>("ip"));
-     *    url.setPort(np.get<QString>("port").toInt());
-     *    url.setUserName(np.get<QString>("user"));
-     *    url.setPassword(np.get<QString>("password"));
-     *    url.setPath(np.get<QString>("path"));
-     *    new KRun(url, 0);
-     *    Q_EMIT mounted();
-     */
 
     unmount(false);
 
@@ -97,10 +77,11 @@ void Mounter::onPacketReceived(const NetworkPacket &np)
     const QString program = QStringLiteral("sshfs");
 
     QString path;
-    if (np.has(QStringLiteral("multiPaths")))
+    if (np.has(QStringLiteral("multiPaths"))) {
         path = QStringLiteral("/");
-    else
+    } else {
         path = np.get<QString>(QStringLiteral("path"));
+    }
 
     QHostAddress addr = m_sftp->device()->getLocalIpAddress();
     if (addr == QHostAddress::Null) {
