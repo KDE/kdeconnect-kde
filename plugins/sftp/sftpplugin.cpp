@@ -17,6 +17,7 @@
 #include <KNotificationJobUiDelegate>
 #include <KPluginFactory>
 
+#include "daemon.h"
 #include "mounter.h"
 #include "plugin_sftp_debug.h"
 
@@ -113,7 +114,7 @@ bool SftpPlugin::startBrowsing()
 void SftpPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("errorMessage"))) {
-        Q_EMIT failed(np.get<QString>(QStringLiteral("errorMessage")));
+        onFailed(np.get<QString>(QStringLiteral("errorMessage")));
         return;
     }
 
@@ -176,7 +177,7 @@ void SftpPlugin::onUnmounted()
 void SftpPlugin::onFailed(const QString &message)
 {
     mountError = message;
-    Daemon::instance()->reportError(device->name(), message);
+    Daemon::instance()->reportError(device()->name(), message);
     unmount();
 
     Q_EMIT unmounted();
