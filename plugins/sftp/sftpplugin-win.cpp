@@ -75,12 +75,14 @@ void SftpPlugin::receivePacket(const NetworkPacket &np)
         ip.prepend(QLatin1Char('['));
         ip.append(QLatin1Char(']'));
     }
+    // clang-format off
     QString url_string = QStringLiteral("sftp://%1:%2@%3:%4%5")
                              .arg(np.get<QString>(QStringLiteral("user")),
                                   np.get<QString>(QStringLiteral("password")),
                                   ip,
                                   np.get<QString>(QStringLiteral("port")),
                                   path);
+    // clang-format on
     static QRegularExpression uriRegex(QStringLiteral("^sftp://kdeconnect:\\w+@\\d+.\\d+.\\d+.\\d+:17[3-6][0-9]/$"));
     if (!uriRegex.match(url_string).hasMatch()) {
         qCWarning(KDECONNECT_PLUGIN_SFTP) << "Invalid URL invoked. If the problem persists, contact the developers.";
