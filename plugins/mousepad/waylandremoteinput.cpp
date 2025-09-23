@@ -263,7 +263,7 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
                 s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, SpecialKeysMap[specialKey], 0);
             } else if (!key.isEmpty()) {
                 for (const QChar character : key) {
-                    const auto keysym = xkb_utf32_to_keysym(character.toLower().unicode());
+                    const auto keysym = xkb_utf32_to_keysym(character.unicode());
                     if (keysym != XKB_KEY_NoSymbol) {
                         s_session->iface->NotifyKeyboardKeysym(s_session->m_xdpPath, {}, keysym, 1).waitForFinished();
                         s_session->iface->NotifyKeyboardKeysym(s_session->m_xdpPath, {}, keysym, 0).waitForFinished();
