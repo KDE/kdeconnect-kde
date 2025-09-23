@@ -195,8 +195,9 @@ void Mounter::unmount(bool finished)
                 proc->deleteLater();
             });
             Q_EMIT unmounted();
-        } else
+        } else {
             m_proc->deleteLater();
+        }
 
         // Free mount point (won't always succeed if the path is in use)
 #if defined(HAVE_FUSERMOUNT)
