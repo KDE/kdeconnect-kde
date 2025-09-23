@@ -1032,3 +1032,7 @@ Comment[zh_CN]=收到文本
 Comment[zh_TW]=接收到簡訊
 Action=Popup
 Urgency=Low
+
+[Event/error]
+Name=Error
+Action=Popup
