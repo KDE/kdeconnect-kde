@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:43+0000\n"
+"POT-Creation-Date: 2025-09-24 00:42+0000\n"
 "PO-Revision-Date: 2017-09-28 17:57+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -124,48 +124,48 @@ msgstr ""
 "Овај образац се примењује над сажетком и, ако је означено изнад, садржајем "
 "обавештења."
 
-#: sftp/mounter.cpp:165
+#: sftp/mounter.cpp:141
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Не могу да покренем sshfs"
 
-#: sftp/mounter.cpp:169
+#: sftp/mounter.cpp:145
 #, kde-format
 msgid "sshfs process crashed"
 msgstr ""
 
-#: sftp/mounter.cpp:173
+#: sftp/mounter.cpp:149
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr ""
 
-#: sftp/mounter.cpp:184
+#: sftp/mounter.cpp:160
 #, fuzzy, kde-format
 #| msgid "Error when accessing to filesystem"
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "Грешка у приступу фајл систему"
 
-#: sftp/mounter.cpp:193
+#: sftp/mounter.cpp:169
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Неуспело монтирање фајл система: уређај не одговара"
 
-#: sftp/sftpplugin-win.cpp:79
+#: sftp/sftpplugin-win.cpp:93
 #, kde-format
 msgid "KDE Connect"
 msgstr "КДЕ‑конекција"
 
-#: sftp/sftpplugin-win.cpp:80
+#: sftp/sftpplugin-win.cpp:94
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr ""
 
-#: sftp/sftpplugin.cpp:140
+#: sftp/sftpplugin.cpp:147
 #, kde-format
 msgid "All files"
 msgstr "сви фајлови"
 
-#: sftp/sftpplugin.cpp:141
+#: sftp/sftpplugin.cpp:148
 #, kde-format
 msgid "Camera pictures"
 msgstr "Слике са камере"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:43+0000\n"
+"POT-Creation-Date: 2025-09-24 00:42+0000\n"
 "PO-Revision-Date: 2024-03-27 23:45+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -116,47 +116,47 @@ msgid ""
 "notifications."
 msgstr ""
 
-#: sftp/mounter.cpp:165
+#: sftp/mounter.cpp:141
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr ""
 
-#: sftp/mounter.cpp:169
+#: sftp/mounter.cpp:145
 #, kde-format
 msgid "sshfs process crashed"
 msgstr ""
 
-#: sftp/mounter.cpp:173
+#: sftp/mounter.cpp:149
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr ""
 
-#: sftp/mounter.cpp:184
+#: sftp/mounter.cpp:160
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 
-#: sftp/mounter.cpp:193
+#: sftp/mounter.cpp:169
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr ""
 
-#: sftp/sftpplugin-win.cpp:79
+#: sftp/sftpplugin-win.cpp:93
 #, kde-format
 msgid "KDE Connect"
 msgstr ""
 
-#: sftp/sftpplugin-win.cpp:80
+#: sftp/sftpplugin-win.cpp:94
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr ""
 
-#: sftp/sftpplugin.cpp:140
+#: sftp/sftpplugin.cpp:147
 #, kde-format
 msgid "All files"
 msgstr ""
 
-#: sftp/sftpplugin.cpp:141
+#: sftp/sftpplugin.cpp:148
 #, kde-format
 msgid "Camera pictures"
 msgstr ""

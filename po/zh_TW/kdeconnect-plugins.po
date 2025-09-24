@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:43+0000\n"
+"POT-Creation-Date: 2025-09-24 00:42+0000\n"
 "PO-Revision-Date: 2025-08-08 02:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -122,47 +122,47 @@ msgstr ""
 "正則表達式定義了哪些通知不應該被傳送。這個型式將會被套用到通知的概覽，以及若"
 "有在上面選取的話，通知的本文上。"
 
-#: sftp/mounter.cpp:165
+#: sftp/mounter.cpp:141
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "啟動 sshfs 失敗"
 
-#: sftp/mounter.cpp:169
+#: sftp/mounter.cpp:145
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs 執行程序當掉了"
 
-#: sftp/mounter.cpp:173
+#: sftp/mounter.cpp:149
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "sshfs 發生未知錯誤"
 
-#: sftp/mounter.cpp:184
+#: sftp/mounter.cpp:160
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "存取檔案系統時發生錯誤。sshfs 結束，並回傳結束碼 %0"
 
-#: sftp/mounter.cpp:193
+#: sftp/mounter.cpp:169
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "掛載檔案系統時失敗：裝置未回應"
 
-#: sftp/sftpplugin-win.cpp:79
+#: sftp/sftpplugin-win.cpp:93
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE連線"
 
-#: sftp/sftpplugin-win.cpp:80
+#: sftp/sftpplugin-win.cpp:94
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "無法處理 SFTP 通訊協定。不便之處，敬請見諒。"
 
-#: sftp/sftpplugin.cpp:140
+#: sftp/sftpplugin.cpp:147
 #, kde-format
 msgid "All files"
 msgstr "所有檔案"
 
-#: sftp/sftpplugin.cpp:141
+#: sftp/sftpplugin.cpp:148
 #, kde-format
 msgid "Camera pictures"
 msgstr "相機照片"

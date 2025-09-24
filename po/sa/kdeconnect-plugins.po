@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:43+0000\n"
+"POT-Creation-Date: 2025-09-24 00:42+0000\n"
 "PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -123,47 +123,47 @@ msgstr ""
 "काः सूचनाः न प्रेषणीयाः इति परिभाषितं नियमितव्यञ्जनम्।\n"
 "एतत् प्रतिरूपं सारांशस्य उपरि, यदि उपरि चयनितं तर्हि सूचनानां निकायस्य कृते प्रयुक्तं भवति ।"
 
-#: sftp/mounter.cpp:165
+#: sftp/mounter.cpp:141
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "sshfs आरभ्यतुं असफलम्"
 
-#: sftp/mounter.cpp:169
+#: sftp/mounter.cpp:145
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs प्रक्रिया दुर्घटना अभवत्"
 
-#: sftp/mounter.cpp:173
+#: sftp/mounter.cpp:149
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "sshfs इत्यत्र अज्ञातदोषः"
 
-#: sftp/mounter.cpp:184
+#: sftp/mounter.cpp:160
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "सञ्चिकातन्त्रं अभिगत्य त्रुटिः । sshfs %0 निर्गमनसङ्केतेन समाप्तम्"
 
-#: sftp/mounter.cpp:193
+#: sftp/mounter.cpp:169
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "सञ्चिकातन्त्रं माउण्ट् कर्तुं असफलम्: यन्त्रं प्रतिक्रियां न ददाति"
 
-#: sftp/sftpplugin-win.cpp:79
+#: sftp/sftpplugin-win.cpp:93
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect इति"
 
-#: sftp/sftpplugin-win.cpp:80
+#: sftp/sftpplugin-win.cpp:94
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "SFTP प्रोटोकॉलं सम्भालितुं न शक्नोति। असुविधायाः कृते क्षमायाचना"
 
-#: sftp/sftpplugin.cpp:140
+#: sftp/sftpplugin.cpp:147
 #, kde-format
 msgid "All files"
 msgstr "सर्वाणि सञ्चिकानि"
 
-#: sftp/sftpplugin.cpp:141
+#: sftp/sftpplugin.cpp:148
 #, kde-format
 msgid "Camera pictures"
 msgstr "कॅमेरा चित्र"
