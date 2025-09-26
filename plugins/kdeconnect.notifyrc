@@ -1035,4 +1035,14 @@ Urgency=Low
 
 [Event/error]
 Name=Error
+Name[ca]=Error
+Name[ca@valencia]=S'ha produït un error
+Name[he]=שגיאה
+Name[ka]=შეცდომა
+Name[nl]=Fout
+Name[pt_BR]=Erro
+Name[sl]=Napaka
+Name[tr]=Hata
+Name[uk]=Помилка
+Name[zh_TW]=錯誤
 Action=Popup
