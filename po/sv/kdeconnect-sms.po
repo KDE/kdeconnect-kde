@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:41+0000\n"
+"POT-Creation-Date: 2025-09-27 00:42+0000\n"
 "PO-Revision-Date: 2025-07-28 18:10+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -153,33 +153,33 @@ msgstr ""
 msgid "Refresh"
 msgstr "Uppdatera"
 
-#: qml/ConversationList.qml:82
+#: qml/ConversationList.qml:83
 #, kde-format
 msgid "Choose recipient"
 msgstr "Välj mottagare"
 
-#: qml/ConversationList.qml:87
+#: qml/ConversationList.qml:88
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: qml/ConversationList.qml:106
+#: qml/ConversationList.qml:107
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Sök eller starta en konversation"
 
-#: qml/ConversationList.qml:141
+#: qml/ConversationList.qml:143
 #, kde-format
 msgid "Start new conversation"
 msgstr "Starta ny konversation"
 
-#: qml/ConversationList.qml:190
+#: qml/ConversationList.qml:192
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "Inga träffar"
 
-#: qml/ConversationList.qml:200
+#: qml/ConversationList.qml:202
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"

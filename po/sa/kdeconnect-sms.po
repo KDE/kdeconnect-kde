@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:41+0000\n"
+"POT-Creation-Date: 2025-09-27 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -156,27 +156,27 @@ msgstr ""
 msgid "Refresh"
 msgstr "ताजगी"
 
-#: qml/ConversationList.qml:82
+#: qml/ConversationList.qml:83
 #, kde-format
 msgid "Choose recipient"
 msgstr "प्राप्तकर्ता चिनोतु"
 
-#: qml/ConversationList.qml:87
+#: qml/ConversationList.qml:88
 #, kde-format
 msgid "Cancel"
 msgstr "निरसयतु"
 
-#: qml/ConversationList.qml:106
+#: qml/ConversationList.qml:107
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "अन्वेष्टुम् अथवा वार्तालापं आरभत"
 
-#: qml/ConversationList.qml:141
+#: qml/ConversationList.qml:143
 #, kde-format
 msgid "Start new conversation"
 msgstr "नूतनं वार्तालापं आरभत"
 
-#: qml/ConversationList.qml:190
+#: qml/ConversationList.qml:192
 #, fuzzy, kde-format
 #| msgctxt "Placeholder message text when no messages are found"
 #| msgid "No matches"
@@ -184,7 +184,7 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "न मेलनं"
 
-#: qml/ConversationList.qml:200
+#: qml/ConversationList.qml:202
 #, fuzzy, kde-format
 #| msgid "Start new conversation"
 msgctxt "@info:placeholder"

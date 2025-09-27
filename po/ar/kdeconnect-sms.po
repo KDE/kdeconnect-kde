@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:41+0000\n"
+"POT-Creation-Date: 2025-09-27 00:42+0000\n"
 "PO-Revision-Date: 2025-08-20 22:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -151,33 +151,33 @@ msgstr "نصيحة: إذا وصلت جهازك، فيجب ألا يذهب إلى
 msgid "Refresh"
 msgstr "حدّث"
 
-#: qml/ConversationList.qml:82
+#: qml/ConversationList.qml:83
 #, kde-format
 msgid "Choose recipient"
 msgstr "اختر مستلم"
 
-#: qml/ConversationList.qml:87
+#: qml/ConversationList.qml:88
 #, kde-format
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: qml/ConversationList.qml:106
+#: qml/ConversationList.qml:107
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "ابحث أو ابدأ محادثة"
 
-#: qml/ConversationList.qml:141
+#: qml/ConversationList.qml:143
 #, kde-format
 msgid "Start new conversation"
 msgstr "ابدأ محادثة جديدة"
 
-#: qml/ConversationList.qml:190
+#: qml/ConversationList.qml:192
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "لا يوجد متطابقات"
 
-#: qml/ConversationList.qml:200
+#: qml/ConversationList.qml:202
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"

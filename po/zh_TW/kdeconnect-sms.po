@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:41+0000\n"
+"POT-Creation-Date: 2025-09-27 00:42+0000\n"
 "PO-Revision-Date: 2025-08-08 02:34+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -156,33 +156,33 @@ msgstr ""
 msgid "Refresh"
 msgstr "重新整理"
 
-#: qml/ConversationList.qml:82
+#: qml/ConversationList.qml:83
 #, kde-format
 msgid "Choose recipient"
 msgstr "選擇收件者"
 
-#: qml/ConversationList.qml:87
+#: qml/ConversationList.qml:88
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: qml/ConversationList.qml:106
+#: qml/ConversationList.qml:107
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "搜尋或開始新對話"
 
-#: qml/ConversationList.qml:141
+#: qml/ConversationList.qml:143
 #, kde-format
 msgid "Start new conversation"
 msgstr "開始新對話"
 
-#: qml/ConversationList.qml:190
+#: qml/ConversationList.qml:192
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "無相符的簡訊"
 
-#: qml/ConversationList.qml:200
+#: qml/ConversationList.qml:202
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"

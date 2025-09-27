@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:41+0000\n"
+"POT-Creation-Date: 2025-09-27 00:42+0000\n"
 "PO-Revision-Date: 2020-11-20 01:14+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -151,34 +151,34 @@ msgstr ""
 msgid "Refresh"
 msgstr "Värskenda"
 
-#: qml/ConversationList.qml:82
+#: qml/ConversationList.qml:83
 #, kde-format
 msgid "Choose recipient"
 msgstr "Saaja valimine"
 
-#: qml/ConversationList.qml:87
+#: qml/ConversationList.qml:88
 #, kde-format
 msgid "Cancel"
 msgstr "Loobu"
 
-#: qml/ConversationList.qml:106
+#: qml/ConversationList.qml:107
 #, fuzzy, kde-format
 #| msgid "Start new conversation"
 msgid "Search or start a conversation"
 msgstr "Alusta uut vestlust"
 
-#: qml/ConversationList.qml:141
+#: qml/ConversationList.qml:143
 #, kde-format
 msgid "Start new conversation"
 msgstr "Alusta uut vestlust"
 
-#: qml/ConversationList.qml:190
+#: qml/ConversationList.qml:192
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr ""
 
-#: qml/ConversationList.qml:200
+#: qml/ConversationList.qml:202
 #, fuzzy, kde-format
 #| msgid "Start new conversation"
 msgctxt "@info:placeholder"

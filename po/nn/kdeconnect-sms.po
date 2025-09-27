@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:41+0000\n"
+"POT-Creation-Date: 2025-09-27 00:42+0000\n"
 "PO-Revision-Date: 2025-06-01 15:00+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -155,27 +155,27 @@ msgstr ""
 msgid "Refresh"
 msgstr "Oppdater"
 
-#: qml/ConversationList.qml:82
+#: qml/ConversationList.qml:83
 #, kde-format
 msgid "Choose recipient"
 msgstr "Vel mottakar"
 
-#: qml/ConversationList.qml:87
+#: qml/ConversationList.qml:88
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: qml/ConversationList.qml:106
+#: qml/ConversationList.qml:107
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "Søk eller start samtale"
 
-#: qml/ConversationList.qml:141
+#: qml/ConversationList.qml:143
 #, kde-format
 msgid "Start new conversation"
 msgstr "Start ny samtale"
 
-#: qml/ConversationList.qml:190
+#: qml/ConversationList.qml:192
 #, fuzzy, kde-format
 #| msgctxt "Placeholder message text when no messages are found"
 #| msgid "No matches"
@@ -183,7 +183,7 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "Ingen treff"
 
-#: qml/ConversationList.qml:200
+#: qml/ConversationList.qml:202
 #, fuzzy, kde-format
 #| msgid "Start new conversation"
 msgctxt "@info:placeholder"
