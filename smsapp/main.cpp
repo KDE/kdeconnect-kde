@@ -14,10 +14,12 @@
 
 #include <KAboutData>
 #include <KColorSchemeManager>
+#include <KConfigGroup>
 #include <KCrash>
 #include <KDBusService>
 #include <KLocalizedContext>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -32,13 +34,42 @@ class AppData : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString initialMessage MEMBER m_initialMessage NOTIFY initialMessageChanged)
-    Q_PROPERTY(QString deviceId MEMBER m_deviceId NOTIFY deviceIdChanged)
+    Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
 
 public:
-    Q_SIGNAL void initialMessageChanged();
-    Q_SIGNAL void deviceIdChanged();
+    AppData(const QString &initialMessage, const QString &deviceId)
+        : m_initialMessage(initialMessage)
+        , m_deviceId(deviceId)
+    {
+        // If not set from the CLI, load from state config
+        if (deviceId.isEmpty()) {
+            KConfigGroup stateConfig = KSharedConfig::openStateConfig()->group(QString());
+            m_deviceId = stateConfig.readEntry(QStringLiteral("LastDeviceId"));
+        }
+    }
+
+    void setDeviceId(const QString &newDeviceId)
+    {
+        // Write the last set device id to restore on next app start
+        KConfigGroup stateConfig = KSharedConfig::openStateConfig()->group(QString());
+        stateConfig.writeEntry(QStringLiteral("LastDeviceId"), newDeviceId);
+
+        m_deviceId = newDeviceId;
+        Q_EMIT deviceIdChanged();
+    }
+
+    QString deviceId() const
+    {
+        return m_deviceId;
+    }
 
     QString m_initialMessage;
+
+Q_SIGNALS:
+    void initialMessageChanged();
+    void deviceIdChanged();
+
+private:
     QString m_deviceId;
 };
 
@@ -80,8 +111,6 @@ int main(int argc, char *argv[])
 
     KCrash::initialize();
 
-    AppData data;
-
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
     parser.addOption(QCommandLineOption(QStringLiteral("device"), i18n("Select a device"), i18n("id")));
@@ -89,8 +118,7 @@ int main(int argc, char *argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    data.m_initialMessage = parser.value(QStringLiteral("message"));
-    data.m_deviceId = parser.value(QStringLiteral("device"));
+    AppData data(parser.value(QStringLiteral("message")), parser.value(QStringLiteral("device")));
 
     KDBusService service(KDBusService::Unique);
 
@@ -98,7 +126,7 @@ int main(int argc, char *argv[])
         parser.parse(args);
 
         data.m_initialMessage = parser.value(QStringLiteral("message"));
-        data.m_deviceId = parser.value(QStringLiteral("device"));
+        data.setDeviceId(parser.value(QStringLiteral("device")));
 
         Q_EMIT data.deviceIdChanged();
         Q_EMIT data.initialMessageChanged();
