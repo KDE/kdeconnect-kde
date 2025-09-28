@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Sergiu Bivol <sergiu@cip.md>, 2020, 2021, 2024.
+# SPDX-FileCopyrightText: 2020, 2021, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2024-01-07 13:15+0000\n"
+"PO-Revision-Date: 2025-09-27 11:57+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -60,18 +60,17 @@ msgstr "Manipulant de URL KDE Connect"
 #: kdeconnect-handler.cpp:50
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025 Echipa KDE Connect"
 
 #: kdeconnect-handler.cpp:51
-#, fuzzy, kde-format
-#| msgid "(C) 2017 Aleix Pol Gonzalez"
+#, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "(C) 2017 Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
 
 #: kdeconnect-handler.cpp:52
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: kdeconnect-handler.cpp:84
 #, kde-format

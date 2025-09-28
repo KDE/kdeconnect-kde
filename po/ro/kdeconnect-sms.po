@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Sergiu Bivol <sergiu@cip.md>, 2020, 2021, 2022, 2024.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2024-06-09 11:32+0100\n"
+"PO-Revision-Date: 2025-09-27 11:56+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -74,10 +74,9 @@ msgid "SMS Instant Messaging"
 msgstr "Mesagerie instantanee SMS"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2022, KDE Connect Team"
+#, kde-format
 msgid "© 2018–2025 KDE Connect Team"
-msgstr "(C) 2018-2022, Echipa KDE Connect"
+msgstr "© 2018–2025 Echipa KDE Connect"
 
 #: main.cpp:55
 #, kde-format
@@ -192,10 +191,9 @@ msgid "About"
 msgstr "Despre"
 
 #: qml/Main.qml:115
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Despre"
+msgstr "Despre KDE"
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
@@ -213,26 +211,24 @@ msgid "Max message size limit exceeded."
 msgstr "Limita maximă de dimensiune a mesajului a fost depășită."
 
 #: qml/SendingArea.qml:63
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgid "Send a message…"
-msgstr "Trimite mesaj"
+msgstr "Trimite mesaj…"
 
 #: qml/SendingArea.qml:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
-msgstr ""
+msgstr "Atașează o imagine sau fișier"
 
 #: qml/SendingArea.qml:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
-msgstr ""
+msgstr "Golește atașamentele"
 
 #: qml/SendingArea.qml:173
-#, fuzzy, kde-format
-#| msgid "Send a message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Trimite mesaj"

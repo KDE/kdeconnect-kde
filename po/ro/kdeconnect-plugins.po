@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Sergiu Bivol <sergiu@cip.md>, 2020, 2021, 2024.
+# SPDX-FileCopyrightText: 2020, 2021, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-25 00:42+0000\n"
-"PO-Revision-Date: 2024-01-07 13:14+0000\n"
+"PO-Revision-Date: 2025-09-27 11:55+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -54,7 +54,7 @@ msgstr "Lector actual"
 #: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: notifications/notification.cpp:108
 #, kde-format
@@ -63,12 +63,10 @@ msgid "Reply"
 msgstr "Răspunde"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr "Răspuns pentru %1..."
+msgstr "Răspunde pentru %1…"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -97,10 +95,9 @@ msgid "Name"
 msgstr "Denumire"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "Include corpul"
+msgstr "Exclus"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format

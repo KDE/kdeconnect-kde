@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Sergiu Bivol <sergiu@cip.md>, 2020, 2021, 2024.
+# SPDX-FileCopyrightText: 2020, 2021, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-02 10:13+0000\n"
-"PO-Revision-Date: 2024-01-07 13:08+0000\n"
+"PO-Revision-Date: 2025-09-27 11:52+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -45,16 +45,14 @@ msgid "Ring device"
 msgstr "Sună dispozitivul"
 
 #: deviceindicator.cpp:95
-#, fuzzy, kde-format
-#| msgid "Send a file/URL"
+#, kde-format
 msgid "Send files"
-msgstr "Trimite un fișier/URL"
+msgstr "Trimite fișiere"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
-msgstr "Mesaje SMS..."
+msgstr "Mesaje SMS…"
 
 #: deviceindicator.cpp:130
 #, kde-format
@@ -98,23 +96,22 @@ msgstr "Unealtă de indicator KDE Connect"
 #: main.cpp:61
 #, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2016–2025 Echipa KDE Connect"
 
 #: main.cpp:62
-#, fuzzy, kde-format
-#| msgid "(C) 2016 Aleix Pol Gonzalez"
+#, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "(C) 2016 Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
 
 #: main.cpp:63
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:101
 #, kde-format
 msgid "Open app"
-msgstr ""
+msgstr "Deschide aplicația"
 
 #: main.cpp:118
 #, kde-format

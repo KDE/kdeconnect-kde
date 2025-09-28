@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Sergiu Bivol <sergiu@cip.md>, 2020, 2021, 2022, 2024.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 00:42+0000\n"
-"PO-Revision-Date: 2024-06-09 11:33+0100\n"
+"PO-Revision-Date: 2025-09-27 11:49+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -26,7 +26,7 @@ msgstr "KDE Connect"
 #: main.cpp:42
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025 Echipa KDE Connect"
 
 #: main.cpp:43
 #, kde-format
@@ -36,7 +36,7 @@ msgstr "Aleix Pol Gonzalez"
 #: main.cpp:44
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:45
 #, kde-format
@@ -54,19 +54,19 @@ msgstr "sergiu@cip.md"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "Identificatorul dispozitivului în care se deschide aplicația"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "Modulul de configurare de afișat, necesită valoare pentru --device."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Înlocuiește o instanță existentă"
 
 #: main.cpp:86
 #, kde-format
@@ -92,14 +92,13 @@ msgstr "Configurare extensii"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "Acțiuni"
 
 #: qml/DevicePage.qml:67
-#, fuzzy, kde-format
-#| msgid "Remote Control"
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr "Telecomandă"
+msgstr "Controale"
 
 #: qml/DevicePage.qml:113
 #, kde-format
@@ -154,17 +153,12 @@ msgstr "Partajează fișier"
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Răsfoiește acest dispozitiv"
 
 #: qml/DevicePage.qml:196
-#, fuzzy, kde-format
-#| msgid ""
-#| "This device is not paired.\n"
-#| "Key: %1"
+#, kde-format
 msgid "This device is not paired."
-msgstr ""
-"Acest dispozitiv nu e asociat.\n"
-"Cheie: %1"
+msgstr "Dispozitivul nu e asociat."
 
 #: qml/DevicePage.qml:200
 #, kde-format
@@ -202,9 +196,7 @@ msgid "Please choose a file"
 msgstr "Alegeți un fișier"
 
 #: qml/Main.qml:87
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Dispozitive"
 
@@ -212,15 +204,13 @@ msgstr "Dispozitive"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Împrospătează"
 
 #: qml/Main.qml:97
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Dispozitive"
+msgstr "Împrospătează dispozitivele"
 
 #: qml/Main.qml:133
 #, kde-format
@@ -263,19 +253,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Clic stâng"
 
 #: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Clic mijlociu"
 
 #: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Clic drept"
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -332,25 +322,25 @@ msgstr "Denumire dispozitiv"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "Platforme"
 
 #: qml/Settings.qml:54
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: qml/Settings.qml:56
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "Buclă retur"
 
 #: qml/Settings.qml:58
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "Rețea"
 
 #: qml/Settings.qml:73
 #, kde-format
@@ -366,44 +356,42 @@ msgstr "Despre KDE"
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "Niciun dispozitiv ales"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
-msgstr ""
+msgstr "Instalați KDE Connect și pe celelalte dispozitive ale dumneavoastră."
 
 #: qml/WelcomePage.qml:43
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr "KDE Connect"
+msgstr "Aplicație KDE Connect pentru Android"
 
 #: qml/WelcomePage.qml:50
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "F-Droid"
 
 #: qml/WelcomePage.qml:57
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "Magazinul Play"
 
 #: qml/WelcomePage.qml:63
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr "KDE Connect"
+msgstr "Aplicație KDE Connect pentru iOS"
 
 #: qml/WelcomePage.qml:68
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "Magazinul Apple"
 
 #: qml/WelcomePage.qml:74
 #, kde-format
@@ -412,6 +400,9 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+"Dacă întâmpinați probleme, vizitați <a href=\"https://userbase.kde.org/"
+"KDEConnect\"><span style=\" text-decoration: underline;\">pagina comunității "
+"KDE Connect</span></a> pentru ajutor."
 
 #~ msgid "(c) 2015, Aleix Pol Gonzalez"
 #~ msgstr "(c) 2015, Aleix Pol Gonzalez"
