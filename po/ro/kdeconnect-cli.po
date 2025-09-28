@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Sergiu Bivol <sergiu@cip.md>, 2020, 2024.
+# SPDX-FileCopyrightText: 2020, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2024-01-07 13:07+0000\n"
+"PO-Revision-Date: 2025-09-27 11:51+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -36,7 +36,7 @@ msgstr "Unealtă în linia de comandă KDE Connect"
 #: kdeconnect-cli.cpp:34
 #, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025, Echipa KDE Connect"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -61,24 +61,22 @@ msgstr "Enumeră dispozitivele disponibile (asociate și accesibile)"
 #: kdeconnect-cli.cpp:45
 #, kde-format
 msgid "List all backends and status"
-msgstr ""
+msgstr "Enumeră toate platformele și stările"
 
 #: kdeconnect-cli.cpp:46
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Enable the specified backend"
-msgstr "Deblochează dispozitivul specificat"
+msgstr "Activează platforma specificată"
 
 #: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
 #, kde-format
 msgid "backend"
-msgstr ""
+msgstr "platformă"
 
 #: kdeconnect-cli.cpp:47
-#, fuzzy, kde-format
-#| msgid "Unlock the specified device"
+#, kde-format
 msgid "Disable the specified backend"
-msgstr "Deblochează dispozitivul specificat"
+msgstr "Dezactivează platforma specificată"
 
 #: kdeconnect-cli.cpp:49
 #, kde-format
@@ -188,10 +186,7 @@ msgid "phone number"
 msgstr "număr de telefon"
 
 #: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
+#, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
@@ -199,10 +194,9 @@ msgstr ""
 "repetat)"
 
 #: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
+#, kde-format
 msgid "file URLs"
-msgstr "url-uri fișiere"
+msgstr "URL-uri fișiere"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
@@ -309,10 +303,9 @@ msgid "Requested to unlock %1."
 msgstr "S-a cerut deblocarea %1."
 
 #: kdeconnect-cli.cpp:257
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "se așteaptă dispozitivul..."
+msgstr "se așteaptă dispozitivul…"
 
 #: kdeconnect-cli.cpp:270
 #, kde-format
