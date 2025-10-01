@@ -152,7 +152,7 @@
         "Name[ta]": "பிடிப்புப்பலகை",
         "Name[tr]": "Geçici taşıma panosu",
         "Name[uk]": "Буфер обміну",
-        "Name[zh_CN]": "剪切板",
+        "Name[zh_CN]": "剪贴板",
         "Name[zh_TW]": "剪貼簿"
     },
     "X-KdeConnect-OutgoingPacketType": [
