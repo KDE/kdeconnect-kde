@@ -31,7 +31,7 @@ Kirigami.ScrollablePage {
 
         CheckBox {
             id: persistent
-            text: i18n("Persistent notifications only")
+            text: i18nd("kdeconnect-plugins", "Persistent notifications only")
             focus: true
             onClicked: config.set("generalPersistent", checked)
             KeyNavigation.down: includeBody
@@ -39,21 +39,21 @@ Kirigami.ScrollablePage {
 
         CheckBox {
             id: includeBody
-            text: i18n("Include body")
+            text: i18nd("kdeconnect-plugins", "Include body")
             onClicked: config.set("generalIncludeBody", checked)
             KeyNavigation.down: includeIcon
         }
 
         CheckBox {
             id: includeIcon
-            text: i18n("Include icon")
+            text: i18nd("kdeconnect-plugins", "Include icon")
             onClicked: config.set("generalSynchronizeIcons", checked)
             KeyNavigation.down: urgency
         }
 
         SpinBox {
             id: urgency
-            Kirigami.FormData.label: i18n("Minimum urgency level:")
+            Kirigami.FormData.label: i18nd("kdeconnect-plugins", "Minimum urgency level:")
             from: 0
             to: 2
             onValueModified: config.set("generalUrgency", value)

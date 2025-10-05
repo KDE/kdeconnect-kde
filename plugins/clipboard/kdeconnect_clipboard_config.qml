@@ -31,7 +31,7 @@ Kirigami.ScrollablePage {
 
         QQC2.CheckBox {
             id: autoShare
-            text: i18n("Automatically share the clipboard from this device")
+            text: i18nd("kdeconnect-plugins", "Automatically share the clipboard from this device")
             focus: true
             onClicked: config.set("autoShare", checked)
             KeyNavigation.down: password
@@ -39,7 +39,7 @@ Kirigami.ScrollablePage {
 
         QQC2.CheckBox {
             id: password
-            text: i18n("Including passwords (as marked by password managers)")
+            text: i18nd("kdeconnect-plugins", "Including passwords (as marked by password managers)")
             onClicked: config.set("sendPassword", checked)
         }
 
@@ -52,7 +52,7 @@ Kirigami.ScrollablePage {
             }
 
             QQC2.Label {
-                text: i18n("Max Clipboard File Size (MB)")
+                text: i18nd("kdeconnect-plugins", "Max Clipboard File Size (MB)")
             }
         }
     }
