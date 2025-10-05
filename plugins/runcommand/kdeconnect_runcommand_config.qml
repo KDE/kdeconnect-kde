@@ -18,7 +18,7 @@ Kirigami.ScrollablePage {
     actions: Kirigami.Action {
         id: addCommandDialogAction
         icon.name: "list-add"
-        text: i18n("Add Command…")
+        text: i18nd("kdeconnect-plugins", "Add Command…")
         onTriggered: addDialog.open()
     }
 
@@ -50,7 +50,7 @@ Kirigami.ScrollablePage {
             }
 
             actions: Kirigami.Action {
-                text: i18n("Delete")
+                text: i18nd("kdeconnect-plugins", "Delete")
                 icon.name: "delete"
                 onTriggered: commandModel.removeCommand(index)
             }
@@ -61,20 +61,20 @@ Kirigami.ScrollablePage {
             anchors.centerIn: parent
             visible: view.count === 0
             width: parent.width - Kirigami.Units.gridUnit * 4
-            text: i18nc("@info", "No commands configured")
-            explanation: i18nc("@info", "Add commands to run them remotely from other devices")
+            text: i18ndc("kdeconnect-plugins", "@info", "No commands configured")
+            explanation: i18ndc("kdeconnect-plugins", "@info", "Add commands to run them remotely from other devices")
             helpfulAction: addCommandDialogAction
         }
 
         Kirigami.Dialog {
             id: addDialog
-            title: i18nc("@title:window", "Add Command")
+            title: i18ndc("kdeconnect-plugins", "@title:window", "Add Command")
 
             padding: Kirigami.Units.largeSpacing
             preferredWidth: Kirigami.Units.gridUnit * 20
 
             property Kirigami.Action addCommandAction: Kirigami.Action {
-                text: i18nc("@action:button", "Add")
+                text: i18ndc("kdeconnect-plugins", "@action:button", "Add")
                 icon.name: "list-add"
                 enabled: commandField.length > 0
                 onTriggered: {
@@ -83,7 +83,7 @@ Kirigami.ScrollablePage {
                 }
                 Component.onCompleted: {
                     // TODO: can be set directly once Qt 6.8 is required
-                    Accessible.Name = i18nc("@action:button accessible", "Add command")
+                    Accessible.Name = i18ndc("kdeconnect-plugins", "@action:button accessible", "Add command")
                 }
             }
 
@@ -93,15 +93,15 @@ Kirigami.ScrollablePage {
             Kirigami.FormLayout {
                 QQC2.TextField {
                     id: nameField
-                    Kirigami.FormData.label: i18n("Name:")
+                    Kirigami.FormData.label: i18nd("kdeconnect-plugins", "Name:")
                 }
                 QQC2.TextField {
                     id: commandField
-                    Kirigami.FormData.label: i18n("Command:")
+                    Kirigami.FormData.label: i18nd("kdeconnect-plugins", "Command:")
                 }
 
                 QQC2.ComboBox {
-                    Kirigami.FormData.label: i18n("Sample commands:")
+                    Kirigami.FormData.label: i18nd("kdeconnect-plugins", "Sample commands:")
                     textRole: "name"
                     model: ListModel {
                         id: sampleCommands

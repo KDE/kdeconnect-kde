@@ -54,7 +54,7 @@ Kirigami.ScrollablePage {
 
             QQC2.Button {
                 id: filePickerButton
-                text: i18nc("@action:button", "Choose file")
+                text: i18ndc("kdeconnect-plugins", "@action:button", "Choose file")
                 display: QQC2.Button.IconOnly
                 icon.name: "document-open-symbolic"
                 onClicked: fileDialog.open()
@@ -63,7 +63,7 @@ Kirigami.ScrollablePage {
 
             QQC2.Button {
                 id: playButton
-                text: i18nc("@action:button", "Play")
+                text: i18ndc("kdeconnect-plugins", "@action:button", "Play")
                 display: QQC2.Button.IconOnly
                 icon.name: playMusic.playing ? "media-playback-stop-symbolic" : "media-playback-start-symbolic"
                 enabled: FindThisDevice.FindThisDeviceHelper.pathExists(path.text)

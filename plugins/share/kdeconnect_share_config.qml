@@ -19,7 +19,7 @@ Kirigami.ScrollablePage {
 
     actions: Kirigami.Action {
         icon.name: "dialog-ok"
-        text: i18n("Apply")
+        text: i18nd("kdeconnect-plugins", "Apply")
         onTriggered: config.set("incoming_path", path.text)
     }
 
@@ -44,7 +44,7 @@ Kirigami.ScrollablePage {
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Save files in:")
+            Kirigami.FormData.label: i18nd("kdeconnect-plugins", "Save files in:")
 
             QQC2.TextField {
                 id: path
@@ -60,7 +60,7 @@ Kirigami.ScrollablePage {
         }
 
         QQC2.Label {
-            text: i18n("%1 in the path will be replaced with the specific device name", "%1")
+            text: i18nd("kdeconnect-plugins", "%1 in the path will be replaced with the specific device name", "%1")
         }
     }
 }

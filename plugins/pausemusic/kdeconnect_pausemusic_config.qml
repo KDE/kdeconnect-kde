@@ -29,7 +29,7 @@ Kirigami.ScrollablePage {
         }
 
         QQC2.RadioButton {
-            text: i18n("Pause as soon as phone rings")
+            text: i18nd("kdeconnect-plugins", "Pause as soon as phone rings")
             checked: !talking.checked
             focus: true
             KeyNavigation.down: talking
@@ -38,27 +38,27 @@ Kirigami.ScrollablePage {
         QQC2.RadioButton {
             id: talking
             onCheckedChanged: config.set("conditionTalking", checked)
-            text: i18n("Pause only while talking")
+            text: i18nd("kdeconnect-plugins", "Pause only while talking")
             KeyNavigation.down: pause
         }
 
         QQC2.CheckBox {
             id: pause
-            text: i18n("Pause media players")
+            text: i18nd("kdeconnect-plugins", "Pause media players")
             onClicked: config.set("actionPause", checked)
             KeyNavigation.down: mute
         }
 
         QQC2.CheckBox {
             id: mute
-            text: i18n("Mute system sound")
+            text: i18nd("kdeconnect-plugins", "Mute system sound")
             onClicked: config.set("actionMute", checked)
             KeyNavigation.down: resume
         }
 
         QQC2.CheckBox {
             id: resume
-            text: i18n("Resume automatically when call ends")
+            text: i18nd("kdeconnect-plugins", "Resume automatically when call ends")
             onClicked: config.set("actionResume", checked)
         }
     }
