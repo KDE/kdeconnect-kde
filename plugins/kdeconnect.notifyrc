@@ -1035,6 +1035,7 @@ Urgency=Low
 
 [Event/error]
 Name=Error
+Name[ar]=خطأ
 Name[bg]=Грешка
 Name[ca]=Error
 Name[ca@valencia]=S'ha produït un error
