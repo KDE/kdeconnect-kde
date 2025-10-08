@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-24 00:42+0000\n"
+"POT-Creation-Date: 2025-10-08 00:43+0000\n"
 "PO-Revision-Date: 2025-07-15 04:00+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,6 +28,45 @@ msgstr "%1: ელემენტი დასატენია"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "ელემენტის მუხტია %1%"
+
+#: clipboard/kdeconnect_clipboard_config.qml:34
+#, kde-format
+msgid "Automatically share the clipboard from this device"
+msgstr "ამ მოწყობილობის ბუფერის ავტომატური გაზიარება"
+
+#: clipboard/kdeconnect_clipboard_config.qml:42
+#, kde-format
+msgid "Including passwords (as marked by password managers)"
+msgstr "პაროლების ჩათვლით (როგორც მონიშნულია პაროლის მმართველების მიერ)"
+
+#: clipboard/kdeconnect_clipboard_config.qml:55
+#, kde-format
+msgid "Max Clipboard File Size (MB)"
+msgstr "ბუფერის ფაილის მაქს. ზომა (მბ)"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:23
+#: share/kdeconnect_share_config.qml:22
+#, kde-format
+msgid "Apply"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:47
+#, kde-format
+msgid "Sound to play:"
+msgstr "დასაკრავი ხმა:"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:57
+#, fuzzy, kde-format
+#| msgid "Could not share file"
+msgctxt "@action:button"
+msgid "Choose file"
+msgstr "ფაილის გაზიარების შეცდომა"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Play"
+msgstr ""
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -79,15 +118,123 @@ msgstr "გაგზავნა"
 msgid "Dialog"
 msgstr "ფანჯარა"
 
+#: pausemusic/kdeconnect_pausemusic_config.qml:32
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr "მუსიკის შეჩერება, როცა ტელეფონი დარეკავს"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:41
+#, kde-format
+msgid "Pause only while talking"
+msgstr "შეჩერება საუბრის დროს"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:47
+#, kde-format
+msgid "Pause media players"
+msgstr "მედია დამკვრელების შეჩერება"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:54
+#, kde-format
+msgid "Mute system sound"
+msgstr "სისტემის ხმის დადუმება"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:61
+#, kde-format
+msgid "Resume automatically when call ends"
+msgstr ""
+
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "პინგ!"
 
+#: runcommand/kdeconnect_runcommand_config.qml:21
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Add Command…"
+msgstr "ბრძანება"
+
+#: runcommand/kdeconnect_runcommand_config.qml:53
+#, kde-format
+msgid "Delete"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:64
+#, kde-format
+msgctxt "@info"
+msgid "No commands configured"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:65
+#, kde-format
+msgctxt "@info"
+msgid "Add commands to run them remotely from other devices"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:71
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@title:window"
+msgid "Add Command"
+msgstr "ბრძანება"
+
+#: runcommand/kdeconnect_runcommand_config.qml:77
+#, kde-format
+msgctxt "@action:button"
+msgid "Add"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:86
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@action:button accessible"
+msgid "Add command"
+msgstr "ბრძანება"
+
+#: runcommand/kdeconnect_runcommand_config.qml:96
+#, fuzzy, kde-format
+#| msgid "Name"
+msgid "Name:"
+msgstr "სახელი"
+
+#: runcommand/kdeconnect_runcommand_config.qml:100
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Command:"
+msgstr "ბრძანება"
+
+#: runcommand/kdeconnect_runcommand_config.qml:104
+#, fuzzy, kde-format
+#| msgid "Sample commands"
+msgid "Sample commands:"
+msgstr "სანიმუშო ბრძანებები"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "ტელეფონი დაკავშირებულია"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:34
+#, kde-format
+msgid "Persistent notifications only"
+msgstr "მხოლოდ მუდმივი შეტყობინებები"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:42
+#, kde-format
+msgid "Include body"
+msgstr "სხეულის ჩასმა"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:49
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Include icon"
+msgstr "სხეულის ჩასმა"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:56
+#, fuzzy, kde-format
+#| msgid "Minimum urgency level"
+msgid "Minimum urgency level:"
+msgstr "გადაუდებლობის მინიმალური დონე"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
@@ -165,6 +312,18 @@ msgstr "ყველა ფაილი"
 msgid "Camera pictures"
 msgstr "კამერის სურათები"
 
+#: share/kdeconnect_share_config.qml:47
+#, kde-format
+msgid "Save files in:"
+msgstr "ფაილების შენახვა:"
+
+#: share/kdeconnect_share_config.qml:63
+#, fuzzy, kde-format
+#| msgid ""
+#| "&percnt;1 in the path will be replaced with the specific device name."
+msgid "%1 in the path will be replaced with the specific device name"
+msgstr "&percnt;1 ბილიკში მითითებული მოწყობილობის სახელით შეიცვლება."
+
 #: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
@@ -235,20 +394,8 @@ msgstr "გაფართოების გარეშე მოთხოვ�
 #~ msgid "Automatic synchronization"
 #~ msgstr "ავტომატური სინქრონიზაცია"
 
-#~ msgid "Automatically share the clipboard from this device"
-#~ msgstr "ამ მოწყობილობის ბუფერის ავტომატური გაზიარება"
-
-#~ msgid "Including passwords (as marked by password managers)"
-#~ msgstr "პაროლების ჩათვლით (როგორც მონიშნულია პაროლის მმართველების მიერ)"
-
-#~ msgid "Max Clipboard File Size (MB)"
-#~ msgstr "ბუფერის ფაილის მაქს. ზომა (მბ)"
-
 #~ msgid "Discovery Utilities"
 #~ msgstr "ხელსაწყოების აღმოჩენა"
-
-#~ msgid "Sound to play:"
-#~ msgstr "დასაკრავი ხმა:"
 
 #~ msgid "Select the sound to play"
 #~ msgstr "აირჩიეთ დასაკრავი ხმა"
@@ -259,20 +406,8 @@ msgstr "გაფართოების გარეშე მოთხოვ�
 #~ msgid "Condition"
 #~ msgstr "მდგომარეობა"
 
-#~ msgid "Pause as soon as phone rings"
-#~ msgstr "მუსიკის შეჩერება, როცა ტელეფონი დარეკავს"
-
-#~ msgid "Pause only while talking"
-#~ msgstr "შეჩერება საუბრის დროს"
-
 #~ msgid "Actions"
 #~ msgstr "ქმედებები"
-
-#~ msgid "Pause media players"
-#~ msgstr "მედია დამკვრელების შეჩერება"
-
-#~ msgid "Mute system sound"
-#~ msgstr "სისტემის ხმის დადუმება"
 
 #~ msgid "Automatically resume media when call has finished"
 #~ msgstr "საუბრის დასრულებისა მედიის დაკვრის გაგრძელება"
@@ -316,17 +451,11 @@ msgstr "გაფართოების გარეშე მოთხოვ�
 #~ msgid "Forcefully Close All Vaults"
 #~ msgstr "ყველა საცავის ძალით დახურვა"
 
-#~ msgid "Sample commands"
-#~ msgstr "სანიმუშო ბრძანებები"
-
 #~ msgid "Export"
 #~ msgstr "გატანა"
 
 #~ msgid "Import"
 #~ msgstr "შემოტანა"
-
-#~ msgid "Command"
-#~ msgstr "ბრძანება"
 
 #~ msgid "Export Commands"
 #~ msgstr "ბრძანებების გატანა"
@@ -342,17 +471,11 @@ msgstr "გაფართოების გარეშე მოთხოვ�
 #~ "მოხდეს მხოლოდ ნულოვანი მოლოდინის მნიშვნელობის მქონე გაფრთხილებების "
 #~ "სინქრონიზაცია?"
 
-#~ msgid "Persistent notifications only"
-#~ msgstr "მხოლოდ მუდმივი შეტყობინებები"
-
 #~ msgid ""
 #~ "Append the notification body to the summary when synchronizing "
 #~ "notifications?"
 #~ msgstr ""
 #~ "მივაწერო გაფრთხილების სხეული შეჯამებას გაფრთხილებების სინქრონიზაციისას?"
-
-#~ msgid "Include body"
-#~ msgstr "სხეულის ჩასმა"
 
 #~ msgid "Synchronize icons of notifying applications if possible?"
 #~ msgstr ""
@@ -371,24 +494,14 @@ msgstr "გაფართოების გარეშე მოთხოვ�
 #~ msgid "Synchronize only notifications with the given urgency level."
 #~ msgstr "სინქრონიზაცია მხოლოდ შეტყობინებებს მოცემული გადაუდებელი დონით."
 
-#~ msgid "Minimum urgency level"
-#~ msgstr "გადაუდებლობის მინიმალური დონე"
-
 #~ msgid "Applications"
 #~ msgstr "აპლიკაციები"
-
-#~ msgid ""
-#~ "&percnt;1 in the path will be replaced with the specific device name."
-#~ msgstr "&percnt;1 ბილიკში მითითებული მოწყობილობის სახელით შეიცვლება."
 
 #~ msgid "Share plugin settings"
 #~ msgstr "გაზიარების დამატების მორგება"
 
 #~ msgid "Receiving"
 #~ msgstr "მიღება"
-
-#~ msgid "Save files in:"
-#~ msgstr "ფაილების შენახვა:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "შავ სიაშია"

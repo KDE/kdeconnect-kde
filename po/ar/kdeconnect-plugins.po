@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-24 00:42+0000\n"
+"POT-Creation-Date: 2025-10-08 00:43+0000\n"
 "PO-Revision-Date: 2025-08-03 11:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -29,6 +29,45 @@ msgstr "%1: البطّاريّة ضعيفة"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "البطّاريّة عند %1%"
+
+#: clipboard/kdeconnect_clipboard_config.qml:34
+#, kde-format
+msgid "Automatically share the clipboard from this device"
+msgstr "شارك الحافظة من هذا الجهاز آليا"
+
+#: clipboard/kdeconnect_clipboard_config.qml:42
+#, kde-format
+msgid "Including passwords (as marked by password managers)"
+msgstr "بما فيها كلمات السر (معلّمة كما في مديرو الكلمات السر)"
+
+#: clipboard/kdeconnect_clipboard_config.qml:55
+#, kde-format
+msgid "Max Clipboard File Size (MB)"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:23
+#: share/kdeconnect_share_config.qml:22
+#, kde-format
+msgid "Apply"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:47
+#, kde-format
+msgid "Sound to play:"
+msgstr "صوت ليُشغل:"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:57
+#, fuzzy, kde-format
+#| msgid "Could not share file"
+msgctxt "@action:button"
+msgid "Choose file"
+msgstr "لا يمكن مشاركة الملف"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Play"
+msgstr ""
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -80,15 +119,123 @@ msgstr "أرسل"
 msgid "Dialog"
 msgstr "حواريّ"
 
+#: pausemusic/kdeconnect_pausemusic_config.qml:32
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr "ألبث بمجرّد رنّ الهاتف"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:41
+#, kde-format
+msgid "Pause only while talking"
+msgstr "ألبث فقط عند التحدّث"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:47
+#, kde-format
+msgid "Pause media players"
+msgstr "ألبث مشغّلات الوسائط"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:54
+#, kde-format
+msgid "Mute system sound"
+msgstr "اكتم صوت النّظام"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:61
+#, kde-format
+msgid "Resume automatically when call ends"
+msgstr ""
+
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "وخزة!"
 
+#: runcommand/kdeconnect_runcommand_config.qml:21
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Add Command…"
+msgstr "الأمر"
+
+#: runcommand/kdeconnect_runcommand_config.qml:53
+#, kde-format
+msgid "Delete"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:64
+#, kde-format
+msgctxt "@info"
+msgid "No commands configured"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:65
+#, kde-format
+msgctxt "@info"
+msgid "Add commands to run them remotely from other devices"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:71
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@title:window"
+msgid "Add Command"
+msgstr "الأمر"
+
+#: runcommand/kdeconnect_runcommand_config.qml:77
+#, kde-format
+msgctxt "@action:button"
+msgid "Add"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:86
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@action:button accessible"
+msgid "Add command"
+msgstr "الأمر"
+
+#: runcommand/kdeconnect_runcommand_config.qml:96
+#, fuzzy, kde-format
+#| msgid "Name"
+msgid "Name:"
+msgstr "الاسم"
+
+#: runcommand/kdeconnect_runcommand_config.qml:100
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Command:"
+msgstr "الأمر"
+
+#: runcommand/kdeconnect_runcommand_config.qml:104
+#, fuzzy, kde-format
+#| msgid "Sample commands"
+msgid "Sample commands:"
+msgstr "أمثلة أوامر"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "الهاتف متصل"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:34
+#, kde-format
+msgid "Persistent notifications only"
+msgstr "الإخطارات المستمرّة فقط"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:42
+#, kde-format
+msgid "Include body"
+msgstr "ضمّن المتن"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:49
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Include icon"
+msgstr "ضمّن المتن"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:56
+#, fuzzy, kde-format
+#| msgid "Minimum urgency level"
+msgid "Minimum urgency level:"
+msgstr "أدنى مستوى أهميّة"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
@@ -165,6 +312,18 @@ msgstr "كلّ الملفّات"
 msgid "Camera pictures"
 msgstr "صور الكاميرا"
 
+#: share/kdeconnect_share_config.qml:47
+#, kde-format
+msgid "Save files in:"
+msgstr "احفظ الملفّات في:"
+
+#: share/kdeconnect_share_config.qml:63
+#, fuzzy, kde-format
+#| msgid ""
+#| "&percnt;1 in the path will be replaced with the specific device name."
+msgid "%1 in the path will be replaced with the specific device name"
+msgstr "&percnt;1 هو المسار الذي سيُستبدل باسم الجهاز المحدّد."
+
 #: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
@@ -234,17 +393,8 @@ msgstr "لا يمكن بدء طلب دون قرار"
 #~ msgid "Automatic synchronization"
 #~ msgstr "المزامنة الآلية"
 
-#~ msgid "Automatically share the clipboard from this device"
-#~ msgstr "شارك الحافظة من هذا الجهاز آليا"
-
-#~ msgid "Including passwords (as marked by password managers)"
-#~ msgstr "بما فيها كلمات السر (معلّمة كما في مديرو الكلمات السر)"
-
 #~ msgid "Discovery Utilities"
 #~ msgstr "أدوات الاستكشاف"
-
-#~ msgid "Sound to play:"
-#~ msgstr "صوت ليُشغل:"
 
 #~ msgid "Select the sound to play"
 #~ msgstr "اختر الصوت الذي تريد تشغيله"
@@ -255,20 +405,8 @@ msgstr "لا يمكن بدء طلب دون قرار"
 #~ msgid "Condition"
 #~ msgstr "الشّرط"
 
-#~ msgid "Pause as soon as phone rings"
-#~ msgstr "ألبث بمجرّد رنّ الهاتف"
-
-#~ msgid "Pause only while talking"
-#~ msgstr "ألبث فقط عند التحدّث"
-
 #~ msgid "Actions"
 #~ msgstr "إجراءات"
-
-#~ msgid "Pause media players"
-#~ msgstr "ألبث مشغّلات الوسائط"
-
-#~ msgid "Mute system sound"
-#~ msgstr "اكتم صوت النّظام"
 
 #~ msgid "Automatically resume media when call has finished"
 #~ msgstr "استأنف الوسائط عندما تنتهي المكالمة"
@@ -312,17 +450,11 @@ msgstr "لا يمكن بدء طلب دون قرار"
 #~ msgid "Forcefully Close All Vaults"
 #~ msgstr "أغلق كل الخزنات بالقوة"
 
-#~ msgid "Sample commands"
-#~ msgstr "أمثلة أوامر"
-
 #~ msgid "Export"
 #~ msgstr "صدّر"
 
 #~ msgid "Import"
 #~ msgstr "استورد"
-
-#~ msgid "Command"
-#~ msgstr "الأمر"
 
 #~ msgid "Export Commands"
 #~ msgstr "صدر الأوامر"
@@ -336,16 +468,10 @@ msgstr "لا يمكن بدء طلب دون قرار"
 #~ msgid "Synchronize only notifications with a timeout value of 0?"
 #~ msgstr "أأزامن فقط الإخطارات ذات قيمة المهلة 0؟"
 
-#~ msgid "Persistent notifications only"
-#~ msgstr "الإخطارات المستمرّة فقط"
-
 #~ msgid ""
 #~ "Append the notification body to the summary when synchronizing "
 #~ "notifications?"
 #~ msgstr "أأضيف متن الإخطار إلى الملخّص عند مزامنة الإخطارات؟"
-
-#~ msgid "Include body"
-#~ msgstr "ضمّن المتن"
 
 #~ msgid "Synchronize icons of notifying applications if possible?"
 #~ msgstr "أأزامن أيقونات البرمجيّات المُخطرة إن كان ممكنًا؟"
@@ -361,24 +487,14 @@ msgstr "لا يمكن بدء طلب دون قرار"
 #~ msgid "Synchronize only notifications with the given urgency level."
 #~ msgstr "زامن فقط الإخطارات ذات مستوى أهميّة عالٍ."
 
-#~ msgid "Minimum urgency level"
-#~ msgstr "أدنى مستوى أهميّة"
-
 #~ msgid "Applications"
 #~ msgstr "التّطبيقات"
-
-#~ msgid ""
-#~ "&percnt;1 in the path will be replaced with the specific device name."
-#~ msgstr "&percnt;1 هو المسار الذي سيُستبدل باسم الجهاز المحدّد."
 
 #~ msgid "Share plugin settings"
 #~ msgstr "إعدادات ملحقة المشاركة"
 
 #~ msgid "Receiving"
 #~ msgstr "الاستقبال"
-
-#~ msgid "Save files in:"
-#~ msgstr "احفظ الملفّات في:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "ممنوع"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-24 00:42+0000\n"
+"POT-Creation-Date: 2025-10-08 00:43+0000\n"
 "PO-Revision-Date: 2025-07-28 18:28+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -27,6 +27,47 @@ msgstr "%1: Ниско ниво на батерията"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Батерия на %1%"
+
+#: clipboard/kdeconnect_clipboard_config.qml:34
+#, kde-format
+msgid "Automatically share the clipboard from this device"
+msgstr "Автоматично споделяне на клипборда от това устройство"
+
+#: clipboard/kdeconnect_clipboard_config.qml:42
+#, kde-format
+msgid "Including passwords (as marked by password managers)"
+msgstr ""
+"Включително и пароли (маркирани като такива от системата за управление на "
+"пароли)"
+
+#: clipboard/kdeconnect_clipboard_config.qml:55
+#, kde-format
+msgid "Max Clipboard File Size (MB)"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:23
+#: share/kdeconnect_share_config.qml:22
+#, kde-format
+msgid "Apply"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:47
+#, kde-format
+msgid "Sound to play:"
+msgstr "Звук за възпроизвеждане:"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:57
+#, fuzzy, kde-format
+#| msgid "Could not share file"
+msgctxt "@action:button"
+msgid "Choose file"
+msgstr "Файлът не можа да се сподели"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Play"
+msgstr ""
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -78,15 +119,123 @@ msgstr "Изпращане"
 msgid "Dialog"
 msgstr "Диалогов прозорец"
 
+#: pausemusic/kdeconnect_pausemusic_config.qml:32
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr "Паузиране при звънене на телефона"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:41
+#, kde-format
+msgid "Pause only while talking"
+msgstr "Паузиране само по време на разговор"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:47
+#, kde-format
+msgid "Pause media players"
+msgstr "Паузиране на медийното възпроизвеждане"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:54
+#, kde-format
+msgid "Mute system sound"
+msgstr "Изключване на системния звук"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:61
+#, kde-format
+msgid "Resume automatically when call ends"
+msgstr ""
+
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Сигнализиране!"
 
+#: runcommand/kdeconnect_runcommand_config.qml:21
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Add Command…"
+msgstr "Команда"
+
+#: runcommand/kdeconnect_runcommand_config.qml:53
+#, kde-format
+msgid "Delete"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:64
+#, kde-format
+msgctxt "@info"
+msgid "No commands configured"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:65
+#, kde-format
+msgctxt "@info"
+msgid "Add commands to run them remotely from other devices"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:71
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@title:window"
+msgid "Add Command"
+msgstr "Команда"
+
+#: runcommand/kdeconnect_runcommand_config.qml:77
+#, kde-format
+msgctxt "@action:button"
+msgid "Add"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:86
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@action:button accessible"
+msgid "Add command"
+msgstr "Команда"
+
+#: runcommand/kdeconnect_runcommand_config.qml:96
+#, fuzzy, kde-format
+#| msgid "Name"
+msgid "Name:"
+msgstr "Име"
+
+#: runcommand/kdeconnect_runcommand_config.qml:100
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Command:"
+msgstr "Команда"
+
+#: runcommand/kdeconnect_runcommand_config.qml:104
+#, fuzzy, kde-format
+#| msgid "Sample commands"
+msgid "Sample commands:"
+msgstr "Пробни команди"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Телефонът е свързан"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:34
+#, kde-format
+msgid "Persistent notifications only"
+msgstr "Само настоятелни съобщения"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:42
+#, kde-format
+msgid "Include body"
+msgstr "Включване на тялото"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:49
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Include icon"
+msgstr "Включване на тялото"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:56
+#, fuzzy, kde-format
+#| msgid "Minimum urgency level"
+msgid "Minimum urgency level:"
+msgstr "Минимална спешност на известие"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
@@ -164,6 +313,18 @@ msgstr "Всички файлове"
 msgid "Camera pictures"
 msgstr "Снимки от камерата"
 
+#: share/kdeconnect_share_config.qml:47
+#, kde-format
+msgid "Save files in:"
+msgstr "Запазване на файлове като:"
+
+#: share/kdeconnect_share_config.qml:63
+#, fuzzy, kde-format
+#| msgid ""
+#| "&percnt;1 in the path will be replaced with the specific device name."
+msgid "%1 in the path will be replaced with the specific device name"
+msgstr "&percnt;1 в пътя ще бъде заменен със специфичното име на устройството."
+
 #: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
@@ -234,19 +395,8 @@ msgstr "Не може да се стартира заявка без резол�
 #~ msgid "Automatic synchronization"
 #~ msgstr "Автоматично синхронизиране"
 
-#~ msgid "Automatically share the clipboard from this device"
-#~ msgstr "Автоматично споделяне на клипборда от това устройство"
-
-#~ msgid "Including passwords (as marked by password managers)"
-#~ msgstr ""
-#~ "Включително и пароли (маркирани като такива от системата за управление на "
-#~ "пароли)"
-
 #~ msgid "Discovery Utilities"
 #~ msgstr "Инструменти за откриване"
-
-#~ msgid "Sound to play:"
-#~ msgstr "Звук за възпроизвеждане:"
 
 #~ msgid "Select the sound to play"
 #~ msgstr "Избиране на звук за възпроизвеждане"
@@ -257,20 +407,8 @@ msgstr "Не може да се стартира заявка без резол�
 #~ msgid "Condition"
 #~ msgstr "Условие"
 
-#~ msgid "Pause as soon as phone rings"
-#~ msgstr "Паузиране при звънене на телефона"
-
-#~ msgid "Pause only while talking"
-#~ msgstr "Паузиране само по време на разговор"
-
 #~ msgid "Actions"
 #~ msgstr "Действия"
-
-#~ msgid "Pause media players"
-#~ msgstr "Паузиране на медийното възпроизвеждане"
-
-#~ msgid "Mute system sound"
-#~ msgstr "Изключване на системния звук"
 
 #~ msgid "Automatically resume media when call has finished"
 #~ msgstr ""
@@ -315,17 +453,11 @@ msgstr "Не може да се стартира заявка без резол�
 #~ msgid "Forcefully Close All Vaults"
 #~ msgstr "Принудително затваряне на всички трезори"
 
-#~ msgid "Sample commands"
-#~ msgstr "Пробни команди"
-
 #~ msgid "Export"
 #~ msgstr "Експортиране"
 
 #~ msgid "Import"
 #~ msgstr "Импортиране"
-
-#~ msgid "Command"
-#~ msgstr "Команда"
 
 #~ msgid "Export Commands"
 #~ msgstr "Команда за експортиране"
@@ -339,18 +471,12 @@ msgstr "Не може да се стартира заявка без резол�
 #~ msgid "Synchronize only notifications with a timeout value of 0?"
 #~ msgstr "Да се синхронизират ли само известия с време на изтичане 0?"
 
-#~ msgid "Persistent notifications only"
-#~ msgstr "Само настоятелни съобщения"
-
 #~ msgid ""
 #~ "Append the notification body to the summary when synchronizing "
 #~ "notifications?"
 #~ msgstr ""
 #~ "Да се добави ли тялото на съобщението към обобщението при синхронизиране "
 #~ "на известията?"
-
-#~ msgid "Include body"
-#~ msgstr "Включване на тялото"
 
 #~ msgid "Synchronize icons of notifying applications if possible?"
 #~ msgstr ""
@@ -369,22 +495,11 @@ msgstr "Не може да се стартира заявка без резол�
 #~ msgid "Synchronize only notifications with the given urgency level."
 #~ msgstr "Синхронизиране само на известия със зададеното ниво на спешност."
 
-#~ msgid "Minimum urgency level"
-#~ msgstr "Минимална спешност на известие"
-
 #~ msgid "Applications"
 #~ msgstr "Приложения"
-
-#~ msgid ""
-#~ "&percnt;1 in the path will be replaced with the specific device name."
-#~ msgstr ""
-#~ "&percnt;1 в пътя ще бъде заменен със специфичното име на устройството."
 
 #~ msgid "Share plugin settings"
 #~ msgstr "Настройки на приставката за споделяне"
 
 #~ msgid "Receiving"
 #~ msgstr "Получаване"
-
-#~ msgid "Save files in:"
-#~ msgstr "Запазване на файлове като:"

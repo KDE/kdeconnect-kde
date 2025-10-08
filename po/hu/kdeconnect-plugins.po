@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-24 00:42+0000\n"
+"POT-Creation-Date: 2025-10-08 00:43+0000\n"
 "PO-Revision-Date: 2025-07-08 22:51+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -27,6 +27,45 @@ msgstr "%1: kis töltöttségű akku"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Akkumulátor %1%-on"
+
+#: clipboard/kdeconnect_clipboard_config.qml:34
+#, kde-format
+msgid "Automatically share the clipboard from this device"
+msgstr "Az eszköz vágólapjának automatikus megosztása"
+
+#: clipboard/kdeconnect_clipboard_config.qml:42
+#, kde-format
+msgid "Including passwords (as marked by password managers)"
+msgstr "Jelszavakat is (a jelszókezelők által megjelöltek szerint)"
+
+#: clipboard/kdeconnect_clipboard_config.qml:55
+#, kde-format
+msgid "Max Clipboard File Size (MB)"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:23
+#: share/kdeconnect_share_config.qml:22
+#, kde-format
+msgid "Apply"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:47
+#, kde-format
+msgid "Sound to play:"
+msgstr "Lejátszandó hang:"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:57
+#, fuzzy, kde-format
+#| msgid "Could not share file"
+msgctxt "@action:button"
+msgid "Choose file"
+msgstr "Nem sikerült megosztani fájlt"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Play"
+msgstr ""
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -78,15 +117,123 @@ msgstr "Küldés"
 msgid "Dialog"
 msgstr "Párbeszéd"
 
+#: pausemusic/kdeconnect_pausemusic_config.qml:32
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr "Szünet, amint a telefon csengeni kezd"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:41
+#, kde-format
+msgid "Pause only while talking"
+msgstr "Szünet csak beszéd közben"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:47
+#, kde-format
+msgid "Pause media players"
+msgstr "Zenelejátszók szüneteltetése"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:54
+#, kde-format
+msgid "Mute system sound"
+msgstr "Rendszerhang némítésa"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:61
+#, kde-format
+msgid "Resume automatically when call ends"
+msgstr ""
+
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
+#: runcommand/kdeconnect_runcommand_config.qml:21
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Add Command…"
+msgstr "Parancs"
+
+#: runcommand/kdeconnect_runcommand_config.qml:53
+#, kde-format
+msgid "Delete"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:64
+#, kde-format
+msgctxt "@info"
+msgid "No commands configured"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:65
+#, kde-format
+msgctxt "@info"
+msgid "Add commands to run them remotely from other devices"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:71
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@title:window"
+msgid "Add Command"
+msgstr "Parancs"
+
+#: runcommand/kdeconnect_runcommand_config.qml:77
+#, kde-format
+msgctxt "@action:button"
+msgid "Add"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:86
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@action:button accessible"
+msgid "Add command"
+msgstr "Parancs"
+
+#: runcommand/kdeconnect_runcommand_config.qml:96
+#, fuzzy, kde-format
+#| msgid "Name"
+msgid "Name:"
+msgstr "Név"
+
+#: runcommand/kdeconnect_runcommand_config.qml:100
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Command:"
+msgstr "Parancs"
+
+#: runcommand/kdeconnect_runcommand_config.qml:104
+#, fuzzy, kde-format
+#| msgid "Sample commands"
+msgid "Sample commands:"
+msgstr "Mintaparancsok"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Telefon csatlakoztatva"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:34
+#, kde-format
+msgid "Persistent notifications only"
+msgstr "Csak állandó értesítések"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:42
+#, kde-format
+msgid "Include body"
+msgstr "Törzs belefoglalása"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:49
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Include icon"
+msgstr "Törzs belefoglalása"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:56
+#, fuzzy, kde-format
+#| msgid "Minimum urgency level"
+msgid "Minimum urgency level:"
+msgstr "Minimális sürgősségi szint"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
@@ -166,6 +313,19 @@ msgstr "Minden fájl"
 msgid "Camera pictures"
 msgstr "Fényképek"
 
+#: share/kdeconnect_share_config.qml:47
+#, kde-format
+msgid "Save files in:"
+msgstr "Fájlok mentése ide:"
+
+#: share/kdeconnect_share_config.qml:63
+#, fuzzy, kde-format
+#| msgid ""
+#| "&percnt;1 in the path will be replaced with the specific device name."
+msgid "%1 in the path will be replaced with the specific device name"
+msgstr ""
+"A(z) &percnt;1 az elérési útban az adott eszköznévvel lesz helyettesítve."
+
 #: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
@@ -235,17 +395,8 @@ msgstr ""
 #~ msgid "Automatic synchronization"
 #~ msgstr "Automatikus szinkronizáció"
 
-#~ msgid "Automatically share the clipboard from this device"
-#~ msgstr "Az eszköz vágólapjának automatikus megosztása"
-
-#~ msgid "Including passwords (as marked by password managers)"
-#~ msgstr "Jelszavakat is (a jelszókezelők által megjelöltek szerint)"
-
 #~ msgid "Discovery Utilities"
 #~ msgstr "Felderítő segédprogramok"
-
-#~ msgid "Sound to play:"
-#~ msgstr "Lejátszandó hang:"
 
 #~ msgid "Select the sound to play"
 #~ msgstr "Válassza ki a lejátszandó hangot"
@@ -256,20 +407,8 @@ msgstr ""
 #~ msgid "Condition"
 #~ msgstr "Feltétel"
 
-#~ msgid "Pause as soon as phone rings"
-#~ msgstr "Szünet, amint a telefon csengeni kezd"
-
-#~ msgid "Pause only while talking"
-#~ msgstr "Szünet csak beszéd közben"
-
 #~ msgid "Actions"
 #~ msgstr "Műveletek"
-
-#~ msgid "Pause media players"
-#~ msgstr "Zenelejátszók szüneteltetése"
-
-#~ msgid "Mute system sound"
-#~ msgstr "Rendszerhang némítésa"
 
 #~ msgid "Automatically resume media when call has finished"
 #~ msgstr "Automatikus folytatás a hívás befejeződésekor"
@@ -313,17 +452,11 @@ msgstr ""
 #~ msgid "Forcefully Close All Vaults"
 #~ msgstr "Összes tár kényszerített bezárása"
 
-#~ msgid "Sample commands"
-#~ msgstr "Mintaparancsok"
-
 #~ msgid "Export"
 #~ msgstr "Exportálás"
 
 #~ msgid "Import"
 #~ msgstr "Importálás"
-
-#~ msgid "Command"
-#~ msgstr "Parancs"
 
 #~ msgid "Export Commands"
 #~ msgstr "Parancsok exportálása"
@@ -337,18 +470,12 @@ msgstr ""
 #~ msgid "Synchronize only notifications with a timeout value of 0?"
 #~ msgstr "Csak a 0 értékű időkorlátos értesítéseket szinkronizálja?"
 
-#~ msgid "Persistent notifications only"
-#~ msgstr "Csak állandó értesítések"
-
 #~ msgid ""
 #~ "Append the notification body to the summary when synchronizing "
 #~ "notifications?"
 #~ msgstr ""
 #~ "Hozzáfűzze az értesítés törzsét az összegzéshez értesítések "
 #~ "szinkronizálásakor?"
-
-#~ msgid "Include body"
-#~ msgstr "Törzs belefoglalása"
 
 #~ msgid "Synchronize icons of notifying applications if possible?"
 #~ msgstr "Szinkronizálja az értesítő alkalmazás ikonját, ha lehetséges?"
@@ -366,25 +493,14 @@ msgstr ""
 #~ msgid "Synchronize only notifications with the given urgency level."
 #~ msgstr "Csak a megadott sürgősségi szintű értesítések szinkronizálása."
 
-#~ msgid "Minimum urgency level"
-#~ msgstr "Minimális sürgősségi szint"
-
 #~ msgid "Applications"
 #~ msgstr "Alkalmazások"
-
-#~ msgid ""
-#~ "&percnt;1 in the path will be replaced with the specific device name."
-#~ msgstr ""
-#~ "A(z) &percnt;1 az elérési útban az adott eszköznévvel lesz helyettesítve."
 
 #~ msgid "Share plugin settings"
 #~ msgstr "Megosztás bővítmény beállításai"
 
 #~ msgid "Receiving"
 #~ msgstr "Fogadás"
-
-#~ msgid "Save files in:"
-#~ msgstr "Fájlok mentése ide:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Feketelistázott"
