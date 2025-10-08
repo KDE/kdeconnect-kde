@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-10-08 02:38+0000\n"
 "PO-Revision-Date: 2020-10-11 01:31+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -28,6 +28,45 @@ msgstr "%1: aku on peaaegu tühi"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Aku täidetus on %1%"
+
+#: clipboard/kdeconnect_clipboard_config.qml:34
+#, kde-format
+msgid "Automatically share the clipboard from this device"
+msgstr ""
+
+#: clipboard/kdeconnect_clipboard_config.qml:42
+#, kde-format
+msgid "Including passwords (as marked by password managers)"
+msgstr ""
+
+#: clipboard/kdeconnect_clipboard_config.qml:55
+#, kde-format
+msgid "Max Clipboard File Size (MB)"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:23
+#: share/kdeconnect_share_config.qml:22
+#, kde-format
+msgid "Apply"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:47
+#, kde-format
+msgid "Sound to play:"
+msgstr "Esitatav heli:"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:57
+#, fuzzy, kde-format
+#| msgid "Could not share file"
+msgctxt "@action:button"
+msgid "Choose file"
+msgstr "Faili jagamine nurjus"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Play"
+msgstr ""
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -80,15 +119,123 @@ msgstr "Saada"
 msgid "Dialog"
 msgstr "Dialoog"
 
+#: pausemusic/kdeconnect_pausemusic_config.qml:32
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr "Peatamine kohe telefoni helimisel"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:41
+#, kde-format
+msgid "Pause only while talking"
+msgstr "Peatamine alles kõnelemise ajal"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:47
+#, kde-format
+msgid "Pause media players"
+msgstr "Meediamängijate peatamine"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:54
+#, kde-format
+msgid "Mute system sound"
+msgstr "Süsteemne heli tummaks"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:61
+#, kde-format
+msgid "Resume automatically when call ends"
+msgstr ""
+
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
+#: runcommand/kdeconnect_runcommand_config.qml:21
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Add Command…"
+msgstr "Käsk"
+
+#: runcommand/kdeconnect_runcommand_config.qml:53
+#, kde-format
+msgid "Delete"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:64
+#, kde-format
+msgctxt "@info"
+msgid "No commands configured"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:65
+#, kde-format
+msgctxt "@info"
+msgid "Add commands to run them remotely from other devices"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:71
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@title:window"
+msgid "Add Command"
+msgstr "Käsk"
+
+#: runcommand/kdeconnect_runcommand_config.qml:77
+#, kde-format
+msgctxt "@action:button"
+msgid "Add"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:86
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@action:button accessible"
+msgid "Add command"
+msgstr "Käsk"
+
+#: runcommand/kdeconnect_runcommand_config.qml:96
+#, fuzzy, kde-format
+#| msgid "Name"
+msgid "Name:"
+msgstr "Nimi"
+
+#: runcommand/kdeconnect_runcommand_config.qml:100
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Command:"
+msgstr "Käsk"
+
+#: runcommand/kdeconnect_runcommand_config.qml:104
+#, fuzzy, kde-format
+#| msgid "Sample commands"
+msgid "Sample commands:"
+msgstr "Näidiskäsud"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Telefon on ühendatud"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:34
+#, kde-format
+msgid "Persistent notifications only"
+msgstr "Ainult püsimärguanded"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:42
+#, kde-format
+msgid "Include body"
+msgstr "Kaasa arvatud sisu"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:49
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Include icon"
+msgstr "Kaasa arvatud sisu"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:56
+#, fuzzy, kde-format
+#| msgid "Minimum urgency level"
+msgid "Minimum urgency level:"
+msgstr "Minimaalne olulisustase"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
@@ -167,6 +314,18 @@ msgstr "Kõik failid"
 msgid "Camera pictures"
 msgstr "Kaamera pildid"
 
+#: share/kdeconnect_share_config.qml:47
+#, kde-format
+msgid "Save files in:"
+msgstr "Failide salvestamise asukoht:"
+
+#: share/kdeconnect_share_config.qml:63
+#, fuzzy, kde-format
+#| msgid ""
+#| "&percnt;1 in the path will be replaced with the specific device name."
+msgid "%1 in the path will be replaced with the specific device name"
+msgstr "&percnt;1 asukohas asendatakse konkreetse seadme nimega."
+
 #: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
@@ -218,9 +377,6 @@ msgstr "Summuta kõne"
 #~ msgid "Discovery Utilities"
 #~ msgstr "Avastamisvahendid"
 
-#~ msgid "Sound to play:"
-#~ msgstr "Esitatav heli:"
-
 #~ msgid "Select the sound to play"
 #~ msgstr "Vali esitatav heli"
 
@@ -230,20 +386,8 @@ msgstr "Summuta kõne"
 #~ msgid "Condition"
 #~ msgstr "Tingimus"
 
-#~ msgid "Pause as soon as phone rings"
-#~ msgstr "Peatamine kohe telefoni helimisel"
-
-#~ msgid "Pause only while talking"
-#~ msgstr "Peatamine alles kõnelemise ajal"
-
 #~ msgid "Actions"
 #~ msgstr "Toimingud"
-
-#~ msgid "Pause media players"
-#~ msgstr "Meediamängijate peatamine"
-
-#~ msgid "Mute system sound"
-#~ msgstr "Süsteemne heli tummaks"
 
 #~ msgid "Automatically resume media when call has finished"
 #~ msgstr "Meedia automaatne taastamine kõne lõpetamisel"
@@ -282,12 +426,6 @@ msgstr "Summuta kõne"
 #~ msgid "Forcefully Close All Vaults"
 #~ msgstr "Jõuga kõigi seifide sulgemine"
 
-#~ msgid "Sample commands"
-#~ msgstr "Näidiskäsud"
-
-#~ msgid "Command"
-#~ msgstr "Käsk"
-
 #, fuzzy
 #~| msgid "Command"
 #~ msgid "Export Commands"
@@ -304,16 +442,10 @@ msgstr "Summuta kõne"
 #~ msgid "Synchronize only notifications with a timeout value of 0?"
 #~ msgstr "Kas sünkroonida ainult märguanded ajaületuse väärtusega 0?"
 
-#~ msgid "Persistent notifications only"
-#~ msgstr "Ainult püsimärguanded"
-
 #~ msgid ""
 #~ "Append the notification body to the summary when synchronizing "
 #~ "notifications?"
 #~ msgstr "Kas lisada märguannete sünkroonimisel kokkuvõttele märguande sisu?"
-
-#~ msgid "Include body"
-#~ msgstr "Kaasa arvatud sisu"
 
 #~ msgid "Synchronize icons of notifying applications if possible?"
 #~ msgstr "Kas sünkroonida võimaluse korral märguanderakenduste ikoonid?"
@@ -331,24 +463,14 @@ msgstr "Summuta kõne"
 #~ msgid "Synchronize only notifications with the given urgency level."
 #~ msgstr "Ainult määratud olulisustasemega märguannete sünkroonimine"
 
-#~ msgid "Minimum urgency level"
-#~ msgstr "Minimaalne olulisustase"
-
 #~ msgid "Applications"
 #~ msgstr "Rakendused"
-
-#~ msgid ""
-#~ "&percnt;1 in the path will be replaced with the specific device name."
-#~ msgstr "&percnt;1 asukohas asendatakse konkreetse seadme nimega."
 
 #~ msgid "Share plugin settings"
 #~ msgstr "Jagamisplugina seadistused"
 
 #~ msgid "Receiving"
 #~ msgstr "Vastuvõtmine"
-
-#~ msgid "Save files in:"
-#~ msgstr "Failide salvestamise asukoht:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Mustas nimekirjas"

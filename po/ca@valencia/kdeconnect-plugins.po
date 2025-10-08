@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-10-08 02:38+0000\n"
 "PO-Revision-Date: 2025-06-24 11:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -31,6 +31,45 @@ msgstr "%1: Bateria baixa"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Bateria al %1%"
+
+#: clipboard/kdeconnect_clipboard_config.qml:34
+#, kde-format
+msgid "Automatically share the clipboard from this device"
+msgstr ""
+
+#: clipboard/kdeconnect_clipboard_config.qml:42
+#, kde-format
+msgid "Including passwords (as marked by password managers)"
+msgstr ""
+
+#: clipboard/kdeconnect_clipboard_config.qml:55
+#, kde-format
+msgid "Max Clipboard File Size (MB)"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:23
+#: share/kdeconnect_share_config.qml:22
+#, kde-format
+msgid "Apply"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:47
+#, kde-format
+msgid "Sound to play:"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:57
+#, fuzzy, kde-format
+#| msgid "Could not share file"
+msgctxt "@action:button"
+msgid "Choose file"
+msgstr "No s'ha pogut compartir el fitxer"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Play"
+msgstr ""
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -82,15 +121,117 @@ msgstr "Envia"
 msgid "Dialog"
 msgstr "Diàleg"
 
+#: pausemusic/kdeconnect_pausemusic_config.qml:32
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr ""
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:41
+#, kde-format
+msgid "Pause only while talking"
+msgstr ""
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:47
+#, kde-format
+msgid "Pause media players"
+msgstr ""
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:54
+#, kde-format
+msgid "Mute system sound"
+msgstr ""
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:61
+#, kde-format
+msgid "Resume automatically when call ends"
+msgstr ""
+
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
 
+#: runcommand/kdeconnect_runcommand_config.qml:21
+#, kde-format
+msgid "Add Command…"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:53
+#, kde-format
+msgid "Delete"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:64
+#, kde-format
+msgctxt "@info"
+msgid "No commands configured"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:65
+#, kde-format
+msgctxt "@info"
+msgid "Add commands to run them remotely from other devices"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:71
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Command"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:77
+#, kde-format
+msgctxt "@action:button"
+msgid "Add"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:86
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Add command"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:96
+#, fuzzy, kde-format
+#| msgid "Name"
+msgid "Name:"
+msgstr "Nom"
+
+#: runcommand/kdeconnect_runcommand_config.qml:100
+#, kde-format
+msgid "Command:"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:104
+#, kde-format
+msgid "Sample commands:"
+msgstr ""
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "El telèfon està connectat"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:34
+#, kde-format
+msgid "Persistent notifications only"
+msgstr ""
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:42
+#, fuzzy, kde-format
+#| msgid "Excluded"
+msgid "Include body"
+msgstr "Exclòs"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:49
+#, kde-format
+msgid "Include icon"
+msgstr ""
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:56
+#, kde-format
+msgid "Minimum urgency level:"
+msgstr ""
 
 #: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
@@ -169,6 +310,16 @@ msgstr "Tots els fitxers"
 #, kde-format
 msgid "Camera pictures"
 msgstr "Imatges de la càmera"
+
+#: share/kdeconnect_share_config.qml:47
+#, kde-format
+msgid "Save files in:"
+msgstr ""
+
+#: share/kdeconnect_share_config.qml:63
+#, kde-format
+msgid "%1 in the path will be replaced with the specific device name"
+msgstr ""
 
 #: share/shareplugin.cpp:160
 #, kde-format

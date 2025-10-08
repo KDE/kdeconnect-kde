@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"POT-Creation-Date: 2025-10-08 02:38+0000\n"
 "PO-Revision-Date: 2023-10-11 18:10+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,6 +27,46 @@ msgstr "%1: Zəif batareya"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Batareya %1%-dir"
+
+#: clipboard/kdeconnect_clipboard_config.qml:34
+#, kde-format
+msgid "Automatically share the clipboard from this device"
+msgstr "Cihazin mübadilə yaddaşını avtomatik paylaşmaq"
+
+#: clipboard/kdeconnect_clipboard_config.qml:42
+#, kde-format
+msgid "Including passwords (as marked by password managers)"
+msgstr ""
+"Şifrələr daxil olmaqla (şifrələmə menecerləri tərəfindən işarələnmiş kimi)"
+
+#: clipboard/kdeconnect_clipboard_config.qml:55
+#, kde-format
+msgid "Max Clipboard File Size (MB)"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:23
+#: share/kdeconnect_share_config.qml:22
+#, kde-format
+msgid "Apply"
+msgstr ""
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:47
+#, kde-format
+msgid "Sound to play:"
+msgstr "Səsləndirmək:"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:57
+#, fuzzy, kde-format
+#| msgid "Could not share file"
+msgctxt "@action:button"
+msgid "Choose file"
+msgstr "Fayl paylaşıla bilmədi"
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Play"
+msgstr ""
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -80,15 +120,123 @@ msgstr "Göndərmək"
 msgid "Dialog"
 msgstr "Dialoq"
 
+#: pausemusic/kdeconnect_pausemusic_config.qml:32
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr "Telefon zəngi zamanı dərhal fasilə"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:41
+#, kde-format
+msgid "Pause only while talking"
+msgstr "Yalnız danışıq zamanı fasilə"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:47
+#, kde-format
+msgid "Pause media players"
+msgstr "Media pleyerlərə fasilə"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:54
+#, kde-format
+msgid "Mute system sound"
+msgstr "Sistem səsini susdurmaq"
+
+#: pausemusic/kdeconnect_pausemusic_config.qml:61
+#, kde-format
+msgid "Resume automatically when call ends"
+msgstr ""
+
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Dümsükləmək!"
 
+#: runcommand/kdeconnect_runcommand_config.qml:21
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Add Command…"
+msgstr "Əmr"
+
+#: runcommand/kdeconnect_runcommand_config.qml:53
+#, kde-format
+msgid "Delete"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:64
+#, kde-format
+msgctxt "@info"
+msgid "No commands configured"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:65
+#, kde-format
+msgctxt "@info"
+msgid "Add commands to run them remotely from other devices"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:71
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@title:window"
+msgid "Add Command"
+msgstr "Əmr"
+
+#: runcommand/kdeconnect_runcommand_config.qml:77
+#, kde-format
+msgctxt "@action:button"
+msgid "Add"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:86
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@action:button accessible"
+msgid "Add command"
+msgstr "Əmr"
+
+#: runcommand/kdeconnect_runcommand_config.qml:96
+#, fuzzy, kde-format
+#| msgid "Name"
+msgid "Name:"
+msgstr "Adı"
+
+#: runcommand/kdeconnect_runcommand_config.qml:100
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Command:"
+msgstr "Əmr"
+
+#: runcommand/kdeconnect_runcommand_config.qml:104
+#, fuzzy, kde-format
+#| msgid "Sample commands"
+msgid "Sample commands:"
+msgstr "Əmrlər nümunəsi"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Telefon qoşulub"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:34
+#, kde-format
+msgid "Persistent notifications only"
+msgstr "Yalnız daimi bildirişlər"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:42
+#, kde-format
+msgid "Include body"
+msgstr "Mətn daxil etmək"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:49
+#, fuzzy, kde-format
+#| msgid "Include body"
+msgid "Include icon"
+msgstr "Mətn daxil etmək"
+
+#: sendnotifications/kdeconnect_sendnotifications_config.qml:56
+#, fuzzy, kde-format
+#| msgid "Minimum urgency level"
+msgid "Minimum urgency level:"
+msgstr "Minimum vaciblik səviyyəsi"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
@@ -167,6 +315,18 @@ msgstr "Bütün fayllar"
 msgid "Camera pictures"
 msgstr "Kamera şəkilləri"
 
+#: share/kdeconnect_share_config.qml:47
+#, kde-format
+msgid "Save files in:"
+msgstr "Faylları burda saxlamaq:"
+
+#: share/kdeconnect_share_config.qml:63
+#, fuzzy, kde-format
+#| msgid ""
+#| "&percnt;1 in the path will be replaced with the specific device name."
+msgid "%1 in the path will be replaced with the specific device name"
+msgstr "&percnt;1 yolda cihaz adı ilə əvəz olunacaq"
+
 #: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
@@ -221,18 +381,8 @@ msgstr "Zəngi səsini susdurmaq"
 #~ msgid "Automatic synchronization"
 #~ msgstr "Avtomatik eyniləşdirmə"
 
-#~ msgid "Automatically share the clipboard from this device"
-#~ msgstr "Cihazin mübadilə yaddaşını avtomatik paylaşmaq"
-
-#~ msgid "Including passwords (as marked by password managers)"
-#~ msgstr ""
-#~ "Şifrələr daxil olmaqla (şifrələmə menecerləri tərəfindən işarələnmiş kimi)"
-
 #~ msgid "Discovery Utilities"
 #~ msgstr "Aşkar etmə vasitələri"
-
-#~ msgid "Sound to play:"
-#~ msgstr "Səsləndirmək:"
 
 #~ msgid "Select the sound to play"
 #~ msgstr "Səsləndirəcəyiniz səsi seçin"
@@ -243,20 +393,8 @@ msgstr "Zəngi səsini susdurmaq"
 #~ msgid "Condition"
 #~ msgstr "Fasilə şərtləri"
 
-#~ msgid "Pause as soon as phone rings"
-#~ msgstr "Telefon zəngi zamanı dərhal fasilə"
-
-#~ msgid "Pause only while talking"
-#~ msgstr "Yalnız danışıq zamanı fasilə"
-
 #~ msgid "Actions"
 #~ msgstr "Fəaliyyətlər"
-
-#~ msgid "Pause media players"
-#~ msgstr "Media pleyerlərə fasilə"
-
-#~ msgid "Mute system sound"
-#~ msgstr "Sistem səsini susdurmaq"
 
 #~ msgid "Automatically resume media when call has finished"
 #~ msgstr "Zəng bitikdən sonra musiqi və ya video oxunması davam etsin"
@@ -300,17 +438,11 @@ msgstr "Zəngi səsini susdurmaq"
 #~ msgid "Forcefully Close All Vaults"
 #~ msgstr "Bütün seyfləri məcburi bağlamaq"
 
-#~ msgid "Sample commands"
-#~ msgstr "Əmrlər nümunəsi"
-
 #~ msgid "Export"
 #~ msgstr "İxrac et"
 
 #~ msgid "Import"
 #~ msgstr "İdxal et"
-
-#~ msgid "Command"
-#~ msgstr "Əmr"
 
 #~ msgid "Export Commands"
 #~ msgstr "İxrac əmrləri"
@@ -324,16 +456,10 @@ msgstr "Zəngi səsini susdurmaq"
 #~ msgid "Synchronize only notifications with a timeout value of 0?"
 #~ msgstr "Bildirişlər yalnız bitmə vaxtı 0 ilə eyniləşdirilsin?"
 
-#~ msgid "Persistent notifications only"
-#~ msgstr "Yalnız daimi bildirişlər"
-
 #~ msgid ""
 #~ "Append the notification body to the summary when synchronizing "
 #~ "notifications?"
 #~ msgstr "Bildirişləri eyniləşdirərkən yekuna bildiriş mətni əlavə edilsin?"
-
-#~ msgid "Include body"
-#~ msgstr "Mətn daxil etmək"
 
 #~ msgid "Synchronize icons of notifying applications if possible?"
 #~ msgstr ""
@@ -352,24 +478,14 @@ msgstr "Zəngi səsini susdurmaq"
 #~ msgid "Synchronize only notifications with the given urgency level."
 #~ msgstr "Yalnız minimum vaciblik səviyyəsi ilə bildirişləri eyniləşdirmək."
 
-#~ msgid "Minimum urgency level"
-#~ msgstr "Minimum vaciblik səviyyəsi"
-
 #~ msgid "Applications"
 #~ msgstr "Tətbiqlər"
-
-#~ msgid ""
-#~ "&percnt;1 in the path will be replaced with the specific device name."
-#~ msgstr "&percnt;1 yolda cihaz adı ilə əvəz olunacaq"
 
 #~ msgid "Share plugin settings"
 #~ msgstr "Mübadilə qoşmasının ayarları"
 
 #~ msgid "Receiving"
 #~ msgstr "Faylların alınması"
-
-#~ msgid "Save files in:"
-#~ msgstr "Faylları burda saxlamaq:"
 
 #~ msgid "Blacklisted"
 #~ msgstr "Qara siyahıda"
