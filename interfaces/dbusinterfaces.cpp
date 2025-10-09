@@ -177,14 +177,6 @@ RemoteSystemVolumeDbusInterface::RemoteSystemVolumeDbusInterface(const QString &
 {
 }
 
-BigscreenDbusInterface::BigscreenDbusInterface(const QString &deviceId, QObject *parent)
-    : OrgKdeKdeconnectDeviceBigscreenInterface(DaemonDbusInterface::activatedService(),
-                                               QLatin1String("/modules/kdeconnect/devices/%1/bigscreen").arg(deviceId),
-                                               QDBusConnection::sessionBus(),
-                                               parent)
-{
-}
-
 VirtualmonitorDbusInterface::VirtualmonitorDbusInterface(const QString &deviceId, QObject *parent)
     : OrgKdeKdeconnectDeviceVirtualmonitorInterface(DaemonDbusInterface::activatedService(),
                                                     QLatin1String("/modules/kdeconnect/devices/%1/virtualmonitor").arg(deviceId),

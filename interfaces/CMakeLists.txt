@@ -59,7 +59,6 @@ geninterface(${PROJECT_SOURCE_DIR}/plugins/sms/smsplugin.h generated/smsinterfac
 geninterface(${PROJECT_SOURCE_DIR}/plugins/sms/conversationsdbusinterface.h generated/conversationsinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/share/shareplugin.h generated/shareinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/remotesystemvolume/remotesystemvolumeplugin.h generated/remotesystemvolumeinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/bigscreen/bigscreenplugin.h generated/bigscreeninterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/virtualmonitor/virtualmonitorplugin.h generated/virtualmonitorinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/clipboard/clipboardplugin.h generated/deviceclipboardinterface)
 

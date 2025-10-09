@@ -10,7 +10,6 @@
 #include "kdeconnectinterfaces_export.h"
 
 #include "generated/batteryinterface.h"
-#include "generated/bigscreeninterface.h"
 #include "generated/connectivityinterface.h"
 #include "generated/conversationsinterface.h"
 #include "generated/daemoninterface.h"
@@ -221,13 +220,6 @@ class KDECONNECTINTERFACES_EXPORT RemoteSystemVolumeDbusInterface : public OrgKd
     Q_PROPERTY(QString deviceId READ deviceId CONSTANT)
 public:
     explicit RemoteSystemVolumeDbusInterface(const QString &deviceId, QObject *parent = nullptr);
-};
-
-class KDECONNECTINTERFACES_EXPORT BigscreenDbusInterface : public OrgKdeKdeconnectDeviceBigscreenInterface
-{
-    Q_OBJECT
-public:
-    explicit BigscreenDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };
 
 class KDECONNECTINTERFACES_EXPORT VirtualmonitorDbusInterface : public OrgKdeKdeconnectDeviceVirtualmonitorInterface

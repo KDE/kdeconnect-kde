@@ -95,7 +95,6 @@ void KdeConnectDeclarativePlugin::registerTypes(const char *uri)
                                                                 "RemoteSystemVolumeInterface",
                                                                 QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterUncreatableType<ShareDbusInterface>(uri, 1, 0, "ShareDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
-    qmlRegisterUncreatableType<BigscreenDbusInterface>(uri, 1, 0, "BigscreenDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterSingletonType<DaemonDbusInterface>(uri, 1, 0, "DaemonDbusInterface", [](QQmlEngine *, QJSEngine *) -> QObject * {
         return new DaemonDbusInterface;
     });
@@ -130,7 +129,6 @@ void KdeConnectDeclarativePlugin::registerTypes(const char *uri)
     registerFactory<RemoteCommandsDbusInterface>(uri, "RemoteCommandsDbusInterfaceFactory");
     registerFactory<ShareDbusInterface>(uri, "ShareDbusInterfaceFactory");
     registerFactory<RemoteSystemVolumeDbusInterface>(uri, "RemoteSystemVolumeDbusInterfaceFactory");
-    registerFactory<BigscreenDbusInterface>(uri, "BigscreenDbusInterfaceFactory");
     registerFactory<VirtualmonitorDbusInterface>(uri, "VirtualmonitorDbusInterfaceFactory");
 }
 
