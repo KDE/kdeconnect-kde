@@ -196,7 +196,7 @@ msgstr "No es pot accedir a este dispositiu"
 #: qml/DevicePage.qml:247
 #, kde-format
 msgid "Please choose a file"
-msgstr "Seleccioneu un fitxer"
+msgstr "Trieu un fitxer"
 
 #: qml/Main.qml:87
 #, kde-format

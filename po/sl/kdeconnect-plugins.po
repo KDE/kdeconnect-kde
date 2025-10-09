@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-08 02:38+0000\n"
-"PO-Revision-Date: 2025-06-24 06:57+0200\n"
+"PO-Revision-Date: 2025-10-08 07:21+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.7\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -48,7 +48,7 @@ msgstr "Maksimalna velikost datoteke odložišča (MB)"
 #: share/kdeconnect_share_config.qml:22
 #, kde-format
 msgid "Apply"
-msgstr ""
+msgstr "Uveljavi"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:47
 #, kde-format
@@ -56,17 +56,16 @@ msgid "Sound to play:"
 msgstr "Zvok za predvajanje:"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:57
-#, fuzzy, kde-format
-#| msgid "Could not share file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose file"
-msgstr "Ni bilo mogoče deliti datoteke"
+msgstr "Izberi datoteko"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Play"
-msgstr ""
+msgstr "Predvajaj"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -141,7 +140,7 @@ msgstr "Izklop zvoka sistema"
 #: pausemusic/kdeconnect_pausemusic_config.qml:61
 #, kde-format
 msgid "Resume automatically when call ends"
-msgstr ""
+msgstr "Samodejno nadaljevanje po koncu klica"
 
 #: ping/pingplugin.cpp:26
 #, kde-format
@@ -149,65 +148,59 @@ msgid "Ping!"
 msgstr "Ping!"
 
 #: runcommand/kdeconnect_runcommand_config.qml:21
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Add Command…"
-msgstr "Ukaz"
+msgstr "Dodaj ukaz…"
 
 #: runcommand/kdeconnect_runcommand_config.qml:53
 #, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "Zbriši"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
-msgstr ""
+msgstr "Ni konfiguriranih ukazov"
 
 #: runcommand/kdeconnect_runcommand_config.qml:65
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
-msgstr ""
+msgstr "Dodaj ukaze za oddaljeni zagon iz drugih naprav"
 
 #: runcommand/kdeconnect_runcommand_config.qml:71
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
-msgstr "Ukaz"
+msgstr "Dodaj ukaz"
 
 #: runcommand/kdeconnect_runcommand_config.qml:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #: runcommand/kdeconnect_runcommand_config.qml:86
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
-msgstr "Ukaz"
+msgstr "Dodaj ukaz"
 
 #: runcommand/kdeconnect_runcommand_config.qml:96
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgid "Name:"
-msgstr "Ime"
+msgstr "Ime:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:100
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Command:"
-msgstr "Ukaz"
+msgstr "Ukaz:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:104
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Sample commands:"
-msgstr "Vzorec ukazov"
+msgstr "Vzorec ukazov:"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -225,16 +218,14 @@ msgid "Include body"
 msgstr "Vključi telo"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:49
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Include icon"
-msgstr "Vključi telo"
+msgstr "Vključi ikono"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:56
-#, fuzzy, kde-format
-#| msgid "Minimum urgency level"
+#, kde-format
 msgid "Minimum urgency level:"
-msgstr "Najnižja stopnja nujnosti"
+msgstr "Najnižja stopnja nujnosti:"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
@@ -318,11 +309,9 @@ msgid "Save files in:"
 msgstr "Shrani datoteke v:"
 
 #: share/kdeconnect_share_config.qml:63
-#, fuzzy, kde-format
-#| msgid ""
-#| "&percnt;1 in the path will be replaced with the specific device name."
+#, kde-format
 msgid "%1 in the path will be replaced with the specific device name"
-msgstr "&percnt;1 na poti bo nadomeščen z določenim imenom naprave."
+msgstr "%1 na poti bo nadomeščen z določenim imenom naprave."
 
 #: share/shareplugin.cpp:160
 #, kde-format

@@ -54,7 +54,7 @@ msgstr "El monitor virtual no està disponible"
 #: package/contents/ui/DeviceDelegate.qml:87
 #, kde-format
 msgid "Please choose a file"
-msgstr "Seleccioneu un fitxer"
+msgstr "Trieu un fitxer"
 
 #: package/contents/ui/DeviceDelegate.qml:105
 #, kde-format
