@@ -54,7 +54,7 @@ msgstr "El monitor virtual no està disponible"
 #: package/contents/ui/DeviceDelegate.qml:87
 #, kde-format
 msgid "Please choose a file"
-msgstr "Seleccioneu un fitxer"
+msgstr "Trieu un fitxer"
 
 #: package/contents/ui/DeviceDelegate.qml:105
 #, kde-format
@@ -190,12 +190,3 @@ msgstr "Instal·la des del F-Droid"
 #, kde-format
 msgid "KDE Connect Settings…"
 msgstr "Configureu KDE Connect…"
-
-#~ msgid "Remote device does not have a VNC client (eg. krdc) installed."
-#~ msgstr "El dispositiu remot no té cap client VNC (p. ex., krdc) instal·lat."
-
-#~ msgid "The krfb package is required on the local device."
-#~ msgstr "Es requerix el paquet «krfb» en el dispositiu local."
-
-#~ msgid "Failed to create the virtual monitor."
-#~ msgstr "No s'ha pogut crear el monitor virtual."
