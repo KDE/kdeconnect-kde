@@ -76,6 +76,8 @@ int main(int argc, char **argv)
     parser.addOption(
         QCommandLineOption(QStringList{QStringLiteral("k"), QStringLiteral("send-keys")}, i18n("Sends keys to a said device"), QStringLiteral("key")));
     parser.addOption(QCommandLineOption(QStringLiteral("my-id"), i18n("Display this device's id and exit")));
+    parser.addOption(QCommandLineOption(QStringLiteral("mount"), i18n("Mount filesystem of a said device")));
+    parser.addOption(QCommandLineOption(QStringLiteral("get-mount-point"), i18n("Print mount point for the filesystem of a said device")));
 
     // Hidden because it's an implementation detail
     QCommandLineOption deviceAutocomplete(QStringLiteral("shell-device-autocompletion"));
@@ -378,6 +380,19 @@ int main(int argc, char **argv)
             DeviceDbusInterface dev(device);
             QString info = blockOnReply<QString>(dev.encryptionInfo()); // QSsl::Der = 1
             QTextStream(stdout) << info << Qt::endl;
+        } else if (parser.isSet(QStringLiteral("mount"))) {
+            QDBusMessage msgMount = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
+                                                                   QLatin1String("/modules/kdeconnect/devices/%1/sftp").arg(device),
+                                                                   QStringLiteral("org.kde.kdeconnect.device.sftp"),
+                                                                   QStringLiteral("mountAndWait"));
+            blockOnReply(QDBusConnection::sessionBus().asyncCall(msgMount));
+        } else if (parser.isSet(QStringLiteral("get-mount-point"))) {
+            QDBusMessage msgMountPoint = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
+                                                                        QLatin1String("/modules/kdeconnect/devices/%1/sftp").arg(device),
+                                                                        QStringLiteral("org.kde.kdeconnect.device.sftp"),
+                                                                        QStringLiteral("mountPoint"));
+            QString mountPoint = blockOnReply<QString>(QDBusConnection::sessionBus().call(msgMountPoint));
+            QTextStream(stdout) << mountPoint << Qt::endl;
         } else {
             QTextStream(stderr) << i18n("Nothing to be done") << Qt::endl;
         }
