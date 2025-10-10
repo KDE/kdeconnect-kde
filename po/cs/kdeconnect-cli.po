@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-10-10 00:41+0000\n"
 "PO-Revision-Date: 2025-02-10 17:41+0100\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -231,22 +231,33 @@ msgstr "Pošle na dané zařízení stisky kláves"
 msgid "Display this device's id and exit"
 msgstr "Zobrazit id tohoto zařízení a ukončit"
 
-#: kdeconnect-cli.cpp:124
+#: kdeconnect-cli.cpp:79
+#, fuzzy, kde-format
+#| msgid "Sends keys to a said device"
+msgid "Mount filesystem of a said device"
+msgstr "Pošle na dané zařízení stisky kláves"
+
+#: kdeconnect-cli.cpp:80
+#, kde-format
+msgid "Print mount point for the filesystem of a said device"
+msgstr ""
+
+#: kdeconnect-cli.cpp:126
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(spárovaná a dosažitelná)"
 
-#: kdeconnect-cli.cpp:126
+#: kdeconnect-cli.cpp:128
 #, kde-format
 msgid "(reachable)"
 msgstr "(nedostupná)"
 
-#: kdeconnect-cli.cpp:128 kdeconnect-cli.cpp:152
+#: kdeconnect-cli.cpp:130 kdeconnect-cli.cpp:154
 #, kde-format
 msgid "(paired)"
 msgstr "(spárovaná)"
 
-#: kdeconnect-cli.cpp:134
+#: kdeconnect-cli.cpp:136
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
@@ -254,17 +265,17 @@ msgstr[0] "Nalezeno 1 zařízení"
 msgstr[1] "Nalezena %1 zařízení"
 msgstr[2] "Nalezeno %1 zařízení"
 
-#: kdeconnect-cli.cpp:136
+#: kdeconnect-cli.cpp:138
 #, kde-format
 msgid "No devices found"
 msgstr "Nenalezena žádná zařízení"
 
-#: kdeconnect-cli.cpp:154
+#: kdeconnect-cli.cpp:156
 #, kde-format
 msgid "(unpaired)"
 msgstr "(nespárovaný)"
 
-#: kdeconnect-cli.cpp:197
+#: kdeconnect-cli.cpp:199
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -277,59 +288,59 @@ msgstr ""
 "ID zařízení a názvy lze najít pomocí \"kdeconnect-cli -l\" \n"
 "Kompletní nápovědu dostanete s volbou --help"
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:234
 #, kde-format
 msgid "Shared %1"
 msgstr "Sdílené %1"
 
-#: kdeconnect-cli.cpp:241
+#: kdeconnect-cli.cpp:243
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Sdílený text: %1"
 
-#: kdeconnect-cli.cpp:248
+#: kdeconnect-cli.cpp:250
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Vyžádáno zamčení %1."
 
-#: kdeconnect-cli.cpp:250
+#: kdeconnect-cli.cpp:252
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Vyžádáno odemčení %1."
 
-#: kdeconnect-cli.cpp:257
+#: kdeconnect-cli.cpp:259
 #, kde-format
 msgid "waiting for device…"
 msgstr ""
 
-#: kdeconnect-cli.cpp:270
+#: kdeconnect-cli.cpp:272
 #, kde-format
 msgid "Device not found"
 msgstr "Zařízení nenalezeno"
 
-#: kdeconnect-cli.cpp:272
+#: kdeconnect-cli.cpp:274
 #, kde-format
 msgid "Already paired"
 msgstr "Již spárované"
 
-#: kdeconnect-cli.cpp:274
+#: kdeconnect-cli.cpp:276
 #, kde-format
 msgid "Pair requested"
 msgstr "Bylo vyžádáno párování"
 
-#: kdeconnect-cli.cpp:280
+#: kdeconnect-cli.cpp:282
 #, kde-format
 msgid "Already not paired"
 msgstr "Již nespárované"
 
-#: kdeconnect-cli.cpp:282
+#: kdeconnect-cli.cpp:284
 #, kde-format
 msgid "Unpaired"
 msgstr "Nespárované"
 
-#: kdeconnect-cli.cpp:328
+#: kdeconnect-cli.cpp:330
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -337,7 +348,7 @@ msgid ""
 msgstr ""
 "chyba: měli byste určit příjemce SMS předáním --destination <telefonní číslo>"
 
-#: kdeconnect-cli.cpp:382
+#: kdeconnect-cli.cpp:397
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Nebude nic provedeno"

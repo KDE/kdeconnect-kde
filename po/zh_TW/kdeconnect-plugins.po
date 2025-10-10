@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-08 00:43+0000\n"
+"POT-Creation-Date: 2025-10-10 00:41+0000\n"
 "PO-Revision-Date: 2025-08-08 02:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -326,30 +326,30 @@ msgstr "儲存檔案到："
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "在路徑中的 &percnt;1 將會以指定的裝置名稱取代。"
 
-#: share/shareplugin.cpp:160
+#: share/shareplugin.cpp:161
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "從 %1 分享來的文字已複製到剪貼簿"
 
-#: share/shareplugin.cpp:191
+#: share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "用編輯器開啟"
 
-#: share/shareplugin.cpp:195
+#: share/shareplugin.cpp:205
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "開啟連結"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "Could not share file"
 msgstr "無法分享檔案"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 不存在"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-08 00:43+0000\n"
+"POT-Creation-Date: 2025-10-10 00:41+0000\n"
 "PO-Revision-Date: 2025-04-16 10:45+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -330,30 +330,30 @@ msgstr ""
 "&percnt;1 in le percurso essera reimplaciate con le nomine de dispositivo "
 "specific."
 
-#: share/shareplugin.cpp:160
+#: share/shareplugin.cpp:161
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Texto compartite ex %1 copiate a area de transferentia"
 
-#: share/shareplugin.cpp:191
+#: share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Aperi in Editor  de Texto"
 
-#: share/shareplugin.cpp:195
+#: share/shareplugin.cpp:205
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Aperi Ligamine"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "Could not share file"
 msgstr "Non poteva impartir file"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 non existe"

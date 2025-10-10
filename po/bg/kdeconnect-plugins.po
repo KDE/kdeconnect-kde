@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-08 00:43+0000\n"
+"POT-Creation-Date: 2025-10-10 00:41+0000\n"
 "PO-Revision-Date: 2025-07-28 18:28+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -325,30 +325,30 @@ msgstr "Запазване на файлове като:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "&percnt;1 в пътя ще бъде заменен със специфичното име на устройството."
 
-#: share/shareplugin.cpp:160
+#: share/shareplugin.cpp:161
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Споделеният текст от %1 е копиран в клипборда"
 
-#: share/shareplugin.cpp:191
+#: share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Отваряне в текстов редактор"
 
-#: share/shareplugin.cpp:195
+#: share/shareplugin.cpp:205
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Отваряне на връзка"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "Could not share file"
 msgstr "Файлът не можа да се сподели"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 не съществува"

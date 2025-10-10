@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-08 00:43+0000\n"
+"POT-Creation-Date: 2025-10-10 00:41+0000\n"
 "PO-Revision-Date: 2025-10-08 16:39+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -314,30 +314,30 @@ msgstr "Dosyaları şuraya kaydet:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "Yoldaki %1, özel aygıt adı ile değiştirilir"
 
-#: share/shareplugin.cpp:160
+#: share/shareplugin.cpp:161
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "%1 aygıtından alınan metin panoya kopyalandı"
 
-#: share/shareplugin.cpp:191
+#: share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Metin Düzenleyicisinde Aç"
 
-#: share/shareplugin.cpp:195
+#: share/shareplugin.cpp:205
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Bağlantıyı Aç"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "Could not share file"
 msgstr "Dosya paylaşılamadı"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 yok"

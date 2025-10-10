@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-08 00:43+0000\n"
+"POT-Creation-Date: 2025-10-10 00:41+0000\n"
 "PO-Revision-Date: 2024-05-10 11:33+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -327,30 +327,30 @@ msgstr "Konservi dosierojn en:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "&percnt;1 en la vojo estos anstataŭigita per la specifa aparato nomo."
 
-#: share/shareplugin.cpp:160
+#: share/shareplugin.cpp:161
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Komuna teksto de %1 kopiita al tondujo"
 
-#: share/shareplugin.cpp:191
+#: share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Malfermi en Tekstredaktilo"
 
-#: share/shareplugin.cpp:195
+#: share/shareplugin.cpp:205
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Malfermi Ligon"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "Could not share file"
 msgstr "Ne eblis kunhavigi dosieron"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 ne ekzistas"
