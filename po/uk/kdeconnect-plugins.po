@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-08 02:38+0000\n"
-"PO-Revision-Date: 2025-06-24 11:32+0300\n"
+"PO-Revision-Date: 2025-10-09 19:16+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -50,7 +50,7 @@ msgstr "Максимальний розмір файла буфера (у МБ)"
 #: share/kdeconnect_share_config.qml:22
 #, kde-format
 msgid "Apply"
-msgstr ""
+msgstr "Застосувати"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:47
 #, kde-format
@@ -58,17 +58,16 @@ msgid "Sound to play:"
 msgstr "Відтворити звук:"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:57
-#, fuzzy, kde-format
-#| msgid "Could not share file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose file"
-msgstr "Не вдалося оприлюднити файл"
+msgstr "Виберіть файл"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Play"
-msgstr ""
+msgstr "Відтворити"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -143,7 +142,7 @@ msgstr "Вимкнути звук у системі"
 #: pausemusic/kdeconnect_pausemusic_config.qml:61
 #, kde-format
 msgid "Resume automatically when call ends"
-msgstr ""
+msgstr "Автоматично відновлювати після завершення виклику"
 
 #: ping/pingplugin.cpp:26
 #, kde-format
@@ -151,65 +150,59 @@ msgid "Ping!"
 msgstr "Пінг!"
 
 #: runcommand/kdeconnect_runcommand_config.qml:21
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Add Command…"
-msgstr "Команда"
+msgstr "Додати команду…"
 
 #: runcommand/kdeconnect_runcommand_config.qml:53
 #, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "Вилучити"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
-msgstr ""
+msgstr "Команд не налаштовано"
 
 #: runcommand/kdeconnect_runcommand_config.qml:65
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
-msgstr ""
+msgstr "Додати команди для запуску віддалено з інших пристроїв"
 
 #: runcommand/kdeconnect_runcommand_config.qml:71
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
-msgstr "Команда"
+msgstr "Додати команду"
 
 #: runcommand/kdeconnect_runcommand_config.qml:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "Додати"
 
 #: runcommand/kdeconnect_runcommand_config.qml:86
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
-msgstr "Команда"
+msgstr "Додати команду"
 
 #: runcommand/kdeconnect_runcommand_config.qml:96
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgid "Name:"
-msgstr "Назва"
+msgstr "Назва:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:100
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Command:"
-msgstr "Команда"
+msgstr "Команда:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:104
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Sample commands:"
-msgstr "Зразки команд"
+msgstr "Зразки команд:"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -227,16 +220,14 @@ msgid "Include body"
 msgstr "Включати текст"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:49
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Include icon"
-msgstr "Включати текст"
+msgstr "Включити піктограму"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:56
-#, fuzzy, kde-format
-#| msgid "Minimum urgency level"
+#, kde-format
 msgid "Minimum urgency level:"
-msgstr "Мінімальний рівень терміновості"
+msgstr "Мінімальний рівень терміновості:"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
@@ -322,11 +313,9 @@ msgid "Save files in:"
 msgstr "Зберігати файли до:"
 
 #: share/kdeconnect_share_config.qml:63
-#, fuzzy, kde-format
-#| msgid ""
-#| "&percnt;1 in the path will be replaced with the specific device name."
+#, kde-format
 msgid "%1 in the path will be replaced with the specific device name"
-msgstr "&percnt;1 у записі шляху буде замінено на специфічну назву пристрою."
+msgstr "%1 у записі шляху буде замінено на специфічну назву пристрою"
 
 #: share/shareplugin.cpp:160
 #, kde-format
