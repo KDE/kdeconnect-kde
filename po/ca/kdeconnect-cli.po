@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-10 00:41+0000\n"
-"PO-Revision-Date: 2025-06-17 08:27+0200\n"
+"PO-Revision-Date: 2025-10-10 10:08+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -237,15 +237,15 @@ msgid "Display this device's id and exit"
 msgstr "Mostra l'ID d'aquest dispositiu i surt"
 
 #: kdeconnect-cli.cpp:79
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Envia les tecles a un dispositiu indicat"
+msgstr "Munta el sistema de fitxers d'un dispositiu indicat"
 
 #: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr ""
+"Imprimeix el punt de muntatge del sistema de fitxers d'un dispositiu indicat"
 
 #: kdeconnect-cli.cpp:126
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-10 00:41+0000\n"
-"PO-Revision-Date: 2025-06-17 04:34+0200\n"
+"PO-Revision-Date: 2025-10-10 06:17+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.7\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -234,15 +234,14 @@ msgid "Display this device's id and exit"
 msgstr "მოწყობილობის ID-ის ჩვენება და გასვლა"
 
 #: kdeconnect-cli.cpp:79
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "მონიშნული მოწყობილობისთვის გასაღებების გაგზავნა"
+msgstr "მონიშნული მოწყობილობისთვის ფაილური სისტემის მიმაგრება"
 
 #: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "აღნიშნული მოწყობილობის ფაილური სისტემის მიმაგრების წერტილის გამოტანა"
 
 #: kdeconnect-cli.cpp:126
 #, kde-format

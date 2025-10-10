@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-10 00:41+0000\n"
-"PO-Revision-Date: 2025-06-17 06:45+0200\n"
+"PO-Revision-Date: 2025-10-10 06:58+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.7\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -234,15 +234,14 @@ msgid "Display this device's id and exit"
 msgstr "Prikaže id naprave in zaključi"
 
 #: kdeconnect-cli.cpp:79
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Pošlje ključe na omenjeno napravo"
+msgstr "Priklopi datotečni sistem omenjene naprave"
 
 #: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "Natisni točko priklopa za datotečni sistem omenjene naprave"
 
 #: kdeconnect-cli.cpp:126
 #, kde-format
@@ -316,7 +315,7 @@ msgstr "Zahtevano odklepanje %1."
 #: kdeconnect-cli.cpp:259
 #, kde-format
 msgid "waiting for device…"
-msgstr "čakanje na napravo..."
+msgstr "čakanje na napravo…"
 
 #: kdeconnect-cli.cpp:272
 #, kde-format
