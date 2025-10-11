@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-10 00:41+0000\n"
+"POT-Creation-Date: 2025-10-11 09:06+0000\n"
 "PO-Revision-Date: 2025-10-08 07:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -361,17 +361,17 @@ msgstr "Zgrešeni klic od %1"
 msgid "Mute Call"
 msgstr "Klic brez zvoka"
 
-#: virtualmonitor/virtualmonitorplugin.cpp:180
+#: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr "Oddaljena naprava nima nameščenega odjemalca VNC ali RDP (npr. krdc)."
 
-#: virtualmonitor/virtualmonitorplugin.cpp:183
+#: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "The krdp package is required on the local device."
 msgstr "Na lokalni napravi je potreben paket krdp."
 
-#: virtualmonitor/virtualmonitorplugin.cpp:186
+#: virtualmonitor/virtualmonitorplugin.cpp:189
 #, kde-format
 msgid "Cannot start a request without a resolution"
 msgstr "Zahteve ni mogoče začeti brez ločljivosti"

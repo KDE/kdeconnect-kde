@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-10 00:41+0000\n"
+"POT-Creation-Date: 2025-10-11 09:06+0000\n"
 "PO-Revision-Date: 2025-10-08 06:27-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -368,19 +368,19 @@ msgstr "Chamada não atendida de %1"
 msgid "Mute Call"
 msgstr "Silenciar chamada"
 
-#: virtualmonitor/virtualmonitorplugin.cpp:180
+#: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
 "O dispositivo remoto não tem um cliente VNC ou RDP (por exemplo, krdc) "
 "instalado."
 
-#: virtualmonitor/virtualmonitorplugin.cpp:183
+#: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "The krdp package is required on the local device."
 msgstr "O pacote krdp é necessário no dispositivo local."
 
-#: virtualmonitor/virtualmonitorplugin.cpp:186
+#: virtualmonitor/virtualmonitorplugin.cpp:189
 #, kde-format
 msgid "Cannot start a request without a resolution"
 msgstr "Não foi possível iniciar uma solicitação sem uma resolução"

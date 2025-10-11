@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-10 00:41+0000\n"
+"POT-Creation-Date: 2025-10-11 09:06+0000\n"
 "PO-Revision-Date: 2025-07-31 09:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -375,19 +375,19 @@ msgstr "Vastaamaton puhelu: %1"
 msgid "Mute Call"
 msgstr "Vaimenna soitto"
 
-#: virtualmonitor/virtualmonitorplugin.cpp:180
+#: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
 "Etälaitteeseen ei ole asennettu VNC- tai RDP-asiakasta (esim. krdc:tä)."
 
-#: virtualmonitor/virtualmonitorplugin.cpp:183
+#: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "The krdp package is required on the local device."
 msgstr "Paikallisella laitteella vaaditaan krdp-paketti."
 
 # *** TARKISTA: ”Resolution” voisi tässä olla myös ’ratkaisu’ (johonkin).
-#: virtualmonitor/virtualmonitorplugin.cpp:186
+#: virtualmonitor/virtualmonitorplugin.cpp:189
 #, kde-format
 msgid "Cannot start a request without a resolution"
 msgstr "Pyyntöä ei voi käynnistää ilman tarkkuutta"

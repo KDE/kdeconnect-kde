@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-10 00:41+0000\n"
+"POT-Creation-Date: 2025-10-11 09:06+0000\n"
 "PO-Revision-Date: 2025-08-08 02:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -374,17 +374,17 @@ msgstr "錯過 %1 的來電"
 msgid "Mute Call"
 msgstr "通話靜音"
 
-#: virtualmonitor/virtualmonitorplugin.cpp:180
+#: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr "遠端裝置並未安裝 VNC 或 RDP 用戶端（如 krdc）。"
 
-#: virtualmonitor/virtualmonitorplugin.cpp:183
+#: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "The krdp package is required on the local device."
 msgstr "需要在本地裝置上有 krdp 軟體包。"
 
-#: virtualmonitor/virtualmonitorplugin.cpp:186
+#: virtualmonitor/virtualmonitorplugin.cpp:189
 #, kde-format
 msgid "Cannot start a request without a resolution"
 msgstr "沒有提供解析度時無法開始請求"

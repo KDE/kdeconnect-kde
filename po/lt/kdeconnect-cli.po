@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-10 00:41+0000\n"
-"PO-Revision-Date: 2025-08-11 22:53+0300\n"
+"PO-Revision-Date: 2025-10-10 23:36+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -235,15 +235,14 @@ msgid "Display this device's id and exit"
 msgstr "Rodyti šio įrenginio id ir išeiti"
 
 #: kdeconnect-cli.cpp:79
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Siunčia klavišus į nusakytą įrenginį"
+msgstr "Prijungti nusakyto įrenginio failų sistemą"
 
 #: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "Parodyti nusakyto įrenginio failų sistemos prijungimo tašką"
 
 #: kdeconnect-cli.cpp:126
 #, kde-format
