@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
-# SPDX-FileCopyrightText: 2014 2019 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2014, 2019 Burkhard Lück <lueck@hube-lueck.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"

@@ -2,7 +2,6 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 # SPDX-FileCopyrightText: 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-interfaces\n"
