@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-10 00:41+0000\n"
-"PO-Revision-Date: 2025-06-22 18:44+0100\n"
+"PO-Revision-Date: 2025-10-12 01:36+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -233,15 +233,15 @@ msgid "Display this device's id and exit"
 msgstr "Mostrar el identificador de este dispositivo y salir"
 
 #: kdeconnect-cli.cpp:79
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Envía pulsaciones de tecla a un dispositivo dado"
+msgstr "Montar el sistema de archivos de un dispositivo dado"
 
 #: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr ""
+"Mostrar el punto de montaje del sistema de archivos de un dispositivo dado"
 
 #: kdeconnect-cli.cpp:126
 #, kde-format
