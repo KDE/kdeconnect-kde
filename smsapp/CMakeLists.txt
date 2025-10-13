@@ -40,6 +40,7 @@ add_executable(kdeconnect-sms
     conversationssortfilterproxymodel.cpp
     thumbnailsprovider.cpp
     attachmentinfo.cpp
+    attachmentshelper.cpp
     ${kdeconnect_custom_icons_SRCS}
 )
 

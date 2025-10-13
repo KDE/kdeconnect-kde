@@ -5,6 +5,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+#include "attachmentshelper.h"
 #include "conversationlistmodel.h"
 #include "conversationmodel.h"
 #include "conversationssortfilterproxymodel.h"
@@ -108,6 +109,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<ConversationListModel>("org.kde.kdeconnect.sms", 1, 0, "ConversationListModel");
 
     qmlRegisterSingletonType<SmsHelper>("org.kde.kdeconnect.sms", 1, 0, "SmsHelper", SmsHelper::singletonProvider);
+    qmlRegisterSingletonType<SmsHelper>("org.kde.kdeconnect.sms", 1, 0, "AttachmentsHelper", AttachmentsHelper::singletonProvider);
 
     qmlRegisterSingletonInstance<AppData>("org.kde.kdeconnect.sms", 1, 0, "AppData", &data);
 

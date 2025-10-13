@@ -23,11 +23,20 @@ Kirigami.Page {
             onTriggered: {
                 Qt.openUrlExternally(root.fileUrl);
             }
+        },
+        Kirigami.Action {
+            text: i18nd("kdeconnect-sms", "Download attachment…")
+            icon.name: "download"
+            shortcut: StandardKey.Save
+            onTriggered: {
+                AttachmentsHelper.saveAttachment(root.mimeType, root.fileUrl);
+            }
         }
     ]
 
     contentItem: Rectangle {
         anchors.fill: parent
+        color: Kirigami.Theme.backgroundColor
 
         Rectangle {
             id: imageViewer
