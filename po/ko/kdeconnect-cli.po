@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-10 00:41+0000\n"
-"PO-Revision-Date: 2025-07-21 00:59+0200\n"
+"PO-Revision-Date: 2025-10-12 11:39+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -231,15 +231,14 @@ msgid "Display this device's id and exit"
 msgstr "장치 ID만 출력하고 끝내기"
 
 #: kdeconnect-cli.cpp:79
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "지정한 장치에 키 보내기"
+msgstr "지정한 장치의 파일 시스템 마운트"
 
 #: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "지정한 장치의 파일 시스템의 마운트 지점 표시"
 
 #: kdeconnect-cli.cpp:126
 #, kde-format
