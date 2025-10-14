@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-27 00:42+0000\n"
+"POT-Creation-Date: 2025-10-14 00:42+0000\n"
 "PO-Revision-Date: 2025-08-08 02:34+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -31,6 +31,14 @@ msgstr "pan93412, Chaoting Liu"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "pan93412@gmail.com, brli@chakrlainux.org"
+
+#: attachmentshelper.cpp:36
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Clear attachments"
+msgctxt "Caption/title for attachment download/save window"
+msgid "Download attachment"
+msgstr "清除附件"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -67,47 +75,47 @@ msgstr "%1：%2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:73
+#: main.cpp:51 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect 簡訊"
 
-#: main.cpp:52
+#: main.cpp:53
 #, kde-format
 msgid "SMS Instant Messaging"
 msgstr "SMS 即時通訊"
 
-#: main.cpp:54
+#: main.cpp:55
 #, kde-format
 msgid "© 2018–2025 KDE Connect Team"
 msgstr "© 2018–2025 KDE Connect 團隊"
 
-#: main.cpp:55
+#: main.cpp:56
 #, kde-format
 msgid "Simon Redman"
 msgstr "Simon Redman"
 
-#: main.cpp:56
+#: main.cpp:57
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:57
+#: main.cpp:58
 #, kde-format
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:86
+#: main.cpp:87
 #, kde-format
 msgid "Select a device"
 msgstr "選擇裝置"
 
-#: main.cpp:86
+#: main.cpp:87
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: main.cpp:87
+#: main.cpp:88
 #, kde-format
 msgid "Send a message"
 msgstr "傳送訊息"
@@ -115,7 +123,7 @@ msgstr "傳送訊息"
 # Options with a value assigned need to set a name for the expected value, for the documentation of the option in the help output. An option with names o and output, and a value name of file will appear as -o, --output <file>.
 #
 # https://doc.qt.io/qt-5/qcommandlineoption.html#setValueName
-#: main.cpp:87
+#: main.cpp:88
 #, kde-format
 msgid "message"
 msgstr "訊息"
@@ -124,6 +132,13 @@ msgstr "訊息"
 #, kde-format
 msgid "Open with default"
 msgstr "以預設程式開啟"
+
+#: qml/AttachmentViewer.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Clear attachments"
+msgid "Download attachment…"
+msgstr "清除附件"
 
 #: qml/ConversationList.qml:23
 #, kde-format

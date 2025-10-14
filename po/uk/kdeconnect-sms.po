@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-27 00:42+0000\n"
+"POT-Creation-Date: 2025-10-14 00:42+0000\n"
 "PO-Revision-Date: 2025-07-08 12:14+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -29,6 +29,14 @@ msgstr "Юрій Чорноіван"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
+
+#: attachmentshelper.cpp:36
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Clear attachments"
+msgctxt "Caption/title for attachment download/save window"
+msgid "Download attachment"
+msgstr "Вилучити долучення"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -65,52 +73,52 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:73
+#: main.cpp:51 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect SMS"
 
-#: main.cpp:52
+#: main.cpp:53
 #, kde-format
 msgid "SMS Instant Messaging"
 msgstr "Миттєвий обмін SMS"
 
-#: main.cpp:54
+#: main.cpp:55
 #, kde-format
 msgid "© 2018–2025 KDE Connect Team"
 msgstr "© Команда KDE Connect, 2018–2025"
 
-#: main.cpp:55
+#: main.cpp:56
 #, kde-format
 msgid "Simon Redman"
 msgstr "Simon Redman"
 
-#: main.cpp:56
+#: main.cpp:57
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:57
+#: main.cpp:58
 #, kde-format
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:86
+#: main.cpp:87
 #, kde-format
 msgid "Select a device"
 msgstr "Виберіть пристрій"
 
-#: main.cpp:86
+#: main.cpp:87
 #, kde-format
 msgid "id"
 msgstr "ід."
 
-#: main.cpp:87
+#: main.cpp:88
 #, kde-format
 msgid "Send a message"
 msgstr "Надіслати повідомлення"
 
-#: main.cpp:87
+#: main.cpp:88
 #, kde-format
 msgid "message"
 msgstr "повідомлення"
@@ -119,6 +127,13 @@ msgstr "повідомлення"
 #, kde-format
 msgid "Open with default"
 msgstr "Відкрити у типовій програмі"
+
+#: qml/AttachmentViewer.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Clear attachments"
+msgid "Download attachment…"
+msgstr "Вилучити долучення"
 
 #: qml/ConversationList.qml:23
 #, kde-format

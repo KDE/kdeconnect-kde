@@ -42,7 +42,7 @@ msgstr "Myös (salasanahallinnan sellaisiksi osoittamat) salasanat"
 #: clipboard/kdeconnect_clipboard_config.qml:55
 #, kde-format
 msgid "Max Clipboard File Size (MB)"
-msgstr ""
+msgstr "Leikepöydän enimmäiskoko (Mt)"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22

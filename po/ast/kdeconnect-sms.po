@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-27 00:42+0000\n"
+"POT-Creation-Date: 2025-10-14 00:42+0000\n"
 "PO-Revision-Date: 2024-03-27 23:45+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -26,6 +26,12 @@ msgstr "Softastur"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alministradores@softastur.org"
+
+#: attachmentshelper.cpp:36
+#, kde-format
+msgctxt "Caption/title for attachment download/save window"
+msgid "Download attachment"
+msgstr ""
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -62,52 +68,52 @@ msgstr ""
 msgid "%1"
 msgstr ""
 
-#: main.cpp:50 qml/Main.qml:73
+#: main.cpp:51 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr ""
 
-#: main.cpp:52
+#: main.cpp:53
 #, kde-format
 msgid "SMS Instant Messaging"
 msgstr ""
 
-#: main.cpp:54
+#: main.cpp:55
 #, kde-format
 msgid "© 2018–2025 KDE Connect Team"
 msgstr ""
 
-#: main.cpp:55
+#: main.cpp:56
 #, kde-format
 msgid "Simon Redman"
 msgstr ""
 
-#: main.cpp:56
+#: main.cpp:57
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr ""
 
-#: main.cpp:57
+#: main.cpp:58
 #, kde-format
 msgid "Nicolas Fella"
 msgstr ""
 
-#: main.cpp:86
+#: main.cpp:87
 #, kde-format
 msgid "Select a device"
 msgstr ""
 
-#: main.cpp:86
+#: main.cpp:87
 #, kde-format
 msgid "id"
 msgstr ""
 
-#: main.cpp:87
+#: main.cpp:88
 #, kde-format
 msgid "Send a message"
 msgstr ""
 
-#: main.cpp:87
+#: main.cpp:88
 #, kde-format
 msgid "message"
 msgstr ""
@@ -115,6 +121,11 @@ msgstr ""
 #: qml/AttachmentViewer.qml:21
 #, kde-format
 msgid "Open with default"
+msgstr ""
+
+#: qml/AttachmentViewer.qml:28
+#, kde-format
+msgid "Download attachment…"
 msgstr ""
 
 #: qml/ConversationList.qml:23

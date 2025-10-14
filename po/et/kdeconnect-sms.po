@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-27 00:42+0000\n"
+"POT-Creation-Date: 2025-10-14 00:42+0000\n"
 "PO-Revision-Date: 2020-11-20 01:14+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -27,6 +27,12 @@ msgstr "Marek Laane"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "qiilaq69@gmail.com"
+
+#: attachmentshelper.cpp:36
+#, kde-format
+msgctxt "Caption/title for attachment download/save window"
+msgid "Download attachment"
+msgstr ""
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -63,53 +69,53 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/Main.qml:73
+#: main.cpp:51 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connecti SMS"
 
-#: main.cpp:52
+#: main.cpp:53
 #, kde-format
 msgid "SMS Instant Messaging"
 msgstr "SMS-kiirsuhtlus"
 
-#: main.cpp:54
+#: main.cpp:55
 #, fuzzy, kde-format
 #| msgid "(C) 2018-2019, KDE Connect Team"
 msgid "© 2018–2025 KDE Connect Team"
 msgstr "(C) 2018-2019: KDE Connecti meeskond"
 
-#: main.cpp:55
+#: main.cpp:56
 #, kde-format
 msgid "Simon Redman"
 msgstr "Simon Redman"
 
-#: main.cpp:56
+#: main.cpp:57
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:57
+#: main.cpp:58
 #, kde-format
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:86
+#: main.cpp:87
 #, kde-format
 msgid "Select a device"
 msgstr "Seadme valimine"
 
-#: main.cpp:86
+#: main.cpp:87
 #, kde-format
 msgid "id"
 msgstr "ID"
 
-#: main.cpp:87
+#: main.cpp:88
 #, kde-format
 msgid "Send a message"
 msgstr "Sõnumi saatmine"
 
-#: main.cpp:87
+#: main.cpp:88
 #, kde-format
 msgid "message"
 msgstr "sõnum"
@@ -118,6 +124,11 @@ msgstr "sõnum"
 #, kde-format
 msgid "Open with default"
 msgstr "Ava vaikerakendusega"
+
+#: qml/AttachmentViewer.qml:28
+#, kde-format
+msgid "Download attachment…"
+msgstr ""
 
 #: qml/ConversationList.qml:23
 #, kde-format
