@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-08 02:38+0000\n"
-"PO-Revision-Date: 2025-07-07 20:57+0300\n"
+"PO-Revision-Date: 2025-07-31 09:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -42,7 +42,7 @@ msgstr "Myös (salasanahallinnan sellaisiksi osoittamat) salasanat"
 #: clipboard/kdeconnect_clipboard_config.qml:55
 #, kde-format
 msgid "Max Clipboard File Size (MB)"
-msgstr ""
+msgstr "Leikepöydän enimmäiskoko (Mt)"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
