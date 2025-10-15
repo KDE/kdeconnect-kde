@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-14 00:42+0000\n"
-"PO-Revision-Date: 2025-07-08 12:14+0300\n"
+"PO-Revision-Date: 2025-10-14 08:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -31,12 +31,10 @@ msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
 #: attachmentshelper.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
-msgstr "Вилучити долучення"
+msgstr "Отримати долучення"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -129,11 +127,9 @@ msgid "Open with default"
 msgstr "Відкрити у типовій програмі"
 
 #: qml/AttachmentViewer.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgid "Download attachment…"
-msgstr "Вилучити долучення"
+msgstr "Отримати долучення…"
 
 #: qml/ConversationList.qml:23
 #, kde-format
