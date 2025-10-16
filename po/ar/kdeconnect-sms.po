@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-14 00:42+0000\n"
-"PO-Revision-Date: 2025-08-20 22:06+0400\n"
+"PO-Revision-Date: 2025-10-15 20:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -29,12 +29,10 @@ msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
 
 #: attachmentshelper.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
-msgstr "امحُ المرفقات"
+msgstr "نزّل المرفق"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -127,11 +125,9 @@ msgid "Open with default"
 msgstr "افتح في المبدئي"
 
 #: qml/AttachmentViewer.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgid "Download attachment…"
-msgstr "امحُ المرفقات"
+msgstr "نزّل المرفق…"
 
 #: qml/ConversationList.qml:23
 #, kde-format

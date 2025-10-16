@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-10 00:41+0000\n"
-"PO-Revision-Date: 2025-06-26 10:42+0400\n"
+"PO-Revision-Date: 2025-10-15 21:00+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -233,15 +233,14 @@ msgid "Display this device's id and exit"
 msgstr "اعرض معرف هذا الجهاز واخرج"
 
 #: kdeconnect-cli.cpp:79
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "ترسل مفاتيح إلى الجهاز المذكور"
+msgstr "ضُم نظام ملفات الجهاز المذكور"
 
 #: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "اطبع نقطة الضم لنظام الملفات الخاص بالجهاز المذكور"
 
 #: kdeconnect-cli.cpp:126
 #, kde-format

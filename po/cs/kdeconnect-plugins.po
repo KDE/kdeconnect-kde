@@ -32,12 +32,12 @@ msgstr "Baterie je na %1%"
 #: clipboard/kdeconnect_clipboard_config.qml:34
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "Automaticky sdílet schránku z tohoto zařízení"
 
 #: clipboard/kdeconnect_clipboard_config.qml:42
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr ""
+msgstr "Včetně hesel (jak jsou označena správci hesel)"
 
 #: clipboard/kdeconnect_clipboard_config.qml:55
 #, kde-format
@@ -48,12 +48,12 @@ msgstr ""
 #: share/kdeconnect_share_config.qml:22
 #, kde-format
 msgid "Apply"
-msgstr ""
+msgstr "Použít"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:47
 #, kde-format
 msgid "Sound to play:"
-msgstr ""
+msgstr "Přehrát zvuk:"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:57
 #, fuzzy, kde-format
@@ -66,7 +66,7 @@ msgstr "Soubor nelze sdílet"
 #, kde-format
 msgctxt "@action:button"
 msgid "Play"
-msgstr ""
+msgstr "Přehrát"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -121,22 +121,22 @@ msgstr "Dialog"
 #: pausemusic/kdeconnect_pausemusic_config.qml:32
 #, kde-format
 msgid "Pause as soon as phone rings"
-msgstr ""
+msgstr "Pozastavit okamžitě jakmile telefon zazvoní"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:41
 #, kde-format
 msgid "Pause only while talking"
-msgstr ""
+msgstr "Pozastavit pouze během rozhovoru"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:47
 #, kde-format
 msgid "Pause media players"
-msgstr ""
+msgstr "Pozastavit multimediální přehrávače"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:54
 #, kde-format
 msgid "Mute system sound"
-msgstr ""
+msgstr "Ztlumit zvuk systému"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:61
 #, kde-format
@@ -156,7 +156,7 @@ msgstr ""
 #: runcommand/kdeconnect_runcommand_config.qml:53
 #, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "Smazat"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -180,7 +180,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "Přidat"
 
 #: runcommand/kdeconnect_runcommand_config.qml:86
 #, kde-format
@@ -189,15 +189,14 @@ msgid "Add command"
 msgstr ""
 
 #: runcommand/kdeconnect_runcommand_config.qml:96
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgid "Name:"
-msgstr "Název"
+msgstr "Název:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:100
 #, kde-format
 msgid "Command:"
-msgstr ""
+msgstr "Příkaz:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:104
 #, kde-format
@@ -212,12 +211,12 @@ msgstr "Telefon je připojen"
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:34
 #, kde-format
 msgid "Persistent notifications only"
-msgstr ""
+msgstr "Pouze stálá oznámení"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:42
 #, kde-format
 msgid "Include body"
-msgstr ""
+msgstr "Zahrnout tělo"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:49
 #, kde-format
@@ -308,7 +307,7 @@ msgstr "Obrázky z fotoaparátu"
 #: share/kdeconnect_share_config.qml:47
 #, kde-format
 msgid "Save files in:"
-msgstr ""
+msgstr "Uložit soubory v:"
 
 #: share/kdeconnect_share_config.qml:63
 #, kde-format

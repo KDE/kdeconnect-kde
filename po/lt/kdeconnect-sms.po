@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-14 00:42+0000\n"
-"PO-Revision-Date: 2025-08-11 22:40+0300\n"
+"PO-Revision-Date: 2025-10-15 13:33+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -30,12 +30,10 @@ msgid "Your emails"
 msgstr "<>"
 
 #: attachmentshelper.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
-msgstr "Išvalyti priedus"
+msgstr "Atsisiųsti priedą"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -128,11 +126,9 @@ msgid "Open with default"
 msgstr "Atverti naudojant numatytąją"
 
 #: qml/AttachmentViewer.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgid "Download attachment…"
-msgstr "Išvalyti priedus"
+msgstr "Atsisiųsti priedą…"
 
 #: qml/ConversationList.qml:23
 #, kde-format
