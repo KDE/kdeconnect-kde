@@ -3,8 +3,8 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2018, 2020, 2021.
-# Josep M. Ferrer <txemaq@gmail.com>, 2015, 2016, 2019, 2023, 2025.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2018, 2020, 2021 Antoni Bella Pérez <antonibella5@yahoo.com>
+# SPDX-FileCopyrightText: 2015, 2016, 2019, 2023, 2025 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
