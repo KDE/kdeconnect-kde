@@ -232,10 +232,9 @@ msgid "Display this device's id and exit"
 msgstr "Zobrazit id tohoto zařízení a ukončit"
 
 #: kdeconnect-cli.cpp:79
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Pošle na dané zařízení stisky kláves"
+msgstr ""
 
 #: kdeconnect-cli.cpp:80
 #, kde-format

@@ -56,11 +56,10 @@ msgid "Sound to play:"
 msgstr "Přehrát zvuk:"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:57
-#, fuzzy, kde-format
-#| msgid "Could not share file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose file"
-msgstr "Soubor nelze sdílet"
+msgstr ""
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:66
 #, kde-format
