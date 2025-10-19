@@ -221,7 +221,8 @@ msgid "Persistent notifications only"
 msgstr "Numai notificări persistente"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Include body"
 msgid "Include body"
 msgstr "Include corpul"
 
