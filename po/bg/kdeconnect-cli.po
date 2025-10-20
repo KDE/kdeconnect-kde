@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-10 00:41+0000\n"
-"PO-Revision-Date: 2025-06-21 12:48+0200\n"
+"PO-Revision-Date: 2025-10-19 11:16+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -234,15 +234,16 @@ msgid "Display this device's id and exit"
 msgstr "Показване на идентификацията и изхода на това устройство"
 
 #: kdeconnect-cli.cpp:79
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Изпращане на ключове към познато устройство"
+msgstr "Монтиране на файловата система на посоченото устройство"
 
 #: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr ""
+"Показване на точката за монтиране на файловата система на посоченото "
+"устройство"
 
 #: kdeconnect-cli.cpp:126
 #, kde-format

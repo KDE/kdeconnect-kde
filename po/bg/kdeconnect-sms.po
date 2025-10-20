@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-14 00:42+0000\n"
-"PO-Revision-Date: 2025-07-28 18:25+0200\n"
+"PO-Revision-Date: 2025-10-19 11:17+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -28,12 +28,10 @@ msgid "Your emails"
 msgstr "mkondarev@yahoo.de"
 
 #: attachmentshelper.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
-msgstr "Прикачени файлове"
+msgstr "Сваляне на прикачени файлове"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -126,11 +124,9 @@ msgid "Open with default"
 msgstr "Стандартно отваряне"
 
 #: qml/AttachmentViewer.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgid "Download attachment…"
-msgstr "Прикачени файлове"
+msgstr "Сваляне на прикачени файлове…"
 
 #: qml/ConversationList.qml:23
 #, kde-format
