@@ -33,12 +33,12 @@ msgstr "Batterinivå: %1 %"
 #: clipboard/kdeconnect_clipboard_config.qml:34
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "Del automatisk utklippstavla frå denne eininga"
 
 #: clipboard/kdeconnect_clipboard_config.qml:42
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr ""
+msgstr "Ta med passord (merkte som dette av passordhandsamarar)"
 
 #: clipboard/kdeconnect_clipboard_config.qml:55
 #, kde-format
@@ -54,7 +54,7 @@ msgstr ""
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:47
 #, kde-format
 msgid "Sound to play:"
-msgstr ""
+msgstr "Lyd som skal spelast:"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:57
 #, fuzzy, kde-format
@@ -124,22 +124,22 @@ msgstr "Dialogvindauge"
 #: pausemusic/kdeconnect_pausemusic_config.qml:32
 #, kde-format
 msgid "Pause as soon as phone rings"
-msgstr ""
+msgstr "Set på pause når telefon ringjer"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:41
 #, kde-format
 msgid "Pause only while talking"
-msgstr ""
+msgstr "Set berre på pause ved samtale"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:47
 #, kde-format
 msgid "Pause media players"
-msgstr ""
+msgstr "Set mediespelarar på pause"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:54
 #, kde-format
 msgid "Mute system sound"
-msgstr ""
+msgstr "Demp systemlydar"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:61
 #, kde-format
@@ -215,11 +215,10 @@ msgstr "Telefonen er kopla til"
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:34
 #, kde-format
 msgid "Persistent notifications only"
-msgstr ""
+msgstr "Berre evigvarande varslingar"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:42
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Include body"
 msgstr "Ta med meldingstekst"
 
@@ -314,7 +313,7 @@ msgstr "Kamerabilete"
 #: share/kdeconnect_share_config.qml:47
 #, kde-format
 msgid "Save files in:"
-msgstr ""
+msgstr "Lagra filer i:"
 
 #: share/kdeconnect_share_config.qml:63
 #, kde-format
