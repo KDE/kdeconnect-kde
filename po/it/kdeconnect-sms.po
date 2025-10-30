@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-14 00:42+0000\n"
-"PO-Revision-Date: 2025-07-08 16:44+0200\n"
+"PO-Revision-Date: 2025-10-16 07:16+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,12 +28,10 @@ msgid "Your emails"
 msgstr "smart2128vr@gmail.com"
 
 #: attachmentshelper.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
-msgstr "Cancella gli allegati"
+msgstr "Scarica l'allegato"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -126,11 +124,9 @@ msgid "Open with default"
 msgstr "Apri con predefinita"
 
 #: qml/AttachmentViewer.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgid "Download attachment…"
-msgstr "Cancella gli allegati"
+msgstr "Scarica l'allegato…"
 
 #: qml/ConversationList.qml:23
 #, kde-format
