@@ -18,12 +18,9 @@
 #include <mstcpip.h>
 #endif
 
-#if defined(Q_OS_WIN) || defined(Q_OS_FREEBSD)
-#include <QNetworkInterface>
-#endif
-
 #include <QHostInfo>
 #include <QMetaEnum>
+#include <QNetworkInterface>
 #include <QNetworkProxy>
 #include <QSslCipher>
 #include <QSslConfiguration>
@@ -189,28 +186,7 @@ void LanLinkProvider::broadcastUdpIdentityPacket()
     }
     qCDebug(KDECONNECT_CORE) << "Broadcasting identity packet";
 
-    QList<QHostAddress> addresses = getBroadcastAddresses();
-
-#if defined(Q_OS_WIN) || defined(Q_OS_FREEBSD)
-    // On Windows and FreeBSD we need to broadcast from every local IP address to reach all networks
-    QUdpSocket sendSocket;
-    sendSocket.setProxy(QNetworkProxy::NoProxy);
-    for (const QNetworkInterface &iface : QNetworkInterface::allInterfaces()) {
-        if ((iface.flags() & QNetworkInterface::IsUp) && (iface.flags() & QNetworkInterface::IsRunning) && (iface.flags() & QNetworkInterface::CanBroadcast)) {
-            for (const QNetworkAddressEntry &ifaceAddress : iface.addressEntries()) {
-                QHostAddress sourceAddress = ifaceAddress.ip();
-                if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
-                    qCDebug(KDECONNECT_CORE) << "Broadcasting as" << sourceAddress;
-                    sendSocket.bind(sourceAddress);
-                    sendUdpIdentityPacket(sendSocket, addresses);
-                    sendSocket.close();
-                }
-            }
-        }
-    }
-#else
-    sendUdpIdentityPacket(addresses);
-#endif
+    sendUdpIdentityPacket(getBroadcastAddresses());
 }
 
 QList<QHostAddress> LanLinkProvider::getBroadcastAddresses()
@@ -238,7 +214,22 @@ QList<QHostAddress> LanLinkProvider::getBroadcastAddresses()
 
 void LanLinkProvider::sendUdpIdentityPacket(const QList<QHostAddress> &addresses)
 {
-    sendUdpIdentityPacket(m_udpSocket, addresses);
+    // Broadcast from every local IP address to reach all networks
+    QUdpSocket sendSocket;
+    sendSocket.setProxy(QNetworkProxy::NoProxy);
+    for (const QNetworkInterface &iface : QNetworkInterface::allInterfaces()) {
+        if ((iface.flags() & QNetworkInterface::IsUp) && (iface.flags() & QNetworkInterface::IsRunning) && (iface.flags() & QNetworkInterface::CanBroadcast)) {
+            for (const QNetworkAddressEntry &ifaceAddress : iface.addressEntries()) {
+                QHostAddress sourceAddress = ifaceAddress.ip();
+                if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
+                    qCDebug(KDECONNECT_CORE) << "Broadcasting as" << sourceAddress;
+                    sendSocket.bind(sourceAddress);
+                    sendUdpIdentityPacket(sendSocket, addresses);
+                    sendSocket.close();
+                }
+            }
+        }
+    }
 }
 
 void LanLinkProvider::sendUdpIdentityPacket(QUdpSocket &socket, const QList<QHostAddress> &addresses)
