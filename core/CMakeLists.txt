@@ -1,7 +1,7 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
 
 
-option(MDNS_ENABLED "Use MDNS for device discovery" ON)
+option(MDNS_ENABLED "Use MDNS for device discovery" OFF)
 
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
