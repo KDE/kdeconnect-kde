@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-10 00:41+0000\n"
-"PO-Revision-Date: 2025-06-18 17:15+0200\n"
+"PO-Revision-Date: 2025-10-12 10:31+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.08.1\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -242,15 +242,16 @@ msgid "Display this device's id and exit"
 msgstr "Afficher l'identifiant du périphérique et sortir"
 
 #: kdeconnect-cli.cpp:79
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Envoyer les clés au périphérique indiqué"
+msgstr "Monter le système de fichier sur le périphérique indiqué"
 
 #: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr ""
+"Afficher le point de montage pour le système de fichiers d'un périphérique "
+"indiqué"
 
 #: kdeconnect-cli.cpp:126
 #, kde-format
