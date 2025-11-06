@@ -56,7 +56,7 @@ QHostAddress LanDeviceLink::hostAddress() const
 
 bool LanDeviceLink::sendPacket(NetworkPacket &np)
 {
-    if (np.payload()) {
+    if (np.payload() && np.hasPayload()) {
         Device *device = Daemon::instance()->getDevice(deviceId());
         if (device == nullptr) {
             qCWarning(KDECONNECT_CORE) << "Device disconnected" << deviceId();
