@@ -11,7 +11,6 @@
 #include <QIcon>
 #include <QProcess>
 #include <QQuickStyle>
-#include <QSessionManager>
 #include <QStandardPaths>
 #include <QTimer>
 
@@ -66,6 +65,9 @@ int main(int argc, char *argv[])
     detectPlatform(argc, argv);
     QGuiApplication::setQuitLockEnabled(false);
 
+    // kdeconnectd is autostarted, so disable session management to speed up startup
+    QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
+
     QApplication app(argc, argv);
     KAboutData aboutData(QStringLiteral("kdeconnect.daemon"),
                          i18n("KDE Connect Daemon"),
@@ -118,13 +120,6 @@ int main(int argc, char *argv[])
     // make sure indicator shows up in the tray whenever daemon is spawned
     QProcess::startDetached(QStringLiteral("kdeconnect-indicator.exe"), QStringList());
 #endif
-
-    // kdeconnectd is autostarted, so disable session management to speed up startup
-    auto disableSessionManagement = [](QSessionManager &sm) {
-        sm.setRestartHint(QSessionManager::RestartNever);
-    };
-    QObject::connect(&app, &QGuiApplication::commitDataRequest, disableSessionManagement);
-    QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
 
     return app.exec();
 }
