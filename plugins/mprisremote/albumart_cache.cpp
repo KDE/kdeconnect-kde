@@ -71,11 +71,15 @@ AlbumArtCache::IndexItem AlbumArtCache::getAlbumArt(const QString &remoteUrl, Mp
 
 void AlbumArtCache::handleAlbumArt(const NetworkPacket &np)
 {
-    auto remoteUrl = np.get<QString>(QStringLiteral("albumArtUrl"));
+    if (!np.hasPayload()) {
+        qCWarning(KDECONNECT_PLUGIN_MPRISREMOTE) << "Empty album art! Ignoring.";
+        return;
+    }
     if (np.payloadSize() > CACHE_SIZE) {
         qCWarning(KDECONNECT_PLUGIN_MPRISREMOTE) << "Art is too big! Ignoring.";
         return;
     }
+    auto remoteUrl = np.get<QString>(QStringLiteral("albumArtUrl"));
     if (remoteUrl.isEmpty()) {
         qCWarning(KDECONNECT_PLUGIN_MPRISREMOTE) << "No url with art";
         return;
