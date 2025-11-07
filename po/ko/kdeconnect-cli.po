@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-10 00:41+0000\n"
+"POT-Creation-Date: 2025-11-07 00:43+0000\n"
 "PO-Revision-Date: 2025-10-12 11:39+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -110,23 +110,27 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "네트워크에서 장치를 찾아서 다시 연결"
 
 #: kdeconnect-cli.cpp:55
-#, kde-format
-msgid "Request pairing to a said device"
+#, fuzzy, kde-format
+#| msgid "Request pairing to a said device"
+msgid "Request pairing with device"
 msgstr "지정한 장치에 연결 요청"
 
 #: kdeconnect-cli.cpp:56
-#, kde-format
-msgid "Find the said device by ringing it."
+#, fuzzy, kde-format
+#| msgid "Find the said device by ringing it."
+msgid "Find device by ringing it"
 msgstr "지정한 장치를 울려서 찾습니다."
 
 #: kdeconnect-cli.cpp:57
-#, kde-format
-msgid "Stop pairing to a said device"
-msgstr "지정한 장치 연결 중단"
+#, fuzzy, kde-format
+#| msgid "waiting for device…"
+msgid "Unpair from device"
+msgstr "장치 대기 중…"
 
 #: kdeconnect-cli.cpp:58
-#, kde-format
-msgid "Sends a ping to said device"
+#, fuzzy, kde-format
+#| msgid "Sends a ping to said device"
+msgid "Send ping to device"
 msgstr "지정한 장치에 핑 보내기"
 
 #: kdeconnect-cli.cpp:59
@@ -140,23 +144,27 @@ msgid "message"
 msgstr "메시지"
 
 #: kdeconnect-cli.cpp:60
-#, kde-format
-msgid "Sends the current clipboard to said device"
+#, fuzzy, kde-format
+#| msgid "Sends the current clipboard to said device"
+msgid "Send clipboard to device"
 msgstr "지정한 장치에 현재 클립보드 내용 보내기"
 
 #: kdeconnect-cli.cpp:61
-#, kde-format
-msgid "Share a file/URL to a said device"
+#, fuzzy, kde-format
+#| msgid "Share a file/URL to a said device"
+msgid "Share file/URL to device"
 msgstr "지정한 장치로 파일/URL 전송"
 
 #: kdeconnect-cli.cpp:62
-#, kde-format
-msgid "Share text to a said device"
+#, fuzzy, kde-format
+#| msgid "Share text to a said device"
+msgid "Share text to device"
 msgstr "지정한 장치로 텍스트 전송"
 
 #: kdeconnect-cli.cpp:63
-#, kde-format
-msgid "Display the notifications on a said device"
+#, fuzzy, kde-format
+#| msgid "Display the notifications on a said device"
+msgid "Display notifications on device"
 msgstr "지정한 장치의 알림 표시"
 
 #: kdeconnect-cli.cpp:64
@@ -206,72 +214,76 @@ msgid "Device Name"
 msgstr "장치 이름"
 
 #: kdeconnect-cli.cpp:73
-#, kde-format
-msgid "Get encryption info about said device"
+#, fuzzy, kde-format
+#| msgid "Get encryption info about said device"
+msgid "Get encryption info about device"
 msgstr "지정한 장치의 암호화 정보 요청"
 
 #: kdeconnect-cli.cpp:74
-#, kde-format
-msgid "Lists remote commands and their ids"
+#, fuzzy, kde-format
+#| msgid "Lists remote commands and their ids"
+msgid "List remote commands and their ids"
 msgstr "원격 명령과 ID 표시"
 
 #: kdeconnect-cli.cpp:75
-#, kde-format
-msgid "Executes a remote command by id"
+#, fuzzy, kde-format
+#| msgid "Executes a remote command by id"
+msgid "Execute remote command by id"
 msgstr "ID로 원격 명령 실행"
 
-#: kdeconnect-cli.cpp:77
-#, kde-format
-msgid "Sends keys to a said device"
+#: kdeconnect-cli.cpp:76
+#, fuzzy, kde-format
+#| msgid "Sends keys to a said device"
+msgid "Send keys to device"
 msgstr "지정한 장치에 키 보내기"
 
-#: kdeconnect-cli.cpp:78
+#: kdeconnect-cli.cpp:77
 #, kde-format
 msgid "Display this device's id and exit"
 msgstr "장치 ID만 출력하고 끝내기"
 
-#: kdeconnect-cli.cpp:79
+#: kdeconnect-cli.cpp:78
 #, kde-format
 msgid "Mount filesystem of a said device"
 msgstr "지정한 장치의 파일 시스템 마운트"
 
-#: kdeconnect-cli.cpp:80
+#: kdeconnect-cli.cpp:79
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr "지정한 장치의 파일 시스템의 마운트 지점 표시"
 
-#: kdeconnect-cli.cpp:126
+#: kdeconnect-cli.cpp:125
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(연결되고 접근 가능함)"
 
-#: kdeconnect-cli.cpp:128
+#: kdeconnect-cli.cpp:127
 #, kde-format
 msgid "(reachable)"
 msgstr "(접근 가능함)"
 
-#: kdeconnect-cli.cpp:130 kdeconnect-cli.cpp:154
+#: kdeconnect-cli.cpp:129 kdeconnect-cli.cpp:153
 #, kde-format
 msgid "(paired)"
 msgstr "(연결됨)"
 
-#: kdeconnect-cli.cpp:136
+#: kdeconnect-cli.cpp:135
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "장치 %1개 찾음"
 
-#: kdeconnect-cli.cpp:138
+#: kdeconnect-cli.cpp:137
 #, kde-format
 msgid "No devices found"
 msgstr "장치를 찾을 수 없음"
 
-#: kdeconnect-cli.cpp:156
+#: kdeconnect-cli.cpp:155
 #, kde-format
 msgid "(unpaired)"
 msgstr "(연결 해제됨)"
 
-#: kdeconnect-cli.cpp:199
+#: kdeconnect-cli.cpp:198
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -284,59 +296,59 @@ msgstr ""
 "장치 ID와 이름은 \"kdeconnect-cli -l\" 명령으로 확인할 수 있습니다\n"
 "--help 옵션을 지정하여 전체 도움말을 참조하십시오"
 
-#: kdeconnect-cli.cpp:234
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgid "Shared %1"
 msgstr "%1 공유됨"
 
-#: kdeconnect-cli.cpp:243
+#: kdeconnect-cli.cpp:242
 #, kde-format
 msgid "Shared text: %1"
 msgstr "텍스트 공유됨: %1"
 
-#: kdeconnect-cli.cpp:250
+#: kdeconnect-cli.cpp:249
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "%1을(를) 잠그기를 요청했습니다."
 
-#: kdeconnect-cli.cpp:252
+#: kdeconnect-cli.cpp:251
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "%1의 잠금을 해제하기를 요청했습니다."
 
-#: kdeconnect-cli.cpp:259
+#: kdeconnect-cli.cpp:258
 #, kde-format
 msgid "waiting for device…"
 msgstr "장치 대기 중…"
 
-#: kdeconnect-cli.cpp:272
+#: kdeconnect-cli.cpp:271
 #, kde-format
 msgid "Device not found"
 msgstr "장치를 찾을 수 없음"
 
-#: kdeconnect-cli.cpp:274
+#: kdeconnect-cli.cpp:273
 #, kde-format
 msgid "Already paired"
 msgstr "이미 연결됨"
 
-#: kdeconnect-cli.cpp:276
+#: kdeconnect-cli.cpp:275
 #, kde-format
 msgid "Pair requested"
 msgstr "연결 요청됨"
 
-#: kdeconnect-cli.cpp:282
+#: kdeconnect-cli.cpp:281
 #, kde-format
 msgid "Already not paired"
 msgstr "이미 연결 해제됨"
 
-#: kdeconnect-cli.cpp:284
+#: kdeconnect-cli.cpp:283
 #, kde-format
-msgid "Unpaired"
-msgstr "연결 해제됨"
+msgid "Successfully unpaired"
+msgstr ""
 
-#: kdeconnect-cli.cpp:330
+#: kdeconnect-cli.cpp:329
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -345,10 +357,16 @@ msgstr ""
 "오류: 문자 메시지를 받을 사람을 --destination <phone number> 형식으로 지정해"
 "야 함"
 
-#: kdeconnect-cli.cpp:397
+#: kdeconnect-cli.cpp:396
 #, kde-format
 msgid "Nothing to be done"
 msgstr "더 이상 할 일 없음"
+
+#~ msgid "Stop pairing to a said device"
+#~ msgstr "지정한 장치 연결 중단"
+
+#~ msgid "Unpaired"
+#~ msgstr "연결 해제됨"
 
 #~ msgid "(C) 2015 Aleix Pol Gonzalez"
 #~ msgstr "(C) 2015 Aleix Pol Gonzalez"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-10 00:41+0000\n"
+"POT-Creation-Date: 2025-11-07 00:43+0000\n"
 "PO-Revision-Date: 2025-07-08 22:51+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -111,23 +111,27 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Eszközök keresése a hálózaton és a kapcsolatok visszaállítása"
 
 #: kdeconnect-cli.cpp:55
-#, kde-format
-msgid "Request pairing to a said device"
+#, fuzzy, kde-format
+#| msgid "Request pairing to a said device"
+msgid "Request pairing with device"
 msgstr "Párosítás kérése a megadott eszközhöz"
 
 #: kdeconnect-cli.cpp:56
-#, kde-format
-msgid "Find the said device by ringing it."
+#, fuzzy, kde-format
+#| msgid "Find the said device by ringing it."
+msgid "Find device by ringing it"
 msgstr "A megadott eszköz keresése a csengetésével."
 
 #: kdeconnect-cli.cpp:57
-#, kde-format
-msgid "Stop pairing to a said device"
-msgstr "Párosítás leállítása a megadott eszközzel"
+#, fuzzy, kde-format
+#| msgid "waiting for device…"
+msgid "Unpair from device"
+msgstr "várakozás eszközre…"
 
 #: kdeconnect-cli.cpp:58
-#, kde-format
-msgid "Sends a ping to said device"
+#, fuzzy, kde-format
+#| msgid "Sends a ping to said device"
+msgid "Send ping to device"
 msgstr "Ping küldése a megadott eszköznek"
 
 #: kdeconnect-cli.cpp:59
@@ -141,23 +145,27 @@ msgid "message"
 msgstr "üzenet"
 
 #: kdeconnect-cli.cpp:60
-#, kde-format
-msgid "Sends the current clipboard to said device"
+#, fuzzy, kde-format
+#| msgid "Sends the current clipboard to said device"
+msgid "Send clipboard to device"
 msgstr "A jelenlegi vágólap küldése a megadott eszköznek"
 
 #: kdeconnect-cli.cpp:61
-#, kde-format
-msgid "Share a file/URL to a said device"
+#, fuzzy, kde-format
+#| msgid "Share a file/URL to a said device"
+msgid "Share file/URL to device"
 msgstr "Fájl/URL megosztása a megadott eszközzel"
 
 #: kdeconnect-cli.cpp:62
-#, kde-format
-msgid "Share text to a said device"
+#, fuzzy, kde-format
+#| msgid "Share text to a said device"
+msgid "Share text to device"
 msgstr "Szöveg megadása a megadott eszközzel"
 
 #: kdeconnect-cli.cpp:63
-#, kde-format
-msgid "Display the notifications on a said device"
+#, fuzzy, kde-format
+#| msgid "Display the notifications on a said device"
+msgid "Display notifications on device"
 msgstr "Értesítések megjelenítése a megadott eszközön"
 
 #: kdeconnect-cli.cpp:64
@@ -208,74 +216,78 @@ msgid "Device Name"
 msgstr "Eszköznév"
 
 #: kdeconnect-cli.cpp:73
-#, kde-format
-msgid "Get encryption info about said device"
+#, fuzzy, kde-format
+#| msgid "Get encryption info about said device"
+msgid "Get encryption info about device"
 msgstr "Titkosítási információk beszerzése a megadott eszközről"
 
 #: kdeconnect-cli.cpp:74
-#, kde-format
-msgid "Lists remote commands and their ids"
+#, fuzzy, kde-format
+#| msgid "Lists remote commands and their ids"
+msgid "List remote commands and their ids"
 msgstr "Távoli parancsok és azonosítóik listázása"
 
 #: kdeconnect-cli.cpp:75
-#, kde-format
-msgid "Executes a remote command by id"
+#, fuzzy, kde-format
+#| msgid "Executes a remote command by id"
+msgid "Execute remote command by id"
 msgstr "Távoli parancs végrehajtása azonosító alapján"
 
-#: kdeconnect-cli.cpp:77
-#, kde-format
-msgid "Sends keys to a said device"
+#: kdeconnect-cli.cpp:76
+#, fuzzy, kde-format
+#| msgid "Sends keys to a said device"
+msgid "Send keys to device"
 msgstr "Kulcsok küldése a megadott eszköznek"
 
-#: kdeconnect-cli.cpp:78
+#: kdeconnect-cli.cpp:77
 #, kde-format
 msgid "Display this device's id and exit"
 msgstr "Eszköz azonosítójának megjelenítése és kilépés"
 
-#: kdeconnect-cli.cpp:79
+#: kdeconnect-cli.cpp:78
 #, fuzzy, kde-format
 #| msgid "Sends keys to a said device"
 msgid "Mount filesystem of a said device"
 msgstr "Kulcsok küldése a megadott eszköznek"
 
-#: kdeconnect-cli.cpp:80
+#: kdeconnect-cli.cpp:79
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr ""
 
-#: kdeconnect-cli.cpp:126
+#: kdeconnect-cli.cpp:125
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(párosítva és elérhető)"
 
-#: kdeconnect-cli.cpp:128
+#: kdeconnect-cli.cpp:127
 #, kde-format
 msgid "(reachable)"
 msgstr "(elérhető)"
 
-#: kdeconnect-cli.cpp:130 kdeconnect-cli.cpp:154
+#: kdeconnect-cli.cpp:129 kdeconnect-cli.cpp:153
 #, kde-format
 msgid "(paired)"
 msgstr "(párosítva)"
 
-#: kdeconnect-cli.cpp:136
+#: kdeconnect-cli.cpp:135
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "1 eszköz található"
 msgstr[1] "%1 eszköz található"
 
-#: kdeconnect-cli.cpp:138
+#: kdeconnect-cli.cpp:137
 #, kde-format
 msgid "No devices found"
 msgstr "Nem találhatók eszközök"
 
-#: kdeconnect-cli.cpp:156
+#: kdeconnect-cli.cpp:155
 #, kde-format
 msgid "(unpaired)"
 msgstr "(nincs párosítva)"
 
-#: kdeconnect-cli.cpp:199
+#: kdeconnect-cli.cpp:198
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -289,59 +301,59 @@ msgstr ""
 "listázhatja\n"
 "Bővebb leírásért lásd a súgót a --help kapcsolóval"
 
-#: kdeconnect-cli.cpp:234
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgid "Shared %1"
 msgstr "%1 megosztva"
 
-#: kdeconnect-cli.cpp:243
+#: kdeconnect-cli.cpp:242
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Megosztott szöveg: %1"
 
-#: kdeconnect-cli.cpp:250
+#: kdeconnect-cli.cpp:249
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "%1 zárolása kérve."
 
-#: kdeconnect-cli.cpp:252
+#: kdeconnect-cli.cpp:251
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "%1 feloldása kérve."
 
-#: kdeconnect-cli.cpp:259
+#: kdeconnect-cli.cpp:258
 #, kde-format
 msgid "waiting for device…"
 msgstr "várakozás eszközre…"
 
-#: kdeconnect-cli.cpp:272
+#: kdeconnect-cli.cpp:271
 #, kde-format
 msgid "Device not found"
 msgstr "Az eszköz nem található"
 
-#: kdeconnect-cli.cpp:274
+#: kdeconnect-cli.cpp:273
 #, kde-format
 msgid "Already paired"
 msgstr "Már párosított"
 
-#: kdeconnect-cli.cpp:276
+#: kdeconnect-cli.cpp:275
 #, kde-format
 msgid "Pair requested"
 msgstr "Párosítás kérve"
 
-#: kdeconnect-cli.cpp:282
+#: kdeconnect-cli.cpp:281
 #, kde-format
 msgid "Already not paired"
 msgstr "Már nincs párosítva"
 
-#: kdeconnect-cli.cpp:284
+#: kdeconnect-cli.cpp:283
 #, kde-format
-msgid "Unpaired"
-msgstr "Párosítatlan"
+msgid "Successfully unpaired"
+msgstr ""
 
-#: kdeconnect-cli.cpp:330
+#: kdeconnect-cli.cpp:329
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -350,10 +362,16 @@ msgstr ""
 "hiba: az SMS címzettjét meg kell adni a --destination <telefonszám> "
 "átadásával"
 
-#: kdeconnect-cli.cpp:397
+#: kdeconnect-cli.cpp:396
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Nincs tennivaló"
+
+#~ msgid "Stop pairing to a said device"
+#~ msgstr "Párosítás leállítása a megadott eszközzel"
+
+#~ msgid "Unpaired"
+#~ msgstr "Párosítatlan"
 
 #~ msgid "(C) 2015 Aleix Pol Gonzalez"
 #~ msgstr "(c) Aleix Pol Gonzalez, 2015."
