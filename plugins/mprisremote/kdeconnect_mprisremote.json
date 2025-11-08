@@ -57,7 +57,7 @@
                 "Name[zh_TW]": "Aleix Pol"
             }
         ],
-        "Description": "Control MPRIS services",
+        "Description": "Control multimedia players from this device",
         "Description[ar]": "تحكّم بخدمات MPRIS",
         "Description[az]": "MPRİS xidmətlərinin idarə edilməsi",
         "Description[bg]": "Контрол на услуги MPRIS",
@@ -110,7 +110,7 @@
         "EnabledByDefault": true,
         "Icon": "applications-multimedia",
         "License": "GPL",
-        "Name": "MprisRemote",
+        "Name": "Send multimedia control commands",
         "Name[ar]": "‏Mpris عن بعد",
         "Name[az]": "Uzaq Mpris",
         "Name[bg]": "MprisRemote",

@@ -56,7 +56,7 @@
                 "Name[zh_TW]": "Holger Kaelberer"
             }
         ],
-        "Description": "Use your keyboard to send key-events to your paired device",
+        "Description": "Use your keyboard to send input to another device",
         "Description[ar]": "استعمل لوحة مفاتيحك لإرسال أحداث مفاتيح إلى جهازك المقترن",
         "Description[az]": "Klaviaturadan istifadə edərək düymə-əməllərini qoşulmuş cihaza göndərmək",
         "Description[bg]": "Използвайте клавиатурата си, за да изпращате събития с клавиши към сдвоеното устройство",
@@ -109,7 +109,7 @@
         "EnabledByDefault": true,
         "Icon": "edit-select",
         "License": "GPL",
-        "Name": "Remote keyboard from the desktop",
+        "Name": "Send remote keyboard input",
         "Name[ar]": "لوحة مفاتيح بعيده من سطح المكتب",
         "Name[az]": "İş masasından uzaq klaviatura",
         "Name[bg]": "Отдалечена клавиатура от работния плот",

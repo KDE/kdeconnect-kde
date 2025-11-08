@@ -102,7 +102,7 @@
         "EnabledByDefault": true,
         "Icon": "klipper",
         "License": "GPL",
-        "Name": "Clipboard",
+        "Name": "Clipboard synchronization",
         "Name[ar]": "الحافظة",
         "Name[az]": "Mübadilə buferi",
         "Name[bg]": "Клипборд",

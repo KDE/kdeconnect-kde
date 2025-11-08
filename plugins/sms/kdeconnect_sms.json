@@ -102,7 +102,7 @@
         "EnabledByDefault": true,
         "Icon": "mail-message-new-list",
         "License": "GPL",
-        "Name": "SMS",
+        "Name": "SMS integration",
         "Name[ar]": "اس ام اس",
         "Name[ast]": "SMS",
         "Name[az]": "SMS",

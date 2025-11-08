@@ -52,7 +52,7 @@
                 "Name[zh_TW]": "Simon Redman"
             }
         ],
-        "Description": "Synchronize Contacts from the Connected Device to the Desktop",
+        "Description": "Synchronize contacts from the connected device",
         "Description[ar]": "زامن المتراسلين بين سطح المكتب والجهاز المتصل",
         "Description[az]": "Əlaqələri qoşulmuş cihazdan iş masasına eyniləşdirin",
         "Description[bg]": "Синхронизиране на контактите между свързаното устройство и компютъра",
@@ -99,7 +99,7 @@
         "EnabledByDefault": true,
         "Icon": "tag-people",
         "License": "GPL",
-        "Name": "Contacts",
+        "Name": "Sync Contacts",
         "Name[ar]": "المتراسلون",
         "Name[az]": "Əlaqələr",
         "Name[bg]": "Контакти",

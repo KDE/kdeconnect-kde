@@ -53,7 +53,7 @@
                 "Name[zh_TW]": "Nicolas Fella"
             }
         ],
-        "Description": "Control the system volume from your phone",
+        "Description": "Control the volume of this device from another one",
         "Description[ar]": "تحكم بصوت النظام من هاتفك",
         "Description[az]": "Sistemin səs səviyyəsini telefonunuzdan idarə edin",
         "Description[bg]": "Управление на силата на звука на системата от телефона",
@@ -103,7 +103,7 @@
         "EnabledByDefault": true,
         "Icon": "audio-volume-high",
         "License": "GPL",
-        "Name": "System volume",
+        "Name": "Receive volume controls",
         "Name[ar]": "صوت النظام",
         "Name[az]": "Sistemin səs səviyyəsi",
         "Name[bg]": "Сила на звука на системта",
