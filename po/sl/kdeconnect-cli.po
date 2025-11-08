@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-07 00:43+0000\n"
-"PO-Revision-Date: 2025-10-10 06:58+0200\n"
+"PO-Revision-Date: 2025-11-07 10:55+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -111,28 +111,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Poiščite naprave v omrežju in ponovno vzpostavite povezave"
 
 #: kdeconnect-cli.cpp:55
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Zahtevajte uparjenje z omenjeno napravo"
+msgstr "Zahtevaj uparjenje z napravo"
 
 #: kdeconnect-cli.cpp:56
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Poiščite omenjeno napravo tako, da jo pozvonite."
+msgstr "Poišči napravo tako, da jo pozvonite"
 
 #: kdeconnect-cli.cpp:57
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "čakanje na napravo…"
+msgstr "Prekliči uparjenje z napravo"
 
 #: kdeconnect-cli.cpp:58
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Pošli ping omenjeni napravi"
+msgstr "Pošli ping napravi"
 
 #: kdeconnect-cli.cpp:59
 #, kde-format
@@ -145,28 +141,24 @@ msgid "message"
 msgstr "sporočilo"
 
 #: kdeconnect-cli.cpp:60
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Pošli trenutno odložišče omenjeni napravi"
+msgstr "Pošli odložišče na napravo"
 
 #: kdeconnect-cli.cpp:61
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Deli datoteko/URL z omenjeno napravo"
+msgstr "Deli datoteko/URL z napravo"
 
 #: kdeconnect-cli.cpp:62
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Deli si besedilo z omenjeno napravo"
+msgstr "Deli si besedilo z napravo"
 
 #: kdeconnect-cli.cpp:63
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "Prikaži sporočila na omenjeni napravi"
+msgstr "Prikaz obvestil na napravi"
 
 #: kdeconnect-cli.cpp:64
 #, kde-format
@@ -217,28 +209,24 @@ msgid "Device Name"
 msgstr "Ime naprave"
 
 #: kdeconnect-cli.cpp:73
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Pridobi informacije o šifriranju omenjene naprave"
+msgstr "Pridobi informacije o šifriranju naprave"
 
 #: kdeconnect-cli.cpp:74
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
-msgstr "Izpiše oddaljene ukaze in njihove ID-je"
+msgstr "Seznam oddaljenih ukazov in njihovih ID-jev"
 
 #: kdeconnect-cli.cpp:75
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
-msgstr "Izvede oddaljeni ukaz s pomočjo id-ja"
+msgstr "Izvedi oddaljeni ukaz po ID-ju"
 
 #: kdeconnect-cli.cpp:76
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Pošlje ključe na omenjeno napravo"
+msgstr "Pošlji ključe na napravo"
 
 #: kdeconnect-cli.cpp:77
 #, kde-format
@@ -352,7 +340,7 @@ msgstr "Že ne uparjene"
 #: kdeconnect-cli.cpp:283
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Uspešno od-uparjeno"
 
 #: kdeconnect-cli.cpp:329
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-11-08 00:41+0000\n"
 "PO-Revision-Date: 2025-07-09 16:29+0200\n"
 "Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -51,17 +51,17 @@ msgstr "Annehmen"
 msgid "Reject"
 msgstr "Ablehnen"
 
-#: kdeconnectd.cpp:71 kdeconnectd.cpp:73
+#: kdeconnectd.cpp:73 kdeconnectd.cpp:75
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect-Dienst"
 
-#: kdeconnectd.cpp:75
+#: kdeconnectd.cpp:77
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
 msgstr "© 2015–2025 Das KDE Connect-Team"
 
-#: kdeconnectd.cpp:101
+#: kdeconnectd.cpp:103
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Eine bestehende Instanz ersetzen"

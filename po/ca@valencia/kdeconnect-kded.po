@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-11-08 00:41+0000\n"
 "PO-Revision-Date: 2025-06-17 08:27+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -55,17 +55,17 @@ msgstr "Accepta"
 msgid "Reject"
 msgstr "Rebutja"
 
-#: kdeconnectd.cpp:71 kdeconnectd.cpp:73
+#: kdeconnectd.cpp:73 kdeconnectd.cpp:75
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "Dimoni de KDE Connect"
 
-#: kdeconnectd.cpp:75
+#: kdeconnectd.cpp:77
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
 msgstr "© 2015–2025 Equip de KDE Connect"
 
-#: kdeconnectd.cpp:101
+#: kdeconnectd.cpp:103
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Substituïx una instància existent"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-11-08 00:41+0000\n"
 "PO-Revision-Date: 2025-06-17 08:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -52,17 +52,17 @@ msgstr "Kabul Et"
 msgid "Reject"
 msgstr "Reddet"
 
-#: kdeconnectd.cpp:71 kdeconnectd.cpp:73
+#: kdeconnectd.cpp:73 kdeconnectd.cpp:75
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Bağlan Ardalan Süreci"
 
-#: kdeconnectd.cpp:75
+#: kdeconnectd.cpp:77
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
 msgstr "© 2015–2025, KDE Bağlan Takımı"
 
-#: kdeconnectd.cpp:101
+#: kdeconnectd.cpp:103
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Var olan bir örneği değiştir"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-07 00:43+0000\n"
-"PO-Revision-Date: 2025-10-10 21:53+0300\n"
+"PO-Revision-Date: 2025-11-07 11:58+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -113,28 +113,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Виконати пошук пристроїв у мережі і повторно встановити з’єднання"
 
 #: kdeconnect-cli.cpp:55
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Надіслати запит щодо встановлення зв’язку із вказаним пристроєм"
+msgstr "Надіслати запит щодо зв’язку із пристроєм"
 
 #: kdeconnect-cli.cpp:56
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Знайти вказаний пристрій, відтворивши на ньому дзвінок."
+msgstr "Знайти пристрій, відтворивши на ньому дзвінок"
 
 #: kdeconnect-cli.cpp:57
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "очікуємо на пристрій…"
+msgstr "Скасувати пов'язування з пристроєм"
 
 #: kdeconnect-cli.cpp:58
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Надіслати луна-імпульс підтримання зв’язку до вказаного пристрою"
+msgstr "Надіслати луна-імпульс на пристрій"
 
 #: kdeconnect-cli.cpp:59
 #, kde-format
@@ -149,28 +145,24 @@ msgid "message"
 msgstr "повідомлення"
 
 #: kdeconnect-cli.cpp:60
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Надсилає поточний вміст буфера обміну даними на вказаний пристрій"
+msgstr "Надіслати вміст буфера обміну даними на пристрій"
 
 #: kdeconnect-cli.cpp:61
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Надати файл або адресу у спільне зі вказаним пристроєм користування"
+msgstr "Надати файл або адресу у спільне із пристроєм користування"
 
 #: kdeconnect-cli.cpp:62
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Надати текст у спільне зі вказаним пристроєм користування"
+msgstr "Надати текст у спільне із пристроєм користування"
 
 #: kdeconnect-cli.cpp:63
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "Показувати сповіщення щодо вказаного пристрою"
+msgstr "Показувати сповіщення щодо пристрою"
 
 #: kdeconnect-cli.cpp:64
 #, kde-format
@@ -221,28 +213,24 @@ msgid "Device Name"
 msgstr "Назва пристрою"
 
 #: kdeconnect-cli.cpp:73
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Отримати дані щодо шифрування на вказаному пристрої"
+msgstr "Отримати дані щодо шифрування на пристрої"
 
 #: kdeconnect-cli.cpp:74
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
-msgstr "Показує віддалені команди та їхні ідентифікатори"
+msgstr "Вивести список віддалених команд та їхніх ідентифікаторів"
 
 #: kdeconnect-cli.cpp:75
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
-msgstr "Виконує віддалену команду за ідентифікатором"
+msgstr "Виконати віддалену команду за ідентифікатором"
 
 #: kdeconnect-cli.cpp:76
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Надіслати натискання клавіш на вказаний пристрій"
+msgstr "Надіслати натискання клавіш на пристрій"
 
 #: kdeconnect-cli.cpp:77
 #, kde-format
@@ -357,7 +345,7 @@ msgstr "Вже не пов’язано"
 #: kdeconnect-cli.cpp:283
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Пов'язування успішно скасовано"
 
 #: kdeconnect-cli.cpp:329
 #, kde-format

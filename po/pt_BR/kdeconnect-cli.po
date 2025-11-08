@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-07 00:43+0000\n"
-"PO-Revision-Date: 2025-10-10 07:49-0300\n"
+"PO-Revision-Date: 2025-11-07 08:31-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -116,28 +116,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Procurar dispositivos na rede e restabelecer conexões"
 
 #: kdeconnect-cli.cpp:55
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Solicitar o emparelhamento a um determinado dispositivo"
+msgstr "Solicitar o emparelhamento com dispositivo"
 
 #: kdeconnect-cli.cpp:56
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Encontrar o dispositivo fazendo com que ele toque."
+msgstr "Encontrar o dispositivo fazendo com que ele toque"
 
 #: kdeconnect-cli.cpp:57
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "aguardando o dispositivo..."
+msgstr "Desemparelhar do dispositivo"
 
 #: kdeconnect-cli.cpp:58
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Envia um ping para um determinado dispositivo"
+msgstr "Enviar ping para dispositivo"
 
 #: kdeconnect-cli.cpp:59
 #, kde-format
@@ -150,28 +146,24 @@ msgid "message"
 msgstr "mensagem"
 
 #: kdeconnect-cli.cpp:60
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Envia a área de transferência atual para um determinado dispositivo"
+msgstr "Enviar a área de transferência para dispositivo"
 
 #: kdeconnect-cli.cpp:61
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Compartilhar um arquivo/URL com um determinado dispositivo"
+msgstr "Compartilhar arquivo/URL com dispositivo"
 
 #: kdeconnect-cli.cpp:62
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Compartilhar um texto com um determinado dispositivo"
+msgstr "Compartilhar texto com dispositivo"
 
 #: kdeconnect-cli.cpp:63
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "Mostrar as notificações em um determinado dispositivo"
+msgstr "Mostrar notificações no dispositivo"
 
 #: kdeconnect-cli.cpp:64
 #, kde-format
@@ -222,28 +214,24 @@ msgid "Device Name"
 msgstr "Nome do dispositivo"
 
 #: kdeconnect-cli.cpp:73
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Obter os dados de criptografia do dispositivo indicado"
+msgstr "Obter informações de criptografia sobre dispositivo"
 
 #: kdeconnect-cli.cpp:74
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
-msgstr "Apresenta os comandos remotos e os seus IDs"
+msgstr "Listar comandos remotos e seus IDs"
 
 #: kdeconnect-cli.cpp:75
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
-msgstr "Executa um determinado comando remoto pelo seu ID"
+msgstr "Executar comando remoto pelo seu ID"
 
 #: kdeconnect-cli.cpp:76
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Envia as teclas para um determinado dispositivo"
+msgstr "Envia teclas para dispositivo"
 
 #: kdeconnect-cli.cpp:77
 #, kde-format
@@ -358,7 +346,7 @@ msgstr "Já não está emparelhado"
 #: kdeconnect-cli.cpp:283
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Desemparelhado com sucesso"
 
 #: kdeconnect-cli.cpp:329
 #, kde-format

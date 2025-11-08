@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-11-08 00:41+0000\n"
 "PO-Revision-Date: 2025-06-17 09:53+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -54,17 +54,17 @@ msgstr "Прийняти"
 msgid "Reject"
 msgstr "Відмовити"
 
-#: kdeconnectd.cpp:71 kdeconnectd.cpp:73
+#: kdeconnectd.cpp:73 kdeconnectd.cpp:75
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "Фонова служба KDE Connect"
 
-#: kdeconnectd.cpp:75
+#: kdeconnectd.cpp:77
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
 msgstr "© Команда KDE Connect, 2015–2025"
 
-#: kdeconnectd.cpp:101
+#: kdeconnectd.cpp:103
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Замінити наявний екземпляр"

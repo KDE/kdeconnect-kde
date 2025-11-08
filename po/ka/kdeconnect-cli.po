@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-07 00:43+0000\n"
-"PO-Revision-Date: 2025-10-10 06:17+0200\n"
+"PO-Revision-Date: 2025-11-07 06:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -111,28 +111,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "მოწყობილობების ქსელში მოძებნა და კავშირის თავიდან დამყარება"
 
 #: kdeconnect-cli.cpp:55
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "მითითებული მოწყობილობის დაწყვილების მოთხოვნა"
+msgstr "მოწყობილობის დაწყვილების მოთხოვნა"
 
 #: kdeconnect-cli.cpp:56
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "მითითებული მოწყობილობის პოვნა მასზე დარეკვით."
+msgstr "მოწყობილობის პოვნა მასზე დარეკვით"
 
 #: kdeconnect-cli.cpp:57
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "მოწყობილობის მოლოდინი…"
+msgstr "მოწყობილობასთან დაწყვილების მოხსნა"
 
 #: kdeconnect-cli.cpp:58
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "მითითებული მოწყობილობის დაპინგვა"
+msgstr "პინგის გაგზავნა მოწყობილობაზე"
 
 #: kdeconnect-cli.cpp:59
 #, kde-format
@@ -145,28 +141,24 @@ msgid "message"
 msgstr "შეტყობინება"
 
 #: kdeconnect-cli.cpp:60
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "მიმდინარე ბუფერის მითითებული მოწყობილობისთვის გაგზავნა"
+msgstr "მიმდინარე ბუფერის მოწყობილობაზე გაგზავნა"
 
 #: kdeconnect-cli.cpp:61
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "მონიშნული მოწყობილობისთვის ფაილის/ბმულის გაზიარება"
+msgstr "ფაილის/ბმულის გაზიარება მოწყობილობისთვის"
 
 #: kdeconnect-cli.cpp:62
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "მითითებული მოწყობილობისთვის ტექსტის გაზიარება"
+msgstr "მოწყობილობისთვის ტექსტის გაზიარება"
 
 #: kdeconnect-cli.cpp:63
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "გაფრთხილებების მონიშნულ მოწყობილობაზე ჩვენება"
+msgstr "გაფრთხილებების მოწყობილობაზე ჩვენება"
 
 #: kdeconnect-cli.cpp:64
 #, kde-format
@@ -217,28 +209,24 @@ msgid "Device Name"
 msgstr "მოწყობილობის სახელი"
 
 #: kdeconnect-cli.cpp:73
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "მონიშნული მოწყობილობის დაშიფვრის ინფორმაციის მიღბა"
+msgstr "მოწყობილობის დაშიფვრის ინფორმაციის მიღება"
 
 #: kdeconnect-cli.cpp:74
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
 msgstr "დაშორებული ბრძანებებისა და მათი ID-ების სია"
 
 #: kdeconnect-cli.cpp:75
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
-msgstr "დაშორებული ბრძანების ID-ით შესრულება"
+msgstr "დაშორებული ბრძანების შესრულება ID-ით"
 
 #: kdeconnect-cli.cpp:76
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "მონიშნული მოწყობილობისთვის გასაღებების გაგზავნა"
+msgstr "მოწყობილობისთვის გასაღებების გაგზავნა"
 
 #: kdeconnect-cli.cpp:77
 #, kde-format
@@ -351,7 +339,7 @@ msgstr "უკვე დაწყვილებული არაა"
 #: kdeconnect-cli.cpp:283
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "დაწყვილება წარმატებით გაუქმდა"
 
 #: kdeconnect-cli.cpp:329
 #, kde-format
