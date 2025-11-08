@@ -110,7 +110,7 @@
         "EnabledByDefault": true,
         "Icon": "system-run",
         "License": "GPL",
-        "Name": "Host remote commands",
+        "Name": "Send commands",
         "Name[ar]": "استضف الأوامر البعيدة",
         "Name[az]": "Hostun uzaq əmrləri",
         "Name[bg]": "Команди на отдалечения хост",

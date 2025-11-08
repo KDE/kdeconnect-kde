@@ -101,7 +101,7 @@
                 "Name[zh_TW]": "David Edmundson"
             }
         ],
-        "Description": "Execute console commands remotely",
+        "Description": "Execute predefined commands remotely",
         "Description[ar]": "نفّذ أوامر طرفيّة عن بعد",
         "Description[az]": "Terminal əmrlərini uzaqdan icra etmək",
         "Description[bg]": "Изпълнение на конзолни команди отдалечено",
@@ -155,7 +155,7 @@
         "EnabledByDefault": true,
         "Icon": "system-run",
         "License": "GPL",
-        "Name": "Run commands",
+        "Name": "Execute remote commands",
         "Name[ar]": "شغّل أوامر",
         "Name[az]": "Əmrləri başlatmaq",
         "Name[bg]": "Изпълнение на команди",

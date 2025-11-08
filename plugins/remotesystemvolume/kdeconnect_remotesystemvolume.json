@@ -103,7 +103,7 @@
         "EnabledByDefault": true,
         "Icon": "player-volume",
         "License": "GPL",
-        "Name": "Remote system volume",
+        "Name": "Remote volume control",
         "Name[ar]": "صوت النظام البعيد",
         "Name[az]": "Uzaq sistemin səs səviyyəsi",
         "Name[bg]": "Сила на звука на отдалечена система",

@@ -57,7 +57,7 @@
                 "Name[zh_TW]": "Aleix Pol"
             }
         ],
-        "Description": "Control Remote systems",
+        "Description": "Use your mouse to send input to another device",
         "Description[ar]": "تحكّم بالأنظمة البعيدة",
         "Description[az]": "Uzaq sistemləri idarə etmək",
         "Description[bg]": "Контрол на отдалечени системи",
@@ -111,7 +111,7 @@
         "EnabledByDefault": true,
         "Icon": "edit-select",
         "License": "GPL",
-        "Name": "RemoteControl",
+        "Name": "Send remote mouse input",
         "Name[ar]": "التّحكّم عن بعد",
         "Name[az]": "Məsafədən İdarə",
         "Name[bg]": "Отдалечен контрол",
