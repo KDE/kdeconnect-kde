@@ -230,7 +230,7 @@ int main(int argc, char **argv)
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
 
             for (const QString &url : std::as_const(urls)) {
-                QTextStream(stdout) << i18n("Shared %1", url) << Qt::endl;
+                QTextStream(stdout) << i18nc("A file or URL was shared", "Shared %1", url) << Qt::endl;
             }
         } else if (parser.isSet(QStringLiteral("share-text"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
