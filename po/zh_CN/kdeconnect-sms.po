@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kdeconnect-kde/kdeconnect-sms.pot\n"
-"X-Crowdin-File-ID: 49020\n"
+"X-Crowdin-File: /kf6-stable/messages/kdeconnect-kde/kdeconnect-sms.pot\n"
+"X-Crowdin-File-ID: 53052\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,12 +28,10 @@ msgid "Your emails"
 msgstr "kde-china@kde.org,i@guoyunhe.me"
 
 #: attachmentshelper.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
-msgstr "清除附件"
+msgstr "下载附件"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -126,11 +124,9 @@ msgid "Open with default"
 msgstr "用默认程序打开"
 
 #: qml/AttachmentViewer.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgid "Download attachment…"
-msgstr "清除附件"
+msgstr "下载附件…"
 
 #: qml/ConversationList.qml:23
 #, kde-format
