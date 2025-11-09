@@ -83,7 +83,7 @@ int main(int argc, char **argv)
         QCommandLineParser parser;
         parser.addPositionalArgument(QStringLiteral("url"), i18n("URL to share"));
         parser.addOption(QCommandLineOption(QStringLiteral("device"), i18n("Select a device"), i18n("id")));
-        parser.addOption(QCommandLineOption(QStringLiteral("open"), QStringLiteral("Open the file on the remote device")));
+        parser.addOption(QCommandLineOption(QStringLiteral("open"), i18n("Automatically open the file on the remote device, when supported")));
         aboutData.setupCommandLine(&parser);
         parser.process(app);
         aboutData.processCommandLine(&parser);
@@ -121,20 +121,10 @@ int main(int argc, char **argv)
         });
     }
 
-    uidialog.openOnPeerCheckBox->setChecked(open);
-
     KUrlRequester *urlRequester = new KUrlRequester(&dialog);
     urlRequester->setStartDir(QUrl::fromLocalFile(QDir::homePath()));
     uidialog.urlPickerLayout->addWidget(urlRequester);
     urlRequester->setPlaceholderText(i18nc("Placeholder for input field that should contain a file/URL to share", "Local file or web URL"));
-    uidialog.openOnPeerCheckBox->setVisible(false);
-
-    QObject::connect(urlRequester, &KUrlRequester::textChanged, [&urlRequester, &uidialog]() {
-        QUrl url(urlRequester->url());
-        bool isLocalFileUrl = (url.isLocalFile() && !url.isRelative());
-        uidialog.openOnPeerCheckBox->setVisible(isLocalFileUrl);
-    });
-
     if (!urlToShare.isEmpty()) {
         uidialog.urlPickerLabel->setVisible(false);
         urlRequester->setVisible(false);
@@ -158,7 +148,6 @@ int main(int argc, char **argv)
 
     if (dialog.exec() == QDialog::Accepted) {
         const QUrl url = urlRequester->url();
-        open = uidialog.openOnPeerCheckBox->isChecked();
         const int currentDeviceIndex = uidialog.devicePicker->currentIndex();
         if (!url.isEmpty() && currentDeviceIndex >= 0) {
             const QString device = proxyModel.index(currentDeviceIndex, 0).data(DevicesModel::IdModelRole).toString();
