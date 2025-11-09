@@ -123,6 +123,7 @@ int main(int argc, char **argv)
 
     KUrlRequester *urlRequester = new KUrlRequester(&dialog);
     urlRequester->setStartDir(QUrl::fromLocalFile(QDir::homePath()));
+    urlRequester->setFocus();
     uidialog.urlPickerLayout->addWidget(urlRequester);
     urlRequester->setPlaceholderText(i18nc("Placeholder for input field that should contain a file/URL to share", "Local file or web URL"));
     if (!urlToShare.isEmpty()) {
