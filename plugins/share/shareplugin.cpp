@@ -240,7 +240,7 @@ void SharePlugin::openDestinationFolder()
 void SharePlugin::shareUrl(const QUrl &url, bool open)
 {
     NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
-    if (url.isLocalFile()) {
+    if (url.isLocalFile() && !url.isRelative()) {
         QSharedPointer<QFile> ioFile(new QFile(url.toLocalFile()));
 
         if (!ioFile->exists()) {
