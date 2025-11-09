@@ -125,63 +125,35 @@ int main(int argc, char **argv)
 
     KUrlRequester *urlRequester = new KUrlRequester(&dialog);
     urlRequester->setStartDir(QUrl::fromLocalFile(QDir::homePath()));
-    uidialog.urlHorizontalLayout->addWidget(urlRequester);
-
-    QObject::connect(uidialog.sendUrlRadioButton, &QRadioButton::toggled, [&uidialog, urlRequester](const bool checked) {
-        if (checked) {
-            urlRequester->setPlaceholderText(i18n("Enter URL here"));
-            urlRequester->button()->setVisible(false);
-            uidialog.openOnPeerCheckBox->setVisible(false);
-        }
-    });
-
-    QObject::connect(uidialog.sendFileRadioButton, &QAbstractButton::toggled, [&uidialog, urlRequester](const bool checked) {
-        if (checked) {
-            urlRequester->setPlaceholderText(i18n("Enter file location here"));
-            urlRequester->button()->setVisible(true);
-            uidialog.openOnPeerCheckBox->setVisible(true);
-        }
-    });
+    uidialog.urlPickerLayout->addWidget(urlRequester);
+    urlRequester->setPlaceholderText(i18nc("Placeholder for input field that should contain a file/URL to share", "Local file or web URL"));
+    uidialog.openOnPeerCheckBox->setVisible(false);
 
     QObject::connect(urlRequester, &KUrlRequester::textChanged, [&urlRequester, &uidialog]() {
-        QUrl fileUrl(urlRequester->url());
-        bool isLocalFileUrl = false;
-        if (fileUrl.isLocalFile()) {
-            QFileInfo fileInfo(fileUrl.toLocalFile());
-            isLocalFileUrl = fileInfo.exists() && fileInfo.isFile(); // we don't support sending directories yet!
-        }
-        uidialog.sendFileRadioButton->setChecked(isLocalFileUrl);
-        uidialog.sendUrlRadioButton->setChecked(!isLocalFileUrl);
+        QUrl url(urlRequester->url());
+        bool isLocalFileUrl = (url.isLocalFile() && !url.isRelative());
+        uidialog.openOnPeerCheckBox->setVisible(isLocalFileUrl);
     });
 
     if (!urlToShare.isEmpty()) {
-        uidialog.sendUrlRadioButton->setVisible(false);
-        uidialog.sendFileRadioButton->setVisible(false);
+        uidialog.urlPickerLabel->setVisible(false);
         urlRequester->setVisible(false);
+        urlRequester->setUrl(urlToShare);
 
         QString displayUrl;
         if (urlToShare.scheme() == QLatin1String("tel")) {
             displayUrl = urlToShare.toDisplayString(QUrl::RemoveScheme);
-            uidialog.label->setText(i18n("Device to call %1 with:", displayUrl));
+            uidialog.devicePickerLabel->setText(i18n("Device to call %1 with:", displayUrl));
         } else if (urlToShare.isLocalFile() && open) {
             displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
-            uidialog.label->setText(i18n("Device to open %1 on:", displayUrl));
+            uidialog.devicePickerLabel->setText(i18n("Device to open %1 on:", displayUrl));
         } else if (urlToShare.scheme() == QLatin1String("sms")) {
             displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
-            uidialog.label->setText(i18n("Device to send a SMS with:"));
+            uidialog.devicePickerLabel->setText(i18n("Device to send a SMS with:"));
         } else {
             displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
-            uidialog.label->setText(i18n("Device to send %1 to:", displayUrl));
+            uidialog.devicePickerLabel->setText(i18n("Device to send %1 to:", displayUrl));
         }
-    }
-
-    if (open || urlToShare.isLocalFile()) {
-        uidialog.sendFileRadioButton->setChecked(true);
-        urlRequester->setUrl(QUrl(urlToShare.toLocalFile()));
-
-    } else {
-        uidialog.sendUrlRadioButton->setChecked(true);
-        urlRequester->setUrl(urlToShare);
     }
 
     if (dialog.exec() == QDialog::Accepted) {
