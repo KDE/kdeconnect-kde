@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-07 00:43+0000\n"
+"POT-Creation-Date: 2025-11-09 00:42+0000\n"
 "PO-Revision-Date: 2025-06-19 10:01+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -306,7 +306,9 @@ msgstr ""
 "Use a opción --help para ver a axuda completa"
 
 #: kdeconnect-cli.cpp:233
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shared %1"
+msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Compartiuse %1"
 

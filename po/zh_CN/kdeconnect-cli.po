@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-07 00:43+0000\n"
+"POT-Creation-Date: 2025-11-09 00:42+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -104,28 +104,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "搜索网络中的设备并且重新连接"
 
 #: kdeconnect-cli.cpp:55
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "请求与指定的设备配对"
+msgstr "请求与设备配对"
 
 #: kdeconnect-cli.cpp:56
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "通过响铃找到指定设备"
+msgstr "通过响铃来查找设备"
 
 #: kdeconnect-cli.cpp:57
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "正在等待设备…"
+msgstr "取消设备配对"
 
 #: kdeconnect-cli.cpp:58
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "对指定设备发送 ping"
+msgstr "发送 ping 到设备"
 
 #: kdeconnect-cli.cpp:59
 #, kde-format
@@ -138,28 +134,24 @@ msgid "message"
 msgstr "消息"
 
 #: kdeconnect-cli.cpp:60
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "发送当前剪贴板到上述设备"
+msgstr "发送剪贴板到设备"
 
 #: kdeconnect-cli.cpp:61
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "向设备发送文件或链接"
+msgstr "分享文件/URL到设备"
 
 #: kdeconnect-cli.cpp:62
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "分享文本到指定设备"
+msgstr "分享文本到设备"
 
 #: kdeconnect-cli.cpp:63
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "在指定设备显示通知"
+msgstr "在设备上显示通知"
 
 #: kdeconnect-cli.cpp:64
 #, kde-format
@@ -208,28 +200,24 @@ msgid "Device Name"
 msgstr "设备名称"
 
 #: kdeconnect-cli.cpp:73
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "获取指定设备的加密信息"
+msgstr "获取设备加密信息"
 
 #: kdeconnect-cli.cpp:74
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
-msgstr "列出远程命令和 ID"
+msgstr "列出远程命令和它们的 ID"
 
 #: kdeconnect-cli.cpp:75
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
 msgstr "通过命令的 ID 来执行远程命令"
 
 #: kdeconnect-cli.cpp:76
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "向指定设备发送密钥"
+msgstr "发送按键到设备"
 
 #: kdeconnect-cli.cpp:77
 #, kde-format
@@ -237,15 +225,14 @@ msgid "Display this device's id and exit"
 msgstr "显示此设备的标识符并退出"
 
 #: kdeconnect-cli.cpp:78
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "向指定设备发送密钥"
+msgstr "挂载所述设备的文件系统"
 
 #: kdeconnect-cli.cpp:79
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "打印所述设备文件系统的挂载点"
 
 #: kdeconnect-cli.cpp:125
 #, kde-format
@@ -291,7 +278,9 @@ msgstr ""
 "使用 --help 选项查看完全帮助"
 
 #: kdeconnect-cli.cpp:233
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shared %1"
+msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "分享的 %1"
 
@@ -340,7 +329,7 @@ msgstr "已经未配对"
 #: kdeconnect-cli.cpp:283
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "成功取消配对"
 
 #: kdeconnect-cli.cpp:329
 #, kde-format
@@ -353,9 +342,3 @@ msgstr "错误：应该指定短信收件人，传递参数 --destination <电�
 #, kde-format
 msgid "Nothing to be done"
 msgstr "无事可做"
-
-#~ msgid "Stop pairing to a said device"
-#~ msgstr "停止与指定的设备配对"
-
-#~ msgid "Unpaired"
-#~ msgstr "未配对"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-07 00:43+0000\n"
-"PO-Revision-Date: 2025-10-11 18:08+0200\n"
+"POT-Creation-Date: 2025-11-09 00:42+0000\n"
+"PO-Revision-Date: 2025-11-08 11:11+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -110,28 +110,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Zoek naar apparaten in het netwerk en maak opnieuw verbindingen"
 
 #: kdeconnect-cli.cpp:55
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Verzoek voor maken van een paar met een aangeven apparaat"
+msgstr "Verzoek tot maken van een paar met apparaat"
 
 #: kdeconnect-cli.cpp:56
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Zoek het genoemde apparaat door het te laten bellen."
+msgstr "Zoek apparaat door het te laten bellen"
 
 #: kdeconnect-cli.cpp:57
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "wacht op apparaat…"
+msgstr "Paarvorming met apparaat ongedaan maken"
 
 #: kdeconnect-cli.cpp:58
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Stuurt een ping naar het aangeven apparaat"
+msgstr "Stuurt een ping naar apparaat"
 
 #: kdeconnect-cli.cpp:59
 #, kde-format
@@ -144,28 +140,24 @@ msgid "message"
 msgstr "bericht"
 
 #: kdeconnect-cli.cpp:60
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Stuurt het huidige klembord naar het aangeven apparaat"
+msgstr "Stuurt klembord naar apparaat"
 
 #: kdeconnect-cli.cpp:61
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Deel een bestand/URL met een aangegeven apparaat"
+msgstr "Deel bestand/URL met apparaat"
 
 #: kdeconnect-cli.cpp:62
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Deel tekst met een aangegeven apparaat"
+msgstr "Deel tekst met apparaat"
 
 #: kdeconnect-cli.cpp:63
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "De meldingen tonen op een aangegeven apparaat"
+msgstr "Melding tonen op apparaat"
 
 #: kdeconnect-cli.cpp:64
 #, kde-format
@@ -216,28 +208,24 @@ msgid "Device Name"
 msgstr "Apparaatnaam"
 
 #: kdeconnect-cli.cpp:73
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Haal de versleutelingsinformatie van het aangeven apparaat op"
+msgstr "Haal versleutelingsinformatie op van apparaat"
 
 #: kdeconnect-cli.cpp:74
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
 msgstr "Commando's op afstand en hun id's tonen "
 
 #: kdeconnect-cli.cpp:75
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
-msgstr "Voert een commando op afstand uit op basis van id"
+msgstr "Voer commando op afstand uit op basis van id"
 
 #: kdeconnect-cli.cpp:76
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Stuurt toetsen naar een aangeven apparaat"
+msgstr "Stuurt toetsen naar apparaat"
 
 #: kdeconnect-cli.cpp:77
 #, kde-format
@@ -300,7 +288,9 @@ msgstr ""
 "Bekijk de volledige help met de optie --help"
 
 #: kdeconnect-cli.cpp:233
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shared %1"
+msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Gedeeld %1"
 
@@ -349,7 +339,7 @@ msgstr "Al niet gepaard"
 #: kdeconnect-cli.cpp:283
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Paring met succes ongedaan gemaakt"
 
 #: kdeconnect-cli.cpp:329
 #, kde-format

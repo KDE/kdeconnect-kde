@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-07 00:43+0000\n"
+"POT-Creation-Date: 2025-11-09 00:42+0000\n"
 "PO-Revision-Date: 2020-01-08 03:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -277,6 +277,7 @@ msgstr ""
 
 #: kdeconnect-cli.cpp:233
 #, kde-format
+msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr ""
 

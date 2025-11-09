@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-07 00:43+0000\n"
+"POT-Creation-Date: 2025-11-09 00:42+0000\n"
 "PO-Revision-Date: 2025-10-12 01:36+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -302,7 +302,9 @@ msgstr ""
 "Vea la ayuda completa con la opción --help"
 
 #: kdeconnect-cli.cpp:233
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shared %1"
+msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Compartido %1"
 

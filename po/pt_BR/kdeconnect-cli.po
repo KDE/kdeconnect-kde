@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-07 00:43+0000\n"
-"PO-Revision-Date: 2025-11-07 08:31-0300\n"
-"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"POT-Creation-Date: 2025-11-09 00:42+0000\n"
+"PO-Revision-Date: 2025-11-08 21:10-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -297,7 +297,9 @@ msgstr ""
 "Consulte a ajuda completa com a opção --help"
 
 #: kdeconnect-cli.cpp:233
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shared %1"
+msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Compartilhado %1"
 
@@ -321,7 +323,7 @@ msgstr "Solicitado desbloquear %1."
 #: kdeconnect-cli.cpp:258
 #, kde-format
 msgid "waiting for device…"
-msgstr "aguardando o dispositivo..."
+msgstr "aguardando o dispositivo…"
 
 #: kdeconnect-cli.cpp:271
 #, kde-format
