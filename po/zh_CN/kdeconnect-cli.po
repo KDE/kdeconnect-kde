@@ -280,7 +280,7 @@ msgstr ""
 #: kdeconnect-cli.cpp:234
 #, kde-format
 msgid "Shared %1"
-msgstr "分享的 %1"
+msgstr ""
 
 #: kdeconnect-cli.cpp:243
 #, kde-format
