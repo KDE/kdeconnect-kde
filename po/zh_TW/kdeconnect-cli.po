@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-09 00:42+0000\n"
+"POT-Creation-Date: 2025-11-10 00:42+0000\n"
 "PO-Revision-Date: 2025-06-19 22:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -30,264 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "liueigi@gmail.com, pan93412@gmail.com, brli@chakralinux.org"
 
-#: kdeconnect-cli.cpp:32
-#, kde-format
-msgid "KDE Connect CLI tool"
-msgstr "KDE Connect 指令列工具"
-
-#: kdeconnect-cli.cpp:34
-#, kde-format
-msgid "© 2015–2025, KDE Connect Team"
-msgstr "© 2015–2025, KDE Connect 團隊"
-
-#: kdeconnect-cli.cpp:35
-#, kde-format
-msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
-
-#: kdeconnect-cli.cpp:36
-#, kde-format
-msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
-
-#: kdeconnect-cli.cpp:42
-#, kde-format
-msgid "List all devices"
-msgstr "列出全部裝置"
-
-#: kdeconnect-cli.cpp:44
-#, kde-format
-msgid "List available (paired and reachable) devices"
-msgstr "列出可用的裝置（已經配對並且可連線）"
-
-#: kdeconnect-cli.cpp:45
-#, kde-format
-msgid "List all backends and status"
-msgstr "列出所有後端介面與狀態"
-
-#: kdeconnect-cli.cpp:46
-#, kde-format
-msgid "Enable the specified backend"
-msgstr "啟用指定的後端介面"
-
-#: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
-#, kde-format
-msgid "backend"
-msgstr "後端介面"
-
-#: kdeconnect-cli.cpp:47
-#, kde-format
-msgid "Disable the specified backend"
-msgstr "停用指定的後端介面"
-
-#: kdeconnect-cli.cpp:49
-#, kde-format
-msgid ""
-"Make --list-devices or --list-available print only the devices id, to ease "
-"scripting"
-msgstr ""
-"下達 --list-devices 或者 --list-available ，能夠只有列出裝置的 ID，看起來比較"
-"簡潔。"
-
-#: kdeconnect-cli.cpp:51
-#, kde-format
-msgid ""
-"Make --list-devices or --list-available print only the devices name, to ease "
-"scripting"
-msgstr ""
-"下達 --list-devices 或者 --list-available ，能夠只有列出裝置的名稱，看起來比"
-"較簡潔。"
-
-#: kdeconnect-cli.cpp:53
-#, kde-format
-msgid ""
-"Make --list-devices or --list-available print only the devices id and name, "
-"to ease scripting"
-msgstr ""
-"下達 --list-devices 或者 --list-available ，能夠只有列出裝置的 ID 與名稱，看"
-"起來比較簡潔。"
-
-#: kdeconnect-cli.cpp:54
-#, kde-format
-msgid "Search for devices in the network and re-establish connections"
-msgstr "搜尋網路中的裝置並且嘗試重新連接。"
-
-#: kdeconnect-cli.cpp:55
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
-msgid "Request pairing with device"
-msgstr "請求配對到指定的裝置。"
-
-#: kdeconnect-cli.cpp:56
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
-msgid "Find device by ringing it"
-msgstr "讓指定的裝置發出聲音來尋找它。"
-
-#: kdeconnect-cli.cpp:57
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
-msgid "Unpair from device"
-msgstr "等待裝置中…"
-
-#: kdeconnect-cli.cpp:58
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
-msgid "Send ping to device"
-msgstr "向指定的裝置發送 Ping 回應封包"
-
-#: kdeconnect-cli.cpp:59
-#, kde-format
-msgid "Same as ping but you can set the message to display"
-msgstr "與 Ping 回應封包一樣的功能，但是你可以填寫一些訊息來顯示。"
-
-#: kdeconnect-cli.cpp:59 kdeconnect-cli.cpp:66
-#, kde-format
-msgid "message"
-msgstr "訊息"
-
-#: kdeconnect-cli.cpp:60
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
-msgid "Send clipboard to device"
-msgstr "向指定的裝置傳送目前剪貼簿內容"
-
-#: kdeconnect-cli.cpp:61
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
-msgid "Share file/URL to device"
-msgstr "分享檔案/網址到指定的裝置"
-
-#: kdeconnect-cli.cpp:62
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
-msgid "Share text to device"
-msgstr "分享文字到指定的裝置"
-
-#: kdeconnect-cli.cpp:63
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
-msgid "Display notifications on device"
-msgstr "在指定的裝置上面顯示通知"
-
-#: kdeconnect-cli.cpp:64
-#, kde-format
-msgid "Lock the specified device"
-msgstr "鎖定指定的裝置"
-
-#: kdeconnect-cli.cpp:65
-#, kde-format
-msgid "Unlock the specified device"
-msgstr "解除鎖定指定的裝置"
-
-#: kdeconnect-cli.cpp:66
-#, kde-format
-msgid "Sends an SMS. Requires destination"
-msgstr "傳送簡訊。需要指定目的地"
-
-#: kdeconnect-cli.cpp:67
-#, kde-format
-msgid "Phone number to send the message"
-msgstr "欲傳送訊息的電話號碼"
-
-#: kdeconnect-cli.cpp:67
-#, kde-format
-msgid "phone number"
-msgstr "電話號碼"
-
-#: kdeconnect-cli.cpp:69
-#, kde-format
-msgid ""
-"File URLs to send attachments with the message (can be passed multiple times)"
-msgstr "嵌入在送出訊息附加檔案內的網址（可重複指定）"
-
-#: kdeconnect-cli.cpp:70
-#, kde-format
-msgid "file URLs"
-msgstr "檔案網址"
-
-#: kdeconnect-cli.cpp:71
-#, kde-format
-msgid "Device ID"
-msgstr "裝置 ID"
-
-#: kdeconnect-cli.cpp:72
-#, kde-format
-msgid "Device Name"
-msgstr "裝置名稱"
-
-#: kdeconnect-cli.cpp:73
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
-msgid "Get encryption info about device"
-msgstr "從指定的裝置上取得加密資訊"
-
-#: kdeconnect-cli.cpp:74
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
-msgid "List remote commands and their ids"
-msgstr "列出遠端指令及其標識"
-
-#: kdeconnect-cli.cpp:75
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
-msgid "Execute remote command by id"
-msgstr "以 ID 來執行遠端指令"
-
-#: kdeconnect-cli.cpp:76
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
-msgid "Send keys to device"
-msgstr "向指定的裝置傳送按鍵"
-
-#: kdeconnect-cli.cpp:77
-#, kde-format
-msgid "Display this device's id and exit"
-msgstr "顯示裝置編號並退出"
-
-#: kdeconnect-cli.cpp:78
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
-msgid "Mount filesystem of a said device"
-msgstr "向指定的裝置傳送按鍵"
-
-#: kdeconnect-cli.cpp:79
-#, kde-format
-msgid "Print mount point for the filesystem of a said device"
-msgstr ""
-
-#: kdeconnect-cli.cpp:125
-#, kde-format
-msgid "(paired and reachable)"
-msgstr "（已配對且可連線）"
-
-#: kdeconnect-cli.cpp:127
-#, kde-format
-msgid "(reachable)"
-msgstr "（可連線）"
-
-#: kdeconnect-cli.cpp:129 kdeconnect-cli.cpp:153
-#, kde-format
-msgid "(paired)"
-msgstr "（已配對）"
-
-#: kdeconnect-cli.cpp:135
-#, kde-format
-msgid "1 device found"
-msgid_plural "%1 devices found"
-msgstr[0] "找到 %1 個裝置"
-
-#: kdeconnect-cli.cpp:137
-#, kde-format
-msgid "No devices found"
-msgstr "沒有找到任何裝置"
-
-#: kdeconnect-cli.cpp:155
-#, kde-format
-msgid "(unpaired)"
-msgstr "（未配對）"
-
-#: kdeconnect-cli.cpp:198
+#: kdeconnect-cli.cpp:38
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -299,71 +42,326 @@ msgstr ""
 "裝置 ID 及名稱可使用「kdeconnect-cli -l」找到。\n"
 "請使用 --help 選項查閱完整說明。"
 
-#: kdeconnect-cli.cpp:233
+#: kdeconnect-cli.cpp:58
+#, kde-format
+msgid "KDE Connect CLI tool"
+msgstr "KDE Connect 指令列工具"
+
+#: kdeconnect-cli.cpp:60
+#, kde-format
+msgid "© 2015–2025, KDE Connect Team"
+msgstr "© 2015–2025, KDE Connect 團隊"
+
+#: kdeconnect-cli.cpp:61
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: kdeconnect-cli.cpp:62
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
+
+#: kdeconnect-cli.cpp:68
+#, kde-format
+msgid "List all devices"
+msgstr "列出全部裝置"
+
+#: kdeconnect-cli.cpp:70
+#, kde-format
+msgid "List available (paired and reachable) devices"
+msgstr "列出可用的裝置（已經配對並且可連線）"
+
+#: kdeconnect-cli.cpp:71
+#, kde-format
+msgid "List all backends and status"
+msgstr "列出所有後端介面與狀態"
+
+#: kdeconnect-cli.cpp:72
+#, kde-format
+msgid "Enable the specified backend"
+msgstr "啟用指定的後端介面"
+
+#: kdeconnect-cli.cpp:72 kdeconnect-cli.cpp:73
+#, kde-format
+msgid "backend"
+msgstr "後端介面"
+
+#: kdeconnect-cli.cpp:73
+#, kde-format
+msgid "Disable the specified backend"
+msgstr "停用指定的後端介面"
+
+#: kdeconnect-cli.cpp:75
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id, to ease "
+"scripting"
+msgstr ""
+"下達 --list-devices 或者 --list-available ，能夠只有列出裝置的 ID，看起來比較"
+"簡潔。"
+
+#: kdeconnect-cli.cpp:77
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices name, to ease "
+"scripting"
+msgstr ""
+"下達 --list-devices 或者 --list-available ，能夠只有列出裝置的名稱，看起來比"
+"較簡潔。"
+
+#: kdeconnect-cli.cpp:79
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id and name, "
+"to ease scripting"
+msgstr ""
+"下達 --list-devices 或者 --list-available ，能夠只有列出裝置的 ID 與名稱，看"
+"起來比較簡潔。"
+
+#: kdeconnect-cli.cpp:80
+#, kde-format
+msgid "Search for devices in the network and re-establish connections"
+msgstr "搜尋網路中的裝置並且嘗試重新連接。"
+
+#: kdeconnect-cli.cpp:81
+#, fuzzy, kde-format
+#| msgid "Request pairing to a said device"
+msgid "Request pairing with device"
+msgstr "請求配對到指定的裝置。"
+
+#: kdeconnect-cli.cpp:82
+#, fuzzy, kde-format
+#| msgid "Find the said device by ringing it."
+msgid "Find device by ringing it"
+msgstr "讓指定的裝置發出聲音來尋找它。"
+
+#: kdeconnect-cli.cpp:83
+#, fuzzy, kde-format
+#| msgid "waiting for device…"
+msgid "Unpair from device"
+msgstr "等待裝置中…"
+
+#: kdeconnect-cli.cpp:84
+#, fuzzy, kde-format
+#| msgid "Sends a ping to said device"
+msgid "Send ping to device"
+msgstr "向指定的裝置發送 Ping 回應封包"
+
+#: kdeconnect-cli.cpp:85
+#, kde-format
+msgid "Same as ping but you can set the message to display"
+msgstr "與 Ping 回應封包一樣的功能，但是你可以填寫一些訊息來顯示。"
+
+#: kdeconnect-cli.cpp:85 kdeconnect-cli.cpp:92
+#, kde-format
+msgid "message"
+msgstr "訊息"
+
+#: kdeconnect-cli.cpp:86
+#, fuzzy, kde-format
+#| msgid "Sends the current clipboard to said device"
+msgid "Send clipboard to device"
+msgstr "向指定的裝置傳送目前剪貼簿內容"
+
+#: kdeconnect-cli.cpp:87
+#, fuzzy, kde-format
+#| msgid "Share a file/URL to a said device"
+msgid "Share file/URL to device"
+msgstr "分享檔案/網址到指定的裝置"
+
+#: kdeconnect-cli.cpp:88
+#, fuzzy, kde-format
+#| msgid "Share text to a said device"
+msgid "Share text to device"
+msgstr "分享文字到指定的裝置"
+
+#: kdeconnect-cli.cpp:89
+#, fuzzy, kde-format
+#| msgid "Display the notifications on a said device"
+msgid "Display notifications on device"
+msgstr "在指定的裝置上面顯示通知"
+
+#: kdeconnect-cli.cpp:90
+#, kde-format
+msgid "Lock the specified device"
+msgstr "鎖定指定的裝置"
+
+#: kdeconnect-cli.cpp:91
+#, kde-format
+msgid "Unlock the specified device"
+msgstr "解除鎖定指定的裝置"
+
+#: kdeconnect-cli.cpp:92
+#, kde-format
+msgid "Sends an SMS. Requires destination"
+msgstr "傳送簡訊。需要指定目的地"
+
+#: kdeconnect-cli.cpp:93
+#, kde-format
+msgid "Phone number to send the message"
+msgstr "欲傳送訊息的電話號碼"
+
+#: kdeconnect-cli.cpp:93
+#, kde-format
+msgid "phone number"
+msgstr "電話號碼"
+
+#: kdeconnect-cli.cpp:95
+#, kde-format
+msgid ""
+"File URLs to send attachments with the message (can be passed multiple times)"
+msgstr "嵌入在送出訊息附加檔案內的網址（可重複指定）"
+
+#: kdeconnect-cli.cpp:96
+#, kde-format
+msgid "file URLs"
+msgstr "檔案網址"
+
+#: kdeconnect-cli.cpp:97
+#, kde-format
+msgid "Device ID"
+msgstr "裝置 ID"
+
+#: kdeconnect-cli.cpp:98
+#, kde-format
+msgid "Device Name"
+msgstr "裝置名稱"
+
+#: kdeconnect-cli.cpp:99
+#, fuzzy, kde-format
+#| msgid "Get encryption info about said device"
+msgid "Get encryption info about device"
+msgstr "從指定的裝置上取得加密資訊"
+
+#: kdeconnect-cli.cpp:100
+#, fuzzy, kde-format
+#| msgid "Lists remote commands and their ids"
+msgid "List remote commands and their ids"
+msgstr "列出遠端指令及其標識"
+
+#: kdeconnect-cli.cpp:101
+#, fuzzy, kde-format
+#| msgid "Executes a remote command by id"
+msgid "Execute remote command by id"
+msgstr "以 ID 來執行遠端指令"
+
+#: kdeconnect-cli.cpp:102
+#, fuzzy, kde-format
+#| msgid "Sends keys to a said device"
+msgid "Send keys to device"
+msgstr "向指定的裝置傳送按鍵"
+
+#: kdeconnect-cli.cpp:103
+#, kde-format
+msgid "Display this device's id and exit"
+msgstr "顯示裝置編號並退出"
+
+#: kdeconnect-cli.cpp:104
+#, fuzzy, kde-format
+#| msgid "Sends keys to a said device"
+msgid "Mount filesystem of a said device"
+msgstr "向指定的裝置傳送按鍵"
+
+#: kdeconnect-cli.cpp:105
+#, kde-format
+msgid "Print mount point for the filesystem of a said device"
+msgstr ""
+
+#: kdeconnect-cli.cpp:151
+#, kde-format
+msgid "(paired and reachable)"
+msgstr "（已配對且可連線）"
+
+#: kdeconnect-cli.cpp:153
+#, kde-format
+msgid "(reachable)"
+msgstr "（可連線）"
+
+#: kdeconnect-cli.cpp:155 kdeconnect-cli.cpp:178
+#, kde-format
+msgid "(paired)"
+msgstr "（已配對）"
+
+#: kdeconnect-cli.cpp:161
+#, kde-format
+msgid "1 device found"
+msgid_plural "%1 devices found"
+msgstr[0] "找到 %1 個裝置"
+
+#: kdeconnect-cli.cpp:163
+#, kde-format
+msgid "No devices found"
+msgstr "沒有找到任何裝置"
+
+#: kdeconnect-cli.cpp:180
+#, kde-format
+msgid "(unpaired)"
+msgstr "（未配對）"
+
+#: kdeconnect-cli.cpp:240
 #, fuzzy, kde-format
 #| msgid "Shared %1"
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "已分享 %1"
 
-#: kdeconnect-cli.cpp:242
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Shared text: %1"
 msgstr "已分享文字：%1"
 
-#: kdeconnect-cli.cpp:249
+#: kdeconnect-cli.cpp:264
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "向裝置 %1 提出鎖定需求。"
 
-#: kdeconnect-cli.cpp:251
+#: kdeconnect-cli.cpp:266
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "向裝置 %1 提出解鎖需求。"
 
-#: kdeconnect-cli.cpp:258
+#: kdeconnect-cli.cpp:277
 #, kde-format
 msgid "waiting for device…"
 msgstr "等待裝置中…"
 
-#: kdeconnect-cli.cpp:271
+#: kdeconnect-cli.cpp:290
 #, kde-format
 msgid "Device not found"
 msgstr "沒有找到裝置"
 
-#: kdeconnect-cli.cpp:273
+#: kdeconnect-cli.cpp:292
 #, kde-format
 msgid "Already paired"
 msgstr "已經配對"
 
-#: kdeconnect-cli.cpp:275
+#: kdeconnect-cli.cpp:294
 #, kde-format
 msgid "Pair requested"
 msgstr "已請求配對"
 
-#: kdeconnect-cli.cpp:281
+#: kdeconnect-cli.cpp:304
 #, kde-format
 msgid "Already not paired"
 msgstr "已經沒有取消配對"
 
-#: kdeconnect-cli.cpp:283
+#: kdeconnect-cli.cpp:306
 #, kde-format
 msgid "Successfully unpaired"
 msgstr ""
 
-#: kdeconnect-cli.cpp:329
+#: kdeconnect-cli.cpp:364
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
 "number>"
 msgstr "錯誤：需要透過指定 --destination <電話號碼> 來指定簡訊的接收者"
 
-#: kdeconnect-cli.cpp:396
-#, kde-format
-msgid "Nothing to be done"
-msgstr "沒有什麼可以做"
+#~ msgid "Nothing to be done"
+#~ msgstr "沒有什麼可以做"
 
 #~ msgid "Stop pairing to a said device"
 #~ msgstr "對指定的裝置停止配對"

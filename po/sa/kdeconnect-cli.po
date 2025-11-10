@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-09 00:42+0000\n"
+"POT-Creation-Date: 2025-11-10 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -29,268 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "skkalwar999@gmail.com"
 
-#: kdeconnect-cli.cpp:32
-#, kde-format
-msgid "KDE Connect CLI tool"
-msgstr "KDE CLI साधनं संयोजयन्तु"
-
-#: kdeconnect-cli.cpp:34
-#, kde-format
-msgid "© 2015–2025, KDE Connect Team"
-msgstr ""
-
-#: kdeconnect-cli.cpp:35
-#, kde-format
-msgid "Aleix Pol Gonzalez"
-msgstr "एलेक्स पोल गोन्जालेज"
-
-#: kdeconnect-cli.cpp:36
-#, kde-format
-msgid "Albert Vaca Cintora"
-msgstr "अल्बर्ट वाका सिन्टोरा"
-
-#: kdeconnect-cli.cpp:42
-#, kde-format
-msgid "List all devices"
-msgstr "सर्वाणि उपकरणानि सूचीबद्धानि कुर्वन्तु"
-
-#: kdeconnect-cli.cpp:44
-#, kde-format
-msgid "List available (paired and reachable) devices"
-msgstr "उपलब्धानि (युग्मितानि तथा प्राप्यमाणानि) उपकरणानि सूचीबद्धं कुर्वन्तु"
-
-#: kdeconnect-cli.cpp:45
-#, kde-format
-msgid "List all backends and status"
-msgstr "सर्वे अभ्यन्तरसंविधानानि च स्थितिः दर्शयतु।"
-
-#: kdeconnect-cli.cpp:46
-#, kde-format
-msgid "Enable the specified backend"
-msgstr "दत्तं अभ्यन्तरसंविधानं सक्षमं कुरु।"
-
-#: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
-#, kde-format
-msgid "backend"
-msgstr "अभ्यन्तरसंविधानम्"
-
-#: kdeconnect-cli.cpp:47
-#, kde-format
-msgid "Disable the specified backend"
-msgstr "दत्तं अभ्यन्तरसंविधानं निष्क्रियं कुरु।"
-
-#: kdeconnect-cli.cpp:49
-#, kde-format
-msgid ""
-"Make --list-devices or --list-available print only the devices id, to ease "
-"scripting"
-msgstr ""
-"--list-devices अथवा --list-available केवलं devices id मुद्रयन्तु, स्क्रिप्टिङ्ग् सुलभं कर्तुं"
-
-#: kdeconnect-cli.cpp:51
-#, kde-format
-msgid ""
-"Make --list-devices or --list-available print only the devices name, to ease "
-"scripting"
-msgstr ""
-"--list-devices अथवा --list-available केवलं उपकरणानां नाम मुद्रयन्तु, स्क्रिप्टिङ्ग् सुलभं "
-"कर्तुं"
-
-#: kdeconnect-cli.cpp:53
-#, kde-format
-msgid ""
-"Make --list-devices or --list-available print only the devices id and name, "
-"to ease scripting"
-msgstr ""
-"--list-devices अथवा --list-available केवलं devices id तथा name मुद्रयन्तु, "
-"स्क्रिप्टिङ्ग् सुलभं कर्तुं"
-
-#: kdeconnect-cli.cpp:54
-#, kde-format
-msgid "Search for devices in the network and re-establish connections"
-msgstr "जालपुटे उपकरणानि अन्वेष्टुम्, पुनः संयोजनानि स्थापयन्तु च"
-
-#: kdeconnect-cli.cpp:55
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
-msgid "Request pairing with device"
-msgstr "उक्तयन्त्रे युग्मीकरणस्य अनुरोधं कुर्वन्तु"
-
-#: kdeconnect-cli.cpp:56
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
-msgid "Find device by ringing it"
-msgstr "उक्तं यन्त्रं तस्य ध्वनिं कृत्वा अन्वेष्टुम्।"
-
-#: kdeconnect-cli.cpp:57
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
-msgid "Unpair from device"
-msgstr "यन्त्रस्य प्रतीक्षां कुर्वन्..."
-
-#: kdeconnect-cli.cpp:58
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
-msgid "Send ping to device"
-msgstr "उक्तं यन्त्रं प्रति पिंगं प्रेषयति"
-
-#: kdeconnect-cli.cpp:59
-#, kde-format
-msgid "Same as ping but you can set the message to display"
-msgstr "ping इत्यस्य समानं किन्तु भवन्तः सन्देशं प्रदर्शयितुं सेट् कर्तुं शक्नुवन्ति"
-
-#: kdeconnect-cli.cpp:59 kdeconnect-cli.cpp:66
-#, kde-format
-msgid "message"
-msgstr "सन्देशः"
-
-#: kdeconnect-cli.cpp:60
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
-msgid "Send clipboard to device"
-msgstr "वर्तमानं क्लिप्बोर्डं उक्तयन्त्रे प्रेषयति"
-
-#: kdeconnect-cli.cpp:61
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
-msgid "Share file/URL to device"
-msgstr "उक्तयन्त्रे सञ्चिकां/URL साझां कुर्वन्तु"
-
-#: kdeconnect-cli.cpp:62
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
-msgid "Share text to device"
-msgstr "उक्तयन्त्रे पाठं साझां कुर्वन्तु"
-
-#: kdeconnect-cli.cpp:63
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
-msgid "Display notifications on device"
-msgstr "उक्तयन्त्रे सूचनाः प्रदर्शयन्तु"
-
-#: kdeconnect-cli.cpp:64
-#, kde-format
-msgid "Lock the specified device"
-msgstr "निर्दिष्टं यन्त्रं ताडयन्तु"
-
-#: kdeconnect-cli.cpp:65
-#, kde-format
-msgid "Unlock the specified device"
-msgstr "निर्दिष्टं यन्त्रं अनलॉक् कुर्वन्तु"
-
-#: kdeconnect-cli.cpp:66
-#, kde-format
-msgid "Sends an SMS. Requires destination"
-msgstr "एस एम एस प्रेषयति। गन्तव्यस्य आवश्यकता भवति"
-
-#: kdeconnect-cli.cpp:67
-#, kde-format
-msgid "Phone number to send the message"
-msgstr "सन्देशं प्रेषयितुं दूरभाषसङ्ख्या"
-
-#: kdeconnect-cli.cpp:67
-#, kde-format
-msgid "phone number"
-msgstr "दूरभाषसङ्ख्या"
-
-#: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
-msgid ""
-"File URLs to send attachments with the message (can be passed multiple times)"
-msgstr "सन्देशेन सह संलग्नकानि प्रेषयितुं सञ्चिका-urls (बहुवारं पारितुं शक्यते)"
-
-#: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
-msgid "file URLs"
-msgstr "सञ्चिका urls"
-
-#: kdeconnect-cli.cpp:71
-#, kde-format
-msgid "Device ID"
-msgstr "डिवाइस आईडी"
-
-#: kdeconnect-cli.cpp:72
-#, kde-format
-msgid "Device Name"
-msgstr "यन्त्रनाम"
-
-#: kdeconnect-cli.cpp:73
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
-msgid "Get encryption info about device"
-msgstr "उक्तयन्त्रस्य विषये एन्क्रिप्शनसूचना प्राप्नुवन्तु"
-
-#: kdeconnect-cli.cpp:74
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
-msgid "List remote commands and their ids"
-msgstr "दूरस्थान् आदेशान् तेषां ids च सूचीबद्धं करोति"
-
-#: kdeconnect-cli.cpp:75
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
-msgid "Execute remote command by id"
-msgstr "id द्वारा दूरस्थं आदेशं निष्पादयति"
-
-#: kdeconnect-cli.cpp:76
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
-msgid "Send keys to device"
-msgstr "उक्तयन्त्रे कीलानि प्रेषयति"
-
-#: kdeconnect-cli.cpp:77
-#, kde-format
-msgid "Display this device's id and exit"
-msgstr "अस्य यन्त्रस्य id प्रदर्श्य निर्गच्छतु"
-
-#: kdeconnect-cli.cpp:78
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
-msgid "Mount filesystem of a said device"
-msgstr "उक्तयन्त्रे कीलानि प्रेषयति"
-
-#: kdeconnect-cli.cpp:79
-#, kde-format
-msgid "Print mount point for the filesystem of a said device"
-msgstr ""
-
-#: kdeconnect-cli.cpp:125
-#, kde-format
-msgid "(paired and reachable)"
-msgstr "(युग्मं प्राप्य च)"
-
-#: kdeconnect-cli.cpp:127
-#, kde-format
-msgid "(reachable)"
-msgstr "(प्राप्य)"
-
-#: kdeconnect-cli.cpp:129 kdeconnect-cli.cpp:153
-#, kde-format
-msgid "(paired)"
-msgstr "(युग्मितम्)"
-
-#: kdeconnect-cli.cpp:135
-#, kde-format
-msgid "1 device found"
-msgid_plural "%1 devices found"
-msgstr[0] "१ यन्त्रं प्राप्तम्"
-msgstr[1] "%1 उपकरणानि प्राप्तानि"
-
-#: kdeconnect-cli.cpp:137
-#, kde-format
-msgid "No devices found"
-msgstr "न यन्त्राणि प्राप्तानि"
-
-#: kdeconnect-cli.cpp:155
-#, kde-format
-msgid "(unpaired)"
-msgstr "(अयुग्मितम्)"
-
-#: kdeconnect-cli.cpp:198
+#: kdeconnect-cli.cpp:38
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -303,62 +42,323 @@ msgstr ""
 "\"kdeconnect-cli -l\" इत्यस्य उपयोगेन उपकरण-ID's तथा च नामानि प्राप्यन्ते । \n"
 "--help विकल्पेन सह सम्पूर्णं सहायतां पश्यन्तु"
 
-#: kdeconnect-cli.cpp:233
+#: kdeconnect-cli.cpp:58
+#, kde-format
+msgid "KDE Connect CLI tool"
+msgstr "KDE CLI साधनं संयोजयन्तु"
+
+#: kdeconnect-cli.cpp:60
+#, kde-format
+msgid "© 2015–2025, KDE Connect Team"
+msgstr ""
+
+#: kdeconnect-cli.cpp:61
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "एलेक्स पोल गोन्जालेज"
+
+#: kdeconnect-cli.cpp:62
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "अल्बर्ट वाका सिन्टोरा"
+
+#: kdeconnect-cli.cpp:68
+#, kde-format
+msgid "List all devices"
+msgstr "सर्वाणि उपकरणानि सूचीबद्धानि कुर्वन्तु"
+
+#: kdeconnect-cli.cpp:70
+#, kde-format
+msgid "List available (paired and reachable) devices"
+msgstr "उपलब्धानि (युग्मितानि तथा प्राप्यमाणानि) उपकरणानि सूचीबद्धं कुर्वन्तु"
+
+#: kdeconnect-cli.cpp:71
+#, kde-format
+msgid "List all backends and status"
+msgstr "सर्वे अभ्यन्तरसंविधानानि च स्थितिः दर्शयतु।"
+
+#: kdeconnect-cli.cpp:72
+#, kde-format
+msgid "Enable the specified backend"
+msgstr "दत्तं अभ्यन्तरसंविधानं सक्षमं कुरु।"
+
+#: kdeconnect-cli.cpp:72 kdeconnect-cli.cpp:73
+#, kde-format
+msgid "backend"
+msgstr "अभ्यन्तरसंविधानम्"
+
+#: kdeconnect-cli.cpp:73
+#, kde-format
+msgid "Disable the specified backend"
+msgstr "दत्तं अभ्यन्तरसंविधानं निष्क्रियं कुरु।"
+
+#: kdeconnect-cli.cpp:75
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id, to ease "
+"scripting"
+msgstr ""
+"--list-devices अथवा --list-available केवलं devices id मुद्रयन्तु, स्क्रिप्टिङ्ग् सुलभं कर्तुं"
+
+#: kdeconnect-cli.cpp:77
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices name, to ease "
+"scripting"
+msgstr ""
+"--list-devices अथवा --list-available केवलं उपकरणानां नाम मुद्रयन्तु, स्क्रिप्टिङ्ग् सुलभं "
+"कर्तुं"
+
+#: kdeconnect-cli.cpp:79
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id and name, "
+"to ease scripting"
+msgstr ""
+"--list-devices अथवा --list-available केवलं devices id तथा name मुद्रयन्तु, "
+"स्क्रिप्टिङ्ग् सुलभं कर्तुं"
+
+#: kdeconnect-cli.cpp:80
+#, kde-format
+msgid "Search for devices in the network and re-establish connections"
+msgstr "जालपुटे उपकरणानि अन्वेष्टुम्, पुनः संयोजनानि स्थापयन्तु च"
+
+#: kdeconnect-cli.cpp:81
+#, fuzzy, kde-format
+#| msgid "Request pairing to a said device"
+msgid "Request pairing with device"
+msgstr "उक्तयन्त्रे युग्मीकरणस्य अनुरोधं कुर्वन्तु"
+
+#: kdeconnect-cli.cpp:82
+#, fuzzy, kde-format
+#| msgid "Find the said device by ringing it."
+msgid "Find device by ringing it"
+msgstr "उक्तं यन्त्रं तस्य ध्वनिं कृत्वा अन्वेष्टुम्।"
+
+#: kdeconnect-cli.cpp:83
+#, fuzzy, kde-format
+#| msgid "waiting for device..."
+msgid "Unpair from device"
+msgstr "यन्त्रस्य प्रतीक्षां कुर्वन्..."
+
+#: kdeconnect-cli.cpp:84
+#, fuzzy, kde-format
+#| msgid "Sends a ping to said device"
+msgid "Send ping to device"
+msgstr "उक्तं यन्त्रं प्रति पिंगं प्रेषयति"
+
+#: kdeconnect-cli.cpp:85
+#, kde-format
+msgid "Same as ping but you can set the message to display"
+msgstr "ping इत्यस्य समानं किन्तु भवन्तः सन्देशं प्रदर्शयितुं सेट् कर्तुं शक्नुवन्ति"
+
+#: kdeconnect-cli.cpp:85 kdeconnect-cli.cpp:92
+#, kde-format
+msgid "message"
+msgstr "सन्देशः"
+
+#: kdeconnect-cli.cpp:86
+#, fuzzy, kde-format
+#| msgid "Sends the current clipboard to said device"
+msgid "Send clipboard to device"
+msgstr "वर्तमानं क्लिप्बोर्डं उक्तयन्त्रे प्रेषयति"
+
+#: kdeconnect-cli.cpp:87
+#, fuzzy, kde-format
+#| msgid "Share a file/URL to a said device"
+msgid "Share file/URL to device"
+msgstr "उक्तयन्त्रे सञ्चिकां/URL साझां कुर्वन्तु"
+
+#: kdeconnect-cli.cpp:88
+#, fuzzy, kde-format
+#| msgid "Share text to a said device"
+msgid "Share text to device"
+msgstr "उक्तयन्त्रे पाठं साझां कुर्वन्तु"
+
+#: kdeconnect-cli.cpp:89
+#, fuzzy, kde-format
+#| msgid "Display the notifications on a said device"
+msgid "Display notifications on device"
+msgstr "उक्तयन्त्रे सूचनाः प्रदर्शयन्तु"
+
+#: kdeconnect-cli.cpp:90
+#, kde-format
+msgid "Lock the specified device"
+msgstr "निर्दिष्टं यन्त्रं ताडयन्तु"
+
+#: kdeconnect-cli.cpp:91
+#, kde-format
+msgid "Unlock the specified device"
+msgstr "निर्दिष्टं यन्त्रं अनलॉक् कुर्वन्तु"
+
+#: kdeconnect-cli.cpp:92
+#, kde-format
+msgid "Sends an SMS. Requires destination"
+msgstr "एस एम एस प्रेषयति। गन्तव्यस्य आवश्यकता भवति"
+
+#: kdeconnect-cli.cpp:93
+#, kde-format
+msgid "Phone number to send the message"
+msgstr "सन्देशं प्रेषयितुं दूरभाषसङ्ख्या"
+
+#: kdeconnect-cli.cpp:93
+#, kde-format
+msgid "phone number"
+msgstr "दूरभाषसङ्ख्या"
+
+#: kdeconnect-cli.cpp:95
+#, fuzzy, kde-format
+#| msgid ""
+#| "File urls to send attachments with the message (can be passed multiple "
+#| "times)"
+msgid ""
+"File URLs to send attachments with the message (can be passed multiple times)"
+msgstr "सन्देशेन सह संलग्नकानि प्रेषयितुं सञ्चिका-urls (बहुवारं पारितुं शक्यते)"
+
+#: kdeconnect-cli.cpp:96
+#, fuzzy, kde-format
+#| msgid "file urls"
+msgid "file URLs"
+msgstr "सञ्चिका urls"
+
+#: kdeconnect-cli.cpp:97
+#, kde-format
+msgid "Device ID"
+msgstr "डिवाइस आईडी"
+
+#: kdeconnect-cli.cpp:98
+#, kde-format
+msgid "Device Name"
+msgstr "यन्त्रनाम"
+
+#: kdeconnect-cli.cpp:99
+#, fuzzy, kde-format
+#| msgid "Get encryption info about said device"
+msgid "Get encryption info about device"
+msgstr "उक्तयन्त्रस्य विषये एन्क्रिप्शनसूचना प्राप्नुवन्तु"
+
+#: kdeconnect-cli.cpp:100
+#, fuzzy, kde-format
+#| msgid "Lists remote commands and their ids"
+msgid "List remote commands and their ids"
+msgstr "दूरस्थान् आदेशान् तेषां ids च सूचीबद्धं करोति"
+
+#: kdeconnect-cli.cpp:101
+#, fuzzy, kde-format
+#| msgid "Executes a remote command by id"
+msgid "Execute remote command by id"
+msgstr "id द्वारा दूरस्थं आदेशं निष्पादयति"
+
+#: kdeconnect-cli.cpp:102
+#, fuzzy, kde-format
+#| msgid "Sends keys to a said device"
+msgid "Send keys to device"
+msgstr "उक्तयन्त्रे कीलानि प्रेषयति"
+
+#: kdeconnect-cli.cpp:103
+#, kde-format
+msgid "Display this device's id and exit"
+msgstr "अस्य यन्त्रस्य id प्रदर्श्य निर्गच्छतु"
+
+#: kdeconnect-cli.cpp:104
+#, fuzzy, kde-format
+#| msgid "Sends keys to a said device"
+msgid "Mount filesystem of a said device"
+msgstr "उक्तयन्त्रे कीलानि प्रेषयति"
+
+#: kdeconnect-cli.cpp:105
+#, kde-format
+msgid "Print mount point for the filesystem of a said device"
+msgstr ""
+
+#: kdeconnect-cli.cpp:151
+#, kde-format
+msgid "(paired and reachable)"
+msgstr "(युग्मं प्राप्य च)"
+
+#: kdeconnect-cli.cpp:153
+#, kde-format
+msgid "(reachable)"
+msgstr "(प्राप्य)"
+
+#: kdeconnect-cli.cpp:155 kdeconnect-cli.cpp:178
+#, kde-format
+msgid "(paired)"
+msgstr "(युग्मितम्)"
+
+#: kdeconnect-cli.cpp:161
+#, kde-format
+msgid "1 device found"
+msgid_plural "%1 devices found"
+msgstr[0] "१ यन्त्रं प्राप्तम्"
+msgstr[1] "%1 उपकरणानि प्राप्तानि"
+
+#: kdeconnect-cli.cpp:163
+#, kde-format
+msgid "No devices found"
+msgstr "न यन्त्राणि प्राप्तानि"
+
+#: kdeconnect-cli.cpp:180
+#, kde-format
+msgid "(unpaired)"
+msgstr "(अयुग्मितम्)"
+
+#: kdeconnect-cli.cpp:240
 #, fuzzy, kde-format
 #| msgid "Shared %1"
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "साझा %1"
 
-#: kdeconnect-cli.cpp:242
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Shared text: %1"
 msgstr "साझापाठः %1"
 
-#: kdeconnect-cli.cpp:249
+#: kdeconnect-cli.cpp:264
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "%1 ताडयितुं अनुरोधः कृतः ।"
 
-#: kdeconnect-cli.cpp:251
+#: kdeconnect-cli.cpp:266
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "%1 अनलॉक् कर्तुं अनुरोधः कृतः ।"
 
-#: kdeconnect-cli.cpp:258
+#: kdeconnect-cli.cpp:277
 #, fuzzy, kde-format
 #| msgid "waiting for device..."
 msgid "waiting for device…"
 msgstr "यन्त्रस्य प्रतीक्षां कुर्वन्..."
 
-#: kdeconnect-cli.cpp:271
+#: kdeconnect-cli.cpp:290
 #, kde-format
 msgid "Device not found"
 msgstr "यन्त्रं न लब्धम्"
 
-#: kdeconnect-cli.cpp:273
+#: kdeconnect-cli.cpp:292
 #, kde-format
 msgid "Already paired"
 msgstr "पूर्वमेव युग्मितम्"
 
-#: kdeconnect-cli.cpp:275
+#: kdeconnect-cli.cpp:294
 #, kde-format
 msgid "Pair requested"
 msgstr "युग्मं अनुरोधितम्"
 
-#: kdeconnect-cli.cpp:281
+#: kdeconnect-cli.cpp:304
 #, kde-format
 msgid "Already not paired"
 msgstr "पूर्वमेव न युग्मितम्"
 
-#: kdeconnect-cli.cpp:283
+#: kdeconnect-cli.cpp:306
 #, kde-format
 msgid "Successfully unpaired"
 msgstr ""
 
-#: kdeconnect-cli.cpp:329
+#: kdeconnect-cli.cpp:364
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -367,10 +367,8 @@ msgstr ""
 "error: --destination <phone number> इति उत्तीर्णं कृत्वा SMS इत्यस्य प्राप्तकर्ता "
 "निर्दिष्टव्यः"
 
-#: kdeconnect-cli.cpp:396
-#, kde-format
-msgid "Nothing to be done"
-msgstr "न किमपि कर्तव्यम्"
+#~ msgid "Nothing to be done"
+#~ msgstr "न किमपि कर्तव्यम्"
 
 #~ msgid "Stop pairing to a said device"
 #~ msgstr "उक्तयन्त्रेण सह युग्मीकरणं त्यजन्तु"

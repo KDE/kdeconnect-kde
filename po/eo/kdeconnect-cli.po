@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-09 00:42+0000\n"
+"POT-Creation-Date: 2025-11-10 00:42+0000\n"
 "PO-Revision-Date: 2024-12-27 17:40+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -28,271 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "olivermkellogg@gmail.com"
 
-#: kdeconnect-cli.cpp:32
-#, kde-format
-msgid "KDE Connect CLI tool"
-msgstr "KDE Connect KLI-ilo"
-
-#: kdeconnect-cli.cpp:34
-#, kde-format
-msgid "© 2015–2025, KDE Connect Team"
-msgstr ""
-
-#: kdeconnect-cli.cpp:35
-#, kde-format
-msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
-
-#: kdeconnect-cli.cpp:36
-#, kde-format
-msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
-
-#: kdeconnect-cli.cpp:42
-#, kde-format
-msgid "List all devices"
-msgstr "Listigi ĉiujn aparatojn"
-
-#: kdeconnect-cli.cpp:44
-#, kde-format
-msgid "List available (paired and reachable) devices"
-msgstr "Listo de disponeblaj (parigitaj kaj atingeblaj) aparatoj"
-
-#: kdeconnect-cli.cpp:45
-#, kde-format
-msgid "List all backends and status"
-msgstr "Listigi ĉiujn backend and statuson"
-
-#: kdeconnect-cli.cpp:46
-#, kde-format
-msgid "Enable the specified backend"
-msgstr "Ebligi la specifitan backend"
-
-#: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
-#, kde-format
-msgid "backend"
-msgstr "backend"
-
-#: kdeconnect-cli.cpp:47
-#, kde-format
-msgid "Disable the specified backend"
-msgstr "Malebligi la specifitan backend"
-
-#: kdeconnect-cli.cpp:49
-#, kde-format
-msgid ""
-"Make --list-devices or --list-available print only the devices id, to ease "
-"scripting"
-msgstr ""
-"Igi --list-devices aŭ --list-available presi nur la aparato-id, por faciligi "
-"skriptadon"
-
-#: kdeconnect-cli.cpp:51
-#, kde-format
-msgid ""
-"Make --list-devices or --list-available print only the devices name, to ease "
-"scripting"
-msgstr ""
-"Igi --list-devices aŭ --list-available presi nur la aparaton nomon, por "
-"faciligi skriptadon"
-
-#: kdeconnect-cli.cpp:53
-#, kde-format
-msgid ""
-"Make --list-devices or --list-available print only the devices id and name, "
-"to ease scripting"
-msgstr ""
-"Igi --list-devices aŭ --list-available presi nur la aparatan identigilon kaj "
-"nomon, por faciligi skriptadon"
-
-#: kdeconnect-cli.cpp:54
-#, kde-format
-msgid "Search for devices in the network and re-establish connections"
-msgstr "Serĉi aparatojn en la reto kaj reestabli konektojn"
-
-#: kdeconnect-cli.cpp:55
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
-msgid "Request pairing with device"
-msgstr "Peti parigon al menciita aparato"
-
-#: kdeconnect-cli.cpp:56
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
-msgid "Find device by ringing it"
-msgstr "Trovi la menciitan aparaton sonorigante ĝin."
-
-#: kdeconnect-cli.cpp:57
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
-msgid "Unpair from device"
-msgstr "atendante aparaton..."
-
-#: kdeconnect-cli.cpp:58
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
-msgid "Send ping to device"
-msgstr "Sendas pingon al koncerna aparato"
-
-#: kdeconnect-cli.cpp:59
-#, kde-format
-msgid "Same as ping but you can set the message to display"
-msgstr "Same kiel ping sed vi povas agordi la mesaĝon por montri"
-
-#: kdeconnect-cli.cpp:59 kdeconnect-cli.cpp:66
-#, kde-format
-msgid "message"
-msgstr "mesaĝo"
-
-#: kdeconnect-cli.cpp:60
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
-msgid "Send clipboard to device"
-msgstr "Sendas la nunan tondujon al koncerna aparato"
-
-#: kdeconnect-cli.cpp:61
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
-msgid "Share file/URL to device"
-msgstr "Kunhavigi dosieron/URL al koncerna aparato"
-
-#: kdeconnect-cli.cpp:62
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
-msgid "Share text to device"
-msgstr "Kunhavigi tekston al koncerna aparato"
-
-#: kdeconnect-cli.cpp:63
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
-msgid "Display notifications on device"
-msgstr "Montri la sciigojn sur menciita aparato"
-
-#: kdeconnect-cli.cpp:64
-#, kde-format
-msgid "Lock the specified device"
-msgstr "Ŝlosi la specifitan aparaton"
-
-#: kdeconnect-cli.cpp:65
-#, kde-format
-msgid "Unlock the specified device"
-msgstr "Malŝlosi la specifitan aparaton"
-
-#: kdeconnect-cli.cpp:66
-#, kde-format
-msgid "Sends an SMS. Requires destination"
-msgstr "Sendas SMS. Postulas celon"
-
-#: kdeconnect-cli.cpp:67
-#, kde-format
-msgid "Phone number to send the message"
-msgstr "Telefonnumero por sendi la mesaĝon"
-
-#: kdeconnect-cli.cpp:67
-#, kde-format
-msgid "phone number"
-msgstr "telefonnumero"
-
-#: kdeconnect-cli.cpp:69
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
-msgid ""
-"File URLs to send attachments with the message (can be passed multiple times)"
-msgstr ""
-"Dosieraj URLoj por sendi aldonaĵojn kun la mesaĝo (povas esti pasitaj "
-"plurfoje)"
-
-#: kdeconnect-cli.cpp:70
-#, fuzzy, kde-format
-#| msgid "file urls"
-msgid "file URLs"
-msgstr "dosiero urloj"
-
-#: kdeconnect-cli.cpp:71
-#, kde-format
-msgid "Device ID"
-msgstr "Aparat-ID"
-
-#: kdeconnect-cli.cpp:72
-#, kde-format
-msgid "Device Name"
-msgstr "Aparatnomo"
-
-#: kdeconnect-cli.cpp:73
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
-msgid "Get encryption info about device"
-msgstr "Akiri ĉifrajn informojn pri koncerna aparato"
-
-#: kdeconnect-cli.cpp:74
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
-msgid "List remote commands and their ids"
-msgstr "Listigas forajn komandojn kaj iliajn identigilojn"
-
-#: kdeconnect-cli.cpp:75
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
-msgid "Execute remote command by id"
-msgstr "Plenumas foran komandon per id"
-
-#: kdeconnect-cli.cpp:76
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
-msgid "Send keys to device"
-msgstr "Sendas ŝlosilojn al menciita aparato"
-
-#: kdeconnect-cli.cpp:77
-#, kde-format
-msgid "Display this device's id and exit"
-msgstr "Montri la identigilon de ĉi tiu aparato kaj eliri"
-
-#: kdeconnect-cli.cpp:78
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
-msgid "Mount filesystem of a said device"
-msgstr "Sendas ŝlosilojn al menciita aparato"
-
-#: kdeconnect-cli.cpp:79
-#, kde-format
-msgid "Print mount point for the filesystem of a said device"
-msgstr ""
-
-#: kdeconnect-cli.cpp:125
-#, kde-format
-msgid "(paired and reachable)"
-msgstr "(parigita kaj atingebla)"
-
-#: kdeconnect-cli.cpp:127
-#, kde-format
-msgid "(reachable)"
-msgstr "(atingebla)"
-
-#: kdeconnect-cli.cpp:129 kdeconnect-cli.cpp:153
-#, kde-format
-msgid "(paired)"
-msgstr "(parigita)"
-
-#: kdeconnect-cli.cpp:135
-#, kde-format
-msgid "1 device found"
-msgid_plural "%1 devices found"
-msgstr[0] "trovis 1 aparaton"
-msgstr[1] "trovis %1 aparatojn"
-
-#: kdeconnect-cli.cpp:137
-#, kde-format
-msgid "No devices found"
-msgstr "Neniuj aparatoj trovitaj"
-
-#: kdeconnect-cli.cpp:155
-#, kde-format
-msgid "(unpaired)"
-msgstr "(neparigita)"
-
-#: kdeconnect-cli.cpp:198
+#: kdeconnect-cli.cpp:38
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -305,62 +41,326 @@ msgstr ""
 "Aparataj identigiloj kaj nomoj troviĝas uzante \"kdeconnect-cli -l\" \n"
 "Vidu kompletan helpon per opcio --help"
 
-#: kdeconnect-cli.cpp:233
+#: kdeconnect-cli.cpp:58
+#, kde-format
+msgid "KDE Connect CLI tool"
+msgstr "KDE Connect KLI-ilo"
+
+#: kdeconnect-cli.cpp:60
+#, kde-format
+msgid "© 2015–2025, KDE Connect Team"
+msgstr ""
+
+#: kdeconnect-cli.cpp:61
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: kdeconnect-cli.cpp:62
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
+
+#: kdeconnect-cli.cpp:68
+#, kde-format
+msgid "List all devices"
+msgstr "Listigi ĉiujn aparatojn"
+
+#: kdeconnect-cli.cpp:70
+#, kde-format
+msgid "List available (paired and reachable) devices"
+msgstr "Listo de disponeblaj (parigitaj kaj atingeblaj) aparatoj"
+
+#: kdeconnect-cli.cpp:71
+#, kde-format
+msgid "List all backends and status"
+msgstr "Listigi ĉiujn backend and statuson"
+
+#: kdeconnect-cli.cpp:72
+#, kde-format
+msgid "Enable the specified backend"
+msgstr "Ebligi la specifitan backend"
+
+#: kdeconnect-cli.cpp:72 kdeconnect-cli.cpp:73
+#, kde-format
+msgid "backend"
+msgstr "backend"
+
+#: kdeconnect-cli.cpp:73
+#, kde-format
+msgid "Disable the specified backend"
+msgstr "Malebligi la specifitan backend"
+
+#: kdeconnect-cli.cpp:75
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id, to ease "
+"scripting"
+msgstr ""
+"Igi --list-devices aŭ --list-available presi nur la aparato-id, por faciligi "
+"skriptadon"
+
+#: kdeconnect-cli.cpp:77
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices name, to ease "
+"scripting"
+msgstr ""
+"Igi --list-devices aŭ --list-available presi nur la aparaton nomon, por "
+"faciligi skriptadon"
+
+#: kdeconnect-cli.cpp:79
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id and name, "
+"to ease scripting"
+msgstr ""
+"Igi --list-devices aŭ --list-available presi nur la aparatan identigilon kaj "
+"nomon, por faciligi skriptadon"
+
+#: kdeconnect-cli.cpp:80
+#, kde-format
+msgid "Search for devices in the network and re-establish connections"
+msgstr "Serĉi aparatojn en la reto kaj reestabli konektojn"
+
+#: kdeconnect-cli.cpp:81
+#, fuzzy, kde-format
+#| msgid "Request pairing to a said device"
+msgid "Request pairing with device"
+msgstr "Peti parigon al menciita aparato"
+
+#: kdeconnect-cli.cpp:82
+#, fuzzy, kde-format
+#| msgid "Find the said device by ringing it."
+msgid "Find device by ringing it"
+msgstr "Trovi la menciitan aparaton sonorigante ĝin."
+
+#: kdeconnect-cli.cpp:83
+#, fuzzy, kde-format
+#| msgid "waiting for device..."
+msgid "Unpair from device"
+msgstr "atendante aparaton..."
+
+#: kdeconnect-cli.cpp:84
+#, fuzzy, kde-format
+#| msgid "Sends a ping to said device"
+msgid "Send ping to device"
+msgstr "Sendas pingon al koncerna aparato"
+
+#: kdeconnect-cli.cpp:85
+#, kde-format
+msgid "Same as ping but you can set the message to display"
+msgstr "Same kiel ping sed vi povas agordi la mesaĝon por montri"
+
+#: kdeconnect-cli.cpp:85 kdeconnect-cli.cpp:92
+#, kde-format
+msgid "message"
+msgstr "mesaĝo"
+
+#: kdeconnect-cli.cpp:86
+#, fuzzy, kde-format
+#| msgid "Sends the current clipboard to said device"
+msgid "Send clipboard to device"
+msgstr "Sendas la nunan tondujon al koncerna aparato"
+
+#: kdeconnect-cli.cpp:87
+#, fuzzy, kde-format
+#| msgid "Share a file/URL to a said device"
+msgid "Share file/URL to device"
+msgstr "Kunhavigi dosieron/URL al koncerna aparato"
+
+#: kdeconnect-cli.cpp:88
+#, fuzzy, kde-format
+#| msgid "Share text to a said device"
+msgid "Share text to device"
+msgstr "Kunhavigi tekston al koncerna aparato"
+
+#: kdeconnect-cli.cpp:89
+#, fuzzy, kde-format
+#| msgid "Display the notifications on a said device"
+msgid "Display notifications on device"
+msgstr "Montri la sciigojn sur menciita aparato"
+
+#: kdeconnect-cli.cpp:90
+#, kde-format
+msgid "Lock the specified device"
+msgstr "Ŝlosi la specifitan aparaton"
+
+#: kdeconnect-cli.cpp:91
+#, kde-format
+msgid "Unlock the specified device"
+msgstr "Malŝlosi la specifitan aparaton"
+
+#: kdeconnect-cli.cpp:92
+#, kde-format
+msgid "Sends an SMS. Requires destination"
+msgstr "Sendas SMS. Postulas celon"
+
+#: kdeconnect-cli.cpp:93
+#, kde-format
+msgid "Phone number to send the message"
+msgstr "Telefonnumero por sendi la mesaĝon"
+
+#: kdeconnect-cli.cpp:93
+#, kde-format
+msgid "phone number"
+msgstr "telefonnumero"
+
+#: kdeconnect-cli.cpp:95
+#, fuzzy, kde-format
+#| msgid ""
+#| "File urls to send attachments with the message (can be passed multiple "
+#| "times)"
+msgid ""
+"File URLs to send attachments with the message (can be passed multiple times)"
+msgstr ""
+"Dosieraj URLoj por sendi aldonaĵojn kun la mesaĝo (povas esti pasitaj "
+"plurfoje)"
+
+#: kdeconnect-cli.cpp:96
+#, fuzzy, kde-format
+#| msgid "file urls"
+msgid "file URLs"
+msgstr "dosiero urloj"
+
+#: kdeconnect-cli.cpp:97
+#, kde-format
+msgid "Device ID"
+msgstr "Aparat-ID"
+
+#: kdeconnect-cli.cpp:98
+#, kde-format
+msgid "Device Name"
+msgstr "Aparatnomo"
+
+#: kdeconnect-cli.cpp:99
+#, fuzzy, kde-format
+#| msgid "Get encryption info about said device"
+msgid "Get encryption info about device"
+msgstr "Akiri ĉifrajn informojn pri koncerna aparato"
+
+#: kdeconnect-cli.cpp:100
+#, fuzzy, kde-format
+#| msgid "Lists remote commands and their ids"
+msgid "List remote commands and their ids"
+msgstr "Listigas forajn komandojn kaj iliajn identigilojn"
+
+#: kdeconnect-cli.cpp:101
+#, fuzzy, kde-format
+#| msgid "Executes a remote command by id"
+msgid "Execute remote command by id"
+msgstr "Plenumas foran komandon per id"
+
+#: kdeconnect-cli.cpp:102
+#, fuzzy, kde-format
+#| msgid "Sends keys to a said device"
+msgid "Send keys to device"
+msgstr "Sendas ŝlosilojn al menciita aparato"
+
+#: kdeconnect-cli.cpp:103
+#, kde-format
+msgid "Display this device's id and exit"
+msgstr "Montri la identigilon de ĉi tiu aparato kaj eliri"
+
+#: kdeconnect-cli.cpp:104
+#, fuzzy, kde-format
+#| msgid "Sends keys to a said device"
+msgid "Mount filesystem of a said device"
+msgstr "Sendas ŝlosilojn al menciita aparato"
+
+#: kdeconnect-cli.cpp:105
+#, kde-format
+msgid "Print mount point for the filesystem of a said device"
+msgstr ""
+
+#: kdeconnect-cli.cpp:151
+#, kde-format
+msgid "(paired and reachable)"
+msgstr "(parigita kaj atingebla)"
+
+#: kdeconnect-cli.cpp:153
+#, kde-format
+msgid "(reachable)"
+msgstr "(atingebla)"
+
+#: kdeconnect-cli.cpp:155 kdeconnect-cli.cpp:178
+#, kde-format
+msgid "(paired)"
+msgstr "(parigita)"
+
+#: kdeconnect-cli.cpp:161
+#, kde-format
+msgid "1 device found"
+msgid_plural "%1 devices found"
+msgstr[0] "trovis 1 aparaton"
+msgstr[1] "trovis %1 aparatojn"
+
+#: kdeconnect-cli.cpp:163
+#, kde-format
+msgid "No devices found"
+msgstr "Neniuj aparatoj trovitaj"
+
+#: kdeconnect-cli.cpp:180
+#, kde-format
+msgid "(unpaired)"
+msgstr "(neparigita)"
+
+#: kdeconnect-cli.cpp:240
 #, fuzzy, kde-format
 #| msgid "Shared %1"
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Kunhavita %1"
 
-#: kdeconnect-cli.cpp:242
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Komuna teksto: %1"
 
-#: kdeconnect-cli.cpp:249
+#: kdeconnect-cli.cpp:264
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Alpetis ŝlosadon de %1."
 
-#: kdeconnect-cli.cpp:251
+#: kdeconnect-cli.cpp:266
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Alpetis malŝlosadon de %1."
 
-#: kdeconnect-cli.cpp:258
+#: kdeconnect-cli.cpp:277
 #, fuzzy, kde-format
 #| msgid "waiting for device..."
 msgid "waiting for device…"
 msgstr "atendante aparaton..."
 
-#: kdeconnect-cli.cpp:271
+#: kdeconnect-cli.cpp:290
 #, kde-format
 msgid "Device not found"
 msgstr "Aparato ne trovita"
 
-#: kdeconnect-cli.cpp:273
+#: kdeconnect-cli.cpp:292
 #, kde-format
 msgid "Already paired"
 msgstr "Jam parigita"
 
-#: kdeconnect-cli.cpp:275
+#: kdeconnect-cli.cpp:294
 #, kde-format
 msgid "Pair requested"
 msgstr "Parigo alpetiĝis"
 
-#: kdeconnect-cli.cpp:281
+#: kdeconnect-cli.cpp:304
 #, kde-format
 msgid "Already not paired"
 msgstr "Jam ne parigita"
 
-#: kdeconnect-cli.cpp:283
+#: kdeconnect-cli.cpp:306
 #, kde-format
 msgid "Successfully unpaired"
 msgstr ""
 
-#: kdeconnect-cli.cpp:329
+#: kdeconnect-cli.cpp:364
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -369,10 +369,8 @@ msgstr ""
 "eraro: devus specifi la ricevonton de la SMS pasante --destination "
 "<telefonnumero>"
 
-#: kdeconnect-cli.cpp:396
-#, kde-format
-msgid "Nothing to be done"
-msgstr "Nenio farenda"
+#~ msgid "Nothing to be done"
+#~ msgstr "Nenio farenda"
 
 #~ msgid "Stop pairing to a said device"
 #~ msgstr "Ĉesigi parigon al menciita aparato"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-09 00:42+0000\n"
+"POT-Creation-Date: 2025-11-10 00:42+0000\n"
 "PO-Revision-Date: 2017-05-26 11:26+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -30,59 +30,68 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "slsimic@gmail.com"
 
-#: kdeconnect-cli.cpp:32
+#: kdeconnect-cli.cpp:38
+#, kde-format
+msgid ""
+"No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
+"device. \n"
+"Device ID's and names may be found using \"kdeconnect-cli -l\" \n"
+"View complete help with --help option"
+msgstr ""
+
+#: kdeconnect-cli.cpp:58
 #, kde-format
 msgid "KDE Connect CLI tool"
 msgstr "KDE‑konekcijina alatka komandne linije"
 
-#: kdeconnect-cli.cpp:34
+#: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "© 2015–2025, KDE Connect Team"
 msgstr ""
 
-#: kdeconnect-cli.cpp:35
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleks Pol Gonzalez"
 
-#: kdeconnect-cli.cpp:36
+#: kdeconnect-cli.cpp:62
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaka Sintora"
 
-#: kdeconnect-cli.cpp:42
+#: kdeconnect-cli.cpp:68
 #, kde-format
 msgid "List all devices"
 msgstr "prikazuje sve uređaje"
 
-#: kdeconnect-cli.cpp:44
+#: kdeconnect-cli.cpp:70
 #, kde-format
 msgid "List available (paired and reachable) devices"
 msgstr "prikazuje dostupne (uparene i povezive) uređaje"
 
-#: kdeconnect-cli.cpp:45
+#: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "List all backends and status"
 msgstr ""
 
-#: kdeconnect-cli.cpp:46
+#: kdeconnect-cli.cpp:72
 #, fuzzy, kde-format
 #| msgid "Lock the specified device"
 msgid "Enable the specified backend"
 msgstr "zaključava navedeni uređaj"
 
-#: kdeconnect-cli.cpp:46 kdeconnect-cli.cpp:47
+#: kdeconnect-cli.cpp:72 kdeconnect-cli.cpp:73
 #, kde-format
 msgid "backend"
 msgstr ""
 
-#: kdeconnect-cli.cpp:47
+#: kdeconnect-cli.cpp:73
 #, fuzzy, kde-format
 #| msgid "Lock the specified device"
 msgid "Disable the specified backend"
 msgstr "zaključava navedeni uređaj"
 
-#: kdeconnect-cli.cpp:49
+#: kdeconnect-cli.cpp:75
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices id, to ease "
@@ -91,7 +100,7 @@ msgstr ""
 "omogućava da --list-devices ili --list-available prikazuju samo ID uređaja, "
 "što olakšava skriptovanje"
 
-#: kdeconnect-cli.cpp:51
+#: kdeconnect-cli.cpp:77
 #, fuzzy, kde-format
 #| msgid ""
 #| "Make --list-devices or --list-available print only the devices id, to "
@@ -103,7 +112,7 @@ msgstr ""
 "omogućava da --list-devices ili --list-available prikazuju samo ID uređaja, "
 "što olakšava skriptovanje"
 
-#: kdeconnect-cli.cpp:53
+#: kdeconnect-cli.cpp:79
 #, fuzzy, kde-format
 #| msgid ""
 #| "Make --list-devices or --list-available print only the devices id, to "
@@ -115,172 +124,172 @@ msgstr ""
 "omogućava da --list-devices ili --list-available prikazuju samo ID uređaja, "
 "što olakšava skriptovanje"
 
-#: kdeconnect-cli.cpp:54
+#: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Search for devices in the network and re-establish connections"
 msgstr "traži uređaje na mreži i ponovo uspostavlja veze"
 
-#: kdeconnect-cli.cpp:55
+#: kdeconnect-cli.cpp:81
 #, fuzzy, kde-format
 #| msgid "Request pairing to a said device"
 msgid "Request pairing with device"
 msgstr "zahteva uparivanje sa navedenim uređajem"
 
-#: kdeconnect-cli.cpp:56
+#: kdeconnect-cli.cpp:82
 #, fuzzy, kde-format
 #| msgid "Find the said device by ringing it."
 msgid "Find device by ringing it"
 msgstr "nalazi navedeni uređaj zvonjavom"
 
-#: kdeconnect-cli.cpp:57
+#: kdeconnect-cli.cpp:83
 #, fuzzy, kde-format
 #| msgid "waiting for device..."
 msgid "Unpair from device"
 msgstr "čekam na uređaj..."
 
-#: kdeconnect-cli.cpp:58
+#: kdeconnect-cli.cpp:84
 #, fuzzy, kde-format
 #| msgid "Sends a ping to said device"
 msgid "Send ping to device"
 msgstr "šalje ping navedenom uređaju"
 
-#: kdeconnect-cli.cpp:59
+#: kdeconnect-cli.cpp:85
 #, kde-format
 msgid "Same as ping but you can set the message to display"
 msgstr "isto kao ping ali može da pošalje proizvoljnu poruku"
 
-#: kdeconnect-cli.cpp:59 kdeconnect-cli.cpp:66
+#: kdeconnect-cli.cpp:85 kdeconnect-cli.cpp:92
 #, kde-format
 msgid "message"
 msgstr "poruka"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:86
 #, fuzzy, kde-format
 #| msgid "Sends a ping to said device"
 msgid "Send clipboard to device"
 msgstr "šalje ping navedenom uređaju"
 
-#: kdeconnect-cli.cpp:61
+#: kdeconnect-cli.cpp:87
 #, fuzzy, kde-format
 #| msgid "Share a file to a said device"
 msgid "Share file/URL to device"
 msgstr "deli fajl sa navedenim uređajem"
 
-#: kdeconnect-cli.cpp:62
+#: kdeconnect-cli.cpp:88
 #, fuzzy, kde-format
 #| msgid "Share a file to a said device"
 msgid "Share text to device"
 msgstr "deli fajl sa navedenim uređajem"
 
-#: kdeconnect-cli.cpp:63
+#: kdeconnect-cli.cpp:89
 #, fuzzy, kde-format
 #| msgid "Display the notifications on a said device"
 msgid "Display notifications on device"
 msgstr "prikazuje obaveštenja na navedenom uređaju"
 
-#: kdeconnect-cli.cpp:64
+#: kdeconnect-cli.cpp:90
 #, kde-format
 msgid "Lock the specified device"
 msgstr "zaključava navedeni uređaj"
 
-#: kdeconnect-cli.cpp:65
+#: kdeconnect-cli.cpp:91
 #, fuzzy, kde-format
 #| msgid "Lock the specified device"
 msgid "Unlock the specified device"
 msgstr "zaključava navedeni uređaj"
 
-#: kdeconnect-cli.cpp:66
+#: kdeconnect-cli.cpp:92
 #, kde-format
 msgid "Sends an SMS. Requires destination"
 msgstr "šalje SMS, zahteva odredišni broj"
 
-#: kdeconnect-cli.cpp:67
+#: kdeconnect-cli.cpp:93
 #, kde-format
 msgid "Phone number to send the message"
 msgstr "broj telefona na koji se šalje poruka"
 
-#: kdeconnect-cli.cpp:67
+#: kdeconnect-cli.cpp:93
 #, kde-format
 msgid "phone number"
 msgstr "broj telefona"
 
-#: kdeconnect-cli.cpp:69
+#: kdeconnect-cli.cpp:95
 #, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
 
-#: kdeconnect-cli.cpp:70
+#: kdeconnect-cli.cpp:96
 #, kde-format
 msgid "file URLs"
 msgstr ""
 
-#: kdeconnect-cli.cpp:71
+#: kdeconnect-cli.cpp:97
 #, kde-format
 msgid "Device ID"
 msgstr "ID uređaja"
 
-#: kdeconnect-cli.cpp:72
+#: kdeconnect-cli.cpp:98
 #, kde-format
 msgid "Device Name"
 msgstr "naziv uređaja"
 
-#: kdeconnect-cli.cpp:73
+#: kdeconnect-cli.cpp:99
 #, fuzzy, kde-format
 #| msgid "Get encryption info about said device"
 msgid "Get encryption info about device"
 msgstr "dobavlja podatke o šifrovanju za navedeni uređaj"
 
-#: kdeconnect-cli.cpp:74
+#: kdeconnect-cli.cpp:100
 #, fuzzy, kde-format
 #| msgid "Lists remote commands and their ids"
 msgid "List remote commands and their ids"
 msgstr "izlistava udaljene naredbe i njihove ID‑ove"
 
-#: kdeconnect-cli.cpp:75
+#: kdeconnect-cli.cpp:101
 #, fuzzy, kde-format
 #| msgid "Executes a remote command by id"
 msgid "Execute remote command by id"
 msgstr "izvršava udaljenu naredbu po ID‑u"
 
-#: kdeconnect-cli.cpp:76
+#: kdeconnect-cli.cpp:102
 #, fuzzy, kde-format
 #| msgid "Sends keys to a said device"
 msgid "Send keys to device"
 msgstr "šalje ključeve navedenom uređaju"
 
-#: kdeconnect-cli.cpp:77
+#: kdeconnect-cli.cpp:103
 #, kde-format
 msgid "Display this device's id and exit"
 msgstr "prikazuje ID ovog uređaja i izlazi"
 
-#: kdeconnect-cli.cpp:78
+#: kdeconnect-cli.cpp:104
 #, fuzzy, kde-format
 #| msgid "Sends keys to a said device"
 msgid "Mount filesystem of a said device"
 msgstr "šalje ključeve navedenom uređaju"
 
-#: kdeconnect-cli.cpp:79
+#: kdeconnect-cli.cpp:105
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr ""
 
-#: kdeconnect-cli.cpp:125
+#: kdeconnect-cli.cpp:151
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(uparen i dostupan)"
 
-#: kdeconnect-cli.cpp:127
+#: kdeconnect-cli.cpp:153
 #, kde-format
 msgid "(reachable)"
 msgstr "(dostupan)"
 
-#: kdeconnect-cli.cpp:129 kdeconnect-cli.cpp:153
+#: kdeconnect-cli.cpp:155 kdeconnect-cli.cpp:178
 #, kde-format
 msgid "(paired)"
 msgstr "(uparen)"
 
-#: kdeconnect-cli.cpp:135
+#: kdeconnect-cli.cpp:161
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
@@ -289,92 +298,81 @@ msgstr[1] "pronađena %1 uređaja"
 msgstr[2] "pronađeno %1 uređaja"
 msgstr[3] "pronađen jedan uređaj"
 
-#: kdeconnect-cli.cpp:137
+#: kdeconnect-cli.cpp:163
 #, kde-format
 msgid "No devices found"
 msgstr "nije nađen nijedan uređaj"
 
-#: kdeconnect-cli.cpp:155
+#: kdeconnect-cli.cpp:180
 #, fuzzy, kde-format
 #| msgid "(paired)"
 msgid "(unpaired)"
 msgstr "(uparen)"
 
-#: kdeconnect-cli.cpp:198
-#, kde-format
-msgid ""
-"No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
-"device. \n"
-"Device ID's and names may be found using \"kdeconnect-cli -l\" \n"
-"View complete help with --help option"
-msgstr ""
-
-#: kdeconnect-cli.cpp:233
+#: kdeconnect-cli.cpp:240
 #, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr ""
 
-#: kdeconnect-cli.cpp:242
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Shared text: %1"
 msgstr ""
 
-#: kdeconnect-cli.cpp:249
+#: kdeconnect-cli.cpp:264
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr ""
 
-#: kdeconnect-cli.cpp:251
+#: kdeconnect-cli.cpp:266
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr ""
 
-#: kdeconnect-cli.cpp:258
+#: kdeconnect-cli.cpp:277
 #, fuzzy, kde-format
 #| msgid "waiting for device..."
 msgid "waiting for device…"
 msgstr "čekam na uređaj..."
 
-#: kdeconnect-cli.cpp:271
+#: kdeconnect-cli.cpp:290
 #, kde-format
 msgid "Device not found"
 msgstr "uređaj nije pronađen"
 
-#: kdeconnect-cli.cpp:273
+#: kdeconnect-cli.cpp:292
 #, kde-format
 msgid "Already paired"
 msgstr "već uparen"
 
-#: kdeconnect-cli.cpp:275
+#: kdeconnect-cli.cpp:294
 #, kde-format
 msgid "Pair requested"
 msgstr "uparivanje je traženo"
 
-#: kdeconnect-cli.cpp:281
+#: kdeconnect-cli.cpp:304
 #, kde-format
 msgid "Already not paired"
 msgstr "već je neuparen"
 
-#: kdeconnect-cli.cpp:283
+#: kdeconnect-cli.cpp:306
 #, kde-format
 msgid "Successfully unpaired"
 msgstr ""
 
 # |, no-check-markup
-#: kdeconnect-cli.cpp:329
+#: kdeconnect-cli.cpp:364
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
 "number>"
 msgstr "greška: morate navesti primaoca navodeći --destination <broj telefona>"
 
-#: kdeconnect-cli.cpp:396
-#, kde-format
-msgid "Nothing to be done"
-msgstr "nema šta da se uradi"
+#~ msgid "Nothing to be done"
+#~ msgstr "nema šta da se uradi"
 
 #~ msgid "Stop pairing to a said device"
 #~ msgstr "zaustavlja uparivanje sa navedenim uređajem"
