@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-11-11 00:42+0000\n"
 "PO-Revision-Date: 2025-08-18 11:25+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -31,29 +31,18 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "dmitri.s93@gmail.com,gammaray@basealt.ru,juliette.tux@gmail.com"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: dialog.ui:31
+#. i18n: ectx: property (text), widget (QLabel, devicePickerLabel)
+#: dialog.ui:25
 #, kde-format
 msgid "Select device:"
 msgstr "Устройство:"
 
-#. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
-#: dialog.ui:55
-#, kde-format
-msgid "Send URL"
-msgstr "Отправить ссылку"
-
-#. i18n: ectx: property (text), widget (QRadioButton, sendFileRadioButton)
-#: dialog.ui:62
-#, kde-format
-msgid "Send File"
-msgstr "Передать файл"
-
-#. i18n: ectx: property (text), widget (QCheckBox, openOnPeerCheckBox)
-#: dialog.ui:82
-#, kde-format
-msgid "Open on peer device"
-msgstr "Открыть на устройстве"
+#. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
+#: dialog.ui:39
+#, fuzzy, kde-format
+#| msgid "Enter file location here"
+msgid "Enter a file location or URL:"
+msgstr "Укажите здесь местоположение файла"
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -90,37 +79,50 @@ msgstr "Выберите устройство"
 msgid "id"
 msgstr "Идентификатор"
 
-#: kdeconnect-handler.cpp:132
+#: kdeconnect-handler.cpp:86
 #, kde-format
-msgid "Enter URL here"
-msgstr "Укажите здесь URL"
+msgid "Automatically open the file on the remote device, when supported"
+msgstr ""
 
-#: kdeconnect-handler.cpp:140
+#: kdeconnect-handler.cpp:128
 #, kde-format
-msgid "Enter file location here"
-msgstr "Укажите здесь местоположение файла"
+msgctxt "Placeholder for input field that should contain a file/URL to share"
+msgid "Local file or web URL"
+msgstr ""
 
-#: kdeconnect-handler.cpp:165
+#: kdeconnect-handler.cpp:137
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Устройство для вызова %1:"
 
-#: kdeconnect-handler.cpp:168
+#: kdeconnect-handler.cpp:140
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Устройство для открытия %1:"
 
-#: kdeconnect-handler.cpp:171
+#: kdeconnect-handler.cpp:143
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Устройство для отправки SMS:"
 
-#: kdeconnect-handler.cpp:174
+#: kdeconnect-handler.cpp:146
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Устройство для отправки %1:"
 
-#: kdeconnect-handler.cpp:203
+#: kdeconnect-handler.cpp:165
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Не удалось отправить %1"
+
+#~ msgid "Send URL"
+#~ msgstr "Отправить ссылку"
+
+#~ msgid "Send File"
+#~ msgstr "Передать файл"
+
+#~ msgid "Open on peer device"
+#~ msgstr "Открыть на устройстве"
+
+#~ msgid "Enter URL here"
+#~ msgstr "Укажите здесь URL"

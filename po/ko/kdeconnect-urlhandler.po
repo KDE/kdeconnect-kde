@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"POT-Creation-Date: 2025-11-11 00:42+0000\n"
 "PO-Revision-Date: 2025-07-21 01:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -27,29 +27,18 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: dialog.ui:31
+#. i18n: ectx: property (text), widget (QLabel, devicePickerLabel)
+#: dialog.ui:25
 #, kde-format
 msgid "Select device:"
 msgstr "장치 선택:"
 
-#. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
-#: dialog.ui:55
-#, kde-format
-msgid "Send URL"
-msgstr "URL 보내기"
-
-#. i18n: ectx: property (text), widget (QRadioButton, sendFileRadioButton)
-#: dialog.ui:62
-#, kde-format
-msgid "Send File"
-msgstr "파일 보내기"
-
-#. i18n: ectx: property (text), widget (QCheckBox, openOnPeerCheckBox)
-#: dialog.ui:82
-#, kde-format
-msgid "Open on peer device"
-msgstr "동료 장치에서 열기"
+#. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
+#: dialog.ui:39
+#, fuzzy, kde-format
+#| msgid "Enter file location here"
+msgid "Enter a file location or URL:"
+msgstr "파일 위치를 입력하십시오"
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -86,37 +75,50 @@ msgstr "장치 선택"
 msgid "id"
 msgstr "id"
 
-#: kdeconnect-handler.cpp:132
+#: kdeconnect-handler.cpp:86
 #, kde-format
-msgid "Enter URL here"
-msgstr "URL을 입력하십시오"
+msgid "Automatically open the file on the remote device, when supported"
+msgstr ""
 
-#: kdeconnect-handler.cpp:140
+#: kdeconnect-handler.cpp:128
 #, kde-format
-msgid "Enter file location here"
-msgstr "파일 위치를 입력하십시오"
+msgctxt "Placeholder for input field that should contain a file/URL to share"
+msgid "Local file or web URL"
+msgstr ""
 
-#: kdeconnect-handler.cpp:165
+#: kdeconnect-handler.cpp:137
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "%1 님에게 전화를 걸 장치:"
 
-#: kdeconnect-handler.cpp:168
+#: kdeconnect-handler.cpp:140
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "%1을(를) 열 장치:"
 
-#: kdeconnect-handler.cpp:171
+#: kdeconnect-handler.cpp:143
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "SMS를 보낼 장치:"
 
-#: kdeconnect-handler.cpp:174
+#: kdeconnect-handler.cpp:146
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "%1을(를) 보낼 장치:"
 
-#: kdeconnect-handler.cpp:203
+#: kdeconnect-handler.cpp:165
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "%1을(를) 공유할 수 없음"
+
+#~ msgid "Send URL"
+#~ msgstr "URL 보내기"
+
+#~ msgid "Send File"
+#~ msgstr "파일 보내기"
+
+#~ msgid "Open on peer device"
+#~ msgstr "동료 장치에서 열기"
+
+#~ msgid "Enter URL here"
+#~ msgstr "URL을 입력하십시오"

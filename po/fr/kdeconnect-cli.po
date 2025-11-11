@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-10 00:42+0000\n"
-"PO-Revision-Date: 2025-11-08 17:09+0100\n"
+"PO-Revision-Date: 2025-11-10 10:08+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -300,11 +300,10 @@ msgid "(unpaired)"
 msgstr "(non associé)"
 
 #: kdeconnect-cli.cpp:240
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
-msgstr "Partagé %1"
+msgstr "%1 en partage"
 
 #: kdeconnect-cli.cpp:253
 #, kde-format

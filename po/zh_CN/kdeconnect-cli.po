@@ -281,7 +281,7 @@ msgstr "(未配对)"
 #, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
-msgstr ""
+msgstr "已分享 %1"
 
 #: kdeconnect-cli.cpp:253
 #, kde-format
@@ -336,6 +336,3 @@ msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
 "number>"
 msgstr "错误：应该指定短信收件人，传递参数 --destination <电话号码>"
-
-#~ msgid "Nothing to be done"
-#~ msgstr "无事可做"

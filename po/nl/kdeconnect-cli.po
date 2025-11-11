@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-10 00:42+0000\n"
-"PO-Revision-Date: 2025-11-08 11:11+0100\n"
+"PO-Revision-Date: 2025-11-11 00:33+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -288,8 +288,7 @@ msgid "(unpaired)"
 msgstr "(niet gepaard)"
 
 #: kdeconnect-cli.cpp:240
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Gedeeld %1"

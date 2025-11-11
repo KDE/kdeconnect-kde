@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-14 00:42+0000\n"
-"PO-Revision-Date: 2025-08-19 15:49+0300\n"
+"PO-Revision-Date: 2025-11-08 10:09+0200\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,12 +29,10 @@ msgid "Your emails"
 msgstr "toms.trasuns@poste.net"
 
 #: attachmentshelper.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
-msgstr "Notīrīt piesaistnes"
+msgstr "Lejupielādēt piesaistni"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -127,11 +125,9 @@ msgid "Open with default"
 msgstr "Atvērt pēc noklusējuma"
 
 #: qml/AttachmentViewer.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgid "Download attachment…"
-msgstr "Notīrīt piesaistnes"
+msgstr "Lejupielādēt piesaistni…"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -153,7 +149,7 @@ msgid ""
 "your device and then click Refresh."
 msgstr ""
 "Ielādē sarunas no ierīces. Ja tas notiek pārāk ilgi, uzmodiniet savu ierīci "
-"un spiediet „Atsvaidzināt“."
+"un spiediet „Pārlādēt“."
 
 #: qml/ConversationList.qml:56
 #, kde-format
@@ -161,13 +157,13 @@ msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
 "load quickly."
 msgstr ""
-"Padoms: Ja iespraužat savu ierīci, tai nevajadzētu ieiet miega režīmā un "
+"Padoms: ja pievienojat savu ierīci, tai nevajadzētu ieiet miega režīmā un "
 "vajadzētu ātri ielādēties."
 
 #: qml/ConversationList.qml:64 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
-msgstr "Atsvaidzināt"
+msgstr "Pārlādēt"
 
 #: qml/ConversationList.qml:83
 #, kde-format

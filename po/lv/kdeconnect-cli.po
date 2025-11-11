@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-10 00:42+0000\n"
-"PO-Revision-Date: 2025-08-19 15:43+0300\n"
+"PO-Revision-Date: 2025-11-08 09:44+0200\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -36,10 +36,10 @@ msgid ""
 "Device ID's and names may be found using \"kdeconnect-cli -l\" \n"
 "View complete help with --help option"
 msgstr ""
-"Ierīce nav precizēta: Izmantojiet -d <Device ID> vai -n <Device Name>, lai "
+"Ierīce nav precizēta: izmantojiet -d <Device ID> vai -n <Device Name>, lai "
 "precizētu ierīci. \n"
 "Ierīces ID un nosaukumi ir atrodami, izmantojot arī „kdeconnect-cli -l“ \n"
-"Pilnīgāku palīdzību meklējiet ar „--help“ opciju"
+"Pilnīgāku palīdzību meklējiet ar „--help“ parametru"
 
 #: kdeconnect-cli.cpp:58
 #, kde-format
@@ -124,28 +124,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Meklēt ierīces tīklā un atjaunot savienojumus"
 
 #: kdeconnect-cli.cpp:81
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Pieprasīt sapārošanu ar attiecīgo ierīci"
+msgstr "Lūgt sapārošanu ar ierīci"
 
 #: kdeconnect-cli.cpp:82
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Atrast attiecīgo ierīci, liekot tai atskaņot signālu."
+msgstr "Atrast ierīci, liekot tai atskaņot signālu"
 
 #: kdeconnect-cli.cpp:83
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "gaida ierīci…"
+msgstr "Atpārot ierīci"
 
 #: kdeconnect-cli.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Nosūta „ping“ signālu uz attiecīgo ierīci"
+msgstr "Nosūta „ping“ signālu uz ierīci"
 
 #: kdeconnect-cli.cpp:85
 #, kde-format
@@ -158,28 +154,24 @@ msgid "message"
 msgstr "ziņojums"
 
 #: kdeconnect-cli.cpp:86
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Nosūta pašreizējo starpliktuves saturu uz attiecīgo ierīci"
+msgstr "Nosūtīt starpliktuves saturu uz ierīci"
 
 #: kdeconnect-cli.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Dalīties ar datni/URL ar attiecīgo ierīci"
+msgstr "Dalīties ar datni/URL ar ierīci"
 
 #: kdeconnect-cli.cpp:88
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Dalīties ar tekstu ar attiecīgo ierīci"
+msgstr "Dalīties ar tekstu ar ierīci"
 
 #: kdeconnect-cli.cpp:89
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "Parādīt paziņojumu attiecīgajā ierīcē"
+msgstr "Parādīt paziņojumu ierīcē"
 
 #: kdeconnect-cli.cpp:90
 #, kde-format
@@ -230,28 +222,24 @@ msgid "Device Name"
 msgstr "Ierīces nosaukums"
 
 #: kdeconnect-cli.cpp:99
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Iegūt šifrēšanas informāciju par minēto ierīci"
+msgstr "Iegūt šifrēšanas informāciju par ierīci"
 
 #: kdeconnect-cli.cpp:100
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
-msgstr "Uzskaita attālinātās vadības komandas un to ID"
+msgstr "Uzskaitīt attālās vadības komandas un to ID"
 
 #: kdeconnect-cli.cpp:101
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
-msgstr "Izpilda attālinātas vadības komandu pēc ID"
+msgstr "Izpildīt attālas vadības komandu pēc ID"
 
 #: kdeconnect-cli.cpp:102
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Nosūta taustiņu spiedienus uz attiecīgo ierīci"
+msgstr "Nosūtīt taustiņu spiedienus uz ierīci"
 
 #: kdeconnect-cli.cpp:103
 #, kde-format
@@ -259,15 +247,14 @@ msgid "Display this device's id and exit"
 msgstr "Parāda ierīces ID un iziet"
 
 #: kdeconnect-cli.cpp:104
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Nosūta taustiņu spiedienus uz attiecīgo ierīci"
+msgstr "Piemontēt minētās ierīces datņu sistēmu"
 
 #: kdeconnect-cli.cpp:105
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "Drukāt attiecīgās ierīces datņu sistēmas montēšanas vietu"
 
 #: kdeconnect-cli.cpp:151
 #, kde-format
@@ -290,7 +277,7 @@ msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "Atrasta %1 ierīce"
 msgstr[1] "Atrastas %1 ierīces"
-msgstr[2] "Atrastas %1 ierīču"
+msgstr[2] "Atrasts %1 ierīču"
 
 #: kdeconnect-cli.cpp:163
 #, kde-format
@@ -354,14 +341,15 @@ msgstr "Nav vairs sapārota"
 #: kdeconnect-cli.cpp:306
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Ierīce ir atpārota"
 
 #: kdeconnect-cli.cpp:364
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
 "number>"
-msgstr "kļūda: jānorāda īsziņas saņēmējs, padodot --destination <phone number>"
+msgstr ""
+"kļūda: jānorāda īsziņas saņēmējs, padodot „--destination <tālruņas numurs>“"
 
 #~ msgid "Nothing to be done"
 #~ msgstr "Nekas nav darāms"
