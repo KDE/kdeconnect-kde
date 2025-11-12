@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-11 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 21:37+0300\n"
+"PO-Revision-Date: 2025-11-11 08:51+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -36,10 +36,9 @@ msgstr "בחירת מכשיר:"
 
 #. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
 #: dialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Enter file location here"
+#, kde-format
 msgid "Enter a file location or URL:"
-msgstr "נא למלא מקום קובץ כאן"
+msgstr "נא למלא מקום קובץ או כתובת אתר:"
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -79,13 +78,13 @@ msgstr "מזהה"
 #: kdeconnect-handler.cpp:86
 #, kde-format
 msgid "Automatically open the file on the remote device, when supported"
-msgstr ""
+msgstr "לפתוח את הקובץ אוטומטית בצד המרוחק, אם הוא נתמך"
 
 #: kdeconnect-handler.cpp:128
 #, kde-format
 msgctxt "Placeholder for input field that should contain a file/URL to share"
 msgid "Local file or web URL"
-msgstr ""
+msgstr "קובץ מקומי או כתובת אתר"
 
 #: kdeconnect-handler.cpp:137
 #, kde-format

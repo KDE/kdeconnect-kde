@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-11 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 08:49+0300\n"
+"PO-Revision-Date: 2025-11-11 20:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.08.2\n"
 "X-POOTLE-MTIME: 1497612998.000000\n"
 
 #, kde-format
@@ -37,10 +37,9 @@ msgstr "Aygıt seç:"
 
 #. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
 #: dialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Enter file location here"
+#, kde-format
 msgid "Enter a file location or URL:"
-msgstr "Buraya dosya konumu gir"
+msgstr "Dosya konumu veya URL gir:"
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -80,13 +79,13 @@ msgstr "kimlik"
 #: kdeconnect-handler.cpp:86
 #, kde-format
 msgid "Automatically open the file on the remote device, when supported"
-msgstr ""
+msgstr "Destekleniyorsa dosyayı uzak aygıtta kendiliğinden aç"
 
 #: kdeconnect-handler.cpp:128
 #, kde-format
 msgctxt "Placeholder for input field that should contain a file/URL to share"
 msgid "Local file or web URL"
-msgstr ""
+msgstr "Yerel dosya veya web URL’si"
 
 #: kdeconnect-handler.cpp:137
 #, kde-format

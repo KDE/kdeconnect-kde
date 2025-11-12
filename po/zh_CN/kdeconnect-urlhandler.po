@@ -36,10 +36,9 @@ msgstr "选择设备："
 
 #. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
 #: dialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Enter file location here"
+#, kde-format
 msgid "Enter a file location or URL:"
-msgstr "在此处输入文件位置"
+msgstr ""
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -111,15 +110,3 @@ msgstr "用于发送 %1 的设备："
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "无法分享 %1"
-
-#~ msgid "Send URL"
-#~ msgstr "发送链接"
-
-#~ msgid "Send File"
-#~ msgstr "发送文件"
-
-#~ msgid "Open on peer device"
-#~ msgstr "在对等点设备上打开"
-
-#~ msgid "Enter URL here"
-#~ msgstr "在此处输入 URL"

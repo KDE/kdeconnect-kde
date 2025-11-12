@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-11 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 08:28+0200\n"
+"PO-Revision-Date: 2025-11-11 10:07+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -39,10 +39,9 @@ msgstr "Seleccioneu un dispositiu:"
 
 #. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
 #: dialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Enter file location here"
+#, kde-format
 msgid "Enter a file location or URL:"
-msgstr "Introduïu aquí la ubicació del fitxer"
+msgstr "Introduïu una ubicació de fitxer o un URL:"
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -82,13 +81,13 @@ msgstr "ID"
 #: kdeconnect-handler.cpp:86
 #, kde-format
 msgid "Automatically open the file on the remote device, when supported"
-msgstr ""
+msgstr "Obre automàticament el fitxer al dispositiu remot, quan estigui admès"
 
 #: kdeconnect-handler.cpp:128
 #, kde-format
 msgctxt "Placeholder for input field that should contain a file/URL to share"
 msgid "Local file or web URL"
-msgstr ""
+msgstr "Fitxer local o URL de web"
 
 #: kdeconnect-handler.cpp:137
 #, kde-format

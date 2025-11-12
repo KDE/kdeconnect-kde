@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-11 00:42+0000\n"
-"PO-Revision-Date: 2025-06-17 06:42+0200\n"
+"PO-Revision-Date: 2025-11-11 07:21+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -36,10 +36,9 @@ msgstr "Izberi napravo:"
 
 #. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
 #: dialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Enter file location here"
+#, kde-format
 msgid "Enter a file location or URL:"
-msgstr "Tu vnesite lokacijo datoteke"
+msgstr "Vnesite lokacijo datoteke ali URL:"
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -79,13 +78,13 @@ msgstr "id"
 #: kdeconnect-handler.cpp:86
 #, kde-format
 msgid "Automatically open the file on the remote device, when supported"
-msgstr ""
+msgstr "Samodejno odpri datoteko na oddaljeni napravi, če je to podprto"
 
 #: kdeconnect-handler.cpp:128
 #, kde-format
 msgctxt "Placeholder for input field that should contain a file/URL to share"
 msgid "Local file or web URL"
-msgstr ""
+msgstr "Lokalna datoteka ali spletni URL"
 
 #: kdeconnect-handler.cpp:137
 #, kde-format
