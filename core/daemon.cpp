@@ -323,8 +323,9 @@ QList<Device *> Daemon::devicesList() const
 QString Daemon::deviceIdByName(const QString &name) const
 {
     for (Device *device : std::as_const(d->m_devices)) {
-        if (device->name() == name && device->isPaired())
+        if (device->name() == name) {
             return device->id();
+        }
     }
     return {};
 }
