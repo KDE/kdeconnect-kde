@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 # SPDX-FileCopyrightText: 2017, 2018, 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2023 Frederik Schwarzer <schwarzer@kde.org>
-# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
+# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"

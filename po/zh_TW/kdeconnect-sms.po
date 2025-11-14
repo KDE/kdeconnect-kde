@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-14 00:42+0000\n"
-"PO-Revision-Date: 2025-08-08 02:34+0900\n"
+"PO-Revision-Date: 2025-11-13 22:52+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -33,12 +33,10 @@ msgid "Your emails"
 msgstr "pan93412@gmail.com, brli@chakrlainux.org"
 
 #: attachmentshelper.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
-msgstr "清除附件"
+msgstr "下載附件"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -134,11 +132,9 @@ msgid "Open with default"
 msgstr "以預設程式開啟"
 
 #: qml/AttachmentViewer.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgid "Download attachment…"
-msgstr "清除附件"
+msgstr "下載附件…"
 
 #: qml/ConversationList.qml:23
 #, kde-format
