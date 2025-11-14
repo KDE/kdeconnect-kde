@@ -38,7 +38,7 @@ msgstr "选择设备："
 #: dialog.ui:39
 #, kde-format
 msgid "Enter a file location or URL:"
-msgstr ""
+msgstr "输入文件位置或 URL："
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -78,13 +78,13 @@ msgstr "ID"
 #: kdeconnect-handler.cpp:86
 #, kde-format
 msgid "Automatically open the file on the remote device, when supported"
-msgstr ""
+msgstr "自动打开远程设备上的文件 (如果支持)"
 
 #: kdeconnect-handler.cpp:128
 #, kde-format
 msgctxt "Placeholder for input field that should contain a file/URL to share"
 msgid "Local file or web URL"
-msgstr ""
+msgstr "本地文件或网络 URL"
 
 #: kdeconnect-handler.cpp:137
 #, kde-format

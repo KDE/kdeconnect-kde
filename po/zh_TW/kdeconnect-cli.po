@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-10 00:42+0000\n"
-"PO-Revision-Date: 2025-06-19 22:27+0900\n"
+"PO-Revision-Date: 2025-11-13 22:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: Traditional Chinese\n"
@@ -18,17 +18,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "LiuEigi, pan93412, Chaoting Liu"
+msgstr "LiuEigi, pan93412, Chaoting Liu, Kisaragi Hiu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "liueigi@gmail.com, pan93412@gmail.com, brli@chakralinux.org"
+msgstr ""
+"liueigi@gmail.com, pan93412@gmail.com, brli@chakralinux.org, mail@kisaragi-"
+"hiu.com"
 
 #: kdeconnect-cli.cpp:38
 #, kde-format
@@ -125,28 +127,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "搜尋網路中的裝置並且嘗試重新連接。"
 
 #: kdeconnect-cli.cpp:81
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "請求配對到指定的裝置。"
+msgstr "請求與裝置配對"
 
 #: kdeconnect-cli.cpp:82
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "讓指定的裝置發出聲音來尋找它。"
+msgstr "讓裝置發出聲響以便尋找"
 
 #: kdeconnect-cli.cpp:83
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "等待裝置中…"
+msgstr "從裝置解除配對"
 
 #: kdeconnect-cli.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "向指定的裝置發送 Ping 回應封包"
+msgstr "發送 Ping 回應封包給裝置"
 
 #: kdeconnect-cli.cpp:85
 #, kde-format
@@ -159,28 +157,24 @@ msgid "message"
 msgstr "訊息"
 
 #: kdeconnect-cli.cpp:86
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "向指定的裝置傳送目前剪貼簿內容"
+msgstr "傳送剪貼簿內容給裝置"
 
 #: kdeconnect-cli.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "分享檔案/網址到指定的裝置"
+msgstr "分享檔案/網址給裝置"
 
 #: kdeconnect-cli.cpp:88
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "分享文字到指定的裝置"
+msgstr "分享文字給裝置"
 
 #: kdeconnect-cli.cpp:89
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "在指定的裝置上面顯示通知"
+msgstr "在裝置上顯示通知"
 
 #: kdeconnect-cli.cpp:90
 #, kde-format
@@ -229,28 +223,24 @@ msgid "Device Name"
 msgstr "裝置名稱"
 
 #: kdeconnect-cli.cpp:99
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "從指定的裝置上取得加密資訊"
+msgstr "取得裝置關於加密的資訊"
 
 #: kdeconnect-cli.cpp:100
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
-msgstr "列出遠端指令及其標識"
+msgstr "列出遠端指令及其 ID"
 
 #: kdeconnect-cli.cpp:101
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
 msgstr "以 ID 來執行遠端指令"
 
 #: kdeconnect-cli.cpp:102
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "向指定的裝置傳送按鍵"
+msgstr "傳送按鍵給裝置"
 
 #: kdeconnect-cli.cpp:103
 #, kde-format
@@ -258,15 +248,14 @@ msgid "Display this device's id and exit"
 msgstr "顯示裝置編號並退出"
 
 #: kdeconnect-cli.cpp:104
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "向指定的裝置傳送按鍵"
+msgstr "掛載裝置的檔案系統"
 
 #: kdeconnect-cli.cpp:105
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "輸出"
 
 #: kdeconnect-cli.cpp:151
 #, kde-format
@@ -300,8 +289,7 @@ msgid "(unpaired)"
 msgstr "（未配對）"
 
 #: kdeconnect-cli.cpp:240
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "已分享 %1"
@@ -351,7 +339,7 @@ msgstr "已經沒有取消配對"
 #: kdeconnect-cli.cpp:306
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "成功解除配對"
 
 #: kdeconnect-cli.cpp:364
 #, kde-format
