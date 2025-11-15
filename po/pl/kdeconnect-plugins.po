@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-11 09:06+0000\n"
-"PO-Revision-Date: 2025-07-19 09:01+0200\n"
+"PO-Revision-Date: 2025-11-14 09:39+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -42,13 +42,13 @@ msgstr "Uwzględniając w tym hasła (wg oznaczenia programów do haseł)"
 #: clipboard/kdeconnect_clipboard_config.qml:55
 #, kde-format
 msgid "Max Clipboard File Size (MB)"
-msgstr ""
+msgstr "Graniczny rozmiar pliku w schowku (MB)"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
 #, kde-format
 msgid "Apply"
-msgstr ""
+msgstr "Zastosuj"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:47
 #, kde-format
@@ -56,17 +56,16 @@ msgid "Sound to play:"
 msgstr "Dźwięk do odtworzenia:"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:57
-#, fuzzy, kde-format
-#| msgid "Could not share file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose file"
-msgstr "Nie można udostępnić pliku"
+msgstr "Wybierz plik"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Play"
-msgstr ""
+msgstr "Odtwórz"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -141,7 +140,7 @@ msgstr "Wycisz dźwięk w systemie"
 #: pausemusic/kdeconnect_pausemusic_config.qml:61
 #, kde-format
 msgid "Resume automatically when call ends"
-msgstr ""
+msgstr "Wznów samoczynnie po zakończeniu rozmowy"
 
 #: ping/pingplugin.cpp:26
 #, kde-format
@@ -149,65 +148,59 @@ msgid "Ping!"
 msgstr "Ping!"
 
 #: runcommand/kdeconnect_runcommand_config.qml:21
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Add Command…"
-msgstr "Polecenie"
+msgstr "Dodaj polecenie…"
 
 #: runcommand/kdeconnect_runcommand_config.qml:53
 #, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "Usuń"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
-msgstr ""
+msgstr "Nie ustawiono żadnego polecenia"
 
 #: runcommand/kdeconnect_runcommand_config.qml:65
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
-msgstr ""
+msgstr "Dodaj polecenia, aby móc wydawać je zdalnie z innych urządzeń"
 
 #: runcommand/kdeconnect_runcommand_config.qml:71
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
-msgstr "Polecenie"
+msgstr "Dodaj polecenie"
 
 #: runcommand/kdeconnect_runcommand_config.qml:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #: runcommand/kdeconnect_runcommand_config.qml:86
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
-msgstr "Polecenie"
+msgstr "Dodaj polecenie"
 
 #: runcommand/kdeconnect_runcommand_config.qml:96
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgid "Name:"
-msgstr "Nazwa"
+msgstr "Nazwa:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:100
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Command:"
-msgstr "Polecenie"
+msgstr "Polecenie:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:104
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Sample commands:"
-msgstr "Przykładowe polecenia"
+msgstr "Proste polecenia:"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -225,16 +218,14 @@ msgid "Include body"
 msgstr "Dołącz treść"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:49
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Include icon"
-msgstr "Dołącz treść"
+msgstr "Dołącz ikonę"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:56
-#, fuzzy, kde-format
-#| msgid "Minimum urgency level"
+#, kde-format
 msgid "Minimum urgency level:"
-msgstr "Najmniejszy poziom ważności"
+msgstr "Najmniejszy poziom ważności:"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
@@ -320,11 +311,9 @@ msgid "Save files in:"
 msgstr "Pliki zapisuj w:"
 
 #: share/kdeconnect_share_config.qml:63
-#, fuzzy, kde-format
-#| msgid ""
-#| "&percnt;1 in the path will be replaced with the specific device name."
+#, kde-format
 msgid "%1 in the path will be replaced with the specific device name"
-msgstr "&percnt;1 w ścieżce zostanie zastąpiony daną nazwą urządzenia."
+msgstr "%1 w ścieżce zostanie zastąpiony daną nazwą urządzenia"
 
 #: share/shareplugin.cpp:161
 #, kde-format
