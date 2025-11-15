@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-10 00:42+0000\n"
-"PO-Revision-Date: 2025-07-19 08:58+0200\n"
+"PO-Revision-Date: 2025-11-14 09:43+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -124,28 +124,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Wyszukaj urządzeń w sieci i ponownie ustanów połączenia"
 
 #: kdeconnect-cli.cpp:81
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Zażądaj sparowania z danym urządzeniem"
+msgstr "Zażądaj sparowania z urządzeniem"
 
 #: kdeconnect-cli.cpp:82
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Znajdź urządzenie dzwoniąc na nie."
+msgstr "Znajdź urządzenie, dzwoniąc nim"
 
 #: kdeconnect-cli.cpp:83
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "oczekiwanie na urządzenie…"
+msgstr "Odparuj urządzenie"
 
 #: kdeconnect-cli.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Wyślij ping do danego urządzenia"
+msgstr "Wyślij ping na urządzenie"
 
 #: kdeconnect-cli.cpp:85
 #, kde-format
@@ -158,28 +154,24 @@ msgid "message"
 msgstr "wiadomość"
 
 #: kdeconnect-cli.cpp:86
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Wysyła bieżącą zawartość schowka do danego urządzenia"
+msgstr "Wyślij schowek na urządzenie"
 
 #: kdeconnect-cli.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Udostępnij plik/URL wskazanemu urządzeniu"
+msgstr "Udostępnij plik/URL urządzeniu"
 
 #: kdeconnect-cli.cpp:88
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Udostępnij tekst danemu urządzeniu"
+msgstr "Udostępnij tekst urządzeniu"
 
 #: kdeconnect-cli.cpp:89
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "Wyświetl powiadomienia na danym urządzeniu"
+msgstr "Wyświetl powiadomienia na urządzeniu"
 
 #: kdeconnect-cli.cpp:90
 #, kde-format
@@ -230,28 +222,24 @@ msgid "Device Name"
 msgstr "Nazwa urządzenia"
 
 #: kdeconnect-cli.cpp:99
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Dowiedz się o szyfrowaniu dla danego urządzenia"
+msgstr "Dowiedz się o szyfrowaniu dla urządzenia"
 
 #: kdeconnect-cli.cpp:100
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
 msgstr "Wyszczególnij zdalne polecenia oraz ich identyfikatory"
 
 #: kdeconnect-cli.cpp:101
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
-msgstr "Wykonuje zewnętrzne polecenia po identyfiaktorach"
+msgstr "Wykonuj zewnętrzne polecenie po identyfikatorach"
 
 #: kdeconnect-cli.cpp:102
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Wysyłaj naciśnięcia klawiszami do danego urządzenia"
+msgstr "Wysyłaj naciśnięcia klawiszy na urządzenie"
 
 #: kdeconnect-cli.cpp:103
 #, kde-format
@@ -259,15 +247,14 @@ msgid "Display this device's id and exit"
 msgstr "Wyświetl id tego urządzenia i wyjdź"
 
 #: kdeconnect-cli.cpp:104
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Wysyłaj naciśnięcia klawiszami do danego urządzenia"
+msgstr "Podpinaj systemy plików danego urządzenia"
 
 #: kdeconnect-cli.cpp:105
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "Wyświetl punkt podpięcia dla systemu plików danego urządzenia"
 
 #: kdeconnect-cli.cpp:151
 #, kde-format
@@ -303,8 +290,7 @@ msgid "(unpaired)"
 msgstr "(niesparowane)"
 
 #: kdeconnect-cli.cpp:240
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Udostępnione %1"
@@ -354,7 +340,7 @@ msgstr "Już niesparowane"
 #: kdeconnect-cli.cpp:306
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Pomyślnie odparowano"
 
 #: kdeconnect-cli.cpp:364
 #, kde-format
