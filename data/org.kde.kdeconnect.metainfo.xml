@@ -180,7 +180,7 @@
     <value key="KDE::google_play">https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp</value>
     <value key="KDE::windows_store">https://www.microsoft.com/store/apps/9n93mrmsxbf0</value>
     <value key="KDE::app_store">https://apps.apple.com/app/kde-connect/id1580245991</value>
-    <value key="KDE::supporters">Tony Stipanic, Hexaitos</value>
+    <value key="KDE::supporters">Tony Stipanic, Hexaitos, Nicolai Weitkemper, slano, Zbigniew Halas</value>
   </custom>
   <releases>
     <release version="25.08.3" date="2025-11-06"/>
