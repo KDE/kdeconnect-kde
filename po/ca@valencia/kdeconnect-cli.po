@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-10 00:41+0000\n"
-"PO-Revision-Date: 2025-10-10 10:08+0200\n"
+"PO-Revision-Date: 2025-11-06 17:38+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -322,7 +322,7 @@ msgstr "s'està esperant un dispositiu…"
 #: kdeconnect-cli.cpp:272
 #, kde-format
 msgid "Device not found"
-msgstr "No s'ha trobat cap dispositiu"
+msgstr "No s'ha trobat el dispositiu"
 
 #: kdeconnect-cli.cpp:274
 #, kde-format
