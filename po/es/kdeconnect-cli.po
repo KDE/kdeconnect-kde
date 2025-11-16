@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-10 00:42+0000\n"
-"PO-Revision-Date: 2025-10-12 01:36+0100\n"
+"PO-Revision-Date: 2025-11-16 00:23+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -125,28 +125,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Buscar dispositivos en la red y restablecer conexiones"
 
 #: kdeconnect-cli.cpp:81
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Solicitar vinculación con un dispositivo dado"
+msgstr "Solicitar vinculación con dispositivo"
 
 #: kdeconnect-cli.cpp:82
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Encontrar el dispositivo indicado haciéndolo sonar."
+msgstr "Encontrar dispositivo haciéndolo sonar."
 
 #: kdeconnect-cli.cpp:83
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "esperando al dispositivo…"
+msgstr "Desvincular desde dispositivo"
 
 #: kdeconnect-cli.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Envía un ping a un dispositivo dado"
+msgstr "Envía un ping a dispositivo"
 
 #: kdeconnect-cli.cpp:85
 #, kde-format
@@ -159,28 +155,24 @@ msgid "message"
 msgstr "mensaje"
 
 #: kdeconnect-cli.cpp:86
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Envía el portapapeles actual al dispositivo dado"
+msgstr "Envía el portapapeles a dispositivo"
 
 #: kdeconnect-cli.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Compartir un archivo/URL con un dispositivo dado"
+msgstr "Compartir archivo/URL con dispositivo"
 
 #: kdeconnect-cli.cpp:88
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Compartir texto con un dispositivo dado"
+msgstr "Compartir texto con dispositivo"
 
 #: kdeconnect-cli.cpp:89
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "Mostrar las notificaciones de un dispositivo dado"
+msgstr "Mostrar notificaciones en dispositivo"
 
 #: kdeconnect-cli.cpp:90
 #, kde-format
@@ -230,28 +222,24 @@ msgid "Device Name"
 msgstr "Nombre del dispositivo"
 
 #: kdeconnect-cli.cpp:99
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Obtener información de cifrado de un dispositivo dado"
+msgstr "Obtener información de cifrado del dispositivo"
 
 #: kdeconnect-cli.cpp:100
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
 msgstr "Enumerar órdenes remotas y sus identificadores"
 
 #: kdeconnect-cli.cpp:101
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
-msgstr "Ejecuta una orden dado su identificador"
+msgstr "Ejecuta orden dado su identificador"
 
 #: kdeconnect-cli.cpp:102
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Envía pulsaciones de tecla a un dispositivo dado"
+msgstr "Envía pulsaciones de tecla al dispositivo"
 
 #: kdeconnect-cli.cpp:103
 #, kde-format
@@ -302,8 +290,7 @@ msgid "(unpaired)"
 msgstr "(no vinculado)"
 
 #: kdeconnect-cli.cpp:240
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Compartido %1"
@@ -353,7 +340,7 @@ msgstr "Previamente no vinculado"
 #: kdeconnect-cli.cpp:306
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Desvinculación exitosa"
 
 #: kdeconnect-cli.cpp:364
 #, kde-format
@@ -363,12 +350,3 @@ msgid ""
 msgstr ""
 "error: debe especificar el destinatario del SMS añadiendo --destination "
 "<número de teléfono>"
-
-#~ msgid "Nothing to be done"
-#~ msgstr "Nada que hacer"
-
-#~ msgid "Stop pairing to a said device"
-#~ msgstr "Parar vinculación con un dispositivo dado"
-
-#~ msgid "Unpaired"
-#~ msgstr "Desvinculado"
