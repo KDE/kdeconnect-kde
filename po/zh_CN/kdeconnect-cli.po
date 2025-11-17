@@ -67,7 +67,7 @@ msgstr "列出所有设备"
 #: kdeconnect-cli.cpp:70
 #, kde-format
 msgid "List available (paired and reachable) devices"
-msgstr "列出可用 (已配对和可访问) 设备"
+msgstr "列出可用 (已配对且可访问) 设备"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
@@ -249,7 +249,7 @@ msgstr "打印所述设备文件系统的挂载点"
 #: kdeconnect-cli.cpp:151
 #, kde-format
 msgid "(paired and reachable)"
-msgstr "(已配对和可访问)"
+msgstr "(已配对且可访问)"
 
 #: kdeconnect-cli.cpp:153
 #, kde-format
@@ -313,7 +313,7 @@ msgstr "没有找到设备"
 #: kdeconnect-cli.cpp:292
 #, kde-format
 msgid "Already paired"
-msgstr "已经配对"
+msgstr "已配对过"
 
 #: kdeconnect-cli.cpp:294
 #, kde-format

@@ -112,15 +112,3 @@ msgstr "Eining å senda %1 til:"
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Klarte ikkje dela %1"
-
-#~ msgid "Send URL"
-#~ msgstr "Send nettadresse"
-
-#~ msgid "Send File"
-#~ msgstr "Send fil"
-
-#~ msgid "Open on peer device"
-#~ msgstr "Opna på para eining"
-
-#~ msgid "Enter URL here"
-#~ msgstr "Skriv inn nettadresse"

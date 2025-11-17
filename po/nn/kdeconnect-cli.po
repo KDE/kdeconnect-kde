@@ -370,6 +370,3 @@ msgid ""
 msgstr ""
 "feil: bør spesifisera mottakar av SMS-en med argumentet «--destination "
 "<tlfnummer>»"
-
-#~ msgid "Nothing to be done"
-#~ msgstr "Ingenting å gjera"
