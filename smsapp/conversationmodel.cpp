@@ -237,4 +237,18 @@ void ConversationModel::requestAttachmentPath(const qint64 &partID, const QStrin
     m_conversationsInterface->requestAttachmentFile(partID, uniqueIdentifier);
 }
 
+bool ConversationModel::canFetchMore(const QModelIndex & /* parent */) const
+{
+    // TODO: Is there any way to know when we're at the end of the conversation and can't fetch more?
+    //       Would be neat to show an indication to the user in such a case (and stop fetching more data)
+    //       but would also likely require sending that information from the phone, as I don't see an
+    //       obvious way to know that using currently available information...
+    return true;
+}
+
+void ConversationModel::fetchMore(const QModelIndex & /* parent */)
+{
+    requestMoreMessages();
+}
+
 #include "moc_conversationmodel.cpp"

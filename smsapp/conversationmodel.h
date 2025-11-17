@@ -61,6 +61,9 @@ public:
 
     Q_INVOKABLE void requestAttachmentPath(const qint64 &partID, const QString &UniqueIdentifier);
 
+    bool canFetchMore(const QModelIndex &parent) const override;
+    void fetchMore(const QModelIndex &parent) override;
+
 Q_SIGNALS:
     void loadingFinished();
     void filePathReceived(QString filePath, QString fileName);
