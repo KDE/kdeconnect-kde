@@ -68,9 +68,9 @@ public Q_SLOTS:
     void onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr) override;
     void onStart() override;
     void onStop() override;
-    void tcpSocketConnected();
-    void encrypted();
-    void connectError(QAbstractSocket::SocketError socketError);
+    void tcpSocketConnected(QSslSocket *socket, QSharedPointer<NetworkPacket> receivedPacket, QHostAddress sender);
+    void encrypted(QSslSocket *socket, QSharedPointer<NetworkPacket> identityPacket);
+    void connectError(QSslSocket *socket, QHostAddress sender, QAbstractSocket::SocketError socketError);
 
 private Q_SLOTS:
     void udpBroadcastReceived();
@@ -92,11 +92,6 @@ private:
 
     QMap<QString, LanDeviceLink *> m_links;
 
-    struct PendingConnect {
-        NetworkPacket *np;
-        QHostAddress sender;
-    };
-    QMap<QSslSocket *, PendingConnect> m_receivedIdentityPackets;
     QMap<QString, qint64> m_lastConnectionTime;
     const bool m_testMode;
     QTimer m_combineNetworkChangeTimer;
