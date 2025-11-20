@@ -183,7 +183,15 @@
     <value key="KDE::supporters"> </value>
   </custom>
   <releases>
-    <release version="25.08.3" date="2025-11-06"/>
+    <release version="25.08.3" date="2025-11-06">
+      <artifacts>
+        <artifact type="binary" platform="x86_64-windows-msvc">
+          <location>https://download.kde.org/stable/release-service/25.08.3/windows/kdeconnect-kde-windows-cl-msvc2022-x86_64.exe</location>
+          <checksum type="sha256">164d3f93cda5275c07528866d019bab754909b3056aef10882343480211c7f7b</checksum>
+          <size type="download">88532008</size>
+        </artifact>
+      </artifacts>
+    </release>
     <release version="25.08.2" date="2025-10-09"/>
     <release version="25.08.1" date="2025-09-11"/>
     <release version="25.08.0" date="2025-08-14"/>
@@ -198,15 +206,7 @@
     <release version="24.08.3" date="2024-11-07"/>
     <release version="24.08.2" date="2024-10-10"/>
     <release version="24.08.1" date="2024-09-12"/>
-    <release version="24.08.0" date="2024-08-22">
-      <artifacts>
-        <artifact type="binary" platform="x86_64-windows-msvc">
-          <location>https://download.kde.org/stable/release-service/24.08.0/windows/kdeconnect-kde-release_24.08-4217-windows-cl-msvc2022-x86_64.exe</location>
-          <checksum type="sha256">046597f22fabdef3ee0a3f5d1a85fbbdf9c5763875902994f51799e6f7844df1</checksum>
-          <size type="download">88187672</size>
-        </artifact>
-      </artifacts>
-    </release>
+    <release version="24.08.0" date="2024-08-22"/>
     <release version="24.05.2" date="2024-07-04"/>
     <release version="24.05.1" date="2024-06-13"/>
     <release version="24.05.0" date="2024-05-23"/>
