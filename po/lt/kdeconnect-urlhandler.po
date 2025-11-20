@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2025-08-11 22:38+0300\n"
+"PO-Revision-Date: 2025-11-19 20:43+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -37,10 +37,9 @@ msgstr "Pasirinkite įrenginį:"
 
 #. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
 #: dialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Enter file location here"
+#, kde-format
 msgid "Enter a file location or URL:"
-msgstr "Čia įveskite failo vietą"
+msgstr "Įveskite failo vietą ar URL adresą:"
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -80,13 +79,13 @@ msgstr "id"
 #: kdeconnect-handler.cpp:86
 #, kde-format
 msgid "Automatically open the file on the remote device, when supported"
-msgstr ""
+msgstr "Automatiškai atverti failą nuotoliniame įrenginyje, kai palaikoma"
 
 #: kdeconnect-handler.cpp:128
 #, kde-format
 msgctxt "Placeholder for input field that should contain a file/URL to share"
 msgid "Local file or web URL"
-msgstr ""
+msgstr "Vietinis failas ar saityno URL adresas"
 
 #: kdeconnect-handler.cpp:137
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2025-10-10 23:36+0300\n"
+"PO-Revision-Date: 2025-11-19 20:50+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -125,28 +125,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Ieškoti įrenginių tinkle ir iš naujo užmegzti ryšius"
 
 #: kdeconnect-cli.cpp:81
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Užklausti suporavimo su nusakytu įrenginiu"
+msgstr "Užklausti suporavimo su įrenginiu"
 
 #: kdeconnect-cli.cpp:82
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Rasti nusakytą įrenginį į jį skambinant."
+msgstr "Rasti įrenginį į jį skambinant"
 
 #: kdeconnect-cli.cpp:83
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "laukiama įrenginio…"
+msgstr "Panaikinti suporavimą su įrenginiu"
 
 #: kdeconnect-cli.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Siųsti ryšio patikrinimą į nusakytą įrenginį"
+msgstr "Siųsti ryšio patikrinimą į įrenginį"
 
 #: kdeconnect-cli.cpp:85
 #, kde-format
@@ -159,28 +155,24 @@ msgid "message"
 msgstr "žinutė"
 
 #: kdeconnect-cli.cpp:86
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Siunčia dabartinę iškarpinę į nusakytą įrenginį"
+msgstr "Siųsti iškarpinės turinį į įrenginį"
 
 #: kdeconnect-cli.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Bendrinti failą/URL su nusakytu įrenginiu"
+msgstr "Bendrinti failą/URL su įrenginiu"
 
 #: kdeconnect-cli.cpp:88
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Bendrinti tekstą su nusakytu įrenginiu"
+msgstr "Bendrinti tekstą su įrenginiu"
 
 #: kdeconnect-cli.cpp:89
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "Rodyti pranešimus nusakytame įrenginyje"
+msgstr "Rodyti pranešimus įrenginyje"
 
 #: kdeconnect-cli.cpp:90
 #, kde-format
@@ -231,28 +223,24 @@ msgid "Device Name"
 msgstr "Įrenginio pavadinimas"
 
 #: kdeconnect-cli.cpp:99
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Gauti šifravimo informaciją apie nusakytą įrenginį"
+msgstr "Gauti šifravimo informaciją apie įrenginį"
 
 #: kdeconnect-cli.cpp:100
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
-msgstr "Išvardija nuotolines komandas ir jų id"
+msgstr "Išvardyti nuotolines komandas ir jų id"
 
 #: kdeconnect-cli.cpp:101
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
 msgstr "Nuotoliniu būdu vykdo komandą pagal id"
 
 #: kdeconnect-cli.cpp:102
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Siunčia klavišus į nusakytą įrenginį"
+msgstr "Siųsti klavišus į įrenginį"
 
 #: kdeconnect-cli.cpp:103
 #, kde-format
@@ -304,8 +292,7 @@ msgid "(unpaired)"
 msgstr "(nesuporuotas)"
 
 #: kdeconnect-cli.cpp:240
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Buvo bendrinta %1"
@@ -355,7 +342,7 @@ msgstr "Jau nesuporuota"
 #: kdeconnect-cli.cpp:306
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Suporavimas sėkmingai panaikintas"
 
 #: kdeconnect-cli.cpp:364
 #, kde-format
