@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2025-06-21 12:48+0200\n"
+"PO-Revision-Date: 2025-11-12 12:26+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -35,10 +35,9 @@ msgstr "Избор на устройство:"
 
 #. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
 #: dialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Enter file location here"
+#, kde-format
 msgid "Enter a file location or URL:"
-msgstr "Въведете местоположението на файла тук"
+msgstr "Въведете местоположението на файла или адреса:"
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -79,12 +78,13 @@ msgstr "id"
 #, kde-format
 msgid "Automatically open the file on the remote device, when supported"
 msgstr ""
+"Автоматично отваряне на файла на отдалеченото устройство, когато се поддържа"
 
 #: kdeconnect-handler.cpp:128
 #, kde-format
 msgctxt "Placeholder for input field that should contain a file/URL to share"
 msgid "Local file or web URL"
-msgstr ""
+msgstr "Локален файл или URL-адрес"
 
 #: kdeconnect-handler.cpp:137
 #, kde-format
@@ -110,15 +110,3 @@ msgstr "Устройство за изпращане на %1:"
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Неуспешно споделяне на %1"
-
-#~ msgid "Send URL"
-#~ msgstr "Изпращане на адрес"
-
-#~ msgid "Send File"
-#~ msgstr "Изпращане на файл"
-
-#~ msgid "Open on peer device"
-#~ msgstr "Отваряне на партньорско устройство"
-
-#~ msgid "Enter URL here"
-#~ msgstr "Въведете URL-адреса тук"

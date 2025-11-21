@@ -352,6 +352,3 @@ msgid ""
 msgstr ""
 "грешка: трябва за се посочи получател на SMS като се въведе --destination "
 "<phone number>"
-
-#~ msgid "Nothing to be done"
-#~ msgstr "Няма нищо за правене"
