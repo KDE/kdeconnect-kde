@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2025-08-18 11:21+0300\n"
-"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2025-11-22 17:02+0200\n"
+"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.07.90\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -92,7 +92,7 @@ msgstr "Отправить тестовый сигнал"
 #: qml/DevicePage.qml:49 qml/PluginSettings.qml:20
 #, kde-format
 msgid "Plugin Settings"
-msgstr "Параметры модуля"
+msgstr "Параметры модулей"
 
 #: qml/DevicePage.qml:65
 #, kde-format
