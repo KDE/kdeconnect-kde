@@ -35,7 +35,7 @@ ColumnLayout {
         fileMode: FileDialog.OpenFiles
 
         onAccepted: {
-            root.selectedFileUrls = fileDialog.fileUrls
+            root.selectedFileUrls = fileDialog.selectedFiles
             fileDialog.close()
         }
     }
