@@ -53,7 +53,7 @@
                 "Name[zh_TW]": "Nicolas Fella"
             }
         ],
-        "Description": "Control the volume of this device from another one",
+        "Description": "Enable volume to be controlled from the connected device",
         "Description[ar]": "تحكم بصوت النظام من هاتفك",
         "Description[az]": "Sistemin səs səviyyəsini telefonunuzdan idarə edin",
         "Description[bg]": "Управление на силата на звука на системата от телефона",
