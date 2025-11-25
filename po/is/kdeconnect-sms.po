@@ -2,21 +2,21 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # SPDX-FileCopyrightText: 2023, 2024, 2025 gummi <gudmundure@gmail.com>
-# Sveinn í Felli <sv1@fellsnet.is>, 2022, 2024.
+# SPDX-FileCopyrightText: 2022, 2024, 2025 Sveinn í Felli <sv1@fellsnet.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-19 00:42+0000\n"
-"PO-Revision-Date: 2025-05-28 20:25+0000\n"
-"Last-Translator: Gummi <gudmundure@gmail.com>\n"
-"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-11-24 13:28+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,12 +29,10 @@ msgid "Your emails"
 msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 
 #: attachmentshelper.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
-msgstr "Hreinsa viðhengi"
+msgstr "Sækja viðhengi"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -82,10 +80,9 @@ msgid "SMS Instant Messaging"
 msgstr "SMS-skilaboð"
 
 #: main.cpp:86
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2018–2025 KDE Connect Team"
-msgstr "(C) 2018-2025, KDE Connect-teymið"
+msgstr "© 2018–2025, KDE Connect þróunarteymið"
 
 #: main.cpp:87
 #, kde-format
@@ -128,11 +125,9 @@ msgid "Open with default"
 msgstr "Opna með sjálfgefnu"
 
 #: qml/AttachmentViewer.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgid "Download attachment…"
-msgstr "Hreinsa viðhengi"
+msgstr "Sækja viðhengi…"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -191,19 +186,16 @@ msgid "Start new conversation"
 msgstr "Hefja nýtt samtal"
 
 #: qml/ConversationList.qml:192
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message text when no messages are found"
-#| msgid "No matches"
+#, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "Engar samsvaranir"
 
 #: qml/ConversationList.qml:202
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"
-msgstr "Hefja nýtt samtal"
+msgstr "Engin samtöl"
 
 #: qml/Main.qml:93
 #, kde-format

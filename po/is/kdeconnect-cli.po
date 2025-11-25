@@ -1,22 +1,22 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Sveinn í Felli <sv1@fellsnet.is>, 2022.
+# SPDX-FileCopyrightText: 2022, 2025 Sveinn í Felli <sv1@fellsnet.is>
 # SPDX-FileCopyrightText: 2023, 2025 gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2025-05-28 20:23+0000\n"
-"Last-Translator: Gummi <gudmundure@gmail.com>\n"
-"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-11-24 13:46+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -47,10 +47,9 @@ msgid "KDE Connect CLI tool"
 msgstr "KDE Connect skipanalínuforrit"
 
 #: kdeconnect-cli.cpp:60
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr "(C) 2015-2025, KDE Connect þróunarteymið"
+msgstr "© 2015–2025, KDE Connect þróunarteymið"
 
 #: kdeconnect-cli.cpp:61
 #, kde-format
@@ -125,28 +124,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Leita að tækjum á netinu og koma aftur á tengingum"
 
 #: kdeconnect-cli.cpp:81
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Biðja um pörun við tilgreint tæki"
+msgstr "Biðja um pörun við tæki"
 
 #: kdeconnect-cli.cpp:82
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Finna tilgreint tæki með því að hringja í það."
+msgstr "Finna tæki með því að hringja í það"
 
 #: kdeconnect-cli.cpp:83
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "Unpair from device"
-msgstr "bíð eftir tæki..."
+msgstr "Afpara frá tæki"
 
 #: kdeconnect-cli.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Sendir ping-merki í tilgreint tæki"
+msgstr "Senda ping-merki í tæki"
 
 #: kdeconnect-cli.cpp:85
 #, kde-format
@@ -159,28 +154,24 @@ msgid "message"
 msgstr "skilaboð"
 
 #: kdeconnect-cli.cpp:86
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Sendir núverandi klippispjald í tilgreint tæki"
+msgstr "Senda klippispjald á tæki"
 
 #: kdeconnect-cli.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Samnýta skrá/slóð í tilgreindu tæki"
+msgstr "Deila skrá/slóð á tæki"
 
 #: kdeconnect-cli.cpp:88
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Samnýta texta í tilgreindu tæki"
+msgstr "Deila texta á tæki"
 
 #: kdeconnect-cli.cpp:89
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "Birta tilkynningar á tilgreindu tæki"
+msgstr "Birta tilkynningar á tæki"
 
 #: kdeconnect-cli.cpp:90
 #, kde-format
@@ -208,18 +199,14 @@ msgid "phone number"
 msgstr "símanúmer"
 
 #: kdeconnect-cli.cpp:95
-#, fuzzy, kde-format
-#| msgid ""
-#| "File urls to send attachments with the message (can be passed multiple "
-#| "times)"
+#, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
 "Skráaslóðir til að senda viðhengi með skilaboðunum (má setja mörgum sinnum)"
 
 #: kdeconnect-cli.cpp:96
-#, fuzzy, kde-format
-#| msgid "file urls"
+#, kde-format
 msgid "file URLs"
 msgstr "skráaslóðir"
 
@@ -234,28 +221,24 @@ msgid "Device Name"
 msgstr "Nafn tækis"
 
 #: kdeconnect-cli.cpp:99
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Fá dulritunarupplýsingar um tilgreint tæki"
+msgstr "Ná í upplýsingar um dulritun á tilgreindu tæki"
 
 #: kdeconnect-cli.cpp:100
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
-msgstr "Telur upp fjartengdar skipanir og auðkenni þeirra"
+msgstr "Telja upp fjartengdar skipanir og auðkenni þeirra"
 
 #: kdeconnect-cli.cpp:101
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
-msgstr "Keyrir fjartengda skipun eftir auðkenni"
+msgstr "Keyra fjartengda skipun eftir auðkenni"
 
 #: kdeconnect-cli.cpp:102
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Sendir dulritunarlykla í tilgreint tæki"
+msgstr "Sendir dulritunarlykla í tæki"
 
 #: kdeconnect-cli.cpp:103
 #, kde-format
@@ -263,15 +246,14 @@ msgid "Display this device's id and exit"
 msgstr "Birta auðkenni tilgreinds tækis og hætta"
 
 #: kdeconnect-cli.cpp:104
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Sendir dulritunarlykla í tilgreint tæki"
+msgstr "Tengja skráakerfi tilgreinds tækis"
 
 #: kdeconnect-cli.cpp:105
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "Birta tengipunkt fyrir skráakerfi tilgreinds tækis"
 
 #: kdeconnect-cli.cpp:151
 #, kde-format
@@ -306,8 +288,7 @@ msgid "(unpaired)"
 msgstr "(óparað)"
 
 #: kdeconnect-cli.cpp:240
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Deilt %1"
@@ -330,10 +311,9 @@ msgid "Requested to unlock %1."
 msgstr "Bað um að aflæsa %1."
 
 #: kdeconnect-cli.cpp:277
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "bíð eftir tæki..."
+msgstr "bíð eftir tæki…"
 
 #: kdeconnect-cli.cpp:290
 #, kde-format
@@ -358,7 +338,7 @@ msgstr "Nú þegar ekki parað"
 #: kdeconnect-cli.cpp:306
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Tókst að afparast"
 
 #: kdeconnect-cli.cpp:364
 #, kde-format
