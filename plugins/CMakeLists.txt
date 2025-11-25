@@ -7,6 +7,7 @@ add_subdirectory(remotecontrol)
 add_subdirectory(remotesystemvolume)
 add_subdirectory(clipboard)
 add_subdirectory(runcommand)
+add_subdirectory(digitizer)
 
 
 if(NOT WIN32)

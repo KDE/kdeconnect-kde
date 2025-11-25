@@ -1,0 +1,21 @@
+{
+    "$schema": "../kdeconnect.schema.json",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "hemisputnik@proton.me",
+                "Name": "Martin Sh"
+            }
+        ],
+        "Description": "Use your device as a pressure sensitive drawing tablet",
+        "EnabledByDefault": true,
+        "Icon": "input-tablet",
+        "License": "GPL",
+        "Name": "Drawing tablet"
+    },
+    "X-KdeConnect-OutgoingPacketType": [],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.digitizer.session",
+        "kdeconnect.digitizer"
+    ]
+}

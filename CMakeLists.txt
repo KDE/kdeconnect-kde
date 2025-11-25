@@ -108,7 +108,7 @@ if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
 endif()
 
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n DBusAddons IconThemes Notifications
-    KIO ColorScheme Service Solid Kirigami People WindowSystem GuiAddons Crash ItemModels)
+    KIO ColorScheme Service Solid Kirigami People WindowSystem GuiAddons Crash ItemModels WidgetsAddons)
 
 if (WIN32)
     get_filename_component(WINDOWS_KITS_DIR

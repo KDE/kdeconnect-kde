@@ -1033,6 +1033,12 @@ Comment[zh_TW]=接收到簡訊
 Action=Popup
 Urgency=Low
 
+[Event/digitizerError]
+Name=Drawing Tablet Error
+Comment=Something went wrong with the drawing tablet plugin
+Action=Popup
+Urgency=Critical
+
 [Event/error]
 Name=Error
 Name[ar]=خطأ

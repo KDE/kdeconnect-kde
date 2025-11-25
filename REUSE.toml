@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Martin Sh <hemisputnik@proton.me>
+# SPDX-License-Identifier: CC0
+
+version = 1
+
+[[annotations]]
+path = "plugins/digitizer/kdeconnect_digitizer.json"
+SPDX-License-Identifier = "GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL"
