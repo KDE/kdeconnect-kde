@@ -7,6 +7,7 @@
 #ifndef CONNECTIONMULTIPLEXER_H
 #define CONNECTIONMULTIPLEXER_H
 
+#include <QBluetoothAddress>
 #include <QByteArray>
 #include <QHash>
 #include <QObject>
@@ -66,6 +67,11 @@ public:
      * @see close()
      */
     bool isOpen() const;
+
+    /**
+     * Returns the address of the connected device for display.
+     */
+    QBluetoothAddress address() const;
 
 private:
     /**

@@ -33,6 +33,11 @@ BluetoothDeviceLink::BluetoothDeviceLink(const DeviceInfo &deviceInfo,
     connect(socket.data(), &MultiplexChannel::aboutToClose, this, &QObject::deleteLater);
 }
 
+QString BluetoothDeviceLink::address() const
+{
+    return mConnection->address().toString();
+}
+
 bool BluetoothDeviceLink::sendPacket(NetworkPacket &np)
 {
     if (np.hasPayload()) {

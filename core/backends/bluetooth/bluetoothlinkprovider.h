@@ -37,6 +37,11 @@ public:
         return QStringLiteral("SynchronousBluetoothLinkProvider");
     }
 
+    QString displayName() override
+    {
+        return i18nc("@info", "Bluetooth");
+    }
+
     int priority() override
     {
         return 10;

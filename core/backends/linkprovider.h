@@ -7,6 +7,7 @@
 #ifndef LINKPROVIDER_H
 #define LINKPROVIDER_H
 
+#include <KLocalizedString>
 #include <QObject>
 
 #include "networkpacket.h"
@@ -22,6 +23,7 @@ public:
     LinkProvider();
 
     virtual QString name() = 0;
+    virtual QString displayName() = 0;
     virtual int priority() = 0;
 
     virtual void enable() = 0;

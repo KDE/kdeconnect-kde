@@ -128,6 +128,24 @@ bool Device::isReachable() const
     return !d->m_deviceLinks.isEmpty();
 }
 
+QStringList Device::reachableAddresses() const
+{
+    QList<QString> addresses;
+    for (const DeviceLink *deviceLink : std::as_const(d->m_deviceLinks)) {
+        addresses.append(deviceLink->address());
+    }
+    return addresses;
+}
+
+QStringList Device::activeProviderNames() const
+{
+    QList<QString> providers;
+    for (const DeviceLink *deviceLink : std::as_const(d->m_deviceLinks)) {
+        providers.append(deviceLink->providerName());
+    }
+    return providers;
+}
+
 int Device::protocolVersion()
 {
     return d->m_deviceInfo.protocolVersion;

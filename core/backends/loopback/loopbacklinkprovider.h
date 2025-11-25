@@ -22,6 +22,12 @@ public:
     {
         return QStringLiteral("LoopbackLinkProvider");
     }
+
+    QString displayName() override
+    {
+        return i18nc("@info", "Loopback");
+    }
+
     int priority() override
     {
         return 0;

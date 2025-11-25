@@ -35,6 +35,8 @@ public:
         return mDeviceInfo;
     }
 
+    QString address() const override;
+
 private Q_SLOTS:
     void dataReceived();
 

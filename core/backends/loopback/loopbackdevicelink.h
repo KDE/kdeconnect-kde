@@ -21,6 +21,11 @@ public:
     virtual bool sendPacket(NetworkPacket &np) override;
 
     virtual DeviceInfo deviceInfo() const override;
+
+    QString address() const override
+    {
+        return QStringLiteral("127.0.0.1");
+    }
 };
 
 #endif

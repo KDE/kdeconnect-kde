@@ -48,20 +48,12 @@ FormCard.FormCardPage {
             FormCard.FormCheckDelegate {
                 required property string modelData
 
-                readonly property string linkProviderId: modelData.split('|')[0]
-                readonly property string displayName: switch (linkProviderId) {
-                case 'BluetoothLinkProvider':
-                    return i18nc("@info KDE Connect provider name", "Bluetooth")
-                case 'LoopbackLinkProvider':
-                    return i18nc("@info KDE Connect provider name", "Loopback")
-                case 'LanLinkProvider':
-                    return i18nc("@info KDE Connect provider name", "Network")
-                }
+                readonly property string displayName: modelData.split('|')[0]
 
                 checked: modelData.split('|')[1] === 'enabled'
                 text: displayName
 
-                onToggled: DaemonDbusInterface.setLinkProviderState(linkProviderId, checked);
+                onToggled: DaemonDbusInterface.setLinkProviderState(displayName, checked);
             }
         }
     }

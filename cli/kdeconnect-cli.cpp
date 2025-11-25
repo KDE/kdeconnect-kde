@@ -154,7 +154,10 @@ int main(int argc, char **argv)
                 } else if (isPaired) {
                     statusInfo = i18n("(paired)");
                 }
-                QTextStream(stdout) << "- " << deviceIface.name() << ": " << deviceIface.id() << ' ' << statusInfo << Qt::endl;
+
+                QTextStream(stdout) << "- " << deviceIface.name() << ": " << deviceIface.id() << QStringLiteral(" on ")
+                                    << deviceIface.reachableAddresses().join(QStringLiteral(", ")) << QStringLiteral(" via ")
+                                    << deviceIface.activeProviderNames().join(QStringLiteral(", ")) << ' ' << statusInfo << Qt::endl;
             }
         }
         if (displayCount) {

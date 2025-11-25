@@ -15,6 +15,8 @@ DeviceLink::DeviceLink(const QString &deviceId, LinkProvider *parent)
         parent->onLinkDestroyed(deviceId, this);
     });
     this->priorityFromProvider = parent->priority();
+    this->displayNameFromProvider = parent->displayName();
+    this->nameFromProvider = parent->name();
 }
 
 #include "moc_devicelink.cpp"

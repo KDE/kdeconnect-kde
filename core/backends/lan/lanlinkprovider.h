@@ -38,6 +38,11 @@ public:
         return QStringLiteral("LanLinkProvider");
     }
 
+    QString displayName() override
+    {
+        return i18nc("@info", "LAN");
+    }
+
     int priority() override
     {
         return 20;

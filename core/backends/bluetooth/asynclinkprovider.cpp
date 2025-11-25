@@ -31,7 +31,12 @@ AsyncLinkProvider::AsyncLinkProvider(bool isDisabled)
 
 QString AsyncLinkProvider::name()
 {
-    return QStringLiteral("BluetoothLinkProvider");
+    return QStringLiteral("AsyncLinkProvider");
+}
+
+QString AsyncLinkProvider::displayName()
+{
+    return i18nc("@info", "Bluetooth");
 }
 
 int AsyncLinkProvider::priority()

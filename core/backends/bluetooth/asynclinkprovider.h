@@ -34,6 +34,8 @@ public:
     AsyncLinkProvider(bool isDisabled);
 
     QString name() override;
+    QString displayName() override;
+
     int priority() override;
     void enable() override;
     void disable() override;

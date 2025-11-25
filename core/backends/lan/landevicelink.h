@@ -35,6 +35,11 @@ public:
         return m_deviceInfo;
     }
 
+    QString address() const override
+    {
+        return hostAddress().toString();
+    }
+
     QHostAddress hostAddress() const;
 
 private Q_SLOTS:

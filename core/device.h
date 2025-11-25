@@ -29,6 +29,8 @@ class KDECONNECTCORE_EXPORT Device : public QObject
     Q_PROPERTY(QString verificationKey READ verificationKey NOTIFY pairStateChanged)
     Q_PROPERTY(QString statusIconName READ statusIconName NOTIFY statusIconNameChanged)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChanged)
+    Q_PROPERTY(QStringList reachableAddresses READ reachableAddresses CONSTANT)
+    Q_PROPERTY(QStringList activeProviderNames READ activeProviderNames CONSTANT)
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChanged)
     Q_PROPERTY(bool isPairRequested READ isPairRequested NOTIFY pairStateChanged)
     Q_PROPERTY(bool isPairRequestedByPeer READ isPairRequestedByPeer NOTIFY pairStateChanged)
@@ -83,6 +85,9 @@ public:
     Q_SCRIPTABLE bool isPairRequested() const;
     Q_SCRIPTABLE bool isPairRequestedByPeer() const;
     virtual bool isReachable() const;
+
+    virtual QStringList reachableAddresses() const;
+    virtual QStringList activeProviderNames() const;
 
     Q_SCRIPTABLE QStringList loadedPlugins() const;
     Q_SCRIPTABLE bool hasPlugin(const QString &name) const;

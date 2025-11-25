@@ -65,6 +65,8 @@ Kirigami.ScrollablePage {
                     return i18nc("@title:group device page section header", "Actions");
                 case "control":
                     return i18nc("@title:group device page section header", "Controls");
+                case "info":
+                    return i18nc("@title:group device page section header", "Information");
             }
         }
         Accessible.role: Accessible.List
@@ -76,13 +78,13 @@ Kirigami.ScrollablePage {
                 DelegateModelGroup {name: "loadedPlugins"}
             ]
             filterOnGroup: "loadedPlugins"
-            property int numberPluginsLoaded: pluginsListView.plugins.filter(plugin => plugin.loaded).length ?? 0
+            property int numberPluginsLoaded: pluginsListView.plugins.filter(plugin => plugin.loaded || plugin.section === "info").length ?? 0
             onNumberPluginsLoadedChanged: update()
 
             function update() {
                 for (let i = 0; i < items.count; ++i) {
                     let item = items.get(i);
-                    item.inLoadedPlugins = item.model.loaded
+                    item.inLoadedPlugins = item.model.loaded || item.model.section === "info"
                 }
             }
 
@@ -203,6 +205,11 @@ Kirigami.ScrollablePage {
                     }
                 }
                 section: "action"
+                device: root.currentDevice
+            },
+            PluginItem {
+                name: i18nd("kdeconnect-app", "Address: %1 via %2", root.currentDevice.reachableAddresses, root.currentDevice.activeProviderNames)
+                section: "info"
                 device: root.currentDevice
             }
         ]

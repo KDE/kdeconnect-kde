@@ -30,12 +30,26 @@ public:
         return priorityFromProvider;
     }
 
+    QString provider() const
+    {
+        return nameFromProvider;
+    }
+
+    QString providerName() const
+    {
+        return displayNameFromProvider;
+    }
+
     virtual bool sendPacket(NetworkPacket &np) = 0;
 
     virtual DeviceInfo deviceInfo() const = 0;
 
+    virtual QString address() const = 0;
+
 private:
     int priorityFromProvider;
+    QString nameFromProvider;
+    QString displayNameFromProvider;
 
 Q_SIGNALS:
     void receivedPacket(const NetworkPacket &np);

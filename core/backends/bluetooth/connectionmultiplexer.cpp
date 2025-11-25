@@ -107,6 +107,11 @@ bool ConnectionMultiplexer::isOpen() const
     return mSocket->isOpen();
 }
 
+QBluetoothAddress ConnectionMultiplexer::address() const
+{
+    return mSocket->peerAddress();
+}
+
 bool ConnectionMultiplexer::tryParseMessage()
 {
     mSocket->startTransaction();
