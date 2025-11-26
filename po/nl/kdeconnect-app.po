@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-07-15 10:09+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -99,83 +99,94 @@ msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "Besturing"
 
-#: qml/DevicePage.qml:113
+#: qml/DevicePage.qml:69
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Information"
+msgstr ""
+
+#: qml/DevicePage.qml:115
 #, kde-format
 msgid "Multimedia control"
 msgstr "Bediening van multimedia"
 
-#: qml/DevicePage.qml:121
+#: qml/DevicePage.qml:123
 #, kde-format
 msgid "Remote input"
 msgstr "Invoer op afstand"
 
-#: qml/DevicePage.qml:129 qml/runcommand.qml:16
+#: qml/DevicePage.qml:131 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Commando uitvoeren"
 
-#: qml/DevicePage.qml:137 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:139 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Presentatie op afstand"
 
-#: qml/DevicePage.qml:145 qml/volume.qml:16
+#: qml/DevicePage.qml:147 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Volumebesturing"
 
-#: qml/DevicePage.qml:155 qml/mousepad.qml:44
+#: qml/DevicePage.qml:157 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Vergrendelen"
 
-#: qml/DevicePage.qml:155
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Unlock"
 msgstr "Ontgrendelen"
 
-#: qml/DevicePage.qml:163
+#: qml/DevicePage.qml:165
 #, kde-format
 msgid "Find Device"
 msgstr "Apparaat zoeken"
 
-#: qml/DevicePage.qml:171
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Klembord verzenden"
 
-#: qml/DevicePage.qml:178
+#: qml/DevicePage.qml:180
 #, kde-format
 msgid "Share File"
 msgstr "Bestand delen"
 
-#: qml/DevicePage.qml:186
+#: qml/DevicePage.qml:188
 #, kde-format
 msgid "Browse this device"
 msgstr "Dit apparaat langslopen"
 
-#: qml/DevicePage.qml:194
+#: qml/DevicePage.qml:196
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "Virtuele monitorsessie stoppen"
 
-#: qml/DevicePage.qml:194
+#: qml/DevicePage.qml:196
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "Apparaat als een externe monitor gebruiken"
 
-#: qml/DevicePage.qml:213
+#: qml/DevicePage.qml:211
+#, kde-format
+msgid "Address: %1 via %2"
+msgstr ""
+
+#: qml/DevicePage.qml:220
 #, kde-format
 msgid "This device is not paired."
 msgstr "Dit apparaat is niet gepaard."
 
-#: qml/DevicePage.qml:217
+#: qml/DevicePage.qml:224
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Paren"
 
-#: qml/DevicePage.qml:224 qml/DevicePage.qml:233
+#: qml/DevicePage.qml:231 qml/DevicePage.qml:240
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -184,22 +195,22 @@ msgstr ""
 "Paarvorming gevraagd\n"
 "Sleutel:"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:246
 #, kde-format
 msgid "Accept"
 msgstr "Accepteren"
 
-#: qml/DevicePage.qml:245
+#: qml/DevicePage.qml:252
 #, kde-format
 msgid "Reject"
 msgstr "Afwijzen"
 
-#: qml/DevicePage.qml:256
+#: qml/DevicePage.qml:263
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Dit apparaat is niet bereikbaar"
 
-#: qml/DevicePage.qml:264
+#: qml/DevicePage.qml:271
 #, kde-format
 msgid "Please choose a file"
 msgstr "Kies een bestand a.u.b"
@@ -332,30 +343,12 @@ msgctxt "@title:group"
 msgid "Backends"
 msgstr "Backends"
 
-#: qml/Settings.qml:54
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
-#: qml/Settings.qml:56
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Loopback"
-msgstr "Loopback"
-
-#: qml/Settings.qml:58
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Network"
-msgstr "Netwerk"
-
-#: qml/Settings.qml:73
+#: qml/Settings.qml:65
 #, kde-format
 msgid "About KDE Connect"
 msgstr "Over KDE Connect"
 
-#: qml/Settings.qml:81
+#: qml/Settings.qml:73
 #, kde-format
 msgid "About KDE"
 msgstr "Info over KDE"
@@ -411,6 +404,18 @@ msgstr ""
 "Als u problemen hebt, bezoek de <a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">KDE Connect wiki van de "
 "gemeenschap</span></a> voor hulp."
+
+#~ msgctxt "@info KDE Connect provider name"
+#~ msgid "Bluetooth"
+#~ msgstr "Bluetooth"
+
+#~ msgctxt "@info KDE Connect provider name"
+#~ msgid "Loopback"
+#~ msgstr "Loopback"
+
+#~ msgctxt "@info KDE Connect provider name"
+#~ msgid "Network"
+#~ msgstr "Netwerk"
 
 #~ msgid "(c) 2015, Aleix Pol Gonzalez"
 #~ msgstr "(c) 2015, Aleix Pol Gonzalez"

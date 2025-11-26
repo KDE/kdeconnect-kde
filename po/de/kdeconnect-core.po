@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-07-09 16:12+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -16,6 +16,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.3\n"
+
+#: backends/bluetooth/asynclinkprovider.cpp:39
+#, kde-format
+msgctxt "@info"
+msgid "Bluetooth"
+msgstr ""
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -92,18 +98,18 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Ziel"
 
-#: device.cpp:461
+#: device.cpp:479
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Der SHA256-Fingerabdruck Ihres Gerätezertifikats lautet: %1\n"
 
-#: device.cpp:467
+#: device.cpp:485
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr ""
 "Der SHA256-Fingerabdruck des Gerätezertifikats der Gegenstelle lautet: %1\n"
 
-#: device.cpp:469
+#: device.cpp:487
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "Protokollversion: %1\n"

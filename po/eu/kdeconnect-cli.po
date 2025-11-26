@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-10-19 23:31+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -282,83 +282,83 @@ msgstr "(parekatuta eta eskuragarri)"
 msgid "(reachable)"
 msgstr "(eskuragarri)"
 
-#: kdeconnect-cli.cpp:155 kdeconnect-cli.cpp:178
+#: kdeconnect-cli.cpp:155 kdeconnect-cli.cpp:181
 #, kde-format
 msgid "(paired)"
 msgstr "(parekatuta)"
 
-#: kdeconnect-cli.cpp:161
+#: kdeconnect-cli.cpp:164
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "gailu 1 aurkitu da"
 msgstr[1] "%1 gailu aurkitu dira"
 
-#: kdeconnect-cli.cpp:163
+#: kdeconnect-cli.cpp:166
 #, kde-format
 msgid "No devices found"
 msgstr "Ez da gailurik aurkitu"
 
-#: kdeconnect-cli.cpp:180
+#: kdeconnect-cli.cpp:183
 #, kde-format
 msgid "(unpaired)"
 msgstr "(parekatu gabe)"
 
-#: kdeconnect-cli.cpp:240
+#: kdeconnect-cli.cpp:243
 #, fuzzy, kde-format
 #| msgid "Shared %1"
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "%1 partekatuta"
 
-#: kdeconnect-cli.cpp:253
+#: kdeconnect-cli.cpp:256
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Partekatutako testua: %1"
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:267
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "%1 giltzatzea eskatu da."
 
-#: kdeconnect-cli.cpp:266
+#: kdeconnect-cli.cpp:269
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "%1 giltzapetik askatzea eskatu da."
 
-#: kdeconnect-cli.cpp:277
+#: kdeconnect-cli.cpp:280
 #, kde-format
 msgid "waiting for device…"
 msgstr "gailuaren zain..."
 
-#: kdeconnect-cli.cpp:290
+#: kdeconnect-cli.cpp:293
 #, kde-format
 msgid "Device not found"
 msgstr "Gailua ez da aurkitu"
 
-#: kdeconnect-cli.cpp:292
+#: kdeconnect-cli.cpp:295
 #, kde-format
 msgid "Already paired"
 msgstr "Dagoeneko parekatuta"
 
-#: kdeconnect-cli.cpp:294
+#: kdeconnect-cli.cpp:297
 #, kde-format
 msgid "Pair requested"
 msgstr "Parekatzea eskatu da"
 
-#: kdeconnect-cli.cpp:304
+#: kdeconnect-cli.cpp:307
 #, kde-format
 msgid "Already not paired"
 msgstr "Dagoeneko parekatua gabe"
 
-#: kdeconnect-cli.cpp:306
+#: kdeconnect-cli.cpp:309
 #, kde-format
 msgid "Successfully unpaired"
 msgstr ""
 
-#: kdeconnect-cli.cpp:364
+#: kdeconnect-cli.cpp:367
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "

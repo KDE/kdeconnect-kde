@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-10-09 00:31+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -42,6 +42,26 @@ msgstr "암호 포함(암호 관리자에서 지정한 대로)"
 #, kde-format
 msgid "Max Clipboard File Size (MB)"
 msgstr "최대 클립보드 파일 크기(MB)"
+
+#: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgid "KDE Connect Error"
+msgstr "KDE Connect"
+
+#: digitizer/linuxdigitizerimpl.cpp:73
+#, kde-format
+msgid ""
+"Unable to create a virtual drawing tablet. If this error persists, file a "
+"bug report."
+msgstr ""
+
+#: digitizer/linuxdigitizerimpl.cpp:169
+#, kde-format
+msgid ""
+"Unable to process one or more input events for the virtual device. If this "
+"error persists, file a bug report."
+msgstr ""
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22

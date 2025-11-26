@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-07-15 10:03+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -103,83 +103,94 @@ msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "Controls"
 
-#: qml/DevicePage.qml:113
+#: qml/DevicePage.qml:69
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Information"
+msgstr ""
+
+#: qml/DevicePage.qml:115
 #, kde-format
 msgid "Multimedia control"
 msgstr "Control multimèdia"
 
-#: qml/DevicePage.qml:121
+#: qml/DevicePage.qml:123
 #, kde-format
 msgid "Remote input"
 msgstr "Entrada remota"
 
-#: qml/DevicePage.qml:129 qml/runcommand.qml:16
+#: qml/DevicePage.qml:131 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Executa una ordre"
 
-#: qml/DevicePage.qml:137 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:139 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Presentació remota"
 
-#: qml/DevicePage.qml:145 qml/volume.qml:16
+#: qml/DevicePage.qml:147 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Control del volum"
 
-#: qml/DevicePage.qml:155 qml/mousepad.qml:44
+#: qml/DevicePage.qml:157 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Bloqueja"
 
-#: qml/DevicePage.qml:155
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Unlock"
 msgstr "Desbloqueja"
 
-#: qml/DevicePage.qml:163
+#: qml/DevicePage.qml:165
 #, kde-format
 msgid "Find Device"
 msgstr "Troba el dispositiu"
 
-#: qml/DevicePage.qml:171
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Envia el porta-retalls"
 
-#: qml/DevicePage.qml:178
+#: qml/DevicePage.qml:180
 #, kde-format
 msgid "Share File"
 msgstr "Compartix el fitxer"
 
-#: qml/DevicePage.qml:186
+#: qml/DevicePage.qml:188
 #, kde-format
 msgid "Browse this device"
 msgstr "Navega per este dispositiu"
 
-#: qml/DevicePage.qml:194
+#: qml/DevicePage.qml:196
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "Para la sessió de monitor virtual"
 
-#: qml/DevicePage.qml:194
+#: qml/DevicePage.qml:196
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "Utilitza el dispositiu com un monitor extern"
 
-#: qml/DevicePage.qml:213
+#: qml/DevicePage.qml:211
+#, kde-format
+msgid "Address: %1 via %2"
+msgstr ""
+
+#: qml/DevicePage.qml:220
 #, kde-format
 msgid "This device is not paired."
 msgstr "Este dispositiu no està aparellat."
 
-#: qml/DevicePage.qml:217
+#: qml/DevicePage.qml:224
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Aparella"
 
-#: qml/DevicePage.qml:224 qml/DevicePage.qml:233
+#: qml/DevicePage.qml:231 qml/DevicePage.qml:240
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -188,22 +199,22 @@ msgstr ""
 "S'ha demanat aparellar\n"
 "Clau:"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:246
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
-#: qml/DevicePage.qml:245
+#: qml/DevicePage.qml:252
 #, kde-format
 msgid "Reject"
 msgstr "Rebutja"
 
-#: qml/DevicePage.qml:256
+#: qml/DevicePage.qml:263
 #, kde-format
 msgid "This device is not reachable"
 msgstr "No es pot accedir a este dispositiu"
 
-#: qml/DevicePage.qml:264
+#: qml/DevicePage.qml:271
 #, kde-format
 msgid "Please choose a file"
 msgstr "Trieu un fitxer"
@@ -337,30 +348,12 @@ msgctxt "@title:group"
 msgid "Backends"
 msgstr "Dorsals"
 
-#: qml/Settings.qml:54
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
-#: qml/Settings.qml:56
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Loopback"
-msgstr "Bucle tancat"
-
-#: qml/Settings.qml:58
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Network"
-msgstr "Xarxa"
-
-#: qml/Settings.qml:73
+#: qml/Settings.qml:65
 #, kde-format
 msgid "About KDE Connect"
 msgstr "Quant a KDE Connect"
 
-#: qml/Settings.qml:81
+#: qml/Settings.qml:73
 #, kde-format
 msgid "About KDE"
 msgstr "Quant a KDE"
@@ -416,3 +409,15 @@ msgstr ""
 "Si trobeu problemes, visiteu el <a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">wiki Community de KDE "
 "Connect</span></a> per a trobar ajuda."
+
+#~ msgctxt "@info KDE Connect provider name"
+#~ msgid "Bluetooth"
+#~ msgstr "Bluetooth"
+
+#~ msgctxt "@info KDE Connect provider name"
+#~ msgid "Loopback"
+#~ msgstr "Bucle tancat"
+
+#~ msgctxt "@info KDE Connect provider name"
+#~ msgid "Network"
+#~ msgstr "Xarxa"

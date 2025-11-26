@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-10-12 11:39+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -275,82 +275,82 @@ msgstr "(연결되고 접근 가능함)"
 msgid "(reachable)"
 msgstr "(접근 가능함)"
 
-#: kdeconnect-cli.cpp:155 kdeconnect-cli.cpp:178
+#: kdeconnect-cli.cpp:155 kdeconnect-cli.cpp:181
 #, kde-format
 msgid "(paired)"
 msgstr "(연결됨)"
 
-#: kdeconnect-cli.cpp:161
+#: kdeconnect-cli.cpp:164
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "장치 %1개 찾음"
 
-#: kdeconnect-cli.cpp:163
+#: kdeconnect-cli.cpp:166
 #, kde-format
 msgid "No devices found"
 msgstr "장치를 찾을 수 없음"
 
-#: kdeconnect-cli.cpp:180
+#: kdeconnect-cli.cpp:183
 #, kde-format
 msgid "(unpaired)"
 msgstr "(연결 해제됨)"
 
-#: kdeconnect-cli.cpp:240
+#: kdeconnect-cli.cpp:243
 #, fuzzy, kde-format
 #| msgid "Shared %1"
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "%1 공유됨"
 
-#: kdeconnect-cli.cpp:253
+#: kdeconnect-cli.cpp:256
 #, kde-format
 msgid "Shared text: %1"
 msgstr "텍스트 공유됨: %1"
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:267
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "%1을(를) 잠그기를 요청했습니다."
 
-#: kdeconnect-cli.cpp:266
+#: kdeconnect-cli.cpp:269
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "%1의 잠금을 해제하기를 요청했습니다."
 
-#: kdeconnect-cli.cpp:277
+#: kdeconnect-cli.cpp:280
 #, kde-format
 msgid "waiting for device…"
 msgstr "장치 대기 중…"
 
-#: kdeconnect-cli.cpp:290
+#: kdeconnect-cli.cpp:293
 #, kde-format
 msgid "Device not found"
 msgstr "장치를 찾을 수 없음"
 
-#: kdeconnect-cli.cpp:292
+#: kdeconnect-cli.cpp:295
 #, kde-format
 msgid "Already paired"
 msgstr "이미 연결됨"
 
-#: kdeconnect-cli.cpp:294
+#: kdeconnect-cli.cpp:297
 #, kde-format
 msgid "Pair requested"
 msgstr "연결 요청됨"
 
-#: kdeconnect-cli.cpp:304
+#: kdeconnect-cli.cpp:307
 #, kde-format
 msgid "Already not paired"
 msgstr "이미 연결 해제됨"
 
-#: kdeconnect-cli.cpp:306
+#: kdeconnect-cli.cpp:309
 #, kde-format
 msgid "Successfully unpaired"
 msgstr ""
 
-#: kdeconnect-cli.cpp:364
+#: kdeconnect-cli.cpp:367
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "

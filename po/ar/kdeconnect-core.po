@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-05-31 17:33+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -18,6 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.5\n"
+
+#: backends/bluetooth/asynclinkprovider.cpp:39
+#, kde-format
+msgctxt "@info"
+msgid "Bluetooth"
+msgstr ""
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -98,17 +104,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "المقصد"
 
-#: device.cpp:461
+#: device.cpp:479
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "بصمة SHA256 لشهادة جهازك هي: %1\n"
 
-#: device.cpp:467
+#: device.cpp:485
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "بصمة SHA256 لشهادة الجهاز البعيد هي: %1\n"
 
-#: device.cpp:469
+#: device.cpp:487
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "إصدار الميفاق: %1\n"

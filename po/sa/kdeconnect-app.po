@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2024-12-25 19:36+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -102,72 +102,83 @@ msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "दूरनियन्त्रणम्"
 
-#: qml/DevicePage.qml:113
+#: qml/DevicePage.qml:69
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Information"
+msgstr ""
+
+#: qml/DevicePage.qml:115
 #, kde-format
 msgid "Multimedia control"
 msgstr "बहुमाध्यम नियन्त्रण"
 
-#: qml/DevicePage.qml:121
+#: qml/DevicePage.qml:123
 #, kde-format
 msgid "Remote input"
 msgstr "दूरस्थः निवेशः"
 
-#: qml/DevicePage.qml:129 qml/runcommand.qml:16
+#: qml/DevicePage.qml:131 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "आदेशं चालयन्तु"
 
-#: qml/DevicePage.qml:137 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:139 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "प्रस्तुति दूरस्थ"
 
-#: qml/DevicePage.qml:145 qml/volume.qml:16
+#: qml/DevicePage.qml:147 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "मात्रा नियन्त्रणम्"
 
-#: qml/DevicePage.qml:155 qml/mousepad.qml:44
+#: qml/DevicePage.qml:157 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "ताल"
 
-#: qml/DevicePage.qml:155
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Unlock"
 msgstr "अनलॉक"
 
-#: qml/DevicePage.qml:163
+#: qml/DevicePage.qml:165
 #, kde-format
 msgid "Find Device"
 msgstr "यन्त्रं अन्वेष्टुम्"
 
-#: qml/DevicePage.qml:171
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Clipboard प्रेषयतु"
 
-#: qml/DevicePage.qml:178
+#: qml/DevicePage.qml:180
 #, kde-format
 msgid "Share File"
 msgstr "सञ्चिकां साझां कुर्वन्तु"
 
-#: qml/DevicePage.qml:186
+#: qml/DevicePage.qml:188
 #, kde-format
 msgid "Browse this device"
 msgstr ""
 
-#: qml/DevicePage.qml:194
+#: qml/DevicePage.qml:196
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr ""
 
-#: qml/DevicePage.qml:194
+#: qml/DevicePage.qml:196
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr ""
 
-#: qml/DevicePage.qml:213
+#: qml/DevicePage.qml:211
+#, kde-format
+msgid "Address: %1 via %2"
+msgstr ""
+
+#: qml/DevicePage.qml:220
 #, fuzzy, kde-format
 #| msgid ""
 #| "This device is not paired.\n"
@@ -177,13 +188,13 @@ msgstr ""
 "एतत् यन्त्रं युग्मितं नास्ति ।\n"
 "कुञ्जी: %1"
 
-#: qml/DevicePage.qml:217
+#: qml/DevicePage.qml:224
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "युग्म"
 
-#: qml/DevicePage.qml:224 qml/DevicePage.qml:233
+#: qml/DevicePage.qml:231 qml/DevicePage.qml:240
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -192,22 +203,22 @@ msgstr ""
 "युग्मं अनुरोधितम्\n"
 "कुंजी: "
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:246
 #, kde-format
 msgid "Accept"
 msgstr "स्वीकरोतु"
 
-#: qml/DevicePage.qml:245
+#: qml/DevicePage.qml:252
 #, kde-format
 msgid "Reject"
 msgstr "अस्वीकार"
 
-#: qml/DevicePage.qml:256
+#: qml/DevicePage.qml:263
 #, kde-format
 msgid "This device is not reachable"
 msgstr "एतत् यन्त्रं न प्राप्यते"
 
-#: qml/DevicePage.qml:264
+#: qml/DevicePage.qml:271
 #, kde-format
 msgid "Please choose a file"
 msgstr "कृपया सञ्चिकां चिनोतु"
@@ -340,30 +351,12 @@ msgctxt "@title:group"
 msgid "Backends"
 msgstr "अभ्यन्तरसंविधानानि"
 
-#: qml/Settings.qml:54
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Bluetooth"
-msgstr "ब्लूटूथ"
-
-#: qml/Settings.qml:56
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Loopback"
-msgstr "लूपबैक"
-
-#: qml/Settings.qml:58
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Network"
-msgstr "जालकृति"
-
-#: qml/Settings.qml:73
+#: qml/Settings.qml:65
 #, kde-format
 msgid "About KDE Connect"
 msgstr "KDE Connect इत्यस्य विषये"
 
-#: qml/Settings.qml:81
+#: qml/Settings.qml:73
 #, kde-format
 msgid "About KDE"
 msgstr "KDE विषये"
@@ -419,6 +412,18 @@ msgstr ""
 "यदि समस्या अस्ति, <a href=\"https://userbase.kde.org/KDEConnect\"><span style="
 "\"text-decoration: underline;\">KDE Connect समुदायस्य विकिः</span></a> अत्र "
 "गत्वा साहाय्यम् प्राप्नुहि।"
+
+#~ msgctxt "@info KDE Connect provider name"
+#~ msgid "Bluetooth"
+#~ msgstr "ब्लूटूथ"
+
+#~ msgctxt "@info KDE Connect provider name"
+#~ msgid "Loopback"
+#~ msgstr "लूपबैक"
+
+#~ msgctxt "@info KDE Connect provider name"
+#~ msgid "Network"
+#~ msgstr "जालकृति"
 
 #~ msgid "(c) 2015, Aleix Pol Gonzalez"
 #~ msgstr "(ग) 2015, अलेक्स पोल गोन्जालेज"

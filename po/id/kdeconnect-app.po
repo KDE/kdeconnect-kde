@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -100,85 +100,96 @@ msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "Remot Kontrol"
 
-#: qml/DevicePage.qml:113
+#: qml/DevicePage.qml:69
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Information"
+msgstr ""
+
+#: qml/DevicePage.qml:115
 #, kde-format
 msgid "Multimedia control"
 msgstr "Kontrol multimedia"
 
-#: qml/DevicePage.qml:121
+#: qml/DevicePage.qml:123
 #, kde-format
 msgid "Remote input"
 msgstr "Input remot"
 
-#: qml/DevicePage.qml:129 qml/runcommand.qml:16
+#: qml/DevicePage.qml:131 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Jalankan perintah"
 
-#: qml/DevicePage.qml:137 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:139 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Remot Presentasi"
 
-#: qml/DevicePage.qml:145 qml/volume.qml:16
+#: qml/DevicePage.qml:147 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Kontrol volume"
 
-#: qml/DevicePage.qml:155 qml/mousepad.qml:44
+#: qml/DevicePage.qml:157 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Kunci"
 
-#: qml/DevicePage.qml:155
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Unlock"
 msgstr "Lepas-kunci"
 
-#: qml/DevicePage.qml:163
+#: qml/DevicePage.qml:165
 #, kde-format
 msgid "Find Device"
 msgstr "Temukan Peranti"
 
-#: qml/DevicePage.qml:171
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "Send Clipboard"
 msgstr ""
 
-#: qml/DevicePage.qml:178
+#: qml/DevicePage.qml:180
 #, kde-format
 msgid "Share File"
 msgstr "Bagikan File"
 
-#: qml/DevicePage.qml:186
+#: qml/DevicePage.qml:188
 #, kde-format
 msgid "Browse this device"
 msgstr ""
 
-#: qml/DevicePage.qml:194
+#: qml/DevicePage.qml:196
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr ""
 
-#: qml/DevicePage.qml:194
+#: qml/DevicePage.qml:196
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr ""
 
-#: qml/DevicePage.qml:213
+#: qml/DevicePage.qml:211
+#, kde-format
+msgid "Address: %1 via %2"
+msgstr ""
+
+#: qml/DevicePage.qml:220
 #, fuzzy, kde-format
 #| msgid "This device is not paired"
 msgid "This device is not paired."
 msgstr "Perangkat ini belum disandingkan"
 
-#: qml/DevicePage.qml:217
+#: qml/DevicePage.qml:224
 #, fuzzy, kde-format
 #| msgid "Pair"
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Sandingkan"
 
-#: qml/DevicePage.qml:224 qml/DevicePage.qml:233
+#: qml/DevicePage.qml:231 qml/DevicePage.qml:240
 #, fuzzy, kde-format
 #| msgid "Pair requested"
 msgid ""
@@ -186,22 +197,22 @@ msgid ""
 "Key: "
 msgstr "Diminta sandingkan"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:246
 #, kde-format
 msgid "Accept"
 msgstr "Setujui"
 
-#: qml/DevicePage.qml:245
+#: qml/DevicePage.qml:252
 #, kde-format
 msgid "Reject"
 msgstr "Apkir"
 
-#: qml/DevicePage.qml:256
+#: qml/DevicePage.qml:263
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Perangkat ini belum bisa diraih"
 
-#: qml/DevicePage.qml:264
+#: qml/DevicePage.qml:271
 #, kde-format
 msgid "Please choose a file"
 msgstr "Silakan pilih sebuah file"
@@ -338,31 +349,13 @@ msgctxt "@title:group"
 msgid "Backends"
 msgstr ""
 
-#: qml/Settings.qml:54
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Bluetooth"
-msgstr ""
-
-#: qml/Settings.qml:56
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Loopback"
-msgstr ""
-
-#: qml/Settings.qml:58
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Network"
-msgstr ""
-
-#: qml/Settings.qml:73
+#: qml/Settings.qml:65
 #, fuzzy, kde-format
 #| msgid "KDE Connect"
 msgid "About KDE Connect"
 msgstr "KDE Connect"
 
-#: qml/Settings.qml:81
+#: qml/Settings.qml:73
 #, fuzzy, kde-format
 #| msgid "KDE Connect"
 msgid "About KDE"

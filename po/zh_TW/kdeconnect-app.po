@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-08-08 02:34+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -104,83 +104,94 @@ msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "控制"
 
-#: qml/DevicePage.qml:113
+#: qml/DevicePage.qml:69
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Information"
+msgstr ""
+
+#: qml/DevicePage.qml:115
 #, kde-format
 msgid "Multimedia control"
 msgstr "多媒體控制"
 
-#: qml/DevicePage.qml:121
+#: qml/DevicePage.qml:123
 #, kde-format
 msgid "Remote input"
 msgstr "遠端輸入"
 
-#: qml/DevicePage.qml:129 qml/runcommand.qml:16
+#: qml/DevicePage.qml:131 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "執行指令"
 
-#: qml/DevicePage.qml:137 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:139 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "簡報遙控"
 
-#: qml/DevicePage.qml:145 qml/volume.qml:16
+#: qml/DevicePage.qml:147 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "音量控制"
 
-#: qml/DevicePage.qml:155 qml/mousepad.qml:44
+#: qml/DevicePage.qml:157 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "鎖定"
 
-#: qml/DevicePage.qml:155
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Unlock"
 msgstr "解鎖"
 
-#: qml/DevicePage.qml:163
+#: qml/DevicePage.qml:165
 #, kde-format
 msgid "Find Device"
 msgstr "尋找裝置"
 
-#: qml/DevicePage.qml:171
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "Send Clipboard"
 msgstr "傳送剪貼簿"
 
-#: qml/DevicePage.qml:178
+#: qml/DevicePage.qml:180
 #, kde-format
 msgid "Share File"
 msgstr "分享檔案"
 
-#: qml/DevicePage.qml:186
+#: qml/DevicePage.qml:188
 #, kde-format
 msgid "Browse this device"
 msgstr "瀏覽此裝置"
 
-#: qml/DevicePage.qml:194
+#: qml/DevicePage.qml:196
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "停止虛擬螢幕工作階段"
 
-#: qml/DevicePage.qml:194
+#: qml/DevicePage.qml:196
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "將裝置作為外部螢幕使用"
 
-#: qml/DevicePage.qml:213
+#: qml/DevicePage.qml:211
+#, kde-format
+msgid "Address: %1 via %2"
+msgstr ""
+
+#: qml/DevicePage.qml:220
 #, kde-format
 msgid "This device is not paired."
 msgstr "此裝置未配對。"
 
-#: qml/DevicePage.qml:217
+#: qml/DevicePage.qml:224
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "配對"
 
-#: qml/DevicePage.qml:224 qml/DevicePage.qml:233
+#: qml/DevicePage.qml:231 qml/DevicePage.qml:240
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -189,22 +200,22 @@ msgstr ""
 "配對請求已送出\n"
 "金鑰："
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:246
 #, kde-format
 msgid "Accept"
 msgstr "接受"
 
-#: qml/DevicePage.qml:245
+#: qml/DevicePage.qml:252
 #, kde-format
 msgid "Reject"
 msgstr "拒絕"
 
-#: qml/DevicePage.qml:256
+#: qml/DevicePage.qml:263
 #, kde-format
 msgid "This device is not reachable"
 msgstr "無法連線裝置"
 
-#: qml/DevicePage.qml:264
+#: qml/DevicePage.qml:271
 #, kde-format
 msgid "Please choose a file"
 msgstr "請選擇檔案"
@@ -336,30 +347,12 @@ msgctxt "@title:group"
 msgid "Backends"
 msgstr "後端介面"
 
-#: qml/Settings.qml:54
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Bluetooth"
-msgstr "藍牙"
-
-#: qml/Settings.qml:56
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Loopback"
-msgstr "Loopback"
-
-#: qml/Settings.qml:58
-#, kde-format
-msgctxt "@info KDE Connect provider name"
-msgid "Network"
-msgstr "網路"
-
-#: qml/Settings.qml:73
+#: qml/Settings.qml:65
 #, kde-format
 msgid "About KDE Connect"
 msgstr "關於 KDE Connect"
 
-#: qml/Settings.qml:81
+#: qml/Settings.qml:73
 #, kde-format
 msgid "About KDE"
 msgstr "關於 KDE"
@@ -415,6 +408,18 @@ msgstr ""
 "如果您有遇到問題，可以造訪 <a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">KDE Connect 社群 wiki</"
 "span></a> 取得幫助。"
+
+#~ msgctxt "@info KDE Connect provider name"
+#~ msgid "Bluetooth"
+#~ msgstr "藍牙"
+
+#~ msgctxt "@info KDE Connect provider name"
+#~ msgid "Loopback"
+#~ msgstr "Loopback"
+
+#~ msgctxt "@info KDE Connect provider name"
+#~ msgid "Network"
+#~ msgstr "網路"
 
 #~ msgid "(c) 2015, Aleix Pol Gonzalez"
 #~ msgstr "(c) 2015, Aleix Pol Gonzalez"

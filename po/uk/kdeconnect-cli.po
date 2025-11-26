@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-11-09 18:10+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -271,12 +271,12 @@ msgstr "(пов’язаний і придатний до пов’язуван�
 msgid "(reachable)"
 msgstr "(придатний до зв’язування)"
 
-#: kdeconnect-cli.cpp:155 kdeconnect-cli.cpp:178
+#: kdeconnect-cli.cpp:155 kdeconnect-cli.cpp:181
 #, kde-format
 msgid "(paired)"
 msgstr "(пов’язано)"
 
-#: kdeconnect-cli.cpp:161
+#: kdeconnect-cli.cpp:164
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
@@ -285,70 +285,70 @@ msgstr[1] "Виявлено %1 пристрої"
 msgstr[2] "Виявлено %1 пристроїв"
 msgstr[3] "Виявлено %1 пристрій"
 
-#: kdeconnect-cli.cpp:163
+#: kdeconnect-cli.cpp:166
 #, kde-format
 msgid "No devices found"
 msgstr "Пристроїв не виявлено"
 
-#: kdeconnect-cli.cpp:180
+#: kdeconnect-cli.cpp:183
 #, kde-format
 msgid "(unpaired)"
 msgstr "(не пов’язано)"
 
-#: kdeconnect-cli.cpp:240
+#: kdeconnect-cli.cpp:243
 #, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Спільний %1"
 
-#: kdeconnect-cli.cpp:253
+#: kdeconnect-cli.cpp:256
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Спільний текст: %1"
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:267
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Отримано запит на блокування %1."
 
-#: kdeconnect-cli.cpp:266
+#: kdeconnect-cli.cpp:269
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Отримано запит на розблокування %1."
 
-#: kdeconnect-cli.cpp:277
+#: kdeconnect-cli.cpp:280
 #, kde-format
 msgid "waiting for device…"
 msgstr "очікуємо на пристрій…"
 
-#: kdeconnect-cli.cpp:290
+#: kdeconnect-cli.cpp:293
 #, kde-format
 msgid "Device not found"
 msgstr "Пристрій не знайдено"
 
-#: kdeconnect-cli.cpp:292
+#: kdeconnect-cli.cpp:295
 #, kde-format
 msgid "Already paired"
 msgstr "Вже пов’язано"
 
-#: kdeconnect-cli.cpp:294
+#: kdeconnect-cli.cpp:297
 #, kde-format
 msgid "Pair requested"
 msgstr "Запит щодо пов’язування"
 
-#: kdeconnect-cli.cpp:304
+#: kdeconnect-cli.cpp:307
 #, kde-format
 msgid "Already not paired"
 msgstr "Вже не пов’язано"
 
-#: kdeconnect-cli.cpp:306
+#: kdeconnect-cli.cpp:309
 #, kde-format
 msgid "Successfully unpaired"
 msgstr "Пов'язування успішно скасовано"
 
-#: kdeconnect-cli.cpp:364
+#: kdeconnect-cli.cpp:367
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "

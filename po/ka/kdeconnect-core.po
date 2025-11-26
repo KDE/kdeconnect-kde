@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-02-24 06:41+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -17,6 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.5\n"
+
+#: backends/bluetooth/asynclinkprovider.cpp:39
+#, kde-format
+msgctxt "@info"
+msgid "Bluetooth"
+msgstr ""
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -93,17 +99,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "დანიშნულება"
 
-#: device.cpp:461
+#: device.cpp:479
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "თქვენი მოწყობილობის სერტიფიკატის SHA256 ანაბეჭდია: %1\n"
 
-#: device.cpp:467
+#: device.cpp:485
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "დაშორებული მოწყობილობის სერტიფიკატის SHA256 ანაბეჭდია: %1\n"
 
-#: device.cpp:469
+#: device.cpp:487
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "პროკოლის ვერსია: %1\n"

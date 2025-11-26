@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-02-28 15:14+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -18,6 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 "X-Generator: Lokalize 24.12.2\n"
+
+#: backends/bluetooth/asynclinkprovider.cpp:39
+#, kde-format
+msgctxt "@info"
+msgid "Bluetooth"
+msgstr ""
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -95,17 +101,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Galamērķis"
 
-#: device.cpp:461
+#: device.cpp:479
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Jūsu ierīces sertifikāta SHA256 digitālnospiedums ir: %1\n"
 
-#: device.cpp:467
+#: device.cpp:485
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Attālinātās ierīces sertifikāta SHA256 digitālnospiedums ir: %1\n"
 
-#: device.cpp:469
+#: device.cpp:487
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "Protokola versija: %1\n"
