@@ -58,10 +58,26 @@
             }
         ],
         "Description": "Control multimedia players from this device",
+        "Description[ca@valencia]": "Controla els reproductors multimèdia des d'este dispositiu",
+        "Description[ca]": "Controla els reproductors multimèdia des d'aquest dispositiu",
+        "Description[ka]": "აკონტროლეთ მულტიმედიის დამკვრელები ამ მოწყობილობიდან",
+        "Description[nl]": "Bestuur multimediaspelers vanaf dit apparaat",
+        "Description[pt_BR]": "Controla reprodutores multimídia a partir deste dispositivo",
+        "Description[sl]": "Upravljaj večpredstavnostne predvajalnike s te naprave",
+        "Description[tr]": "Bu aygıttan çoklu ortam oynatıcılarını denetleyin",
+        "Description[uk]": "Керування мультимедійними програвачами з вашого пристрою",
         "EnabledByDefault": true,
         "Icon": "applications-multimedia",
         "License": "GPL",
-        "Name": "Send multimedia control commands"
+        "Name": "Send multimedia control commands",
+        "Name[ca@valencia]": "Envia ordres de control multimèdia",
+        "Name[ca]": "Envia ordres de control multimèdia",
+        "Name[ka]": "მულტიმედიის კონტროლის ბრძანებების გაგზავნა",
+        "Name[nl]": "Stuur besturingscommando's voor multimedia",
+        "Name[pt_BR]": "Enviar comandos de controle multimídia",
+        "Name[sl]": "Pošiljaj ukaze za nadzor večpredstavnosti",
+        "Name[tr]": "Çoklu Ortam Denetim Kumandası",
+        "Name[uk]": "Надсилання команд керування відтворенням мультимедійних даних"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.mpris.request"

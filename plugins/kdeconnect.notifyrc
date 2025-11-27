@@ -1035,7 +1035,23 @@ Urgency=Low
 
 [Event/digitizerError]
 Name=Drawing Tablet Error
+Name[ca]=Error de la tauleta de dibuix
+Name[he]=שגיאת לוח ציור
+Name[ka]=სახაზავი ტაბლეტის შეცდომა
+Name[nl]=Fout met tekentablet
+Name[pt_BR]=Erro do tablet de desenho
+Name[sl]=Napaka risalne tablice
+Name[tr]=Çizim Tableti Hatası
+Name[uk]=Помилка планшета для малювання
 Comment=Something went wrong with the drawing tablet plugin
+Comment[ca]=Alguna cosa ha anat malament amb el connector de la tauleta de dibuix
+Comment[he]=משהו השתבש בתוסף לוח הציור
+Comment[ka]=აღმოჩენილია შეცდომა სახაზავი ტაბლეტის დამატებაში
+Comment[nl]=Er ging iets fout met de plug-in van het tekentablet
+Comment[pt_BR]=Alguma coisa deu errado com o plugin de tablet de desenho
+Comment[sl]=Nekaj je šlo narobe z vtičnikom za risalno tablico
+Comment[tr]=Çizim tableti eklentisi ile ilgili bir şeyler ters gitti
+Comment[uk]=Виникли якісь помилки при роботі з додатком планшета для малювання
 Action=Popup
 Urgency=Critical
 

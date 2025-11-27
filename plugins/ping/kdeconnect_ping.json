@@ -95,7 +95,7 @@
         "Description[sr]": "Шаље и прима пингове",
         "Description[sv]": "Skicka och ta emot ping",
         "Description[ta]": "பிங்குகளை (ping) அனுப்பும் மற்றும் பெறும்",
-        "Description[tr]": "Ping gönder ve al",
+        "Description[tr]": "Ping gönderin ve alın",
         "Description[uk]": "Надсилання і отримання сигналів підтримання зв’язку",
         "Description[zh_CN]": "发送和接受ping",
         "Description[zh_TW]": "傳送與接收 Ping 回應封包",
@@ -150,7 +150,7 @@
         "Name[sv]": "Pinga",
         "Name[ta]": "பிங்",
         "Name[tg]": "Садо додан",
-        "Name[tr]": "Ping",
+        "Name[tr]": "Pingle",
         "Name[uk]": "Луна-імпульс",
         "Name[zh_CN]": "Ping",
         "Name[zh_TW]": "Ping 回應封包"

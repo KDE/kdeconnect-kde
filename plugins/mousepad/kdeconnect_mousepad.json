@@ -104,14 +104,22 @@
         "Description[sr]": "Користите телефон као додирник и тастатуру",
         "Description[sv]": "Använd telefonen som mus och tangentbord",
         "Description[ta]": "திறன்பேசியை தொடுபலகையாகவும் விசைப்பலகையாகவும் பயன்படுத்த விடும்",
-        "Description[tr]": "Telefonu dokunmatik yüzey ve klayve olarak kullan",
+        "Description[tr]": "Telefonu dokunmatik yüzey ve klayve olarak kullanın",
         "Description[uk]": "Скористайтеся телефоном як замінником сенсорної панелі і клавіатури",
         "Description[zh_CN]": "用您的手机作为触摸板和键盘",
         "Description[zh_TW]": "讓您的智慧型手機當作觸碰板與鍵盤",
         "EnabledByDefault": true,
         "Icon": "edit-select",
         "License": "GPL",
-        "Name": "Receive remote input"
+        "Name": "Receive remote input",
+        "Name[ca@valencia]": "Rep l'entrada remota",
+        "Name[ca]": "Rep entrada remota",
+        "Name[ka]": "დაშორებული შეყვანის მიღება",
+        "Name[nl]": "Ontvang invoer op afstand",
+        "Name[pt_BR]": "Receber entrada remota",
+        "Name[sl]": "Sprejemaj oddaljeni vhod",
+        "Name[tr]": "Uzaktan Giriş Al",
+        "Name[uk]": "Отримання віддаленого введення"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.mousepad.keyboardstate"

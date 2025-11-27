@@ -49,6 +49,14 @@
             }
         ],
         "Description": "Receive and send files, URLs, or plain text",
+        "Description[ca@valencia]": "Rep i envia fitxers, URL o text pla",
+        "Description[ca]": "Rep i envia fitxers, URL o text pla",
+        "Description[ka]": "მიიღეთ და გააგზავნეთ ფაილები, ბმულები, ან უბრალო ტექსტი",
+        "Description[nl]": "Ontvang en verstuur bestanden, URL's of platte tekst",
+        "Description[pt_BR]": "Recebe e envia arquivos, URLs ou texto simples",
+        "Description[sl]": "Sprejemaj in pošiljaj datoteke, URL-je ali navadno besedilo",
+        "Description[tr]": "Düz metin, URL’ler veya dosya gönderin ve alın",
+        "Description[uk]": "Отримання і надсилання файлів, адрес або текстових фрагментів",
         "EnabledByDefault": true,
         "Icon": "folder-network",
         "License": "GPL",
@@ -99,7 +107,7 @@
         "Name[sr]": "Дели и примај",
         "Name[sv]": "Dela och ta emot",
         "Name[ta]": "பகிர் மற்றும் பேறு",
-        "Name[tr]": "Paylaş ve al",
+        "Name[tr]": "Paylaş ve Al",
         "Name[uk]": "Оприлюднення і отримання",
         "Name[zh_CN]": "分享和接收",
         "Name[zh_TW]": "分享及接收"

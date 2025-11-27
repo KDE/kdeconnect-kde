@@ -103,7 +103,7 @@
         "Description[sr]": "Прегледање удаљеног фајл система помоћу СФТП‑а",
         "Description[sv]": "Bläddra i den andra apparatens filsystem med SFTP",
         "Description[ta]": "தொலை சாதனத்திலுள்ள கோப்புகளை SFTP மூலம் அணுக விடும்",
-        "Description[tr]": "Uzak aygıt dosya sistemine SFTP kullanarak göz at",
+        "Description[tr]": "Uzak aygıt dosya sistemine SFTP kullanarak göz atın",
         "Description[uk]": "Перегляд файлових систем на сторонніх пристроях за допомогою SFTP",
         "Description[zh_CN]": "通过 SFTP 浏览远程设备文件系统",
         "Description[zh_TW]": "使用 SFTP 來瀏覽遠端的檔案系統",
@@ -157,7 +157,7 @@
         "Name[sr]": "Прегледач удаљеног фајл система",
         "Name[sv]": "Extern filsystembläddrare",
         "Name[ta]": "தொலை கோப்பு முறைமை உலாவி",
-        "Name[tr]": "Uzak dosya sistemi tarayıcısı",
+        "Name[tr]": "Uzak Dosya Sistemi Tarayıcısı",
         "Name[uk]": "Перегляд віддалених файлових систем",
         "Name[zh_CN]": "远程文件系统浏览器",
         "Name[zh_TW]": "遠端檔案瀏覽器"

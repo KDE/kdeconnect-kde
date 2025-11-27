@@ -102,10 +102,26 @@
             }
         ],
         "Description": "Execute predefined commands remotely",
+        "Description[ca@valencia]": "Executa ordres predefinides de forma remota",
+        "Description[ca]": "Executa ordres predefinides de forma remota",
+        "Description[ka]": "წინასწარ განსაზღვრული ბრძანებების დაშორებულად შესრულება",
+        "Description[nl]": "Voer een voorgedefinieerd commando op afstand uit",
+        "Description[pt_BR]": "Executa comandos predefinidos remotamente",
+        "Description[sl]": "Izvajaj vnaprej določene ukaze na daljavo",
+        "Description[tr]": "Uzaktan önceden tanımlanmış komutları yürütün",
+        "Description[uk]": "Віддалене виконання попередньо визначених команд",
         "EnabledByDefault": true,
         "Icon": "system-run",
         "License": "GPL",
-        "Name": "Execute remote commands"
+        "Name": "Execute remote commands",
+        "Name[ca@valencia]": "Executa ordres remotes",
+        "Name[ca]": "Executa ordres remotes",
+        "Name[ka]": "დაშორებული ბრძანებების შესრულება",
+        "Name[nl]": "Voer commando's van afstand uit",
+        "Name[pt_BR]": "Executar comandos remotos",
+        "Name[sl]": "Izvedi oddaljene ukaze",
+        "Name[tr]": "Uzak Komutlar Yürüt",
+        "Name[uk]": "Віддалене виконання команд"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.runcommand"

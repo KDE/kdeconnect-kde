@@ -93,7 +93,7 @@
         "Description[sl]": "Pokaži moč omrežnega signala telefona",
         "Description[sv]": "Visa telefonens nätverkssignalstyrka",
         "Description[ta]": "தொலைபேசியின் பிணைய பலத்தை காட்டும்",
-        "Description[tr]": "Telefonun ağ sinyal gücünü göster",
+        "Description[tr]": "Telefonun ağ sinyal gücünü gösterin",
         "Description[uk]": "Показ потужності сигналу мережі на вашому телефоні",
         "Description[zh_CN]": "显示您手机的网络信号强度",
         "Description[zh_TW]": "顯示手機網路訊號的強度",
@@ -142,7 +142,7 @@
         "Name[sl]": "Nadzornik povezovanja",
         "Name[sv]": "Anslutningsövervakare",
         "Name[ta]": "இணைப்பு நிலைகாட்டி",
-        "Name[tr]": "Bağlantı monitörü",
+        "Name[tr]": "Bağlantı Monitörü",
         "Name[uk]": "Монітор з'єднання",
         "Name[zh_CN]": "信号监视器",
         "Name[zh_TW]": "連線監視器"

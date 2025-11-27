@@ -49,6 +49,14 @@
             }
         ],
         "Description": "Share the battery status between devices",
+        "Description[ca@valencia]": "Compartix l'estat de la bateria entre dispositius",
+        "Description[ca]": "Comparteix l'estat de la bateria entre dispositius",
+        "Description[ka]": "გააზიარეთ ელემენტის სტატუსი მოწყობილობებს შორის",
+        "Description[nl]": "Deel de batterijstatus tussen apparaten",
+        "Description[pt_BR]": "Compartilha o status da bateria entre dispositivos",
+        "Description[sl]": "Deli stanje baterije med napravami",
+        "Description[tr]": "Aygıtlar arasında pil durumunu paylaşın",
+        "Description[uk]": "Спільне використання даних щодо стану акумулятора між пристроями",
         "EnabledByDefault": true,
         "Icon": "preferences-system-power-management",
         "License": "GPL",
@@ -100,7 +108,7 @@
         "Name[sr]": "Надзор батерије",
         "Name[sv]": "Batteriövervakare",
         "Name[ta]": "மின்கல நிலைகாட்டி",
-        "Name[tr]": "Pil monitörü",
+        "Name[tr]": "Pil Monitörü",
         "Name[uk]": "Монітор акумулятора",
         "Name[zh_CN]": "电池监视器",
         "Name[zh_TW]": "電池監視器"

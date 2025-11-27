@@ -58,10 +58,26 @@
             }
         ],
         "Description": "Remotely lock and unlock your screen",
+        "Description[ca@valencia]": "Bloqueja i desbloqueja la pantalla de forma remota",
+        "Description[ca]": "Bloqueja i desbloqueja la pantalla de forma remota",
+        "Description[ka]": "დაშორებულად ჩაკეტეთ და განბლოკეთ თქვენი ეკრანი",
+        "Description[nl]": "Vergrendel en ontgrendel uw scherm van afstand",
+        "Description[pt_BR]": "Bloqueia e desbloqueia sua tela remotamente",
+        "Description[sl]": "Oddaljeno zaklepaj in odklepaj svoj zaslon",
+        "Description[tr]": "Ekranınızın uzaktan kilitleyin ve kilidini açın",
+        "Description[uk]": "Віддалене блокування і розблокування екрана",
         "EnabledByDefault": true,
         "Icon": "lock",
         "License": "GPL",
-        "Name": "Lock Device"
+        "Name": "Lock Device",
+        "Name[ca@valencia]": "Bloqueig de dispositiu",
+        "Name[ca]": "Bloqueig de dispositiu",
+        "Name[ka]": "მოწყობილობის დაბლოკვა",
+        "Name[nl]": "Vergrendel apparaat",
+        "Name[pt_BR]": "Bloquear dispositivo",
+        "Name[sl]": "Zakleni napravo",
+        "Name[tr]": "Aygıtı Kilitle",
+        "Name[uk]": "Блокування пристрою"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.lock.request",

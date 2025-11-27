@@ -54,10 +54,26 @@
             }
         ],
         "Description": "Enable volume to be controlled from the connected device",
+        "Description[ca@valencia]": "Permet que el volum es controle des del dispositiu connectat",
+        "Description[ca]": "Permet que el volum es controli des del dispositiu connectat",
+        "Description[ka]": "ხმის დაკავშირებული მოწყობილობიდან მართვის ჩართვა",
+        "Description[nl]": "Schakel de besturing van volume in vanaf het verbonden apparaat",
+        "Description[pt_BR]": "Permite que o volume seja controlado a partir do dispositivo conectado",
+        "Description[sl]": "Omogoči upravljanje glasnosti s priključene naprave",
+        "Description[tr]": "Bağlı aygıttan ses düzeyinin denetlenebilmesine olanak tanıyın",
+        "Description[uk]": "Уможливлення керування гучністю зі з'єднаного пристрою",
         "EnabledByDefault": true,
         "Icon": "audio-volume-high",
         "License": "GPL",
-        "Name": "Receive volume controls"
+        "Name": "Receive volume controls",
+        "Name[ca@valencia]": "Rebre els controls de volum",
+        "Name[ca]": "Rebre els controls de volum",
+        "Name[ka]": "ხმის კონტროლის მიღება",
+        "Name[nl]": "Ontvang volumebesturing",
+        "Name[pt_BR]": "Receber controles de volume",
+        "Name[sl]": "Prejemaj nadzor glasnosti",
+        "Name[tr]": "Ses Düzeyi Denetimini Al",
+        "Name[uk]": "Отримання даних щодо керування гучністю"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.systemvolume"

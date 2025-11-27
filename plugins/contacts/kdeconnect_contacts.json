@@ -53,10 +53,26 @@
             }
         ],
         "Description": "Synchronize contacts from the connected device",
+        "Description[ca@valencia]": "Sincronitza els contactes des del dispositiu connectat",
+        "Description[ca]": "Sincronitza els contactes des del dispositiu connectat",
+        "Description[ka]": "კონტაქტების სინქრონიზაცია დაკავშირებული მოწყობილობიდან",
+        "Description[nl]": "Synchroniseer contactpersonen uit het verbonden apparaat",
+        "Description[pt_BR]": "Sincroniza os contatos do dispositivo conectado",
+        "Description[sl]": "Sinhroniziraj stike iz povezane naprave",
+        "Description[tr]": "Bağlı aygıttan kişileri eşzamanlayın",
+        "Description[uk]": "Синхронізація контактів зі з'єднаного пристрою",
         "EnabledByDefault": true,
         "Icon": "tag-people",
         "License": "GPL",
-        "Name": "Sync Contacts"
+        "Name": "Sync Contacts",
+        "Name[ca@valencia]": "Sincronitzeu els contactes",
+        "Name[ca]": "Sincronització dels contactes",
+        "Name[ka]": "კონტაქტების სინქრონიზაცია",
+        "Name[nl]": "Contactpersonen synchroniseren",
+        "Name[pt_BR]": "Sincronizar contatos",
+        "Name[sl]": "Sinhroniziraj stike",
+        "Name[tr]": "Kişileri Eşzamanla",
+        "Name[uk]": "Синхронізувати контакти"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.contacts.request_all_uids_timestamps",

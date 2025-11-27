@@ -103,14 +103,22 @@
         "Description[sr]": "Окида наредбе предефинисане на удаљеном уређају",
         "Description[sv]": "Utför kommandon fördefinierade på den andra apparaten",
         "Description[ta]": "தொலை சாதனத்தில் முன்னமைத்த கட்டளைகளைத் தூண்ட விடும்",
-        "Description[tr]": "Uzak aygıta önceden tanımlanmış komutları tetikle",
+        "Description[tr]": "Uzak aygıta önceden tanımlanmış komutları tetikleyin",
         "Description[uk]": "Запуск команд, попередньо визначених на віддаленому пристрої",
         "Description[zh_CN]": "出发远程设备的预设命令",
         "Description[zh_TW]": "執行預先設定在遠端裝置上的命令",
         "EnabledByDefault": true,
         "Icon": "system-run",
         "License": "GPL",
-        "Name": "Send commands to execute"
+        "Name": "Send commands to execute",
+        "Name[ca@valencia]": "Envia ordres a executar",
+        "Name[ca]": "Envia ordres a executar",
+        "Name[ka]": "ბრძანებების გაგზავნა შესასრულებლად",
+        "Name[nl]": "Stuur uit te voeren commando's",
+        "Name[pt_BR]": "Enviar comandos para executar",
+        "Name[sl]": "Pošlji ukaze za izvajanje",
+        "Name[tr]": "Yürütülecek Komutlar Gönder",
+        "Name[uk]": "Надсилання команд для виконання"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.runcommand.request"

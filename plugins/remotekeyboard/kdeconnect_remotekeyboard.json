@@ -57,10 +57,26 @@
             }
         ],
         "Description": "Use your keyboard to send input to another device",
+        "Description[ca@valencia]": "Utilitzeu el vostre teclat per a enviar l'entrada a un altre dispositiu",
+        "Description[ca]": "Empreu el vostre teclat per a enviar l'entrada a un altre dispositiu",
+        "Description[ka]": "გამოიყენეთ თქვენი კლავიატურა სხვა მოწყობილობაზე შეყვანის გასაგზავნად",
+        "Description[nl]": "Gebruik uw toetsenbord om invoer naar een ander apparaat te sturen",
+        "Description[pt_BR]": "Use seu teclado para enviar entrada para outro dispositivo",
+        "Description[sl]": "Uporabi tipkovnico, da pošiljanje vnosa v drugo napravo",
+        "Description[tr]": "Başka bir aygıta giriş göndermek için klavyeyi kullanın",
+        "Description[uk]": "Використання клавіатури для надсилання вхідних даних на інший пристрій",
         "EnabledByDefault": true,
         "Icon": "edit-select",
         "License": "GPL",
-        "Name": "Send remote keyboard input"
+        "Name": "Send remote keyboard input",
+        "Name[ca@valencia]": "Envia l'entrada remota de teclat",
+        "Name[ca]": "Envia l'entrada remota de teclat",
+        "Name[ka]": "კლავიატურის დაშორებული შეყვანის გაგზავნა",
+        "Name[nl]": "Stuur van afstand toetsenbordinvoer",
+        "Name[pt_BR]": "Enviar entrada de teclado remota",
+        "Name[sl]": "Pošlji vnos z oddaljene tipkovnice",
+        "Name[tr]": "Uzak Klavye Girişi Gönder",
+        "Name[uk]": "Надсилання введення з віддаленої клавіатури"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.mousepad.request"
