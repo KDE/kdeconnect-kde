@@ -44,10 +44,9 @@ msgid "Max Clipboard File Size (MB)"
 msgstr "最大剪贴板文件大小 (MB)"
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "KDE Connect Error"
-msgstr "KDE Connect"
+msgstr ""
 
 #: digitizer/linuxdigitizerimpl.cpp:73
 #, kde-format

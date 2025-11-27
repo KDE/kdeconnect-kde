@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-10-08 07:11+0200\n"
+"PO-Revision-Date: 2025-11-26 10:06+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -45,10 +45,9 @@ msgid "Max Clipboard File Size (MB)"
 msgstr "Maksimalna velikost datoteke odložišča (MB)"
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "KDE Connect Error"
-msgstr "KDE Connect"
+msgstr "Napaka KDE Connect"
 
 #: digitizer/linuxdigitizerimpl.cpp:73
 #, kde-format
@@ -56,6 +55,8 @@ msgid ""
 "Unable to create a virtual drawing tablet. If this error persists, file a "
 "bug report."
 msgstr ""
+"Ni mogoče ustvariti virtualne risalne tablice. Če se napaka ponavlja, "
+"pošljite poročilo o napaki."
 
 #: digitizer/linuxdigitizerimpl.cpp:169
 #, kde-format
@@ -63,6 +64,8 @@ msgid ""
 "Unable to process one or more input events for the virtual device. If this "
 "error persists, file a bug report."
 msgstr ""
+"Za virtualno napravo ni mogoče obdelati enega ali več vhodnih dogodkov. Če "
+"se ta napaka ponavlja, pošljite poročilo o napaki."
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22

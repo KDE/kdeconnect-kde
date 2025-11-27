@@ -404,15 +404,3 @@ msgstr ""
 "如果您遇到问题，请访问 <a href=\"https://userbase.kde.org/KDEConnect\"><span "
 "style=\" text-decoration: underline;\">KDE Connect 社区百科</span></a> 寻求帮"
 "助。"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Bluetooth"
-#~ msgstr "蓝牙"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Loopback"
-#~ msgstr "回环"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Network"
-#~ msgstr "网络"

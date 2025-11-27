@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-02-24 09:48+0200\n"
+"PO-Revision-Date: 2025-11-26 16:39+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -24,7 +24,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format

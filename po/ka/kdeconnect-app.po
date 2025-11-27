@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-07-15 03:59+0200\n"
+"PO-Revision-Date: 2025-11-26 03:25+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -104,7 +104,7 @@ msgstr "მართვის ელემენტები"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "ინფორმაცია"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -174,7 +174,7 @@ msgstr "მოწყობილობის გარე მონიტორ�
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "მისამართი: %1 %2-ის გავლით"
 
 #: qml/DevicePage.qml:220
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-07-15 15:42+0300\n"
+"PO-Revision-Date: 2025-11-26 16:38+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -107,7 +107,7 @@ msgstr "Керування"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "Відомості"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -177,7 +177,7 @@ msgstr "Використовувати пристрій як зовнішній 
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "Адреса: %1 через %2"
 
 #: qml/DevicePage.qml:220
 #, kde-format

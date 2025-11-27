@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-10-08 10:55+0300\n"
+"PO-Revision-Date: 2025-11-26 10:25+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -47,10 +47,9 @@ msgid "Max Clipboard File Size (MB)"
 msgstr "גודל מרבי לקובץ לוח גזירים (מ״ב)"
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "KDE Connect Error"
-msgstr "KDE Connect"
+msgstr "שגיאת KDE Connect"
 
 #: digitizer/linuxdigitizerimpl.cpp:73
 #, kde-format
@@ -58,6 +57,7 @@ msgid ""
 "Unable to create a virtual drawing tablet. If this error persists, file a "
 "bug report."
 msgstr ""
+"לא ניתן ליצור לוח ציור וירטואלי. אם השגיאה נמשכת, נא להגיש דיווח על תקלה."
 
 #: digitizer/linuxdigitizerimpl.cpp:169
 #, kde-format
@@ -65,6 +65,8 @@ msgid ""
 "Unable to process one or more input events for the virtual device. If this "
 "error persists, file a bug report."
 msgstr ""
+"לא ניתן לעבד אירוע קלט אחד או יותר במכשיר הווירטואלי. אם השגיאה הזאת נמשכת, "
+"נא להגיש דיווח על תקלה."
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22

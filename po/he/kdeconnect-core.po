@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-02-24 08:06+0200\n"
+"PO-Revision-Date: 2025-11-26 10:24+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: backends/bluetooth/asynclinkprovider.cpp:39
 #, kde-format
 msgctxt "@info"
 msgid "Bluetooth"
-msgstr ""
+msgstr "בלוטות׳"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
