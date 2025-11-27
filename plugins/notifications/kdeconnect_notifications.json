@@ -95,7 +95,7 @@
         "Description[sr]": "Приказује обавештења са уређаја на рачунару и одржава их ажурним",
         "Description[sv]": "Visa enhetens underrättelser på datorn och håll dem synkroniserade",
         "Description[ta]": "சாதனத்தின் அறிவிப்புகளை இக்கணினியில் காட்டி ஒத்திசைவில் வைக்கும்",
-        "Description[tr]": "Aygıtın bildirimlerini bilgisayarda göster ve eşzamanlı tut",
+        "Description[tr]": "Aygıt bildirimlerini bilgisayarda gösterin ve eşzamanlı tutun",
         "Description[uk]": "Показ сповіщень з пристрою на цьому комп’ютері та підтримання синхронізації даних сповіщень",
         "Description[zh_CN]": "在电脑显示手机通知并保持同步",
         "Description[zh_TW]": "在電腦上顯示裝置通知並且保持同步",
@@ -149,7 +149,7 @@
         "Name[sr]": "Пријем обавештења",
         "Name[sv]": "Ta emot underrättelser",
         "Name[ta]": "அறிவிப்புகளை பெறு",
-        "Name[tr]": "Bildirimleri al",
+        "Name[tr]": "Bildirimleri Al",
         "Name[uk]": "Отримати сповіщення",
         "Name[zh_CN]": "接收通知",
         "Name[zh_TW]": "接收通知"

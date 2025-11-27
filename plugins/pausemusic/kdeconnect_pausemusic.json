@@ -95,7 +95,7 @@
         "Description[sr]": "Паузира музику или видео током телефонског позива",
         "Description[sv]": "Pausa musik eller videor under ett telefonsamtal",
         "Description[ta]": "அழைப்பின்போது பாடல்களையும் நிகழ்படங்களையும் இடைநிறுத்தும்",
-        "Description[tr]": "Arama sırasında müzikleri/videoları duraklat",
+        "Description[tr]": "Arama sırasında müzikleri/videoları duraklatın",
         "Description[uk]": "Призупинка відтворення музики і відео на час телефонних дзвінків",
         "Description[zh_CN]": "手机来电时暂停音乐/视频",
         "Description[zh_TW]": "在通話過程中暫停音樂與影片",
@@ -149,7 +149,7 @@
         "Name[sr]": "Паузирање медија током позива",
         "Name[sv]": "Pausa media under samtal",
         "Name[ta]": "அழைப்புகளின்போது பாடல்களை இடைநிறுத்து",
-        "Name[tr]": "Aramalar sırasında ortamı duraklat",
+        "Name[tr]": "Arama Yaparken Ortamı Duraklat",
         "Name[uk]": "Призупинка відтворення під час дзвінків",
         "Name[zh_CN]": "来电时暂停媒体",
         "Name[zh_TW]": "在通話過程中暫停媒體"

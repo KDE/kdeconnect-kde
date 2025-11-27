@@ -95,7 +95,7 @@
         "Description[sl]": "Poišči to napravo, tako da ji sprožiš alarm",
         "Description[sv]": "Hitta apparaten genom att få den att spela ett alarmljud",
         "Description[ta]": "இச்சாதனத்தை கண்டுபிடிக்க அலார ஒலியை எழுப்பும்",
-        "Description[tr]": "Bu aygıtı, bir alarm sesi çaldırarak bul",
+        "Description[tr]": "Ses çaldırarak bu aygıtı bulun",
         "Description[uk]": "Знайти цей пристрій, наказавши йому відтворити дзвінок",
         "Description[zh_CN]": "通过播放铃声来找到您不见的手机",
         "Description[zh_TW]": "讓手機發出警報聲，以讓您找到這個裝置",
@@ -146,7 +146,7 @@
         "Name[sl]": "Poišči to napravo",
         "Name[sv]": "Hitta apparaten",
         "Name[ta]": "சாதனத்தை கண்டுபிடி",
-        "Name[tr]": "Bu aygıtı bul",
+        "Name[tr]": "Bu Aygıtı Bul",
         "Name[uk]": "Знайти цей пристрій",
         "Name[zh_CN]": "查找此设备",
         "Name[zh_TW]": "尋找這個裝置"

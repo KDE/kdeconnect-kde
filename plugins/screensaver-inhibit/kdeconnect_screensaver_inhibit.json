@@ -102,7 +102,7 @@
         "Description[sr]": "Онемогућава чувара екрана када је уређај повезан",
         "Description[sv]": "Stoppa skärmsläckaren när apparaten ansluts",
         "Description[ta]": "சாதனம் இணைக்கப்பட்டிருக்கும்போது திரைகாப்பியை முடக்கும்",
-        "Description[tr]": "Aygıt bağlandığında ekran koruyucuyu engelle",
+        "Description[tr]": "Aygıt bağlandığında ekran koruyucuyu engelleyin",
         "Description[uk]": "Забороняє зберігач екрана, якщо з’єднано пристрій",
         "Description[zh_CN]": "连接设备时禁止屏保",
         "Description[zh_TW]": "當裝置連接中時停止螢幕保護",
@@ -155,7 +155,7 @@
         "Name[sr]": "Онемогући чувара екрана",
         "Name[sv]": "Stoppa skärmsläckare",
         "Name[ta]": "திரைகாப்பியை முடக்கு",
-        "Name[tr]": "Ekran koruyucuyu engelle",
+        "Name[tr]": "Ekran Koruyucuyu Engelle",
         "Name[uk]": "Заборона зберігача екрана",
         "Name[zh_CN]": "禁止屏保",
         "Name[zh_TW]": "停止螢幕保護"

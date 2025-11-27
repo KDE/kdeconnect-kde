@@ -91,7 +91,7 @@
         "Description[sl]": "Prikaži obvestila za prejete klice",
         "Description[sv]": "Visa underrättelser om inkommande samtal",
         "Description[ta]": "உள்வரும் அழைப்புகளுக்கு அறிவிப்புகள் காட்டும்",
-        "Description[tr]": "Gelen aramalar için bildirimleri göster",
+        "Description[tr]": "Gelen arama bildirimlerini gösterin",
         "Description[uk]": "Показ сповіщень щодо вхідних дзвінків",
         "Description[zh_CN]": "显示来电通知",
         "Description[zh_TW]": "顯示來電通知",
@@ -145,7 +145,7 @@
         "Name[sr]": "Интегрисана телефонија",
         "Name[sv]": "Integrering av telefoni",
         "Name[ta]": "அழைப்பு ஒருங்கிணைப்பு",
-        "Name[tr]": "Telefon tümleştirmesi",
+        "Name[tr]": "Telefon Tümleşimi",
         "Name[uk]": "Інтеграція з системою телефонії",
         "Name[zh_CN]": "Telephony 集成",
         "Name[zh_TW]": "電話整合"
