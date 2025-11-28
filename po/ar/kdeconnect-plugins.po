@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-10-08 21:45+0400\n"
+"PO-Revision-Date: 2025-11-27 12:24+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -46,10 +46,9 @@ msgid "Max Clipboard File Size (MB)"
 msgstr "الحجم الأقصى لملف الحافظة (ميغابايت)"
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "KDE Connect Error"
-msgstr "جسر كِيدِي"
+msgstr "خطأ جسر كِيدِي"
 
 #: digitizer/linuxdigitizerimpl.cpp:73
 #, kde-format
@@ -57,6 +56,7 @@ msgid ""
 "Unable to create a virtual drawing tablet. If this error persists, file a "
 "bug report."
 msgstr ""
+"تعذر إنشاء لوحة رسم افتراضية. إذا استمر هذا الخطأ، قدّم تقريرًا عن الخطأ."
 
 #: digitizer/linuxdigitizerimpl.cpp:169
 #, kde-format
@@ -64,6 +64,8 @@ msgid ""
 "Unable to process one or more input events for the virtual device. If this "
 "error persists, file a bug report."
 msgstr ""
+"تعذر معالجة حدث إدخال واحد أو أكثر للجهاز الافتراضي. إذا استمر هذا الخطأ، "
+"قدّم تقريرًا عن الخطأ."
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
