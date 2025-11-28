@@ -58,8 +58,10 @@
             }
         ],
         "Description": "Use your mobile device as a presentation pointer",
+        "Description[ar]": "استخدم جهازك المحمول كأداة تأشير للعروض التقديمية",
         "Description[ca@valencia]": "Utilitza el dispositiu mòbil com a punter de presentacions",
         "Description[ca]": "Usa el dispositiu mòbil com a punter de presentacions",
+        "Description[he]": "שימוש במכשיר הנייד שלך כמצביע במצגות",
         "Description[ka]": "გამოიყენეთ თქვენი მობილური მოწყობილობა პრეზენტაციაზე მიმთითებლად",
         "Description[nl]": "Gebruik uw mobiele apparaat als aanwijzer in een presentatie",
         "Description[pt_BR]": "Use o seu dispositivo móvel como um apontador de apresentação",

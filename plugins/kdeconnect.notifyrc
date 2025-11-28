@@ -1035,6 +1035,7 @@ Urgency=Low
 
 [Event/digitizerError]
 Name=Drawing Tablet Error
+Name[ar]=خطا لوح رسم
 Name[ca]=Error de la tauleta de dibuix
 Name[he]=שגיאת לוח ציור
 Name[ka]=სახაზავი ტაბლეტის შეცდომა
@@ -1044,6 +1045,7 @@ Name[sl]=Napaka risalne tablice
 Name[tr]=Çizim Tableti Hatası
 Name[uk]=Помилка планшета для малювання
 Comment=Something went wrong with the drawing tablet plugin
+Comment[ar]=حدث خطأ ما في ملحق لوحة الرسم
 Comment[ca]=Alguna cosa ha anat malament amb el connector de la tauleta de dibuix
 Comment[he]=משהו השתבש בתוסף לוח הציור
 Comment[ka]=აღმოჩენილია შეცდომა სახაზავი ტაბლეტის დამატებაში
