@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-07-28 18:23+0200\n"
+"PO-Revision-Date: 2025-11-28 21:24+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -105,7 +105,7 @@ msgstr "Контроли"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "Информация"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -175,7 +175,7 @@ msgstr "Използване на устройството като външен
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "Адрес: %1 през %2"
 
 #: qml/DevicePage.qml:220
 #, kde-format
