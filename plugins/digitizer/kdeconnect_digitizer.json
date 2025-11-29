@@ -5,6 +5,7 @@
             {
                 "Email": "hemisputnik@proton.me",
                 "Name": "Martin Sh",
+                "Name[ar]": "مارتن ش",
                 "Name[ca]": "Martin Sh",
                 "Name[he]": "מרטין ש",
                 "Name[ka]": "მარტინ შ",
@@ -16,6 +17,7 @@
             }
         ],
         "Description": "Use your device as a pressure sensitive drawing tablet",
+        "Description[ar]": "استخدم جهازك كلوحة رسم حساسة للضغط",
         "Description[ca]": "Useu el dispositiu com a una tauleta de dibuix sensible a la pressió",
         "Description[he]": "אפשר להשתמש במכשיר שלך כלוח ציור שרגיש לחוזק הלחיצה",
         "Description[ka]": "გამოიყენეთ თქვენი მოწყობილობა მგრძნობიარე სახატავ ტაბლეტად",
@@ -28,6 +30,7 @@
         "Icon": "input-tablet",
         "License": "GPL",
         "Name": "Drawing tablet",
+        "Name[ar]": "لوح رسم",
         "Name[ca]": "Tauleta de dibuix",
         "Name[he]": "לוח ציור",
         "Name[ka]": "სახატავი ტაბლეტი",
