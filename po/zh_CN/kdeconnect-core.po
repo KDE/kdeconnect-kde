@@ -21,7 +21,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "Bluetooth"
-msgstr ""
+msgstr "蓝牙"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format

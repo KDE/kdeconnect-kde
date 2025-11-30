@@ -46,14 +46,14 @@ msgstr "最大剪贴板文件大小 (MB)"
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
 #, kde-format
 msgid "KDE Connect Error"
-msgstr ""
+msgstr "KDE Connect 错误"
 
 #: digitizer/linuxdigitizerimpl.cpp:73
 #, kde-format
 msgid ""
 "Unable to create a virtual drawing tablet. If this error persists, file a "
 "bug report."
-msgstr ""
+msgstr "无法创建虚拟数位板。如果此错误持续存在，请提交程序缺陷报告。"
 
 #: digitizer/linuxdigitizerimpl.cpp:169
 #, kde-format
@@ -61,6 +61,8 @@ msgid ""
 "Unable to process one or more input events for the virtual device. If this "
 "error persists, file a bug report."
 msgstr ""
+"无法为此虚拟设备处理一个或多个输入事件。如果此错误持续存在，请提交程序缺陷报"
+"告。"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22

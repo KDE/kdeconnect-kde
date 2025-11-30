@@ -104,7 +104,7 @@ msgstr "控制"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "信息"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -174,7 +174,7 @@ msgstr "使用设备作为外接监视器"
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "地址：%1 (通过 %2)"
 
 #: qml/DevicePage.qml:220
 #, kde-format

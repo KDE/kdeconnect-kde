@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-08-08 02:34+0900\n"
+"PO-Revision-Date: 2025-11-29 18:05+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -108,7 +108,7 @@ msgstr "控制"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "資訊"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -178,7 +178,7 @@ msgstr "將裝置作為外部螢幕使用"
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "位址：%1 透過 %2"
 
 #: qml/DevicePage.qml:220
 #, kde-format
