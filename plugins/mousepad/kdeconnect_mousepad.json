@@ -113,6 +113,7 @@
         "License": "GPL",
         "Name": "Receive remote input",
         "Name[ar]": "استقبل الإدخال البعيد",
+        "Name[bg]": "Получаване на данни от отдалечени входни устройства",
         "Name[ca@valencia]": "Rep l'entrada remota",
         "Name[ca]": "Rep entrada remota",
         "Name[fr]": "Recevoir une commande de télécommande",

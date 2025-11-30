@@ -112,6 +112,7 @@
         "License": "GPL",
         "Name": "Send commands to execute",
         "Name[ar]": "أرسل الأوامر لتنفيذها",
+        "Name[bg]": "Изпращане на команди за изпълнение",
         "Name[ca@valencia]": "Envia ordres a executar",
         "Name[ca]": "Envia ordres a executar",
         "Name[fr]": "Envoyer des commandes à exécuter",

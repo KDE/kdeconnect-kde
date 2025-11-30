@@ -104,6 +104,7 @@
         "License": "GPL",
         "Name": "SMS integration",
         "Name[ar]": "تكامل الرسائل النصية",
+        "Name[bg]": "Интеграция със SMS",
         "Name[ca@valencia]": "Integració amb els SMS",
         "Name[ca]": "Integració amb els SMS",
         "Name[fr]": "Intégration des messages SMS",

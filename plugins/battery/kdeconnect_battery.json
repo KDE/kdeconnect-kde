@@ -50,6 +50,7 @@
         ],
         "Description": "Share the battery status between devices",
         "Description[ar]": "شارك حالة البطارية بين الأجهزة",
+        "Description[bg]": "Споделяне на състоянието на батерията между устройствата",
         "Description[ca@valencia]": "Compartix l'estat de la bateria entre dispositius",
         "Description[ca]": "Comparteix l'estat de la bateria entre dispositius",
         "Description[fr]": "Partager le niveau de batterie entre périphériques",

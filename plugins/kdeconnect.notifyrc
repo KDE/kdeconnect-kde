@@ -1046,6 +1046,8 @@ Name[pt_BR]=Erro do tablet de desenho
 Name[sl]=Napaka risalne tablice
 Name[tr]=Çizim Tableti Hatası
 Name[uk]=Помилка планшета для малювання
+Name[zh_CN]=数位板错误
+Name[zh_TW]=繪圖平板錯誤
 Comment=Something went wrong with the drawing tablet plugin
 Comment[ar]=حدث خطأ ما في ملحق لوحة الرسم
 Comment[bg]=Нещо се обърка с приставката за графичен таблет
@@ -1058,6 +1060,8 @@ Comment[pt_BR]=Alguma coisa deu errado com o plugin de tablet de desenho
 Comment[sl]=Nekaj je šlo narobe z vtičnikom za risalno tablico
 Comment[tr]=Çizim tableti eklentisi ile ilgili bir şeyler ters gitti
 Comment[uk]=Виникли якісь помилки при роботі з додатком планшета для малювання
+Comment[zh_CN]=数位板插件遇到了问题
+Comment[zh_TW]=繪圖平板外掛程式發生錯誤
 Action=Popup
 Urgency=Critical
 

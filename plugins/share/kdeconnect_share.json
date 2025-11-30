@@ -50,6 +50,7 @@
         ],
         "Description": "Receive and send files, URLs, or plain text",
         "Description[ar]": "استقبل الملفّات أو العناوين أو النّصوص الصّرفة وأرسلها",
+        "Description[bg]": "Получаване и изпращане на файлове, URL адреси или обикновен текст",
         "Description[ca@valencia]": "Rep i envia fitxers, URL o text pla",
         "Description[ca]": "Rep i envia fitxers, URL o text pla",
         "Description[fr]": "Recevoir et envoyer des fichiers, des URL ou du texte brut",
