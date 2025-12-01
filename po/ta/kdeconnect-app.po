@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-03-16 15:29+0530\n"
+"PO-Revision-Date: 2025-11-30 13:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
-"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -25,7 +25,7 @@ msgstr "கே.டீ.யீ. கனெக்ட்"
 #: main.cpp:42
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025 கே.டீ.யீ. கனெக்ட் குழு"
 
 #: main.cpp:43
 #, kde-format
@@ -35,7 +35,7 @@ msgstr "அலேயிக்சு போல் கொன்ஸாலெசு"
 #: main.cpp:44
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "ஆல்பர்டு வாக்கா சின்ட்டோரா"
 
 #: main.cpp:45
 #, kde-format
@@ -53,19 +53,19 @@ msgstr "Kde-l10n-ta@kde.org"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "எச்சாதனத்திற்கு இச்செயலியைத் திறக்க வேண்டும்"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "காட்ட வேண்டிய அமைப்புக்கூறு. இதைப் பயன்படுத்த --device குறிப்பிடப்பட வேண்டும்."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "ஏற்கனவே உள்ளதற்கு பதிலாக இது இயங்கட்டும்"
 
 #: main.cpp:86
 #, kde-format
@@ -103,7 +103,7 @@ msgstr "கட்டுப்படுத்திகள்"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "விவரங்கள்"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -158,22 +158,22 @@ msgstr "கோப்பை பகிர்"
 #: qml/DevicePage.qml:188
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "சாதனத்தில் உலாவு"
 
 #: qml/DevicePage.qml:196
 #, kde-format
 msgid "Stop virtual monitor session"
-msgstr ""
+msgstr "மெய்நிகர் திரை அமர்வை நிறுத்து"
 
 #: qml/DevicePage.qml:196
 #, kde-format
 msgid "Use device as an external monitor"
-msgstr ""
+msgstr "சாதனத்தை கூடுதல் திரையாகப் பயன்படுத்து"
 
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "முகவரி: %2 மூலம் %1"
 
 #: qml/DevicePage.qml:220
 #, kde-format
