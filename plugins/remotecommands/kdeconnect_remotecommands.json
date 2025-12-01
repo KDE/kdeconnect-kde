@@ -51,6 +51,7 @@
                 "Name[sr@latin]": "Aleks Pol Gonzalez",
                 "Name[sr]": "Алекс Пол Гонзалез",
                 "Name[sv]": "Aleix Pol",
+                "Name[ta]": "அலேயிக்சு போல்",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
                 "Name[zh_CN]": "Aleix Pol",
@@ -117,12 +118,17 @@
         "Name[ca]": "Envia ordres a executar",
         "Name[fr]": "Envoyer des commandes à exécuter",
         "Name[he]": "שליחת פקודות להרצה",
+        "Name[is]": "Senda skipanir til að keyra",
+        "Name[it]": "Invia comandi da eseguire",
         "Name[ka]": "ბრძანებების გაგზავნა შესასრულებლად",
         "Name[nl]": "Stuur uit te voeren commando's",
         "Name[pt_BR]": "Enviar comandos para executar",
         "Name[sl]": "Pošlji ukaze za izvajanje",
+        "Name[ta]": "இயக்கவேண்டிய கட்டளைகளை அனுப்பு",
         "Name[tr]": "Yürütülecek Komutlar Gönder",
-        "Name[uk]": "Надсилання команд для виконання"
+        "Name[uk]": "Надсилання команд для виконання",
+        "Name[zh_CN]": "发送要执行的命令",
+        "Name[zh_TW]": "傳送要執行的指令"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.runcommand.request"

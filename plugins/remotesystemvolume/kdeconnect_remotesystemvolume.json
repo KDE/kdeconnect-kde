@@ -47,6 +47,7 @@
                 "Name[sk]": "Nicolas Fella",
                 "Name[sl]": "Nicolas Fella",
                 "Name[sv]": "Nicolas Fella",
+                "Name[ta]": "நிக்கோலஸ் ஃபெல்லா",
                 "Name[tr]": "Nicolas Fella",
                 "Name[uk]": "Nicolas Fella",
                 "Name[zh_CN]": "Nicolas Fella",
@@ -110,12 +111,17 @@
         "Name[ca]": "Control remot del volum",
         "Name[fr]": "Contrôle de volume avec la télécommande",
         "Name[he]": "שליטה על עוצמת שמע מרוחקת",
+        "Name[is]": "Fjarstýring hljóðstyrks",
+        "Name[it]": "Controllo remoto del volume",
         "Name[ka]": "დაშორებული ხმის მართვა",
         "Name[nl]": "Afstandsbediening van volume",
         "Name[pt_BR]": "Controle de volume remoto",
         "Name[sl]": "Oddaljen nadzor glasnosti",
+        "Name[ta]": "தொலை ஒலியளவு கட்டுப்பாடு",
         "Name[tr]": "Uzaktan Sesi Ayarla",
-        "Name[uk]": "Віддалене керування гучністю"
+        "Name[uk]": "Віддалене керування гучністю",
+        "Name[zh_CN]": "远程音量控制",
+        "Name[zh_TW]": "遠端音量控制"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.systemvolume.request"

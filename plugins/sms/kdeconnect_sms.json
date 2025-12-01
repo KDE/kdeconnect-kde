@@ -46,6 +46,7 @@
                 "Name[sk]": "Simon Redman",
                 "Name[sl]": "Simon Redman",
                 "Name[sv]": "Simon Redman",
+                "Name[ta]": "சைமன் ரெட்மான்",
                 "Name[tr]": "Simon Redman",
                 "Name[uk]": "Simon Redman",
                 "Name[zh_CN]": "Simon Redman",
@@ -109,12 +110,17 @@
         "Name[ca]": "Integració amb els SMS",
         "Name[fr]": "Intégration des messages SMS",
         "Name[he]": "שילוב מול SMS",
+        "Name[is]": "SMS-samþætting",
+        "Name[it]": "Integrazione SMS",
         "Name[ka]": "SMS-ის ინტეგრაცია",
         "Name[nl]": "SMS-integratie",
         "Name[pt_BR]": "Integração SMS",
         "Name[sl]": "Integracija SMS",
+        "Name[ta]": "SMS ஒருங்கிணைப்பு",
         "Name[tr]": "SMS Tümleşimi",
-        "Name[uk]": "Інтеграція SMS"
+        "Name[uk]": "Інтеграція SMS",
+        "Name[zh_CN]": "短信整合",
+        "Name[zh_TW]": "SMS 整合"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.sms.request",

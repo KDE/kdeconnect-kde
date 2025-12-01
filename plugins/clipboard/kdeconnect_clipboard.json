@@ -42,6 +42,7 @@
                 "Name[sk]": "Albert Vaca Cintora",
                 "Name[sl]": "Albert Vaca Cintora",
                 "Name[sv]": "Albert Vaca Cintora",
+                "Name[ta]": "ஆல்பர்டு வாக்கா சின்ட்டோரா",
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
                 "Name[zh_CN]": "Albert Vaca Cintora",
@@ -109,12 +110,17 @@
         "Name[ca]": "Sincronització del porta-retalls",
         "Name[fr]": "Synchronisation du presse-papier",
         "Name[he]": "סנכרון לוח גזירים",
+        "Name[is]": "Samstilla klippispjald",
+        "Name[it]": "Sincronizzazione degli appunti",
         "Name[ka]": "ბუფერის სინქრონიზაცია",
         "Name[nl]": "Synchronisatie van met klembord",
         "Name[pt_BR]": "Sincronização da área de trabalho",
         "Name[sl]": "Sinhronizacija odložišča",
+        "Name[ta]": "பிடிப்புப்பலகை ஒத்திசைவு",
         "Name[tr]": "Pano Eşzamanlaması",
-        "Name[uk]": "Синхронізація буфера обміну"
+        "Name[uk]": "Синхронізація буфера обміну",
+        "Name[zh_CN]": "剪贴板同步",
+        "Name[zh_TW]": "剪貼簿同步"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.clipboard",

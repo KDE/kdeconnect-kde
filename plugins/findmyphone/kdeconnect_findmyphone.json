@@ -50,6 +50,7 @@
                 "Name[sr@latin]": "Aporv Parle",
                 "Name[sr]": "Апорв Парле",
                 "Name[sv]": "Apoorv Parle",
+                "Name[ta]": "அபூர்வ் பார்லே",
                 "Name[tr]": "Apoorv Parle",
                 "Name[uk]": "Apoorv Parle",
                 "Name[zh_CN]": "Apoorv Parle",
@@ -103,6 +104,7 @@
                 "Name[sr@latin]": "Dejvid Edmundson",
                 "Name[sr]": "Дејвид Едмундсон",
                 "Name[sv]": "David Edmundson",
+                "Name[ta]": "டேவிட் எட்மண்டுஸன்",
                 "Name[tr]": "David Edmundson",
                 "Name[uk]": "David Edmundson",
                 "Name[zh_CN]": "David Edmundson",
@@ -170,12 +172,17 @@
         "Name[ca]": "Troba altres dispositius",
         "Name[fr]": "Trouver d'autres périphériques",
         "Name[he]": "איתור מכשירים אחרים",
+        "Name[is]": "Finna önnur tæki",
+        "Name[it]": "Trova altri dispositivi",
         "Name[ka]": "სხვა მოწყობილობების პოვნა",
         "Name[nl]": "Zoek andere apparaten",
         "Name[pt_BR]": "Encontrar outros dispositivos",
         "Name[sl]": "Poišči ostale naprave",
+        "Name[ta]": "வேறு சாதனத்தைக் கண்டுபிடி",
         "Name[tr]": "Başka Aygıt Bul",
-        "Name[uk]": "Пошук інших пристроїв"
+        "Name[uk]": "Пошук інших пристроїв",
+        "Name[zh_CN]": "查找其他设备",
+        "Name[zh_TW]": "尋找其他裝置"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.findmyphone.request"

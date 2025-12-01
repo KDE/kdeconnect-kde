@@ -118,12 +118,17 @@
         "Name[ca]": "Rep entrada remota",
         "Name[fr]": "Recevoir une commande de télécommande",
         "Name[he]": "קבלת קלט מרוחק",
+        "Name[is]": "Taka á móti fjartengdu inntaki",
+        "Name[it]": "Ricevere input remoto",
         "Name[ka]": "დაშორებული შეყვანის მიღება",
         "Name[nl]": "Ontvang invoer op afstand",
         "Name[pt_BR]": "Receber entrada remota",
         "Name[sl]": "Sprejemaj oddaljeni vhod",
+        "Name[ta]": "தொலை உள்ளீட்டைப் பெறு",
         "Name[tr]": "Uzaktan Giriş Al",
-        "Name[uk]": "Отримання віддаленого введення"
+        "Name[uk]": "Отримання віддаленого введення",
+        "Name[zh_CN]": "接收远程输入",
+        "Name[zh_TW]": "接收遠端輸入"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.mousepad.keyboardstate"
