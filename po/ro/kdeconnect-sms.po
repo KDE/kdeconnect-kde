@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-09-27 11:56+0100\n"
+"PO-Revision-Date: 2025-11-30 13:54+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -29,12 +29,10 @@ msgid "Your emails"
 msgstr "sergiu@cip.md"
 
 #: attachmentshelper.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
-msgstr "Golește atașamentele"
+msgstr "Descarcă atașamentul"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -127,11 +125,9 @@ msgid "Open with default"
 msgstr "Deschide cu implicit"
 
 #: qml/AttachmentViewer.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgid "Download attachment…"
-msgstr "Golește atașamentele"
+msgstr "Descarcă atașamentul…"
 
 #: qml/ConversationList.qml:23
 #, kde-format

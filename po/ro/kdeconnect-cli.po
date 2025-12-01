@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-09-27 11:51+0100\n"
+"PO-Revision-Date: 2025-11-30 14:01+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -234,15 +234,16 @@ msgid "Display this device's id and exit"
 msgstr "Afișează identificatorul acestui dispozitiv și termină"
 
 #: kdeconnect-cli.cpp:79
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Trimite taste unui dispozitiv numit"
+msgstr "Montează sistemul de fișiere al unui dispozitiv numit"
 
 #: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr ""
+"Tipărește punctul de montare pentru sistemul de fișiere al unui dispozitiv "
+"numit"
 
 #: kdeconnect-cli.cpp:126
 #, kde-format
@@ -294,7 +295,7 @@ msgstr ""
 #: kdeconnect-cli.cpp:234
 #, kde-format
 msgid "Shared %1"
-msgstr "Partajat %1"
+msgstr "%1 partajat"
 
 #: kdeconnect-cli.cpp:243
 #, kde-format
