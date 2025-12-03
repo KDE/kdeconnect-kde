@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-02-24 11:03+0100\n"
+"PO-Revision-Date: 2025-11-26 10:56+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,13 +19,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: backends/bluetooth/asynclinkprovider.cpp:39
 #, kde-format
 msgctxt "@info"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -35,7 +35,7 @@ msgstr "No s'ha pogut trobar un port disponible"
 #: backends/lan/compositeuploadjob.cpp:110
 #, kde-format
 msgid "Failed to send packet to %1"
-msgstr "No s'ha pogut enviar un paquet a %1"
+msgstr "Ha fallat mentre s'enviava un paquet a %1"
 
 #: backends/lan/compositeuploadjob.cpp:256
 #, kde-format

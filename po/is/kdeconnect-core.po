@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-11-30 09:10+0000\n"
+"PO-Revision-Date: 2025-12-02 10:55+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -117,7 +117,7 @@ msgstr "Útgáfa samskiptastaðals: %1\n"
 #: filetransferjob.cpp:53
 #, kde-format
 msgid "Filename already present"
-msgstr "Skrárheiti er þegar til staðar"
+msgstr "Skráarheiti er þegar til staðar"
 
 #: filetransferjob.cpp:116
 #, kde-format
