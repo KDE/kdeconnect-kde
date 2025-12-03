@@ -136,4 +136,14 @@ void CommandsModel::addCommand(const QString &name, const QString &command)
     saveCommands();
 }
 
+void CommandsModel::changeCommand(int index, const QString &name, const QString &command)
+{
+    m_commandList[index].name = name;
+    m_commandList[index].command = command;
+    saveCommands();
+
+    auto modelIndex = createIndex(index, 0);
+    Q_EMIT dataChanged(modelIndex, modelIndex);
+}
+
 #include "moc_commandsmodel.cpp"

@@ -49,11 +49,23 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            actions: Kirigami.Action {
-                text: i18nd("kdeconnect-plugins", "Delete")
-                icon.name: "delete"
-                onTriggered: commandModel.removeCommand(index)
-            }
+            actions: [
+                Kirigami.Action {
+                    text: i18nd("kdeconnect-plugins", "Edit")
+                    icon.name: "edit-entry"
+                    onTriggered: {
+                        editDialog.index = index;
+                        editNameField.text = name;
+                        editCommandField.text = command;
+                        editDialog.open();
+                    }
+                },
+                Kirigami.Action {
+                    text: i18nd("kdeconnect-plugins", "Delete")
+                    icon.name: "delete"
+                    onTriggered: commandModel.removeCommand(index)
+                }
+            ]
         }
 
         Kirigami.PlaceholderMessage {
@@ -160,6 +172,41 @@ Kirigami.ScrollablePage {
                     }
                 }
             }
+        }
+        Kirigami.Dialog {
+            id: editDialog
+            title: i18ndc("kdeconnect-plugins", "@title:window", "Edit Command")
+
+            padding: Kirigami.Units.largeSpacing
+            preferredWidth: Kirigami.Units.gridUnit * 20
+            property int index: 0
+            Kirigami.FormLayout {
+                QQC2.TextField {
+                    id: editNameField
+                    Kirigami.FormData.label: i18nd("kdeconnect-plugins", "Name:")
+                }
+                QQC2.TextField {
+                    id: editCommandField
+                    Kirigami.FormData.label: i18nd("kdeconnect-plugins", "Command:")
+                }
+            }
+
+            property Kirigami.Action editCommandAction: Kirigami.Action {
+                text: i18ndc("kdeconnect-plugins", "@action:button", "Confirm")
+                icon.name: "dialog-ok"
+                enabled: editCommandField.length > 0
+                onTriggered: {
+                    commandModel.changeCommand(editDialog.index, editNameField.text, editCommandField.text);
+                    editDialog.close();
+                }
+                Component.onCompleted: {
+                    // TODO: can be set directly once Qt 6.8 is required
+                    Accessible.Name = i18ndc("kdeconnect-plugins", "@action:button accessible", "Confirm");
+                }
+            }
+
+            standardButtons: Kirigami.Dialog.Cancel
+            customFooterActions: [editCommandAction]
         }
     }
 }
