@@ -264,7 +264,7 @@ msgstr ""
 #: sftp/mounter.cpp:141
 #, kde-format
 msgid "Failed to start sshfs"
-msgstr "No s'ha pogut iniciar «sshfs»"
+msgstr "Ha fallat mentre s'iniciava «sshfs»"
 
 #: sftp/mounter.cpp:145
 #, kde-format
@@ -280,7 +280,7 @@ msgstr "S'ha produït un error desconegut a «sshfs»"
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
-"S'ha produït un error en accedir al sistema de fitxers. «sshfs» ha "
+"S'ha produït un error mentre s'accedia al sistema de fitxers. «sshfs» ha "
 "finalitzat amb un codi d'eixida %0"
 
 #: sftp/mounter.cpp:169
