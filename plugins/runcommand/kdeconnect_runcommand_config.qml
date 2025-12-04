@@ -93,10 +93,7 @@ Kirigami.ScrollablePage {
                     commandModel.addCommand(nameField.text, commandField.text);
                     addDialog.close();
                 }
-                Component.onCompleted: {
-                    // TODO: can be set directly once Qt 6.8 is required
-                    Accessible.Name = i18ndc("kdeconnect-plugins", "@action:button accessible", "Add command");
-                }
+                Accessible.name: i18ndc("kdeconnect-plugins", "@action:button accessible", "Add command")
             }
 
             standardButtons: Kirigami.Dialog.Cancel
@@ -199,10 +196,7 @@ Kirigami.ScrollablePage {
                     commandModel.changeCommand(editDialog.index, editNameField.text, editCommandField.text);
                     editDialog.close();
                 }
-                Component.onCompleted: {
-                    // TODO: can be set directly once Qt 6.8 is required
-                    Accessible.Name = i18ndc("kdeconnect-plugins", "@action:button accessible", "Confirm");
-                }
+                Accessible.name: i18ndc("kdeconnect-plugins", "@action:button accessible", "Confirm")
             }
 
             standardButtons: Kirigami.Dialog.Cancel

@@ -142,7 +142,7 @@ void CommandsModel::changeCommand(int index, const QString &name, const QString 
     m_commandList[index].command = command;
     saveCommands();
 
-    auto modelIndex = createIndex(index, 0);
+    const auto modelIndex = this->index(index, 0, {});
     Q_EMIT dataChanged(modelIndex, modelIndex);
 }
 
