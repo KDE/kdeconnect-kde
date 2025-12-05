@@ -31,6 +31,7 @@ Dependencies:
     'frameworks/kstatusnotifieritem': '@latest-kf6'
     'libraries/pulseaudio-qt': '@latest-kf6'
     'libraries/plasma-wayland-protocols': '@latest-kf6'
+    'plasma/libplasma': '@latest-kf6'
  - 'on': ['Linux/Qt6', 'Linux/Qt6Next']
    'require':
     'frameworks/modemmanager-qt': '@latest-kf6'

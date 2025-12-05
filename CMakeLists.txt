@@ -140,6 +140,7 @@ add_subdirectory(smsapp)
 
 if(NOT WIN32 AND NOT APPLE)
     add_subdirectory(kio)
+    find_package(Plasma 6.4 REQUIRED)
     add_subdirectory(plasmoid)
 endif()
 

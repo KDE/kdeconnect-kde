@@ -1,5 +1,4 @@
 {
-    "KPackageStructure": "Plasma/Applet",
     "KPlugin": {
         "Authors": [
             {
@@ -91,7 +90,6 @@
         "Description[zh_TW]": "管理已連線裝置",
         "EnabledByDefault": true,
         "Icon": "kdeconnect",
-        "Id": "org.kde.kdeconnect",
         "License": "GPL",
         "Name": "KDE Connect",
         "Name[ar]": "جسر كِيدِي",
