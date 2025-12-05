@@ -1,22 +1,22 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Sveinn í Felli <sv1@fellsnet.is>, 2022.
+# SPDX-FileCopyrightText: 2022, 2025 Sveinn í Felli <sv1@fellsnet.is>
 # SPDX-FileCopyrightText: 2023, 2024, 2025 gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-05-28 20:23+0000\n"
-"Last-Translator: Gummi <gudmundure@gmail.com>\n"
-"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-12-04 13:53+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -50,10 +50,9 @@ msgid "Send files"
 msgstr "Senda skrár"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
-msgstr "SMS-skilaboð..."
+msgstr "SMS-skilaboð…"
 
 #: deviceindicator.cpp:130
 #, kde-format
@@ -95,10 +94,9 @@ msgid "KDE Connect Indicator tool"
 msgstr "KDE Connect-vísir"
 
 #: main.cpp:61
-#, fuzzy, kde-format
-#| msgid "(c) 2016-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr "(C) 2016-2025, KDE Connect þróunarteymið"
+msgstr "© 2016–2025, KDE Connect þróunarteymið"
 
 #: main.cpp:62
 #, kde-format

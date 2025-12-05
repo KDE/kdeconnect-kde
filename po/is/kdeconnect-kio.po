@@ -1,34 +1,32 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Sveinn í Felli <sv1@fellsnet.is>, 2022.
+# SPDX-FileCopyrightText: 2022, 2025 Sveinn í Felli <sv1@fellsnet.is>
 # SPDX-FileCopyrightText: 2023, 2025 gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-05-28 20:24+0000\n"
-"Last-Translator: Gummi <gudmundure@gmail.com>\n"
-"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-12-04 13:54+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: kiokdeconnect.cpp:75
-#, fuzzy, kde-format
-#| msgid "Listing devices..."
+#, kde-format
 msgid "Listing devices…"
-msgstr "Tel upp tæki..."
+msgstr "Tel upp tæki…"
 
 #: kiokdeconnect.cpp:120
-#, fuzzy, kde-format
-#| msgid "Accessing device..."
+#, kde-format
 msgid "Accessing device…"
-msgstr "Fæ aðgang að tæki..."
+msgstr "Næ sambandi við tæki…"
 
 #: kiokdeconnect.cpp:135
 #, kde-format
