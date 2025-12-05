@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-11-30 09:09+0000\n"
+"PO-Revision-Date: 2025-12-04 13:52+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -42,13 +42,13 @@ msgstr "Albert Vaca Cintora"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Sveinn í Felli,Guðmundur Erlingsson"
+msgstr "Sveinn í Felli, Guðmundur Erlingsson"
 
 #: main.cpp:45
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sv1@fellsnet.is,gudmundure@gmail.com"
+msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 
 #: main.cpp:76
 #, kde-format
