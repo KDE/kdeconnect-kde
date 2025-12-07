@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-07-20 00:13+0100\n"
+"PO-Revision-Date: 2025-12-06 22:02+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -105,7 +105,7 @@ msgstr "Controles"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "Información"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -175,7 +175,7 @@ msgstr "Usar dispositivo como monitor externo"
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "Dirección: %1 via %2"
 
 #: qml/DevicePage.qml:220
 #, kde-format
@@ -407,15 +407,3 @@ msgstr ""
 "Si tiene problemas, visite la <a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">Wiki de la comunidad KDE "
 "Connect</span></a> para obtener ayuda."
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Bluetooth"
-#~ msgstr "Bluetooth"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Loopback"
-#~ msgstr "Loopback"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Network"
-#~ msgstr "Red"
