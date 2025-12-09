@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-10-19 23:31+0200\n"
+"PO-Revision-Date: 2025-12-08 08:21+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -128,28 +128,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Bilatu gailuak sarean eta konexioak birsortu"
 
 #: kdeconnect-cli.cpp:81
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Eskatu adierazitako gailuarekin parekatzea"
+msgstr "Eskatu gailuarekin parekatzea"
 
 #: kdeconnect-cli.cpp:82
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Aurkitu adierazitako gailua bere dei-doinua joaz."
+msgstr "Aurkitu gailua bere dei-doinua joaz"
 
 #: kdeconnect-cli.cpp:83
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "gailuaren zain..."
+msgstr "Desparekatu gailua"
 
 #: kdeconnect-cli.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Adierazitako gailura ping bat bidaltzen du"
+msgstr "Bidali ping gailura"
 
 #: kdeconnect-cli.cpp:85
 #, kde-format
@@ -162,28 +158,24 @@ msgid "message"
 msgstr "mezua"
 
 #: kdeconnect-cli.cpp:86
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Uneko arbela adierazitako gailura bidaltzen du"
+msgstr "Bidali arbela gailura"
 
 #: kdeconnect-cli.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Partekatu fitxategi/URL bat adierazitako gailu batekin"
+msgstr "Partekatu fitxategi/URLa gailuarekin"
 
 #: kdeconnect-cli.cpp:88
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Partekatu testua adierazitako gailuarekin"
+msgstr "Partekatu testua gailuarekin"
 
 #: kdeconnect-cli.cpp:89
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "Azaldu jakinarazpenak adierazitako gailuan"
+msgstr "Azaldu jakinarazpenak gailuan"
 
 #: kdeconnect-cli.cpp:90
 #, kde-format
@@ -234,28 +226,24 @@ msgid "Device Name"
 msgstr "Gailuaren izena"
 
 #: kdeconnect-cli.cpp:99
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Jaso adierazitako gailuari buruzko zifratze informazioa"
+msgstr "Jaso gailuari buruzko zifratze informazioa"
 
 #: kdeconnect-cli.cpp:100
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
-msgstr "Urruneko komandoak eta haien IDak zerrendatzen ditu"
+msgstr "Lerrendatu urruneko komandoak eta haien IDak"
 
 #: kdeconnect-cli.cpp:101
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
-msgstr "ID bidez urruneko agindu bat exekutatzen du"
+msgstr "Exekutatu urreneko komandoa IDaren bidez"
 
 #: kdeconnect-cli.cpp:102
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Teklak adierazitako gailura bidaltzen ditu"
+msgstr "Bidali teklak gailura"
 
 #: kdeconnect-cli.cpp:103
 #, kde-format
@@ -305,11 +293,10 @@ msgid "(unpaired)"
 msgstr "(parekatu gabe)"
 
 #: kdeconnect-cli.cpp:243
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
-msgstr "%1 partekatuta"
+msgstr "%1 partekatu da"
 
 #: kdeconnect-cli.cpp:256
 #, kde-format
@@ -356,7 +343,7 @@ msgstr "Dagoeneko parekatua gabe"
 #: kdeconnect-cli.cpp:309
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Ondo desparekatu da"
 
 #: kdeconnect-cli.cpp:367
 #, kde-format

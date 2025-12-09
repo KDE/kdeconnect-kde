@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2025-06-24 20:12+0200\n"
+"PO-Revision-Date: 2025-12-08 08:15+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -20,17 +20,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Osoitz Elkorobarrutia,Gontzal M. Pujana"
+msgstr "Iñigo Salvador Azurmendi,Osoitz Elkorobarrutia,Gontzal M. Pujana"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "oelkoro@gmail.com,gontzalpujana@protonmail.com"
+msgstr "xalba@ni.eus,oelkoro@gmail.com,gontzalpujana@protonmail.com"
 
 #. i18n: ectx: property (text), widget (QLabel, devicePickerLabel)
 #: dialog.ui:25
@@ -40,10 +40,9 @@ msgstr "Hautatu gailua:"
 
 #. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
 #: dialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Enter file location here"
+#, kde-format
 msgid "Enter a file location or URL:"
-msgstr "Sartu fitxategiaren kokalekua hemen"
+msgstr "Sartu fitxategi baten kokalekua edo URL bat:"
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -83,13 +82,13 @@ msgstr "IDa"
 #: kdeconnect-handler.cpp:86
 #, kde-format
 msgid "Automatically open the file on the remote device, when supported"
-msgstr ""
+msgstr "Ireki fitxategi automatikoki urruneko gailuan, onartzen denean"
 
 #: kdeconnect-handler.cpp:128
 #, kde-format
 msgctxt "Placeholder for input field that should contain a file/URL to share"
 msgid "Local file or web URL"
-msgstr ""
+msgstr "Fitxategi lokala edo web URLa"
 
 #: kdeconnect-handler.cpp:137
 #, kde-format
