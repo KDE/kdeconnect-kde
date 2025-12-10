@@ -60,7 +60,7 @@ void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket &np)
     QString newTitle = np.get<QString>(QStringLiteral("title"), m_title);
     QString newArtist = np.get<QString>(QStringLiteral("artist"), m_artist);
     QString newAlbum = np.get<QString>(QStringLiteral("album"), m_album);
-    QString newAlbumArtUrl = np.get<QString>(QStringLiteral("albumArtUrl"), QStringLiteral(""));
+    QString newAlbumArtUrl = np.get<QString>(QStringLiteral("albumArtUrl"), m_albumArtUrl);
     int newLength = np.get<int>(QStringLiteral("length"), m_length);
     if (newAlbumArtUrl != m_albumArtUrl) {
         // album art changed
