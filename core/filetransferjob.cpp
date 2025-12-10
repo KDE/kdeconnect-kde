@@ -61,7 +61,7 @@ void FileTransferJob::start()
 
 void FileTransferJob::doStart()
 {
-    if (m_origin->bytesAvailable())
+    if (m_origin && m_origin->bytesAvailable())
         startTransfer();
 
     connect(m_origin.data(), &QIODevice::readyRead, this, &FileTransferJob::startTransfer);
