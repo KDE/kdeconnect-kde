@@ -103,41 +103,38 @@ Kirigami.ScrollablePage {
                 QQC2.ComboBox {
                     Kirigami.FormData.label: i18nd("kdeconnect-plugins", "Sample commands:")
                     textRole: "name"
-                    model: ListModel {
-                        id: sampleCommands
-                        ListElement {
-                            name: "Sample command"
-                            command: ""
-                        }
-                        ListElement {
-                            name: "Suspend"
+                    currentIndex: -1
+                    displayText: currentIndex === -1 ? "" : currentText
+                    model: [
+                        {
+                            name: i18ndc("kdeconnect-plugins", "Sample command", "Suspend"),
                             command: "systemctl suspend"
-                        }
-                        ListElement {
-                            name: "Maximum Brightness"
+                        },
+                        {
+                            name: i18ndc("kdeconnect-plugins", "Sample command", "Maximum Brightness"),
                             command: "qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness `qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightnessMax`"
-                        }
-                        ListElement {
-                            name: "Lock Screen"
+                        },
+                        {
+                            name: i18ndc("kdeconnect-plugins", "Sample command", "Lock Screen"),
                             command: "loginctl lock-session"
-                        }
-                        ListElement {
-                            name: "Unlock Screen"
+                        },
+                        {
+                            name: i18ndc("kdeconnect-plugins", "Sample command", "Unlock Screen"),
                             command: "loginctl unlock-session"
-                        }
-                        ListElement {
-                            name: "Close All Vaults"
+                        },
+                        {
+                            name: i18ndc("kdeconnect-plugins", "Sample command", "Close All Vaults"),
                             command: "qdbus org.kde.kded5 /modules/plasmavault closeAllVaults"
-                        }
-                        ListElement {
-                            name: "Forcefully Close All Vaults"
+                        },
+                        {
+                            name: i18ndc("kdeconnect-plugins", "Sample command", "Forcefully Close All Vaults"),
                             command: "qdbus org.kde.kded5 /modules/plasmavault forceCloseAllVaults"
                         }
-                    }
+                    ]
                     onActivated: {
-                        if (index > 0) {
-                            nameField.text = sampleCommands.get(index).name
-                            commandField.text = sampleCommands.get(index).command
+                        if (currentIndex >= 0) {
+                            nameField.text = model[currentIndex].name
+                            commandField.text = model[currentIndex].command
                         }
                     }
                 }
