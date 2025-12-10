@@ -19,6 +19,16 @@
 
 K_PLUGIN_CLASS_WITH_JSON(MprisRemotePlugin, "kdeconnect_mprisremote.json")
 
+MprisRemotePlugin::MprisRemotePlugin(QObject *parent, const QVariantList &args)
+    : KdeConnectPlugin(parent, args)
+{
+    connect(AlbumArtCache::instance(), &AlbumArtCache::albumArtFetched, this, [this](const QString &player) {
+        if (player == m_currentPlayer) {
+            Q_EMIT propertiesChanged();
+        }
+    });
+}
+
 void MprisRemotePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.type() != PACKET_TYPE_MPRIS)
@@ -179,6 +189,12 @@ QString MprisRemotePlugin::artist() const
 {
     auto player = m_players.value(m_currentPlayer);
     return player ? player->artist() : QString();
+}
+
+QString MprisRemotePlugin::localAlbumArtUrl() const
+{
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->localAlbumArtUrl().toString() : QString();
 }
 
 bool MprisRemotePlugin::canSeek() const

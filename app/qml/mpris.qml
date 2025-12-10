@@ -80,6 +80,23 @@ Kirigami.Page
         }
 
         Item { Layout.fillHeight: true }
+
+        Item {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+            Layout.preferredHeight: 240
+            Layout.preferredWidth: 240
+            width: 240; height: 240
+            Image {
+                id: albumArt
+                anchors.centerIn: parent
+                width: 220; height: 220
+                fillMode: Image.PreserveAspectFit
+                source: root.pluginInterface.localAlbumArtUrl
+                visible: !!root.pluginInterface.localAlbumArtUrl && root.pluginInterface.localAlbumArtUrl.length > 0
+                smooth: true
+            }
+        }
+
         ComboBox {
             Layout.fillWidth: true
             model: root.pluginInterface.playerList
