@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-11-26 14:12+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -223,6 +223,48 @@ msgstr "Comando:"
 #, kde-format
 msgid "Sample commands:"
 msgstr "Comandi di esempio:"
+
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Sospendi"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Luminosità massima"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Blocca schermo"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Sblocca schermo"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Chiudi tutti i caveau"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Chiudi forzatamente tutti i caveau"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -441,12 +483,6 @@ msgstr "Impossibile avviare una richiesta senza una risoluzione"
 #~ msgid "Schedule a reboot"
 #~ msgstr "Pianifica un riavvio"
 
-#~ msgid "Suspend"
-#~ msgstr "Sospendi"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Blocca schermo"
-
 #~ msgid "Say Hello"
 #~ msgstr "Saluta"
 
@@ -455,18 +491,6 @@ msgstr "Impossibile avviare una richiesta senza una risoluzione"
 
 #~ msgid "Reboot"
 #~ msgstr "Riavvia"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Luminosità massima"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Sblocca schermo"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Chiudi tutti i caveau"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Chiudi forzatamente tutti i caveau"
 
 #~ msgid "Export"
 #~ msgstr "Esporta"

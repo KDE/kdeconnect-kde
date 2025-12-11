@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2024-05-10 11:33+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -231,6 +231,48 @@ msgstr "Komando"
 msgid "Sample commands:"
 msgstr "Ekzemplaj komandoj"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Suspendi"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Maksimuma Brilo"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Ŝlosi Ekranon"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Malŝlosi Ekranon"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Fermi Ĉiujn Trezorejojn"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Perforte Fermi Ĉiujn Trezorejojn"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -446,12 +488,6 @@ msgstr ""
 #~ msgid "Schedule a reboot"
 #~ msgstr "Plani sistemrekomencon"
 
-#~ msgid "Suspend"
-#~ msgstr "Suspendi"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Ŝlosi Ekranon"
-
 #~ msgid "Say Hello"
 #~ msgstr "Diri Saluton"
 
@@ -460,18 +496,6 @@ msgstr ""
 
 #~ msgid "Reboot"
 #~ msgstr "Rekomenci"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Maksimuma Brilo"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Malŝlosi Ekranon"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Fermi Ĉiujn Trezorejojn"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Perforte Fermi Ĉiujn Trezorejojn"
 
 #~ msgid "Export"
 #~ msgstr "Eksporti"

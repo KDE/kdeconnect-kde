@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-11-26 12:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -300,7 +300,7 @@ msgstr "Çoklu Ortam Denetimleri"
 msgid "No players available"
 msgstr "Oynatıcı bulunamadı"
 
-#: qml/mpris.qml:111
+#: qml/mpris.qml:128
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 — %2"

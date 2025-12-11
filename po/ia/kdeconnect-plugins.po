@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-04-16 10:45+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -231,6 +231,48 @@ msgstr "Commando"
 msgid "Sample commands:"
 msgstr "Commandos  de specimen"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Suspende"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Brillantia maxime"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Bloca schermo"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Disbloca schermo"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Claude omne cellarios"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Claude fortiatemente omne cellarios"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -449,12 +491,6 @@ msgstr ""
 #~ msgid "Schedule a reboot"
 #~ msgstr "Planifica un reinitio"
 
-#~ msgid "Suspend"
-#~ msgstr "Suspende"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Bloca schermo"
-
 #~ msgid "Say Hello"
 #~ msgstr "Dice Hallo"
 
@@ -463,18 +499,6 @@ msgstr ""
 
 #~ msgid "Reboot"
 #~ msgstr "Reboot (re-initia)"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Brillantia maxime"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Disbloca schermo"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Claude omne cellarios"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Claude fortiatemente omne cellarios"
 
 #~ msgid "Export"
 #~ msgstr "Exporta"

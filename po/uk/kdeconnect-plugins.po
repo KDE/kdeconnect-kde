@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-11-26 16:41+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -227,6 +227,48 @@ msgstr "Команда:"
 msgid "Sample commands:"
 msgstr "Зразки команд:"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Призупинити"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Максимальна яскравість"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Заблокувати екран"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Розблокувати екран"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Закрити усі сховища"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Примусово закрити усі сховища"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -440,12 +482,6 @@ msgstr "Не можна розпочати запит без роздільно�
 #~ msgid "Schedule a reboot"
 #~ msgstr "Запланувати перезавантаження"
 
-#~ msgid "Suspend"
-#~ msgstr "Призупинити"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Заблокувати екран"
-
 #~ msgid "Say Hello"
 #~ msgstr "Сказати «Привіт!»"
 
@@ -454,18 +490,6 @@ msgstr "Не можна розпочати запит без роздільно�
 
 #~ msgid "Reboot"
 #~ msgstr "Перезавантажити"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Максимальна яскравість"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Розблокувати екран"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Закрити усі сховища"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Примусово закрити усі сховища"
 
 #~ msgid "Export"
 #~ msgstr "Експорт"

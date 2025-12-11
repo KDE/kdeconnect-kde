@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2023-06-09 03:03+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -232,6 +232,48 @@ msgstr "Comando"
 msgid "Sample commands:"
 msgstr "Comandos de exemplo"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Suspender"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Brilho Máximo"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Bloquear o Ecrã"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Desbloquear o Ecrã"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Fechar Todos os Cofres"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Fechar à Força Todos os Cofres"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -455,12 +497,6 @@ msgstr ""
 #~ msgid "Schedule a reboot"
 #~ msgstr "Agendar um reinício"
 
-#~ msgid "Suspend"
-#~ msgstr "Suspender"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Bloquear o Ecrã"
-
 #~ msgid "Say Hello"
 #~ msgstr "Dizer 'Olá'"
 
@@ -469,18 +505,6 @@ msgstr ""
 
 #~ msgid "Reboot"
 #~ msgstr "Reiniciar"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Brilho Máximo"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Desbloquear o Ecrã"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Fechar Todos os Cofres"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Fechar à Força Todos os Cofres"
 
 #~ msgid "Export"
 #~ msgstr "Exportar"

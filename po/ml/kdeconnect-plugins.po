@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -229,6 +229,46 @@ msgstr "ആജ്ഞ"
 msgid "Sample commands:"
 msgstr "ഉദ്ദാഹരണ ആജ്ഞകൾ"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "മയങ്ങുക"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "പരമാവധി തെളിച്ചം"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "സ്ക്രീൻ ലോക്ക് ചെയ്യുക"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "സ്‌ക്രീനിന്റെ പൂട്ട് തുറക്കുക"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, kde-format
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, kde-format
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr ""
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -414,18 +454,6 @@ msgstr ""
 
 #~ msgid "Actions"
 #~ msgstr "നടപടികൾ"
-
-#~ msgid "Suspend"
-#~ msgstr "മയങ്ങുക"
-
-#~ msgid "Lock Screen"
-#~ msgstr "സ്ക്രീൻ ലോക്ക് ചെയ്യുക"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "പരമാവധി തെളിച്ചം"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "സ്‌ക്രീനിന്റെ പൂട്ട് തുറക്കുക"
 
 #, fuzzy
 #~| msgid "Command"

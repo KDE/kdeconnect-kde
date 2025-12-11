@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2020-01-28 02:48+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -297,7 +297,7 @@ msgstr "മൾട്ടിമീഡിയ നിയന്ത്രണങ്ങ�
 msgid "No players available"
 msgstr "പ്ലെയറുകൾ ലഭ്യമല്ല"
 
-#: qml/mpris.qml:111
+#: qml/mpris.qml:128
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"

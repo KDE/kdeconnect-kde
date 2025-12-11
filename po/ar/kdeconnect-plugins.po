@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-11-27 12:24+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -225,6 +225,48 @@ msgstr "الأمر:"
 msgid "Sample commands:"
 msgstr "أمثلة أوامر"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "علّق"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "أقصى سطوع"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "اقفل الشّاشة"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "فك قفل الشاشة"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "أغلق كل الخزنات"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "أغلق كل الخزنات بالقوة"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -434,12 +476,6 @@ msgstr "لا يمكن بدء طلب دون قرار"
 #~ msgid "Schedule a reboot"
 #~ msgstr "جدول إعادة تشغيل"
 
-#~ msgid "Suspend"
-#~ msgstr "علّق"
-
-#~ msgid "Lock Screen"
-#~ msgstr "اقفل الشّاشة"
-
 #~ msgid "Say Hello"
 #~ msgstr "قل مرحبا"
 
@@ -448,18 +484,6 @@ msgstr "لا يمكن بدء طلب دون قرار"
 
 #~ msgid "Reboot"
 #~ msgstr "أعِد التشغيل"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "أقصى سطوع"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "فك قفل الشاشة"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "أغلق كل الخزنات"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "أغلق كل الخزنات بالقوة"
 
 #~ msgid "Export"
 #~ msgstr "صدّر"

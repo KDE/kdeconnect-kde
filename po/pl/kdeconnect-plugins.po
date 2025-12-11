@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-11-14 09:39+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -222,6 +222,48 @@ msgstr "Polecenie:"
 msgid "Sample commands:"
 msgstr "Proste polecenia:"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Uśpij"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Największa jasność"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Zablokuj ekran"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Odblokuj ekran"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Zamknij wszystkie sejfy"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Wymuś zamknięcie wszystkich sejfów"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -434,12 +476,6 @@ msgstr "Nie może rozpocząć żądania bez rozdzielczości"
 #~ msgid "Schedule a reboot"
 #~ msgstr "Zaplanuj ponowne uruchomienie"
 
-#~ msgid "Suspend"
-#~ msgstr "Uśpij"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Zablokuj ekran"
-
 #~ msgid "Say Hello"
 #~ msgstr "Przywitaj się"
 
@@ -448,18 +484,6 @@ msgstr "Nie może rozpocząć żądania bez rozdzielczości"
 
 #~ msgid "Reboot"
 #~ msgstr "Uruchom ponownie"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Największa jasność"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Odblokuj ekran"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Zamknij wszystkie sejfy"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Wymuś zamknięcie wszystkich sejfów"
 
 #~ msgid "Export"
 #~ msgstr "Wyeksportuj"

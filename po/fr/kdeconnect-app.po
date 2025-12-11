@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-11-27 16:20+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -298,7 +298,7 @@ msgstr "Contrôles multimédia"
 msgid "No players available"
 msgstr "Aucun lecteur disponible"
 
-#: qml/mpris.qml:111
+#: qml/mpris.qml:128
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"

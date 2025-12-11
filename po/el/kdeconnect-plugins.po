@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2024-09-19 21:43+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -232,6 +232,48 @@ msgstr "Εντολή"
 msgid "Sample commands:"
 msgstr "Ενδεικτικές εντολές"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Αναστολή"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Μέγιστη λαμπρότητα"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Κλείδωμα οθόνης"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Ξεκλείδωμα οθόνης"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Κλείσιμο όλων των θόλων"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Αναγκαστικό κλείσιμο όλων των θόλων"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -446,12 +488,6 @@ msgstr ""
 #~ msgid "Schedule a reboot"
 #~ msgstr "Χρονοπρογραμματισμός επανεκκίνησης"
 
-#~ msgid "Suspend"
-#~ msgstr "Αναστολή"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Κλείδωμα οθόνης"
-
 #~ msgid "Say Hello"
 #~ msgstr "Πείτε ένα γεια"
 
@@ -460,18 +496,6 @@ msgstr ""
 
 #~ msgid "Reboot"
 #~ msgstr "Επανεκκίνηση"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Μέγιστη λαμπρότητα"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Ξεκλείδωμα οθόνης"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Κλείσιμο όλων των θόλων"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Αναγκαστικό κλείσιμο όλων των θόλων"
 
 #, fuzzy
 #~| msgid "Command"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-10-30 18:25+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -228,6 +228,48 @@ msgstr "Команда:"
 msgid "Sample commands:"
 msgstr "Примеры команд:"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Перейти в спящий режим"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Максимальная яркость"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Заблокировать экран"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Разблокировать экран"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Закрыть все хранилища"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Принудительно закрыть все хранилища"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -442,12 +484,6 @@ msgstr ""
 #~ msgid "Schedule a reboot"
 #~ msgstr "Перезагрузка по расписанию"
 
-#~ msgid "Suspend"
-#~ msgstr "Перейти в спящий режим"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Заблокировать экран"
-
 #~ msgid "Say Hello"
 #~ msgstr "Поприветствовать"
 
@@ -456,18 +492,6 @@ msgstr ""
 
 #~ msgid "Reboot"
 #~ msgstr "Перезагрузка"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Максимальная яркость"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Разблокировать экран"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Закрыть все хранилища"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Принудительно закрыть все хранилища"
 
 #~ msgid "Export"
 #~ msgstr "Экспорт"

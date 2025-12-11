@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2020-10-06 15:33+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -228,6 +228,47 @@ msgstr "Фармон"
 msgid "Sample commands:"
 msgstr "Фармон"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Таваққуф кардан"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, kde-format
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Қулфи экран"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Қулфи экран"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Пӯшидани ҳамаи анборҳои рамзгузорӣ"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Маҷбуран пӯшидани ҳамаи анборҳои рамзгузорӣ"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -407,18 +448,6 @@ msgstr ""
 
 #~ msgid "Actions"
 #~ msgstr "Амалиётҳо"
-
-#~ msgid "Suspend"
-#~ msgstr "Таваққуф кардан"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Қулфи экран"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Пӯшидани ҳамаи анборҳои рамзгузорӣ"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Маҷбуран пӯшидани ҳамаи анборҳои рамзгузорӣ"
 
 #, fuzzy
 #~| msgid "Command"

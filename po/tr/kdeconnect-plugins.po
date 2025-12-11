@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-11-26 12:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -225,6 +225,48 @@ msgstr "Komut:"
 msgid "Sample commands:"
 msgstr "Örnek komutlar:"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Askıya al"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "En Yüksek Parlaklık"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Kilit Ekranı"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Ekran Kilidini Aç"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Tüm Kasaları Kapat"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Tüm Kasaları Zorla Kapat"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -436,12 +478,6 @@ msgstr "Bir çözüm olmadan bir istek başlatılamaz."
 #~ msgid "Schedule a reboot"
 #~ msgstr "Bir yeniden başlatma zamanla"
 
-#~ msgid "Suspend"
-#~ msgstr "Askıya al"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Kilit Ekranı"
-
 #~ msgid "Say Hello"
 #~ msgstr "Merhaba de"
 
@@ -450,18 +486,6 @@ msgstr "Bir çözüm olmadan bir istek başlatılamaz."
 
 #~ msgid "Reboot"
 #~ msgstr "Yeniden başlat"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "En Yüksek Parlaklık"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Ekran Kilidini Aç"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Tüm Kasaları Kapat"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Tüm Kasaları Zorla Kapat"
 
 #~ msgid "Export"
 #~ msgstr "Dışa Aktar"

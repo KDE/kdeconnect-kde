@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-07-21 00:59+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -296,7 +296,7 @@ msgstr "멀티미디어 제어"
 msgid "No players available"
 msgstr "사용 가능한 재생기 없음"
 
-#: qml/mpris.qml:111
+#: qml/mpris.qml:128
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"

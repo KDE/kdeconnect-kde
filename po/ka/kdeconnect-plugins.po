@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-11-26 03:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -225,6 +225,48 @@ msgstr "ბრძანება:"
 msgid "Sample commands:"
 msgstr "ბრძანების მაგალითები:"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "ძილი"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "მაქსიმალური სიკაშკაშე"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "ეკრანის დაბლოკვა"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "ეკრანის განბლოკვა"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "ყველა საცავის დახურვა"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "ყველა საცავის ძალით დახურვა"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -436,12 +478,6 @@ msgstr "გაფართოების გარეშე მოთხოვ�
 #~ msgid "Schedule a reboot"
 #~ msgstr "გადატვირთვის დაგეგმვა"
 
-#~ msgid "Suspend"
-#~ msgstr "ძილი"
-
-#~ msgid "Lock Screen"
-#~ msgstr "ეკრანის დაბლოკვა"
-
 #~ msgid "Say Hello"
 #~ msgstr "თქვი: \"გამარჯობა, კინო\""
 
@@ -450,18 +486,6 @@ msgstr "გაფართოების გარეშე მოთხოვ�
 
 #~ msgid "Reboot"
 #~ msgstr "გადატვირთვა"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "მაქსიმალური სიკაშკაშე"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "ეკრანის განბლოკვა"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "ყველა საცავის დახურვა"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "ყველა საცავის ძალით დახურვა"
 
 #~ msgid "Export"
 #~ msgstr "გატანა"

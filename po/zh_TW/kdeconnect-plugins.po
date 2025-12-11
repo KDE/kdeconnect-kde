@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-11-29 18:02+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -225,6 +225,48 @@ msgstr "指令："
 msgid "Sample commands:"
 msgstr "範例指令："
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "暫停"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "最大亮度"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "鎖定螢幕"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "解鎖螢幕"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "關閉所有 Vaults"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "強制關閉所有 Vaults"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -434,12 +476,6 @@ msgstr "沒有提供解析度時無法開始請求"
 #~ msgid "Schedule a reboot"
 #~ msgstr "預約重新開機的時間"
 
-#~ msgid "Suspend"
-#~ msgstr "暫停"
-
-#~ msgid "Lock Screen"
-#~ msgstr "鎖定螢幕"
-
 #~ msgid "Say Hello"
 #~ msgstr "說嗨"
 
@@ -448,18 +484,6 @@ msgstr "沒有提供解析度時無法開始請求"
 
 #~ msgid "Reboot"
 #~ msgstr "重新開機"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "最大亮度"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "解鎖螢幕"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "關閉所有 Vaults"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "強制關閉所有 Vaults"
 
 #~ msgid "Export"
 #~ msgstr "匯出"

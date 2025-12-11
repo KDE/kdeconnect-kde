@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-10-10 23:32+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -224,6 +224,48 @@ msgstr "Komanda:"
 msgid "Sample commands:"
 msgstr "Pavyzdinės komandos:"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Užmigdyti"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Didžiausias ryškumas"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Užrakinti ekraną"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Atrakinti ekraną"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Uždaryti visas saugyklas"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Priverstinai uždaryti visas saugyklas"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -438,12 +480,6 @@ msgstr "Nepavyksta pradėti užklausos be nutarimo"
 #~ msgid "Schedule a reboot"
 #~ msgstr "Suplanuoti paleidimą iš naujo"
 
-#~ msgid "Suspend"
-#~ msgstr "Užmigdyti"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Užrakinti ekraną"
-
 #~ msgid "Say Hello"
 #~ msgstr "Pasisveikinti"
 
@@ -452,18 +488,6 @@ msgstr "Nepavyksta pradėti užklausos be nutarimo"
 
 #~ msgid "Reboot"
 #~ msgstr "Paleisti iš naujo"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Didžiausias ryškumas"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Atrakinti ekraną"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Uždaryti visas saugyklas"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Priverstinai uždaryti visas saugyklas"
 
 #~ msgid "Export"
 #~ msgstr "Eksportuoti"

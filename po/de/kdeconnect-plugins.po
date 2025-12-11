@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-08-06 16:02+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -230,6 +230,48 @@ msgstr "Befehl"
 msgid "Sample commands:"
 msgstr "Beispielbefehle"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Standby-Modus"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Maximale Helligkeit"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Bildschirm sperren"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Bildschirm entsperren"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Alle Tresore schließen"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Schließen aller Tresore erzwingen"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -450,12 +492,6 @@ msgstr "Ohne Auflösung kann keine Anforderung begonnen werden"
 #~ msgid "Schedule a reboot"
 #~ msgstr "Neustart planen"
 
-#~ msgid "Suspend"
-#~ msgstr "Standby-Modus"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Bildschirm sperren"
-
 #~ msgid "Say Hello"
 #~ msgstr "Sagen Sie „Hallo“"
 
@@ -464,18 +500,6 @@ msgstr "Ohne Auflösung kann keine Anforderung begonnen werden"
 
 #~ msgid "Reboot"
 #~ msgstr "Neu starten"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Maximale Helligkeit"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Bildschirm entsperren"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Alle Tresore schließen"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Schließen aller Tresore erzwingen"
 
 #~ msgid "Export"
 #~ msgstr "Exportieren"

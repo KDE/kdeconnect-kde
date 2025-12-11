@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-10-10 21:24+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -221,6 +221,48 @@ msgstr "Kommando:"
 msgid "Sample commands:"
 msgstr "Exempelkommandon:"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Viloläge"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Maximal ljusstyrka"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Lås skärmen"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Lås upp skärmen"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Stäng alla valv"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Stäng ovillkorligt alla valv"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -431,12 +473,6 @@ msgstr "Kan inte starta en begäran utan upplösning"
 #~ msgid "Schedule a reboot"
 #~ msgstr "Schemalägg som omstart"
 
-#~ msgid "Suspend"
-#~ msgstr "Viloläge"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Lås skärmen"
-
 #~ msgid "Say Hello"
 #~ msgstr "Säg hej"
 
@@ -445,18 +481,6 @@ msgstr "Kan inte starta en begäran utan upplösning"
 
 #~ msgid "Reboot"
 #~ msgstr "Starta om"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Maximal ljusstyrka"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Lås upp skärmen"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Stäng alla valv"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Stäng ovillkorligt alla valv"
 
 #~ msgid "Export"
 #~ msgstr "Exportera"

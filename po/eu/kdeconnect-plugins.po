@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-12-08 08:13+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -229,6 +229,48 @@ msgstr "Komandoa:"
 msgid "Sample commands:"
 msgstr "Adibide komandoak:"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Eseki"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Distira maximoa"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Giltzatu pantaila"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Pantaila giltzapetik askatu"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Itxi kutxa-gotor guztiak"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Behartu kutxa-gotor guztiak ixtera"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -442,12 +484,6 @@ msgstr "Bereizmenik gabe ezin da eskaera bat hasi"
 #~ msgid "Schedule a reboot"
 #~ msgstr "Berrabiatze bat programatu"
 
-#~ msgid "Suspend"
-#~ msgstr "Eseki"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Giltzatu pantaila"
-
 #~ msgid "Say Hello"
 #~ msgstr "Esan Kaixo"
 
@@ -456,18 +492,6 @@ msgstr "Bereizmenik gabe ezin da eskaera bat hasi"
 
 #~ msgid "Reboot"
 #~ msgstr "Berrabiarazi"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Distira maximoa"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Pantaila giltzapetik askatu"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Itxi kutxa-gotor guztiak"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Behartu kutxa-gotor guztiak ixtera"
 
 #~ msgid "Export"
 #~ msgstr "Esportatu"

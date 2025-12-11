@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -231,6 +231,48 @@ msgstr "Perintah"
 msgid "Sample commands:"
 msgstr "Contoh perintah"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Suspensi"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Maximum Kecerahan"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Layar Kunci "
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Lepas-kunci Layar"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Tutup Semua Vaults"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Tutup Secara Paksa Semua Vaults"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -441,12 +483,6 @@ msgstr ""
 #~ msgid "Schedule a reboot"
 #~ msgstr "Jadwal penyalaan ulang"
 
-#~ msgid "Suspend"
-#~ msgstr "Suspensi"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Layar Kunci "
-
 #~ msgid "Say Hello"
 #~ msgstr "Ucapkan Halo"
 
@@ -455,18 +491,6 @@ msgstr ""
 
 #~ msgid "Reboot"
 #~ msgstr "Nyalakan ulang"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Maximum Kecerahan"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Lepas-kunci Layar"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Tutup Semua Vaults"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Tutup Secara Paksa Semua Vaults"
 
 #, fuzzy
 #~| msgid "Command"

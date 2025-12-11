@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-11-26 01:28-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -227,6 +227,48 @@ msgstr "Comando:"
 #, kde-format
 msgid "Sample commands:"
 msgstr "Exemplos de comandos:"
+
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Suspender"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Brilho máximo"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Bloquear tela"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Desbloquear a tela"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Fechar todos os cofres"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Fechar à força todos os cofres"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -445,12 +487,6 @@ msgstr "Não foi possível iniciar uma solicitação sem uma resolução"
 #~ msgid "Schedule a reboot"
 #~ msgstr "Agendar uma reinicialização"
 
-#~ msgid "Suspend"
-#~ msgstr "Suspender"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Bloquear tela"
-
 #~ msgid "Say Hello"
 #~ msgstr "Dizer olá"
 
@@ -459,18 +495,6 @@ msgstr "Não foi possível iniciar uma solicitação sem uma resolução"
 
 #~ msgid "Reboot"
 #~ msgstr "Reiniciar"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Brilho máximo"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Desbloquear a tela"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Fechar todos os cofres"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Fechar à força todos os cofres"
 
 #~ msgid "Export"
 #~ msgstr "Exportar"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-07-08 22:51+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -228,6 +228,48 @@ msgstr "Parancs"
 msgid "Sample commands:"
 msgstr "Mintaparancsok"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Felfüggesztés"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Maximális fényerő"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Képernyő zárolása"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Képernyő feloldása"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Összes tár bezárása"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Összes tár kényszerített bezárása"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -445,12 +487,6 @@ msgstr ""
 #~ msgid "Schedule a reboot"
 #~ msgstr "Újraindítás ütemezése"
 
-#~ msgid "Suspend"
-#~ msgstr "Felfüggesztés"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Képernyő zárolása"
-
 #~ msgid "Say Hello"
 #~ msgstr "Mondd, hogy helló"
 
@@ -459,18 +495,6 @@ msgstr ""
 
 #~ msgid "Reboot"
 #~ msgstr "Újraindítás"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Maximális fényerő"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Képernyő feloldása"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Összes tár bezárása"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Összes tár kényszerített bezárása"
 
 #~ msgid "Export"
 #~ msgstr "Exportálás"

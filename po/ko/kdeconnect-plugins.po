@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-10-09 00:31+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -221,6 +221,48 @@ msgstr "명령:"
 msgid "Sample commands:"
 msgstr "예제 명령:"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "절전"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "최대 밝기"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "화면 잠그기"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "화면 잠금 해제"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "모든 비밀 공간 닫기"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "강제로 모든 비밀 공간 닫기"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -432,12 +474,6 @@ msgstr "해상도를 지정하지 않고 요청을 시작할 수 없음"
 #~ msgid "Schedule a reboot"
 #~ msgstr "다시 시작 예약"
 
-#~ msgid "Suspend"
-#~ msgstr "절전"
-
-#~ msgid "Lock Screen"
-#~ msgstr "화면 잠그기"
-
 #~ msgid "Say Hello"
 #~ msgstr "안녕 말하기"
 
@@ -446,18 +482,6 @@ msgstr "해상도를 지정하지 않고 요청을 시작할 수 없음"
 
 #~ msgid "Reboot"
 #~ msgstr "다시 시작"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "최대 밝기"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "화면 잠금 해제"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "모든 비밀 공간 닫기"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "강제로 모든 비밀 공간 닫기"
 
 #~ msgid "Export"
 #~ msgstr "내보내기"

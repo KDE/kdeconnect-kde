@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2023-10-11 18:10+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -231,6 +231,48 @@ msgstr "Əmr"
 msgid "Sample commands:"
 msgstr "Əmrlər nümunəsi"
 
+#: runcommand/kdeconnect_runcommand_config.qml:110
+#, fuzzy, kde-format
+#| msgid "Suspend"
+msgctxt "Sample command"
+msgid "Suspend"
+msgstr "Dayandırmaq"
+
+#: runcommand/kdeconnect_runcommand_config.qml:114
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Maksimum işıqlanma"
+
+#: runcommand/kdeconnect_runcommand_config.qml:118
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Sample command"
+msgid "Lock Screen"
+msgstr "Ekranı kilidləmək"
+
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#, fuzzy, kde-format
+#| msgid "Unlock Screen"
+msgctxt "Sample command"
+msgid "Unlock Screen"
+msgstr "Ekranın kilidini açmaq"
+
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#, fuzzy, kde-format
+#| msgid "Close All Vaults"
+msgctxt "Sample command"
+msgid "Close All Vaults"
+msgstr "Bütün seyfləri bağlamaq"
+
+#: runcommand/kdeconnect_runcommand_config.qml:130
+#, fuzzy, kde-format
+#| msgid "Forcefully Close All Vaults"
+msgctxt "Sample command"
+msgid "Forcefully Close All Vaults"
+msgstr "Bütün seyfləri məcburi bağlamaq"
+
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
@@ -446,12 +488,6 @@ msgstr ""
 #~ msgid "Schedule a reboot"
 #~ msgstr "Yenidən başlatmanı planlayın"
 
-#~ msgid "Suspend"
-#~ msgstr "Dayandırmaq"
-
-#~ msgid "Lock Screen"
-#~ msgstr "Ekranı kilidləmək"
-
 #~ msgid "Say Hello"
 #~ msgstr "Salam göndərin"
 
@@ -460,18 +496,6 @@ msgstr ""
 
 #~ msgid "Reboot"
 #~ msgstr "Yenidən başlatmaq"
-
-#~ msgid "Maximum Brightness"
-#~ msgstr "Maksimum işıqlanma"
-
-#~ msgid "Unlock Screen"
-#~ msgstr "Ekranın kilidini açmaq"
-
-#~ msgid "Close All Vaults"
-#~ msgstr "Bütün seyfləri bağlamaq"
-
-#~ msgid "Forcefully Close All Vaults"
-#~ msgstr "Bütün seyfləri məcburi bağlamaq"
 
 #~ msgid "Export"
 #~ msgstr "İxrac et"
