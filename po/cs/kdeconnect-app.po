@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-11 00:44+0000\n"
-"PO-Revision-Date: 2025-02-10 17:25+0100\n"
+"PO-Revision-Date: 2025-12-11 23:01+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -25,7 +25,7 @@ msgstr "KDE Connect"
 #: main.cpp:42
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "(C) 2015-2025, Tým KDE Connect"
 
 #: main.cpp:43
 #, kde-format
@@ -53,19 +53,19 @@ msgstr "vit@pelcak.org"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "ID zařízení v němž má být aplikace spuštěna"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "Konfigurační modul pro zobrazení vyžaduje nastavit --device."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Nahradit existující instanci"
 
 #: main.cpp:86
 #, kde-format
@@ -103,7 +103,7 @@ msgstr "Ovládání"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "Informace"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -163,22 +163,22 @@ msgstr "Procházet toto zařízení"
 #: qml/DevicePage.qml:196
 #, kde-format
 msgid "Stop virtual monitor session"
-msgstr ""
+msgstr "Zastavit sezení virtuální ho monitoru"
 
 #: qml/DevicePage.qml:196
 #, kde-format
 msgid "Use device as an external monitor"
-msgstr ""
+msgstr "Použít zařízení jako virtuální monitor"
 
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "Adresa: %1 přes %2"
 
 #: qml/DevicePage.qml:220
 #, kde-format
 msgid "This device is not paired."
-msgstr ""
+msgstr "Toto zařízení není spárováno."
 
 #: qml/DevicePage.qml:224
 #, kde-format
@@ -230,7 +230,7 @@ msgstr "Obnovit"
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr ""
+msgstr "Obnovit zařízení"
 
 #: qml/Main.qml:133
 #, kde-format
@@ -271,19 +271,19 @@ msgstr "Pro odemčení stiskněte %1 nebo levé a pravé tlačítko myši najedn
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Kliknutí levým tlačítkem myši"
 
 #: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Kliknutí prostředním tlačítkem myši"
 
 #: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Kliknutí pravým tlačítkem myši"
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -403,15 +403,3 @@ msgstr ""
 "Pokud máte problémy, hledejte pomoc na <a href=\"https://community.kde.org/"
 "KDEConnect\"><span style=\" text-decoration: underline; \">Wiki komunity KDE "
 "Connect</span></a>."
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Bluetooth"
-#~ msgstr "Bluetooth"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Loopback"
-#~ msgstr "Loopback"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Network"
-#~ msgstr "Síť"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-11 00:44+0000\n"
-"PO-Revision-Date: 2025-11-26 10:25+0200\n"
+"PO-Revision-Date: 2025-12-11 09:25+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -227,46 +227,40 @@ msgid "Sample commands:"
 msgstr "פקודות לדוגמה:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:110
-#, fuzzy, kde-format
-#| msgid "Suspend"
+#, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "השהיה"
 
 #: runcommand/kdeconnect_runcommand_config.qml:114
-#, fuzzy, kde-format
-#| msgid "Maximum Brightness"
+#, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "בהירות מרבית"
 
 #: runcommand/kdeconnect_runcommand_config.qml:118
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
-msgstr "נעילת מסך"
+msgstr "נעילת המסך"
 
 #: runcommand/kdeconnect_runcommand_config.qml:122
-#, fuzzy, kde-format
-#| msgid "Unlock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
-msgstr "שחרור מסך"
+msgstr "שחרור נעילת המסך"
 
 #: runcommand/kdeconnect_runcommand_config.qml:126
-#, fuzzy, kde-format
-#| msgid "Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "סגירת כל הכספות"
 
 #: runcommand/kdeconnect_runcommand_config.qml:130
-#, fuzzy, kde-format
-#| msgid "Forcefully Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
-msgstr "סריגת כל הכספות בכוח"
+msgstr "סגירת כל הכספות בכוח"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
