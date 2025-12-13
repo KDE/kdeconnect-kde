@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-09-27 11:51+0100\n"
+"PO-Revision-Date: 2025-11-30 14:01+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -125,28 +125,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Caută dispozitive în rețea și restabilește conexiuni"
 
 #: kdeconnect-cli.cpp:81
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Cere asocierea cu un dispozitiv numit"
+msgstr "Cere asocierea cu un dispozitiv"
 
 #: kdeconnect-cli.cpp:82
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Găsește un dispozitiv numit apelându-l."
+msgstr "Găsește un dispozitiv apelându-l"
 
 #: kdeconnect-cli.cpp:83
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "se așteaptă dispozitivul…"
+msgstr "Disociază de la dispozitiv"
 
 #: kdeconnect-cli.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Trimite ping unui dispozitiv numit"
+msgstr "Trimite ping dispozitivului"
 
 #: kdeconnect-cli.cpp:85
 #, kde-format
@@ -159,28 +155,24 @@ msgid "message"
 msgstr "mesaj"
 
 #: kdeconnect-cli.cpp:86
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Trimite clipboard-ul actual unui dispozitiv numit"
+msgstr "Trimite clipboard-ul către dispozitiv"
 
 #: kdeconnect-cli.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Partajează un fișier/URL cu un dispozitiv numit"
+msgstr "Partajează fișier/URL cu dispozitivul"
 
 #: kdeconnect-cli.cpp:88
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Partajează text cu un dispozitiv numit"
+msgstr "Partajează text cu dispozitivul"
 
 #: kdeconnect-cli.cpp:89
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "Afișează notificările pe un dispozitiv numit"
+msgstr "Afișează notificările pe dispozitiv"
 
 #: kdeconnect-cli.cpp:90
 #, kde-format
@@ -231,28 +223,24 @@ msgid "Device Name"
 msgstr "Denumire dispozitiv"
 
 #: kdeconnect-cli.cpp:99
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Obține informații de criptare despre dispozitivul numit"
+msgstr "Obține informații de criptare despre dispozitiv"
 
 #: kdeconnect-cli.cpp:100
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
 msgstr "Enumeră comenzi distante și id-urile acestora"
 
 #: kdeconnect-cli.cpp:101
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
-msgstr "Execută o comandă distantă după id"
+msgstr "Execută comanda distantă după id"
 
 #: kdeconnect-cli.cpp:102
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Trimite taste unui dispozitiv numit"
+msgstr "Trimite taste către dispozitiv"
 
 #: kdeconnect-cli.cpp:103
 #, kde-format
@@ -260,15 +248,16 @@ msgid "Display this device's id and exit"
 msgstr "Afișează identificatorul acestui dispozitiv și termină"
 
 #: kdeconnect-cli.cpp:104
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Trimite taste unui dispozitiv numit"
+msgstr "Montează sistemul de fișiere al unui dispozitiv numit"
 
 #: kdeconnect-cli.cpp:105
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr ""
+"Tipărește punctul de montare pentru sistemul de fișiere al unui dispozitiv "
+"numit"
 
 #: kdeconnect-cli.cpp:151
 #, kde-format
@@ -304,11 +293,10 @@ msgid "(unpaired)"
 msgstr "(neasociat)"
 
 #: kdeconnect-cli.cpp:243
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
-msgstr "Partajat %1"
+msgstr "%1 partajat"
 
 #: kdeconnect-cli.cpp:256
 #, kde-format
@@ -355,7 +343,7 @@ msgstr "Neasociat deja"
 #: kdeconnect-cli.cpp:309
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Disociat cu succes"
 
 #: kdeconnect-cli.cpp:367
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2025-09-27 11:57+0100\n"
+"PO-Revision-Date: 2025-11-30 13:55+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -36,10 +36,9 @@ msgstr "Alegeți un dispozitiv:"
 
 #. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
 #: dialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Enter file location here"
+#, kde-format
 msgid "Enter a file location or URL:"
-msgstr "Introduceți amplasarea fișierului aici"
+msgstr "Introduceți o amplasare de fișier sau URL:"
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -79,13 +78,13 @@ msgstr "id"
 #: kdeconnect-handler.cpp:86
 #, kde-format
 msgid "Automatically open the file on the remote device, when supported"
-msgstr ""
+msgstr "Deschide automat fișierul pe dispozitivul distant, când e susținut"
 
 #: kdeconnect-handler.cpp:128
 #, kde-format
 msgctxt "Placeholder for input field that should contain a file/URL to share"
 msgid "Local file or web URL"
-msgstr ""
+msgstr "Fișier local sau URL web"
 
 #: kdeconnect-handler.cpp:137
 #, kde-format
