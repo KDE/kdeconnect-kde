@@ -68,6 +68,7 @@ void Daemon::init()
     // the absolute minimum amount of blocking on logon/autostart
 
     qDBusRegisterMetaType<QMap<QString, QString>>();
+    qDBusRegisterMetaType<QByteArrayList>();
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kdeconnect"));
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kdeconnect"), this, QDBusConnection::ExportScriptableContents);
 

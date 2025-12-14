@@ -8,11 +8,16 @@ set(backends_kdeconnect_SRCS
     backends/lan/uploadjob.cpp
 )
 
-if (MDNS_ENABLED)
+if(NOT APPLE AND NOT WIN32)
     set(backends_kdeconnect_SRCS
         ${backends_kdeconnect_SRCS}
-        backends/lan/mdnsdiscovery.cpp
-        backends/lan/mdns_wrapper.cpp
+        backends/lan/avahidiscovery.cpp
+    )
+else()
+    set(backends_kdeconnect_SRCS
+        ${backends_kdeconnect_SRCS}
+        backends/lan/mdnshdiscovery.cpp
+        backends/lan/mdnsh_wrapper.cpp
     )
 endif()
 

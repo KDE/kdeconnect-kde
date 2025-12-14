@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef KDECONNECT_MDNS_WRAPPER_H
-#define KDECONNECT_MDNS_WRAPPER_H
+#ifndef KDECONNECT_MDNSH_WRAPPER_H
+#define KDECONNECT_MDNSH_WRAPPER_H
 
 #include <QHash>
 #include <QHostAddress>
@@ -20,7 +20,7 @@
  * A Qt wrapper for the mdns.h header-only library
  * from https://github.com/mjansson/mdns
  */
-namespace MdnsWrapper
+namespace MdnshWrapper
 {
 class KDECONNECTCORE_EXPORT Discoverer : public QObject
 {
@@ -41,7 +41,7 @@ public:
     void sendQuery(const QString &serviceType);
 
 Q_SIGNALS:
-    void serviceFound(const MdnsWrapper::Discoverer::MdnsService &service);
+    void serviceFound(const MdnshWrapper::Discoverer::MdnsService &service);
 
 private:
     int listenForQueryResponses();
@@ -97,6 +97,6 @@ private:
     QSocketNotifier *socketNotifierV6 = nullptr;
 };
 
-} // namespace MdnsWrapper
+} // namespace MdnshWrapper
 
 #endif

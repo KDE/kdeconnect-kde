@@ -21,7 +21,6 @@ ecm_add_test(notificationstest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(pluginloadtest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(sendfiletest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(smshelpertest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
-
-if(MDNS_ENABLED)
+if (WIN32 OR APPLE)
     ecm_add_test(mdnstest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 endif()
