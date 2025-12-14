@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-11 00:44+0000\n"
-"PO-Revision-Date: 2025-12-06 22:02+0100\n"
+"PO-Revision-Date: 2025-12-13 20:31+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -230,37 +230,37 @@ msgstr "Órdenes de muestra:"
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
-msgstr ""
+msgstr "Suspender"
 
 #: runcommand/kdeconnect_runcommand_config.qml:114
 #, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
-msgstr ""
+msgstr "Brillo máximo"
 
 #: runcommand/kdeconnect_runcommand_config.qml:118
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
-msgstr ""
+msgstr "Bloquear pantalla"
 
 #: runcommand/kdeconnect_runcommand_config.qml:122
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
-msgstr ""
+msgstr "Desbloquear pantalla"
 
 #: runcommand/kdeconnect_runcommand_config.qml:126
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
-msgstr ""
+msgstr "Cerrar todas las cajas fuertes"
 
 #: runcommand/kdeconnect_runcommand_config.qml:130
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
-msgstr ""
+msgstr "Cerrar forzosamente todas las cajas fuertes"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format

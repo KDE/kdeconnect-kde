@@ -226,37 +226,37 @@ msgstr "示例命令："
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
-msgstr ""
+msgstr "挂起"
 
 #: runcommand/kdeconnect_runcommand_config.qml:114
 #, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
-msgstr ""
+msgstr "最大亮度"
 
 #: runcommand/kdeconnect_runcommand_config.qml:118
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
-msgstr ""
+msgstr "锁屏"
 
 #: runcommand/kdeconnect_runcommand_config.qml:122
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
-msgstr ""
+msgstr "解锁屏幕"
 
 #: runcommand/kdeconnect_runcommand_config.qml:126
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
-msgstr ""
+msgstr "关闭所有保险库"
 
 #: runcommand/kdeconnect_runcommand_config.qml:130
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
-msgstr ""
+msgstr "强制关闭所有保险库"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
