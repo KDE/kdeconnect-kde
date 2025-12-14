@@ -14,7 +14,7 @@
 
 #include <KPeople/PersonData>
 
-#include "interfaces/conversationmessage.h"
+#include "models/conversationmessage.h"
 
 #include "smsapp/smscharcount.h"
 

@@ -7,7 +7,7 @@
 #ifndef DBUSINTERFACES_H
 #define DBUSINTERFACES_H
 
-#include "kdeconnectinterfaces_export.h"
+#include "kdeconnectdbusinterfaces_export.h"
 
 #include "generated/batteryinterface.h"
 #include "generated/connectivityinterface.h"
@@ -33,7 +33,7 @@
  * Using these "proxy" classes just in case we need to rename the
  * interface, so we can change the class name in a single place.
  */
-class KDECONNECTINTERFACES_EXPORT DaemonDbusInterface : public OrgKdeKdeconnectDaemonInterface
+class KDECONNECTDBUSINTERFACES_EXPORT DaemonDbusInterface : public OrgKdeKdeconnectDaemonInterface
 {
     Q_OBJECT
     Q_PROPERTY(QStringList customDevices READ customDevices WRITE setCustomDevices NOTIFY customDevicesChangedProxy)
@@ -46,7 +46,7 @@ Q_SIGNALS:
     void customDevicesChangedProxy();
 };
 
-class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface : public OrgKdeKdeconnectDeviceInterface
+class KDECONNECTDBUSINTERFACES_EXPORT DeviceDbusInterface : public OrgKdeKdeconnectDeviceInterface
 {
     Q_OBJECT
     // Workaround because qdbusxml2cpp is not generating NOTIFY for properties
@@ -73,7 +73,7 @@ private:
     const QString m_id;
 };
 
-class KDECONNECTINTERFACES_EXPORT BatteryDbusInterface : public OrgKdeKdeconnectDeviceBatteryInterface
+class KDECONNECTDBUSINTERFACES_EXPORT BatteryDbusInterface : public OrgKdeKdeconnectDeviceBatteryInterface
 {
     Q_OBJECT
     Q_PROPERTY(int charge READ charge NOTIFY refreshedProxy)
@@ -85,7 +85,7 @@ Q_SIGNALS:
     void refreshedProxy(bool isCharging, int charge);
 };
 
-class KDECONNECTINTERFACES_EXPORT ConnectivityReportDbusInterface : public OrgKdeKdeconnectDeviceConnectivity_reportInterface
+class KDECONNECTDBUSINTERFACES_EXPORT ConnectivityReportDbusInterface : public OrgKdeKdeconnectDeviceConnectivity_reportInterface
 {
     Q_OBJECT
     Q_PROPERTY(QString cellularNetworkType READ cellularNetworkType NOTIFY refreshedProxy)
@@ -97,14 +97,14 @@ Q_SIGNALS:
     void refreshedProxy(QString cellularNetworkType, int cellularNetworkStrength);
 };
 
-class KDECONNECTINTERFACES_EXPORT DeviceNotificationsDbusInterface : public OrgKdeKdeconnectDeviceNotificationsInterface
+class KDECONNECTDBUSINTERFACES_EXPORT DeviceNotificationsDbusInterface : public OrgKdeKdeconnectDeviceNotificationsInterface
 {
     Q_OBJECT
 public:
     explicit DeviceNotificationsDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };
 
-class KDECONNECTINTERFACES_EXPORT NotificationDbusInterface : public OrgKdeKdeconnectDeviceNotificationsNotificationInterface
+class KDECONNECTDBUSINTERFACES_EXPORT NotificationDbusInterface : public OrgKdeKdeconnectDeviceNotificationsNotificationInterface
 {
     Q_OBJECT
 public:
@@ -119,21 +119,21 @@ private:
     const QString id;
 };
 
-class KDECONNECTINTERFACES_EXPORT DeviceConversationsDbusInterface : public OrgKdeKdeconnectDeviceConversationsInterface
+class KDECONNECTDBUSINTERFACES_EXPORT DeviceConversationsDbusInterface : public OrgKdeKdeconnectDeviceConversationsInterface
 {
     Q_OBJECT
 public:
     explicit DeviceConversationsDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };
 
-class KDECONNECTINTERFACES_EXPORT SftpDbusInterface : public OrgKdeKdeconnectDeviceSftpInterface
+class KDECONNECTDBUSINTERFACES_EXPORT SftpDbusInterface : public OrgKdeKdeconnectDeviceSftpInterface
 {
     Q_OBJECT
 public:
     explicit SftpDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };
 
-class KDECONNECTINTERFACES_EXPORT MprisDbusInterface : public OrgKdeKdeconnectDeviceMprisremoteInterface
+class KDECONNECTDBUSINTERFACES_EXPORT MprisDbusInterface : public OrgKdeKdeconnectDeviceMprisremoteInterface
 {
     Q_OBJECT
     // Workaround because qdbusxml2cpp is not generating NOTIFY for properties
@@ -155,14 +155,14 @@ Q_SIGNALS:
     void propertiesChangedProxy();
 };
 
-class KDECONNECTINTERFACES_EXPORT RemoteControlDbusInterface : public OrgKdeKdeconnectDeviceRemotecontrolInterface
+class KDECONNECTDBUSINTERFACES_EXPORT RemoteControlDbusInterface : public OrgKdeKdeconnectDeviceRemotecontrolInterface
 {
     Q_OBJECT
 public:
     explicit RemoteControlDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };
 
-class KDECONNECTINTERFACES_EXPORT LockDeviceDbusInterface : public OrgKdeKdeconnectDeviceLockdeviceInterface
+class KDECONNECTDBUSINTERFACES_EXPORT LockDeviceDbusInterface : public OrgKdeKdeconnectDeviceLockdeviceInterface
 {
     Q_OBJECT
     Q_PROPERTY(bool isLocked READ isLocked WRITE setIsLocked NOTIFY lockedChangedProxy)
@@ -173,14 +173,14 @@ Q_SIGNALS:
     void lockedChangedProxy(bool isLocked);
 };
 
-class KDECONNECTINTERFACES_EXPORT FindMyPhoneDeviceDbusInterface : public OrgKdeKdeconnectDeviceFindmyphoneInterface
+class KDECONNECTDBUSINTERFACES_EXPORT FindMyPhoneDeviceDbusInterface : public OrgKdeKdeconnectDeviceFindmyphoneInterface
 {
     Q_OBJECT
 public:
     explicit FindMyPhoneDeviceDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };
 
-class KDECONNECTINTERFACES_EXPORT RemoteCommandsDbusInterface : public OrgKdeKdeconnectDeviceRemotecommandsInterface
+class KDECONNECTDBUSINTERFACES_EXPORT RemoteCommandsDbusInterface : public OrgKdeKdeconnectDeviceRemotecommandsInterface
 {
     Q_OBJECT
     // Workaround because qdbusxml2cpp is not generating CONSTANT for properties and qml complains at runtime
@@ -190,7 +190,7 @@ public:
     explicit RemoteCommandsDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };
 
-class KDECONNECTINTERFACES_EXPORT RemoteKeyboardDbusInterface : public OrgKdeKdeconnectDeviceRemotekeyboardInterface
+class KDECONNECTDBUSINTERFACES_EXPORT RemoteKeyboardDbusInterface : public OrgKdeKdeconnectDeviceRemotekeyboardInterface
 {
     Q_OBJECT
     Q_PROPERTY(bool remoteState READ remoteState NOTIFY remoteStateChangedProxy)
@@ -200,21 +200,21 @@ Q_SIGNALS:
     void remoteStateChangedProxy(bool state);
 };
 
-class KDECONNECTINTERFACES_EXPORT SmsDbusInterface : public OrgKdeKdeconnectDeviceSmsInterface
+class KDECONNECTDBUSINTERFACES_EXPORT SmsDbusInterface : public OrgKdeKdeconnectDeviceSmsInterface
 {
     Q_OBJECT
 public:
     explicit SmsDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };
 
-class KDECONNECTINTERFACES_EXPORT ShareDbusInterface : public OrgKdeKdeconnectDeviceShareInterface
+class KDECONNECTDBUSINTERFACES_EXPORT ShareDbusInterface : public OrgKdeKdeconnectDeviceShareInterface
 {
     Q_OBJECT
 public:
     explicit ShareDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };
 
-class KDECONNECTINTERFACES_EXPORT RemoteSystemVolumeDbusInterface : public OrgKdeKdeconnectDeviceRemotesystemvolumeInterface
+class KDECONNECTDBUSINTERFACES_EXPORT RemoteSystemVolumeDbusInterface : public OrgKdeKdeconnectDeviceRemotesystemvolumeInterface
 {
     Q_OBJECT
     // Workaround because qdbusxml2cpp is not generating CONSTANT for properties and qml complains at runtime
@@ -223,7 +223,7 @@ public:
     explicit RemoteSystemVolumeDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };
 
-class KDECONNECTINTERFACES_EXPORT VirtualmonitorDbusInterface : public OrgKdeKdeconnectDeviceVirtualmonitorInterface
+class KDECONNECTDBUSINTERFACES_EXPORT VirtualmonitorDbusInterface : public OrgKdeKdeconnectDeviceVirtualmonitorInterface
 {
     Q_OBJECT
     Q_PROPERTY(bool active READ active NOTIFY activeChanged)
@@ -233,7 +233,7 @@ Q_SIGNALS:
     void activeChanged();
 };
 
-class KDECONNECTINTERFACES_EXPORT ClipboardDbusInterface : public OrgKdeKdeconnectDeviceClipboardInterface
+class KDECONNECTDBUSINTERFACES_EXPORT ClipboardDbusInterface : public OrgKdeKdeconnectDeviceClipboardInterface
 {
     Q_OBJECT
     Q_PROPERTY(bool isAutoShareDisabled READ isAutoShareDisabled NOTIFY autoShareDisabledChangedProxy)

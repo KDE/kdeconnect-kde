@@ -1,9 +1,7 @@
-add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-interfaces\")
-
 # geninterface generates a Qt class that is an interface to DBus
 # source_file can a DBus XML definition or QObject class header that is exposed through DBus
 # output_basename is the path and filename that will be generated (.h and .cpp will be appended to this)
-# The new targets are appended to the ${interfaces_SRC} variable in the parent scope.
+# The new targets are appended to the ${dbusinterfaces_SRC} variable in the parent scope.
 function(geninterface source_file output_basename)
     if(${source_file} MATCHES ".*\.xml$")
         set(xml_file ${source_file})
@@ -25,23 +23,14 @@ function(geninterface source_file output_basename)
         DEPENDS ${output_basename}.h
     )
 
-    set(interfaces_SRC ${interfaces_SRC} ${generated_sources} ${fake_file} PARENT_SCOPE)
+    set(dbusinterfaces_SRC ${dbusinterfaces_SRC} ${generated_sources} ${fake_file} PARENT_SCOPE)
 endfunction()
 
-set(interfaces_SRC
+set(dbusinterfaces_SRC
     dbusinterfaces.cpp
-    devicesmodel.cpp
-    notificationsmodel.cpp
-    devicessortproxymodel.cpp
-    conversationmessage.cpp
-    remotecommandsmodel.cpp
-    remotesinksmodel.cpp
-    devicespluginfilterproxymodel.cpp
-    pluginmodel.cpp
-    commandsmodel.cpp
 )
 
-# KDE Connect interfaces
+# KDE Connect dbus interfaces
 geninterface(${PROJECT_SOURCE_DIR}/core/daemon.h generated/daemoninterface)
 geninterface(${PROJECT_SOURCE_DIR}/core/device.h generated/deviceinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/battery/batteryplugin.h generated/batteryinterface)
@@ -75,41 +64,28 @@ if (UNIX AND NOT APPLE)
     geninterface(systeminterfaces/org.freedesktop.portal.Session.xml generated/systeminterfaces/session)
 endif()
 
-add_library(kdeconnectinterfaces STATIC)
-set_property(TARGET kdeconnectinterfaces PROPERTY POSITION_INDEPENDENT_CODE ON)
+add_library(kdeconnectdbusinterfaces STATIC)
+set_property(TARGET kdeconnectdbusinterfaces PROPERTY POSITION_INDEPENDENT_CODE ON)
 
-target_sources(kdeconnectinterfaces PRIVATE ${interfaces_SRC})
+target_sources(kdeconnectdbusinterfaces PRIVATE ${dbusinterfaces_SRC})
 
-ecm_qt_declare_logging_category(kdeconnectinterfaces
-    HEADER interfaces_conversation_message_debug.h
-    IDENTIFIER CONVERSATION_MESSAGE_LOGGING_CATEGORY CATEGORY_NAME kdeconnect.interfaces.conversationmessage
+ecm_qt_declare_logging_category(kdeconnectdbusinterfaces
+    HEADER dbusinterfaces_debug.h
+    IDENTIFIER KDECONNECT_DBUSINTERFACES CATEGORY_NAME kdeconnect.dbusinterfaces
     DEFAULT_SEVERITY Warning
-    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (conversation message)")
-
-ecm_qt_declare_logging_category(kdeconnectinterfaces
-    HEADER interfaces_debug.h
-    IDENTIFIER KDECONNECT_INTERFACES CATEGORY_NAME kdeconnect.interfaces
-    DEFAULT_SEVERITY Warning
-    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (interfaces)")
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (dbus interfaces)")
 
 
-set_target_properties(kdeconnectinterfaces PROPERTIES
+set_target_properties(kdeconnectdbusinterfaces PROPERTIES
     VERSION ${KDECONNECT_VERSION}
     SOVERSION ${KDECONNECT_VERSION_MAJOR}
 )
 
-generate_export_header(kdeconnectinterfaces EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h BASE_NAME KDEConnectInterfaces)
+generate_export_header(kdeconnectdbusinterfaces EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectdbusinterfaces_export.h BASE_NAME kdeconnectdbusinterfaces)
 
-target_link_libraries(kdeconnectinterfaces
+target_link_libraries(kdeconnectdbusinterfaces
 LINK_PUBLIC
-    Qt::Gui
     Qt::DBus
-    KF6::ConfigCore
-LINK_PRIVATE
-    kdeconnectcore
-    KF6::I18n
-    kdeconnectcore
-    KF6::CoreAddons
 )
 
-install(TARGETS kdeconnectinterfaces EXPORT kdeconnectLibraryTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS kdeconnectdbusinterfaces EXPORT kdeconnectLibraryTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

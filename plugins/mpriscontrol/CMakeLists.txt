@@ -13,5 +13,5 @@ kdeconnect_add_plugin(kdeconnect_mpriscontrol SOURCES  ${kdeconnect_mpriscontrol
 if(WIN32)
    target_link_libraries(kdeconnect_mpriscontrol kdeconnectcore windowsapp KF6::I18n)
 else()
-   target_link_libraries(kdeconnect_mpriscontrol Qt::DBus kdeconnectcore kdeconnectinterfaces)
+   target_link_libraries(kdeconnect_mpriscontrol Qt::DBus kdeconnectcore kdeconnectdbusinterfaces  kdeconnectmodels)
 endif()

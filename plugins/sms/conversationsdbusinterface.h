@@ -16,8 +16,8 @@
 #include <QString>
 #include <QStringList>
 
-#include "interfaces/conversationmessage.h"
-#include "interfaces/dbusinterfaces.h"
+#include "dbusinterfaces/dbusinterfaces.h"
+#include "models/conversationmessage.h"
 
 class KdeConnectPlugin;
 class Device;

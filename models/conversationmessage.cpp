@@ -8,8 +8,6 @@
 
 #include <QVariantMap>
 
-#include "interfaces_conversation_message_debug.h"
-
 ConversationMessage::ConversationMessage(const QVariantMap &args)
     : m_eventField(args[QStringLiteral("event")].toInt())
     , m_body(args[QStringLiteral("body")].toString())

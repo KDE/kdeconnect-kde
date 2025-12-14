@@ -9,9 +9,9 @@
 
 #include <QDBusMetaType>
 
-#include "kdeconnectinterfaces_export.h"
+#include "kdeconnectmodels_export.h"
 
-class KDECONNECTINTERFACES_EXPORT ConversationAddress
+class KDECONNECTMODELS_EXPORT ConversationAddress
 {
 public:
     ConversationAddress(QString address = QString());
@@ -25,7 +25,7 @@ private:
     QString m_address;
 };
 
-class KDECONNECTINTERFACES_EXPORT Attachment
+class KDECONNECTMODELS_EXPORT Attachment
 {
 public:
     Attachment()
@@ -57,7 +57,7 @@ private:
     QString m_uniqueIdentifier; // unique name of the attachment
 };
 
-class KDECONNECTINTERFACES_EXPORT ConversationMessage
+class KDECONNECTMODELS_EXPORT ConversationMessage
 {
 public:
     // TYPE field values from Android

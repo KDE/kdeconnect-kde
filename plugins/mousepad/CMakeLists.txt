@@ -23,7 +23,7 @@ endif()
 
 configure_file(config-mousepad.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-mousepad.h)
 
-target_link_libraries(kdeconnect_mousepad kdeconnectcore kdeconnectinterfaces Qt::Gui KF6::I18n)
+target_link_libraries(kdeconnect_mousepad kdeconnectcore kdeconnectdbusinterfaces Qt::Gui KF6::I18n)
 
 if (WIN32)
     target_sources(kdeconnect_mousepad PUBLIC windowsremoteinput.cpp)

@@ -11,7 +11,9 @@
 #include "devicesmodel.h"
 #include "devicessortproxymodel.h"
 
-class KDECONNECTINTERFACES_EXPORT DevicesPluginFilterProxyModel : public DevicesSortProxyModel
+#include "kdeconnectmodels_export.h"
+
+class KDECONNECTMODELS_EXPORT DevicesPluginFilterProxyModel : public DevicesSortProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(QString pluginFilter READ pluginFilter WRITE setPluginFilter)

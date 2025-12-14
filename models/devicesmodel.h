@@ -11,13 +11,13 @@
 #include <QList>
 #include <QPixmap>
 
-#include "kdeconnectinterfaces_export.h"
+#include "kdeconnectmodels_export.h"
 
 class QDBusPendingCallWatcher;
 class DaemonDbusInterface;
 class DeviceDbusInterface;
 
-class KDECONNECTINTERFACES_EXPORT DevicesModel : public QAbstractListModel
+class KDECONNECTMODELS_EXPORT DevicesModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(int displayFilter READ displayFilter WRITE setDisplayFilter NOTIFY displayFilterChanged)

@@ -5,7 +5,7 @@
  */
 
 #include "remotecommandsmodel.h"
-#include "interfaces_debug.h"
+#include "models_debug.h"
 
 #include <QDebug>
 
@@ -69,7 +69,7 @@ void RemoteCommandsModel::refreshCommandList()
     clearCommands();
 
     if (!m_dbusInterface->isValid()) {
-        qCWarning(KDECONNECT_INTERFACES) << "dbus interface not valid";
+        qCWarning(KDECONNECT_MODELS) << "dbus interface not valid";
         return;
     }
 

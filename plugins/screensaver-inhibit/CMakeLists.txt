@@ -14,7 +14,7 @@ endif()
 
 
 kdeconnect_add_plugin(kdeconnect_screensaver_inhibit SOURCES ${kdeconnect_screensaver_inhibit_SRCS})
-target_link_libraries(kdeconnect_screensaver_inhibit kdeconnectcore kdeconnectinterfaces)
+target_link_libraries(kdeconnect_screensaver_inhibit kdeconnectcore kdeconnectdbusinterfaces)
 if(NOT APPLE AND NOT WIN32)
     target_link_libraries(kdeconnect_screensaver_inhibit
         Qt::DBus

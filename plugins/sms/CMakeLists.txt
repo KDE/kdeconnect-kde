@@ -13,7 +13,8 @@ ecm_qt_declare_logging_category(kdeconnect_sms
 
 target_link_libraries(kdeconnect_sms
     kdeconnectcore
-    kdeconnectinterfaces
+    kdeconnectmodels
+    kdeconnectdbusinterfaces
     Qt::DBus
     KF6::I18n
     KF6::Notifications

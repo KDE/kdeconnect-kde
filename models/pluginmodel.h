@@ -12,9 +12,11 @@
 #include <KPluginMetaData>
 #include <KSharedConfig>
 
-#include "interfaces/dbusinterfaces.h"
+#include "dbusinterfaces.h"
 
-class KDECONNECTINTERFACES_EXPORT PluginModel : public QAbstractListModel
+#include "kdeconnectmodels_export.h"
+
+class KDECONNECTMODELS_EXPORT PluginModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId)

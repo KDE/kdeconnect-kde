@@ -5,7 +5,7 @@
  */
 
 #include "devicesmodel.h"
-#include "interfaces_debug.h"
+#include "models_debug.h"
 
 #include <KLocalizedString>
 
@@ -16,8 +16,6 @@
 
 #include "dbusinterfaces.h"
 #include <dbushelper.h>
-
-#include "interfaces_debug.h"
 
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -105,7 +103,7 @@ void DevicesModel::deviceUpdated(const QString &id)
         // kdeconnect's plasmoid is still running.
         // Another reason for this branch is that we removed the device previously
         // because of the filter settings.
-        qCDebug(KDECONNECT_INTERFACES) << "Adding missing or previously removed device" << id;
+        qCDebug(KDECONNECT_MODELS) << "Adding missing or previously removed device" << id;
         deviceAdded(id);
     } else {
         DeviceDbusInterface *dev = getDevice(row);
@@ -113,7 +111,7 @@ void DevicesModel::deviceUpdated(const QString &id)
             beginRemoveRows(QModelIndex(), row, row);
             delete m_deviceList.takeAt(row);
             endRemoveRows();
-            qCDebug(KDECONNECT_INTERFACES) << "Removed changed device " << id;
+            qCDebug(KDECONNECT_MODELS) << "Removed changed device " << id;
         } else {
             const QModelIndex idx = index(row);
             Q_EMIT dataChanged(idx, idx);
@@ -139,7 +137,7 @@ void DevicesModel::refreshDeviceList()
 {
     if (!m_dbusInterface->isValid()) {
         clearDevices();
-        qCWarning(KDECONNECT_INTERFACES) << "dbus interface not valid";
+        qCWarning(KDECONNECT_MODELS) << "dbus interface not valid";
         return;
     }
 
@@ -158,7 +156,7 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher *watcher)
     clearDevices();
     QDBusPendingReply<QStringList> pendingDeviceIds = *watcher;
     if (pendingDeviceIds.isError()) {
-        qCWarning(KDECONNECT_INTERFACES) << "error while refreshing device list" << pendingDeviceIds.error().message();
+        qCWarning(KDECONNECT_MODELS) << "error while refreshing device list" << pendingDeviceIds.error().message();
         return;
     }
 

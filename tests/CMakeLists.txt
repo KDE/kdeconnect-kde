@@ -2,7 +2,8 @@ find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
 
 set(kdeconnect_libraries
     kdeconnectcore
-    kdeconnectinterfaces
+    kdeconnectdbusinterfaces
+    kdeconnectmodels
     kdeconnectsmshelper
     kdeconnectversion
     KF6::GuiAddons

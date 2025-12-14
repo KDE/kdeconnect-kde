@@ -17,10 +17,10 @@
 #include "responsewaiter.h"
 
 #include "core/kdeconnectpluginconfig.h"
-#include "interfaces/commandsmodel.h"
-#include "interfaces/devicesmodel.h"
-#include "interfaces/devicessortproxymodel.h"
-#include "interfaces/notificationsmodel.h"
+#include "models/commandsmodel.h"
+#include "models/devicesmodel.h"
+#include "models/devicessortproxymodel.h"
+#include "models/notificationsmodel.h"
 #include "openconfig.h"
 #include "pointerlocker.h"
 #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)

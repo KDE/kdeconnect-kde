@@ -14,12 +14,12 @@
 #include <KAboutData>
 #include <KCrash>
 
-#include "interfaces/conversationmessage.h"
-#include "interfaces/dbushelpers.h"
-#include "interfaces/dbusinterfaces.h"
-#include "interfaces/devicesmodel.h"
-#include "interfaces/notificationsmodel.h"
+#include "dbusinterfaces/dbushelpers.h"
+#include "dbusinterfaces/dbusinterfaces.h"
 #include "kdeconnect-version.h"
+#include "models/conversationmessage.h"
+#include "models/devicesmodel.h"
+#include "models/notificationsmodel.h"
 
 #include <dbushelper.h>
 

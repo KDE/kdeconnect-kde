@@ -22,7 +22,7 @@
 #include <KPeople/PersonData>
 #include <KPeople/PersonsModel>
 
-#include "interfaces/conversationmessage.h"
+#include "models/conversationmessage.h"
 #include "smsapp/gsmasciimap.h"
 
 QObject *SmsHelper::singletonProvider(QQmlEngine * /*engine*/, QJSEngine * /*scriptEngine*/)

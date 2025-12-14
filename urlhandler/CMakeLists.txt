@@ -8,7 +8,8 @@ add_executable(kdeconnect-handler kdeconnect-handler.cpp ${telhandler_SRCS} ${kd
 
 
 target_link_libraries(kdeconnect-handler
-    kdeconnectinterfaces
+    kdeconnectdbusinterfaces
+    kdeconnectmodels
     kdeconnectcore
     kdeconnectversion
     Qt::Widgets

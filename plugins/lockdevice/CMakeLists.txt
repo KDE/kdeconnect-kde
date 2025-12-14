@@ -7,7 +7,7 @@ else ()
 endif()
 target_link_libraries(kdeconnect_lockdevice
     kdeconnectcore
-    kdeconnectinterfaces
+    kdeconnectdbusinterfaces
     Qt::DBus
     KF6::I18n
 )

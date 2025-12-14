@@ -4,57 +4,55 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef REMOTESINKSMODEL_H
-#define REMOTESINKSMODEL_H
+#ifndef REMOTECOMMANDSMODEL_H
+#define REMOTECOMMANDSMODEL_H
 
 #include <QAbstractListModel>
 
 #include "dbusinterfaces.h"
 
-struct Sink {
+#include "kdeconnectmodels_export.h"
+
+struct Command {
+    QString key;
     QString name;
-    QString description;
-    int maxVolume;
-    int volume;
-    bool muted;
+    QString command;
 };
 
-class KDECONNECTINTERFACES_EXPORT RemoteSinksModel : public QAbstractListModel
+class KDECONNECTMODELS_EXPORT RemoteCommandsModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
 
 public:
     enum ModelRoles {
+        KeyRole,
         NameRole,
-        DescriptionRole,
-        MaxVolumeRole,
-        VolumeRole,
-        MutedRole,
+        CommandRole,
     };
 
-    explicit RemoteSinksModel(QObject *parent = nullptr);
-    ~RemoteSinksModel() override;
+    explicit RemoteCommandsModel(QObject *parent = nullptr);
+    ~RemoteCommandsModel() override;
 
     QString deviceId() const;
     void setDeviceId(const QString &deviceId);
 
     QVariant data(const QModelIndex &index, int role) const override;
-    bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QHash<int, QByteArray> roleNames() const override;
 
 private Q_SLOTS:
-    void refreshSinkList();
+    void refreshCommandList();
+    void clearCommands();
 
 Q_SIGNALS:
     void deviceIdChanged(const QString &value);
     void rowsChanged();
 
 private:
-    RemoteSystemVolumeDbusInterface *m_dbusInterface;
-    QVector<Sink> m_sinkList;
+    RemoteCommandsDbusInterface *m_dbusInterface;
+    QVector<Command> m_commandList;
     QString m_deviceId;
 };
 

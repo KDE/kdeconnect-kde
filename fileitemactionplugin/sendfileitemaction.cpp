@@ -18,8 +18,8 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <interfaces/dbusinterfaces.h>
-#include <interfaces/devicesmodel.h>
+#include "dbusinterfaces/dbusinterfaces.h"
+#include "models/devicesmodel.h"
 
 #include <dbushelper.h>
 

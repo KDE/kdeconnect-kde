@@ -11,7 +11,8 @@ target_link_libraries(
     kdeconnectfileitemaction
     KF6::KIOWidgets
     KF6::I18n
-    kdeconnectinterfaces
+    kdeconnectdbusinterfaces
+    kdeconnectmodels
     kdeconnectcore
 )
 install(TARGETS kdeconnectfileitemaction DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kfileitemaction)

@@ -121,7 +121,8 @@ endif()
 
 add_subdirectory(core)
 add_subdirectory(plugins)
-add_subdirectory(interfaces)
+add_subdirectory(dbusinterfaces)
+add_subdirectory(models)
 
 find_package(KF6QQC2DesktopStyle ${KF_MIN_VERSION} REQUIRED)
 set_package_properties(KF6QQC2DesktopStyle PROPERTIES TYPE RUNTIME)

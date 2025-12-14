@@ -7,12 +7,12 @@
 #ifndef DEVICESSORTPROXYMODEL_H
 #define DEVICESSORTPROXYMODEL_H
 
-#include "kdeconnectinterfaces_export.h"
+#include "kdeconnectmodels_export.h"
 #include <QSortFilterProxyModel>
 
 class DevicesModel;
 
-class KDECONNECTINTERFACES_EXPORT DevicesSortProxyModel : public QSortFilterProxyModel
+class KDECONNECTMODELS_EXPORT DevicesSortProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:

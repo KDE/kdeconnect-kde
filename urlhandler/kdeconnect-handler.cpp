@@ -26,12 +26,12 @@
 
 #include <dbushelper.h>
 
+#include "dbusinterfaces/dbushelpers.h"
+#include "dbusinterfaces/dbusinterfaces.h"
 #include "kdeconnect-version.h"
+#include "models/devicesmodel.h"
+#include "models/devicespluginfilterproxymodel.h"
 #include "ui_dialog.h"
-#include <interfaces/dbushelpers.h>
-#include <interfaces/dbusinterfaces.h>
-#include <interfaces/devicesmodel.h>
-#include <interfaces/devicespluginfilterproxymodel.h>
 
 /**
  * Show only devices that can be shared to

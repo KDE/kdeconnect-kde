@@ -12,7 +12,7 @@
 #include <QQmlContext>
 
 #include "attachmentinfo.h"
-#include "interfaces/conversationmessage.h"
+#include "models/conversationmessage.h"
 #include "smshelper.h"
 
 #include "sms_conversation_debug.h"

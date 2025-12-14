@@ -11,8 +11,8 @@
 #include <QSet>
 #include <QStandardItemModel>
 
-#include "interfaces/conversationmessage.h"
-#include "interfaces/dbusinterfaces.h"
+#include "dbusinterfaces/dbusinterfaces.h"
+#include "models/conversationmessage.h"
 #include "thumbnailsprovider.h"
 
 #define INVALID_THREAD_ID -1

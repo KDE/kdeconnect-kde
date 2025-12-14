@@ -40,7 +40,7 @@ ecm_qt_declare_logging_category(kdeconnect-indicator
 
 target_include_directories(kdeconnect-indicator PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/systray_actions)
 
-target_link_libraries(kdeconnect-indicator Qt::Widgets Qt::QuickControls2 KF6::CoreAddons KF6::I18n KF6::Notifications KF6::DBusAddons KF6::ColorScheme KF6::Crash kdeconnectinterfaces kdeconnectcore kdeconnectversion)
+target_link_libraries(kdeconnect-indicator Qt::Widgets Qt::QuickControls2 KF6::CoreAddons KF6::I18n KF6::Notifications KF6::DBusAddons KF6::ColorScheme KF6::Crash kdeconnectdbusinterfaces kdeconnectmodels kdeconnectcore kdeconnectversion)
 
 if (WIN32)
     target_link_libraries(kdeconnect-indicator windowsapp)

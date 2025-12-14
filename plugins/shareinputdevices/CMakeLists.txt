@@ -4,7 +4,7 @@ pkg_check_modules(PKG_libei REQUIRED IMPORTED_TARGET libei-1.0)
 
 target_link_libraries(kdeconnect_shareinputdevices
     kdeconnectcore
-    kdeconnectinterfaces
+    kdeconnectdbusinterfaces
     KF6::I18n
     Qt::GuiPrivate
     PkgConfig::PKG_libei

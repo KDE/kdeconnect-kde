@@ -11,7 +11,8 @@ ecm_qt_declare_logging_category(kio_kdeconnect
 
 
 target_link_libraries(kio_kdeconnect
-    kdeconnectinterfaces
+    kdeconnectdbusinterfaces
+    kdeconnectmodels
     Qt::Core
     Qt::Network
     KF6::KIOCore

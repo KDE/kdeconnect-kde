@@ -13,8 +13,8 @@
 #include <KLocalizedString>
 
 #include "dbushelpers.h"
-#include "interfaces/conversationmessage.h"
-#include "interfaces/dbusinterfaces.h"
+#include "dbusinterfaces/dbusinterfaces.h"
+#include "models/conversationmessage.h"
 #include "sms_conversations_list_debug.h"
 #include "smshelper.h"
 

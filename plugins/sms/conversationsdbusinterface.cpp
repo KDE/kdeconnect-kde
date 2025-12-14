@@ -5,8 +5,8 @@
  */
 
 #include "conversationsdbusinterface.h"
-#include "interfaces/conversationmessage.h"
-#include "interfaces/dbusinterfaces.h"
+#include "dbusinterfaces/dbusinterfaces.h"
+#include "models/conversationmessage.h"
 
 #include "requestconversationworker.h"
 

@@ -14,7 +14,9 @@
 
 #include "dbusinterfaces.h"
 
-class KDECONNECTINTERFACES_EXPORT NotificationsModel : public QAbstractListModel
+#include "kdeconnectmodels_export.h"
+
+class KDECONNECTMODELS_EXPORT NotificationsModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)

@@ -32,6 +32,6 @@ if(UNIX AND NOT APPLE)
     target_sources(kdeconnectdeclarativeplugin PUBLIC pointerlockerwayland.cpp)
 endif()
 
-target_link_libraries(kdeconnectdeclarativeplugin PRIVATE Qt::Quick kdeconnectinterfaces kdeconnectcore)
+target_link_libraries(kdeconnectdeclarativeplugin PRIVATE Qt::Quick kdeconnectdbusinterfaces kdeconnectmodels kdeconnectcore)
 
 ecm_finalize_qml_module(kdeconnectdeclarativeplugin DESTINATION ${KDE_INSTALL_QMLDIR})

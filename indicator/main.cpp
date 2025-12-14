@@ -27,11 +27,11 @@
 #include <KDBusService>
 #include <KLocalizedString>
 
+#include "dbusinterfaces/dbusinterfaces.h"
 #include "deviceindicator.h"
-#include "interfaces/dbusinterfaces.h"
-#include "interfaces/devicesmodel.h"
-#include "interfaces/devicessortproxymodel.h"
 #include "kdeconnect-version.h"
+#include "models/devicesmodel.h"
+#include "models/devicessortproxymodel.h"
 
 #include <dbushelper.h>
 

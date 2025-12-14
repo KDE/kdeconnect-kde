@@ -12,7 +12,7 @@
 #include <QFileDialog>
 #include <QMenu>
 
-#include "interfaces/dbusinterfaces.h"
+#include "dbusinterfaces/dbusinterfaces.h"
 
 #include <dbushelper.h>
 

@@ -11,7 +11,7 @@
 #include <QFileDialog>
 #include <QStandardPaths>
 
-#include "interfaces/dbusinterfaces.h"
+#include "dbusinterfaces/dbusinterfaces.h"
 
 #include <dbushelper.h>
 #include <dbushelpers.h>

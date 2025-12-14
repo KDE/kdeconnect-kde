@@ -8,7 +8,7 @@ endif()
 
 target_link_libraries(kdeconnect_pausemusic
     kdeconnectcore
-    kdeconnectinterfaces
+    kdeconnectdbusinterfaces
     Qt::Core
     Qt::DBus
 )

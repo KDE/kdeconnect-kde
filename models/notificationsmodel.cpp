@@ -11,7 +11,7 @@
 
 #include <dbushelper.h>
 
-#include "interfaces_debug.h"
+#include "models_debug.h"
 
 NotificationsModel::NotificationsModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -91,7 +91,7 @@ void NotificationsModel::notificationRemoved(const QString &id)
             return;
         }
     }
-    qCWarning(KDECONNECT_INTERFACES) << "Attempted to remove unknown notification: " << id;
+    qCWarning(KDECONNECT_MODELS) << "Attempted to remove unknown notification: " << id;
 }
 
 void NotificationsModel::refreshNotificationList()
@@ -103,7 +103,7 @@ void NotificationsModel::refreshNotificationList()
     clearNotifications();
 
     if (!m_dbusInterface->isValid()) {
-        qCWarning(KDECONNECT_INTERFACES) << "dbus interface not valid";
+        qCWarning(KDECONNECT_MODELS) << "dbus interface not valid";
         return;
     }
 
@@ -120,7 +120,7 @@ void NotificationsModel::receivedNotifications(QDBusPendingCallWatcher *watcher)
     QDBusPendingReply<QStringList> pendingNotificationIds = *watcher;
 
     if (pendingNotificationIds.isError()) {
-        qCWarning(KDECONNECT_INTERFACES) << pendingNotificationIds.error();
+        qCWarning(KDECONNECT_MODELS) << pendingNotificationIds.error();
         return;
     }
 

@@ -28,7 +28,8 @@ target_link_libraries(kdeconnectsmshelper
     Qt::DBus
     KF6::People
     Qt::Qml
-    kdeconnectinterfaces
+    kdeconnectdbusinterfaces
+    kdeconnectmodels
 )
 
 qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
@@ -58,7 +59,8 @@ ecm_target_qml_sources(kdeconnect-sms SOURCES
 
 target_link_libraries(kdeconnect-sms PRIVATE
     kdeconnectsmshelper
-    kdeconnectinterfaces
+    kdeconnectdbusinterfaces
+    kdeconnectmodels
     kdeconnectversion
     Qt::Quick
     Qt::QuickControls2

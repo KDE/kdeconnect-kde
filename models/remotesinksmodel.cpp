@@ -5,7 +5,7 @@
  */
 
 #include "remotesinksmodel.h"
-#include "interfaces_debug.h"
+#include "models_debug.h"
 
 #include <QDebug>
 
@@ -92,7 +92,7 @@ void RemoteSinksModel::refreshSinkList()
     }
 
     if (!m_dbusInterface->isValid()) {
-        qCWarning(KDECONNECT_INTERFACES) << "dbus interface not valid";
+        qCWarning(KDECONNECT_MODELS) << "dbus interface not valid";
         return;
     }
 
