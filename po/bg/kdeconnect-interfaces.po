@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-12-15 00:42+0000\n"
 "PO-Revision-Date: 2022-02-14 14:11+0100\n"
 "Last-Translator: mkkDr2010 <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -18,22 +18,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: dbushelpers.h:19 dbushelpers.h:29
-#, kde-format
-msgid "error: "
-msgstr "грешка: "
-
-#: devicesmodel.cpp:223
+#: devicesmodel.cpp:221
 #, kde-format
 msgid "Device trusted and connected"
 msgstr "Устройството е свързано и надеждно"
 
-#: devicesmodel.cpp:223
+#: devicesmodel.cpp:221
 #, kde-format
 msgid "Device not trusted"
 msgstr "Устройството не е надеждно"
 
-#: devicesmodel.cpp:223
+#: devicesmodel.cpp:221
 #, kde-format
 msgid "Device disconnected"
 msgstr "Връзката с устройството е прекъсната"
+
+#~ msgid "error: "
+#~ msgstr "грешка: "

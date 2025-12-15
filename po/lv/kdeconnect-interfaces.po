@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-12-15 00:42+0000\n"
 "PO-Revision-Date: 2024-01-11 20:34+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -18,22 +18,20 @@ msgstr ""
 "2);\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: dbushelpers.h:19 dbushelpers.h:29
-#, kde-format
-msgid "error: "
-msgstr "kļūda: "
-
-#: devicesmodel.cpp:223
+#: devicesmodel.cpp:221
 #, kde-format
 msgid "Device trusted and connected"
 msgstr "Ierīce ir atzīta par uzticamu un izveidots savienojums"
 
-#: devicesmodel.cpp:223
+#: devicesmodel.cpp:221
 #, kde-format
 msgid "Device not trusted"
 msgstr "Ierīce nav atzīta par uzticamu"
 
-#: devicesmodel.cpp:223
+#: devicesmodel.cpp:221
 #, kde-format
 msgid "Device disconnected"
 msgstr "Ierīce ir atvienota"
+
+#~ msgid "error: "
+#~ msgstr "kļūda: "

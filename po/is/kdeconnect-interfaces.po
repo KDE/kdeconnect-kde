@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-12-15 00:42+0000\n"
 "PO-Revision-Date: 2023-01-09 19:01+0000\n"
 "Last-Translator: gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -18,22 +18,20 @@ msgstr ""
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.12.1\n"
 
-#: dbushelpers.h:19 dbushelpers.h:29
-#, kde-format
-msgid "error: "
-msgstr "villa: "
-
-#: devicesmodel.cpp:223
+#: devicesmodel.cpp:221
 #, kde-format
 msgid "Device trusted and connected"
 msgstr "Tæki er traust og tengt"
 
-#: devicesmodel.cpp:223
+#: devicesmodel.cpp:221
 #, kde-format
 msgid "Device not trusted"
 msgstr "Tæki ekki traust"
 
-#: devicesmodel.cpp:223
+#: devicesmodel.cpp:221
 #, kde-format
 msgid "Device disconnected"
 msgstr "Tæki aftengt"
+
+#~ msgid "error: "
+#~ msgstr "villa: "

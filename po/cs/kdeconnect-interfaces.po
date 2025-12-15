@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-12-15 00:42+0000\n"
 "PO-Revision-Date: 2020-01-16 15:01+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -17,22 +17,20 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 19.12.1\n"
 
-#: dbushelpers.h:19 dbushelpers.h:29
-#, kde-format
-msgid "error: "
-msgstr "chyba: "
-
-#: devicesmodel.cpp:223
+#: devicesmodel.cpp:221
 #, kde-format
 msgid "Device trusted and connected"
 msgstr "Důvěryhodné zařízení připojeno"
 
-#: devicesmodel.cpp:223
+#: devicesmodel.cpp:221
 #, kde-format
 msgid "Device not trusted"
 msgstr "Zařízení není důvěryhodné"
 
-#: devicesmodel.cpp:223
+#: devicesmodel.cpp:221
 #, kde-format
 msgid "Device disconnected"
 msgstr "Zařízení odpojeno"
+
+#~ msgid "error: "
+#~ msgstr "chyba: "

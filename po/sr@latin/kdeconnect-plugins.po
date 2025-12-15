@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-11 00:44+0000\n"
+"POT-Creation-Date: 2025-12-15 00:42+0000\n"
 "PO-Revision-Date: 2017-09-28 17:57+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -411,6 +411,44 @@ msgstr ""
 #: share/shareplugin.cpp:247
 #, kde-format
 msgid "%1 does not exist"
+msgstr ""
+
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Leave Screen at"
+msgstr ""
+
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
+#, kde-format
+msgctxt "@item:inlistbox top edge of screen"
+msgid "Top"
+msgstr ""
+
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
+#, kde-format
+msgctxt "@item:inlistbox left edge of screen"
+msgid "Left"
+msgstr ""
+
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
+#, kde-format
+msgctxt "@item:inlistbox right edge of screen"
+msgid "Right"
+msgstr ""
+
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
+#, kde-format
+msgctxt "@item:inlistbox top edge of screen"
+msgid "Bottom"
+msgstr ""
+
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Another device already reserved this edge. This may lead to unexpected "
+"results when both are connected at the same time."
 msgstr ""
 
 #: telephony/telephonyplugin.cpp:23
