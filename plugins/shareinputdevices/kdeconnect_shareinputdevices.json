@@ -2,15 +2,15 @@
     "KPlugin": {
         "Authors": [
             {
-                "Name": "David Redondo",
-                "Email": "kde@david-redondo.de"
+                "Email": "kde@david-redondo.de",
+                "Name": "David Redondo"
             }
         ],
+        "Description": "Share mouse and keyboard with the remote device",
         "EnabledByDefault": false,
         "Icon": "dialog-input-devices",
         "License": "GPL",
-        "Name": "Share input devices",
-        "Description": "Share mouse and keyboard with the remote device"
+        "Name": "Share input devices"
     },
     "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_shareinputdevices_config",
     "X-KdeConnect-OutgoingPacketType": [
