@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-15 00:42+0000\n"
-"PO-Revision-Date: 2025-10-10 23:32+0300\n"
+"PO-Revision-Date: 2025-12-16 02:16+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -46,10 +46,9 @@ msgid "Max Clipboard File Size (MB)"
 msgstr "Didžiausias iškarpinės failo dydis (MB)"
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "KDE Connect Error"
-msgstr "KDE Connect"
+msgstr "KDE Connect klaida"
 
 #: digitizer/linuxdigitizerimpl.cpp:73
 #, kde-format
@@ -57,6 +56,8 @@ msgid ""
 "Unable to create a virtual drawing tablet. If this error persists, file a "
 "bug report."
 msgstr ""
+"Nepavyko sukurti virtualios piešimo planšetės. Jei ši klaida išlieka, "
+"pateikite pranešimą apie klaidą."
 
 #: digitizer/linuxdigitizerimpl.cpp:169
 #, kde-format
@@ -64,6 +65,8 @@ msgid ""
 "Unable to process one or more input events for the virtual device. If this "
 "error persists, file a bug report."
 msgstr ""
+"Nepavyko apdoroti vieno ar daugiau įvesties įvykių, skirtų virtualiam "
+"įrenginiui. Jei ši klaida išlieka, pateikite pranešimą apie klaidą."
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
@@ -225,46 +228,40 @@ msgid "Sample commands:"
 msgstr "Pavyzdinės komandos:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:110
-#, fuzzy, kde-format
-#| msgid "Suspend"
+#, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
-msgstr "Užmigdyti"
+msgstr "Pristabdyti"
 
 #: runcommand/kdeconnect_runcommand_config.qml:114
-#, fuzzy, kde-format
-#| msgid "Maximum Brightness"
+#, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "Didžiausias ryškumas"
 
 #: runcommand/kdeconnect_runcommand_config.qml:118
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Užrakinti ekraną"
 
 #: runcommand/kdeconnect_runcommand_config.qml:122
-#, fuzzy, kde-format
-#| msgid "Unlock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Atrakinti ekraną"
 
 #: runcommand/kdeconnect_runcommand_config.qml:126
-#, fuzzy, kde-format
-#| msgid "Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
-msgstr "Uždaryti visas saugyklas"
+msgstr "Uždaryti visas slėptuves"
 
 #: runcommand/kdeconnect_runcommand_config.qml:130
-#, fuzzy, kde-format
-#| msgid "Forcefully Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
-msgstr "Priverstinai uždaryti visas saugyklas"
+msgstr "Priverstinai uždaryti visas slėptuves"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -408,35 +405,34 @@ msgid "%1 does not exist"
 msgstr "%1 nėra"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Leave Screen at"
-msgstr "Užrakinti ekraną"
+msgstr "Palikti ekraną ties"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "Viršus"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "Kairė"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "Dešinė"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "Apačia"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
 #, kde-format
@@ -445,6 +441,8 @@ msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
 msgstr ""
+"Kitas įrenginys jau yra užsirezervavęs šį kraštą. Tai gali sukelti netikėtus "
+"rezultatus, kai abu įrenginiai bus prisijungę tuo pačiu metu."
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format

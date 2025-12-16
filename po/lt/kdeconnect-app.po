@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-11 00:44+0000\n"
-"PO-Revision-Date: 2025-11-19 20:53+0200\n"
+"PO-Revision-Date: 2025-12-16 01:56+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -107,7 +107,7 @@ msgstr "Valdikliai"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "Informacija"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -177,7 +177,7 @@ msgstr "Naudoti įrenginį kaip išorinį monitorių"
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "Adresas: %1 per %2"
 
 #: qml/DevicePage.qml:220
 #, kde-format
