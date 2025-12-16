@@ -3,14 +3,35 @@
         "Authors": [
             {
                 "Email": "kde@david-redondo.de",
-                "Name": "David Redondo"
+                "Name": "David Redondo",
+                "Name[ca]": "David Redondo",
+                "Name[he]": "דיויד רדונדו",
+                "Name[ka]": "David Redondo",
+                "Name[lt]": "David Redondo",
+                "Name[nl]": "David Redondo",
+                "Name[pt_BR]": "David Redondo",
+                "Name[sl]": "David Redondo"
             }
         ],
         "Description": "Share mouse and keyboard with the remote device",
+        "Description[ca]": "Comparteix el ratolí i el teclat amb el dispositiu remot",
+        "Description[he]": "שיתוף עכבר ומקלדת עם מכשירים מרוחקים",
+        "Description[ka]": "გაუზიარეთ თაგუნა და კლავიატურა დაშორებულ მოწყობილობას",
+        "Description[lt]": "Bendrinti pelę ir klaviatūrą su nuotoliniu įrenginiu",
+        "Description[nl]": "Muis en toetsenbord delen met het apparaat op afstand",
+        "Description[pt_BR]": "Compartilha mouse e teclado com o dispositivo remoto",
+        "Description[sl]": "Deli si miško in tipkovnico z oddaljeno napravo",
         "EnabledByDefault": false,
         "Icon": "dialog-input-devices",
         "License": "GPL",
-        "Name": "Share input devices"
+        "Name": "Share input devices",
+        "Name[ca]": "Comparteix els dispositius d'entrada",
+        "Name[he]": "שיתוף התקני קלט",
+        "Name[ka]": "შეყვანის მოწყობილობების გაზიარება",
+        "Name[lt]": "Bendrinti įvesties įrenginius",
+        "Name[nl]": "Invoerapparaten delen",
+        "Name[pt_BR]": "Compartilhar dispositivos de entrada",
+        "Name[sl]": "Deli si vhodne naprave"
     },
     "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_shareinputdevices_config",
     "X-KdeConnect-OutgoingPacketType": [
