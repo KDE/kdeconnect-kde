@@ -10,7 +10,8 @@
                 "Name[lt]": "David Redondo",
                 "Name[nl]": "David Redondo",
                 "Name[pt_BR]": "David Redondo",
-                "Name[sl]": "David Redondo"
+                "Name[sl]": "David Redondo",
+                "Name[zh_TW]": "David Redondo"
             }
         ],
         "Description": "Share mouse and keyboard with the remote device",
@@ -21,6 +22,7 @@
         "Description[nl]": "Muis en toetsenbord delen met het apparaat op afstand",
         "Description[pt_BR]": "Compartilha mouse e teclado com o dispositivo remoto",
         "Description[sl]": "Deli si miško in tipkovnico z oddaljeno napravo",
+        "Description[zh_TW]": "與遠端裝置分享滑鼠和鍵盤",
         "EnabledByDefault": false,
         "Icon": "dialog-input-devices",
         "License": "GPL",
@@ -31,7 +33,8 @@
         "Name[lt]": "Bendrinti įvesties įrenginius",
         "Name[nl]": "Invoerapparaten delen",
         "Name[pt_BR]": "Compartilhar dispositivos de entrada",
-        "Name[sl]": "Deli si vhodne naprave"
+        "Name[sl]": "Deli si vhodne naprave",
+        "Name[zh_TW]": "分享輸入裝置"
     },
     "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_shareinputdevices_config",
     "X-KdeConnect-OutgoingPacketType": [
