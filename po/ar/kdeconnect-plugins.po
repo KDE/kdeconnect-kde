@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-15 00:42+0000\n"
-"PO-Revision-Date: 2025-12-11 10:27+0400\n"
+"PO-Revision-Date: 2025-12-18 10:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -400,36 +400,34 @@ msgid "%1 does not exist"
 msgstr "%1 غير موجود"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
-#, fuzzy, kde-format
-#| msgctxt "Sample command"
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Leave Screen at"
-msgstr "اقفل الشّاشة"
+msgstr "اترك الشّاشة عند"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "أعلى"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "يسار"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "يمين"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "أسفل"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
 #, kde-format
@@ -438,6 +436,8 @@ msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
 msgstr ""
+"جهاز آخر حجز هذه الحافة بالفعل. قد يؤدي ذلك إلى نتائج غير متوقعة عند توصيل "
+"كلا الجهازين في نفس الوقت."
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format

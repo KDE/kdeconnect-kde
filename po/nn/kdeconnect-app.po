@@ -402,15 +402,3 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Bluetooth"
-#~ msgstr "Bluetooth"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Loopback"
-#~ msgstr "Loopback"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Network"
-#~ msgstr "Nettverk"

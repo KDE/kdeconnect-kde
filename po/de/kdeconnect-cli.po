@@ -2,20 +2,21 @@
 # SPDX-FileCopyrightText: 2014, 2016, 2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2016 hkaelber <holger.k@elberer.de>
+# SPDX-FileCopyrightText: 2025 Oliver Schramm <oliver.schramm97@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-07-09 16:10+0200\n"
-"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
+"PO-Revision-Date: 2025-12-07 20:53+0100\n"
+"Last-Translator: Oliver Schramm <oliver.schramm97@gmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -125,28 +126,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Nach Geräten im Netzwerk suchen und Verbindungen wiederherstellen"
 
 #: kdeconnect-cli.cpp:81
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Kopplung für ein genanntes Gerät anfordern"
+msgstr "Kopplung mit Gerät anfordern"
 
 #: kdeconnect-cli.cpp:82
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Das angegebene Gerät klingeln lassen, um es zu finden."
+msgstr "Gerät klingeln lassen, um es zu finden"
 
 #: kdeconnect-cli.cpp:83
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "Warten auf das Gerät …"
+msgstr "Gerät entkoppeln"
 
 #: kdeconnect-cli.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Ping an ein genanntes Gerät senden"
+msgstr "Ping an Gerät senden"
 
 #: kdeconnect-cli.cpp:85
 #, kde-format
@@ -159,28 +156,24 @@ msgid "message"
 msgstr "Nachricht"
 
 #: kdeconnect-cli.cpp:86
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Die aktuelle Zwischenablage an ein genanntes Gerät senden"
+msgstr "Zwischenablage an Gerät senden"
 
 #: kdeconnect-cli.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Eine Datei/URL mit einem genannten Gerät teilen"
+msgstr "Datei/URL mit Gerät teilen"
 
 #: kdeconnect-cli.cpp:88
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Text mit einem genannten Gerät teilen"
+msgstr "Text mit Gerät teilen"
 
 #: kdeconnect-cli.cpp:89
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "Benachrichtigungen auf einem genannten Gerät anzeigen"
+msgstr "Benachrichtigungen auf Gerät anzeigen"
 
 #: kdeconnect-cli.cpp:90
 #, kde-format
@@ -231,28 +224,24 @@ msgid "Device Name"
 msgstr "Gerätename"
 
 #: kdeconnect-cli.cpp:99
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Verschlüsselungsinformationen für genanntes Gerät anfordern"
+msgstr "Verschlüsselungsinformationen für Gerät abrufen"
 
 #: kdeconnect-cli.cpp:100
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
-msgstr "Zeigt entfernte Befehle und ihre Kennungen an"
+msgstr "Entfernte Befehle und ihre Kennungen anzeigen"
 
 #: kdeconnect-cli.cpp:101
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
-msgstr "Führt einen entfernten Befehl nach Kennung aus"
+msgstr "Entfernten Befehl anhand der Kennung ausführen"
 
 #: kdeconnect-cli.cpp:102
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Tastendrücke an ein genanntes Gerät senden"
+msgstr "Tasteneingaben an Gerät senden"
 
 #: kdeconnect-cli.cpp:103
 #, kde-format
@@ -260,15 +249,14 @@ msgid "Display this device's id and exit"
 msgstr "Kennung dieses Geräts anzeigen und beenden"
 
 #: kdeconnect-cli.cpp:104
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Tastendrücke an ein genanntes Gerät senden"
+msgstr "Dateisystem eines genannten Geräts einhängen"
 
 #: kdeconnect-cli.cpp:105
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "Einhängepunkt für das Dateisystem eines genannten Geräts ausgeben"
 
 #: kdeconnect-cli.cpp:151
 #, kde-format
@@ -303,8 +291,7 @@ msgid "(unpaired)"
 msgstr "(nicht gekoppelt)"
 
 #: kdeconnect-cli.cpp:243
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "%1 geteilt"
@@ -354,7 +341,7 @@ msgstr "Bereits nicht gekoppelt"
 #: kdeconnect-cli.cpp:309
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Erfolgreich entkoppelt"
 
 #: kdeconnect-cli.cpp:367
 #, kde-format

@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-15 00:42+0000\n"
-"PO-Revision-Date: 2025-10-30 18:25+0300\n"
+"PO-Revision-Date: 2025-12-18 19:38+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -50,10 +50,9 @@ msgid "Max Clipboard File Size (MB)"
 msgstr "Максимальный размер буфера обмена (МБ)"
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "KDE Connect Error"
-msgstr "KDE Connect"
+msgstr "Ошибка KDE Connect"
 
 #: digitizer/linuxdigitizerimpl.cpp:73
 #, kde-format
@@ -61,6 +60,8 @@ msgid ""
 "Unable to create a virtual drawing tablet. If this error persists, file a "
 "bug report."
 msgstr ""
+"Ошибка создания виртуального планшета для рисования. Сообщите разработчикам, "
+"если ошибка повторяется."
 
 #: digitizer/linuxdigitizerimpl.cpp:169
 #, kde-format
@@ -68,6 +69,8 @@ msgid ""
 "Unable to process one or more input events for the virtual device. If this "
 "error persists, file a bug report."
 msgstr ""
+"Ошибка обработки одного или нескольких событий виртуального устройства. "
+"Сообщите разработчикам, если ошибка повторяется."
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
@@ -229,43 +232,37 @@ msgid "Sample commands:"
 msgstr "Примеры команд:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:110
-#, fuzzy, kde-format
-#| msgid "Suspend"
+#, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Перейти в спящий режим"
 
 #: runcommand/kdeconnect_runcommand_config.qml:114
-#, fuzzy, kde-format
-#| msgid "Maximum Brightness"
+#, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "Максимальная яркость"
 
 #: runcommand/kdeconnect_runcommand_config.qml:118
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Заблокировать экран"
 
 #: runcommand/kdeconnect_runcommand_config.qml:122
-#, fuzzy, kde-format
-#| msgid "Unlock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Разблокировать экран"
 
 #: runcommand/kdeconnect_runcommand_config.qml:126
-#, fuzzy, kde-format
-#| msgid "Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Закрыть все хранилища"
 
 #: runcommand/kdeconnect_runcommand_config.qml:130
-#, fuzzy, kde-format
-#| msgid "Forcefully Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
 msgstr "Принудительно закрыть все хранилища"
@@ -413,35 +410,34 @@ msgid "%1 does not exist"
 msgstr "Файл «%1» не существует"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Leave Screen at"
-msgstr "Заблокировать экран"
+msgstr "Оставить экран"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "Сверху"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "Слева"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "Справа"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "Внизу"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
 #, kde-format
@@ -475,11 +471,13 @@ msgstr "Выключить звук звонка"
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
+"На удалённом устройстве не установленно приложение, обеспечивающее поддержку "
+"VNC или RDP (например: krdc)."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "На это устройство необходимо установить пакет krdp."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:189
 #, kde-format

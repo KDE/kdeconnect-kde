@@ -33,6 +33,3 @@ msgstr "Ikkje-tiltrudd eining"
 #, kde-format
 msgid "Device disconnected"
 msgstr "Ikkje-tilkopla eining"
-
-#~ msgid "error: "
-#~ msgstr "feil: "
