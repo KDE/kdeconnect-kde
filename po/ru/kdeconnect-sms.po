@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-08-18 11:22+0300\n"
+"PO-Revision-Date: 2025-12-18 20:07+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.07.90\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,12 +31,10 @@ msgid "Your emails"
 msgstr "kekcuha@gmail.com, juliette.tux@gmail.com, translation-team@basealt.ru"
 
 #: attachmentshelper.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
-msgstr "Удалить вложения"
+msgstr "Скачать вложение"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -184,27 +182,24 @@ msgstr "Отмена"
 #: qml/ConversationList.qml:107
 #, kde-format
 msgid "Search or start a conversation"
-msgstr "Найти или начать разговор…"
+msgstr "Найти или начать чат…"
 
 #: qml/ConversationList.qml:143
 #, kde-format
 msgid "Start new conversation"
-msgstr "Начать новый разговор"
+msgstr "Начать новый чат"
 
 #: qml/ConversationList.qml:192
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message text when no messages are found"
-#| msgid "No matches"
+#, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
-msgstr "Нет соответствий"
+msgstr "Совпадений не найдено"
 
 #: qml/ConversationList.qml:202
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"
-msgstr "Начать новый разговор"
+msgstr "Нет ни одного чата"
 
 #: qml/Main.qml:93
 #, kde-format

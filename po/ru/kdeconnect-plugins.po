@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-10-30 18:25+0300\n"
+"PO-Revision-Date: 2025-12-18 19:38+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -374,11 +374,13 @@ msgstr "Выключить звук звонка"
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
+"На удалённом устройстве не установленно приложение, обеспечивающее поддержку "
+"VNC или RDP (например: krdc)."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "На это устройство необходимо установить пакет krdp."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:189
 #, kde-format
