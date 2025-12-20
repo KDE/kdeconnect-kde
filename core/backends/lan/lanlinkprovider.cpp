@@ -52,12 +52,12 @@ LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
 {
     m_combineNetworkChangeTimer.setInterval(0); // increase this if waiting a single event-loop iteration is not enough
     m_combineNetworkChangeTimer.setSingleShot(true);
-    connect(&m_combineNetworkChangeTimer, &QTimer::timeout, this, &LanLinkProvider::combinedOnNetworkChange);
+    connect(&m_combineNetworkChangeTimer, &QTimer::timeout, this, &LanLinkProvider::debouncedOnNetworkChange);
 
     connect(&m_udpSocket, &QIODevice::readyRead, this, &LanLinkProvider::udpBroadcastReceived);
 
     m_server->setProxy(QNetworkProxy::NoProxy);
-    connect(m_server, &QTcpServer::newConnection, this, &LanLinkProvider::newConnection);
+    connect(m_server, &QTcpServer::newConnection, this, &LanLinkProvider::newTcpConnection);
 
     m_udpSocket.setProxy(QNetworkProxy::NoProxy);
 
@@ -160,7 +160,7 @@ void LanLinkProvider::onNetworkChange()
 }
 
 // I'm in a new network, let's be polite and introduce myself
-void LanLinkProvider::combinedOnNetworkChange()
+void LanLinkProvider::debouncedOnNetworkChange()
 {
     if (m_disabled) {
         return;
@@ -491,9 +491,9 @@ void LanLinkProvider::sslErrors(const QList<QSslError> &errors)
 
 // I'm the new device and this is the answer to my UDP identity packet (no data received yet). They are connecting to us through TCP, and they should send an
 // identity.
-void LanLinkProvider::newConnection()
+void LanLinkProvider::newTcpConnection()
 {
-    qCDebug(KDECONNECT_CORE) << "LanLinkProvider newConnection";
+    qCDebug(KDECONNECT_CORE) << "LanLinkProvider newTcpConnection";
 
     while (m_server->hasPendingConnections()) {
         QSslSocket *socket = m_server->nextPendingConnection();
@@ -502,14 +502,14 @@ void LanLinkProvider::newConnection()
         // it disconnects before we manage to pass it to a LanDeviceLink, it's
         // our responsibility to delete it. We do so with this connection.
         connect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);
-        connect(socket, &QIODevice::readyRead, this, &LanLinkProvider::dataReceived);
+        connect(socket, &QIODevice::readyRead, this, &LanLinkProvider::tcpPacketReceived);
 
         QTimer *timer = new QTimer(socket);
         timer->setSingleShot(true);
         timer->setInterval(1000);
         connect(socket, &QSslSocket::encrypted, timer, &QObject::deleteLater);
         connect(timer, &QTimer::timeout, socket, [socket] {
-            qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newConnection: Host timed out without sending any identity." << socket->peerAddress();
+            qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newTcpConnection: Host timed out without sending any identity." << socket->peerAddress();
             socket->disconnectFromHost();
         });
         timer->start();
@@ -517,14 +517,14 @@ void LanLinkProvider::newConnection()
 }
 
 // I'm the new device and this is the TCP response to my UDP identity packet
-void LanLinkProvider::dataReceived()
+void LanLinkProvider::tcpPacketReceived()
 {
     QSslSocket *socket = qobject_cast<QSslSocket *>(sender());
     // the size here is arbitrary and is now at 8192 bytes. It needs to be considerably long as it includes the capabilities but there needs to be a limit
     // Tested between my systems and I get around 2000 per identity package.
     if (socket->bytesAvailable() > 8192) {
-        qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newConnection: Suspiciously long identity package received. Closing connection." << socket->peerAddress()
-                                   << socket->bytesAvailable();
+        qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newTcpConnection: Suspiciously long identity package received. Closing connection."
+                                   << socket->peerAddress() << socket->bytesAvailable();
         socket->disconnectFromHost();
         return;
     }
@@ -577,7 +577,7 @@ void LanLinkProvider::dataReceived()
     // qCDebug(KDECONNECT_CORE) << "Handshaking done (i'm the new device)";
 
     // This socket will now be owned by the LanDeviceLink or we don't want more data to be received, forget about it
-    disconnect(socket, &QIODevice::readyRead, this, &LanLinkProvider::dataReceived);
+    disconnect(socket, &QIODevice::readyRead, this, &LanLinkProvider::tcpPacketReceived);
 
     configureSslSocket(socket, deviceId, isDeviceTrusted);
 

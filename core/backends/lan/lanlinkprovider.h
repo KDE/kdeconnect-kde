@@ -74,10 +74,10 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void udpBroadcastReceived();
-    void newConnection();
-    void dataReceived();
+    void newTcpConnection();
+    void tcpPacketReceived();
     void sslErrors(const QList<QSslError> &errors);
-    void combinedOnNetworkChange();
+    void debouncedOnNetworkChange();
 
 private:
     void addLink(QSslSocket *socket, const DeviceInfo &deviceInfo);
