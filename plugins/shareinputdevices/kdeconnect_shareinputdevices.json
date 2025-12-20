@@ -4,6 +4,7 @@
             {
                 "Email": "kde@david-redondo.de",
                 "Name": "David Redondo",
+                "Name[ar]": "ديفيد ريدوندو",
                 "Name[bg]": "David Redondo",
                 "Name[ca@valencia]": "David Redondo",
                 "Name[ca]": "David Redondo",
@@ -14,12 +15,14 @@
                 "Name[lt]": "David Redondo",
                 "Name[nl]": "David Redondo",
                 "Name[pt_BR]": "David Redondo",
+                "Name[ru]": "David Redondo",
                 "Name[sl]": "David Redondo",
                 "Name[uk]": "David Redondo",
                 "Name[zh_TW]": "David Redondo"
             }
         ],
         "Description": "Share mouse and keyboard with the remote device",
+        "Description[ar]": "شارك الفأرة ولوحة المفاتيح مع الجهاز البعيد",
         "Description[bg]": "Споделяне на мишката и клавиатурата с отдалеченото устройство",
         "Description[ca@valencia]": "Compartix el ratolí i el teclat amb el dispositiu remot",
         "Description[ca]": "Comparteix el ratolí i el teclat amb el dispositiu remot",
@@ -30,6 +33,7 @@
         "Description[lt]": "Bendrinti pelę ir klaviatūrą su nuotoliniu įrenginiu",
         "Description[nl]": "Muis en toetsenbord delen met het apparaat op afstand",
         "Description[pt_BR]": "Compartilha mouse e teclado com o dispositivo remoto",
+        "Description[ru]": "Совместное использование мыши и клавиатуры с удалённым устройством",
         "Description[sl]": "Deli si miško in tipkovnico z oddaljeno napravo",
         "Description[uk]": "Спільне використання миші і клавіатури з віддаленим пристроєм",
         "Description[zh_TW]": "與遠端裝置分享滑鼠和鍵盤",
@@ -37,6 +41,7 @@
         "Icon": "dialog-input-devices",
         "License": "GPL",
         "Name": "Share input devices",
+        "Name[ar]": "شارك أجهزة الدّخل",
         "Name[bg]": "Споделяне на входните устройства",
         "Name[ca@valencia]": "Compartix els dispositius d'entrada",
         "Name[ca]": "Comparteix els dispositius d'entrada",
@@ -47,6 +52,7 @@
         "Name[lt]": "Bendrinti įvesties įrenginius",
         "Name[nl]": "Invoerapparaten delen",
         "Name[pt_BR]": "Compartilhar dispositivos de entrada",
+        "Name[ru]": "Общий доступ к устройствам ввода",
         "Name[sl]": "Deli si vhodne naprave",
         "Name[uk]": "Спільне використання пристроїв введення",
         "Name[zh_TW]": "分享輸入裝置"
