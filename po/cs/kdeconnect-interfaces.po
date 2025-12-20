@@ -31,6 +31,3 @@ msgstr "Zařízení není důvěryhodné"
 #, kde-format
 msgid "Device disconnected"
 msgstr "Zařízení odpojeno"
-
-#~ msgid "error: "
-#~ msgstr "chyba: "
