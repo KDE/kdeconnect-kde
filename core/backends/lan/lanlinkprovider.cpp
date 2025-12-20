@@ -7,6 +7,8 @@
 #include "lanlinkprovider.h"
 #include "core_debug.h"
 
+#include <memory>
+
 #ifndef Q_OS_WIN
 #include <netdb.h>
 #include <netinet/in.h>
@@ -268,8 +270,8 @@ void LanLinkProvider::udpBroadcastReceived()
         if (sender.isLoopback() && !m_testMode)
             continue;
 
-        QSharedPointer<NetworkPacket> receivedPacket = QSharedPointer<NetworkPacket>{new NetworkPacket()};
-        bool success = NetworkPacket::unserialize(datagram, receivedPacket.data());
+        std::shared_ptr<NetworkPacket> receivedPacket = std::shared_ptr<NetworkPacket>{new NetworkPacket()};
+        bool success = NetworkPacket::unserialize(datagram, receivedPacket.get());
 
         // qCDebug(KDECONNECT_CORE) << "Datagram " << datagram.data() ;
 
@@ -278,7 +280,7 @@ void LanLinkProvider::udpBroadcastReceived()
             continue;
         }
 
-        if (!DeviceInfo::isValidIdentityPacket(receivedPacket.data())) {
+        if (!DeviceInfo::isValidIdentityPacket(receivedPacket.get())) {
             qCWarning(KDECONNECT_CORE) << "Invalid identity packet received";
             continue;
         }
@@ -338,7 +340,7 @@ void LanLinkProvider::connectError(QSslSocket *socket, QHostAddress sender, QAbs
 }
 
 // We received a UDP packet and answered by connecting to them by TCP. This gets called on a successful connection.
-void LanLinkProvider::tcpSocketConnected(QSslSocket *socket, QSharedPointer<NetworkPacket> receivedPacket, QHostAddress sender)
+void LanLinkProvider::tcpSocketConnected(QSslSocket *socket, std::shared_ptr<NetworkPacket> receivedPacket, QHostAddress sender)
 {
     disconnect(socket, &QAbstractSocket::errorOccurred, this, nullptr);
 
@@ -381,7 +383,7 @@ void LanLinkProvider::tcpSocketConnected(QSslSocket *socket, QSharedPointer<Netw
     }
 }
 
-void LanLinkProvider::encrypted(QSslSocket *socket, QSharedPointer<NetworkPacket> identityPacket)
+void LanLinkProvider::encrypted(QSslSocket *socket, std::shared_ptr<NetworkPacket> identityPacket)
 {
     qCDebug(KDECONNECT_CORE) << "Socket successfully established an SSL connection";
 
@@ -496,14 +498,14 @@ void LanLinkProvider::tcpPacketReceived()
 
     qCDebug(KDECONNECT_CORE) << "LanLinkProvider received reply:" << data;
 
-    QSharedPointer<NetworkPacket> np = QSharedPointer<NetworkPacket>{new NetworkPacket()};
-    bool success = NetworkPacket::unserialize(data, np.data());
+    std::shared_ptr<NetworkPacket> np = std::shared_ptr<NetworkPacket>{new NetworkPacket()};
+    bool success = NetworkPacket::unserialize(data, np.get());
 
     if (!success) {
         return;
     }
 
-    if (!DeviceInfo::isValidIdentityPacket(np.data())) {
+    if (!DeviceInfo::isValidIdentityPacket(np.get())) {
         qCWarning(KDECONNECT_CORE) << "Invalid identity packet received";
         return;
     }

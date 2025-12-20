@@ -7,6 +7,8 @@
 #ifndef LANLINKPROVIDER_H
 #define LANLINKPROVIDER_H
 
+#include <memory>
+
 #include <QNetworkInformation>
 #include <QObject>
 #include <QSslSocket>
@@ -68,8 +70,8 @@ public Q_SLOTS:
     void onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr) override;
     void onStart() override;
     void onStop() override;
-    void tcpSocketConnected(QSslSocket *socket, QSharedPointer<NetworkPacket> receivedPacket, QHostAddress sender);
-    void encrypted(QSslSocket *socket, QSharedPointer<NetworkPacket> identityPacket);
+    void tcpSocketConnected(QSslSocket *socket, std::shared_ptr<NetworkPacket> receivedPacket, QHostAddress sender);
+    void encrypted(QSslSocket *socket, std::shared_ptr<NetworkPacket> identityPacket);
     void connectError(QSslSocket *socket, QHostAddress sender, QAbstractSocket::SocketError socketError);
 
 private Q_SLOTS:
