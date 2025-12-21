@@ -20,7 +20,7 @@ class PointerLockerWayland : public AbstractPointerLocker
     Q_OBJECT
 public:
     PointerLockerWayland(QObject *parent = nullptr);
-    ~PointerLockerWayland();
+    ~PointerLockerWayland() override;
 
     void setLocked(bool locked) override;
     bool isLocked() const override

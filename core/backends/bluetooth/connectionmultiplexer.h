@@ -30,7 +30,7 @@ class ConnectionMultiplexer : public QObject
     Q_OBJECT
 public:
     ConnectionMultiplexer(QBluetoothSocket *socket, QObject *parent = nullptr);
-    ~ConnectionMultiplexer();
+    ~ConnectionMultiplexer() override;
 
     /**
      * Open a new channel within this connection.

@@ -24,7 +24,7 @@ class InputCaptureSession : public QObject
     Q_OBJECT
 public:
     InputCaptureSession(QObject *parent);
-    ~InputCaptureSession();
+    ~InputCaptureSession() override;
 
     void setBarrierEdge(Qt::Edge edge);
     void release(const QPointF &position);

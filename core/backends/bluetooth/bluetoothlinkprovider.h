@@ -30,7 +30,7 @@ class KDECONNECTCORE_EXPORT BluetoothLinkProvider : public LinkProvider
 public:
     BluetoothLinkProvider(bool disabled = false);
 
-    virtual ~BluetoothLinkProvider();
+    ~BluetoothLinkProvider() override;
 
     QString name() override
     {

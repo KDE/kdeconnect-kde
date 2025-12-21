@@ -30,7 +30,7 @@ private:
     MultiplexChannel(QSharedPointer<MultiplexChannelState> state);
 
 public:
-    ~MultiplexChannel();
+    ~MultiplexChannel() override;
 
     constexpr static int BUFFER_SIZE = 4096;
 

@@ -31,7 +31,7 @@ class PauseMusicPlugin : public KdeConnectPlugin
 
 public:
     explicit PauseMusicPlugin(QObject *parent, const QVariantList &args);
-    ~PauseMusicPlugin();
+    ~PauseMusicPlugin() override;
 
     void receivePacket(const NetworkPacket &np) override;
 
