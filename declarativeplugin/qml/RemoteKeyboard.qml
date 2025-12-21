@@ -33,7 +33,7 @@ QQC2.TextField {
         target: root.remoteKeyboard
 
         function onKeyPressReceived(key: string, specialKey: int, shift: bool, ctrl: bool, alt: bool): void {
-            //console.log("XXX received keypress key=" + key + " special=" + specialKey + " shift=" + shift + " ctrl=" + ctrl + " text=" + text + " cursorPos=" + cursorPosition);
+            // console.log("XXX received keypress key=" + key + " special=" + specialKey + " shift=" + shift + " ctrl=" + ctrl + " text=" + text + " cursorPos=" + cursorPosition);
             // interpret some special keys:
             if (specialKey === 12 || specialKey === 14) { // Return/Esc -> clear
                 text = "";
@@ -82,19 +82,12 @@ QQC2.TextField {
         }
     }
 
-    function sendEvent(event: KeyEvent): void {
-        if (remoteKeyboard) {
-            const transEvent = JSON.parse(JSON.stringify(event)); // transform to anonymous object
-            remoteKeyboard.sendQKeyEvent(transEvent);
+    KDEConnect.KeyListener {
+        target: checker.available && root.remoteKeyboard ? root : null
+        onKeyReleased: event => {
+            remoteKeyboard.sendQKeyEvent(event);
             event.accepted = true
         }
-    }
-
-    Keys.onPressed: event => {
-        if (available) {
-            sendEvent(event);
-        }
-        event.accepted = true;
     }
 
     onAvailableChanged: {

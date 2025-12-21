@@ -2,6 +2,7 @@ ecm_add_qml_module(kdeconnectdeclarativeplugin URI "org.kde.kdeconnect" VERSION 
 
 target_sources(kdeconnectdeclarativeplugin PRIVATE
     kdeconnectdeclarativeplugin.cpp
+    keylistener.cpp
     responsewaiter.cpp
     objectfactory.cpp
     pointerlocker.cpp

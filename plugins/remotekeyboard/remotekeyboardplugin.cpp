@@ -82,19 +82,22 @@ void RemoteKeyboardPlugin::receivePacket(const NetworkPacket &np)
 
 void RemoteKeyboardPlugin::sendKeyPress(const QString &key, int specialKey, bool shift, bool ctrl, bool alt, bool sendAck) const
 {
-    NetworkPacket np(PACKET_TYPE_MOUSEPAD_REQUEST,
-                     {{QStringLiteral("key"), key},
-                      {QStringLiteral("specialKey"), specialKey},
-                      {QStringLiteral("shift"), shift},
-                      {QStringLiteral("ctrl"), ctrl},
-                      {QStringLiteral("alt"), alt},
-                      {QStringLiteral("sendAck"), sendAck}});
+    const QVariantMap PK = {{QStringLiteral("key"), key},
+                            {QStringLiteral("specialKey"), specialKey},
+                            {QStringLiteral("shift"), shift},
+                            {QStringLiteral("ctrl"), ctrl},
+                            {QStringLiteral("alt"), alt},
+                            {QStringLiteral("sendAck"), sendAck}};
+
+    qDebug() << "sending " << PK;
+    NetworkPacket np(PACKET_TYPE_MOUSEPAD_REQUEST, PK);
     sendPacket(np);
 }
 
 void RemoteKeyboardPlugin::sendQKeyEvent(const QVariantMap &keyEvent, bool sendAck) const
 {
     if (!keyEvent.contains(QStringLiteral("key"))) {
+        qDebug() << "passss" << keyEvent;
         return;
     }
     const int key = keyEvent.value(QStringLiteral("key")).toInt();
@@ -110,6 +113,7 @@ void RemoteKeyboardPlugin::sendQKeyEvent(const QVariantMap &keyEvent, bool sendA
         text = QKeySequence(key).toString().toLower();
     }
 
+    qDebug() << "fffffffff" << text << keyEvent;
     sendKeyPress(text, k, modifiers & Qt::ShiftModifier, modifiers & Qt::ControlModifier, modifiers & Qt::AltModifier, sendAck);
 }
 
