@@ -22,7 +22,7 @@ class KDECONNECTCORE_EXPORT AvahiDiscovery : public QObject
 
 public:
     explicit AvahiDiscovery(LanLinkProvider *lanLinkProvider);
-    ~AvahiDiscovery();
+    ~AvahiDiscovery() override;
 
     void onStart();
     void onStop();
@@ -37,7 +37,7 @@ private:
     void stopDiscovering();
 
     OrgFreedesktopAvahiServer2Interface m_avahiServerInterface;
-    OrgFreedesktopAvahiServiceBrowserInterface *m_serviceBrowserInterface;
-    OrgFreedesktopAvahiEntryGroupInterface *m_entryGroupInterface;
+    OrgFreedesktopAvahiServiceBrowserInterface *m_serviceBrowserInterface = nullptr;
+    OrgFreedesktopAvahiEntryGroupInterface *m_entryGroupInterface = nullptr;
     LanLinkProvider *lanLinkProvider;
 };

@@ -32,8 +32,6 @@ enum {
 
 AvahiDiscovery::AvahiDiscovery(LanLinkProvider *lanLinkProvider)
     : m_avahiServerInterface(kAvahiDbusService, QStringLiteral("/"), QDBusConnection::systemBus())
-    , m_serviceBrowserInterface(nullptr)
-    , m_entryGroupInterface(nullptr)
     , lanLinkProvider(lanLinkProvider)
 {
     connect(&m_avahiServerInterface, &OrgFreedesktopAvahiServer2Interface::StateChanged, this, [](int state, const QString &error) {
@@ -105,10 +103,10 @@ void AvahiDiscovery::startAnnouncing()
 
     KdeConnectConfig &config = KdeConnectConfig::instance();
     QByteArrayList txtRecords;
-    txtRecords.append((QStringLiteral("id=") + config.deviceId()).toUtf8());
-    txtRecords.append((QStringLiteral("name=") + config.name()).toUtf8());
-    txtRecords.append((QStringLiteral("type=") + config.deviceType().toString()).toUtf8());
-    txtRecords.append((QStringLiteral("protocol=") + QString::number(NetworkPacket::s_protocolVersion)).toUtf8());
+    txtRecords.append((QByteArray("id=") + config.deviceId().toUtf8()));
+    txtRecords.append((QByteArray("name=") + config.name().toUtf8()));
+    txtRecords.append((QByteArray("type=") + config.deviceType().toString().toUtf8()));
+    txtRecords.append((QByteArray("protocol=") + QString::number(NetworkPacket::s_protocolVersion).toUtf8()));
 
     auto addServiceReply = m_entryGroupInterface->AddService(-1, // interface: AVAHI_IF_UNSPEC
                                                              -1, // protocol: AVAHI_PROTO_UNSPEC

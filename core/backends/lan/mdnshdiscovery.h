@@ -21,7 +21,7 @@ class KDECONNECTCORE_EXPORT MdnshDiscovery : public QObject
 
 public:
     explicit MdnshDiscovery(LanLinkProvider *parent);
-    ~MdnshDiscovery();
+    ~MdnshDiscovery() override;
 
     void onStart();
     void onStop();
