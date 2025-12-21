@@ -85,8 +85,8 @@ void Daemon::init()
         d->m_linkProviders.insert(new LanLinkProvider(false, disabledLinkProviders.contains(QStringLiteral("LanLinkProvider"))));
         qCDebug(KDECONNECT_CORE) << "Constructed LanLinkProvider Backend";
 #ifdef KDECONNECT_BLUETOOTH
-        d->m_linkProviders.insert(new AsyncLinkProvider(disabledLinkProviders.contains(QStringLiteral("BluetoothLinkProvider"))));
-        qCDebug(KDECONNECT_CORE) << "Constructed AsyncLinkProvider<BluetoothLinkProvider> Backend";
+        d->m_linkProviders.insert(new AsyncLinkProvider(disabledLinkProviders.contains(QStringLiteral("AsyncLinkProvider"))));
+        qCDebug(KDECONNECT_CORE) << "Constructed AsyncLinkProvider<AsyncLinkProvider> Backend";
 #endif
 #ifdef KDECONNECT_LOOPBACK
         d->m_linkProviders.insert(new LoopbackLinkProvider());
