@@ -49,11 +49,12 @@ FormCard.FormCardPage {
                 required property string modelData
 
                 readonly property string displayName: modelData.split('|')[0]
+                readonly property string internalName: modelData.split('|')[1]
 
-                checked: modelData.split('|')[1] === 'enabled'
+                checked: modelData.split('|')[2] === 'enabled'
                 text: displayName
 
-                onToggled: DaemonDbusInterface.setLinkProviderState(displayName, checked);
+                onToggled: DaemonDbusInterface.setLinkProviderState(internalName, checked);
             }
         }
     }
