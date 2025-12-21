@@ -343,7 +343,7 @@ void Notification::Private::setDesktopEntry(const QString &desktopEntry)
             QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("knotifications6/%1.notifyrc").arg(notifyRcName));
         // Keep compatibility with KF5 applications
         if (configSources.isEmpty()) {
-            configSources = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("knotifications5/%1.notifyrc").arg(notifyRcName));
+            configSources = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("knotifications6/%1.notifyrc").arg(notifyRcName));
         }
         // `QStandardPaths` follows the order of precedence given by `$XDG_DATA_DIRS
         // (more priority goest first), but for `addConfigSources() it is the opposite
