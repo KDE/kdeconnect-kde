@@ -14,6 +14,7 @@ if(NOT APPLE AND NOT WIN32)
         backends/lan/avahidiscovery.cpp
     )
 else()
+    # FIXME: On Windows we should use the system API https://learn.microsoft.com/en-us/uwp/api/windows.networking.servicediscovery.dnssd instead of the custom mdns.h implementation
     set(backends_kdeconnect_SRCS
         ${backends_kdeconnect_SRCS}
         backends/lan/mdnshdiscovery.cpp
