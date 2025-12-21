@@ -42,4 +42,15 @@ static void setWhenAvailable(const QDBusPendingReply<T> &pending, W func, QObjec
     });
 }
 
+template<typename... Types>
+static void setWhenAvailable(const QDBusPendingReply<Types...> &pending, std::function<void(const QDBusPendingReply<Types...> &)> func, QObject *parent)
+{
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pending, parent);
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, parent, [func](QDBusPendingCallWatcher *watcher) {
+        watcher->deleteLater();
+        QDBusPendingReply<Types...> reply = *watcher;
+        func(reply);
+    });
+}
+
 #endif

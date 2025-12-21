@@ -7,6 +7,7 @@
 #include "avahidiscovery.h"
 
 #include "core_debug.h"
+#include "dbushelpers.h"
 #include "kdeconnectconfig.h"
 #include "lanlinkprovider.h"
 
@@ -197,26 +198,28 @@ void AvahiDiscovery::startDiscovering()
                     return;
                 }
 
-                // interface, protocol, name, type, domain, host, aprotocol, address, port, txt, flags
-                QDBusPendingReply<int, int, QString, QString, QString, QString, int, QString, ushort, QByteArrayList, uint> service =
-                    m_avahiServerInterface.ResolveService(interface, protocol, name, type, domain, -1, 0);
-                service.waitForFinished();
-                if (service.isError()) {
-                    qCWarning(KDECONNECT_CORE) << "Avahi: Could not resolve service for" << name << ":" << service.error();
-                    return;
-                }
+                auto service = m_avahiServerInterface.ResolveService(interface, protocol, name, type, domain, -1, 0);
+                setWhenAvailable(
+                    service,
+                    [this, name](const QDBusReply<int, int, QString, QString, QString, QString, int, QString, ushort, QByteArrayList, uint> &service) {
+                        if (service.isError()) {
+                            qCWarning(KDECONNECT_CORE) << "Avahi: Could not resolve service for" << name << ":" << service.error();
+                            return;
+                        }
 
-                const QString address = service.argumentAt<7>();
-                // const int port = service.argumentAt<8>();
+                        // args: 0: iface, 1: protocol, 3: name, 4: type, 5: domain, 6: host, 7: aprotocol, 8: address, 9: port, 10: txt, 11: flags
+                        const QString address = service.argumentAt<7>();
 
-                // TODO: For protocol v8, we can skip ahead and open a TCP connection
-                //       instead of sending a UDP packet and waiting for the other end
-                //       to send the TCP connection to us, since we already have all the
-                //       info we need to start a connection (ip, port, device id and protocol
-                //       version) and the remaining identity info is exchanged later.
+                        // TODO: For protocol v8, we can skip ahead and open a TCP connection
+                        //       instead of sending a UDP packet and waiting for the other end
+                        //       to send the TCP connection to us, since we already have all the
+                        //       info we need to start a connection (ip, port, device id and protocol
+                        //       version) and the remaining identity info is exchanged later.
 
-                qCDebug(KDECONNECT_CORE) << "Avahi: Discovered" << name << "at" << address;
-                lanLinkProvider->sendUdpIdentityPacket(QList<QHostAddress>{QHostAddress(address)});
+                        qCDebug(KDECONNECT_CORE) << "Avahi: Discovered" << name << "at" << address;
+                        lanLinkProvider->sendUdpIdentityPacket(QList<QHostAddress>{QHostAddress(address)});
+                    },
+                    m_serviceBrowserInterface);
             });
 
     connect(m_serviceBrowserInterface, &OrgFreedesktopAvahiServiceBrowserInterface::Failure, this, [](const QString &error) {
