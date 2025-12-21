@@ -32,6 +32,3 @@ msgstr "设备不受信任"
 #, kde-format
 msgid "Device disconnected"
 msgstr "设备已断开连接"
-
-#~ msgid "error: "
-#~ msgstr "错误："

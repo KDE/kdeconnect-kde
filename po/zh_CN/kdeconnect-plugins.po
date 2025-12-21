@@ -397,36 +397,34 @@ msgid "%1 does not exist"
 msgstr "%1 不存在"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
-#, fuzzy, kde-format
-#| msgctxt "Sample command"
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Leave Screen at"
-msgstr "锁屏"
+msgstr "离开屏幕时贴靠至"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "顶部"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "左侧"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "右侧"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "底部"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
 #, kde-format
@@ -434,7 +432,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
-msgstr ""
+msgstr "已有其他设备占用该边缘。若多台设备同时连接，可能导致异常结果。"
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
