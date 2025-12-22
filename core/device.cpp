@@ -333,6 +333,8 @@ bool Device::updateDeviceInfo(const DeviceInfo &newDeviceInfo)
         || d->m_deviceInfo.incomingCapabilities != newDeviceInfo.incomingCapabilities) {
         if (!newDeviceInfo.incomingCapabilities.isEmpty() && !newDeviceInfo.outgoingCapabilities.isEmpty()) {
             hasChanges = true;
+            d->m_deviceInfo.outgoingCapabilities = newDeviceInfo.outgoingCapabilities;
+            d->m_deviceInfo.incomingCapabilities = newDeviceInfo.incomingCapabilities;
             d->m_supportedPlugins = PluginLoader::instance()->pluginsForCapabilities(newDeviceInfo.incomingCapabilities, newDeviceInfo.outgoingCapabilities);
             qDebug() << "new capabilities for " << name();
         }
