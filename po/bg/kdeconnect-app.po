@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-11 00:44+0000\n"
+"POT-Creation-Date: 2025-12-22 00:42+0000\n"
 "PO-Revision-Date: 2025-11-28 21:24+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -345,12 +345,12 @@ msgctxt "@title:group"
 msgid "Backends"
 msgstr "Бекенд програми"
 
-#: qml/Settings.qml:65
+#: qml/Settings.qml:66
 #, kde-format
 msgid "About KDE Connect"
 msgstr "Относно KDE Connect"
 
-#: qml/Settings.qml:73
+#: qml/Settings.qml:74
 #, kde-format
 msgid "About KDE"
 msgstr "Относно KDE"

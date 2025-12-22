@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-11 00:44+0000\n"
+"POT-Creation-Date: 2025-12-22 00:42+0000\n"
 "PO-Revision-Date: 2024-06-08 20:36+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -352,12 +352,12 @@ msgctxt "@title:group"
 msgid "Backends"
 msgstr ""
 
-#: qml/Settings.qml:65
+#: qml/Settings.qml:66
 #, kde-format
 msgid "About KDE Connect"
 msgstr "केडीई कनेक्ट के बारे में"
 
-#: qml/Settings.qml:73
+#: qml/Settings.qml:74
 #, kde-format
 msgid "About KDE"
 msgstr "केडीई के बारे में"
