@@ -340,6 +340,7 @@ void LanLinkProvider::connectError(QSslSocket *socket, QHostAddress sender, QAbs
 }
 
 // We received a UDP packet and answered by connecting to them by TCP. This gets called on a successful connection.
+// TODO: When we support protocol version 8 only, this method doesn't need to take a networkpacket, just deviceId and protocolVersion
 void LanLinkProvider::tcpSocketConnected(QSslSocket *socket, std::shared_ptr<NetworkPacket> receivedPacket, QHostAddress sender)
 {
     disconnect(socket, &QAbstractSocket::errorOccurred, this, nullptr);

@@ -29,6 +29,7 @@ class KDECONNECTCORE_EXPORT NetworkPacket
     Q_PROPERTY(qint64 payloadSize READ payloadSize MEMBER m_payloadSize)
 
 public:
+    // TODO: Move this to a more reasonable place for the current protocol version
     const static int s_protocolVersion;
 
     explicit NetworkPacket(const QString &type = QString(), const QVariantMap &body = {});
