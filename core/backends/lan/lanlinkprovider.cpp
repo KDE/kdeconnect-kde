@@ -546,11 +546,10 @@ bool LanLinkProvider::isProtocolDowngrade(const QString &deviceId, int protocolV
     return lastKnownProtocolVersion > protocolVersion;
 }
 
-void LanLinkProvider::onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr)
+void LanLinkProvider::deviceRemoved(const QString &deviceId)
 {
     qCDebug(KDECONNECT_CORE) << "LanLinkProvider deviceLinkDestroyed" << deviceId;
-    DeviceLink *link = m_links.take(deviceId);
-    Q_ASSERT(link == oldPtr);
+    m_links.erase(deviceId);
 }
 
 void LanLinkProvider::configureSslSocket(QSslSocket *socket, const QString &deviceId, bool isDeviceTrusted)
@@ -600,9 +599,9 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
 
     LanDeviceLink *deviceLink;
     // Do we have a link for this device already?
-    QMap<QString, LanDeviceLink *>::iterator linkIterator = m_links.find(deviceInfo.id);
+    auto linkIterator = m_links.find(deviceInfo.id);
     if (linkIterator != m_links.end()) {
-        deviceLink = linkIterator.value();
+        deviceLink = linkIterator->second.get();
         if (deviceLink->deviceInfo().certificate != deviceInfo.certificate) {
             qWarning() << "LanLink was asked to replace a socket but the certificate doesn't match, aborting";
             return;
@@ -610,7 +609,8 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
         // qCDebug(KDECONNECT_CORE) << "Reusing link to" << deviceId;
         deviceLink->reset(socket);
     } else {
-        deviceLink = new LanDeviceLink(deviceInfo, this, socket);
+        auto dLink = std::make_unique<LanDeviceLink>(deviceInfo, this, socket);
+        deviceLink = dLink.get();
         // Socket disconnection will now be handled by LanDeviceLink
         disconnect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);
         bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceInfo.id);
@@ -620,7 +620,7 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
             socket->deleteLater();
             return;
         }
-        m_links[deviceInfo.id] = deviceLink;
+        m_links[deviceInfo.id] = std::move(dLink);
     }
     Q_EMIT onConnectionReceived(deviceLink);
 }

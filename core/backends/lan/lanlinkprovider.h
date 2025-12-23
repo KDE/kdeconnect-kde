@@ -67,7 +67,7 @@ public:
 
 public Q_SLOTS:
     void onNetworkChange() override;
-    void onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr) override;
+    void deviceRemoved(const QString &deviceId) override;
     void onStart() override;
     void onStop() override;
     void tcpSocketConnected(QSslSocket *socket, std::shared_ptr<NetworkPacket> receivedPacket, QHostAddress sender);
@@ -92,7 +92,7 @@ private:
     QUdpSocket m_udpSocket;
     quint16 m_tcpPort;
 
-    QMap<QString, LanDeviceLink *> m_links;
+    std::map<QString, std::unique_ptr<LanDeviceLink>> m_links;
 
     QMap<QString, qint64> m_lastConnectionTime;
     const bool m_testMode;

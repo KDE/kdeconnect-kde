@@ -18,7 +18,7 @@ class DeviceLink : public QObject
 {
     Q_OBJECT
 public:
-    DeviceLink(const QString &deviceId, LinkProvider *parent);
+    DeviceLink(LinkProvider *linkProvider);
 
     QString deviceId() const
     {

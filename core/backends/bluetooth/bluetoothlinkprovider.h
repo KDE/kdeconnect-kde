@@ -55,7 +55,7 @@ public Q_SLOTS:
     virtual void onNetworkChange() override;
     virtual void onStart() override;
     virtual void onStop() override;
-    virtual void onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr) override;
+    void deviceRemoved(const QString &deviceId) override;
     void onStartDiscovery();
     void connectError();
 
@@ -70,7 +70,7 @@ private Q_SLOTS:
     void serviceDiscovered(const QBluetoothServiceInfo &info);
 
 private:
-    void addLink(BluetoothDeviceLink *deviceLink, const QString &deviceId);
+    void addLink(std::unique_ptr<BluetoothDeviceLink> &&deviceLink, const QString &deviceId);
     QList<QBluetoothAddress> getPairedDevices();
     void tryToInitialise();
 
@@ -80,7 +80,7 @@ private:
     QBluetoothServiceDiscoveryAgent *mServiceDiscoveryAgent;
     bool mDisabled;
 
-    QMap<QString, DeviceLink *> mLinks;
+    std::map<QString, std::unique_ptr<DeviceLink>> mLinks;
 
     QMap<QBluetoothAddress, ConnectionMultiplexer *> mSockets;
 };

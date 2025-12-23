@@ -24,7 +24,7 @@ class KDECONNECTCORE_EXPORT BluetoothDeviceLink : public DeviceLink
 
 public:
     BluetoothDeviceLink(const DeviceInfo &deviceInfo,
-                        BluetoothLinkProvider *parent,
+                        BluetoothLinkProvider *linkProvider,
                         ConnectionMultiplexer *connection,
                         QSharedPointer<MultiplexChannel> socket);
 

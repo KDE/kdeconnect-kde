@@ -9,8 +9,8 @@
 #include "kdeconnectconfig.h"
 #include "loopbacklinkprovider.h"
 
-LoopbackDeviceLink::LoopbackDeviceLink(LoopbackLinkProvider *parent)
-    : DeviceLink(KdeConnectConfig::instance().deviceId(), parent)
+LoopbackDeviceLink::LoopbackDeviceLink(LoopbackLinkProvider *linkProvider)
+    : DeviceLink(linkProvider)
 {
 }
 
