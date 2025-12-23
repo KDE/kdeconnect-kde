@@ -25,9 +25,9 @@ public:
         QCoreApplication::processEvents();
     }
 
-    void addDevice(Device *device)
+    void addDevice(std::unique_ptr<Device> &&device)
     {
-        Daemon::addDevice(device);
+        Daemon::addDevice(std::move(device));
     }
 
     void reportError(const QString &title, const QString &description) override

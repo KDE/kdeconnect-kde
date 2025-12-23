@@ -90,7 +90,7 @@ private:
     void init();
 
 protected:
-    void addDevice(Device *device);
+    void addDevice(std::unique_ptr<Device> &&device);
     void removeDevice(Device *d);
 
     const std::unique_ptr<struct DaemonPrivate> d;

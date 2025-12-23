@@ -54,8 +54,8 @@ static void warn(const QString &info)
     qWarning() << "Device pairing error" << info;
 }
 
-Device::Device(QObject *parent, const QString &id)
-    : QObject(parent)
+Device::Device(const QString &id)
+    : QObject(nullptr)
 {
     DeviceInfo info = KdeConnectConfig::instance().getTrustedDevice(id);
     d = new Device::DevicePrivate(info);
@@ -73,8 +73,8 @@ Device::Device(QObject *parent, const QString &id)
     connect(d->m_pairingHandler, &PairingHandler::unpaired, this, &Device::pairingHandler_unpaired);
 }
 
-Device::Device(QObject *parent, DeviceLink *dl)
-    : QObject(parent)
+Device::Device(DeviceLink *dl)
+    : QObject(nullptr)
 {
     d = new Device::DevicePrivate(dl->deviceInfo());
 

@@ -36,7 +36,7 @@ struct DaemonPrivate {
     QSet<LinkProvider *> m_linkProviders;
 
     // Every known device
-    std::map<QString, Device *> m_devices;
+    std::map<QString, std::unique_ptr<Device>> m_devices;
 
     bool m_testMode;
 };
@@ -100,13 +100,13 @@ void Daemon::init()
     // Read remembered paired devices
     const QStringList &list = KdeConnectConfig::instance().trustedDevices();
     for (const QString &id : list) {
-        Device *d = new Device(this, id);
+        auto d = std::make_unique<Device>(id);
         // prune away devices with malformed certificates
         if (d->hasInvalidCertificate()) {
             qCDebug(KDECONNECT_CORE) << "Certificate for device " << id << "invalid, deleting the device";
             KdeConnectConfig::instance().removeTrustedDevice(id);
         } else {
-            addDevice(d);
+            addDevice(std::move(d));
         }
     }
 
@@ -127,13 +127,14 @@ void Daemon::init()
 
 void Daemon::removeDevice(Device *device)
 {
+    const QString deviceId = device->id();
+
     for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
         a->deviceRemoved(device->id());
     }
 
-    d->m_devices.erase(device->id());
-    device->deleteLater();
-    Q_EMIT deviceRemoved(device->id());
+    d->m_devices.erase(deviceId);
+    Q_EMIT deviceRemoved(deviceId);
     Q_EMIT deviceListChanged();
 }
 
@@ -149,7 +150,7 @@ void Daemon::forceOnNetworkChange()
 Device *Daemon::getDevice(const QString &deviceId)
 {
     auto it = d->m_devices.find(deviceId);
-    return it != d->m_devices.end() ? it->second : nullptr;
+    return it != d->m_devices.end() ? it->second.get() : nullptr;
 }
 
 QSet<LinkProvider *> Daemon::getLinkProviders() const
@@ -245,7 +246,7 @@ void Daemon::onNewDeviceLink(DeviceLink *link)
 
     if (d->m_devices.contains(id)) {
         qCDebug(KDECONNECT_CORE) << "It is a known device" << link->deviceInfo().name;
-        Device *device = d->m_devices[id];
+        auto &device = d->m_devices[id];
         bool wasReachable = device->isReachable();
         device->addLink(link);
         if (!wasReachable) {
@@ -254,8 +255,8 @@ void Daemon::onNewDeviceLink(DeviceLink *link)
         }
     } else {
         qCDebug(KDECONNECT_CORE) << "It is a new device" << link->deviceInfo().name;
-        Device *device = new Device(this, link);
-        addDevice(device);
+        auto device = std::make_unique<Device>(link);
+        addDevice(std::move(device));
     }
 }
 
@@ -326,18 +327,18 @@ QString Daemon::deviceIdByName(const QString &name) const
     return {};
 }
 
-void Daemon::addDevice(Device *device)
+void Daemon::addDevice(std::unique_ptr<Device> &&device)
 {
     const QString id = device->id();
-    connect(device, &Device::reachableChanged, this, &Daemon::onDeviceStatusChanged);
-    connect(device, &Device::pairStateChanged, this, &Daemon::onDeviceStatusChanged);
-    connect(device, &Device::pairStateChanged, this, &Daemon::pairingRequestsChanged);
-    connect(device, &Device::pairStateChanged, this, [this, device](int pairStateAsInt) {
+    connect(device.get(), &Device::reachableChanged, this, &Daemon::onDeviceStatusChanged);
+    connect(device.get(), &Device::pairStateChanged, this, &Daemon::onDeviceStatusChanged);
+    connect(device.get(), &Device::pairStateChanged, this, &Daemon::pairingRequestsChanged);
+    connect(device.get(), &Device::pairStateChanged, this, [this, device = device.get()](int pairStateAsInt) {
         PairState pairState = (PairState)pairStateAsInt;
         if (pairState == PairState::RequestedByPeer)
             askPairingConfirmation(device);
     });
-    d->m_devices[id] = device;
+    d->m_devices[id] = std::move(device);
 
     Q_EMIT deviceAdded(id);
     Q_EMIT deviceListChanged();
