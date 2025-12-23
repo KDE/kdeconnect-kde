@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Vít Pelčák <vit@pelcak.org>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2025 Vít Pelčák <vit@pelcak.org>
 # SPDX-FileCopyrightText: 2021, 2023, 2025 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-02-10 17:41+0100\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"PO-Revision-Date: 2025-12-11 16:02+0100\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -36,7 +36,7 @@ msgstr "CLI nástroj pro KDE Connect"
 #: kdeconnect-cli.cpp:34
 #, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr ""
+msgstr "(C) 2015-2025, Tým KDE Connect"
 
 #: kdeconnect-cli.cpp:35
 #, kde-format
@@ -190,11 +190,12 @@ msgstr "telefonní číslo"
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
+"URL souborů pro posílání příloh se zprávou (může být předáno několikrát)"
 
 #: kdeconnect-cli.cpp:70
 #, kde-format
 msgid "file URLs"
-msgstr ""
+msgstr "URL souborů"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
@@ -234,12 +235,12 @@ msgstr "Zobrazit id tohoto zařízení a ukončit"
 #: kdeconnect-cli.cpp:79
 #, kde-format
 msgid "Mount filesystem of a said device"
-msgstr ""
+msgstr "Připojit souborový systém daného zařízení"
 
 #: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "Vypsat bod připojení pro souborový systém na daném zařízení"
 
 #: kdeconnect-cli.cpp:126
 #, kde-format
@@ -312,7 +313,7 @@ msgstr "Vyžádáno odemčení %1."
 #: kdeconnect-cli.cpp:259
 #, kde-format
 msgid "waiting for device…"
-msgstr ""
+msgstr "čeká se na zařízení…"
 
 #: kdeconnect-cli.cpp:272
 #, kde-format
