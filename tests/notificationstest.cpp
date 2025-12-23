@@ -36,14 +36,14 @@ private Q_SLOTS:
      */
     void testAuthCodeIsCopied()
     {
+        const auto deviceIds = m_daemon->devices();
         Device *device = nullptr;
-        const QList<Device *> devicesList = m_daemon->devicesList();
-
-        for (Device *id : devicesList) {
-            if (id->isReachable()) {
-                if (!id->isPaired())
-                    id->requestPairing();
-                device = id;
+        for (const QString &deviceId : deviceIds) {
+            Device *d = m_daemon->getDevice(deviceId);
+            if (d->isReachable()) {
+                if (!d->isPaired())
+                    d->requestPairing();
+                device = d;
             }
         }
 

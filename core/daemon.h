@@ -33,8 +33,6 @@ public:
 
     static Daemon *instance();
 
-    QList<Device *> devicesList() const;
-
     virtual void askPairingConfirmation(Device *device) = 0;
     virtual void reportError(const QString &title, const QString &description) = 0;
     virtual void quit() = 0;

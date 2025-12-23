@@ -316,11 +316,6 @@ QNetworkAccessManager *Daemon::networkAccessManager()
     return manager;
 }
 
-QList<Device *> Daemon::devicesList() const
-{
-    return d->m_devices.values();
-}
-
 QString Daemon::deviceIdByName(const QString &name) const
 {
     for (Device *device : std::as_const(d->m_devices)) {

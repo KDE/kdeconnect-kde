@@ -40,20 +40,21 @@ private Q_SLOTS:
             QFAIL("No links available, but loopback should have been provided by the test");
         }
 
-        Device *d = nullptr;
-        const QList<Device *> devicesList = m_daemon->devicesList();
-        for (Device *id : devicesList) {
-            if (id->isReachable()) {
-                if (!id->isPaired())
-                    id->requestPairing();
-                d = id;
+        const auto deviceIds = m_daemon->devices();
+        Device *device = nullptr;
+        for (const QString &deviceId : deviceIds) {
+            Device *d = m_daemon->getDevice(deviceId);
+            if (d->isReachable()) {
+                if (!d->isPaired())
+                    d->requestPairing();
+                device = d;
             }
         }
-        if (d == nullptr) {
+        if (device == nullptr) {
             QFAIL("Unable to determine device");
         }
-        QCOMPARE(d->isReachable(), true);
-        QCOMPARE(d->isPaired(), true);
+        QCOMPARE(device->isReachable(), true);
+        QCOMPARE(device->isPaired(), true);
 
         QByteArray content("12312312312313213123213123");
 
@@ -62,7 +63,7 @@ private Q_SLOTS:
         temp.write(content);
         temp.close();
 
-        KdeConnectPlugin *plugin = d->plugin(QStringLiteral("kdeconnect_share"));
+        KdeConnectPlugin *plugin = device->plugin(QStringLiteral("kdeconnect_share"));
         QVERIFY(plugin);
         plugin->metaObject()->invokeMethod(plugin, "shareUrl", Q_ARG(QString, QUrl::fromLocalFile(temp.fileName()).toString()));
 

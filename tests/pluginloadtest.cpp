@@ -35,35 +35,35 @@ private Q_SLOTS:
             QFAIL("No links available, but loopback should have been provided by the test");
         }
 
-        Device *d = nullptr;
-        const QList<Device *> devicesList = m_daemon->devicesList();
-        for (Device *id : devicesList) {
-            if (id->isReachable()) {
-                if (!id->isPaired())
-                    id->requestPairing();
-                d = id;
-                break;
+        const auto deviceIds = m_daemon->devices();
+        Device *device = nullptr;
+        for (const QString &deviceId : deviceIds) {
+            Device *d = m_daemon->getDevice(deviceId);
+            if (d->isReachable()) {
+                if (!d->isPaired())
+                    d->requestPairing();
+                device = d;
             }
         }
-        if (d == nullptr) {
+        if (device == nullptr) {
             QFAIL("Unable to determine device");
         }
 
-        if (!d->loadedPlugins().contains(QStringLiteral("kdeconnect_remotecontrol"))) {
+        if (!device->loadedPlugins().contains(QStringLiteral("kdeconnect_remotecontrol"))) {
             QSKIP("kdeconnect_remotecontrol is required for this test");
         }
 
-        QVERIFY(d);
-        QVERIFY(d->isPaired());
-        QVERIFY(d->isReachable());
+        QVERIFY(device);
+        QVERIFY(device->isPaired());
+        QVERIFY(device->isReachable());
 
-        d->setPluginEnabled(QStringLiteral("kdeconnect_mousepad"), false);
-        QCOMPARE(d->isPluginEnabled(QStringLiteral("kdeconnect_mousepad")), false);
-        QVERIFY(d->supportedPlugins().contains(QStringLiteral("kdeconnect_remotecontrol")));
+        device->setPluginEnabled(QStringLiteral("kdeconnect_mousepad"), false);
+        QCOMPARE(device->isPluginEnabled(QStringLiteral("kdeconnect_mousepad")), false);
+        QVERIFY(device->supportedPlugins().contains(QStringLiteral("kdeconnect_remotecontrol")));
 
-        d->setPluginEnabled(QStringLiteral("kdeconnect_mousepad"), true);
-        QCOMPARE(d->isPluginEnabled(QStringLiteral("kdeconnect_mousepad")), true);
-        QVERIFY(d->supportedPlugins().contains(QStringLiteral("kdeconnect_remotecontrol")));
+        device->setPluginEnabled(QStringLiteral("kdeconnect_mousepad"), true);
+        QCOMPARE(device->isPluginEnabled(QStringLiteral("kdeconnect_mousepad")), true);
+        QVERIFY(device->supportedPlugins().contains(QStringLiteral("kdeconnect_remotecontrol")));
     }
 
 private:
