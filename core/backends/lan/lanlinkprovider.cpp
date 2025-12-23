@@ -343,9 +343,11 @@ void LanLinkProvider::tcpSocketConnected(QSslSocket *socket, std::shared_ptr<Net
     connect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);
 
     const QString &deviceId = receivedPacket->get<QString>(QStringLiteral("deviceId"));
+    const int protocolVersion = receivedPacket->get<int>(QStringLiteral("protocolVersion"));
 
-    // If network is on ssl, do not believe when they are connected, believe when handshake is completed
     NetworkPacket np2 = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
+    np2.set(QStringLiteral("targetDeviceId"), deviceId);
+    np2.set(QStringLiteral("targetProtocolVersion"), protocolVersion);
     socket->write(np2.serialize());
     bool success = socket->waitForBytesWritten();
 
@@ -500,6 +502,17 @@ void LanLinkProvider::tcpPacketReceived()
 
     if (!DeviceInfo::isValidIdentityPacket(np.get())) {
         qCWarning(KDECONNECT_CORE) << "Invalid identity packet received";
+        return;
+    }
+
+    QString targetDeviceId = np->get<QString>(QStringLiteral("targetDeviceId"));
+    int targetProtocolVersion = np->get<int>(QStringLiteral("targetProtocolVersion"), -1);
+    if (!targetDeviceId.isEmpty() && targetDeviceId != KdeConnectConfig::instance().deviceId()) {
+        qCWarning(KDECONNECT_CORE) << "Received a connection request for a device that isn't me:" << targetDeviceId;
+        return;
+    }
+    if (targetProtocolVersion != -1 && targetProtocolVersion != NetworkPacket::s_protocolVersion) {
+        qCWarning(KDECONNECT_CORE) << "Received a connection request for a protocol version that isn't mine:" << targetProtocolVersion;
         return;
     }
 
