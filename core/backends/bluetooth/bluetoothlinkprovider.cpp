@@ -8,6 +8,7 @@
 #include "bluetoothdevicelink.h"
 #include "connectionmultiplexer.h"
 #include "core_debug.h"
+#include "daemon.h"
 #include "kdeconnectconfig.h"
 #include "multiplexchannel.h"
 
@@ -126,6 +127,12 @@ void BluetoothLinkProvider::addLink(std::unique_ptr<BluetoothDeviceLink> &&devic
     Q_EMIT onConnectionReceived(deviceLink.get());
 
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::addLink executed";
+
+    connect(deviceLink.get(), &BluetoothDeviceLink::disconnected, this, [this, deviceId, deviceLink = deviceLink.get()] {
+        Daemon::instance()->getDevice(deviceId)->removeLink(deviceLink);
+        mLinks.erase(deviceId);
+    });
+
     mLinks[deviceId] = std::move(deviceLink);
 }
 

@@ -53,6 +53,7 @@ private:
 
 Q_SIGNALS:
     void receivedPacket(const NetworkPacket &np);
+    void disconnected();
 };
 
 #endif

@@ -297,7 +297,6 @@ void Device::addLink(DeviceLink *link)
         return a->priority() > b->priority();
     });
 
-    connect(link, &QObject::destroyed, this, &Device::linkDestroyed);
     connect(link, &DeviceLink::receivedPacket, this, &Device::privateReceivedPacket);
 
     bool hasChanges = updateDeviceInfo(link->deviceInfo());
@@ -345,10 +344,6 @@ bool Device::hasInvalidCertificate()
 {
     QDateTime now = QDateTime::currentDateTime();
     return certificate().isNull() || certificate().effectiveDate() >= now || certificate().expiryDate() <= now;
-}
-void Device::linkDestroyed(QObject *o)
-{
-    removeLink(static_cast<DeviceLink *>(o));
 }
 
 void Device::removeLink(DeviceLink *link)
