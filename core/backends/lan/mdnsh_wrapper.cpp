@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#include "mdns_wrapper.h"
+#include "mdnsh_wrapper.h"
 
 #include "core_debug.h"
 
@@ -16,7 +16,7 @@
 #include <QNetworkInterface>
 #include <QSocketNotifier>
 
-namespace MdnsWrapper
+namespace MdnshWrapper
 {
 const char *recordTypeToStr(int rtype)
 {
@@ -724,4 +724,4 @@ void Announcer::sendMulticastAnnounce(bool isGoodbye)
     }
 }
 
-} // namespace MdnsWrapper
+} // namespace MdnshWrapper

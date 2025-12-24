@@ -1,8 +1,5 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
 
-
-option(MDNS_ENABLED "Use MDNS for device discovery" OFF)
-
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
 
@@ -75,8 +72,9 @@ if (LOOPBACK_ENABLED)
     target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_LOOPBACK)
 endif()
 
-if (MDNS_ENABLED)
-    target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_MDNS)
+if(NOT APPLE AND NOT WIN32)
+    target_link_libraries(kdeconnectcore PRIVATE kdeconnectdbusinterfaces)
+    target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_USE_AVAHI)
 endif()
 
 set_target_properties(kdeconnectcore PROPERTIES

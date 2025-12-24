@@ -11,7 +11,7 @@
 #include <QStandardPaths>
 #include <QTest>
 
-#include "core/backends/lan/mdns_wrapper.h"
+#include "core/backends/lan/mdnsh_wrapper.h"
 #include "kdeconnect-version.h"
 
 class TestMdns : public QObject
@@ -31,17 +31,17 @@ private Q_SLOTS:
         QString txtKey = QStringLiteral("keyerino");
         QString txtValue = QStringLiteral("valuerino");
 
-        MdnsWrapper::Announcer announcer(instanceName, serviceType, instancePort);
+        MdnshWrapper::Announcer announcer(instanceName, serviceType, instancePort);
         announcer.putTxtRecord(txtKey, txtValue);
 
-        MdnsWrapper::Discoverer discoverer;
+        MdnshWrapper::Discoverer discoverer;
 
-        QSignalSpy spy(&discoverer, &MdnsWrapper::Discoverer::serviceFound);
+        QSignalSpy spy(&discoverer, &MdnshWrapper::Discoverer::serviceFound);
 
         connect(&discoverer,
-                &MdnsWrapper::Discoverer::serviceFound,
+                &MdnshWrapper::Discoverer::serviceFound,
                 this,
-                [instanceName, instancePort, txtKey, txtValue](const MdnsWrapper::Discoverer::MdnsService &service) {
+                [instanceName, instancePort, txtKey, txtValue](const MdnshWrapper::Discoverer::MdnsService &service) {
                     QCOMPARE(instanceName, service.name);
                     QCOMPARE(instancePort, service.port);
                     QVERIFY(service.txtRecords.size() == 1);

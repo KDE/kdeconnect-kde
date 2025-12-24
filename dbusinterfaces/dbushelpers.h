@@ -42,4 +42,16 @@ static void setWhenAvailable(const QDBusPendingReply<T> &pending, W func, QObjec
     });
 }
 
+// Version of setWhenAvailable that accepts more than one reply argument
+template<typename... Types, typename W>
+static void setWhenAvailableN(const QDBusPendingReply<Types...> &pending, W func, QObject *parent)
+{
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pending, parent);
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, parent, [func](QDBusPendingCallWatcher *watcher) {
+        watcher->deleteLater();
+        QDBusPendingReply<Types...> reply = *watcher;
+        func(reply);
+    });
+}
+
 #endif
