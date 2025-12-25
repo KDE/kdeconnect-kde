@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-15 00:42+0000\n"
-"PO-Revision-Date: 2025-11-14 09:39+0100\n"
+"PO-Revision-Date: 2025-12-24 16:26+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -45,10 +45,9 @@ msgid "Max Clipboard File Size (MB)"
 msgstr "Graniczny rozmiar pliku w schowku (MB)"
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "KDE Connect Error"
-msgstr "KDE Connect"
+msgstr "Błąd KDE Connect"
 
 #: digitizer/linuxdigitizerimpl.cpp:73
 #, kde-format
@@ -56,6 +55,8 @@ msgid ""
 "Unable to create a virtual drawing tablet. If this error persists, file a "
 "bug report."
 msgstr ""
+"Nie można utworzyć wirtualnego tabletu rysunkowego. Zgłoś to nam jako błąd, "
+"gdy to się powtórzy."
 
 #: digitizer/linuxdigitizerimpl.cpp:169
 #, kde-format
@@ -63,6 +64,8 @@ msgid ""
 "Unable to process one or more input events for the virtual device. If this "
 "error persists, file a bug report."
 msgstr ""
+"Nie można przetworzyć jednego lub więcej zdarzeń obsługi dla wirtualnego "
+"urządzenia. Zgłoś to nam jako błąd, gdy to się powtórzy."
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
@@ -223,43 +226,37 @@ msgid "Sample commands:"
 msgstr "Proste polecenia:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:110
-#, fuzzy, kde-format
-#| msgid "Suspend"
+#, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Uśpij"
 
 #: runcommand/kdeconnect_runcommand_config.qml:114
-#, fuzzy, kde-format
-#| msgid "Maximum Brightness"
+#, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "Największa jasność"
 
 #: runcommand/kdeconnect_runcommand_config.qml:118
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Zablokuj ekran"
 
 #: runcommand/kdeconnect_runcommand_config.qml:122
-#, fuzzy, kde-format
-#| msgid "Unlock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Odblokuj ekran"
 
 #: runcommand/kdeconnect_runcommand_config.qml:126
-#, fuzzy, kde-format
-#| msgid "Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Zamknij wszystkie sejfy"
 
 #: runcommand/kdeconnect_runcommand_config.qml:130
-#, fuzzy, kde-format
-#| msgid "Forcefully Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
 msgstr "Wymuś zamknięcie wszystkich sejfów"
@@ -406,35 +403,34 @@ msgid "%1 does not exist"
 msgstr "%1 nie istnieje"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Leave Screen at"
-msgstr "Zablokuj ekran"
+msgstr "Pozostaw ekran na"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "Na górze"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "Po lewej"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "Po prawej"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "Na dole"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
 #, kde-format
@@ -443,6 +439,8 @@ msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
 msgstr ""
+"Inne urządzenie zajęło już tę krawędź. Może to prowadzić do nieoczekiwanych "
+"skutków, gdy oba zostaną podłączone w tym samym czasie. "
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
