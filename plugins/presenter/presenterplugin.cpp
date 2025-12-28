@@ -75,8 +75,8 @@ void PresenterPlugin::receivePacket(const NetworkPacket &np)
     QSize screenSize = m_view->screen()->size();
     float ratio = float(screenSize.width()) / screenSize.height();
 
-    m_xPos += np.get<float>(QStringLiteral("dx"));
-    m_yPos += np.get<float>(QStringLiteral("dy")) * ratio;
+    m_xPos += np.get<float>(QStringLiteral("dx")) / 3;
+    m_yPos += (np.get<float>(QStringLiteral("dy")) / 3) * ratio;
     m_xPos = qBound(0.f, m_xPos, 1.f);
     m_yPos = qBound(0.f, m_yPos, 1.f);
 
