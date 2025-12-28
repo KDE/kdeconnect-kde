@@ -37,7 +37,7 @@ public:
         setColor(QColor(Qt::transparent));
 
         setResizeMode(QQuickView::SizeViewToRootObject);
-        setSource(QUrl(QStringLiteral("qrc:/presenter/Presenter.qml")));
+        setSource(QUrl(QStringLiteral("qrc:/presenter/PresenterRedDot.qml")));
 
         const auto ourErrors = errors();
         for (const auto &error : ourErrors) {
