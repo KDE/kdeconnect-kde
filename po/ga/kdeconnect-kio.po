@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: kiokdeconnect.cpp:75
+#, kde-format
+msgid "Listing devices…"
+msgstr ""
+
+#: kiokdeconnect.cpp:120
+#, kde-format
+msgid "Accessing device…"
+msgstr ""
+
+#: kiokdeconnect.cpp:135
+#, kde-format
+msgid "No such device: %0"
+msgstr ""
+
+#: kiokdeconnect.cpp:141
+#, kde-format
+msgid "%0 is not paired"
+msgstr ""
+
+#: kiokdeconnect.cpp:145
+#, kde-format
+msgid "%0 is not connected"
+msgstr ""
+
+#: kiokdeconnect.cpp:149
+#, kde-format
+msgid "%0 has no Remote Filesystem plugin"
+msgstr ""
+
+#: kiokdeconnect.cpp:208
+#, kde-format
+msgid "Could not contact background service."
+msgstr ""
+
+#: kiokdeconnect.cpp:235
+#, kde-format
+msgid "Failed to get mount point: %1"
+msgstr ""

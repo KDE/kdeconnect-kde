@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
+"3 : 4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: deviceindicator.cpp:53
+#, kde-format
+msgid "Browse device"
+msgstr ""
+
+#: deviceindicator.cpp:67
+#, kde-format
+msgid "Send clipboard"
+msgstr ""
+
+#: deviceindicator.cpp:81
+#, kde-format
+msgctxt "@action:inmenu play bell sound"
+msgid "Ring device"
+msgstr ""
+
+#: deviceindicator.cpp:95
+#, kde-format
+msgid "Send files"
+msgstr ""
+
+#: deviceindicator.cpp:117
+#, kde-format
+msgid "SMS Messages…"
+msgstr ""
+
+#: deviceindicator.cpp:130
+#, kde-format
+msgid "Run command"
+msgstr ""
+
+#: deviceindicator.cpp:132
+#, kde-format
+msgid "Add commands"
+msgstr ""
+
+#: indicatorhelper_mac.cpp:47 indicatorhelper_mac.cpp:58
+#, kde-format
+msgid "KDE Connect"
+msgstr ""
+
+#: indicatorhelper_mac.cpp:48
+#, kde-format
+msgid ""
+"Cannot connect to DBus\n"
+"KDE Connect will quit"
+msgstr ""
+
+#: indicatorhelper_mac.cpp:58
+#, kde-format
+msgid "Cannot find kdeconnectd"
+msgstr ""
+
+#: main.cpp:57
+#, kde-format
+msgid "KDE Connect Indicator"
+msgstr ""
+
+#: main.cpp:59
+#, kde-format
+msgid "KDE Connect Indicator tool"
+msgstr ""
+
+#: main.cpp:61
+#, kde-format
+msgid "© 2016–2025 KDE Connect Team"
+msgstr ""
+
+#: main.cpp:62
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr ""
+
+#: main.cpp:63
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr ""
+
+#: main.cpp:101
+#, kde-format
+msgid "Open app"
+msgstr ""
+
+#: main.cpp:118
+#, kde-format
+msgid "Pairing requests"
+msgstr ""
+
+#: main.cpp:123
+#, kde-format
+msgctxt "Accept a pairing request"
+msgid "Pair"
+msgstr ""
+
+#: main.cpp:124
+#, kde-format
+msgid "Reject"
+msgstr ""
+
+#: main.cpp:129 main.cpp:138
+#, kde-format
+msgid "Quit"
+msgstr ""
+
+#: main.cpp:157 main.cpp:179
+#, kde-format
+msgid "%1 device connected"
+msgid_plural "%1 devices connected"
+msgstr[0] ""
+msgstr[1] ""
+
+#: systray_actions/battery_action.cpp:28
+#, kde-format
+msgid "No Battery"
+msgstr ""
+
+#: systray_actions/battery_action.cpp:30
+#, kde-format
+msgid "Battery: %1% (Charging)"
+msgstr ""
+
+#: systray_actions/battery_action.cpp:32
+#, kde-format
+msgid "Battery: %1%"
+msgstr ""
+
+#: systray_actions/connectivity_action.cpp:30
+#, kde-format
+msgctxt ""
+"The fallback text to display in case the remote device does not have a "
+"cellular connection"
+msgid "No Cellular Connectivity"
+msgstr ""
+
+#: systray_actions/connectivity_action.cpp:33
+#, kde-format
+msgctxt ""
+"Display the cellular connection type and an approximate percentage of signal "
+"strength"
+msgid "%1  | ~%2%"
+msgstr ""

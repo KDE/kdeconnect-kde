@@ -1,125 +1,111 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2018, 2019, 2020, 2021, 2023, 2025 Tommi Nieminen <translator@legisign.org>
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2025-11-13 13:51+0200\n"
-"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
-"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
-"Language: fi\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Tommi Nieminen"
+msgstr ""
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "translator@legisign.org"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, devicePickerLabel)
 #: dialog.ui:25
 #, kde-format
 msgid "Select device:"
-msgstr "Valitse laite:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
 #: dialog.ui:39
 #, kde-format
 msgid "Enter a file location or URL:"
-msgstr "Kirjoita tiedoston sijainti tai verkko-osoite:"
+msgstr ""
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
 msgid "KDE Connect URL handler"
-msgstr "KDE Connectin verkko-osoitekäsittelijä"
+msgstr ""
 
 #: kdeconnect-handler.cpp:50
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr "© 2015–2025 KDE Connect -työryhmä"
+msgstr ""
 
 #: kdeconnect-handler.cpp:51
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr ""
 
 #: kdeconnect-handler.cpp:52
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
+msgstr ""
 
 #: kdeconnect-handler.cpp:84
 #, kde-format
 msgid "URL to share"
-msgstr "Jaettava verkko-osoite"
+msgstr ""
 
 #: kdeconnect-handler.cpp:85
 #, kde-format
 msgid "Select a device"
-msgstr "Valitse laite"
+msgstr ""
 
 #: kdeconnect-handler.cpp:85
 #, kde-format
 msgid "id"
-msgstr "id"
+msgstr ""
 
 #: kdeconnect-handler.cpp:86
 #, kde-format
 msgid "Automatically open the file on the remote device, when supported"
-msgstr "Avaa tiedosto etälaitteessa automaattisesti, jos tuettu"
+msgstr ""
 
 #: kdeconnect-handler.cpp:128
 #, kde-format
 msgctxt "Placeholder for input field that should contain a file/URL to share"
 msgid "Local file or web URL"
-msgstr "Paikallinen tiedosto tai verkko-osoite"
+msgstr ""
 
-# *** TARKISTA: Onko %1 puhelinnumero?
 #: kdeconnect-handler.cpp:137
 #, kde-format
 msgid "Device to call %1 with:"
-msgstr "Laite, jolla numeroon %1 soitetaan:"
+msgstr ""
 
 #: kdeconnect-handler.cpp:140
 #, kde-format
 msgid "Device to open %1 on:"
-msgstr "Laite, johon %1 avataan:"
+msgstr ""
 
 #: kdeconnect-handler.cpp:143
 #, kde-format
 msgid "Device to send a SMS with:"
-msgstr "Laite, jolla tekstiviesti lähetetään:"
+msgstr ""
 
 #: kdeconnect-handler.cpp:146
 #, kde-format
 msgid "Device to send %1 to:"
-msgstr "Laite, johon %1 lähetetään:"
+msgstr ""
 
 #: kdeconnect-handler.cpp:165
 #, kde-format
 msgid "Couldn't share %1"
-msgstr "Ei voitu jakaa: %1"
-
-#~ msgid "Send URL"
-#~ msgstr "Lähetä verkko-osoite"
-
-#~ msgid "Send File"
-#~ msgstr "Lähetä tiedosto"
-
-# *** TARKISTA: Onko peer-sanalle tässä kontekstissa vakiintunutta käännöstä?
-#~ msgid "Open on peer device"
-#~ msgstr "Avaa vertaislaitteella"
-
-#~ msgid "Enter URL here"
-#~ msgstr "Kirjoita tähän verkko-osoite"
+msgstr ""
