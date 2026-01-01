@@ -69,7 +69,7 @@ size_t RequestConversationWorker::replyForConversation(const QList<ConversationM
     // messages (smallest timestamp number)
     // Therefore, return the end of the list first (most recent messages)
     size_t i = 0;
-    for (auto it = conversation.crbegin() + start; it != conversation.crend(); ++it) {
+    for (auto it = conversation.crbegin() + start; it < conversation.crend(); ++it) {
         if (i >= howMany) {
             break;
         }
