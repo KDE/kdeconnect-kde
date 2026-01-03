@@ -78,12 +78,12 @@ Kirigami.ScrollablePage {
                 icon.name: "list-add"
                 enabled: commandField.length > 0
                 onTriggered: {
-                    commandModel.addCommand(nameField.text, commandField.text)
+                    commandModel.addCommand(nameField.text, commandField.text);
                     addDialog.close();
                 }
                 Component.onCompleted: {
                     // TODO: can be set directly once Qt 6.8 is required
-                    Accessible.Name = i18ndc("kdeconnect-plugins", "@action:button accessible", "Add command")
+                    Accessible.Name = i18ndc("kdeconnect-plugins", "@action:button accessible", "Add command");
                 }
             }
 
@@ -102,39 +102,60 @@ Kirigami.ScrollablePage {
 
                 QQC2.ComboBox {
                     Kirigami.FormData.label: i18nd("kdeconnect-plugins", "Sample commands:")
+                    visible: model.length > 0
                     textRole: "name"
                     currentIndex: -1
                     displayText: currentIndex === -1 ? "" : currentText
-                    model: [
-                        {
-                            name: i18ndc("kdeconnect-plugins", "Sample command", "Suspend"),
-                            command: "systemctl suspend"
-                        },
-                        {
-                            name: i18ndc("kdeconnect-plugins", "Sample command", "Maximum Brightness"),
-                            command: "qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness `qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightnessMax`"
-                        },
-                        {
-                            name: i18ndc("kdeconnect-plugins", "Sample command", "Lock Screen"),
-                            command: "loginctl lock-session"
-                        },
-                        {
-                            name: i18ndc("kdeconnect-plugins", "Sample command", "Unlock Screen"),
-                            command: "loginctl unlock-session"
-                        },
-                        {
-                            name: i18ndc("kdeconnect-plugins", "Sample command", "Close All Vaults"),
-                            command: "qdbus org.kde.kded5 /modules/plasmavault closeAllVaults"
-                        },
-                        {
-                            name: i18ndc("kdeconnect-plugins", "Sample command", "Forcefully Close All Vaults"),
-                            command: "qdbus org.kde.kded5 /modules/plasmavault forceCloseAllVaults"
-                        }
-                    ]
+                    model: createSampleCommands()
                     onActivated: {
                         if (currentIndex >= 0) {
-                            nameField.text = model[currentIndex].name
-                            commandField.text = model[currentIndex].command
+                            nameField.text = model[currentIndex].name;
+                            commandField.text = model[currentIndex].command;
+                        }
+                    }
+                    function createSampleCommands() {
+                        // See https://doc.qt.io/qt-6/qml-qtqml-qt.html#platform-prop
+                        // for possible platform values.
+                        if (Qt.platform.os == "windows") {
+                            return [
+                                {
+                                    name: i18ndc("kdeconnect-plugins", "Sample command", "Suspend"),
+                                    command: "rundll32.exe powrprof.dll,SetSuspendState 0,1,0"
+                                },
+                                {
+                                    name: i18ndc("kdeconnect-plugins", "Sample command", "Lock Screen"),
+                                    command: "rundll32.exe user32.dll,LockWorkStation"
+                                }
+                            ];
+                        } else if (Qt.platform.os == "linux" || Qt.platform.os == "unix") {
+                            return [
+                                {
+                                    name: i18ndc("kdeconnect-plugins", "Sample command", "Suspend"),
+                                    command: "systemctl suspend"
+                                },
+                                {
+                                    name: i18ndc("kdeconnect-plugins", "Sample command", "Maximum Brightness"),
+                                    command: "qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness `qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightnessMax`"
+                                },
+                                {
+                                    name: i18ndc("kdeconnect-plugins", "Sample command", "Lock Screen"),
+                                    command: "loginctl lock-session"
+                                },
+                                {
+                                    name: i18ndc("kdeconnect-plugins", "Sample command", "Unlock Screen"),
+                                    command: "loginctl unlock-session"
+                                },
+                                {
+                                    name: i18ndc("kdeconnect-plugins", "Sample command", "Close All Vaults"),
+                                    command: "qdbus org.kde.kded5 /modules/plasmavault closeAllVaults"
+                                },
+                                {
+                                    name: i18ndc("kdeconnect-plugins", "Sample command", "Forcefully Close All Vaults"),
+                                    command: "qdbus org.kde.kded5 /modules/plasmavault forceCloseAllVaults"
+                                }
+                            ];
+                        } else {
+                            return [];
                         }
                     }
                 }
