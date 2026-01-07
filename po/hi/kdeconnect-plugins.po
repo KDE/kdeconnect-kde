@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-15 00:42+0000\n"
+"POT-Creation-Date: 2026-01-07 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 15:58+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -220,37 +220,39 @@ msgstr ""
 msgid "Sample commands:"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:110
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:133
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:114
-#, kde-format
-msgctxt "Sample command"
-msgid "Maximum Brightness"
-msgstr ""
-
-#: runcommand/kdeconnect_runcommand_config.qml:118
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:141
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:137
+#, kde-format
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:145
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:149
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:130
+#: runcommand/kdeconnect_runcommand_config.qml:153
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"

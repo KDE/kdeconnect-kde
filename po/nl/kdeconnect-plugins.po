@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-15 00:42+0000\n"
+"POT-Creation-Date: 2026-01-07 00:43+0000\n"
 "PO-Revision-Date: 2025-12-15 11:17+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -225,37 +225,39 @@ msgstr "Commando:"
 msgid "Sample commands:"
 msgstr "Voorbeeldopdrachten:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:110
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:133
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Onderbreken"
 
-#: runcommand/kdeconnect_runcommand_config.qml:114
-#, kde-format
-msgctxt "Sample command"
-msgid "Maximum Brightness"
-msgstr "Maximale helderheid"
-
-#: runcommand/kdeconnect_runcommand_config.qml:118
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:141
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Scherm vergrendelen"
 
-#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:137
+#, kde-format
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Maximale helderheid"
+
+#: runcommand/kdeconnect_runcommand_config.qml:145
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Scherm ontgrendelen"
 
-#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:149
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Alle kluizen sluiten"
 
-#: runcommand/kdeconnect_runcommand_config.qml:130
+#: runcommand/kdeconnect_runcommand_config.qml:153
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"

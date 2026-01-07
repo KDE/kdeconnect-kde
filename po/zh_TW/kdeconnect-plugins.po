@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-15 00:42+0000\n"
+"POT-Creation-Date: 2026-01-07 00:43+0000\n"
 "PO-Revision-Date: 2025-12-16 21:46+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -225,37 +225,39 @@ msgstr "指令："
 msgid "Sample commands:"
 msgstr "範例指令："
 
-#: runcommand/kdeconnect_runcommand_config.qml:110
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:133
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "暫停"
 
-#: runcommand/kdeconnect_runcommand_config.qml:114
-#, kde-format
-msgctxt "Sample command"
-msgid "Maximum Brightness"
-msgstr "最大亮度"
-
-#: runcommand/kdeconnect_runcommand_config.qml:118
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:141
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "鎖定螢幕"
 
-#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:137
+#, kde-format
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "最大亮度"
+
+#: runcommand/kdeconnect_runcommand_config.qml:145
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "解鎖螢幕"
 
-#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:149
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "關閉所有 Plasma 儲存庫"
 
-#: runcommand/kdeconnect_runcommand_config.qml:130
+#: runcommand/kdeconnect_runcommand_config.qml:153
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"

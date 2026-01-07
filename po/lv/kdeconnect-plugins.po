@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-15 00:42+0000\n"
+"POT-Creation-Date: 2026-01-07 00:43+0000\n"
 "PO-Revision-Date: 2025-11-08 09:39+0200\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -222,42 +222,44 @@ msgstr "Komanda:"
 msgid "Sample commands:"
 msgstr "Komandu paraugi:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:110
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:133
 #, fuzzy, kde-format
 #| msgid "Suspend"
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Iesnaudināt"
 
-#: runcommand/kdeconnect_runcommand_config.qml:114
-#, fuzzy, kde-format
-#| msgid "Maximum Brightness"
-msgctxt "Sample command"
-msgid "Maximum Brightness"
-msgstr "Maksimālais gaišums"
-
-#: runcommand/kdeconnect_runcommand_config.qml:118
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:141
 #, fuzzy, kde-format
 #| msgid "Lock Screen"
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Bloķēt ekrānu"
 
-#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:137
+#, fuzzy, kde-format
+#| msgid "Maximum Brightness"
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Maksimālais gaišums"
+
+#: runcommand/kdeconnect_runcommand_config.qml:145
 #, fuzzy, kde-format
 #| msgid "Unlock Screen"
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Atbloķēt ekrānu"
 
-#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:149
 #, fuzzy, kde-format
 #| msgid "Close All Vaults"
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Aizvērt visus seifus"
 
-#: runcommand/kdeconnect_runcommand_config.qml:130
+#: runcommand/kdeconnect_runcommand_config.qml:153
 #, fuzzy, kde-format
 #| msgid "Forcefully Close All Vaults"
 msgctxt "Sample command"

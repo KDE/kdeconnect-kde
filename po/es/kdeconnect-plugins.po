@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-15 00:42+0000\n"
+"POT-Creation-Date: 2026-01-07 00:43+0000\n"
 "PO-Revision-Date: 2025-12-29 00:51+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -226,37 +226,39 @@ msgstr "Orden"
 msgid "Sample commands:"
 msgstr "Órdenes de muestra:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:110
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:133
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Suspender"
 
-#: runcommand/kdeconnect_runcommand_config.qml:114
-#, kde-format
-msgctxt "Sample command"
-msgid "Maximum Brightness"
-msgstr "Brillo máximo"
-
-#: runcommand/kdeconnect_runcommand_config.qml:118
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:141
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Bloquear pantalla"
 
-#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:137
+#, kde-format
+msgctxt "Sample command"
+msgid "Maximum Brightness"
+msgstr "Brillo máximo"
+
+#: runcommand/kdeconnect_runcommand_config.qml:145
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Desbloquear pantalla"
 
-#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:149
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Cerrar todas las cajas fuertes"
 
-#: runcommand/kdeconnect_runcommand_config.qml:130
+#: runcommand/kdeconnect_runcommand_config.qml:153
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
