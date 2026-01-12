@@ -223,7 +223,7 @@ msgstr "Clip d'àudio"
 #: qml/SendingArea.qml:24
 #, kde-format
 msgid "Failed to send"
-msgstr "No s'ha pogut enviar"
+msgstr "Ha fallat mentre s'enviava"
 
 #: qml/SendingArea.qml:25
 #, kde-format

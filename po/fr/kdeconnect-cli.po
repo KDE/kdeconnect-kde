@@ -3,16 +3,16 @@
 # Sebastien Renard <renard@kde.org>, 2014, 2015.
 # Maxime Corteel <mcorteel@gmail.com>, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2019, 2020.
-# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025, 2026 Xavier Besnard <xavier.besnard@kde.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-11-10 10:08+0100\n"
+"PO-Revision-Date: 2026-01-10 19:31+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: French <French <kde-francophone@kde.org>>\n"
+"Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -145,7 +145,7 @@ msgstr "Trouver le périphérique en le faisant sonner"
 #: kdeconnect-cli.cpp:83
 #, kde-format
 msgid "Unpair from device"
-msgstr "Dé-appairer du périphérique..."
+msgstr "Dissocier du périphérique..."
 
 #: kdeconnect-cli.cpp:84
 #, kde-format
@@ -258,7 +258,7 @@ msgstr "Afficher l'identifiant du périphérique et sortir"
 #: kdeconnect-cli.cpp:104
 #, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "Monter le système de fichier sur le périphérique indiqué"
+msgstr "Monter le système de fichiers sur le périphérique indiqué"
 
 #: kdeconnect-cli.cpp:105
 #, kde-format
@@ -350,7 +350,7 @@ msgstr "Déjà non associé"
 #: kdeconnect-cli.cpp:309
 #, kde-format
 msgid "Successfully unpaired"
-msgstr "Désapparié avec succès"
+msgstr "Dissocié avec succès"
 
 #: kdeconnect-cli.cpp:367
 #, kde-format

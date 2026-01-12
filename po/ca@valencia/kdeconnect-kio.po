@@ -59,4 +59,4 @@ msgstr "No s'ha pogut contactar utilitzant el servei en segon pla."
 #: kiokdeconnect.cpp:235
 #, kde-format
 msgid "Failed to get mount point: %1"
-msgstr "No s'ha pogut obtindre el punt de muntatge: %1"
+msgstr "Ha fallat mentre s'obtenia el punt de muntatge: %1"
