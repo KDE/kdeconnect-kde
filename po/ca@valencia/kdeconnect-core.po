@@ -29,7 +29,7 @@ msgstr "No s'ha pogut trobar un port disponible"
 #: backends/lan/compositeuploadjob.cpp:110
 #, kde-format
 msgid "Failed to send packet to %1"
-msgstr "No s'ha pogut enviar un paquet a %1"
+msgstr "Ha fallat mentre s'enviava un paquet a %1"
 
 #: backends/lan/compositeuploadjob.cpp:256
 #, kde-format
@@ -125,7 +125,7 @@ msgstr "S'ha rebut un fitxer incomplet des de: %1"
 #: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
 #, kde-format
 msgid "KDE Connect failed to start"
-msgstr "KDE Connect ha fallat en iniciar"
+msgstr "KDE Connect ha fallat mentre s'iniciava"
 
 #: kdeconnectconfig.cpp:348
 #, kde-format
