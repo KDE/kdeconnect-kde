@@ -211,7 +211,7 @@ void LanLinkProvider::sendUdpIdentityPacket(const QList<QHostAddress> &addresses
     QUdpSocket sendSocket;
     sendSocket.setProxy(QNetworkProxy::NoProxy);
     for (const QNetworkInterface &iface : QNetworkInterface::allInterfaces()) {
-        if ((iface.flags() & QNetworkInterface::IsUp) && (iface.flags() & QNetworkInterface::IsRunning) && (iface.flags() & QNetworkInterface::CanBroadcast)) {
+        if ((iface.flags() & QNetworkInterface::IsUp) && (iface.flags() & QNetworkInterface::IsRunning)) {
             for (const QNetworkAddressEntry &ifaceAddress : iface.addressEntries()) {
                 QHostAddress sourceAddress = ifaceAddress.ip();
                 if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
