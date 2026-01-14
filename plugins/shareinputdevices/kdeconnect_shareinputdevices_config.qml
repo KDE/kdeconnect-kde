@@ -28,7 +28,7 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
-        Kirigami.FormData.label: i18nc("@label:listbox", "Leave Screen at")
+        Kirigami.FormData.label: i18nc("@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/right edge', the pointer will switch to the connected device there", "Leave Screen at")
         QQC2.ComboBox {
             id: edgeComboBox
             textRole: "text"
@@ -55,7 +55,7 @@ Kirigami.FormLayout {
         }
         KCMUtils.ContextualHelpButton {
             icon.name: "data-warning"
-            toolTipText: i18nc("@info:tooltip", "Another device already reserved this edge. This may lead to unexpected results when both are connected at the same time.")
+            toolTipText: i18nc("@info:tooltip edge: screen edge", "Another device already reserved this edge. This may lead to unexpected results when both are connected at the same time.")
             visible: configInstantiator.children.some((deviceConfig) => deviceConfig.getInt("edge", Qt.LeftEdge) == edgeComboBox.currentValue)
             Instantiator {
                 id: configInstantiator
