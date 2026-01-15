@@ -270,6 +270,6 @@ Kirigami.ScrollablePage {
         readonly property var shareIface: root.currentDevice ? ShareDbusInterfaceFactory.create(root.currentDevice.id()) : null
         title: i18nd("kdeconnect-app", "Please choose a file")
         currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
-        onAccepted: shareIface.shareUrl(fileDialog.fileUrl)
+        onAccepted: shareIface.shareUrl(fileDialog.selectedFile)
     }
 }
