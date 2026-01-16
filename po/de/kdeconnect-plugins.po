@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:43+0000\n"
+"POT-Creation-Date: 2026-01-16 00:43+0000\n"
 "PO-Revision-Date: 2025-12-07 20:57+0100\n"
 "Last-Translator: Oliver Schramm <oliver.schramm97@gmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -418,7 +418,9 @@ msgstr "%1 existiert nicht"
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
 #, fuzzy, kde-format
 #| msgid "Lock Screen"
-msgctxt "@label:listbox"
+msgctxt ""
+"@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
+"right edge', the pointer will switch to the connected device there"
 msgid "Leave Screen at"
 msgstr "Bildschirm sperren"
 
@@ -448,7 +450,7 @@ msgstr ""
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
 #, kde-format
-msgctxt "@info:tooltip"
+msgctxt "@info:tooltip edge: screen edge"
 msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."

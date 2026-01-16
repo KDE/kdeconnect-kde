@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:43+0000\n"
+"POT-Creation-Date: 2026-01-16 00:43+0000\n"
 "PO-Revision-Date: 2025-12-18 10:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -402,8 +402,12 @@ msgid "%1 does not exist"
 msgstr "%1 غير موجود"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
-#, kde-format
-msgctxt "@label:listbox"
+#, fuzzy, kde-format
+#| msgctxt "@label:listbox"
+#| msgid "Leave Screen at"
+msgctxt ""
+"@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
+"right edge', the pointer will switch to the connected device there"
 msgid "Leave Screen at"
 msgstr "اترك الشّاشة عند"
 
@@ -432,8 +436,12 @@ msgid "Bottom"
 msgstr "أسفل"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
-#, kde-format
-msgctxt "@info:tooltip"
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Another device already reserved this edge. This may lead to unexpected "
+#| "results when both are connected at the same time."
+msgctxt "@info:tooltip edge: screen edge"
 msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."

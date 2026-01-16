@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2022, 2025 Sveinn í Felli <sv1@fellsnet.is>
+# SPDX-FileCopyrightText: 2022, 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
 # SPDX-FileCopyrightText: 2023, 2025 gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:43+0000\n"
-"PO-Revision-Date: 2025-11-30 09:38+0000\n"
+"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"PO-Revision-Date: 2026-01-15 16:35+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -227,47 +227,41 @@ msgstr "Dæmi um skipanir:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:122
 #: runcommand/kdeconnect_runcommand_config.qml:133
-#, fuzzy, kde-format
-#| msgid "Suspend"
+#, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
-msgstr "Svæfa"
+msgstr "Setja í bið"
 
 #: runcommand/kdeconnect_runcommand_config.qml:126
 #: runcommand/kdeconnect_runcommand_config.qml:141
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Læsa skjá"
 
 #: runcommand/kdeconnect_runcommand_config.qml:137
-#, fuzzy, kde-format
-#| msgid "Maximum Brightness"
+#, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "Hámarks birtustig"
 
 #: runcommand/kdeconnect_runcommand_config.qml:145
-#, fuzzy, kde-format
-#| msgid "Unlock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Aflæsa skjá"
 
 #: runcommand/kdeconnect_runcommand_config.qml:149
-#, fuzzy, kde-format
-#| msgid "Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Loka öllum öryggisgeymslum"
 
 #: runcommand/kdeconnect_runcommand_config.qml:153
-#, fuzzy, kde-format
-#| msgid "Forcefully Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
-msgstr "Loka öllum öryggisgeymslum með valdi"
+msgstr "Þvinga lokun á öllum öryggisgeymslum"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -412,42 +406,51 @@ msgstr "%1 er ekki til"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
 #, fuzzy, kde-format
-#| msgid "Lock Screen"
-msgctxt "@label:listbox"
+#| msgctxt "@label:listbox"
+#| msgid "Leave Screen at"
+msgctxt ""
+"@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
+"right edge', the pointer will switch to the connected device there"
 msgid "Leave Screen at"
-msgstr "Læsa skjá"
+msgstr "Fara af skjá"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "Efst"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "Vinstri"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "Hægri"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "Neðst"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
-#, kde-format
-msgctxt "@info:tooltip"
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Another device already reserved this edge. This may lead to unexpected "
+#| "results when both are connected at the same time."
+msgctxt "@info:tooltip edge: screen edge"
 msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
 msgstr ""
+"Annað tæki hefur beðið um þennan jaðar. Það gæti valdið óvæntri útkomu þegar "
+"bæði tækin tengjast á sama tíma."
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
