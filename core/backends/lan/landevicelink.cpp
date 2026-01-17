@@ -15,8 +15,8 @@
 #include "lanlinkprovider.h"
 #include "plugins/share/shareplugin.h"
 
-LanDeviceLink::LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *linkProvider, QSslSocket *socket)
-    : DeviceLink(linkProvider)
+LanDeviceLink::LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *parent, QSslSocket *socket)
+    : DeviceLink(deviceInfo.id, parent)
     , m_socket(nullptr)
     , m_deviceInfo(deviceInfo)
 {

@@ -128,10 +128,6 @@ void Daemon::init()
 
 void Daemon::removeDevice(Device *device)
 {
-    for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
-        a->deviceRemoved(device->id());
-    }
-
     d->m_devices.remove(device->id());
     device->deleteLater();
     Q_EMIT deviceRemoved(device->id());

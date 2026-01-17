@@ -121,12 +121,15 @@ void BluetoothLinkProvider::connectError()
     socket->deleteLater();
 }
 
-void BluetoothLinkProvider::addLink(std::unique_ptr<BluetoothDeviceLink> &&deviceLink, const QString &deviceId)
+void BluetoothLinkProvider::addLink(BluetoothDeviceLink *deviceLink, const QString &deviceId)
 {
-    Q_EMIT onConnectionReceived(deviceLink.get());
+    Q_EMIT onConnectionReceived(deviceLink);
 
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::addLink executed";
-    mLinks[deviceId] = std::move(deviceLink);
+    if (mLinks.contains(deviceId)) {
+        delete mLinks.take(deviceId); // not calling deleteLater because this triggers onLinkDestroyed
+    }
+    mLinks[deviceId] = deviceLink;
 }
 
 void BluetoothLinkProvider::serviceDiscovered(const QBluetoothServiceInfo &old_info)
@@ -240,7 +243,7 @@ void BluetoothLinkProvider::clientIdentityReceived(const QBluetoothAddress &peer
 
     QSslCertificate receivedCertificate(receivedPacket.get<QString>(QStringLiteral("certificate")).toLatin1());
     DeviceInfo deviceInfo = deviceInfo.FromIdentityPacketAndCert(receivedPacket, receivedCertificate);
-    auto deviceLink = std::make_unique<BluetoothDeviceLink>(deviceInfo, this, mSockets[peer], socket);
+    BluetoothDeviceLink *deviceLink = new BluetoothDeviceLink(deviceInfo, this, mSockets[peer], socket);
 
     DeviceInfo myDeviceInfo = KdeConnectConfig::instance().deviceInfo();
     NetworkPacket myIdentity = myDeviceInfo.toIdentityPacket();
@@ -251,7 +254,11 @@ void BluetoothLinkProvider::clientIdentityReceived(const QBluetoothAddress &peer
         qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider Handshaking done (I'm the new device)";
 
         // We kill any possible link from this same device
-        addLink(std::move(deviceLink), deviceInfo.id);
+        addLink(deviceLink, deviceInfo.id);
+
+    } else {
+        // Connection might be lost. Delete it.
+        delete deviceLink;
     }
 
     // We don't delete the socket because now it's owned by the BluetoothDeviceLink
@@ -348,15 +355,16 @@ void BluetoothLinkProvider::serverDataReceived(const QBluetoothAddress &peer, QS
 
     QSslCertificate receivedCertificate(receivedPacket.get<QString>(QStringLiteral("certificate")).toLatin1());
     DeviceInfo deviceInfo = deviceInfo.FromIdentityPacketAndCert(receivedPacket, receivedCertificate);
-    auto deviceLink = std::make_unique<BluetoothDeviceLink>(deviceInfo, this, mSockets[peer], socket);
+    BluetoothDeviceLink *deviceLink = new BluetoothDeviceLink(deviceInfo, this, mSockets[peer], socket);
 
-    addLink(std::move(deviceLink), deviceInfo.id);
+    addLink(deviceLink, deviceInfo.id);
 }
 
-void BluetoothLinkProvider::deviceRemoved(const QString &deviceId)
+void BluetoothLinkProvider::onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr)
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider deviceLinkDestroyed" << deviceId;
-    mLinks.erase(deviceId);
+    DeviceLink *link = mLinks.take(deviceId);
+    Q_ASSERT(link == oldPtr);
 }
 
 void BluetoothLinkProvider::socketDisconnected(const QBluetoothAddress &peer, MultiplexChannel *socket)

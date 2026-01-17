@@ -36,6 +36,7 @@ public:
 
     ~DevicePrivate()
     {
+        qDeleteAll(m_deviceLinks);
         m_deviceLinks.clear();
     }
 

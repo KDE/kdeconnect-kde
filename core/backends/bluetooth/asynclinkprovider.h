@@ -42,7 +42,7 @@ public:
     void onStart() override;
     void onStop() override;
     void onNetworkChange() override;
-    void deviceRemoved(const QString &deviceId) override;
+    void onLinkDestroyed(const QString &a, DeviceLink *b) override;
     void runWorker();
 
 private:
