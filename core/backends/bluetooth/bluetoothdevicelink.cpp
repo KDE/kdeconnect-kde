@@ -30,7 +30,7 @@ BluetoothDeviceLink::BluetoothDeviceLink(const DeviceInfo &deviceInfo,
     // the socket (and the reader) will be
     // destroyed as well
     mConnection->setParent(this);
-    connect(socket.data(), &MultiplexChannel::aboutToClose, this, &BluetoothDeviceLink::disconnected);
+    connect(socket.data(), &MultiplexChannel::aboutToClose, this, &QObject::deleteLater);
 }
 
 QString BluetoothDeviceLink::address() const
