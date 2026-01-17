@@ -626,12 +626,6 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
     } else {
         auto dLink = std::make_unique<LanDeviceLink>(deviceInfo, this, socket);
         deviceLink = dLink.get();
-
-        connect(deviceLink, &LanDeviceLink::disconnected, this, [this, deviceId = deviceInfo.id, deviceLink] {
-            Daemon::instance()->getDevice(deviceId)->removeLink(deviceLink);
-            m_links.erase(deviceId);
-        });
-
         // Socket disconnection will now be handled by LanDeviceLink
         disconnect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);
         bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceInfo.id);
