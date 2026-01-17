@@ -15,10 +15,10 @@
 #include "multiplexchannel.h"
 
 BluetoothDeviceLink::BluetoothDeviceLink(const DeviceInfo &deviceInfo,
-                                         BluetoothLinkProvider *linkProvider,
+                                         BluetoothLinkProvider *parent,
                                          ConnectionMultiplexer *connection,
                                          QSharedPointer<MultiplexChannel> socket)
-    : DeviceLink(linkProvider)
+    : DeviceLink(deviceInfo.id, parent)
     , mConnection(connection)
     , mChannel(socket)
     , mDeviceInfo(deviceInfo)
