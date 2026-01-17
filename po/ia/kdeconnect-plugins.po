@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2017, 2020, 2021, 2022, 2023, 2024, 2025 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2017, 2020, 2021, 2022, 2023, 2024, 2025, 2026 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-16 00:43+0000\n"
-"PO-Revision-Date: 2025-04-16 10:45+0200\n"
+"PO-Revision-Date: 2026-01-16 11:50+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -68,7 +68,7 @@ msgstr ""
 #: share/kdeconnect_share_config.qml:22
 #, kde-format
 msgid "Apply"
-msgstr ""
+msgstr "Applica"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:47
 #, kde-format
@@ -76,17 +76,16 @@ msgid "Sound to play:"
 msgstr "Sono de reproducer:"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:57
-#, fuzzy, kde-format
-#| msgid "Could not share file"
-msgctxt "@action:button"
-msgid "Choose file"
-msgstr "Non poteva impartir file"
-
-#: findthisdevice/kdeconnect_findthisdevice_config.qml:66
 #, kde-format
 msgctxt "@action:button"
+msgid "Choose file"
+msgstr "Selige file..."
+
+#: findthisdevice/kdeconnect_findthisdevice_config.qml:66
+#, fuzzy, kde-format
+msgctxt "@action:button"
 msgid "Play"
-msgstr ""
+msgstr "Reproduce"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -122,9 +121,7 @@ msgid "Reply"
 msgstr "Responde"
 
 #: notifications/notification.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Responde a %1..."
@@ -174,12 +171,12 @@ msgstr "Ping!"
 #, fuzzy, kde-format
 #| msgid "Command"
 msgid "Add Command…"
-msgstr "Commando"
+msgstr "Adde commando"
 
 #: runcommand/kdeconnect_runcommand_config.qml:53
-#, kde-format
+#, fuzzy, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "Dele"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -194,36 +191,33 @@ msgid "Add commands to run them remotely from other devices"
 msgstr ""
 
 #: runcommand/kdeconnect_runcommand_config.qml:71
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
-msgstr "Commando"
+msgstr "Adde Commando"
 
 #: runcommand/kdeconnect_runcommand_config.qml:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "Adde"
 
 #: runcommand/kdeconnect_runcommand_config.qml:86
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
-msgstr "Commando"
+msgstr "Adde commando"
 
 #: runcommand/kdeconnect_runcommand_config.qml:96
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgid "Name:"
-msgstr "Nomine"
+msgstr "Nomine:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:100
 #, fuzzy, kde-format
 #| msgid "Command"
 msgid "Command:"
-msgstr "Commando"
+msgstr "Commando:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:104
 #, fuzzy, kde-format
@@ -233,16 +227,14 @@ msgstr "Commandos  de specimen"
 
 #: runcommand/kdeconnect_runcommand_config.qml:122
 #: runcommand/kdeconnect_runcommand_config.qml:133
-#, fuzzy, kde-format
-#| msgid "Suspend"
+#, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Suspende"
 
 #: runcommand/kdeconnect_runcommand_config.qml:126
 #: runcommand/kdeconnect_runcommand_config.qml:141
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Bloca schermo"
@@ -255,8 +247,7 @@ msgid "Maximum Brightness"
 msgstr "Brillantia maxime"
 
 #: runcommand/kdeconnect_runcommand_config.qml:145
-#, fuzzy, kde-format
-#| msgid "Unlock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Disbloca schermo"
@@ -311,7 +302,7 @@ msgstr "Nomine"
 #, fuzzy, kde-format
 #| msgid "Include body"
 msgid "Excluded"
-msgstr "Include corpore"
+msgstr "Excludite:"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
@@ -432,28 +423,28 @@ msgid "Leave Screen at"
 msgstr "Bloca schermo"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "Culmine"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "Sinistra"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "Dextera"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "Basso"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
 #, kde-format
