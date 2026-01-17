@@ -225,9 +225,13 @@ Kirigami.ApplicationWindow {
                         }
                         KeyNavigation.up: devices
 
-                        onClicked: pageStack.pushDialogLayer(Qt.resolvedUrl("Settings.qml"), {}, {
-                            title: i18n("Settings")
-                        })
+                        onClicked: {
+                            const windowProps = {
+                                title: i18n("Settings"),
+                                flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowCloseButtonHint,
+                            };
+                            pageStack.pushDialogLayer(Qt.resolvedUrl("Settings.qml"), {}, windowProps);
+                        }
                     }
                 }
             }
