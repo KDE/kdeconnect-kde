@@ -91,4 +91,4 @@ LINK_PUBLIC
     Qt::DBus
 )
 
-install(TARGETS kdeconnectdbusinterfaces EXPORT kdeconnectLibraryTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS kdeconnectdbusinterfaces EXPORT kdeconnectLibraryTargets ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

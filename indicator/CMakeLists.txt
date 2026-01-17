@@ -29,7 +29,7 @@ else ()
     list(APPEND indicator_SRCS indicatorhelper.cpp)
 endif()
 
-add_executable(kdeconnect-indicator ${indicator_SRCS})
+add_executable(kdeconnect-indicator MACOSX_BUNDLE ${indicator_SRCS})
 
 ecm_qt_declare_logging_category(kdeconnect-indicator
     HEADER indicator_debug.h
@@ -62,5 +62,5 @@ set_target_properties(kdeconnect-indicator PROPERTIES
 )
 endif()
 
-install(TARGETS kdeconnect-indicator ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kdeconnect-indicator ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS_BUNDLE})
 install(PROGRAMS org.kde.kdeconnect.nonplasma.desktop DESTINATION ${KDE_INSTALL_APPDIR})

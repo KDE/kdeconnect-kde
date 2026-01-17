@@ -13,6 +13,6 @@ target_link_libraries(kdeconnect-cli
     KF6::Crash
 )
 
-install(TARGETS kdeconnect-cli ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kdeconnect-cli ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS} RUNTIME DESTINATION ${KDECONNECT_RUNTIME_DESTINATION})
 
 install(FILES kdeconnect.zsh RENAME _kdeconnect DESTINATION ${KDE_INSTALL_ZSHAUTOCOMPLETEDIR})

@@ -16,6 +16,26 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 #set(CMAKE_COMPILE_WARNING_AS_ERROR TRUE)
 
+if(APPLE)
+    # The default install paths would create one bundle per executable, but we want a single app bundle
+    set(KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS
+        RUNTIME DESTINATION "Applications/KDE/KDE Connect.app/Contents/MacOS"
+        LIBRARY DESTINATION "Applications/KDE/KDE Connect.app/Contents/Frameworks"
+        ARCHIVE DESTINATION "Applications/KDE/KDE Connect.app/Contents/Frameworks"
+        OBJECTS DESTINATION "Applications/KDE/KDE Connect.app/Contents/Frameworks"
+    )
+    set(KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS_BUNDLE
+        BUNDLE DESTINATION "Applications/KDE/"
+    )
+else()
+    set(KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS
+        "${KDE_INSTALL_TARGETS_DEFAULT_ARGS}"
+    )
+    set(KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS_BUNDLE
+        "${KDE_INSTALL_TARGETS_DEFAULT_ARGS}"
+    )
+endif()
+
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 

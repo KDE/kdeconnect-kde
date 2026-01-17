@@ -73,5 +73,6 @@ target_link_libraries(kdeconnect-sms PRIVATE
     KF6::Crash
     )
 
-install(TARGETS kdeconnect-sms ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+set_target_properties(kdeconnect-sms PROPERTIES MACOSX_BUNDLE FALSE)
+install(TARGETS kdeconnect-sms ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.kdeconnect.sms.desktop DESTINATION ${KDE_INSTALL_APPDIR})

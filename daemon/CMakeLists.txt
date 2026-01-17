@@ -31,5 +31,5 @@ configure_file(org.kde.kdeconnect.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
-install(TARGETS kdeconnectd ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kdeconnectd ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS})
 
