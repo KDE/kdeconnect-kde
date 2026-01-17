@@ -88,9 +88,8 @@ private Q_SLOTS:
         DeviceInfo deviceInfo = KdeConnectConfig::instance().deviceInfo();
         KdeConnectConfig::instance().addTrustedDevice(deviceInfo);
 
-        auto d = std::make_unique<Device>(deviceInfo.id);
-        auto device = d.get();
-        m_daemon->addDevice(std::move(d));
+        Device *device = new Device(this, deviceInfo.id);
+        m_daemon->addDevice(device);
 
         QSharedPointer<QFile> f(new QFile(aFile));
         NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
