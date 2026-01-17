@@ -18,8 +18,8 @@
 // This is a huge size for a single packet, but I'm being conservative given there wasn't a limit before and I don't want to break things
 static const int MAX_PACKET_SIZE = 32 * 1024 * 1024;
 
-LanDeviceLink::LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *linkProvider, QSslSocket *socket)
-    : DeviceLink(linkProvider)
+LanDeviceLink::LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *parent, QSslSocket *socket)
+    : DeviceLink(deviceInfo.id, parent)
     , m_socket(nullptr)
     , m_deviceInfo(deviceInfo)
 {

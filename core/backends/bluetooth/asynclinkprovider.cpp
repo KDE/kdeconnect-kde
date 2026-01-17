@@ -79,10 +79,10 @@ void AsyncLinkProvider::onNetworkChange()
     eventsMutex.unlock();
 }
 
-void AsyncLinkProvider::deviceRemoved(const QString &deviceId)
+void AsyncLinkProvider::onLinkDestroyed(const QString &a, DeviceLink *b)
 {
     if (wrappedInstance != nullptr) {
-        wrappedInstance->deviceRemoved(deviceId);
+        wrappedInstance->onLinkDestroyed(a, b);
     }
 }
 

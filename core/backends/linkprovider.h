@@ -33,7 +33,7 @@ public Q_SLOTS:
     virtual void onStart() = 0;
     virtual void onStop() = 0;
     virtual void onNetworkChange() = 0;
-    virtual void deviceRemoved(const QString &deviceId) = 0;
+    virtual void onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr) = 0;
 
     void suspend(bool suspend);
 
