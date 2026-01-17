@@ -226,7 +226,8 @@ Kirigami.ApplicationWindow {
                         KeyNavigation.up: devices
 
                         onClicked: pageStack.pushDialogLayer(Qt.resolvedUrl("Settings.qml"), {}, {
-                            title: i18n("Settings")
+                            title: i18n("Settings"),
+                            flags: Qt.Dialog, // the default flags remove the close button
                         })
                     }
                 }
