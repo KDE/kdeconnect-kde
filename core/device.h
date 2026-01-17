@@ -43,14 +43,14 @@ public:
      *
      * We already know it but we need to wait for an incoming DeviceLink to communicate
      */
-    Device(const QString &id);
+    Device(QObject *parent, const QString &id);
 
     /**
      * Device known via an incoming connection sent to us via a devicelink.
      *
      * We know everything but we don't trust it yet
      */
-    Device(DeviceLink *link);
+    Device(QObject *parent, DeviceLink *link);
 
     ~Device() override;
 
