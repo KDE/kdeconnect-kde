@@ -10,12 +10,13 @@
 #include <QObject>
 
 #include "kdeconnectcore_export.h"
+#include "mdnsdiscovery.h"
 
 #include "mdnsh_wrapper.h"
 
 class LanLinkProvider;
 
-class KDECONNECTCORE_EXPORT MdnshDiscovery : public QObject
+class KDECONNECTCORE_EXPORT MdnshDiscovery : public QObject, public MdnsDiscovery
 {
     Q_OBJECT
 
@@ -23,11 +24,9 @@ public:
     explicit MdnshDiscovery(LanLinkProvider *parent);
     ~MdnshDiscovery() override;
 
-    void onStart();
-    void onStop();
-
-public Q_SLOTS:
-    void onNetworkChange();
+    void onStart() override;
+    void onStop() override;
+    void onNetworkChange() override;
 
 private:
     MdnshWrapper::Discoverer mdnsDiscoverer;

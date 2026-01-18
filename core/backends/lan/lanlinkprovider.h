@@ -19,12 +19,8 @@
 #include "backends/linkprovider.h"
 #include "kdeconnectcore_export.h"
 #include "landevicelink.h"
+#include "mdnsdiscovery.h"
 #include "server.h"
-#ifdef KDECONNECT_USE_AVAHI
-#include "avahidiscovery.h"
-#else
-#include "mdnshdiscovery.h"
-#endif
 
 class KDECONNECTCORE_EXPORT LanLinkProvider : public LinkProvider
 {
@@ -107,11 +103,7 @@ private:
 
     bool m_disabled;
 
-#ifdef KDECONNECT_USE_AVAHI
-    AvahiDiscovery m_mdnsDiscovery;
-#else
-    MdnshDiscovery m_mdnsDiscovery;
-#endif
+    MdnsDiscovery *m_mdnsDiscovery = nullptr;
 };
 
 #endif

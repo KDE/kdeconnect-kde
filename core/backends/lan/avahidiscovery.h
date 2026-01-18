@@ -10,6 +10,7 @@
 #include <memory>
 
 #include "kdeconnectcore_export.h"
+#include "mdnsdiscovery.h"
 
 #include "generated/systeminterfaces/avahientrygroup.h"
 #include "generated/systeminterfaces/avahiserver.h"
@@ -25,7 +26,7 @@ struct AvahiEntryGroupDeleter {
     void operator()(OrgFreedesktopAvahiEntryGroupInterface *ptr) const;
 };
 
-class KDECONNECTCORE_EXPORT AvahiDiscovery : public QObject
+class KDECONNECTCORE_EXPORT AvahiDiscovery : public QObject, public MdnsDiscovery
 {
     Q_OBJECT
 
@@ -33,11 +34,11 @@ public:
     explicit AvahiDiscovery(LanLinkProvider *lanLinkProvider);
     ~AvahiDiscovery() override;
 
-    void onStart();
-    void onStop();
+    static bool hasAvahiDaemonRunning();
 
-public Q_SLOTS:
-    void onNetworkChange();
+    void onStart() override;
+    void onStop() override;
+    void onNetworkChange() override;
 
 private:
     void startAnnouncing();

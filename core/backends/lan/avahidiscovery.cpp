@@ -55,6 +55,12 @@ enum {
     AVAHI_ENTRY_GROUP_FAILURE,
 };
 
+bool AvahiDiscovery::hasAvahiDaemonRunning()
+{
+    OrgFreedesktopAvahiServer2Interface avahiServerInterface(kAvahiDbusService, QStringLiteral("/"), QDBusConnection::systemBus());
+    return avahiServerInterface.isValid();
+}
+
 AvahiDiscovery::AvahiDiscovery(LanLinkProvider *lanLinkProvider)
     : m_avahiServerInterface(kAvahiDbusService, QStringLiteral("/"), QDBusConnection::systemBus())
     , lanLinkProvider(lanLinkProvider)
