@@ -292,7 +292,7 @@ msgstr "Keine Wiedergabegeräte verfügbar"
 #: qml/mpris.qml:111
 #, kde-format
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: qml/PluginSettings.qml:131
 #, kde-format
