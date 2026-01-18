@@ -9,71 +9,88 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kdeconnect
 import org.kde.kdeconnect.app
 
-FormCard.FormCardPage {
+Kirigami.ScrollablePage
+{
+    id: page
     title: i18nc("@title:window", "Settings")
 
-    FormCard.FormCard {
-        Layout.topMargin: Kirigami.Units.gridUnit
+    ColumnLayout
+    {
 
-        FormCard.FormTextFieldDelegate {
-            text: announcedNameProperty.value
-            onAccepted: DaemonDbusInterface.setAnnouncedName(text);
-            label: i18n("Device name")
+        FormCard.FormCard {
+            Layout.topMargin: Kirigami.Units.gridUnit
 
+            FormCard.FormTextFieldDelegate {
+                text: announcedNameProperty.value
+                onAccepted: DaemonDbusInterface.setAnnouncedName(text);
+                label: i18n("Device name")
+
+                DBusProperty {
+                    id: announcedNameProperty
+                    object: DaemonDbusInterface
+                    read: "announcedName"
+                    defaultValue: ""
+                }
+            }
+        }
+
+        FormCard.FormHeader {
+            title: i18nc("@title:group", "Backends")
+        }
+
+        FormCard.FormCard {
             DBusProperty {
-                id: announcedNameProperty
+                id: linkProvidersProperty
                 object: DaemonDbusInterface
-                read: "announcedName"
-                defaultValue: ""
+                read: "linkProviders"
+                defaultValue: []
+            }
+            visible: linkProvidersProperty.value.length > 0
+
+            Repeater {
+                model: linkProvidersProperty.value
+
+                FormCard.FormCheckDelegate {
+                    required property string modelData
+
+                    readonly property string displayName: modelData.split('|')[0]
+                    readonly property string internalName: modelData.split('|')[1]
+
+                    checked: modelData.split('|')[2] === 'enabled'
+                    text: displayName
+
+                    onToggled: DaemonDbusInterface.setLinkProviderState(internalName, checked);
+                }
+            }
+        }
+
+        FormCard.FormCard {
+            Layout.topMargin: Kirigami.Units.gridUnit
+
+            FormCard.FormButtonDelegate {
+                text: i18n("About KDE Connect")
+                onClicked: applicationWindow().pageStack.layers.push(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"))
+                icon.name: 'kdeconnect'
+            }
+
+            FormCard.FormDelegateSeparator {}
+
+            FormCard.FormButtonDelegate {
+                text: i18n("About KDE")
+                onClicked: applicationWindow().pageStack.layers.push(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage"))
+                icon.name: 'kde'
             }
         }
     }
 
-    FormCard.FormHeader {
-        title: i18nc("@title:group", "Backends")
-    }
-
-    FormCard.FormCard {
-        DBusProperty {
-            id: linkProvidersProperty
-            object: DaemonDbusInterface
-            read: "linkProviders"
-            defaultValue: []
-        }
-        visible: linkProvidersProperty.value.length > 0
-
-        Repeater {
-            model: linkProvidersProperty.value
-
-            FormCard.FormCheckDelegate {
-                required property string modelData
-
-                readonly property string displayName: modelData.split('|')[0]
-                readonly property string internalName: modelData.split('|')[1]
-
-                checked: modelData.split('|')[2] === 'enabled'
-                text: displayName
-
-                onToggled: DaemonDbusInterface.setLinkProviderState(internalName, checked);
+    footer: ToolBar {
+        contentItem: RowLayout {
+            Item { Layout.fillWidth: true }
+            Button {
+                text: i18n("Close")
+                display: AbstractButton.TextOnly
+                onClicked: page.Kirigami.PageStack.closeDialog()
             }
-        }
-    }
-
-    FormCard.FormCard {
-        Layout.topMargin: Kirigami.Units.gridUnit
-
-        FormCard.FormButtonDelegate {
-            text: i18n("About KDE Connect")
-            onClicked: applicationWindow().pageStack.layers.push(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"))
-            icon.name: 'kdeconnect'
-        }
-
-        FormCard.FormDelegateSeparator {}
-
-        FormCard.FormButtonDelegate {
-            text: i18n("About KDE")
-            onClicked: applicationWindow().pageStack.layers.push(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage"))
-            icon.name: 'kde'
         }
     }
 }

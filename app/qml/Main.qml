@@ -226,8 +226,7 @@ Kirigami.ApplicationWindow {
                         KeyNavigation.up: devices
 
                         onClicked: pageStack.pushDialogLayer(Qt.resolvedUrl("Settings.qml"), {}, {
-                            title: i18n("Settings"),
-                            flags: Qt.Dialog | Qt.WindowSystemMenuHint | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowCloseButtonHint
+                            title: i18n("Settings")
                         })
                     }
                 }
