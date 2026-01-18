@@ -227,7 +227,7 @@ Kirigami.ApplicationWindow {
 
                         onClicked: pageStack.pushDialogLayer(Qt.resolvedUrl("Settings.qml"), {}, {
                             title: i18n("Settings"),
-                            flags: Qt.Dialog | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowCloseButtonHint // the default flags remove the close button
+                            flags: Qt.Dialog | Qt.WindowTitleHint | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowCloseButtonHint
                         })
                     }
                 }
