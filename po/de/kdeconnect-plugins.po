@@ -3,15 +3,15 @@
 # SPDX-FileCopyrightText: 2014, 2015, 2017, 2018, 2019, 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2016 hkaelber <holger.k@elberer.de>
 # SPDX-FileCopyrightText: 2023 Jannick Kuhr <opensource@kuhr.org>
-# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n.daphipz@fastmail.de>
+# SPDX-FileCopyrightText: 2025, 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 # SPDX-FileCopyrightText: 2025 Oliver Schramm <oliver.schramm97@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-16 00:43+0000\n"
-"PO-Revision-Date: 2025-12-07 20:57+0100\n"
-"Last-Translator: Oliver Schramm <oliver.schramm97@gmail.com>\n"
+"PO-Revision-Date: 2026-01-14 20:15+0100\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -231,44 +231,38 @@ msgstr "Beispielbefehle:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:122
 #: runcommand/kdeconnect_runcommand_config.qml:133
-#, fuzzy, kde-format
-#| msgid "Suspend"
+#, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Standby-Modus"
 
 #: runcommand/kdeconnect_runcommand_config.qml:126
 #: runcommand/kdeconnect_runcommand_config.qml:141
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Bildschirm sperren"
 
 #: runcommand/kdeconnect_runcommand_config.qml:137
-#, fuzzy, kde-format
-#| msgid "Maximum Brightness"
+#, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "Maximale Helligkeit"
 
 #: runcommand/kdeconnect_runcommand_config.qml:145
-#, fuzzy, kde-format
-#| msgid "Unlock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Bildschirm entsperren"
 
 #: runcommand/kdeconnect_runcommand_config.qml:149
-#, fuzzy, kde-format
-#| msgid "Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Alle Tresore schließen"
 
 #: runcommand/kdeconnect_runcommand_config.qml:153
-#, fuzzy, kde-format
-#| msgid "Forcefully Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
 msgstr "Schließen aller Tresore erzwingen"
@@ -428,25 +422,25 @@ msgstr "Bildschirm sperren"
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "Oben"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "Links"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "Rechts"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "Unten"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
 #, kde-format

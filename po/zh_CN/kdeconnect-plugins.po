@@ -399,14 +399,12 @@ msgid "%1 does not exist"
 msgstr "%1 不存在"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Leave Screen at"
+#, kde-format
 msgctxt ""
 "@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
 "right edge', the pointer will switch to the connected device there"
 msgid "Leave Screen at"
-msgstr "离开屏幕时贴靠至"
+msgstr ""
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
@@ -433,16 +431,12 @@ msgid "Bottom"
 msgstr "底部"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Another device already reserved this edge. This may lead to unexpected "
-#| "results when both are connected at the same time."
+#, kde-format
 msgctxt "@info:tooltip edge: screen edge"
 msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
-msgstr "已有其他设备占用该边缘。若多台设备同时连接，可能导致异常结果。"
+msgstr ""
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
