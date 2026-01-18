@@ -90,5 +90,3 @@ target_link_libraries(kdeconnectdbusinterfaces
 LINK_PUBLIC
     Qt::DBus
 )
-
-install(TARGETS kdeconnectdbusinterfaces EXPORT kdeconnectLibraryTargets ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

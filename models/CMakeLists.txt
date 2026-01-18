@@ -42,5 +42,3 @@ LINK_PRIVATE
     kdeconnectdbusinterfaces
     KF6::CoreAddons
 )
-
-install(TARGETS kdeconnectmodels EXPORT kdeconnectLibraryTargets ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
