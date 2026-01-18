@@ -35,6 +35,10 @@
 #include "dbushelper.h"
 #include "kdeconnectconfig.h"
 #include "landevicelink.h"
+#include "mdnshdiscovery.h"
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+#include "avahidiscovery.h"
+#endif
 
 static const int MAX_UNPAIRED_CONNECTIONS = 42;
 
@@ -47,8 +51,21 @@ LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
     , m_testMode(testMode)
     , m_combineNetworkChangeTimer(this)
     , m_disabled(isDisabled)
-    , m_mdnsDiscovery(this)
 {
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+    // TODO: Both Windows and macOS have system APIs for mDNS that we could use.
+    //       Windows docs: https://learn.microsoft.com/en-us/uwp/api/windows.networking.servicediscovery.dnssd
+    m_mdnsDiscovery = new MdnshDiscovery(this);
+#else
+    if (AvahiDiscovery::hasAvahiDaemonRunning()) {
+        qCInfo(KDECONNECT_CORE) << "Using Avahi for mDNS discovery";
+        m_mdnsDiscovery = new AvahiDiscovery(this);
+    } else {
+        qCInfo(KDECONNECT_CORE) << "Using mdnsh for mDNS discovery";
+        m_mdnsDiscovery = new MdnshDiscovery(this);
+    }
+#endif
+
     m_combineNetworkChangeTimer.setInterval(0); // increase this if waiting a single event-loop iteration is not enough
     m_combineNetworkChangeTimer.setSingleShot(true);
     connect(&m_combineNetworkChangeTimer, &QTimer::timeout, this, &LanLinkProvider::debouncedOnNetworkChange);
@@ -79,6 +96,7 @@ LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
 
 LanLinkProvider::~LanLinkProvider()
 {
+    delete m_mdnsDiscovery;
 }
 
 void LanLinkProvider::enable()
@@ -126,7 +144,7 @@ void LanLinkProvider::onStart()
 
     broadcastUdpIdentityPacket();
 
-    m_mdnsDiscovery.onStart();
+    m_mdnsDiscovery->onStart();
 
     qCDebug(KDECONNECT_CORE) << "LanLinkProvider started";
 }
@@ -136,7 +154,7 @@ void LanLinkProvider::onStop()
     if (m_disabled) {
         return;
     }
-    m_mdnsDiscovery.onStop();
+    m_mdnsDiscovery->onStop();
     m_udpSocket.close();
     m_server->close();
     qCDebug(KDECONNECT_CORE) << "LanLinkProvider stopped";
@@ -168,7 +186,7 @@ void LanLinkProvider::debouncedOnNetworkChange()
     Q_ASSERT(m_tcpPort != 0);
 
     broadcastUdpIdentityPacket();
-    m_mdnsDiscovery.onNetworkChange();
+    m_mdnsDiscovery->onNetworkChange();
 }
 
 void LanLinkProvider::broadcastUdpIdentityPacket()

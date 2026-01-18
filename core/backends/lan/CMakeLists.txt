@@ -6,19 +6,14 @@ set(backends_kdeconnect_SRCS
     backends/lan/landevicelink.cpp
     backends/lan/compositeuploadjob.cpp
     backends/lan/uploadjob.cpp
+    backends/lan/mdnshdiscovery.cpp
+    backends/lan/mdnsh_wrapper.cpp
 )
 
 if(NOT APPLE AND NOT WIN32)
     set(backends_kdeconnect_SRCS
         ${backends_kdeconnect_SRCS}
         backends/lan/avahidiscovery.cpp
-    )
-else()
-    # FIXME: On Windows we should use the system API https://learn.microsoft.com/en-us/uwp/api/windows.networking.servicediscovery.dnssd instead of the custom mdns.h implementation
-    set(backends_kdeconnect_SRCS
-        ${backends_kdeconnect_SRCS}
-        backends/lan/mdnshdiscovery.cpp
-        backends/lan/mdnsh_wrapper.cpp
     )
 endif()
 
