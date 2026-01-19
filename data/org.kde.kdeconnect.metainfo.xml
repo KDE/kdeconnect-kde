@@ -182,17 +182,17 @@
     <value key="KDE::app_store">https://apps.apple.com/app/kde-connect/id1580245991</value>
   </custom>
   <releases>
-    <release version="25.12.1" date="2026-01-08"/>
-    <release version="25.12.0" date="2025-12-11"/>
-    <release version="25.08.3" date="2025-11-06">
+    <release version="25.12.1" date="2026-01-08">
       <artifacts>
         <artifact type="binary" platform="x86_64-windows-msvc">
-          <location>https://download.kde.org/stable/release-service/25.08.3/windows/kdeconnect-kde-windows-cl-msvc2022-x86_64.exe</location>
-          <checksum type="sha256">164d3f93cda5275c07528866d019bab754909b3056aef10882343480211c7f7b</checksum>
-          <size type="download">88532008</size>
+          <location>https://download.kde.org/stable/release-service/25.12.1/windows/kdeconnect-kde-release_25.12-5778-windows-cl-msvc2022-x86_64.exe</location>
+          <checksum type="sha256">02f7312778b73067573f5c54f3cef0ef612df61d7d53d5dd58af98ff960e36a4</checksum>
+          <size type="download">90379000</size>
         </artifact>
       </artifacts>
     </release>
+    <release version="25.12.0" date="2025-12-11"/>
+    <release version="25.08.3" date="2025-11-06"/>
     <release version="25.08.2" date="2025-10-09"/>
     <release version="25.08.1" date="2025-09-11"/>
     <release version="25.08.0" date="2025-08-14"/>
