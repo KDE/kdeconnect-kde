@@ -15,7 +15,7 @@ class LoopbackLinkProvider : public LinkProvider
 {
     Q_OBJECT
 public:
-    LoopbackLinkProvider();
+    LoopbackLinkProvider(bool disabled);
     ~LoopbackLinkProvider() override;
 
     QString name() override
@@ -35,10 +35,14 @@ public:
 
     void enable() override
     {
+        enabled = true;
+        onNetworkChange();
     }
 
     void disable() override
     {
+        enabled = false;
+        onNetworkChange();
     }
 
     void onStart() override;
@@ -50,6 +54,7 @@ public:
 
 private:
     QPointer<LoopbackDeviceLink> loopbackDeviceLink;
+    bool enabled;
 };
 
 #endif

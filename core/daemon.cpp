@@ -80,7 +80,7 @@ void Daemon::init()
     qCDebug(KDECONNECT_CORE) << "Constructing Backends";
     // Load backends
     if (d->m_testMode) {
-        d->m_linkProviders.insert(new LoopbackLinkProvider());
+        d->m_linkProviders.insert(new LoopbackLinkProvider(true));
         qCDebug(KDECONNECT_CORE) << "Constructed LoopbackLink Backend";
     } else {
         d->m_linkProviders.insert(new LanLinkProvider(false, disabledLinkProviders.contains(QStringLiteral("LanLinkProvider"))));
@@ -90,7 +90,7 @@ void Daemon::init()
         qCDebug(KDECONNECT_CORE) << "Constructed AsyncLinkProvider<AsyncLinkProvider> Backend";
 #endif
 #ifdef KDECONNECT_LOOPBACK
-        d->m_linkProviders.insert(new LoopbackLinkProvider());
+        d->m_linkProviders.insert(new LoopbackLinkProvider(disabledLinkProviders.contains(QStringLiteral("LoopbackLinkProvider"))));
         qCDebug(KDECONNECT_CORE) << "Constructed LoopbackLinkProvider Backend";
 #endif
     }

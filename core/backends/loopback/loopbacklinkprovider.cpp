@@ -8,7 +8,8 @@
 
 #include "core_debug.h"
 
-LoopbackLinkProvider::LoopbackLinkProvider()
+LoopbackLinkProvider::LoopbackLinkProvider(bool disabled)
+    : enabled(!disabled)
 {
 }
 
@@ -18,6 +19,13 @@ LoopbackLinkProvider::~LoopbackLinkProvider()
 
 void LoopbackLinkProvider::onNetworkChange()
 {
+    if (!enabled) {
+        if (loopbackDeviceLink) {
+            delete loopbackDeviceLink;
+        }
+        return;
+    }
+
     LoopbackDeviceLink *newLoopbackDeviceLink = new LoopbackDeviceLink(this);
     Q_EMIT onConnectionReceived(newLoopbackDeviceLink);
 
