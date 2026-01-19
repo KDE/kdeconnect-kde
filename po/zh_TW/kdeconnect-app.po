@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-22 00:42+0000\n"
+"POT-Creation-Date: 2026-01-19 00:43+0000\n"
 "PO-Revision-Date: 2025-11-29 18:05+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -330,32 +330,37 @@ msgstr "您可以在已連線的裝置上編輯指令"
 msgid "No commands defined"
 msgstr "未定義指令"
 
-#: qml/Settings.qml:13
+#: qml/Settings.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Settings"
 msgstr "設定"
 
-#: qml/Settings.qml:21
+#: qml/Settings.qml:26
 #, kde-format
 msgid "Device name"
 msgstr "裝置名稱"
 
-#: qml/Settings.qml:33
+#: qml/Settings.qml:38
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
 msgstr "後端介面"
 
-#: qml/Settings.qml:66
+#: qml/Settings.qml:71
 #, kde-format
 msgid "About KDE Connect"
 msgstr "關於 KDE Connect"
 
-#: qml/Settings.qml:74
+#: qml/Settings.qml:79
 #, kde-format
 msgid "About KDE"
 msgstr "關於 KDE"
+
+#: qml/Settings.qml:90
+#, kde-format
+msgid "Close"
+msgstr ""
 
 #: qml/WelcomePage.qml:27
 #, kde-format

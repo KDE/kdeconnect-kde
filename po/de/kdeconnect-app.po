@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-22 00:42+0000\n"
+"POT-Creation-Date: 2026-01-19 00:43+0000\n"
 "PO-Revision-Date: 2025-12-07 20:55+0100\n"
 "Last-Translator: Oliver Schramm <oliver.schramm97@gmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -330,32 +330,37 @@ msgstr "Sie können Befehle auf dem verbundenen Gerät bearbeiten"
 msgid "No commands defined"
 msgstr "Keine Befehle festgelegt"
 
-#: qml/Settings.qml:13
+#: qml/Settings.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: qml/Settings.qml:21
+#: qml/Settings.qml:26
 #, kde-format
 msgid "Device name"
 msgstr "Gerätename"
 
-#: qml/Settings.qml:33
+#: qml/Settings.qml:38
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
 msgstr "Backends"
 
-#: qml/Settings.qml:66
+#: qml/Settings.qml:71
 #, kde-format
 msgid "About KDE Connect"
 msgstr "Über KDE Connect"
 
-#: qml/Settings.qml:74
+#: qml/Settings.qml:79
 #, kde-format
 msgid "About KDE"
 msgstr "Über KDE"
+
+#: qml/Settings.qml:90
+#, kde-format
+msgid "Close"
+msgstr ""
 
 #: qml/WelcomePage.qml:27
 #, kde-format

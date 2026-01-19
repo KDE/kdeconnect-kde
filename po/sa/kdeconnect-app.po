@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-22 00:42+0000\n"
+"POT-Creation-Date: 2026-01-19 00:43+0000\n"
 "PO-Revision-Date: 2024-12-25 19:36+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -334,32 +334,37 @@ msgstr "संयोजितयन्त्रे आदेशान् सम�
 msgid "No commands defined"
 msgstr "न आदेशाः परिभाषिताः"
 
-#: qml/Settings.qml:13
+#: qml/Settings.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Settings"
 msgstr "सेटिंग्स्"
 
-#: qml/Settings.qml:21
+#: qml/Settings.qml:26
 #, kde-format
 msgid "Device name"
 msgstr "यन्त्रनाम"
 
-#: qml/Settings.qml:33
+#: qml/Settings.qml:38
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
 msgstr "अभ्यन्तरसंविधानानि"
 
-#: qml/Settings.qml:66
+#: qml/Settings.qml:71
 #, kde-format
 msgid "About KDE Connect"
 msgstr "KDE Connect इत्यस्य विषये"
 
-#: qml/Settings.qml:74
+#: qml/Settings.qml:79
 #, kde-format
 msgid "About KDE"
 msgstr "KDE विषये"
+
+#: qml/Settings.qml:90
+#, kde-format
+msgid "Close"
+msgstr ""
 
 #: qml/WelcomePage.qml:27
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-22 00:42+0000\n"
+"POT-Creation-Date: 2026-01-19 00:43+0000\n"
 "PO-Revision-Date: 2025-11-28 21:24+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -328,32 +328,37 @@ msgstr "Можете да редактирате команди на свърз�
 msgid "No commands defined"
 msgstr "Не е посочена команда"
 
-#: qml/Settings.qml:13
+#: qml/Settings.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Settings"
 msgstr "Настройки"
 
-#: qml/Settings.qml:21
+#: qml/Settings.qml:26
 #, kde-format
 msgid "Device name"
 msgstr "Име на устройство"
 
-#: qml/Settings.qml:33
+#: qml/Settings.qml:38
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
 msgstr "Бекенд програми"
 
-#: qml/Settings.qml:66
+#: qml/Settings.qml:71
 #, kde-format
 msgid "About KDE Connect"
 msgstr "Относно KDE Connect"
 
-#: qml/Settings.qml:74
+#: qml/Settings.qml:79
 #, kde-format
 msgid "About KDE"
 msgstr "Относно KDE"
+
+#: qml/Settings.qml:90
+#, kde-format
+msgid "Close"
+msgstr ""
 
 #: qml/WelcomePage.qml:27
 #, kde-format

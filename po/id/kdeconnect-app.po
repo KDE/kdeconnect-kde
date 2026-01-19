@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-22 00:42+0000\n"
+"POT-Creation-Date: 2026-01-19 00:43+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -331,35 +331,40 @@ msgstr "Kamu bisa edit perintah dan pada peranti yang terkoneksi"
 msgid "No commands defined"
 msgstr "Tidak ada perintah yang ditentukan"
 
-#: qml/Settings.qml:13
+#: qml/Settings.qml:15
 #, fuzzy, kde-format
 #| msgid "Plugin Settings"
 msgctxt "@title:window"
 msgid "Settings"
 msgstr "Pengaturan Plugin"
 
-#: qml/Settings.qml:21
+#: qml/Settings.qml:26
 #, kde-format
 msgid "Device name"
 msgstr ""
 
-#: qml/Settings.qml:33
+#: qml/Settings.qml:38
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
 msgstr ""
 
-#: qml/Settings.qml:66
+#: qml/Settings.qml:71
 #, fuzzy, kde-format
 #| msgid "KDE Connect"
 msgid "About KDE Connect"
 msgstr "KDE Connect"
 
-#: qml/Settings.qml:74
+#: qml/Settings.qml:79
 #, fuzzy, kde-format
 #| msgid "KDE Connect"
 msgid "About KDE"
 msgstr "KDE Connect"
+
+#: qml/Settings.qml:90
+#, kde-format
+msgid "Close"
+msgstr ""
 
 #: qml/WelcomePage.qml:27
 #, kde-format

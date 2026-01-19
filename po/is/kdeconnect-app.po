@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-22 00:42+0000\n"
+"POT-Creation-Date: 2026-01-19 00:43+0000\n"
 "PO-Revision-Date: 2025-12-04 13:52+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -326,32 +326,37 @@ msgstr "Þú getur breytt skipunum á tengda tækinu"
 msgid "No commands defined"
 msgstr "Engar skipanir skilgreindar"
 
-#: qml/Settings.qml:13
+#: qml/Settings.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Settings"
 msgstr "Stillingar"
 
-#: qml/Settings.qml:21
+#: qml/Settings.qml:26
 #, kde-format
 msgid "Device name"
 msgstr "Heiti tækis"
 
-#: qml/Settings.qml:33
+#: qml/Settings.qml:38
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
 msgstr "Bakendar"
 
-#: qml/Settings.qml:66
+#: qml/Settings.qml:71
 #, kde-format
 msgid "About KDE Connect"
 msgstr "Um KDE Connect"
 
-#: qml/Settings.qml:74
+#: qml/Settings.qml:79
 #, kde-format
 msgid "About KDE"
 msgstr "Um KDE"
+
+#: qml/Settings.qml:90
+#, kde-format
+msgid "Close"
+msgstr ""
 
 #: qml/WelcomePage.qml:27
 #, kde-format
