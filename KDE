@@ -1,0 +1,37 @@
+
+
+This repository is a personal fork of :contentReference[oaicite:0]{index=0}, an open-source project by the KDE community that enables seamless communication between your computer and mobile devices.
+
+About KDE
+KDE Connect allows devices to securely communicate over a local network, enabling features such as:
+- File sharing
+- Clipboard synchronization
+- Notification syncing
+- Media control
+- Remote input
+- Device pairing over LAN
+
+This fork is created for learning, experimentation, and contributing back to the official KDE project.
+
+Contribution
+This GitHub repository is a fork  
+All official development, issues, and merge requests are handled on KDE’s GitLab:
+
+ https://invent.kde.org/network/kdeconnect-kde
+
+Any meaningful contribution from this fork will be submitted upstream via GitLab Merge Requests.
+
+Purpose
+- Understand the KDE Connect codebase
+- Work on beginner-friendly issues
+- Experiment with fixes and improvements
+- Submit contributions to the official repository
+
+Build Instructions
+Official build documentation is available here:
+https://community.kde.org/KDEConnect/Build_Linux
+
+Licence
+KDE Connect is free software licensed under the GNU GPL.
+
+Maintained by: Palak Gokhru
