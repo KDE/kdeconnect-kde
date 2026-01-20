@@ -1,6 +1,6 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Tommi Nieminen <translator@legisign.org>, 2024.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-19 00:43+0000\n"
-"PO-Revision-Date: 2025-09-10 16:59+0300\n"
+"PO-Revision-Date: 2026-01-05 15:58+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -104,7 +104,7 @@ msgstr "Säätimet"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "Tietoa"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -174,7 +174,7 @@ msgstr "Käytä laitetta ulkoisena näyttönä"
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "Osoite: %1, väylä %2"
 
 #: qml/DevicePage.qml:220
 #, kde-format

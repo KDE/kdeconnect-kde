@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025 Giovanni Sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025, 2026 Giovanni Sora <g.sora@tiscali.it>
 # giovanni <g.sora@tiscali.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-19 00:43+0000\n"
-"PO-Revision-Date: 2025-04-22 12:01+0200\n"
+"PO-Revision-Date: 2026-01-19 17:17+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -24,10 +24,9 @@ msgid "KDE Connect"
 msgstr "KDE Connect"
 
 #: main.cpp:42
-#, fuzzy, kde-format
-#| msgid "(c) 2015-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr "(C) 2015-2025, KDE Connect Team (Equipa de KDE Connect)"
+msgstr "© 2015–2025 KDE Connect"
 
 #: main.cpp:43
 #, kde-format
@@ -55,19 +54,21 @@ msgstr "g.sora@tiscali.it"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "Id de dispositivo in le qual aperir le app"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
 msgstr ""
+"Modulo de Configuration a monstrar, require que --device (dispositivo) es "
+"assignate."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Reimplacia un instantia existente"
 
 #: main.cpp:86
 #, kde-format
@@ -105,7 +106,7 @@ msgstr "Controlos"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -160,22 +161,22 @@ msgstr "Comparti file"
 #: qml/DevicePage.qml:188
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Naviga iste dispositivo"
 
 #: qml/DevicePage.qml:196
 #, kde-format
 msgid "Stop virtual monitor session"
-msgstr ""
+msgstr "Stoppa session de monitor virtual"
 
 #: qml/DevicePage.qml:196
 #, kde-format
 msgid "Use device as an external monitor"
-msgstr ""
+msgstr "Usa dispositivo comoun monitor externe"
 
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "Adresse: %1 via %2"
 
 #: qml/DevicePage.qml:220
 #, kde-format
@@ -359,7 +360,7 @@ msgstr "A proposio de KDE"
 #: qml/Settings.qml:90
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Claude"
 
 #: qml/WelcomePage.qml:27
 #, kde-format

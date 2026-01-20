@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2014, 2018, 2019, 2020, 2021, 2022, 2023, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2014, 2018, 2019, 2020, 2021, 2022, 2023, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Lasse Liehu <lasse.liehu@gmail.com>, 2015, 2016.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-16 00:43+0000\n"
-"PO-Revision-Date: 2025-10-13 21:01+0300\n"
+"PO-Revision-Date: 2026-01-05 16:05+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -45,10 +45,9 @@ msgid "Max Clipboard File Size (MB)"
 msgstr "Leikepöydän enimmäiskoko (Mt)"
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "KDE Connect Error"
-msgstr "KDE Connect"
+msgstr "KDE Connect -virhe"
 
 #: digitizer/linuxdigitizerimpl.cpp:73
 #, kde-format
@@ -56,6 +55,7 @@ msgid ""
 "Unable to create a virtual drawing tablet. If this error persists, file a "
 "bug report."
 msgstr ""
+"Virtuaalipiirtopöytää ei voida luoda. Jos virhe toistuu, lähetä vikailmoitus."
 
 #: digitizer/linuxdigitizerimpl.cpp:169
 #, kde-format
@@ -63,6 +63,8 @@ msgid ""
 "Unable to process one or more input events for the virtual device. If this "
 "error persists, file a bug report."
 msgstr ""
+"Virtuaalilaitteen yhtä tai useampaa syötetapahtumaa ei voida käsitellä. Jos "
+"virhe toistuu, lähetä vikailmoitus."
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
@@ -224,47 +226,41 @@ msgstr "Esimerkkikomentoja:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:122
 #: runcommand/kdeconnect_runcommand_config.qml:133
-#, fuzzy, kde-format
-#| msgid "Suspend"
+#, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Valmiustila"
 
 #: runcommand/kdeconnect_runcommand_config.qml:126
 #: runcommand/kdeconnect_runcommand_config.qml:141
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Lukitse näyttö"
 
 #: runcommand/kdeconnect_runcommand_config.qml:137
-#, fuzzy, kde-format
-#| msgid "Maximum Brightness"
+#, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "Enimmäiskirkkaus"
 
 #: runcommand/kdeconnect_runcommand_config.qml:145
-#, fuzzy, kde-format
-#| msgid "Unlock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Poista näytön lukitus"
 
 #: runcommand/kdeconnect_runcommand_config.qml:149
-#, fuzzy, kde-format
-#| msgid "Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Sulje kaikki holvit"
 
 #: runcommand/kdeconnect_runcommand_config.qml:153
-#, fuzzy, kde-format
-#| msgid "Forcefully Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
-msgstr "Pakota sulkemaan kaikki holvit"
+msgstr "Pakota kaikki holvien sulkeminen"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -420,25 +416,25 @@ msgstr "Lukitse näyttö"
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "Ylhäällä"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "Vasemmalla"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "Oikealla"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "Alhaalla"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
 #, kde-format

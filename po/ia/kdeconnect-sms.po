@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025 Giovanni Sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025, 2026 Giovanni Sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-19 00:42+0000\n"
-"PO-Revision-Date: 2025-04-22 12:03+0200\n"
+"PO-Revision-Date: 2026-01-19 17:56+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -28,12 +28,10 @@ msgid "Your emails"
 msgstr "g.sora@tiscali.it"
 
 #: attachmentshelper.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
-msgstr "Netta attachamentos"
+msgstr "Discarga attachamento"
 
 #: conversationlistmodel.cpp:202
 #, kde-format
@@ -81,8 +79,7 @@ msgid "SMS Instant Messaging"
 msgstr "Messageria instantanee de SMS"
 
 #: main.cpp:86
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2018–2025 KDE Connect Team"
 msgstr "(C) 2018-2025, KDE Connect Team (Equipa de KDE Connect)"
 
@@ -127,11 +124,9 @@ msgid "Open with default"
 msgstr "Aperi con predefinite"
 
 #: qml/AttachmentViewer.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear attachments"
+#, kde-format
 msgid "Download attachment…"
-msgstr "Netta attachamentos"
+msgstr "Discarga attachamento…"
 
 #: qml/ConversationList.qml:23
 #, kde-format
@@ -190,19 +185,16 @@ msgid "Start new conversation"
 msgstr "Initia nove conversation"
 
 #: qml/ConversationList.qml:192
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message text when no messages are found"
-#| msgid "No matches"
+#, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "Nulle correspondentias"
 
 #: qml/ConversationList.qml:202
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"
-msgstr "Initia nove conversation"
+msgstr "Nulle conversationes"
 
 #: qml/Main.qml:93
 #, kde-format

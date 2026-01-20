@@ -404,7 +404,7 @@ msgctxt ""
 "@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
 "right edge', the pointer will switch to the connected device there"
 msgid "Leave Screen at"
-msgstr ""
+msgstr "离开屏幕时贴靠至"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
@@ -436,7 +436,7 @@ msgctxt "@info:tooltip edge: screen edge"
 msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
-msgstr ""
+msgstr "已有其他设备占用该边缘。若多台设备同时连接，可能导致异常结果。"
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format

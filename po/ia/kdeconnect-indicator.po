@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025 Giovanni Sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025, 2026 Giovanni Sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2025-04-22 12:02+0200\n"
+"PO-Revision-Date: 2026-01-19 17:27+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -49,8 +49,7 @@ msgid "Send files"
 msgstr "Invia files"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
 msgstr "Messages SMS..."
 
@@ -94,8 +93,7 @@ msgid "KDE Connect Indicator tool"
 msgstr "Instrumento de KDE Connect Indicator"
 
 #: main.cpp:61
-#, fuzzy, kde-format
-#| msgid "(c) 2016-2025, KDE Connect Team"
+#, kde-format
 msgid "© 2016–2025 KDE Connect Team"
 msgstr "(C) 2016-2025, KDE Connect Team (Equipa de KDE Connect)"
 
@@ -112,7 +110,7 @@ msgstr "Albert Vaca Cintora"
 #: main.cpp:101
 #, kde-format
 msgid "Open app"
-msgstr ""
+msgstr "Aperi app"
 
 #: main.cpp:118
 #, kde-format
