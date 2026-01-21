@@ -84,7 +84,7 @@ Kirigami.ScrollablePage {
             function update() {
                 for (let i = 0; i < items.count; ++i) {
                     let item = items.get(i);
-                    item.inLoadedPlugins = item.model.loaded || item.model.section === "info"
+                    item.inLoadedPlugins = item.model.loaded || (item.model.section === "info" && root.currentDevice.isPaired)
                 }
             }
 
