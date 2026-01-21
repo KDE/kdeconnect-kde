@@ -242,10 +242,12 @@ void BluetoothLinkProvider::clientIdentityReceived(const QBluetoothAddress &peer
 
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider Received identity packet from" << peer;
 
-    // TODO?
-    // disconnect(socket, &QAbstractSocket::error, this, &BluetoothLinkProvider::connectError);
-
-    QSslCertificate receivedCertificate(receivedPacket.get<QString>(QStringLiteral("certificate")).toLatin1());
+    QString certificateBody = receivedPacket.get<QString>(QStringLiteral("certificate"));
+    if (certificateBody.startsWith(QStringLiteral("-----BEGIN CERTIFICATE-----")) == false) {
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider clientIdentityReceived Fixing PEM encoding";
+        certificateBody = certificateBody.prepend(QStringLiteral("-----BEGIN CERTIFICATE-----\n")).append(QStringLiteral("\n-----END CERTIFICATE-----\n"));
+    }
+    QSslCertificate receivedCertificate(certificateBody.toLatin1());
     DeviceInfo deviceInfo = deviceInfo.FromIdentityPacketAndCert(receivedPacket, receivedCertificate);
     auto deviceLink = std::make_unique<BluetoothDeviceLink>(deviceInfo, this, mSockets[peer], socket);
 
@@ -353,7 +355,12 @@ void BluetoothLinkProvider::serverDataReceived(const QBluetoothAddress &peer, QS
 
     qCDebug(KDECONNECT_CORE) << "Received identity packet from" << peer;
 
-    QSslCertificate receivedCertificate(receivedPacket.get<QString>(QStringLiteral("certificate")).toLatin1());
+    QString certificateBody = receivedPacket.get<QString>(QStringLiteral("certificate"));
+    if (certificateBody.startsWith(QStringLiteral("-----BEGIN CERTIFICATE-----")) == false) {
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider serverDataReceived remoteDeviceInfo fixing PEM encoding";
+        certificateBody = certificateBody.prepend(QStringLiteral("-----BEGIN CERTIFICATE-----\n")).append(QStringLiteral("-----END CERTIFICATE-----\n"));
+    }
+    QSslCertificate receivedCertificate(certificateBody.toLatin1());
     DeviceInfo deviceInfo = deviceInfo.FromIdentityPacketAndCert(receivedPacket, receivedCertificate);
     auto deviceLink = std::make_unique<BluetoothDeviceLink>(deviceInfo, this, mSockets[peer], socket);
 
