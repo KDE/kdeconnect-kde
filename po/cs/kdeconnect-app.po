@@ -355,7 +355,7 @@ msgstr "O prostředí KDE"
 #: qml/Settings.qml:90
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Zavřít"
 
 #: qml/WelcomePage.qml:27
 #, kde-format

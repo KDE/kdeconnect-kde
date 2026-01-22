@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-16 00:43+0000\n"
-"PO-Revision-Date: 2026-01-14 20:15+0100\n"
+"PO-Revision-Date: 2026-01-18 01:43+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -410,13 +410,12 @@ msgid "%1 does not exist"
 msgstr "%1 existiert nicht"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt ""
 "@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
 "right edge', the pointer will switch to the connected device there"
 msgid "Leave Screen at"
-msgstr "Bildschirm sperren"
+msgstr "Bildschirm an folgendem Rand verlassen"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
@@ -449,6 +448,9 @@ msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
 msgstr ""
+"Ein anderes Gerät hat diesen Rand bereits reserviert. Das kann zu "
+"unerwarteten Ergebnissen führen, wenn beide Geräte gleichzeitig verbunden "
+"sind."
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
