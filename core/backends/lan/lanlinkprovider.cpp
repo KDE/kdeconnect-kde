@@ -36,6 +36,10 @@
 #include "kdeconnectconfig.h"
 #include "landevicelink.h"
 
+// The size here is arbitrary, it needs to be considerably long as it includes the capabilities but there needs to be a limit.
+// Tested between my systems and I get around 2000 per identity package.
+static const int MAX_IDENTITY_PACKET_SIZE = 8192;
+
 static const int MAX_UNPAIRED_CONNECTIONS = 42;
 
 static const long MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE = 500;
@@ -391,6 +395,12 @@ void LanLinkProvider::encrypted(QSslSocket *socket, std::shared_ptr<NetworkPacke
         socket->write(myIdentity.serialize());
         socket->flush();
         connect(socket, &QIODevice::readyRead, this, [this, socket, protocolVersion, deviceId]() {
+            if (socket->bytesAvailable() > MAX_IDENTITY_PACKET_SIZE) {
+                qCWarning(KDECONNECT_CORE, "Remote device sent a packet too large");
+                disconnect(socket, &QIODevice::readyRead, nullptr, nullptr);
+                socket->disconnectFromHost();
+                return;
+            }
             if (!socket->canReadLine()) {
                 // This can happen if the packet is large enough to be split in two chunks
                 return;
@@ -401,16 +411,19 @@ void LanLinkProvider::encrypted(QSslSocket *socket, std::shared_ptr<NetworkPacke
             bool success = NetworkPacket::unserialize(identityString, &secureIdentityPacket);
             if (!success || !DeviceInfo::isValidIdentityPacket(&secureIdentityPacket)) {
                 qCWarning(KDECONNECT_CORE, "Remote device doesn't correctly implement protocol version 8");
+                socket->disconnectFromHost();
                 return;
             }
             int newProtocolVersion = secureIdentityPacket.get<int>(QStringLiteral("protocolVersion"), 0);
             if (newProtocolVersion != protocolVersion) {
                 qCWarning(KDECONNECT_CORE) << "Protocol version changed half-way through the handshake:" << protocolVersion << "->" << newProtocolVersion;
+                socket->disconnectFromHost();
                 return;
             }
             QString newDeviceId = secureIdentityPacket.get<QString>(QStringLiteral("deviceId"));
             if (newDeviceId != deviceId) {
                 qCWarning(KDECONNECT_CORE) << "Device ID changed half-way through the handshake:" << deviceId << "->" << newDeviceId;
+                socket->disconnectFromHost();
                 return;
             }
             DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(secureIdentityPacket, socket->peerCertificate());
@@ -475,11 +488,10 @@ void LanLinkProvider::newTcpConnection()
 void LanLinkProvider::tcpPacketReceived()
 {
     QSslSocket *socket = qobject_cast<QSslSocket *>(sender());
-    // the size here is arbitrary and is now at 8192 bytes. It needs to be considerably long as it includes the capabilities but there needs to be a limit
-    // Tested between my systems and I get around 2000 per identity package.
-    if (socket->bytesAvailable() > 8192) {
+    if (socket->bytesAvailable() > MAX_IDENTITY_PACKET_SIZE) {
         qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newTcpConnection: Suspiciously long identity package received. Closing connection."
                                    << socket->peerAddress() << socket->bytesAvailable();
+        disconnect(socket, &QIODevice::readyRead, this, &LanLinkProvider::tcpPacketReceived);
         socket->disconnectFromHost();
         return;
     }
