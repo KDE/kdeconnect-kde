@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2023, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2023, 2024, 2025, 2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-19 00:43+0000\n"
-"PO-Revision-Date: 2025-07-28 18:08+0200\n"
+"PO-Revision-Date: 2026-01-22 17:20+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -103,7 +103,7 @@ msgstr "Kontroller"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -173,7 +173,7 @@ msgstr "Använd enhet som en extern monitor"
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "Adress: %1 via %2"
 
 #: qml/DevicePage.qml:220
 #, kde-format
@@ -356,7 +356,7 @@ msgstr "Om KDE"
 #: qml/Settings.qml:90
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Stäng"
 
 #: qml/WelcomePage.qml:27
 #, kde-format

@@ -356,7 +356,7 @@ msgstr "关于 KDE"
 #: qml/Settings.qml:90
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #: qml/WelcomePage.qml:27
 #, kde-format

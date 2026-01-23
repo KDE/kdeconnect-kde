@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"POT-Creation-Date: 2026-01-23 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -172,93 +172,120 @@ msgstr "Ping!"
 msgid "Add Command…"
 msgstr "添加命令…"
 
-#: runcommand/kdeconnect_runcommand_config.qml:53
+#: runcommand/kdeconnect_runcommand_config.qml:54
+#, kde-format
+msgid "Edit"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
 msgid "Delete"
 msgstr "删除"
 
-#: runcommand/kdeconnect_runcommand_config.qml:64
+#: runcommand/kdeconnect_runcommand_config.qml:76
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
 msgstr "没有配置命令"
 
-#: runcommand/kdeconnect_runcommand_config.qml:65
+#: runcommand/kdeconnect_runcommand_config.qml:77
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
 msgstr "添加命令以从其他设备远程运行"
 
-#: runcommand/kdeconnect_runcommand_config.qml:71
+#: runcommand/kdeconnect_runcommand_config.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
 msgstr "添加命令"
 
-#: runcommand/kdeconnect_runcommand_config.qml:77
+#: runcommand/kdeconnect_runcommand_config.qml:89
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
 msgstr "添加"
 
-#: runcommand/kdeconnect_runcommand_config.qml:86
+#: runcommand/kdeconnect_runcommand_config.qml:96
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
 msgstr "添加命令"
 
-#: runcommand/kdeconnect_runcommand_config.qml:96
+#: runcommand/kdeconnect_runcommand_config.qml:105
+#: runcommand/kdeconnect_runcommand_config.qml:183
 #, kde-format
 msgid "Name:"
 msgstr "名称："
 
-#: runcommand/kdeconnect_runcommand_config.qml:100
+#: runcommand/kdeconnect_runcommand_config.qml:109
+#: runcommand/kdeconnect_runcommand_config.qml:187
 #, kde-format
 msgid "Command:"
 msgstr "命令："
 
-#: runcommand/kdeconnect_runcommand_config.qml:104
+#: runcommand/kdeconnect_runcommand_config.qml:113
 #, kde-format
 msgid "Sample commands:"
 msgstr "示例命令："
 
-#: runcommand/kdeconnect_runcommand_config.qml:122
-#: runcommand/kdeconnect_runcommand_config.qml:133
+#: runcommand/kdeconnect_runcommand_config.qml:131
+#: runcommand/kdeconnect_runcommand_config.qml:142
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "挂起"
 
-#: runcommand/kdeconnect_runcommand_config.qml:126
-#: runcommand/kdeconnect_runcommand_config.qml:141
+#: runcommand/kdeconnect_runcommand_config.qml:135
+#: runcommand/kdeconnect_runcommand_config.qml:150
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "锁屏"
 
-#: runcommand/kdeconnect_runcommand_config.qml:137
+#: runcommand/kdeconnect_runcommand_config.qml:146
 #, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "最大亮度"
 
-#: runcommand/kdeconnect_runcommand_config.qml:145
+#: runcommand/kdeconnect_runcommand_config.qml:154
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "解锁屏幕"
 
-#: runcommand/kdeconnect_runcommand_config.qml:149
+#: runcommand/kdeconnect_runcommand_config.qml:158
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "关闭所有保险库"
 
-#: runcommand/kdeconnect_runcommand_config.qml:153
+#: runcommand/kdeconnect_runcommand_config.qml:162
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
 msgstr "强制关闭所有保险库"
+
+#: runcommand/kdeconnect_runcommand_config.qml:175
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Command"
+msgctxt "@title:window"
+msgid "Edit Command"
+msgstr "添加命令"
+
+#: runcommand/kdeconnect_runcommand_config.qml:192
+#, kde-format
+msgctxt "@action:button"
+msgid "Confirm"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:199
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Confirm"
+msgstr ""
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format

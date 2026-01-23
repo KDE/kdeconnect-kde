@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"POT-Creation-Date: 2026-01-23 00:43+0000\n"
 "PO-Revision-Date: 2017-09-28 17:57+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -176,97 +176,123 @@ msgstr "Пинг!"
 msgid "Add Command…"
 msgstr "Наредба"
 
-#: runcommand/kdeconnect_runcommand_config.qml:53
+#: runcommand/kdeconnect_runcommand_config.qml:54
+#, kde-format
+msgid "Edit"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
 msgid "Delete"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:64
+#: runcommand/kdeconnect_runcommand_config.qml:76
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:65
+#: runcommand/kdeconnect_runcommand_config.qml:77
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:71
+#: runcommand/kdeconnect_runcommand_config.qml:83
 #, fuzzy, kde-format
 #| msgid "Command"
 msgctxt "@title:window"
 msgid "Add Command"
 msgstr "Наредба"
 
-#: runcommand/kdeconnect_runcommand_config.qml:77
+#: runcommand/kdeconnect_runcommand_config.qml:89
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:86
+#: runcommand/kdeconnect_runcommand_config.qml:96
 #, fuzzy, kde-format
 #| msgid "Command"
 msgctxt "@action:button accessible"
 msgid "Add command"
 msgstr "Наредба"
 
-#: runcommand/kdeconnect_runcommand_config.qml:96
+#: runcommand/kdeconnect_runcommand_config.qml:105
+#: runcommand/kdeconnect_runcommand_config.qml:183
 #, fuzzy, kde-format
 #| msgid "Name"
 msgid "Name:"
 msgstr "Назив"
 
-#: runcommand/kdeconnect_runcommand_config.qml:100
+#: runcommand/kdeconnect_runcommand_config.qml:109
+#: runcommand/kdeconnect_runcommand_config.qml:187
 #, fuzzy, kde-format
 #| msgid "Command"
 msgid "Command:"
 msgstr "Наредба"
 
-#: runcommand/kdeconnect_runcommand_config.qml:104
+#: runcommand/kdeconnect_runcommand_config.qml:113
 #, fuzzy, kde-format
 #| msgid "Command"
 msgid "Sample commands:"
 msgstr "Наредба"
 
-#: runcommand/kdeconnect_runcommand_config.qml:122
-#: runcommand/kdeconnect_runcommand_config.qml:133
+#: runcommand/kdeconnect_runcommand_config.qml:131
+#: runcommand/kdeconnect_runcommand_config.qml:142
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:126
-#: runcommand/kdeconnect_runcommand_config.qml:141
+#: runcommand/kdeconnect_runcommand_config.qml:135
+#: runcommand/kdeconnect_runcommand_config.qml:150
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:137
+#: runcommand/kdeconnect_runcommand_config.qml:146
 #, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:145
+#: runcommand/kdeconnect_runcommand_config.qml:154
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:149
+#: runcommand/kdeconnect_runcommand_config.qml:158
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:153
+#: runcommand/kdeconnect_runcommand_config.qml:162
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:175
+#, fuzzy, kde-format
+#| msgid "Command"
+msgctxt "@title:window"
+msgid "Edit Command"
+msgstr "Наредба"
+
+#: runcommand/kdeconnect_runcommand_config.qml:192
+#, kde-format
+msgctxt "@action:button"
+msgid "Confirm"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:199
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Confirm"
 msgstr ""
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24

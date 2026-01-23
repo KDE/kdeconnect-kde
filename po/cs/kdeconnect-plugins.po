@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"POT-Creation-Date: 2026-01-23 00:43+0000\n"
 "PO-Revision-Date: 2025-12-17 11:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -175,93 +175,120 @@ msgstr "Ping."
 msgid "Add Command…"
 msgstr "Přidat příkaz…"
 
-#: runcommand/kdeconnect_runcommand_config.qml:53
+#: runcommand/kdeconnect_runcommand_config.qml:54
+#, kde-format
+msgid "Edit"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
 msgid "Delete"
 msgstr "Smazat"
 
-#: runcommand/kdeconnect_runcommand_config.qml:64
+#: runcommand/kdeconnect_runcommand_config.qml:76
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
 msgstr "Nebyl nastaven žádný příkaz"
 
-#: runcommand/kdeconnect_runcommand_config.qml:65
+#: runcommand/kdeconnect_runcommand_config.qml:77
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
 msgstr "Přidat příkazy pro jejich vzdálené spuštění z jiných zařízení"
 
-#: runcommand/kdeconnect_runcommand_config.qml:71
+#: runcommand/kdeconnect_runcommand_config.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
 msgstr "Přidat příkaz"
 
-#: runcommand/kdeconnect_runcommand_config.qml:77
+#: runcommand/kdeconnect_runcommand_config.qml:89
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
 msgstr "Přidat"
 
-#: runcommand/kdeconnect_runcommand_config.qml:86
+#: runcommand/kdeconnect_runcommand_config.qml:96
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
 msgstr "Přidat příkaz"
 
-#: runcommand/kdeconnect_runcommand_config.qml:96
+#: runcommand/kdeconnect_runcommand_config.qml:105
+#: runcommand/kdeconnect_runcommand_config.qml:183
 #, kde-format
 msgid "Name:"
 msgstr "Název:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:100
+#: runcommand/kdeconnect_runcommand_config.qml:109
+#: runcommand/kdeconnect_runcommand_config.qml:187
 #, kde-format
 msgid "Command:"
 msgstr "Příkaz:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:104
+#: runcommand/kdeconnect_runcommand_config.qml:113
 #, kde-format
 msgid "Sample commands:"
 msgstr "Ukázkové příkazy:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:122
-#: runcommand/kdeconnect_runcommand_config.qml:133
+#: runcommand/kdeconnect_runcommand_config.qml:131
+#: runcommand/kdeconnect_runcommand_config.qml:142
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Uspat"
 
-#: runcommand/kdeconnect_runcommand_config.qml:126
-#: runcommand/kdeconnect_runcommand_config.qml:141
+#: runcommand/kdeconnect_runcommand_config.qml:135
+#: runcommand/kdeconnect_runcommand_config.qml:150
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Uzamknout obrazovku"
 
-#: runcommand/kdeconnect_runcommand_config.qml:137
+#: runcommand/kdeconnect_runcommand_config.qml:146
 #, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "Maximální jas"
 
-#: runcommand/kdeconnect_runcommand_config.qml:145
+#: runcommand/kdeconnect_runcommand_config.qml:154
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Odemknout obrazovku"
 
-#: runcommand/kdeconnect_runcommand_config.qml:149
+#: runcommand/kdeconnect_runcommand_config.qml:158
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Uzavřít všechny sejfy"
 
-#: runcommand/kdeconnect_runcommand_config.qml:153
+#: runcommand/kdeconnect_runcommand_config.qml:162
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
 msgstr "Vynutit zavření všech sejfů"
+
+#: runcommand/kdeconnect_runcommand_config.qml:175
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Command"
+msgctxt "@title:window"
+msgid "Edit Command"
+msgstr "Přidat příkaz"
+
+#: runcommand/kdeconnect_runcommand_config.qml:192
+#, kde-format
+msgctxt "@action:button"
+msgid "Confirm"
+msgstr ""
+
+#: runcommand/kdeconnect_runcommand_config.qml:199
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Confirm"
+msgstr ""
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
