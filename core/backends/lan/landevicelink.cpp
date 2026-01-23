@@ -15,6 +15,9 @@
 #include "lanlinkprovider.h"
 #include "plugins/share/shareplugin.h"
 
+// This is a huge size for a single packet, but I'm being conservative given there wasn't a limit before and I don't want to break things
+static const int MAX_PACKET_SIZE = 32 * 1024 * 1024;
+
 LanDeviceLink::LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *parent, QSslSocket *socket)
     : DeviceLink(deviceInfo.id, parent)
     , m_socket(nullptr)
@@ -92,10 +95,18 @@ bool LanDeviceLink::sendPacket(NetworkPacket &np)
 
 void LanDeviceLink::dataReceived()
 {
+    if (!m_socket->canReadLine() && m_socket->bytesAvailable() > MAX_PACKET_SIZE) {
+        qCWarning(KDECONNECT_CORE) << "Discarding packet that's too large";
+        m_socket->readAll();
+    }
     while (m_socket->canReadLine()) {
         const QByteArray serializedPacket = m_socket->readLine();
         NetworkPacket packet;
-        NetworkPacket::unserialize(serializedPacket, &packet);
+        bool success = NetworkPacket::unserialize(serializedPacket, &packet);
+        if (!success) {
+            // unserialize already logs
+            continue;
+        }
 
         // qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << serializedPacket;
 
