@@ -378,7 +378,7 @@ void LanLinkProvider::tcpSocketConnected(QSslSocket *socket, std::shared_ptr<Net
         m_udpSocket.writeDatagram(np2.serialize(), sender, UDP_PORT);
 
         // Disconnect should trigger deleteLater
-        socket->disconnectFromHost();
+        socket->abort();
     }
 }
 
@@ -396,9 +396,8 @@ void LanLinkProvider::encrypted(QSslSocket *socket, std::shared_ptr<NetworkPacke
         socket->flush();
         connect(socket, &QIODevice::readyRead, this, [this, socket, protocolVersion, deviceId]() {
             if (socket->bytesAvailable() > MAX_IDENTITY_PACKET_SIZE) {
-                qCWarning(KDECONNECT_CORE, "Remote device sent a packet too large");
-                disconnect(socket, &QIODevice::readyRead, nullptr, nullptr);
-                socket->disconnectFromHost();
+                qCWarning(KDECONNECT_CORE) << "Remote device sent a packet too large";
+                socket->abort();
                 return;
             }
             if (!socket->canReadLine()) {
@@ -410,20 +409,20 @@ void LanLinkProvider::encrypted(QSslSocket *socket, std::shared_ptr<NetworkPacke
             NetworkPacket secureIdentityPacket;
             bool success = NetworkPacket::unserialize(identityString, &secureIdentityPacket);
             if (!success || !DeviceInfo::isValidIdentityPacket(&secureIdentityPacket)) {
-                qCWarning(KDECONNECT_CORE, "Remote device doesn't correctly implement protocol version 8");
-                socket->disconnectFromHost();
+                qCWarning(KDECONNECT_CORE) << "Remote device doesn't correctly implement protocol version 8";
+                socket->abort();
                 return;
             }
             int newProtocolVersion = secureIdentityPacket.get<int>(QStringLiteral("protocolVersion"), 0);
             if (newProtocolVersion != protocolVersion) {
                 qCWarning(KDECONNECT_CORE) << "Protocol version changed half-way through the handshake:" << protocolVersion << "->" << newProtocolVersion;
-                socket->disconnectFromHost();
+                socket->abort();
                 return;
             }
             QString newDeviceId = secureIdentityPacket.get<QString>(QStringLiteral("deviceId"));
             if (newDeviceId != deviceId) {
                 qCWarning(KDECONNECT_CORE) << "Device ID changed half-way through the handshake:" << deviceId << "->" << newDeviceId;
-                socket->disconnectFromHost();
+                socket->abort();
                 return;
             }
             DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(secureIdentityPacket, socket->peerCertificate());
@@ -452,7 +451,7 @@ void LanLinkProvider::sslErrors(const QList<QSslError> &errors)
         QSslSocket *socket = qobject_cast<QSslSocket *>(sender());
         if (socket) {
             // Disconnect should trigger deleteLater
-            socket->disconnectFromHost();
+            socket->abort();
         }
     }
 }
@@ -478,7 +477,7 @@ void LanLinkProvider::newTcpConnection()
         connect(socket, &QSslSocket::encrypted, timer, &QObject::deleteLater);
         connect(timer, &QTimer::timeout, socket, [socket] {
             qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newTcpConnection: Host timed out without sending any identity." << socket->peerAddress();
-            socket->disconnectFromHost();
+            socket->abort();
         });
         timer->start();
     }
@@ -491,8 +490,7 @@ void LanLinkProvider::tcpPacketReceived()
     if (socket->bytesAvailable() > MAX_IDENTITY_PACKET_SIZE) {
         qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newTcpConnection: Suspiciously long identity package received. Closing connection."
                                    << socket->peerAddress() << socket->bytesAvailable();
-        disconnect(socket, &QIODevice::readyRead, this, &LanLinkProvider::tcpPacketReceived);
-        socket->disconnectFromHost();
+        socket->abort();
         return;
     }
 
@@ -606,7 +604,7 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
     QString certDeviceId = socket->peerCertificate().subjectDisplayName();
     DBusHelper::filterNonExportableCharacters(certDeviceId);
     if (deviceInfo.id != certDeviceId) {
-        socket->disconnectFromHost();
+        socket->abort();
         qCWarning(KDECONNECT_CORE) << "DeviceID in cert doesn't match deviceID in identity packet." << deviceInfo.id << "vs" << certDeviceId;
         return;
     }
@@ -639,7 +637,7 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
         bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceInfo.id);
         if (!isDeviceTrusted && m_links.size() > MAX_UNPAIRED_CONNECTIONS) {
             qCWarning(KDECONNECT_CORE) << "Too many unpaired devices to remember them all. Ignoring" << deviceInfo.id;
-            socket->disconnectFromHost();
+            socket->abort();
             socket->deleteLater();
             return;
         }
