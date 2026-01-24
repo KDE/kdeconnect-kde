@@ -98,8 +98,8 @@ void BluetoothLinkProvider::disable()
 
 void BluetoothLinkProvider::onNetworkChange()
 {
-    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onNetworkChange executed";
     if (!mDisabled) {
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onNetworkChange executed";
         tryToInitialise();
     }
 }
