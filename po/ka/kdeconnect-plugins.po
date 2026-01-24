@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:43+0000\n"
-"PO-Revision-Date: 2026-01-16 05:20+0100\n"
+"PO-Revision-Date: 2026-01-23 06:17+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -178,7 +178,7 @@ msgstr "ბრძანების დამატება…"
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "ჩასწორება"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -271,24 +271,22 @@ msgid "Forcefully Close All Vaults"
 msgstr "ყველა საცავის ძალით დახურვა"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "ბრძანების დამატება"
+msgstr "ბრძანების ჩასწორება"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "დადასტურება"
 
 #: runcommand/kdeconnect_runcommand_config.qml:199
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "დადასტურება"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format

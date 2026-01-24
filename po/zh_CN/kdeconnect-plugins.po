@@ -268,12 +268,10 @@ msgid "Forcefully Close All Vaults"
 msgstr "强制关闭所有保险库"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "添加命令"
+msgstr ""
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
