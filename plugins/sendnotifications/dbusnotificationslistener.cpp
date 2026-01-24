@@ -311,7 +311,7 @@ void DBusNotificationsListener::onNotify(const NotificationManager::Notification
     }
     NetworkPacket np(PACKET_TYPE_NOTIFICATION,
                      {
-                         {QStringLiteral("id"), notification.id() > 0 ? notification.id() : id++},
+                         {QStringLiteral("id"), QString::number(notification.id() > 0 ? notification.id() : id++)},
                          {QStringLiteral("appName"), notification.applicationName()},
                          {QStringLiteral("ticker"), ticker},
                          {QStringLiteral("isClearable"), notification.timeout() == -1},
