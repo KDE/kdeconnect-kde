@@ -92,6 +92,7 @@ Device::Device(QObject *parent, DeviceLink *dl)
 
     connect(this, &Device::reachableChanged, this, &Device::statusIconNameChanged);
     connect(this, &Device::pairStateChanged, this, &Device::statusIconNameChanged);
+    connect(this, &Device::typeChanged, this, &Device::statusIconNameChanged);
 
     connect(d->m_pairingHandler, &PairingHandler::incomingPairRequest, this, &Device::pairingHandler_incomingPairRequest);
     connect(d->m_pairingHandler, &PairingHandler::pairingFailed, this, &Device::pairingHandler_pairingFailed);
@@ -311,6 +312,8 @@ void Device::addLink(DeviceLink *link)
     if (hasChanges) {
         reloadPlugins();
     }
+
+    Q_EMIT linksChanged();
 }
 
 bool Device::updateDeviceInfo(const DeviceInfo &newDeviceInfo)
@@ -362,6 +365,8 @@ void Device::removeLink(DeviceLink *link)
         reloadPlugins();
         Q_EMIT reachableChanged(false);
     }
+
+    Q_EMIT linksChanged();
 }
 
 bool Device::sendPacket(NetworkPacket &np)

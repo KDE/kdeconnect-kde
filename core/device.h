@@ -25,12 +25,12 @@ class KDECONNECTCORE_EXPORT Device : public QObject
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device")
     Q_PROPERTY(QString type READ typeAsString NOTIFY typeChanged)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
-    Q_PROPERTY(QString iconName READ iconName CONSTANT)
+    Q_PROPERTY(QString iconName READ iconName NOTIFY typeChanged)
     Q_PROPERTY(QString verificationKey READ verificationKey NOTIFY pairStateChanged)
     Q_PROPERTY(QString statusIconName READ statusIconName NOTIFY statusIconNameChanged)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChanged)
-    Q_PROPERTY(QStringList reachableAddresses READ reachableAddresses CONSTANT)
-    Q_PROPERTY(QStringList activeProviderNames READ activeProviderNames CONSTANT)
+    Q_PROPERTY(QStringList reachableAddresses READ reachableAddresses NOTIFY linksChanged)
+    Q_PROPERTY(QStringList activeProviderNames READ activeProviderNames NOTIFY linksChanged)
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChanged)
     Q_PROPERTY(bool isPairRequested READ isPairRequested NOTIFY pairStateChanged)
     Q_PROPERTY(bool isPairRequestedByPeer READ isPairRequestedByPeer NOTIFY pairStateChanged)
@@ -129,6 +129,7 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     Q_SCRIPTABLE void pluginsChanged();
+    Q_SCRIPTABLE void linksChanged();
     Q_SCRIPTABLE void reachableChanged(bool reachable);
     Q_SCRIPTABLE void pairStateChanged(int pairState); // Hack because qdbus doesn't like enums
     Q_SCRIPTABLE void pairingFailed(const QString &error);
