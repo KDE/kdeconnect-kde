@@ -28,16 +28,16 @@ BluetoothLinkProvider::BluetoothLinkProvider(bool isDisabled)
 
 void BluetoothLinkProvider::onStart()
 {
-    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStart executed";
     if (!mDisabled) {
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStart executed";
         tryToInitialise();
     }
 }
 
 void BluetoothLinkProvider::onStartDiscovery()
 {
-    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStartDiscovery executed";
     if (!mDisabled && mServiceDiscoveryAgent != nullptr) {
+        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::onStartDiscovery executed";
         mServiceDiscoveryAgent->start();
     }
 }
