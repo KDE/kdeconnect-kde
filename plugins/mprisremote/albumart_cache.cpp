@@ -99,6 +99,10 @@ void AlbumArtCache::handleAlbumArt(const NetworkPacket &np)
             }
         }
     }
+    if (!np.hasPayload()) {
+        qCWarning(KDECONNECT_PLUGIN_MPRISREMOTE) << "transferringAlbumArt was set but no payload was attached:" << player << remoteUrl;
+        return;
+    }
     // FIXME: better local file path
     auto filename = QStringLiteral("%1.jpg").arg(qHash(remoteUrl));
     auto localUrl = QUrl::fromLocalFile(m_cacheDir.filePath(filename));
