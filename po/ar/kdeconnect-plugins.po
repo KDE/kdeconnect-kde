@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:43+0000\n"
-"PO-Revision-Date: 2026-01-18 18:45+0400\n"
+"PO-Revision-Date: 2026-01-24 12:23+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -178,7 +178,7 @@ msgstr "أضف أمر…"
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "حرّر"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -271,24 +271,22 @@ msgid "Forcefully Close All Vaults"
 msgstr "أغلق كل الخزنات بالقوة"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "أضِف أمرًا"
+msgstr "حرر أمر"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "أكّد"
 
 #: runcommand/kdeconnect_runcommand_config.qml:199
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "أكّد"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format

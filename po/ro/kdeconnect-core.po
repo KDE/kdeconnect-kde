@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-26 00:42+0000\n"
+"POT-Creation-Date: 2026-01-25 00:44+0000\n"
 "PO-Revision-Date: 2025-11-30 13:48+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -100,17 +100,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destinație"
 
-#: device.cpp:475
+#: device.cpp:486
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Amprenta SHA256 a certificatului acestui dispozitiv e: %1\n"
 
-#: device.cpp:481
+#: device.cpp:492
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Amprenta SHA256 a certificatului dispozitivului distant e: %1\n"
 
-#: device.cpp:483
+#: device.cpp:494
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "Versiune protocol: %1\n"

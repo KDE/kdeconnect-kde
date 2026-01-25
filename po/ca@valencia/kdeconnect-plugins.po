@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:43+0000\n"
-"PO-Revision-Date: 2026-01-16 12:16+0100\n"
+"PO-Revision-Date: 2026-01-23 09:20+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -181,7 +181,7 @@ msgstr "Afig una ordre…"
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Edita"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -274,24 +274,22 @@ msgid "Forcefully Close All Vaults"
 msgstr "Tanca fortament totes les caixes fortes"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "Addició d'ordre"
+msgstr "Editeu l'ordre"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmeu"
 
 #: runcommand/kdeconnect_runcommand_config.qml:199
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmeu"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format

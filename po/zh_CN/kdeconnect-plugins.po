@@ -175,7 +175,7 @@ msgstr "添加命令…"
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "编辑"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -271,19 +271,19 @@ msgstr "强制关闭所有保险库"
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr ""
+msgstr "编辑命令"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "确认"
 
 #: runcommand/kdeconnect_runcommand_config.qml:199
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "确认"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format

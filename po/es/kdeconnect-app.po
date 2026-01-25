@@ -1,15 +1,15 @@
 # Spanish translations for kdeconnect-app.po package.
-# Copyright (C) 2020-2025 This file is copyright:
+# Copyright (C) 2020-2026 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # SPDX-FileCopyrightText: 2020, 2025 Eloy Cuadra <ecuadra@eloihr.net>
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-19 00:43+0000\n"
-"PO-Revision-Date: 2025-12-06 22:02+0100\n"
+"PO-Revision-Date: 2026-01-25 00:37+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -359,7 +359,7 @@ msgstr "Sobre KDE"
 #: qml/Settings.qml:90
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: qml/WelcomePage.qml:27
 #, kde-format
