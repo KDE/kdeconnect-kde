@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:43+0000\n"
-"PO-Revision-Date: 2026-01-16 14:08+0100\n"
+"PO-Revision-Date: 2026-01-25 09:08+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -177,7 +177,7 @@ msgstr "Aggiungi comando…"
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -270,24 +270,22 @@ msgid "Forcefully Close All Vaults"
 msgstr "Chiudi forzatamente tutti i caveau"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "Aggiungi comando"
+msgstr "Modifica comando"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "Conferma"
 
 #: runcommand/kdeconnect_runcommand_config.qml:199
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "Conferma"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format

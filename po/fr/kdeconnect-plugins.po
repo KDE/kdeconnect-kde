@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:43+0000\n"
-"PO-Revision-Date: 2026-01-17 07:04+0100\n"
+"PO-Revision-Date: 2026-01-24 10:26+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -187,7 +187,7 @@ msgstr "Ajouter une commande..."
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Modifier"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -282,24 +282,22 @@ msgid "Forcefully Close All Vaults"
 msgstr "Forcer la fermeture de tous les coffre-forts"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "Ajouter une commande"
+msgstr "Modifier la commande"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmer"
 
 #: runcommand/kdeconnect_runcommand_config.qml:199
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmer"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
