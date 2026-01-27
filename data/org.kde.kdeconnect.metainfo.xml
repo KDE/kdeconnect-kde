@@ -182,6 +182,7 @@
     <value key="KDE::app_store">https://apps.apple.com/app/kde-connect/id1580245991</value>
   </custom>
   <releases>
+    <release version="25.12.2" date="2026-02-05"/>
     <release version="25.12.1" date="2026-01-08">
       <artifacts>
         <artifact type="binary" platform="x86_64-windows-msvc">
