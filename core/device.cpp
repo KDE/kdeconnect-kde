@@ -390,6 +390,11 @@ void Device::privateReceivedPacket(const NetworkPacket &np)
         const QList<KdeConnectPlugin *> plugins = d->m_pluginsByIncomingCapability.values(np.type());
         if (plugins.isEmpty()) {
             qWarning() << "discarding unsupported packet" << np.type() << "for" << name();
+
+            // If there is a payload close it to not leak sockets
+            if (np.payload()) {
+                np.payload()->close();
+            }
         }
         for (KdeConnectPlugin *plugin : plugins) {
             plugin->receivePacket(np);
