@@ -99,6 +99,11 @@ public:
         return !m_payloadTransferInfo.isEmpty();
     }
 
+    bool isProtocolPacket() const
+    {
+        return m_type == PACKET_TYPE_IDENTITY || m_type == PACKET_TYPE_PAIR;
+    }
+
 private:
     QString m_type;
     QVariantMap m_body;

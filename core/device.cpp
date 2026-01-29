@@ -373,6 +373,11 @@ bool Device::sendPacket(NetworkPacket &np)
 {
     Q_ASSERT(isPaired() || np.type() == PACKET_TYPE_PAIR);
 
+    if (!(np.isProtocolPacket() || d->m_deviceInfo.incomingCapabilities.contains(np.type()))) {
+        qCDebug(KDECONNECT_CORE) << metaObject()->className() << "Tried to send an unsupported packet type" << np.type() << "to:" << d->m_deviceInfo.name;
+        return false;
+    }
+
     // Maybe we could block here any packet that is not an identity or a pairing packet to prevent sending non encrypted data
     for (DeviceLink *dl : std::as_const(d->m_deviceLinks)) {
         if (dl->sendPacket(np))
