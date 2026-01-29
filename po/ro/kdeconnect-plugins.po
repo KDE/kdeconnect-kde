@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2020, 2021, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
+# SPDX-FileCopyrightText: 2020, 2021, 2024, 2025, 2026 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:43+0000\n"
-"PO-Revision-Date: 2025-12-12 10:08+0000\n"
+"PO-Revision-Date: 2026-01-28 19:49+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -179,7 +179,7 @@ msgstr "Adaugă comandă…"
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Modifică"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -273,24 +273,22 @@ msgid "Forcefully Close All Vaults"
 msgstr "Închide forțat toate bolțile"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "Adaugă comandă"
+msgstr "Modifică comanda"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmă"
 
 #: runcommand/kdeconnect_runcommand_config.qml:199
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmă"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -434,38 +432,36 @@ msgid "%1 does not exist"
 msgstr "%1 nu există"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
-#, fuzzy, kde-format
-#| msgctxt "Sample command"
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt ""
 "@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
 "right edge', the pointer will switch to the connected device there"
 msgid "Leave Screen at"
-msgstr "Blochează ecranul"
+msgstr "Părăsește ecranul"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "sus"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "la stânga"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "la dreapta"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "jos"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
 #, kde-format
@@ -474,6 +470,8 @@ msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
 msgstr ""
+"Alt dispozitiv a rezervat deja această muchie. Această situație poate avea "
+"rezultate neașteptate când ambele dispozitive sunt conectate simultan."
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
