@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
+# SPDX-FileCopyrightText: 2024, 2026 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2024-01-30 19:23+0900\n"
+"PO-Revision-Date: 2026-01-26 19:20+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -25,7 +25,7 @@ msgstr "KDE Connect"
 #: main.cpp:42
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025 KDE Connect Team"
 
 #: main.cpp:43
 #, kde-format
@@ -35,7 +35,7 @@ msgstr "Aleix Pol Gonzalez"
 #: main.cpp:44
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:45
 #, kde-format
@@ -65,7 +65,7 @@ msgstr ""
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "既存のインスタンスを置換"
 
 #: main.cpp:86
 #, kde-format
@@ -91,14 +91,13 @@ msgstr "プラグイン設定"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "アクション"
 
 #: qml/DevicePage.qml:67
-#, fuzzy, kde-format
-#| msgid "Remote Control"
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
-msgstr "リモートコントロール"
+msgstr "操作"
 
 #: qml/DevicePage.qml:113
 #, kde-format
@@ -153,23 +152,22 @@ msgstr "ファイル共有 "
 #: qml/DevicePage.qml:186
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "このデバイスを閲覧"
 
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Stop virtual monitor session"
-msgstr ""
+msgstr "仮想モニタセッションを停止"
 
 #: qml/DevicePage.qml:194
 #, kde-format
 msgid "Use device as an external monitor"
-msgstr ""
+msgstr "デバイスを外部モニタとして使用"
 
 #: qml/DevicePage.qml:213
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid "This device is not paired."
-msgstr "このデバイスはペアリングされていません"
+msgstr "このデバイスはペアリングされていません。"
 
 #: qml/DevicePage.qml:217
 #, kde-format
@@ -178,12 +176,13 @@ msgid "Pair"
 msgstr "ペア"
 
 #: qml/DevicePage.qml:224 qml/DevicePage.qml:233
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "ペアリング要求"
+msgstr ""
+"ペアリングが要求されました\n"
+"キー:"
 
 #: qml/DevicePage.qml:239
 #, kde-format
@@ -206,9 +205,7 @@ msgid "Please choose a file"
 msgstr "ファイルを選択してください"
 
 #: qml/Main.qml:87
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "デバイス"
 
@@ -216,15 +213,13 @@ msgstr "デバイス"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "再読み込み"
 
 #: qml/Main.qml:97
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "デバイス"
+msgstr "デバイスを再読み込み"
 
 #: qml/Main.qml:133
 #, kde-format
@@ -265,19 +260,19 @@ msgstr "%1 を押すか左右のマウスボタンを同時に押してロック
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "左クリック"
 
 #: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "中クリック"
 
 #: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "右クリック"
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -297,7 +292,7 @@ msgstr "%1 - %2"
 #: qml/PluginSettings.qml:131
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "プラグインを設定"
 
 #: qml/presentationRemote.qml:22
 #, kde-format
@@ -334,25 +329,25 @@ msgstr "デバイスの名前"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "バックエンド"
 
 #: qml/Settings.qml:54
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: qml/Settings.qml:56
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Loopback"
-msgstr ""
+msgstr "ループバック"
 
 #: qml/Settings.qml:58
 #, kde-format
 msgctxt "@info KDE Connect provider name"
 msgid "Network"
-msgstr ""
+msgstr "ネットワーク"
 
 #: qml/Settings.qml:73
 #, kde-format
@@ -368,44 +363,43 @@ msgstr "KDE について"
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "デバイスが選択されていません"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
 msgstr ""
+"他のデバイスに KDE Connect がインストールされていることを確認してください。"
 
 #: qml/WelcomePage.qml:43
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
-msgstr "KDE Connect"
+msgstr "KDE Connect Android アプリ"
 
 #: qml/WelcomePage.qml:50
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "F-Droid"
 
 #: qml/WelcomePage.qml:57
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "Play Store"
 
 #: qml/WelcomePage.qml:63
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
-msgstr "KDE Connect"
+msgstr "KDE Connect iOS アプリ"
 
 #: qml/WelcomePage.qml:68
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "Apple Store"
 
 #: qml/WelcomePage.qml:74
 #, kde-format
@@ -414,12 +408,6 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
-
-#~ msgid "(c) 2015, Aleix Pol Gonzalez"
-#~ msgstr "(c) 2015, Aleix Pol Gonzalez"
-
-#~ msgid "Maintainer"
-#~ msgstr "メンテナ"
-
-#~ msgid "Find devices..."
-#~ msgstr "デバイスを探す..."
+"問題が発生する場合は、<a href=\"https://userbase.kde.org/KDEConnect\"><span "
+"style=\" text-decoration: underline;\">KDE Connect Community wiki</span></a> "
+"をご覧ください。"
