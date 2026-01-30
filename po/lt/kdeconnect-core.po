@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-25 00:44+0000\n"
+"POT-Creation-Date: 2026-01-30 00:44+0000\n"
 "PO-Revision-Date: 2025-12-16 01:55+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -102,17 +102,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Paskirtis"
 
-#: device.cpp:486
+#: device.cpp:496
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Jūsų įrenginio liudijimo SHA256 kontrolinis kodas yra: %1\n"
 
-#: device.cpp:492
+#: device.cpp:502
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Nuotolinio įrenginio liudijimo SHA256 kontrolinis kodas yra: %1\n"
 
-#: device.cpp:494
+#: device.cpp:504
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "Protokolo versija: %1\n"

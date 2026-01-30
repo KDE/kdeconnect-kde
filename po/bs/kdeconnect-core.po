@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-25 00:44+0000\n"
+"POT-Creation-Date: 2026-01-30 00:44+0000\n"
 "PO-Revision-Date: 2014-12-19 00:46+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -106,17 +106,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr ""
 
-#: device.cpp:486
+#: device.cpp:496
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr ""
 
-#: device.cpp:492
+#: device.cpp:502
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr ""
 
-#: device.cpp:494
+#: device.cpp:504
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr ""

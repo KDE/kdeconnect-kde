@@ -3,16 +3,15 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-25 00:44+0000\n"
+"POT-Creation-Date: 2026-01-30 00:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
+"Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -100,17 +99,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr ""
 
-#: device.cpp:486
+#: device.cpp:496
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr ""
 
-#: device.cpp:492
+#: device.cpp:502
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr ""
 
-#: device.cpp:494
+#: device.cpp:504
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr ""
