@@ -1,14 +1,14 @@
 # Spanish translations for kdeconnect-core.po package.
-# Copyright (C) 2014-2025 This file is copyright:
+# Copyright (C) 2014-2026 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2025, 2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-24 02:51+0000\n"
-"PO-Revision-Date: 2025-06-09 02:01+0100\n"
+"PO-Revision-Date: 2026-02-01 00:24+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
@@ -117,7 +117,7 @@ msgstr "Nombre de archivo ya presente"
 #: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
-msgstr "Recibido archivo incompleto desde: %1"
+msgstr "Archivo incompleto recibido desde: %1"
 
 #: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
 #, kde-format
