@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-19 00:43+0000\n"
-"PO-Revision-Date: 2026-01-28 16:51+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-01-31 11:38+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -110,7 +110,7 @@ msgstr "Управление"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "Сведения"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -180,7 +180,7 @@ msgstr "Использовать устройство в качестве вне
 #: qml/DevicePage.qml:211
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "Адрес %1 через %2"
 
 #: qml/DevicePage.qml:220
 #, kde-format
@@ -363,7 +363,7 @@ msgstr "О KDE"
 #: qml/Settings.qml:90
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: qml/WelcomePage.qml:27
 #, kde-format

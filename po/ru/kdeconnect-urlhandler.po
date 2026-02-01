@@ -3,14 +3,14 @@
 #
 # Dmitry Serov <dmitri.s93@gmail.com>, 2017.
 # Alexander Potashev <aspotashev@gmail.com>, 2017.
-# SPDX-FileCopyrightText: 2019, 2020, 2023, 2025 Alexander Yavorsky <kekcuha@gmail.com>
+# SPDX-FileCopyrightText: 2019, 2020, 2023, 2025, 2026 Alexander Yavorsky <kekcuha@gmail.com>
 # Дронова Юлия <juliette.tux@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2025-08-18 11:25+0300\n"
+"PO-Revision-Date: 2026-01-31 11:42+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.07.90\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -39,10 +39,9 @@ msgstr "Устройство:"
 
 #. i18n: ectx: property (text), widget (QLabel, urlPickerLabel)
 #: dialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Enter file location here"
+#, kde-format
 msgid "Enter a file location or URL:"
-msgstr "Укажите здесь местоположение файла"
+msgstr "Укажите расположение файла или URL:"
 
 #: kdeconnect-handler.cpp:44
 #, kde-format
@@ -83,12 +82,13 @@ msgstr "Идентификатор"
 #, kde-format
 msgid "Automatically open the file on the remote device, when supported"
 msgstr ""
+"Автоматически открывать файл на удалённом устройстве, если это поддерживается"
 
 #: kdeconnect-handler.cpp:128
 #, kde-format
 msgctxt "Placeholder for input field that should contain a file/URL to share"
 msgid "Local file or web URL"
-msgstr ""
+msgstr "Локальный файл или URL"
 
 #: kdeconnect-handler.cpp:137
 #, kde-format
