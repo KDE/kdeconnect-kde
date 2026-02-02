@@ -21,6 +21,7 @@ Kirigami.ScrollablePage
             Layout.topMargin: Kirigami.Units.gridUnit
 
             FormCard.FormTextFieldDelegate {
+                id: deviceNameField
                 text: announcedNameProperty.value
                 onAccepted: DaemonDbusInterface.setAnnouncedName(text);
                 label: i18n("Device name")
@@ -89,7 +90,10 @@ Kirigami.ScrollablePage
             Button {
                 text: i18n("Close")
                 display: AbstractButton.TextOnly
-                onClicked: page.Kirigami.PageStack.closeDialog()
+                onClicked: {
+                    DaemonDbusInterface.setAnnouncedName(deviceNameField.text);
+                    page.Kirigami.PageStack.closeDialog();
+                }
             }
         }
     }
