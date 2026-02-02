@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n.daphipz@fastmail.de>
+# SPDX-FileCopyrightText: 2025, 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 # SPDX-FileCopyrightText: 2014, 2019 Burkhard Lück <lueck@hube-lueck.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2025-07-09 16:33+0200\n"
+"PO-Revision-Date: 2026-01-27 16:16+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: kiokdeconnect.cpp:75
 #, kde-format
@@ -48,7 +48,7 @@ msgstr "%0 hat kein Dateisystem-Modul für Fernzugriffe"
 #: kiokdeconnect.cpp:208
 #, kde-format
 msgid "Could not contact background service."
-msgstr "Hintergrund-Dienst kann nicht kontaktiert werden."
+msgstr "Hintergrunddienst kann nicht kontaktiert werden."
 
 #: kiokdeconnect.cpp:235
 #, kde-format

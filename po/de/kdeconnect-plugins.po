@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:43+0000\n"
-"PO-Revision-Date: 2026-01-18 01:43+0100\n"
+"PO-Revision-Date: 2026-01-31 15:36+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -79,7 +79,7 @@ msgstr "Anwenden"
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:47
 #, kde-format
 msgid "Sound to play:"
-msgstr "Abzuspielender Klang:"
+msgstr "Wiederzugebender Klang:"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:57
 #, kde-format
@@ -146,22 +146,22 @@ msgstr "Dialog"
 #: pausemusic/kdeconnect_pausemusic_config.qml:32
 #, kde-format
 msgid "Pause as soon as phone rings"
-msgstr "So schnell wie möglich anhalten"
+msgstr "Pausieren, sobald das Telefon klingelt"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:41
 #, kde-format
 msgid "Pause only while talking"
-msgstr "Anhalten nur beim Sprechen"
+msgstr "Nur beim Sprechen pausieren"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:47
 #, kde-format
 msgid "Pause media players"
-msgstr "Medienspieler anhalten"
+msgstr "Medienspieler pausieren"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:54
 #, kde-format
 msgid "Mute system sound"
-msgstr "Sound stummschalten"
+msgstr "Systemklänge stummschalten"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:61
 #, kde-format
@@ -181,7 +181,7 @@ msgstr "Befehl hinzufügen …"
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -275,24 +275,22 @@ msgid "Forcefully Close All Vaults"
 msgstr "Schließen aller Tresore erzwingen"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "Befehl hinzufügen"
+msgstr "Befehl bearbeiten"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "Bestätigen"
 
 #: runcommand/kdeconnect_runcommand_config.qml:199
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "Bestätigen"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -354,24 +352,24 @@ msgstr ""
 #: sftp/mounter.cpp:141
 #, kde-format
 msgid "Failed to start sshfs"
-msgstr "Start von sshfs ist fehlgeschlagen"
+msgstr "Start von „sshfs“ ist fehlgeschlagen"
 
 #: sftp/mounter.cpp:145
 #, kde-format
 msgid "sshfs process crashed"
-msgstr "sshfs-Prozess abgestürzt"
+msgstr "„sshfs“-Prozess abgestürzt"
 
 #: sftp/mounter.cpp:149
 #, kde-format
 msgid "Unknown error in sshfs"
-msgstr "Unbekannter Fehler in sshfs"
+msgstr "Unbekannter „sshfs“-Fehler"
 
 #: sftp/mounter.cpp:160
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
-"Fehler beim Zugriff auf das Dateisystem, sshfs wurde mit dem Rückgabewert %0 "
-"beendet"
+"Fehler beim Zugriff auf das Dateisystem, „sshfs“ wurde mit dem Rückgabewert "
+"%0 beendet"
 
 #: sftp/mounter.cpp:169
 #, kde-format

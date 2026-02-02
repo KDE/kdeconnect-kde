@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2024, 2025 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:43+0000\n"
-"PO-Revision-Date: 2025-11-30 13:45+0530\n"
+"PO-Revision-Date: 2026-02-01 18:48+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -114,7 +114,7 @@ msgstr "தற்போதைய இயக்கி"
 #: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "பொருந்தாதது"
 
 #: notifications/notification.cpp:108
 #, kde-format
@@ -137,7 +137,7 @@ msgstr "அனுப்பு"
 #: notifications/sendreplydialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "துணைச்சாளரம்"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:32
 #, kde-format
@@ -177,7 +177,7 @@ msgstr "கட்டளையை சேர்…"
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "திருத்து"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -236,58 +236,56 @@ msgstr "எடுத்துக்காட்டு கட்டளைகள�
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
-msgstr ""
+msgstr "உறங்கு"
 
 #: runcommand/kdeconnect_runcommand_config.qml:135
 #: runcommand/kdeconnect_runcommand_config.qml:150
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
-msgstr ""
+msgstr "திரையை பூட்டு"
 
 #: runcommand/kdeconnect_runcommand_config.qml:146
 #, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
-msgstr ""
+msgstr "அதிகபட்ச பிரகாசம்"
 
 #: runcommand/kdeconnect_runcommand_config.qml:154
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
-msgstr ""
+msgstr "திரையைத் திற"
 
 #: runcommand/kdeconnect_runcommand_config.qml:158
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
-msgstr ""
+msgstr "அனைத்து வால்ட்டுகளையும் மூடு"
 
 #: runcommand/kdeconnect_runcommand_config.qml:162
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
-msgstr ""
+msgstr "அனைத்து வால்ட்டுகளையும் கட்டாயமாக மூடு"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "கட்டளையை சேர்"
+msgstr "கட்டளையைத் திருத்துவது"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "உறுதிசெய்"
 
 #: runcommand/kdeconnect_runcommand_config.qml:199
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "உறுதிசெய்"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -434,31 +432,31 @@ msgctxt ""
 "@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
 "right edge', the pointer will switch to the connected device there"
 msgid "Leave Screen at"
-msgstr ""
+msgstr "இத்திரையை விட்டு வெளியேறுவது"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "மேலே"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "இடதில்"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "வலதில்"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "கீழே"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
 #, kde-format
@@ -467,6 +465,8 @@ msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
 msgstr ""
+"இன்னொரு சாதனம் இந்த ஓரத்தை ஏற்கனவே பயன்படுத்துகிறது. இரண்டையும் ஒரே நேரத்தில் இணைத்தால் "
+"இது சிக்கல்களை ஏற்படுத்தலாம்."
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
