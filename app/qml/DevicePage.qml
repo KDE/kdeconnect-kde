@@ -78,13 +78,13 @@ Kirigami.ScrollablePage {
                 DelegateModelGroup {name: "loadedPlugins"}
             ]
             filterOnGroup: "loadedPlugins"
-            property int numberPluginsLoaded: pluginsListView.plugins.filter(plugin => plugin.loaded || plugin.section === "info").length ?? 0
+            property int numberPluginsLoaded: pluginsListView.plugins.filter(plugin => !plugin.hidden && (plugin.loaded || plugin.section === "info")).length ?? 0
             onNumberPluginsLoadedChanged: update()
 
             function update() {
                 for (let i = 0; i < items.count; ++i) {
                     let item = items.get(i);
-                    item.inLoadedPlugins = item.model.loaded || (item.model.section === "info" && root.currentDevice.isPaired)
+                    item.inLoadedPlugins = !item.model.hidden && (item.model.loaded || (item.model.section === "info" && root.currentDevice.isPaired))
                 }
             }
 
@@ -142,6 +142,7 @@ Kirigami.ScrollablePage {
                 pluginName: "remotecontrol"
                 section: "control"
                 device: root.currentDevice
+                hidden: root.currentDevice.type === "phone" || root.currentDevice.type === "tablet"
             },
             PluginItem {
                 name: i18nd("kdeconnect-app", "Volume control")

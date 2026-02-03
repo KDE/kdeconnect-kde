@@ -20,6 +20,7 @@ QtObject
     property var component
     property var name
     property var section
+    property bool hidden: false
 
     readonly property var checker: PluginChecker {
         id: checker
