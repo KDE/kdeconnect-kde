@@ -94,6 +94,7 @@ Kirigami.ApplicationWindow {
                     QQC2.ToolButton {
                         text: i18nc("@action:button", "Refresh")
                         icon.name: 'view-refresh-symbolic'
+                        display: QQC2.AbstractButton.IconOnly
                         Accessible.name: i18nc("@action:button accessible", "Refresh Devices")
 
                         QQC2.ToolTip.text: text
@@ -211,7 +212,7 @@ Kirigami.ApplicationWindow {
                     }
 
                     QQC2.ToolButton {
-                        text: i18n("Settings")
+                        text: i18n("@action:button", "Settings")
                         icon.name: "settings-configure"
                         display: QQC2.AbstractButton.IconOnly
 
