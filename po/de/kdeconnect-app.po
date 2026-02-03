@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-19 00:43+0000\n"
+"POT-Creation-Date: 2026-02-03 00:45+0000\n"
 "PO-Revision-Date: 2026-01-25 21:16+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -336,28 +336,28 @@ msgctxt "@title:window"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: qml/Settings.qml:26
+#: qml/Settings.qml:27
 #, kde-format
 msgid "Device name"
 msgstr "Gerätename"
 
-#: qml/Settings.qml:38
+#: qml/Settings.qml:39
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
 msgstr "Backends"
 
-#: qml/Settings.qml:71
+#: qml/Settings.qml:72
 #, kde-format
 msgid "About KDE Connect"
 msgstr "Über KDE Connect"
 
-#: qml/Settings.qml:79
+#: qml/Settings.qml:80
 #, kde-format
 msgid "About KDE"
 msgstr "Über KDE"
 
-#: qml/Settings.qml:90
+#: qml/Settings.qml:91
 #, kde-format
 msgid "Close"
 msgstr "Schließen"

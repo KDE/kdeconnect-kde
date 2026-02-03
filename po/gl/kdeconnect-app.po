@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-19 00:43+0000\n"
+"POT-Creation-Date: 2026-02-03 00:45+0000\n"
 "PO-Revision-Date: 2025-06-19 10:08+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -333,28 +333,28 @@ msgctxt "@title:window"
 msgid "Settings"
 msgstr "Configuración"
 
-#: qml/Settings.qml:26
+#: qml/Settings.qml:27
 #, kde-format
 msgid "Device name"
 msgstr "Nome do dispositivo"
 
-#: qml/Settings.qml:38
+#: qml/Settings.qml:39
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
 msgstr "Motores"
 
-#: qml/Settings.qml:71
+#: qml/Settings.qml:72
 #, kde-format
 msgid "About KDE Connect"
 msgstr "Sobre KDE Connect"
 
-#: qml/Settings.qml:79
+#: qml/Settings.qml:80
 #, kde-format
 msgid "About KDE"
 msgstr "Sobre KDE"
 
-#: qml/Settings.qml:90
+#: qml/Settings.qml:91
 #, kde-format
 msgid "Close"
 msgstr ""

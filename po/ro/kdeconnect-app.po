@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-19 00:43+0000\n"
+"POT-Creation-Date: 2026-02-03 00:45+0000\n"
 "PO-Revision-Date: 2026-01-28 18:47+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -334,28 +334,28 @@ msgctxt "@title:window"
 msgid "Settings"
 msgstr "Configurări"
 
-#: qml/Settings.qml:26
+#: qml/Settings.qml:27
 #, kde-format
 msgid "Device name"
 msgstr "Denumire dispozitiv"
 
-#: qml/Settings.qml:38
+#: qml/Settings.qml:39
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
 msgstr "Platforme"
 
-#: qml/Settings.qml:71
+#: qml/Settings.qml:72
 #, kde-format
 msgid "About KDE Connect"
 msgstr "Despre KDE Connect"
 
-#: qml/Settings.qml:79
+#: qml/Settings.qml:80
 #, kde-format
 msgid "About KDE"
 msgstr "Despre KDE"
 
-#: qml/Settings.qml:90
+#: qml/Settings.qml:91
 #, kde-format
 msgid "Close"
 msgstr "Închide"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-19 00:43+0000\n"
+"POT-Creation-Date: 2026-02-03 00:45+0000\n"
 "PO-Revision-Date: 2026-01-31 11:38+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -339,28 +339,28 @@ msgctxt "@title:window"
 msgid "Settings"
 msgstr "Параметры"
 
-#: qml/Settings.qml:26
+#: qml/Settings.qml:27
 #, kde-format
 msgid "Device name"
 msgstr "Имя устройства"
 
-#: qml/Settings.qml:38
+#: qml/Settings.qml:39
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
 msgstr "Модули"
 
-#: qml/Settings.qml:71
+#: qml/Settings.qml:72
 #, kde-format
 msgid "About KDE Connect"
 msgstr "О KDE Connect"
 
-#: qml/Settings.qml:79
+#: qml/Settings.qml:80
 #, kde-format
 msgid "About KDE"
 msgstr "О KDE"
 
-#: qml/Settings.qml:90
+#: qml/Settings.qml:91
 #, kde-format
 msgid "Close"
 msgstr "Закрыть"

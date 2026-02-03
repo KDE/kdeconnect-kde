@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-19 00:43+0000\n"
+"POT-Creation-Date: 2026-02-03 00:45+0000\n"
 "PO-Revision-Date: 2026-01-19 10:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -336,28 +336,28 @@ msgctxt "@title:window"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: qml/Settings.qml:26
+#: qml/Settings.qml:27
 #, kde-format
 msgid "Device name"
 msgstr "Aygıt adı"
 
-#: qml/Settings.qml:38
+#: qml/Settings.qml:39
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
 msgstr "Arka Uçlar"
 
-#: qml/Settings.qml:71
+#: qml/Settings.qml:72
 #, kde-format
 msgid "About KDE Connect"
 msgstr "KDE Bağlan Hakkında"
 
-#: qml/Settings.qml:79
+#: qml/Settings.qml:80
 #, kde-format
 msgid "About KDE"
 msgstr "KDE Hakkında"
 
-#: qml/Settings.qml:90
+#: qml/Settings.qml:91
 #, kde-format
 msgid "Close"
 msgstr "Kapat"
