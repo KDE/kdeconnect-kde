@@ -29,9 +29,12 @@
 class Device::DevicePrivate
 {
 public:
-    DevicePrivate(const DeviceInfo &deviceInfo)
+    DevicePrivate(const DeviceInfo &deviceInfo, PairingHandler *pairingHandler)
         : m_deviceInfo(deviceInfo)
+        , m_pairingHandler(pairingHandler)
     {
+        const auto allPlugins = PluginLoader::instance()->getPluginList();
+        m_supportedPlugins = QSet(allPlugins.begin(), allPlugins.end()); // Assume every plugin is supported until we get the capabilities
     }
 
     ~DevicePrivate()
@@ -50,45 +53,30 @@ public:
     PairingHandler *m_pairingHandler;
 };
 
-static void warn(const QString &info)
-{
-    qWarning() << "Device pairing error" << info;
-}
-
 Device::Device(QObject *parent, const QString &id)
     : QObject(parent)
+    , d(new Device::DevicePrivate(KdeConnectConfig::instance().getTrustedDevice(id), new PairingHandler(this, PairState::Paired)))
 {
-    DeviceInfo info = KdeConnectConfig::instance().getTrustedDevice(id);
-    d = new Device::DevicePrivate(info);
-
-    d->m_pairingHandler = new PairingHandler(this, PairState::Paired);
-    const auto supported = PluginLoader::instance()->getPluginList();
-    d->m_supportedPlugins = QSet(supported.begin(), supported.end()); // Assume every plugin is supported until we get the capabilities
-
-    // Register in bus
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
-
-    connect(d->m_pairingHandler, &PairingHandler::incomingPairRequest, this, &Device::pairingHandler_incomingPairRequest);
-    connect(d->m_pairingHandler, &PairingHandler::pairingFailed, this, &Device::pairingHandler_pairingFailed);
-    connect(d->m_pairingHandler, &PairingHandler::pairingSuccessful, this, &Device::pairingHandler_pairingSuccessful);
-    connect(d->m_pairingHandler, &PairingHandler::unpaired, this, &Device::pairingHandler_unpaired);
+    init();
 }
 
 Device::Device(QObject *parent, DeviceLink *dl)
     : QObject(parent)
+    , d(new Device::DevicePrivate(dl->deviceInfo(), new PairingHandler(this, PairState::NotPaired)))
 {
-    d = new Device::DevicePrivate(dl->deviceInfo());
-
-    d->m_pairingHandler = new PairingHandler(this, PairState::NotPaired);
-    const auto supported = PluginLoader::instance()->getPluginList();
-    d->m_supportedPlugins = QSet(supported.begin(), supported.end()); // Assume every plugin is supported until we get the capabilities
-
     addLink(dl);
 
-    // Register in bus
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+    init();
 
-    connect(this, &Device::pairingFailed, this, &warn);
+    int protocolVersion = dl->deviceInfo().protocolVersion;
+    if (protocolVersion != NetworkPacket::s_protocolVersion) {
+        qCWarning(KDECONNECT_CORE) << name() << "uses a different protocol version" << protocolVersion << "expected" << NetworkPacket::s_protocolVersion;
+    }
+}
+
+void Device::init()
+{
+    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
     connect(this, &Device::reachableChanged, this, &Device::statusIconNameChanged);
     connect(this, &Device::pairStateChanged, this, &Device::statusIconNameChanged);
@@ -98,10 +86,6 @@ Device::Device(QObject *parent, DeviceLink *dl)
     connect(d->m_pairingHandler, &PairingHandler::pairingFailed, this, &Device::pairingHandler_pairingFailed);
     connect(d->m_pairingHandler, &PairingHandler::pairingSuccessful, this, &Device::pairingHandler_pairingSuccessful);
     connect(d->m_pairingHandler, &PairingHandler::unpaired, this, &Device::pairingHandler_unpaired);
-
-    if (protocolVersion() != NetworkPacket::s_protocolVersion) {
-        qCWarning(KDECONNECT_CORE) << name() << " uses a different protocol version" << protocolVersion() << "expected" << NetworkPacket::s_protocolVersion;
-    }
 }
 
 Device::~Device()
@@ -274,6 +258,7 @@ void Device::pairingHandler_pairingSuccessful()
 void Device::pairingHandler_pairingFailed(const QString &errorMessage)
 {
     Q_ASSERT(d->m_pairingHandler->pairState() == PairState::NotPaired);
+    qCWarning(KDECONNECT_CORE) << "Device pairing error" << errorMessage;
     Q_EMIT pairingFailed(errorMessage);
     Q_EMIT pairStateChanged(pairStateAsInt());
 }

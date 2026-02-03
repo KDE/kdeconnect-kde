@@ -138,6 +138,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void statusIconNameChanged();
 
 private:
+    void init();
     class DevicePrivate;
     DevicePrivate *d;
 };
