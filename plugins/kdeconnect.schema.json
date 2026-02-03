@@ -30,12 +30,6 @@
                     "items": {
                         "type": "string"
                     }
-                },
-                "X-KdeConnect-SupportedDeviceTypes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
                 }
             }
         }
