@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-10-12 11:39+0200\n"
+"PO-Revision-Date: 2026-02-04 00:30+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -112,7 +112,7 @@ msgstr "네트워크에서 장치를 찾아서 다시 연결"
 #: kdeconnect-cli.cpp:55
 #, kde-format
 msgid "Request pairing to a said device"
-msgstr "지정한 장치에 연결 요청"
+msgstr "지정한 장치에 페어링 요청"
 
 #: kdeconnect-cli.cpp:56
 #, kde-format
@@ -142,7 +142,7 @@ msgstr "메시지"
 #: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Sends the current clipboard to said device"
-msgstr "지정한 장치에 현재 클립보드 내용 보내기"
+msgstr "지정한 장치에 현재 클립보드 내용 전송"
 
 #: kdeconnect-cli.cpp:61
 #, kde-format
@@ -319,17 +319,17 @@ msgstr "장치를 찾을 수 없음"
 #: kdeconnect-cli.cpp:274
 #, kde-format
 msgid "Already paired"
-msgstr "이미 연결됨"
+msgstr "이미 페어링됨"
 
 #: kdeconnect-cli.cpp:276
 #, kde-format
 msgid "Pair requested"
-msgstr "연결 요청됨"
+msgstr "페어링 요청됨"
 
 #: kdeconnect-cli.cpp:282
 #, kde-format
 msgid "Already not paired"
-msgstr "이미 연결 해제됨"
+msgstr "이미 페어링 해제됨"
 
 #: kdeconnect-cli.cpp:284
 #, kde-format
