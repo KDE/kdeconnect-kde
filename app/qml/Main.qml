@@ -212,7 +212,7 @@ Kirigami.ApplicationWindow {
                     }
 
                     QQC2.ToolButton {
-                        text: i18n("@action:button", "Settings")
+                        text: i18nc("@action:button", "Settings")
                         icon.name: "settings-configure"
                         display: QQC2.AbstractButton.IconOnly
 
