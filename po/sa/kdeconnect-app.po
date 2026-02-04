@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-03 00:45+0000\n"
+"POT-Creation-Date: 2026-02-04 00:44+0000\n"
 "PO-Revision-Date: 2024-12-25 19:36+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -128,57 +128,57 @@ msgstr "आदेशं चालयन्तु"
 msgid "Presentation Remote"
 msgstr "प्रस्तुति दूरस्थ"
 
-#: qml/DevicePage.qml:147 qml/volume.qml:16
+#: qml/DevicePage.qml:148 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "मात्रा नियन्त्रणम्"
 
-#: qml/DevicePage.qml:157 qml/mousepad.qml:44
+#: qml/DevicePage.qml:158 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "ताल"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "Unlock"
 msgstr "अनलॉक"
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Find Device"
 msgstr "यन्त्रं अन्वेष्टुम्"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Clipboard प्रेषयतु"
 
-#: qml/DevicePage.qml:180
+#: qml/DevicePage.qml:181
 #, kde-format
 msgid "Share File"
 msgstr "सञ्चिकां साझां कुर्वन्तु"
 
-#: qml/DevicePage.qml:188
+#: qml/DevicePage.qml:189
 #, kde-format
 msgid "Browse this device"
 msgstr ""
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr ""
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr ""
 
-#: qml/DevicePage.qml:211
+#: qml/DevicePage.qml:212
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:220
+#: qml/DevicePage.qml:221
 #, fuzzy, kde-format
 #| msgid ""
 #| "This device is not paired.\n"
@@ -188,13 +188,13 @@ msgstr ""
 "एतत् यन्त्रं युग्मितं नास्ति ।\n"
 "कुञ्जी: %1"
 
-#: qml/DevicePage.qml:224
+#: qml/DevicePage.qml:225
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "युग्म"
 
-#: qml/DevicePage.qml:231 qml/DevicePage.qml:240
+#: qml/DevicePage.qml:232 qml/DevicePage.qml:241
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -203,22 +203,22 @@ msgstr ""
 "युग्मं अनुरोधितम्\n"
 "कुंजी: "
 
-#: qml/DevicePage.qml:246
+#: qml/DevicePage.qml:247
 #, kde-format
 msgid "Accept"
 msgstr "स्वीकरोतु"
 
-#: qml/DevicePage.qml:252
+#: qml/DevicePage.qml:253
 #, kde-format
 msgid "Reject"
 msgstr "अस्वीकार"
 
-#: qml/DevicePage.qml:263
+#: qml/DevicePage.qml:264
 #, kde-format
 msgid "This device is not reachable"
 msgstr "एतत् यन्त्रं न प्राप्यते"
 
-#: qml/DevicePage.qml:271
+#: qml/DevicePage.qml:272
 #, kde-format
 msgid "Please choose a file"
 msgstr "कृपया सञ्चिकां चिनोतु"
@@ -234,34 +234,39 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr "ताजगी"
 
-#: qml/Main.qml:97
+#: qml/Main.qml:98
 #, fuzzy, kde-format
 #| msgid "Devices"
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "यन्त्राणि"
 
-#: qml/Main.qml:133
+#: qml/Main.qml:134
 #, kde-format
 msgid "Remembered"
 msgstr "स्मर्यते"
 
-#: qml/Main.qml:135
+#: qml/Main.qml:136
 #, kde-format
 msgid "Available"
 msgstr "उपलब्धः"
 
-#: qml/Main.qml:137
+#: qml/Main.qml:138
 #, kde-format
 msgid "Connected"
 msgstr "संबद्धः"
 
-#: qml/Main.qml:142
+#: qml/Main.qml:143
 #, kde-format
 msgid "No devices found"
 msgstr "न यन्त्राणि प्राप्तानि"
 
-#: qml/Main.qml:214 qml/Main.qml:229
+#: qml/Main.qml:215
+#, kde-format
+msgid "@action:button"
+msgstr ""
+
+#: qml/Main.qml:230
 #, kde-format
 msgid "Settings"
 msgstr "सेटिंग्स्"

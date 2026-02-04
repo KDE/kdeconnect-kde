@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-03 00:45+0000\n"
-"PO-Revision-Date: 2025-07-21 00:59+0200\n"
+"POT-Creation-Date: 2026-02-04 00:44+0000\n"
+"PO-Revision-Date: 2026-02-04 00:28+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -103,7 +103,7 @@ msgstr "제어"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "정보"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -125,68 +125,68 @@ msgstr "명령 실행"
 msgid "Presentation Remote"
 msgstr "프레젠테이션 리모콘"
 
-#: qml/DevicePage.qml:147 qml/volume.qml:16
+#: qml/DevicePage.qml:148 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "음량 제어"
 
-#: qml/DevicePage.qml:157 qml/mousepad.qml:44
+#: qml/DevicePage.qml:158 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "잠금"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "Unlock"
 msgstr "잠금 해제"
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Find Device"
 msgstr "장치 찾기"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Send Clipboard"
 msgstr "클립보드 보내기"
 
-#: qml/DevicePage.qml:180
+#: qml/DevicePage.qml:181
 #, kde-format
 msgid "Share File"
 msgstr "파일 공유"
 
-#: qml/DevicePage.qml:188
+#: qml/DevicePage.qml:189
 #, kde-format
 msgid "Browse this device"
 msgstr "이 장치 탐색"
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "가상 모니터 세션 중단"
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "장치를 외부 모니터로 사용"
 
-#: qml/DevicePage.qml:211
+#: qml/DevicePage.qml:212
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "주소: %1(%2 경유)"
 
-#: qml/DevicePage.qml:220
+#: qml/DevicePage.qml:221
 #, kde-format
 msgid "This device is not paired."
 msgstr "장치가 페어링되지 않았습니다."
 
-#: qml/DevicePage.qml:224
+#: qml/DevicePage.qml:225
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "페어링"
 
-#: qml/DevicePage.qml:231 qml/DevicePage.qml:240
+#: qml/DevicePage.qml:232 qml/DevicePage.qml:241
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -195,22 +195,22 @@ msgstr ""
 "페어링 요청됨\n"
 "키: "
 
-#: qml/DevicePage.qml:246
+#: qml/DevicePage.qml:247
 #, kde-format
 msgid "Accept"
 msgstr "수락"
 
-#: qml/DevicePage.qml:252
+#: qml/DevicePage.qml:253
 #, kde-format
 msgid "Reject"
 msgstr "거부"
 
-#: qml/DevicePage.qml:263
+#: qml/DevicePage.qml:264
 #, kde-format
 msgid "This device is not reachable"
 msgstr "이 장치에 접근할 수 없음"
 
-#: qml/DevicePage.qml:271
+#: qml/DevicePage.qml:272
 #, kde-format
 msgid "Please choose a file"
 msgstr "파일을 선택하십시오"
@@ -226,33 +226,38 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr "새로 고침"
 
-#: qml/Main.qml:97
+#: qml/Main.qml:98
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "장치 새로 고침"
 
-#: qml/Main.qml:133
+#: qml/Main.qml:134
 #, kde-format
 msgid "Remembered"
 msgstr "기억함"
 
-#: qml/Main.qml:135
+#: qml/Main.qml:136
 #, kde-format
 msgid "Available"
 msgstr "사용 가능"
 
-#: qml/Main.qml:137
+#: qml/Main.qml:138
 #, kde-format
 msgid "Connected"
 msgstr "연결됨"
 
-#: qml/Main.qml:142
+#: qml/Main.qml:143
 #, kde-format
 msgid "No devices found"
 msgstr "장치를 찾을 수 없음"
 
-#: qml/Main.qml:214 qml/Main.qml:229
+#: qml/Main.qml:215
+#, kde-format
+msgid "@action:button"
+msgstr ""
+
+#: qml/Main.qml:230
 #, kde-format
 msgid "Settings"
 msgstr "설정"
@@ -356,7 +361,7 @@ msgstr "KDE 정보"
 #: qml/Settings.qml:91
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: qml/WelcomePage.qml:27
 #, kde-format

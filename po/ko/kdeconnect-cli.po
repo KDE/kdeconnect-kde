@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: 2025-10-12 11:39+0200\n"
+"PO-Revision-Date: 2026-02-04 00:30+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -123,28 +123,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "네트워크에서 장치를 찾아서 다시 연결"
 
 #: kdeconnect-cli.cpp:81
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "지정한 장치에 연결 요청"
+msgstr "지정한 장치에 페어링 요청"
 
 #: kdeconnect-cli.cpp:82
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "지정한 장치를 울려서 찾습니다."
+msgstr "지정한 장치를 울려서 찾기"
 
 #: kdeconnect-cli.cpp:83
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "장치 대기 중…"
+msgstr "장치에서 페어링 해제"
 
 #: kdeconnect-cli.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "지정한 장치에 핑 보내기"
+msgstr "장치에 핑 보내기"
 
 #: kdeconnect-cli.cpp:85
 #, kde-format
@@ -157,28 +153,24 @@ msgid "message"
 msgstr "메시지"
 
 #: kdeconnect-cli.cpp:86
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "지정한 장치에 현재 클립보드 내용 보내기"
+msgstr "장치로 현재 클립보드 내용 전송"
 
 #: kdeconnect-cli.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "지정한 장치로 파일/URL 전송"
+msgstr "장치로 파일/URL 공유"
 
 #: kdeconnect-cli.cpp:88
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "지정한 장치로 텍스트 전송"
+msgstr "장치로 텍스트 공유"
 
 #: kdeconnect-cli.cpp:89
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "지정한 장치의 알림 표시"
+msgstr "장치에 알림 표시"
 
 #: kdeconnect-cli.cpp:90
 #, kde-format
@@ -227,28 +219,24 @@ msgid "Device Name"
 msgstr "장치 이름"
 
 #: kdeconnect-cli.cpp:99
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "지정한 장치의 암호화 정보 요청"
+msgstr "장치의 암호화 정보 요청"
 
 #: kdeconnect-cli.cpp:100
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
 msgstr "원격 명령과 ID 표시"
 
 #: kdeconnect-cli.cpp:101
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
 msgstr "ID로 원격 명령 실행"
 
 #: kdeconnect-cli.cpp:102
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "지정한 장치에 키 보내기"
+msgstr "장치에 키 보내기"
 
 #: kdeconnect-cli.cpp:103
 #, kde-format
@@ -297,8 +285,7 @@ msgid "(unpaired)"
 msgstr "(연결 해제됨)"
 
 #: kdeconnect-cli.cpp:243
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "%1 공유됨"
@@ -333,22 +320,22 @@ msgstr "장치를 찾을 수 없음"
 #: kdeconnect-cli.cpp:295
 #, kde-format
 msgid "Already paired"
-msgstr "이미 연결됨"
+msgstr "이미 페어링됨"
 
 #: kdeconnect-cli.cpp:297
 #, kde-format
 msgid "Pair requested"
-msgstr "연결 요청됨"
+msgstr "페어링 요청됨"
 
 #: kdeconnect-cli.cpp:307
 #, kde-format
 msgid "Already not paired"
-msgstr "이미 연결 해제됨"
+msgstr "이미 페어링 해제됨"
 
 #: kdeconnect-cli.cpp:309
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "페어링 해제됨"
 
 #: kdeconnect-cli.cpp:367
 #, kde-format

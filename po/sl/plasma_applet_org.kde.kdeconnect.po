@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2026-02-04 00:44+0000\n"
 "PO-Revision-Date: 2024-07-13 06:40+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -53,99 +53,99 @@ msgstr "Navidezni monitor ni na voljo"
 msgid "Please choose a file"
 msgstr "Izberite datoteko"
 
-#: package/contents/ui/DeviceDelegate.qml:105
+#: package/contents/ui/DeviceDelegate.qml:103
 #, kde-format
 msgid "Share file"
 msgstr "Deli datoteko"
 
-#: package/contents/ui/DeviceDelegate.qml:113
+#: package/contents/ui/DeviceDelegate.qml:111
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Pošlji odložišče"
 
-#: package/contents/ui/DeviceDelegate.qml:124
+#: package/contents/ui/DeviceDelegate.qml:122
 #, kde-format
 msgid "Ring my phone"
 msgstr "Pozvoni moj telefon"
 
-#: package/contents/ui/DeviceDelegate.qml:135
+#: package/contents/ui/DeviceDelegate.qml:133
 #, kde-format
 msgid "Browse this device"
 msgstr "Brskaj po tej napravi"
 
-#: package/contents/ui/DeviceDelegate.qml:146
+#: package/contents/ui/DeviceDelegate.qml:144
 #, kde-format
 msgid "SMS Messages"
 msgstr "SMS sporočila"
 
-#: package/contents/ui/DeviceDelegate.qml:170
+#: package/contents/ui/DeviceDelegate.qml:168
 #, kde-format
 msgid "File Transfer"
 msgstr "Prenos datotek"
 
-#: package/contents/ui/DeviceDelegate.qml:171
+#: package/contents/ui/DeviceDelegate.qml:169
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "Spustite datoteko, da jo prenesete v telefon."
 
-#: package/contents/ui/DeviceDelegate.qml:193
+#: package/contents/ui/DeviceDelegate.qml:191
 #, kde-format
 msgid "Virtual Display"
 msgstr "Navidezni zaslon"
 
-#: package/contents/ui/DeviceDelegate.qml:254
+#: package/contents/ui/DeviceDelegate.qml:252
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:280
+#: package/contents/ui/DeviceDelegate.qml:278
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Oddaljena tipkovnica"
 
-#: package/contents/ui/DeviceDelegate.qml:301
+#: package/contents/ui/DeviceDelegate.qml:299
 #, kde-format
 msgid "Notifications:"
 msgstr "Obvestila:"
 
-#: package/contents/ui/DeviceDelegate.qml:309
+#: package/contents/ui/DeviceDelegate.qml:307
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Zavrni vsa obvestila"
 
-#: package/contents/ui/DeviceDelegate.qml:367
+#: package/contents/ui/DeviceDelegate.qml:365
 #, kde-format
 msgid "Reply"
 msgstr "Odgovori"
 
-#: package/contents/ui/DeviceDelegate.qml:380
+#: package/contents/ui/DeviceDelegate.qml:378
 #, kde-format
 msgid "Dismiss"
 msgstr "Zavrni"
 
-#: package/contents/ui/DeviceDelegate.qml:393
+#: package/contents/ui/DeviceDelegate.qml:391
 #, kde-format
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: package/contents/ui/DeviceDelegate.qml:407
+#: package/contents/ui/DeviceDelegate.qml:405
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Odgovori na %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:425
+#: package/contents/ui/DeviceDelegate.qml:423
 #, kde-format
 msgid "Send"
 msgstr "Pošlji"
 
-#: package/contents/ui/DeviceDelegate.qml:446
+#: package/contents/ui/DeviceDelegate.qml:444
 #, kde-format
 msgid "Run command"
 msgstr "Zaženi ukaz"
 
-#: package/contents/ui/DeviceDelegate.qml:453
+#: package/contents/ui/DeviceDelegate.qml:451
 #, kde-format
 msgid "Add command"
 msgstr "Dodaj ukaz"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-03 00:45+0000\n"
+"POT-Creation-Date: 2026-02-04 00:44+0000\n"
 "PO-Revision-Date: 2023-10-11 18:12+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -126,69 +126,69 @@ msgstr "Əmr başlatmaq"
 msgid "Presentation Remote"
 msgstr "Uzaqdan Təqdimat"
 
-#: qml/DevicePage.qml:147 qml/volume.qml:16
+#: qml/DevicePage.qml:148 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Səs səviyyəsini tənzimləmək"
 
-#: qml/DevicePage.qml:157 qml/mousepad.qml:44
+#: qml/DevicePage.qml:158 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Kilidləmək"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "Unlock"
 msgstr "Kiliddən çıxarmaq"
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Find Device"
 msgstr "Cihazı tapmaq"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Mübadilə yaddaşını göndərin"
 
-#: qml/DevicePage.qml:180
+#: qml/DevicePage.qml:181
 #, kde-format
 msgid "Share File"
 msgstr "Fayl paylaşmaq"
 
-#: qml/DevicePage.qml:188
+#: qml/DevicePage.qml:189
 #, kde-format
 msgid "Browse this device"
 msgstr ""
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr ""
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr ""
 
-#: qml/DevicePage.qml:211
+#: qml/DevicePage.qml:212
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:220
+#: qml/DevicePage.qml:221
 #, fuzzy, kde-format
 #| msgid "This device is not paired"
 msgid "This device is not paired."
 msgstr "Cihaz qoşulmayıb"
 
-#: qml/DevicePage.qml:224
+#: qml/DevicePage.qml:225
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Qoşun"
 
-#: qml/DevicePage.qml:231 qml/DevicePage.qml:240
+#: qml/DevicePage.qml:232 qml/DevicePage.qml:241
 #, fuzzy, kde-format
 #| msgid "Pair requested"
 msgid ""
@@ -196,22 +196,22 @@ msgid ""
 "Key: "
 msgstr "Qoşulma soruşuldu"
 
-#: qml/DevicePage.qml:246
+#: qml/DevicePage.qml:247
 #, kde-format
 msgid "Accept"
 msgstr "Qəbul etmək"
 
-#: qml/DevicePage.qml:252
+#: qml/DevicePage.qml:253
 #, kde-format
 msgid "Reject"
 msgstr "Çıxartmaq"
 
-#: qml/DevicePage.qml:263
+#: qml/DevicePage.qml:264
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Bu cihaz əlçatan deyil"
 
-#: qml/DevicePage.qml:271
+#: qml/DevicePage.qml:272
 #, kde-format
 msgid "Please choose a file"
 msgstr "Lütfən faylı seçin"
@@ -229,7 +229,7 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr ""
 
-#: qml/Main.qml:97
+#: qml/Main.qml:98
 #, fuzzy, kde-format
 #| msgctxt "Title of the page listing the devices"
 #| msgid "Devices"
@@ -237,27 +237,32 @@ msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Cihazlar"
 
-#: qml/Main.qml:133
+#: qml/Main.qml:134
 #, kde-format
 msgid "Remembered"
 msgstr "Yadda saxlanılanlar"
 
-#: qml/Main.qml:135
+#: qml/Main.qml:136
 #, kde-format
 msgid "Available"
 msgstr "Mövcuddur"
 
-#: qml/Main.qml:137
+#: qml/Main.qml:138
 #, kde-format
 msgid "Connected"
 msgstr "Qoşuldu"
 
-#: qml/Main.qml:142
+#: qml/Main.qml:143
 #, kde-format
 msgid "No devices found"
 msgstr "Cihaz tapılmadı"
 
-#: qml/Main.qml:214 qml/Main.qml:229
+#: qml/Main.qml:215
+#, kde-format
+msgid "@action:button"
+msgstr ""
+
+#: qml/Main.qml:230
 #, kde-format
 msgid "Settings"
 msgstr "Ayarlar"

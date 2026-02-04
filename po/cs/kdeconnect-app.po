@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-03 00:45+0000\n"
+"POT-Creation-Date: 2026-02-04 00:44+0000\n"
 "PO-Revision-Date: 2025-12-11 23:01+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -125,68 +125,68 @@ msgstr "Spustit příkaz"
 msgid "Presentation Remote"
 msgstr "Ovladač prezentace"
 
-#: qml/DevicePage.qml:147 qml/volume.qml:16
+#: qml/DevicePage.qml:148 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Ovládání hlasitosti"
 
-#: qml/DevicePage.qml:157 qml/mousepad.qml:44
+#: qml/DevicePage.qml:158 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Uzamknout"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "Unlock"
 msgstr "Odemknout"
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Find Device"
 msgstr "Najít zařízení"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Poslat schránku"
 
-#: qml/DevicePage.qml:180
+#: qml/DevicePage.qml:181
 #, kde-format
 msgid "Share File"
 msgstr "Sdílet soubor"
 
-#: qml/DevicePage.qml:188
+#: qml/DevicePage.qml:189
 #, kde-format
 msgid "Browse this device"
 msgstr "Procházet toto zařízení"
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "Zastavit sezení virtuální ho monitoru"
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "Použít zařízení jako virtuální monitor"
 
-#: qml/DevicePage.qml:211
+#: qml/DevicePage.qml:212
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr "Adresa: %1 přes %2"
 
-#: qml/DevicePage.qml:220
+#: qml/DevicePage.qml:221
 #, kde-format
 msgid "This device is not paired."
 msgstr "Toto zařízení není spárováno."
 
-#: qml/DevicePage.qml:224
+#: qml/DevicePage.qml:225
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Spárovat"
 
-#: qml/DevicePage.qml:231 qml/DevicePage.qml:240
+#: qml/DevicePage.qml:232 qml/DevicePage.qml:241
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -195,22 +195,22 @@ msgstr ""
 "Bylo vyžádáno párování\n"
 "Klíč:"
 
-#: qml/DevicePage.qml:246
+#: qml/DevicePage.qml:247
 #, kde-format
 msgid "Accept"
 msgstr "Přijmout"
 
-#: qml/DevicePage.qml:252
+#: qml/DevicePage.qml:253
 #, kde-format
 msgid "Reject"
 msgstr "Odmítnout"
 
-#: qml/DevicePage.qml:263
+#: qml/DevicePage.qml:264
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Toto zařízení je nedostupné"
 
-#: qml/DevicePage.qml:271
+#: qml/DevicePage.qml:272
 #, kde-format
 msgid "Please choose a file"
 msgstr "Prosím, vyberte soubor"
@@ -226,33 +226,38 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Obnovit"
 
-#: qml/Main.qml:97
+#: qml/Main.qml:98
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Obnovit zařízení"
 
-#: qml/Main.qml:133
+#: qml/Main.qml:134
 #, kde-format
 msgid "Remembered"
 msgstr "Zapamatovaná"
 
-#: qml/Main.qml:135
+#: qml/Main.qml:136
 #, kde-format
 msgid "Available"
 msgstr "Dostupná"
 
-#: qml/Main.qml:137
+#: qml/Main.qml:138
 #, kde-format
 msgid "Connected"
 msgstr "Připojená"
 
-#: qml/Main.qml:142
+#: qml/Main.qml:143
 #, kde-format
 msgid "No devices found"
 msgstr "Nebyla nalezena žádná zařízení"
 
-#: qml/Main.qml:214 qml/Main.qml:229
+#: qml/Main.qml:215
+#, kde-format
+msgid "@action:button"
+msgstr ""
+
+#: qml/Main.qml:230
 #, kde-format
 msgid "Settings"
 msgstr "Nastavení"

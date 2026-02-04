@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-30 00:44+0000\n"
+"POT-Creation-Date: 2026-02-04 00:44+0000\n"
 "PO-Revision-Date: 2025-11-26 10:24+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -103,17 +103,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "יעד"
 
-#: device.cpp:496
+#: device.cpp:481
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "טביעת האצבע ב־SHA256 של אישור המכשיר שלך היא: %1\n"
 
-#: device.cpp:502
+#: device.cpp:487
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "טביעת האצבע ב־SHA256 של אישור המכשיר המרוחק היא: %1\n"
 
-#: device.cpp:504
+#: device.cpp:489
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "גרסת פרוטוקול: %1\n"

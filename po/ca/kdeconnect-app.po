@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-03 00:45+0000\n"
+"POT-Creation-Date: 2026-02-04 00:44+0000\n"
 "PO-Revision-Date: 2026-01-19 09:12+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -130,68 +130,68 @@ msgstr "Executa una ordre"
 msgid "Presentation Remote"
 msgstr "Presentació remota"
 
-#: qml/DevicePage.qml:147 qml/volume.qml:16
+#: qml/DevicePage.qml:148 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Control del volum"
 
-#: qml/DevicePage.qml:157 qml/mousepad.qml:44
+#: qml/DevicePage.qml:158 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Bloqueja"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "Unlock"
 msgstr "Desbloqueja"
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Find Device"
 msgstr "Troba el dispositiu"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Envia el porta-retalls"
 
-#: qml/DevicePage.qml:180
+#: qml/DevicePage.qml:181
 #, kde-format
 msgid "Share File"
 msgstr "Comparteix el fitxer"
 
-#: qml/DevicePage.qml:188
+#: qml/DevicePage.qml:189
 #, kde-format
 msgid "Browse this device"
 msgstr "Navega per aquest dispositiu"
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "Atura la sessió de monitor virtual"
 
-#: qml/DevicePage.qml:196
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "Usa el dispositiu com un monitor extern"
 
-#: qml/DevicePage.qml:211
+#: qml/DevicePage.qml:212
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr "Adreç: %1 mitjançant %2"
 
-#: qml/DevicePage.qml:220
+#: qml/DevicePage.qml:221
 #, kde-format
 msgid "This device is not paired."
 msgstr "Aquest dispositiu no està aparellat."
 
-#: qml/DevicePage.qml:224
+#: qml/DevicePage.qml:225
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Aparella"
 
-#: qml/DevicePage.qml:231 qml/DevicePage.qml:240
+#: qml/DevicePage.qml:232 qml/DevicePage.qml:241
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -200,22 +200,22 @@ msgstr ""
 "S'ha demanat aparellar\n"
 "Clau:"
 
-#: qml/DevicePage.qml:246
+#: qml/DevicePage.qml:247
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
-#: qml/DevicePage.qml:252
+#: qml/DevicePage.qml:253
 #, kde-format
 msgid "Reject"
 msgstr "Rebutja"
 
-#: qml/DevicePage.qml:263
+#: qml/DevicePage.qml:264
 #, kde-format
 msgid "This device is not reachable"
 msgstr "No es pot accedir a aquest dispositiu"
 
-#: qml/DevicePage.qml:271
+#: qml/DevicePage.qml:272
 #, kde-format
 msgid "Please choose a file"
 msgstr "Si us plau, seleccioneu un fitxer"
@@ -231,33 +231,38 @@ msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Actualitza"
 
-#: qml/Main.qml:97
+#: qml/Main.qml:98
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Actualitza la llista dels dispositius"
 
-#: qml/Main.qml:133
+#: qml/Main.qml:134
 #, kde-format
 msgid "Remembered"
 msgstr "Recordats"
 
-#: qml/Main.qml:135
+#: qml/Main.qml:136
 #, kde-format
 msgid "Available"
 msgstr "Disponible"
 
-#: qml/Main.qml:137
+#: qml/Main.qml:138
 #, kde-format
 msgid "Connected"
 msgstr "Connectat"
 
-#: qml/Main.qml:142
+#: qml/Main.qml:143
 #, kde-format
 msgid "No devices found"
 msgstr "No s'ha trobat cap dispositiu"
 
-#: qml/Main.qml:214 qml/Main.qml:229
+#: qml/Main.qml:215
+#, kde-format
+msgid "@action:button"
+msgstr ""
+
+#: qml/Main.qml:230
 #, kde-format
 msgid "Settings"
 msgstr "Configuració"

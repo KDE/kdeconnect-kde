@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2026-02-04 00:44+0000\n"
 "PO-Revision-Date: 2024-07-13 05:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -53,99 +53,99 @@ msgstr "ვირტუალური მონიტორის ხელმ�
 msgid "Please choose a file"
 msgstr "გთხოვთ, აირჩიოთ ფაილი"
 
-#: package/contents/ui/DeviceDelegate.qml:105
+#: package/contents/ui/DeviceDelegate.qml:103
 #, kde-format
 msgid "Share file"
 msgstr "ფაილის გაზიარება"
 
-#: package/contents/ui/DeviceDelegate.qml:113
+#: package/contents/ui/DeviceDelegate.qml:111
 #, kde-format
 msgid "Send Clipboard"
 msgstr "ბუფერის გაგზავნა"
 
-#: package/contents/ui/DeviceDelegate.qml:124
+#: package/contents/ui/DeviceDelegate.qml:122
 #, kde-format
 msgid "Ring my phone"
 msgstr "დარეკე ჩემს ტელეფონზე"
 
-#: package/contents/ui/DeviceDelegate.qml:135
+#: package/contents/ui/DeviceDelegate.qml:133
 #, kde-format
 msgid "Browse this device"
 msgstr "ამ მოწყობილობის დათვალიერება"
 
-#: package/contents/ui/DeviceDelegate.qml:146
+#: package/contents/ui/DeviceDelegate.qml:144
 #, kde-format
 msgid "SMS Messages"
 msgstr "SMS შეტყობინებები"
 
-#: package/contents/ui/DeviceDelegate.qml:170
+#: package/contents/ui/DeviceDelegate.qml:168
 #, kde-format
 msgid "File Transfer"
 msgstr "ფაილის მიმოცვლა"
 
-#: package/contents/ui/DeviceDelegate.qml:171
+#: package/contents/ui/DeviceDelegate.qml:169
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "დააგდეთ ფაილი მისი ტელეფონზე გადასატანად."
 
-#: package/contents/ui/DeviceDelegate.qml:193
+#: package/contents/ui/DeviceDelegate.qml:191
 #, kde-format
 msgid "Virtual Display"
 msgstr "ვირტუალური ეკრანი"
 
-#: package/contents/ui/DeviceDelegate.qml:254
+#: package/contents/ui/DeviceDelegate.qml:252
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:280
+#: package/contents/ui/DeviceDelegate.qml:278
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "დაშორებული კლავიატურა"
 
-#: package/contents/ui/DeviceDelegate.qml:301
+#: package/contents/ui/DeviceDelegate.qml:299
 #, kde-format
 msgid "Notifications:"
 msgstr "შეტყობინებები:"
 
-#: package/contents/ui/DeviceDelegate.qml:309
+#: package/contents/ui/DeviceDelegate.qml:307
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "ყველა გაფრთხილების მოცილება"
 
-#: package/contents/ui/DeviceDelegate.qml:367
+#: package/contents/ui/DeviceDelegate.qml:365
 #, kde-format
 msgid "Reply"
 msgstr "პასუხი"
 
-#: package/contents/ui/DeviceDelegate.qml:380
+#: package/contents/ui/DeviceDelegate.qml:378
 #, kde-format
 msgid "Dismiss"
 msgstr "მოსილება"
 
-#: package/contents/ui/DeviceDelegate.qml:393
+#: package/contents/ui/DeviceDelegate.qml:391
 #, kde-format
 msgid "Cancel"
 msgstr "შეწყვეტა"
 
-#: package/contents/ui/DeviceDelegate.qml:407
+#: package/contents/ui/DeviceDelegate.qml:405
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "%1-ისთვის პასუხი…"
 
-#: package/contents/ui/DeviceDelegate.qml:425
+#: package/contents/ui/DeviceDelegate.qml:423
 #, kde-format
 msgid "Send"
 msgstr "გაგზავნა"
 
-#: package/contents/ui/DeviceDelegate.qml:446
+#: package/contents/ui/DeviceDelegate.qml:444
 #, kde-format
 msgid "Run command"
 msgstr "ბრძანების გაშვება"
 
-#: package/contents/ui/DeviceDelegate.qml:453
+#: package/contents/ui/DeviceDelegate.qml:451
 #, kde-format
 msgid "Add command"
 msgstr "ბრძანების დამატება"
