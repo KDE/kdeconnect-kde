@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-04 00:44+0000\n"
-"PO-Revision-Date: 2026-01-19 11:19+0100\n"
+"POT-Creation-Date: 2026-02-05 00:43+0000\n"
+"PO-Revision-Date: 2026-02-04 04:51+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -254,9 +254,11 @@ msgid "No devices found"
 msgstr "მოწყობილობების პოვნა ვერ მოხერხდა"
 
 #: qml/Main.qml:215
-#, kde-format
-msgid "@action:button"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "@action:button"
+msgid "Settings"
+msgstr "მორგება"
 
 #: qml/Main.qml:230
 #, kde-format
@@ -416,6 +418,9 @@ msgstr ""
 "პრობლემების ქონის შემთხვევაში დახმარებისთვის ეწვიეთ <a href=\"https://"
 "userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline;"
 "\">KDE Connect-ის საზოგადოების ვიკის</span></a>."
+
+#~ msgid "@action:button"
+#~ msgstr "@action:button"
 
 #~ msgctxt "@info KDE Connect provider name"
 #~ msgid "Bluetooth"

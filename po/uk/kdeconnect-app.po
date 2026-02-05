@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-04 00:44+0000\n"
-"PO-Revision-Date: 2026-01-19 08:27+0200\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"POT-Creation-Date: 2026-02-05 00:43+0000\n"
+"PO-Revision-Date: 2026-02-04 12:01+0200\n"
+"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -257,9 +257,11 @@ msgid "No devices found"
 msgstr "Пристроїв не виявлено"
 
 #: qml/Main.qml:215
-#, kde-format
-msgid "@action:button"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "@action:button"
+msgid "Settings"
+msgstr "Параметри"
 
 #: qml/Main.qml:230
 #, kde-format
@@ -417,6 +419,9 @@ msgstr ""
 "Якщо у вас виникають проблеми, спробуйте знайти довідкову інформацію на "
 "сторінці <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-"
 "decoration: underline;\">KDE Connect у вікі спільноти</span></a>."
+
+#~ msgid "@action:button"
+#~ msgstr "Параметри"
 
 #~ msgctxt "@info KDE Connect provider name"
 #~ msgid "Bluetooth"

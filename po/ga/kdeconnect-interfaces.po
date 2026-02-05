@@ -9,25 +9,26 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-15 00:42+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2026-02-03 18:39+0000\n"
+"Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
 
 #: devicesmodel.cpp:221
 #, kde-format
 msgid "Device trusted and connected"
-msgstr ""
+msgstr "Gléas iontaofa agus ceangailte"
 
 #: devicesmodel.cpp:221
 #, kde-format
 msgid "Device not trusted"
-msgstr ""
+msgstr "Ní féidir muinín a bheith agat as an ngléas"
 
 #: devicesmodel.cpp:221
 #, kde-format
 msgid "Device disconnected"
-msgstr ""
+msgstr "Gléas dícheangailte"

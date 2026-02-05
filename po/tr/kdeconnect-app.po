@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-04 00:44+0000\n"
-"PO-Revision-Date: 2026-01-19 10:25+0300\n"
+"POT-Creation-Date: 2026-02-05 00:43+0000\n"
+"PO-Revision-Date: 2026-02-04 20:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -256,9 +256,11 @@ msgid "No devices found"
 msgstr "Hiçbir aygıt bulunamadı"
 
 #: qml/Main.qml:215
-#, kde-format
-msgid "@action:button"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "@action:button"
+msgid "Settings"
+msgstr "Ayarlar"
 
 #: qml/Main.qml:230
 #, kde-format
@@ -418,6 +420,9 @@ msgstr ""
 "Sorunlar yaşıyorsanız yardım için <a href=\"https://userbase.kde.org/"
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Bağlan "
 "topluluk vikisine</span></a> başvurun."
+
+#~ msgid "@action:button"
+#~ msgstr "@action:button"
 
 #~ msgctxt "@info KDE Connect provider name"
 #~ msgid "Bluetooth"

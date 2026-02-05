@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-04 00:44+0000\n"
+"POT-Creation-Date: 2026-02-05 00:43+0000\n"
 "PO-Revision-Date: 2026-01-31 11:38+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -260,9 +260,11 @@ msgid "No devices found"
 msgstr "Устройств не найдено"
 
 #: qml/Main.qml:215
-#, kde-format
-msgid "@action:button"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "@action:button"
+msgid "Settings"
+msgstr "Параметры"
 
 #: qml/Main.qml:230
 #, kde-format

@@ -9,25 +9,26 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:43+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2026-02-03 18:37+0000\n"
+"Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
-"3 : 4\n"
+"Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n>=3 && n<=6 ? 2 : "
+"n>=7 && n<=10 ? 3 : 4);\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Aindriú Mac Giolla Eoin"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "aindriu80@yahoo.com"
 
 #: kdeconnect-cli.cpp:38
 #, kde-format
@@ -37,56 +38,61 @@ msgid ""
 "Device ID's and names may be found using \"kdeconnect-cli -l\" \n"
 "View complete help with --help option"
 msgstr ""
+"Gan gléas sonraithe: Úsáid -d <Aitheantas Gléis> nó -n <Ainm Gléis> chun "
+"gléas a shonrú.\n"
+"Is féidir aitheantóirí agus ainmneacha Gléis a fháil trí úsáid a bhaint as "
+"\"kdeconnect-cli -l\"\n"
+"Féach ar chabhair iomlán leis an rogha --help"
 
 #: kdeconnect-cli.cpp:58
 #, kde-format
 msgid "KDE Connect CLI tool"
-msgstr ""
+msgstr "Uirlis CLI KDE Connect"
 
 #: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025, Foireann KDE Connect"
 
 #: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr ""
+msgstr "Aleix Pol Gonzalez"
 
 #: kdeconnect-cli.cpp:62
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: kdeconnect-cli.cpp:68
 #, kde-format
 msgid "List all devices"
-msgstr ""
+msgstr "Liostaigh na gléasanna uile"
 
 #: kdeconnect-cli.cpp:70
 #, kde-format
 msgid "List available (paired and reachable) devices"
-msgstr ""
+msgstr "Liostaigh gléasanna atá ar fáil (péireáilte agus inrochtana)"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "List all backends and status"
-msgstr ""
+msgstr "Liostaigh na backends uile agus an stádas"
 
 #: kdeconnect-cli.cpp:72
 #, kde-format
 msgid "Enable the specified backend"
-msgstr ""
+msgstr "Cumasaigh an cúltaca sonraithe"
 
 #: kdeconnect-cli.cpp:72 kdeconnect-cli.cpp:73
 #, kde-format
 msgid "backend"
-msgstr ""
+msgstr "cúltaca"
 
 #: kdeconnect-cli.cpp:73
 #, kde-format
 msgid "Disable the specified backend"
-msgstr ""
+msgstr "Díchumasaigh an cúltaca sonraithe"
 
 #: kdeconnect-cli.cpp:75
 #, kde-format
@@ -94,6 +100,8 @@ msgid ""
 "Make --list-devices or --list-available print only the devices id, to ease "
 "scripting"
 msgstr ""
+"Déan --list-devices nó --list-available a phriontáil aitheantas na "
+"ngléasanna amháin, chun scriptiú a éascú"
 
 #: kdeconnect-cli.cpp:77
 #, kde-format
@@ -101,6 +109,8 @@ msgid ""
 "Make --list-devices or --list-available print only the devices name, to ease "
 "scripting"
 msgstr ""
+"Déan --list-devices nó --list-available a phriontáil ach ainm na ngléasanna, "
+"chun scriptiú a éascú"
 
 #: kdeconnect-cli.cpp:79
 #, kde-format
@@ -108,227 +118,236 @@ msgid ""
 "Make --list-devices or --list-available print only the devices id and name, "
 "to ease scripting"
 msgstr ""
+"Déan --list-devices nó --list-available a phriontáil aitheantas agus ainm na "
+"ngléasanna amháin, chun scriptiú a éascú"
 
 #: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Search for devices in the network and re-establish connections"
-msgstr ""
+msgstr "Cuardaigh gléasanna sa líonra agus athbhunaigh naisc"
 
 #: kdeconnect-cli.cpp:81
 #, kde-format
 msgid "Request pairing with device"
-msgstr ""
+msgstr "Iarr péireáil le gléas"
 
 #: kdeconnect-cli.cpp:82
 #, kde-format
 msgid "Find device by ringing it"
-msgstr ""
+msgstr "Aimsigh gléas trí ghlaoch air"
 
 #: kdeconnect-cli.cpp:83
 #, kde-format
 msgid "Unpair from device"
-msgstr ""
+msgstr "Díphéireáil ón ngléas"
 
 #: kdeconnect-cli.cpp:84
 #, kde-format
 msgid "Send ping to device"
-msgstr ""
+msgstr "Seol ping chuig gléas"
 
 #: kdeconnect-cli.cpp:85
 #, kde-format
 msgid "Same as ping but you can set the message to display"
 msgstr ""
+"Mar an gcéanna le ping ach is féidir leat an teachtaireacht a shocrú le "
+"taispeáint"
 
 #: kdeconnect-cli.cpp:85 kdeconnect-cli.cpp:92
 #, kde-format
 msgid "message"
-msgstr ""
+msgstr "teachtaireacht"
 
 #: kdeconnect-cli.cpp:86
 #, kde-format
 msgid "Send clipboard to device"
-msgstr ""
+msgstr "Seol an ghearrthaisce chuig an ngléas"
 
 #: kdeconnect-cli.cpp:87
 #, kde-format
 msgid "Share file/URL to device"
-msgstr ""
+msgstr "Comhroinn comhad/URL le gléas"
 
 #: kdeconnect-cli.cpp:88
 #, kde-format
 msgid "Share text to device"
-msgstr ""
+msgstr "Comhroinn téacs le gléas"
 
 #: kdeconnect-cli.cpp:89
 #, kde-format
 msgid "Display notifications on device"
-msgstr ""
+msgstr "Taispeáin fógraí ar an ngléas"
 
 #: kdeconnect-cli.cpp:90
 #, kde-format
 msgid "Lock the specified device"
-msgstr ""
+msgstr "Glasáil an gléas sonraithe"
 
 #: kdeconnect-cli.cpp:91
 #, kde-format
 msgid "Unlock the specified device"
-msgstr ""
+msgstr "Díghlasáil an gléas sonraithe"
 
 #: kdeconnect-cli.cpp:92
 #, kde-format
 msgid "Sends an SMS. Requires destination"
-msgstr ""
+msgstr "Seolann sé SMS. Teastaíonn ceann scríbe"
 
 #: kdeconnect-cli.cpp:93
 #, kde-format
 msgid "Phone number to send the message"
-msgstr ""
+msgstr "Uimhir theileafóin chun an teachtaireacht a sheoladh"
 
 #: kdeconnect-cli.cpp:93
 #, kde-format
 msgid "phone number"
-msgstr ""
+msgstr "uimhir ghutháin"
 
 #: kdeconnect-cli.cpp:95
 #, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
+"URLanna comhaid le ceangaltáin a sheoladh leis an teachtaireacht (is féidir "
+"iad a chur ar aghaidh arís agus arís eile)"
 
 #: kdeconnect-cli.cpp:96
 #, kde-format
 msgid "file URLs"
-msgstr ""
+msgstr "URLanna comhad"
 
 #: kdeconnect-cli.cpp:97
 #, kde-format
 msgid "Device ID"
-msgstr ""
+msgstr "Aitheantas Gléas"
 
 #: kdeconnect-cli.cpp:98
 #, kde-format
 msgid "Device Name"
-msgstr ""
+msgstr "Ainm na Gléas"
 
 #: kdeconnect-cli.cpp:99
 #, kde-format
 msgid "Get encryption info about device"
-msgstr ""
+msgstr "Faigh faisnéis criptithe faoin ngléas"
 
 #: kdeconnect-cli.cpp:100
 #, kde-format
 msgid "List remote commands and their ids"
-msgstr ""
+msgstr "Liostaigh orduithe cianda agus a n-aitheantais"
 
 #: kdeconnect-cli.cpp:101
 #, kde-format
 msgid "Execute remote command by id"
-msgstr ""
+msgstr "Forghníomhaigh ordú cianda de réir aitheantais"
 
 #: kdeconnect-cli.cpp:102
 #, kde-format
 msgid "Send keys to device"
-msgstr ""
+msgstr "Seol eochracha chuig an ngléas"
 
 #: kdeconnect-cli.cpp:103
 #, kde-format
 msgid "Display this device's id and exit"
-msgstr ""
+msgstr "Taispeáin aitheantas an ghléis seo agus scoir"
 
 #: kdeconnect-cli.cpp:104
 #, kde-format
 msgid "Mount filesystem of a said device"
-msgstr ""
+msgstr "Córas comhad an fheiste sin a fheistiú"
 
 #: kdeconnect-cli.cpp:105
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "Priontáil pointe gléasta do chóras comhad an ghléis sin"
 
 #: kdeconnect-cli.cpp:151
 #, kde-format
 msgid "(paired and reachable)"
-msgstr ""
+msgstr "(péireáilte agus inrochtana)"
 
 #: kdeconnect-cli.cpp:153
 #, kde-format
 msgid "(reachable)"
-msgstr ""
+msgstr "(inrochtana)"
 
 #: kdeconnect-cli.cpp:155 kdeconnect-cli.cpp:181
 #, kde-format
 msgid "(paired)"
-msgstr ""
+msgstr "(péireáilte)"
 
 #: kdeconnect-cli.cpp:164
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 gléas aimsithe"
+msgstr[1] "%1 gléas aimsithe"
+msgstr[2] "%1 gléas aimsithe"
+msgstr[3] "%1 gléas aimsithe"
+msgstr[4] "%1 gléas aimsithe"
 
 #: kdeconnect-cli.cpp:166
 #, kde-format
 msgid "No devices found"
-msgstr ""
+msgstr "Níor aimsíodh aon fheistí"
 
 #: kdeconnect-cli.cpp:183
 #, kde-format
 msgid "(unpaired)"
-msgstr ""
+msgstr "(neamhphéireáilte)"
 
 #: kdeconnect-cli.cpp:243
 #, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
-msgstr ""
+msgstr "Comhroinnte %1"
 
 #: kdeconnect-cli.cpp:256
 #, kde-format
 msgid "Shared text: %1"
-msgstr ""
+msgstr "Téacs comhroinnte: %1"
 
 #: kdeconnect-cli.cpp:267
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
-msgstr ""
+msgstr "Iarradh %1 a ghlasáil."
 
 #: kdeconnect-cli.cpp:269
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
-msgstr ""
+msgstr "Iarradh %1 a dhíghlasáil."
 
 #: kdeconnect-cli.cpp:280
 #, kde-format
 msgid "waiting for device…"
-msgstr ""
+msgstr "ag fanacht leis an ngléas…"
 
 #: kdeconnect-cli.cpp:293
 #, kde-format
 msgid "Device not found"
-msgstr ""
+msgstr "Gléas gan aimsiú"
 
 #: kdeconnect-cli.cpp:295
 #, kde-format
 msgid "Already paired"
-msgstr ""
+msgstr "Péireáilte cheana féin"
 
 #: kdeconnect-cli.cpp:297
 #, kde-format
 msgid "Pair requested"
-msgstr ""
+msgstr "Péire iarrtha"
 
 #: kdeconnect-cli.cpp:307
 #, kde-format
 msgid "Already not paired"
-msgstr ""
+msgstr "Níl sé péireáilte cheana féin"
 
 #: kdeconnect-cli.cpp:309
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Díphéireáilte go rathúil"
 
 #: kdeconnect-cli.cpp:367
 #, kde-format
@@ -336,3 +355,5 @@ msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
 "number>"
 msgstr ""
+"earráid: ba cheart faighteoir an SMS a shonrú trí --destination <uimhir "
+"theileafóin> a chur isteach"

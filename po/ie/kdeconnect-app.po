@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-04 00:44+0000\n"
+"POT-Creation-Date: 2026-02-05 00:43+0000\n"
 "PO-Revision-Date: 2022-11-16 16:11+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -258,9 +258,11 @@ msgid "No devices found"
 msgstr "Null aparates trovat"
 
 #: qml/Main.qml:215
-#, kde-format
-msgid "@action:button"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Plugin Settings"
+msgctxt "@action:button"
+msgid "Settings"
+msgstr "Parametres del plugin"
 
 #: qml/Main.qml:230
 #, fuzzy, kde-format

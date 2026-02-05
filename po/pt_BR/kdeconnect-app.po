@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-04 00:44+0000\n"
-"PO-Revision-Date: 2026-01-19 07:26-0300\n"
+"POT-Creation-Date: 2026-02-05 00:43+0000\n"
+"PO-Revision-Date: 2026-02-04 08:25-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -259,9 +259,11 @@ msgid "No devices found"
 msgstr "Nenhum dispositivo encontrado"
 
 #: qml/Main.qml:215
-#, kde-format
-msgid "@action:button"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "@action:button"
+msgid "Settings"
+msgstr "Configurações"
 
 #: qml/Main.qml:230
 #, kde-format
@@ -421,6 +423,9 @@ msgstr ""
 "Se você estiver tendo problemas, visite a <a href=\"https://userbase.kde.org/"
 "KDEConnect\"><span style=\" text-decoration: underline;\">wiki da comunidade "
 "KDE Connect</span></a> para obter ajuda."
+
+#~ msgid "@action:button"
+#~ msgstr "@ação:botão"
 
 #~ msgctxt "@info KDE Connect provider name"
 #~ msgid "Bluetooth"

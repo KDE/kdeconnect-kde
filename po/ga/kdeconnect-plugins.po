@@ -9,44 +9,46 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:43+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2026-02-03 18:41+0000\n"
+"Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
-msgstr ""
+msgstr "%1: Ceallraí Íseal"
 
 #: battery/batteryplugin.cpp:120
 #, kde-format
 msgid "Battery at %1%"
-msgstr ""
+msgstr "Ceallraí ag %1%"
 
 #: clipboard/kdeconnect_clipboard_config.qml:34
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "Comhroinn an ghearrthaisce go huathoibríoch ón ngléas seo"
 
 #: clipboard/kdeconnect_clipboard_config.qml:42
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
 msgstr ""
+"Lena n-áirítear pasfhocail (mar atá marcáilte ag bainisteoirí pasfhocal)"
 
 #: clipboard/kdeconnect_clipboard_config.qml:55
 #, kde-format
 msgid "Max Clipboard File Size (MB)"
-msgstr ""
+msgstr "Uasmhéid Comhaid an Ghearrthaisce (MB)"
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
 #, kde-format
 msgid "KDE Connect Error"
-msgstr ""
+msgstr "Earráid KDE Connect"
 
 #: digitizer/linuxdigitizerimpl.cpp:73
 #, kde-format
@@ -54,6 +56,8 @@ msgid ""
 "Unable to create a virtual drawing tablet. If this error persists, file a "
 "bug report."
 msgstr ""
+"Ní féidir táibléad líníochta fíorúil a chruthú. Má leanann an earráid seo, "
+"comhdaigh tuairisc fabht."
 
 #: digitizer/linuxdigitizerimpl.cpp:169
 #, kde-format
@@ -61,41 +65,43 @@ msgid ""
 "Unable to process one or more input events for the virtual device. If this "
 "error persists, file a bug report."
 msgstr ""
+"Ní féidir imeacht ionchuir amháin nó níos mó a phróiseáil don fheiste "
+"fhíorúil. Má leanann an earráid seo, comhdaigh tuarascáil fabht."
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
 #, kde-format
 msgid "Apply"
-msgstr ""
+msgstr "Cuir isteach"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:47
 #, kde-format
 msgid "Sound to play:"
-msgstr ""
+msgstr "Fuaim le seinm:"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:57
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose file"
-msgstr ""
+msgstr "Roghnaigh comhad"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Play"
-msgstr ""
+msgstr "Seinn"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
-msgstr ""
+msgstr "Glasáil iargúlta rathúil"
 
 #: lockdevice/lockdeviceplugin-win.cpp:61
 #: lockdevice/lockdeviceplugin-win.cpp:62 lockdevice/lockdeviceplugin.cpp:92
 #: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
-msgstr ""
+msgstr "Theip ar ghlasáil iargúlta"
 
 #: mpriscontrol/mpriscontrolplugin-win.cpp:26
 #, kde-format
@@ -103,72 +109,72 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "Imreoir Reatha"
 
 #: mpriscontrol/mpriscontrolplugin-win.cpp:93
 #: mpriscontrol/mpriscontrolplugin-win.cpp:94
 #: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "N/B"
 
 #: notifications/notification.cpp:108
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
-msgstr ""
+msgstr "Freagra"
 
 #: notifications/notification.cpp:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "Freagra chuig %1…"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Seol"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SendReplyDialog)
 #: notifications/sendreplydialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Dialóg"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:32
 #, kde-format
 msgid "Pause as soon as phone rings"
-msgstr ""
+msgstr "Cuir sos a luaithe a bhuaileann an fón"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:41
 #, kde-format
 msgid "Pause only while talking"
-msgstr ""
+msgstr "Sos amháin agus tú ag caint"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:47
 #, kde-format
 msgid "Pause media players"
-msgstr ""
+msgstr "Cuir seinnteoirí meán ar sos"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:54
 #, kde-format
 msgid "Mute system sound"
-msgstr ""
+msgstr "Muistigh fuaim an chórais"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:61
 #, kde-format
 msgid "Resume automatically when call ends"
-msgstr ""
+msgstr "Atosaigh go huathoibríoch nuair a chríochnaíonn an glao"
 
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
-msgstr ""
+msgstr "Ping!"
 
 #: runcommand/kdeconnect_runcommand_config.qml:21
 #, kde-format
 msgid "Add Command…"
-msgstr ""
+msgstr "Cuir Ordú leis…"
 
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
@@ -178,54 +184,54 @@ msgstr ""
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "Scrios"
 
 #: runcommand/kdeconnect_runcommand_config.qml:76
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
-msgstr ""
+msgstr "Gan aon orduithe cumraithe"
 
 #: runcommand/kdeconnect_runcommand_config.qml:77
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
-msgstr ""
+msgstr "Cuir orduithe leis chun iad a rith go cianda ó fheistí eile"
 
 #: runcommand/kdeconnect_runcommand_config.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
-msgstr ""
+msgstr "Cuir Ordú Leis"
 
 #: runcommand/kdeconnect_runcommand_config.qml:89
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "Cuir leis"
 
 #: runcommand/kdeconnect_runcommand_config.qml:96
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
-msgstr ""
+msgstr "Cuir ordú leis"
 
 #: runcommand/kdeconnect_runcommand_config.qml:105
 #: runcommand/kdeconnect_runcommand_config.qml:183
 #, kde-format
 msgid "Name:"
-msgstr ""
+msgstr "Ainm:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:109
 #: runcommand/kdeconnect_runcommand_config.qml:187
 #, kde-format
 msgid "Command:"
-msgstr ""
+msgstr "Ordú:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:113
 #, kde-format
 msgid "Sample commands:"
-msgstr ""
+msgstr "Orduithe samplacha:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:131
 #: runcommand/kdeconnect_runcommand_config.qml:142
@@ -286,47 +292,47 @@ msgstr ""
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
-msgstr ""
+msgstr "Tá an fón ceangailte"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:34
 #, kde-format
 msgid "Persistent notifications only"
-msgstr ""
+msgstr "Fógraí buana amháin"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:42
 #, kde-format
 msgid "Include body"
-msgstr ""
+msgstr "Cuir corp san áireamh"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:49
 #, kde-format
 msgid "Include icon"
-msgstr ""
+msgstr "Cuir deilbhín san áireamh"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:56
 #, kde-format
 msgid "Minimum urgency level:"
-msgstr ""
+msgstr "Íosleibhéal práinne:"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "Ainm"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Excluded"
-msgstr ""
+msgstr "Eisiata"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
-msgstr ""
+msgstr "Ainm iarratais fógraíochta."
 
 #: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
-msgstr ""
+msgstr "Fógraí feidhmchláir a shioncrónú?"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
@@ -335,89 +341,96 @@ msgid ""
 "This pattern is applied to the summary and, if selected above, the body of "
 "notifications."
 msgstr ""
+"Slonn rialta a shainmhíníonn cé na fógraí nár cheart a sheoladh.\n"
+"Cuirtear an patrún seo i bhfeidhm ar an achoimre agus, má roghnaítear thuas, "
+"ar chorp na bhfógraí."
 
 #: sftp/mounter.cpp:141
 #, kde-format
 msgid "Failed to start sshfs"
-msgstr ""
+msgstr "Theip ar thosú sshfs"
 
 #: sftp/mounter.cpp:145
 #, kde-format
 msgid "sshfs process crashed"
-msgstr ""
+msgstr "thuairteáil próiseas sshfs"
 
 #: sftp/mounter.cpp:149
 #, kde-format
 msgid "Unknown error in sshfs"
-msgstr ""
+msgstr "Earráid anaithnid i sshfs"
 
 #: sftp/mounter.cpp:160
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
+"Earráid agus rochtain á fáil ar chóras comhad. Chríochnaigh sshfs le cód "
+"scoir %0"
 
 #: sftp/mounter.cpp:169
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
-msgstr ""
+msgstr "Theip ar chóras comhad a fheistiú: níl an gléas ag freagairt"
 
 #: sftp/sftpplugin-win.cpp:93
 #, kde-format
 msgid "KDE Connect"
-msgstr ""
+msgstr "KDE Connect"
 
 #: sftp/sftpplugin-win.cpp:94
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr ""
+"Ní féidir prótacal SFTP a láimhseáil. Gabhaim leithscéal as an "
+"míchaoithiúlacht"
 
 #: sftp/sftpplugin.cpp:147
 #, kde-format
 msgid "All files"
-msgstr ""
+msgstr "Gach comhad"
 
 #: sftp/sftpplugin.cpp:148
 #, kde-format
 msgid "Camera pictures"
-msgstr ""
+msgstr "Pictiúir ceamara"
 
 #: share/kdeconnect_share_config.qml:47
 #, kde-format
 msgid "Save files in:"
-msgstr ""
+msgstr "Sábháil comhaid i:"
 
 #: share/kdeconnect_share_config.qml:63
 #, kde-format
 msgid "%1 in the path will be replaced with the specific device name"
-msgstr ""
+msgstr "Cuirfear ainm an ghléis shonraigh in ionad %1 sa chonair"
 
 #: share/shareplugin.cpp:161
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "Téacs comhroinnte ó %1 cóipeáilte chuig an ghearrthaisce"
 
 #: share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Oscail san Eagarthóir Téacs"
 
 #: share/shareplugin.cpp:205
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "Oscail an Nasc"
 
 #: share/shareplugin.cpp:247
 #, kde-format
 msgid "Could not share file"
-msgstr ""
+msgstr "Níorbh fhéidir an comhad a roinnt"
 
 #: share/shareplugin.cpp:247
 #, kde-format
 msgid "%1 does not exist"
-msgstr ""
+msgstr "Níl %1 ann"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
 #, kde-format
@@ -462,34 +475,34 @@ msgstr ""
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
 msgid "unknown number"
-msgstr ""
+msgstr "uimhir anaithnid"
 
 #: telephony/telephonyplugin.cpp:32
 #, kde-format
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "Glao isteach ó %1"
 
 #: telephony/telephonyplugin.cpp:36
 #, kde-format
 msgid "Missed call from %1"
-msgstr ""
+msgstr "Glao caillte ó %1"
 
 #: telephony/telephonyplugin.cpp:65
 #, kde-format
 msgid "Mute Call"
-msgstr ""
+msgstr "Balbhaigh Glao"
 
 #: virtualmonitor/virtualmonitorplugin.cpp:183
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
-msgstr ""
+msgstr "Níl cliant VNC ná RDP (m.sh. krdc) suiteáilte ar an ngléas cianda."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "Tá an pacáiste krdp ag teastáil ar an ngléas áitiúil."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:189
 #, kde-format
 msgid "Cannot start a request without a resolution"
-msgstr ""
+msgstr "Ní féidir iarratas a thosú gan réiteach"
