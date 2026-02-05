@@ -9,66 +9,67 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2026-02-03 18:39+0000\n"
+"Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
-"3 : 4\n"
+"Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n>=3 && n<=6 ? 2 : "
+"n>=7 && n<=10 ? 3 : 4);\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Aindriú Mac Giolla Eoin"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "aindriu80@yahoo.com"
 
 #: deviceindicator.cpp:53
 #, kde-format
 msgid "Browse device"
-msgstr ""
+msgstr "Brabhsáil gléas"
 
 #: deviceindicator.cpp:67
 #, kde-format
 msgid "Send clipboard"
-msgstr ""
+msgstr "Seol an ghearrthaisce"
 
 #: deviceindicator.cpp:81
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
-msgstr ""
+msgstr "Gléas fáinne"
 
 #: deviceindicator.cpp:95
 #, kde-format
 msgid "Send files"
-msgstr ""
+msgstr "Seol comhaid"
 
 #: deviceindicator.cpp:117
 #, kde-format
 msgid "SMS Messages…"
-msgstr ""
+msgstr "Teachtaireachtaí SMS…"
 
 #: deviceindicator.cpp:130
 #, kde-format
 msgid "Run command"
-msgstr ""
+msgstr "Rith an t-ordú"
 
 #: deviceindicator.cpp:132
 #, kde-format
 msgid "Add commands"
-msgstr ""
+msgstr "Cuir orduithe leis"
 
 #: indicatorhelper_mac.cpp:47 indicatorhelper_mac.cpp:58
 #, kde-format
 msgid "KDE Connect"
-msgstr ""
+msgstr "KDE Connect"
 
 #: indicatorhelper_mac.cpp:48
 #, kde-format
@@ -76,84 +77,89 @@ msgid ""
 "Cannot connect to DBus\n"
 "KDE Connect will quit"
 msgstr ""
+"Ní féidir ceangal le DBus\n"
+"Scoirfidh KDE Connect"
 
 #: indicatorhelper_mac.cpp:58
 #, kde-format
 msgid "Cannot find kdeconnectd"
-msgstr ""
+msgstr "Ní féidir kdeconnectd a aimsiú"
 
 #: main.cpp:57
 #, kde-format
 msgid "KDE Connect Indicator"
-msgstr ""
+msgstr "Táscaire KDE Connect"
 
 #: main.cpp:59
 #, kde-format
 msgid "KDE Connect Indicator tool"
-msgstr ""
+msgstr "Uirlis Táscaire KDE Connect"
 
 #: main.cpp:61
 #, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2016–2025 Foireann KDE Connect"
 
 #: main.cpp:62
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr ""
+msgstr "Aleix Pol Gonzalez"
 
 #: main.cpp:63
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:101
 #, kde-format
 msgid "Open app"
-msgstr ""
+msgstr "Oscail an aip"
 
 #: main.cpp:118
 #, kde-format
 msgid "Pairing requests"
-msgstr ""
+msgstr "Iarratais phéireála"
 
 #: main.cpp:123
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
-msgstr ""
+msgstr "Péire"
 
 #: main.cpp:124
 #, kde-format
 msgid "Reject"
-msgstr ""
+msgstr "Diúltaigh"
 
 #: main.cpp:129 main.cpp:138
 #, kde-format
 msgid "Quit"
-msgstr ""
+msgstr "Scoir"
 
 #: main.cpp:157 main.cpp:179
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 gléas ceangailte"
+msgstr[1] "%1 gléasanna ceangailte"
+msgstr[2] "%1 gléasanna ceangailte"
+msgstr[3] "%1 gléasanna ceangailte"
+msgstr[4] "%1 gléasanna ceangailte"
 
 #: systray_actions/battery_action.cpp:28
 #, kde-format
 msgid "No Battery"
-msgstr ""
+msgstr "Gan Ceallraí"
 
 #: systray_actions/battery_action.cpp:30
 #, kde-format
 msgid "Battery: %1% (Charging)"
-msgstr ""
+msgstr "Ceallraí: %1% (Ag muirearú)"
 
 #: systray_actions/battery_action.cpp:32
 #, kde-format
 msgid "Battery: %1%"
-msgstr ""
+msgstr "Ceallraí: %1%"
 
 #: systray_actions/connectivity_action.cpp:30
 #, kde-format
@@ -161,7 +167,7 @@ msgctxt ""
 "The fallback text to display in case the remote device does not have a "
 "cellular connection"
 msgid "No Cellular Connectivity"
-msgstr ""
+msgstr "Gan Nascacht Cheallach"
 
 #: systray_actions/connectivity_action.cpp:33
 #, kde-format
@@ -169,4 +175,4 @@ msgctxt ""
 "Display the cellular connection type and an approximate percentage of signal "
 "strength"
 msgid "%1  | ~%2%"
-msgstr ""
+msgstr "%1  | ~%2%"

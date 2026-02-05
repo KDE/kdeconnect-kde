@@ -9,181 +9,186 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2026-02-03 18:42+0000\n"
+"Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
-"3 : 4\n"
+"Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n>=3 && n<=6 ? 2 : "
+"n>=7 && n<=10 ? 3 : 4);\n"
+"X-Generator: Poedit 3.8\n"
 
 #: package/contents/ui/Battery.qml:33
 #, kde-format
 msgid "%1% charging"
-msgstr ""
+msgstr "%1% ag muirearú"
 
 #: package/contents/ui/Battery.qml:35
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: package/contents/ui/Battery.qml:38
 #, kde-format
 msgid "No info"
-msgstr ""
+msgstr "Gan aon eolas"
 
 #: package/contents/ui/Connectivity.qml:43
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "Anaithnid"
 
 #: package/contents/ui/Connectivity.qml:54
 #, kde-format
 msgid "No signal"
-msgstr ""
+msgstr "Gan comhartha"
 
 #: package/contents/ui/DeviceDelegate.qml:82
 #, kde-format
 msgid "Virtual Monitor is not available"
-msgstr ""
+msgstr "Níl an Monatóir Fíorúil ar fáil"
 
 #: package/contents/ui/DeviceDelegate.qml:87
 #, kde-format
 msgid "Please choose a file"
-msgstr ""
+msgstr "Roghnaigh comhad le do thoil"
 
 #: package/contents/ui/DeviceDelegate.qml:105
 #, kde-format
 msgid "Share file"
-msgstr ""
+msgstr "Comhroinn comhad"
 
 #: package/contents/ui/DeviceDelegate.qml:113
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Seol an Ghearrthaisce"
 
 #: package/contents/ui/DeviceDelegate.qml:124
 #, kde-format
 msgid "Ring my phone"
-msgstr ""
+msgstr "Cuir glaoch ar mo ghuthán"
 
 #: package/contents/ui/DeviceDelegate.qml:135
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Brabhsáil an gléas seo"
 
 #: package/contents/ui/DeviceDelegate.qml:146
 #, kde-format
 msgid "SMS Messages"
-msgstr ""
+msgstr "Teachtaireachtaí SMS"
 
 #: package/contents/ui/DeviceDelegate.qml:170
 #, kde-format
 msgid "File Transfer"
-msgstr ""
+msgstr "Aistriú Comhad"
 
 #: package/contents/ui/DeviceDelegate.qml:171
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
-msgstr ""
+msgstr "Scaoil comhad le haistriú chuig do ghuthán."
 
 #: package/contents/ui/DeviceDelegate.qml:193
 #, kde-format
 msgid "Virtual Display"
-msgstr ""
+msgstr "Taispeántas Fíorúil"
 
 #: package/contents/ui/DeviceDelegate.qml:254
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: package/contents/ui/DeviceDelegate.qml:280
 #, kde-format
 msgid "Remote Keyboard"
-msgstr ""
+msgstr "Méarchlár Cianda"
 
 #: package/contents/ui/DeviceDelegate.qml:301
 #, kde-format
 msgid "Notifications:"
-msgstr ""
+msgstr "Fógraí:"
 
 #: package/contents/ui/DeviceDelegate.qml:309
 #, kde-format
 msgid "Dismiss all notifications"
-msgstr ""
+msgstr "Ruaig gach fógra"
 
 #: package/contents/ui/DeviceDelegate.qml:367
 #, kde-format
 msgid "Reply"
-msgstr ""
+msgstr "Freagra"
 
 #: package/contents/ui/DeviceDelegate.qml:380
 #, kde-format
 msgid "Dismiss"
-msgstr ""
+msgstr "Díbhe"
 
 #: package/contents/ui/DeviceDelegate.qml:393
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Cealaigh"
 
 #: package/contents/ui/DeviceDelegate.qml:407
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "Freagra chuig %1…"
 
 #: package/contents/ui/DeviceDelegate.qml:425
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Seol"
 
 #: package/contents/ui/DeviceDelegate.qml:446
 #, kde-format
 msgid "Run command"
-msgstr ""
+msgstr "Rith an t-ordú"
 
 #: package/contents/ui/DeviceDelegate.qml:453
 #, kde-format
 msgid "Add command"
-msgstr ""
+msgstr "Cuir ordú leis"
 
 #: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "No paired devices"
-msgstr ""
+msgstr "Gan aon fheistí péireáilte"
 
 #: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Níl an gléas péireáilte ar fáil"
+msgstr[1] "Níl aon fheistí péireáilte ar fáil"
+msgstr[2] "Níl aon fheistí péireáilte ar fáil"
+msgstr[3] "Níl aon fheistí péireáilte ar fáil"
+msgstr[4] "Níl aon fheistí péireáilte ar fáil"
 
 #: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
+"Suiteáil KDE Connect ar do ghléas Android chun é a chomhtháthú le Plasma!"
 
 #: package/contents/ui/FullRepresentation.qml:70
 #, kde-format
 msgid "Pair a Device…"
-msgstr ""
+msgstr "Péireáil Gléas…"
 
 #: package/contents/ui/FullRepresentation.qml:82
 #, kde-format
 msgid "Install from Google Play"
-msgstr ""
+msgstr "Suiteáil ó Google Play"
 
 #: package/contents/ui/FullRepresentation.qml:92
 #, kde-format
 msgid "Install from F-Droid"
-msgstr ""
+msgstr "Suiteáil ó F-Droid"
 
 #: package/contents/ui/main.qml:54
 #, kde-format
 msgid "KDE Connect Settings…"
-msgstr ""
+msgstr "Socruithe KDE Connect…"
