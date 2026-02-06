@@ -88,6 +88,12 @@ QStringList PluginLoader::outgoingCapabilities() const
 
 QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString> &incoming, const QSet<QString> &outgoing) const
 {
+    if (incoming.isEmpty() && outgoing.isEmpty()) {
+        // Assume every plugin is supported until we get the actual capabilities
+        const auto allPlugins = getPluginList();
+        return QSet(allPlugins.begin(), allPlugins.end());
+    }
+
     QSet<QString> ret;
 
     for (const KPluginMetaData &service : plugins) {

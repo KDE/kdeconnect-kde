@@ -32,9 +32,8 @@ public:
     DevicePrivate(const DeviceInfo &deviceInfo, PairingHandler *pairingHandler)
         : m_deviceInfo(deviceInfo)
         , m_pairingHandler(pairingHandler)
+        , m_supportedPlugins(PluginLoader::instance()->pluginsForCapabilities(deviceInfo.incomingCapabilities, deviceInfo.outgoingCapabilities))
     {
-        const auto allPlugins = PluginLoader::instance()->getPluginList();
-        m_supportedPlugins = QSet(allPlugins.begin(), allPlugins.end()); // Assume every plugin is supported until we get the capabilities
     }
 
     ~DevicePrivate()
