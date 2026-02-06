@@ -153,6 +153,14 @@ Kirigami.ScrollablePage {
                 device: root.currentDevice
             },
             PluginItem {
+                readonly property QtObject sms: SmsDbusInterfaceFactory.create(root.currentDevice.id())
+                pluginName: "sms"
+                name: i18n("SMS Messages")
+                onClick: () => sms.launchApp();
+                section: "control"
+                device: root.currentDevice
+            },
+            PluginItem {
                 readonly property var lockIface: LockDeviceDbusInterfaceFactory.create(root.currentDevice.id())
                 pluginName: "lockdevice"
                 name: lockIface.isLocked ? i18nd("kdeconnect-app", "Unlock") : i18nd("kdeconnect-app", "Lock")
