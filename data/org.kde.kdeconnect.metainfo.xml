@@ -21,6 +21,7 @@
   <name xml:lang="eu">KDE Connect</name>
   <name xml:lang="fi">KDE Connect</name>
   <name xml:lang="fr">KDEConnect</name>
+  <name xml:lang="ga">KDE Connect</name>
   <name xml:lang="gl">KDE Connect</name>
   <name xml:lang="he">KDE Connect</name>
   <name xml:lang="hu">KDE Connect</name>
@@ -72,6 +73,7 @@
   <summary xml:lang="eu">Zure gailuen etengabeko konexioa</summary>
   <summary xml:lang="fi">Saumaton yhteys laitteisiisi</summary>
   <summary xml:lang="fr">Connexion facile avec vos périphériques</summary>
+  <summary xml:lang="ga">Nasc gan uaim do ghléasanna</summary>
   <summary xml:lang="gl">Conexión constante entre dispositivos</summary>
   <summary xml:lang="he">חיבור בלתי טרחני בין המכשירים שלך</summary>
   <summary xml:lang="hu">Eszközeinek zökkenőmentes csatlakoztatása</summary>
@@ -122,6 +124,7 @@
     <p xml:lang="eu">«KDE Connect»ek zure telefonoa eta ordenagailua elkarrekin hobeto lan egin arazten ditu: zure arbela partekatu eta gailuen arteko fitxategiak atzitu, zure telefonoa zure ordenagailuaren urruneko aginte gisa erabili, aurkitu zure telefonoa sofa atzealdetik irristatu denean, ikusi zure telefonoaren jakinarazpenak zure ordenagailutik, eta askoz gehiago!</p>
     <p xml:lang="fi">KDE Connect saa puhelimesi ja tietokoneesi toimimaan yhdessä paremmin: jaa leikepöytä ja käytä tiedostoja laitteelta toiselle, tee puhelimesta tietokoneesi kauko-ohjain, etsi puhelin sen kadottua sohvan taakse, katso puhelimen ilmoitukset tietokoneelta ja paljon muuta!</p>
     <p xml:lang="fr">KDEConnect permet à votre téléphone et à votre ordinateur de mieux fonctionner ensemble : partagez votre presse-papier, accédez aux fichiers entre périphériques, transformez votre téléphone en télécommande pour votre ordinateur, trouvez votre téléphone lorsqu'il a glissé à l'arrière de votre canapé, voyez les notifications de votre téléphone sur votre ordinateur, et bien plus encore !</p>
+    <p xml:lang="ga">Déanann KDE Connect do ghuthán agus do ríomhaire a oibriú níos fearr le chéile: roinn do ghearrthaisce agus rochtain a fháil ar chomhaid trasna gléasanna, déan cianrialtán do do ríomhaire de do ghuthán, aimsigh do ghuthán nuair a shleamhnaigh sé síos cúl do tholg, féach fógraí do ghutháin ó do ríomhaire, agus i bhfad níos mó!</p>
     <p xml:lang="gl">KDE Connect fai que o seu teléfono e computador traballen mellor xuntos: comparta o portapapeis e ficheiros entre os dispositivos, use o teléfono como mando a distancia do computador, faga soar o teléfono para atopalo, reciba as notificacións do teléfono no computador, e moito máis!</p>
     <p xml:lang="he">KDE Connect משפר את החיבוריות בין הטלפון למחשב שלך: אפשר לשתף לוח גזירים ולגשת לקבצים בין המכשירים, להפוך את הטלפון שלך לשלט רחוק למחשב, לאתר את הטלפון שלך אם הוא נתקע בחריצים של הספה, לראות את ההתראות הטלפון שלך במחשב ועוד המון יכולות משובחות!</p>
     <p xml:lang="hu">A KDE Connect segítségével telefonja és számítógépe jobban együttműködik: megoszthatja a vágólapot és a fájlok elérését az eszközök között, a telefonját számítógépe távvezérlőjévé alakíthatja, megtalálja a telefonját, ha az becsúszott a kanapé hátuljába, láthatja a telefonos értesítéseket a számítógépéről, és még sok minden mást!</p>
