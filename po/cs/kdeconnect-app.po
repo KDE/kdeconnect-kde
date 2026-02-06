@@ -253,8 +253,7 @@ msgid "No devices found"
 msgstr "Nebyla nalezena žádná zařízení"
 
 #: qml/Main.qml:215
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Nastavení"
