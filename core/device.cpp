@@ -64,9 +64,9 @@ Device::Device(QObject *parent, DeviceLink *dl)
     : QObject(parent)
     , d(new Device::DevicePrivate(dl->deviceInfo(), new PairingHandler(this, PairState::NotPaired)))
 {
-    addLink(dl);
-
     init();
+
+    addLink(dl);
 
     int protocolVersion = dl->deviceInfo().protocolVersion;
     if (protocolVersion != NetworkPacket::s_protocolVersion) {
