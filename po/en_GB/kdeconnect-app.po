@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:43+0000\n"
+"POT-Creation-Date: 2026-02-07 00:43+0000\n"
 "PO-Revision-Date: 2024-05-21 19:33+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -131,52 +131,57 @@ msgstr "Presentation Remote"
 msgid "Volume control"
 msgstr "Volume control"
 
-#: qml/DevicePage.qml:158 qml/mousepad.qml:44
+#: qml/DevicePage.qml:158
+#, kde-format
+msgid "SMS Messages"
+msgstr ""
+
+#: qml/DevicePage.qml:166 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Lock"
 
-#: qml/DevicePage.qml:158
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Unlock"
 msgstr "Unlock"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Find Device"
 msgstr "Find Device"
 
-#: qml/DevicePage.qml:174
+#: qml/DevicePage.qml:182
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Send Clipboard"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:189
 #, kde-format
 msgid "Share File"
 msgstr "Share File"
 
-#: qml/DevicePage.qml:189
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Browse this device"
 msgstr ""
 
-#: qml/DevicePage.qml:197
+#: qml/DevicePage.qml:205
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr ""
 
-#: qml/DevicePage.qml:197
+#: qml/DevicePage.qml:205
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr ""
 
-#: qml/DevicePage.qml:212
+#: qml/DevicePage.qml:220
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:221
+#: qml/DevicePage.qml:229
 #, fuzzy, kde-format
 #| msgid ""
 #| "This device is not paired.\n"
@@ -186,13 +191,13 @@ msgstr ""
 "This device is not paired.\n"
 "Key: %1"
 
-#: qml/DevicePage.qml:225
+#: qml/DevicePage.qml:233
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Pair"
 
-#: qml/DevicePage.qml:232 qml/DevicePage.qml:241
+#: qml/DevicePage.qml:240 qml/DevicePage.qml:249
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -201,22 +206,22 @@ msgstr ""
 "Pair requested\n"
 "Key: "
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:255
 #, kde-format
 msgid "Accept"
 msgstr "Accept"
 
-#: qml/DevicePage.qml:253
+#: qml/DevicePage.qml:261
 #, kde-format
 msgid "Reject"
 msgstr "Reject"
 
-#: qml/DevicePage.qml:264
+#: qml/DevicePage.qml:272
 #, kde-format
 msgid "This device is not reachable"
 msgstr "This device is not reachable"
 
-#: qml/DevicePage.qml:272
+#: qml/DevicePage.qml:280
 #, kde-format
 msgid "Please choose a file"
 msgstr "Please choose a file"

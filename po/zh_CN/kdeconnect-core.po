@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-04 00:44+0000\n"
+"POT-Creation-Date: 2026-02-07 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -97,17 +97,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "目标"
 
-#: device.cpp:481
+#: device.cpp:480
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "您的设备证书的 SHA256 指纹是：%1\n"
 
-#: device.cpp:487
+#: device.cpp:486
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "远程设备证书的 SHA256 指纹是：%1\n"
 
-#: device.cpp:489
+#: device.cpp:488
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "协议版本：%1\n"

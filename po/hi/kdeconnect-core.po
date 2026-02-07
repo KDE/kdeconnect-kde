@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-04 00:44+0000\n"
+"POT-Creation-Date: 2026-02-07 00:43+0000\n"
 "PO-Revision-Date: 2024-06-08 20:26+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -98,17 +98,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "गन्तव्य"
 
-#: device.cpp:481
+#: device.cpp:480
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "आपके उपकरण प्रमाणपत्र का SHA256 अंगुलांक है: %1\n"
 
-#: device.cpp:487
+#: device.cpp:486
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "दूरस्थ उपकरण प्रमाणपत्र का SHA256 अंगुलांक है: %1\n"
 
-#: device.cpp:489
+#: device.cpp:488
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr ""

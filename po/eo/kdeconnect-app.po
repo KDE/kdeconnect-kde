@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:43+0000\n"
+"POT-Creation-Date: 2026-02-07 00:43+0000\n"
 "PO-Revision-Date: 2025-03-01 17:55+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -131,63 +131,68 @@ msgstr "Fora aparato de Prezento"
 msgid "Volume control"
 msgstr "Mastrumo de laŭteco"
 
-#: qml/DevicePage.qml:158 qml/mousepad.qml:44
+#: qml/DevicePage.qml:158
+#, kde-format
+msgid "SMS Messages"
+msgstr ""
+
+#: qml/DevicePage.qml:166 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Ŝlosi"
 
-#: qml/DevicePage.qml:158
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Unlock"
 msgstr "Malŝlosi"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Find Device"
 msgstr "Trovi Aparaton"
 
-#: qml/DevicePage.qml:174
+#: qml/DevicePage.qml:182
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Sendi Tondujon"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:189
 #, kde-format
 msgid "Share File"
 msgstr "Kunhavigi Dosieron"
 
-#: qml/DevicePage.qml:189
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Browse this device"
 msgstr ""
 
-#: qml/DevicePage.qml:197
+#: qml/DevicePage.qml:205
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr ""
 
-#: qml/DevicePage.qml:197
+#: qml/DevicePage.qml:205
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr ""
 
-#: qml/DevicePage.qml:212
+#: qml/DevicePage.qml:220
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:221
+#: qml/DevicePage.qml:229
 #, kde-format
 msgid "This device is not paired."
 msgstr "Ĉi tiu aparato ne estas parigita."
 
-#: qml/DevicePage.qml:225
+#: qml/DevicePage.qml:233
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Parigi"
 
-#: qml/DevicePage.qml:232 qml/DevicePage.qml:241
+#: qml/DevicePage.qml:240 qml/DevicePage.qml:249
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -196,22 +201,22 @@ msgstr ""
 "Parigo alpetiĝis\n"
 "Ŝlosilo: "
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:255
 #, kde-format
 msgid "Accept"
 msgstr "Akcepti"
 
-#: qml/DevicePage.qml:253
+#: qml/DevicePage.qml:261
 #, kde-format
 msgid "Reject"
 msgstr "Malakcepti"
 
-#: qml/DevicePage.qml:264
+#: qml/DevicePage.qml:272
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Ĉi tiu aparato ne estas atingebla"
 
-#: qml/DevicePage.qml:272
+#: qml/DevicePage.qml:280
 #, kde-format
 msgid "Please choose a file"
 msgstr "Bonvolu elekti dosieron"

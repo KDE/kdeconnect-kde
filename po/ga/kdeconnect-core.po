@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-04 00:44+0000\n"
+"POT-Creation-Date: 2026-02-07 00:43+0000\n"
 "PO-Revision-Date: 2026-02-03 18:38+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -103,17 +103,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Ceann Scríbe"
 
-#: device.cpp:481
+#: device.cpp:480
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Is é méarloirg SHA256 theastas do ghléis: %1\n"
 
-#: device.cpp:487
+#: device.cpp:486
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Is é méarloirg SHA256 teastas gléis iargúlta: %1\n"
 
-#: device.cpp:489
+#: device.cpp:488
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "Leagan prótacail: %1\n"

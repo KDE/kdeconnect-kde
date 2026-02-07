@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:43+0000\n"
+"POT-Creation-Date: 2026-02-07 00:43+0000\n"
 "PO-Revision-Date: 2025-06-01 14:57+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -132,63 +132,68 @@ msgstr "Fjernkontroll av presentasjon"
 msgid "Volume control"
 msgstr "Lydstyrkekontroll"
 
-#: qml/DevicePage.qml:158 qml/mousepad.qml:44
+#: qml/DevicePage.qml:158
+#, kde-format
+msgid "SMS Messages"
+msgstr ""
+
+#: qml/DevicePage.qml:166 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Lås"
 
-#: qml/DevicePage.qml:158
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Unlock"
 msgstr "Lås opp"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Find Device"
 msgstr "Finn eining"
 
-#: qml/DevicePage.qml:174
+#: qml/DevicePage.qml:182
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Send utklippstavla"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:189
 #, kde-format
 msgid "Share File"
 msgstr "Del fil"
 
-#: qml/DevicePage.qml:189
+#: qml/DevicePage.qml:197
 #, kde-format
 msgid "Browse this device"
 msgstr ""
 
-#: qml/DevicePage.qml:197
+#: qml/DevicePage.qml:205
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr ""
 
-#: qml/DevicePage.qml:197
+#: qml/DevicePage.qml:205
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr ""
 
-#: qml/DevicePage.qml:212
+#: qml/DevicePage.qml:220
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:221
+#: qml/DevicePage.qml:229
 #, kde-format
 msgid "This device is not paired."
 msgstr "Eininga er ikkje para."
 
-#: qml/DevicePage.qml:225
+#: qml/DevicePage.qml:233
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Par"
 
-#: qml/DevicePage.qml:232 qml/DevicePage.qml:241
+#: qml/DevicePage.qml:240 qml/DevicePage.qml:249
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -197,22 +202,22 @@ msgstr ""
 "Paringsførespurnad\n"
 "Nøkkel: "
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:255
 #, kde-format
 msgid "Accept"
 msgstr "Godta"
 
-#: qml/DevicePage.qml:253
+#: qml/DevicePage.qml:261
 #, kde-format
 msgid "Reject"
 msgstr "Avvis"
 
-#: qml/DevicePage.qml:264
+#: qml/DevicePage.qml:272
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Får ikkje kontakt med eininga"
 
-#: qml/DevicePage.qml:272
+#: qml/DevicePage.qml:280
 #, kde-format
 msgid "Please choose a file"
 msgstr "Vel ei fil"

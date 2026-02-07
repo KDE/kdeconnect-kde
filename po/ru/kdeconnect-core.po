@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-04 00:44+0000\n"
+"POT-Creation-Date: 2026-02-07 00:43+0000\n"
 "PO-Revision-Date: 2025-12-18 19:29+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -105,17 +105,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Назначение"
 
-#: device.cpp:481
+#: device.cpp:480
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Отпечаток SHA256 сертификата данного устройства: %1\n"
 
-#: device.cpp:487
+#: device.cpp:486
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Отпечаток SHA256 сертификата удалённого устройства: %1\n"
 
-#: device.cpp:489
+#: device.cpp:488
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "Версия протокола: %1\n"
