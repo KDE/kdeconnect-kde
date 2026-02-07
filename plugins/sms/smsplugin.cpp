@@ -214,7 +214,8 @@ QString SmsPlugin::dbusPath() const
 
 void SmsPlugin::launchApp()
 {
-    QProcess::startDetached(QLatin1String("kdeconnect-sms"), {QStringLiteral("--device"), device()->id()});
+    const QString kdeconnectsmsExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-sms"), {QCoreApplication::applicationDirPath()});
+    QProcess::startDetached(kdeconnectsmsExecutable, {QStringLiteral("--device"), device()->id()});
 }
 
 #include "moc_smsplugin.cpp"
