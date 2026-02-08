@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 00:43+0000\n"
-"PO-Revision-Date: 2026-02-05 06:02+0200\n"
+"PO-Revision-Date: 2026-02-07 17:50+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -137,7 +137,7 @@ msgstr "Керування гучністю"
 #: qml/DevicePage.qml:158
 #, kde-format
 msgid "SMS Messages"
-msgstr ""
+msgstr "SMS-повідомлення"
 
 #: qml/DevicePage.qml:166 qml/mousepad.qml:44
 #, kde-format

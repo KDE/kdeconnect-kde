@@ -259,11 +259,10 @@ msgid "No devices found"
 msgstr "没有找到设备"
 
 #: qml/Main.qml:215
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
-msgstr "设置"
+msgstr ""
 
 #: qml/Main.qml:230
 #, kde-format

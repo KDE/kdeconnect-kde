@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 00:43+0000\n"
-"PO-Revision-Date: 2026-01-19 06:55+0200\n"
+"PO-Revision-Date: 2026-02-07 11:55+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -134,7 +134,7 @@ msgstr "בקרת עוצמת שמע"
 #: qml/DevicePage.qml:158
 #, kde-format
 msgid "SMS Messages"
-msgstr ""
+msgstr "הודעות SMS"
 
 #: qml/DevicePage.qml:166 qml/mousepad.qml:44
 #, kde-format
@@ -259,8 +259,7 @@ msgid "No devices found"
 msgstr "לא נמצאו מכשירים"
 
 #: qml/Main.qml:215
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "הגדרות"

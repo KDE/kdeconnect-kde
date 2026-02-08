@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 00:43+0000\n"
-"PO-Revision-Date: 2026-02-05 14:58+0100\n"
+"PO-Revision-Date: 2026-02-07 12:11+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -133,7 +133,7 @@ msgstr "Volumebesturing"
 #: qml/DevicePage.qml:158
 #, kde-format
 msgid "SMS Messages"
-msgstr ""
+msgstr "SMS-berichten"
 
 #: qml/DevicePage.qml:166 qml/mousepad.qml:44
 #, kde-format
