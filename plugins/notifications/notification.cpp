@@ -124,8 +124,6 @@ void Notification::createKNotification(const NetworkPacket &np)
         });
     }
 
-    m_hasIcon = m_hasIcon && !m_payloadHash.isEmpty();
-
     m_notification->setPixmap({});
     if (!m_hasIcon) {
         show();
@@ -186,11 +184,11 @@ void Notification::parseNetworkPacket(const NetworkPacket &np)
     m_title = np.get<QString>(QStringLiteral("title"));
     m_text = np.get<QString>(QStringLiteral("text"));
     m_dismissable = np.get<bool>(QStringLiteral("isClearable"));
-    m_hasIcon = np.hasPayload();
     m_silent = np.get<bool>(QStringLiteral("silent"));
     m_payloadHash = np.get<QString>(QStringLiteral("payloadHash"));
     m_requestReplyId = np.get<QString>(QStringLiteral("requestReplyId"), QString());
 
+    m_hasIcon = !m_payloadHash.isEmpty();
     m_actions.clear();
 
     const auto actions = np.get<QJsonArray>(QStringLiteral("actions"));
