@@ -75,7 +75,7 @@ LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
         }
     };
     // Detect when a network interface changes status, so we announce ourselves in the new network
-    QNetworkInformation::instance()->loadBackendByFeatures(QNetworkInformation::Feature::Reachability);
+    QNetworkInformation::loadBackendByFeatures(QNetworkInformation::Feature::Reachability);
 
     // We want to know if our current network reachability has changed, or if we change from one network to another
     connect(QNetworkInformation::instance(), &QNetworkInformation::reachabilityChanged, this, checkNetworkChange);
