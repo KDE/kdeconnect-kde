@@ -134,7 +134,7 @@ msgstr "音量控制"
 #: qml/DevicePage.qml:158
 #, kde-format
 msgid "SMS Messages"
-msgstr ""
+msgstr "短信"
 
 #: qml/DevicePage.qml:166 qml/mousepad.qml:44
 #, kde-format
@@ -262,7 +262,7 @@ msgstr "没有找到设备"
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: qml/Main.qml:230
 #, kde-format
