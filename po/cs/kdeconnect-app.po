@@ -133,7 +133,7 @@ msgstr "Ovládání hlasitosti"
 #: qml/DevicePage.qml:158
 #, kde-format
 msgid "SMS Messages"
-msgstr ""
+msgstr "Zprávy SMS"
 
 #: qml/DevicePage.qml:166 qml/mousepad.qml:44
 #, kde-format

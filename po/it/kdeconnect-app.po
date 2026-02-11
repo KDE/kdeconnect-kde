@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 00:43+0000\n"
-"PO-Revision-Date: 2026-01-19 16:54+0100\n"
+"PO-Revision-Date: 2026-02-07 08:52+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -135,7 +135,7 @@ msgstr "Controllo volume"
 #: qml/DevicePage.qml:158
 #, kde-format
 msgid "SMS Messages"
-msgstr ""
+msgstr "Messaggi SMS"
 
 #: qml/DevicePage.qml:166 qml/mousepad.qml:44
 #, kde-format
@@ -260,8 +260,7 @@ msgid "No devices found"
 msgstr "Nessun dispositivo trovato"
 
 #: qml/Main.qml:215
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Impostazioni"
