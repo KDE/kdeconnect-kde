@@ -86,6 +86,7 @@ PlasmaComponents.ItemDelegate {
         id: fileDialog
         title: i18n("Please choose a file")
         currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
+        modality: Qt.NonModal
         fileMode: QtDialogs.FileDialog.OpenFiles
         onAccepted: share.plugin.shareUrls(fileDialog.selectedFiles)
     }
