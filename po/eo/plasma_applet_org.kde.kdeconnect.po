@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-04 00:44+0000\n"
+"POT-Creation-Date: 2026-02-13 00:43+0000\n"
 "PO-Revision-Date: 2024-07-13 10:51+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -53,99 +53,99 @@ msgstr "Virtuala Monitoro ne estas disponebla"
 msgid "Please choose a file"
 msgstr "Bonvolu elekti dosieron"
 
-#: package/contents/ui/DeviceDelegate.qml:103
+#: package/contents/ui/DeviceDelegate.qml:104
 #, kde-format
 msgid "Share file"
 msgstr "Kunhavigi dosieron"
 
-#: package/contents/ui/DeviceDelegate.qml:111
+#: package/contents/ui/DeviceDelegate.qml:112
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Sendi Tondujon"
 
-#: package/contents/ui/DeviceDelegate.qml:122
+#: package/contents/ui/DeviceDelegate.qml:123
 #, kde-format
 msgid "Ring my phone"
 msgstr "Sonorigi mian telefonon"
 
-#: package/contents/ui/DeviceDelegate.qml:133
+#: package/contents/ui/DeviceDelegate.qml:134
 #, kde-format
 msgid "Browse this device"
 msgstr "Foliumi ĉi tiun aparaton"
 
-#: package/contents/ui/DeviceDelegate.qml:144
+#: package/contents/ui/DeviceDelegate.qml:145
 #, kde-format
 msgid "SMS Messages"
 msgstr "SMS Mesaĝoj"
 
-#: package/contents/ui/DeviceDelegate.qml:168
+#: package/contents/ui/DeviceDelegate.qml:169
 #, kde-format
 msgid "File Transfer"
 msgstr "Dosiera Transdono"
 
-#: package/contents/ui/DeviceDelegate.qml:169
+#: package/contents/ui/DeviceDelegate.qml:170
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "Faligi dosieron por transdoni ĝin al via telefono."
 
-#: package/contents/ui/DeviceDelegate.qml:191
+#: package/contents/ui/DeviceDelegate.qml:192
 #, kde-format
 msgid "Virtual Display"
 msgstr "Virtuala Ekrano"
 
-#: package/contents/ui/DeviceDelegate.qml:252
+#: package/contents/ui/DeviceDelegate.qml:253
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:278
+#: package/contents/ui/DeviceDelegate.qml:279
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Fora Klavaro"
 
-#: package/contents/ui/DeviceDelegate.qml:299
+#: package/contents/ui/DeviceDelegate.qml:300
 #, kde-format
 msgid "Notifications:"
 msgstr "Sciigoj:"
 
-#: package/contents/ui/DeviceDelegate.qml:307
+#: package/contents/ui/DeviceDelegate.qml:308
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Forĵeti ĉiujn sciigojn"
 
-#: package/contents/ui/DeviceDelegate.qml:365
+#: package/contents/ui/DeviceDelegate.qml:366
 #, kde-format
 msgid "Reply"
 msgstr "Respondi"
 
-#: package/contents/ui/DeviceDelegate.qml:378
+#: package/contents/ui/DeviceDelegate.qml:379
 #, kde-format
 msgid "Dismiss"
 msgstr "Forĵeti"
 
-#: package/contents/ui/DeviceDelegate.qml:391
+#: package/contents/ui/DeviceDelegate.qml:392
 #, kde-format
 msgid "Cancel"
 msgstr "Nuligi"
 
-#: package/contents/ui/DeviceDelegate.qml:405
+#: package/contents/ui/DeviceDelegate.qml:406
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Respondi al %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:423
+#: package/contents/ui/DeviceDelegate.qml:424
 #, kde-format
 msgid "Send"
 msgstr "Sendi"
 
-#: package/contents/ui/DeviceDelegate.qml:444
+#: package/contents/ui/DeviceDelegate.qml:445
 #, kde-format
 msgid "Run command"
 msgstr "Ruli komandon"
 
-#: package/contents/ui/DeviceDelegate.qml:451
+#: package/contents/ui/DeviceDelegate.qml:452
 #, kde-format
 msgid "Add command"
 msgstr "Aldoni komandon"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plasmoid\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-04 00:44+0000\n"
+"POT-Creation-Date: 2026-02-13 00:43+0000\n"
 "PO-Revision-Date: 2023-06-09 03:04+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -50,99 +50,99 @@ msgstr "O dispositivo emparelhado está indisponível"
 msgid "Please choose a file"
 msgstr "Escolha por favor um ficheiro"
 
-#: package/contents/ui/DeviceDelegate.qml:103
+#: package/contents/ui/DeviceDelegate.qml:104
 #, kde-format
 msgid "Share file"
 msgstr "Partilhar um ficheiro"
 
-#: package/contents/ui/DeviceDelegate.qml:111
+#: package/contents/ui/DeviceDelegate.qml:112
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Enviar a Área de Transferência"
 
-#: package/contents/ui/DeviceDelegate.qml:122
+#: package/contents/ui/DeviceDelegate.qml:123
 #, kde-format
 msgid "Ring my phone"
 msgstr "Tocar o meu telefone"
 
-#: package/contents/ui/DeviceDelegate.qml:133
+#: package/contents/ui/DeviceDelegate.qml:134
 #, kde-format
 msgid "Browse this device"
 msgstr "Navegar neste dispositivo"
 
-#: package/contents/ui/DeviceDelegate.qml:144
+#: package/contents/ui/DeviceDelegate.qml:145
 #, kde-format
 msgid "SMS Messages"
 msgstr "Mensagens de SMS"
 
-#: package/contents/ui/DeviceDelegate.qml:168
+#: package/contents/ui/DeviceDelegate.qml:169
 #, kde-format
 msgid "File Transfer"
 msgstr "Transferência de Ficheiro"
 
-#: package/contents/ui/DeviceDelegate.qml:169
+#: package/contents/ui/DeviceDelegate.qml:170
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "Largue um ficheiro para o transferir para o seu telemóvel."
 
-#: package/contents/ui/DeviceDelegate.qml:191
+#: package/contents/ui/DeviceDelegate.qml:192
 #, kde-format
 msgid "Virtual Display"
 msgstr "Ecrã Virtual"
 
-#: package/contents/ui/DeviceDelegate.qml:252
+#: package/contents/ui/DeviceDelegate.qml:253
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:278
+#: package/contents/ui/DeviceDelegate.qml:279
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Teclado Remoto"
 
-#: package/contents/ui/DeviceDelegate.qml:299
+#: package/contents/ui/DeviceDelegate.qml:300
 #, kde-format
 msgid "Notifications:"
 msgstr "Notificações:"
 
-#: package/contents/ui/DeviceDelegate.qml:307
+#: package/contents/ui/DeviceDelegate.qml:308
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Esquecer todas as notificações"
 
-#: package/contents/ui/DeviceDelegate.qml:365
+#: package/contents/ui/DeviceDelegate.qml:366
 #, kde-format
 msgid "Reply"
 msgstr "Responder"
 
-#: package/contents/ui/DeviceDelegate.qml:378
+#: package/contents/ui/DeviceDelegate.qml:379
 #, kde-format
 msgid "Dismiss"
 msgstr "Esquecer"
 
-#: package/contents/ui/DeviceDelegate.qml:391
+#: package/contents/ui/DeviceDelegate.qml:392
 #, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: package/contents/ui/DeviceDelegate.qml:405
+#: package/contents/ui/DeviceDelegate.qml:406
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Responder a %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:423
+#: package/contents/ui/DeviceDelegate.qml:424
 #, kde-format
 msgid "Send"
 msgstr "Enviar"
 
-#: package/contents/ui/DeviceDelegate.qml:444
+#: package/contents/ui/DeviceDelegate.qml:445
 #, kde-format
 msgid "Run command"
 msgstr "Executar um comando"
 
-#: package/contents/ui/DeviceDelegate.qml:451
+#: package/contents/ui/DeviceDelegate.qml:452
 #, kde-format
 msgid "Add command"
 msgstr "Adicionar um comando"
