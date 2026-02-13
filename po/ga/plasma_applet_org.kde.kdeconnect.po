@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:40+0000\n"
+"POT-Creation-Date: 2026-02-13 02:41+0000\n"
 "PO-Revision-Date: 2026-02-03 18:42+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -54,99 +54,99 @@ msgstr "Níl an Monatóir Fíorúil ar fáil"
 msgid "Please choose a file"
 msgstr "Roghnaigh comhad le do thoil"
 
-#: package/contents/ui/DeviceDelegate.qml:105
+#: package/contents/ui/DeviceDelegate.qml:106
 #, kde-format
 msgid "Share file"
 msgstr "Comhroinn comhad"
 
-#: package/contents/ui/DeviceDelegate.qml:113
+#: package/contents/ui/DeviceDelegate.qml:114
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Seol an Ghearrthaisce"
 
-#: package/contents/ui/DeviceDelegate.qml:124
+#: package/contents/ui/DeviceDelegate.qml:125
 #, kde-format
 msgid "Ring my phone"
 msgstr "Cuir glaoch ar mo ghuthán"
 
-#: package/contents/ui/DeviceDelegate.qml:135
+#: package/contents/ui/DeviceDelegate.qml:136
 #, kde-format
 msgid "Browse this device"
 msgstr "Brabhsáil an gléas seo"
 
-#: package/contents/ui/DeviceDelegate.qml:146
+#: package/contents/ui/DeviceDelegate.qml:147
 #, kde-format
 msgid "SMS Messages"
 msgstr "Teachtaireachtaí SMS"
 
-#: package/contents/ui/DeviceDelegate.qml:170
+#: package/contents/ui/DeviceDelegate.qml:171
 #, kde-format
 msgid "File Transfer"
 msgstr "Aistriú Comhad"
 
-#: package/contents/ui/DeviceDelegate.qml:171
+#: package/contents/ui/DeviceDelegate.qml:172
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "Scaoil comhad le haistriú chuig do ghuthán."
 
-#: package/contents/ui/DeviceDelegate.qml:193
+#: package/contents/ui/DeviceDelegate.qml:194
 #, kde-format
 msgid "Virtual Display"
 msgstr "Taispeántas Fíorúil"
 
-#: package/contents/ui/DeviceDelegate.qml:254
+#: package/contents/ui/DeviceDelegate.qml:255
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:280
+#: package/contents/ui/DeviceDelegate.qml:281
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Méarchlár Cianda"
 
-#: package/contents/ui/DeviceDelegate.qml:301
+#: package/contents/ui/DeviceDelegate.qml:302
 #, kde-format
 msgid "Notifications:"
 msgstr "Fógraí:"
 
-#: package/contents/ui/DeviceDelegate.qml:309
+#: package/contents/ui/DeviceDelegate.qml:310
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Ruaig gach fógra"
 
-#: package/contents/ui/DeviceDelegate.qml:367
+#: package/contents/ui/DeviceDelegate.qml:368
 #, kde-format
 msgid "Reply"
 msgstr "Freagra"
 
-#: package/contents/ui/DeviceDelegate.qml:380
+#: package/contents/ui/DeviceDelegate.qml:381
 #, kde-format
 msgid "Dismiss"
 msgstr "Díbhe"
 
-#: package/contents/ui/DeviceDelegate.qml:393
+#: package/contents/ui/DeviceDelegate.qml:394
 #, kde-format
 msgid "Cancel"
 msgstr "Cealaigh"
 
-#: package/contents/ui/DeviceDelegate.qml:407
+#: package/contents/ui/DeviceDelegate.qml:408
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Freagra chuig %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:425
+#: package/contents/ui/DeviceDelegate.qml:426
 #, kde-format
 msgid "Send"
 msgstr "Seol"
 
-#: package/contents/ui/DeviceDelegate.qml:446
+#: package/contents/ui/DeviceDelegate.qml:447
 #, kde-format
 msgid "Run command"
 msgstr "Rith an t-ordú"
 
-#: package/contents/ui/DeviceDelegate.qml:453
+#: package/contents/ui/DeviceDelegate.qml:454
 #, kde-format
 msgid "Add command"
 msgstr "Cuir ordú leis"

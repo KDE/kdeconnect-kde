@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:40+0000\n"
+"POT-Creation-Date: 2026-02-13 02:41+0000\n"
 "PO-Revision-Date: 2024-11-28 16:42+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -55,99 +55,99 @@ msgstr "虛擬螢幕無法使用"
 msgid "Please choose a file"
 msgstr "請選擇檔案"
 
-#: package/contents/ui/DeviceDelegate.qml:105
+#: package/contents/ui/DeviceDelegate.qml:106
 #, kde-format
 msgid "Share file"
 msgstr "分享檔案"
 
-#: package/contents/ui/DeviceDelegate.qml:113
+#: package/contents/ui/DeviceDelegate.qml:114
 #, kde-format
 msgid "Send Clipboard"
 msgstr "傳送剪貼簿"
 
-#: package/contents/ui/DeviceDelegate.qml:124
+#: package/contents/ui/DeviceDelegate.qml:125
 #, kde-format
 msgid "Ring my phone"
 msgstr "讓您的電話響鈴"
 
-#: package/contents/ui/DeviceDelegate.qml:135
+#: package/contents/ui/DeviceDelegate.qml:136
 #, kde-format
 msgid "Browse this device"
 msgstr "瀏覽此裝置"
 
-#: package/contents/ui/DeviceDelegate.qml:146
+#: package/contents/ui/DeviceDelegate.qml:147
 #, kde-format
 msgid "SMS Messages"
 msgstr "簡訊"
 
-#: package/contents/ui/DeviceDelegate.qml:170
+#: package/contents/ui/DeviceDelegate.qml:171
 #, kde-format
 msgid "File Transfer"
 msgstr "檔案傳輸"
 
-#: package/contents/ui/DeviceDelegate.qml:171
+#: package/contents/ui/DeviceDelegate.qml:172
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "拖曳檔案至此以傳送該檔案至您的手機。"
 
-#: package/contents/ui/DeviceDelegate.qml:193
+#: package/contents/ui/DeviceDelegate.qml:194
 #, kde-format
 msgid "Virtual Display"
 msgstr "虛擬顯示器"
 
-#: package/contents/ui/DeviceDelegate.qml:254
+#: package/contents/ui/DeviceDelegate.qml:255
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:280
+#: package/contents/ui/DeviceDelegate.qml:281
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "遠端鍵盤"
 
-#: package/contents/ui/DeviceDelegate.qml:301
+#: package/contents/ui/DeviceDelegate.qml:302
 #, kde-format
 msgid "Notifications:"
 msgstr "通知："
 
-#: package/contents/ui/DeviceDelegate.qml:309
+#: package/contents/ui/DeviceDelegate.qml:310
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "忽略所有通知"
 
-#: package/contents/ui/DeviceDelegate.qml:367
+#: package/contents/ui/DeviceDelegate.qml:368
 #, kde-format
 msgid "Reply"
 msgstr "回覆"
 
-#: package/contents/ui/DeviceDelegate.qml:380
+#: package/contents/ui/DeviceDelegate.qml:381
 #, kde-format
 msgid "Dismiss"
 msgstr "忽略"
 
-#: package/contents/ui/DeviceDelegate.qml:393
+#: package/contents/ui/DeviceDelegate.qml:394
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: package/contents/ui/DeviceDelegate.qml:407
+#: package/contents/ui/DeviceDelegate.qml:408
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "回覆給 %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:425
+#: package/contents/ui/DeviceDelegate.qml:426
 #, kde-format
 msgid "Send"
 msgstr "傳送"
 
-#: package/contents/ui/DeviceDelegate.qml:446
+#: package/contents/ui/DeviceDelegate.qml:447
 #, kde-format
 msgid "Run command"
 msgstr "執行指令"
 
-#: package/contents/ui/DeviceDelegate.qml:453
+#: package/contents/ui/DeviceDelegate.qml:454
 #, kde-format
 msgid "Add command"
 msgstr "新增指令"
