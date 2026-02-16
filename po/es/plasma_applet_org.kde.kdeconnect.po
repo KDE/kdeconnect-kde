@@ -1,15 +1,15 @@
 # Spanish translations for plasma_applet_org.kde.kdeconnect.po package.
-# Copyright (C) 2015-2025 This file is copyright:
+# Copyright (C) 2015-2026 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 # SPDX-FileCopyrightText: 2019 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-13 02:41+0000\n"
-"PO-Revision-Date: 2025-06-09 02:04+0100\n"
+"PO-Revision-Date: 2026-02-15 11:20+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: package/contents/ui/Battery.qml:33
 #, kde-format
@@ -161,7 +161,7 @@ msgstr "No hay dispositivos vinculados"
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "El dispositivo vinculado no está disponible"
-msgstr[1] "Todos los dispositivos vinculados no están disponibles"
+msgstr[1] "Ninguno de los dispositivos vinculados está disponible"
 
 #: package/contents/ui/FullRepresentation.qml:66
 #, kde-format
