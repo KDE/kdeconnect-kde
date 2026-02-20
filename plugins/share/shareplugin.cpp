@@ -216,7 +216,7 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
     }
 }
 
-void SharePlugin::finished(KJob *job, const qint64 dateModified, const qint64 dateCreated, const bool open)
+void SharePlugin::finished(KJob *job, const qint64 dateCreated, const qint64 dateModified, const bool open)
 {
     FileTransferJob *ftjob = qobject_cast<FileTransferJob *>(job);
     if (ftjob && !job->error()) {
