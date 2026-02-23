@@ -80,7 +80,7 @@ Kirigami.ScrollablePage {
             checked: serviceCheck.checked
             onPressed: {
                 pluginList.currentIndex = model.index
-                serviceCheck.toggle()
+                model.isChecked = !checked
             }
 
             contentItem: RowLayout {
