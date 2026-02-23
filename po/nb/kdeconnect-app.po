@@ -1,0 +1,416 @@
+# Translation of kdeconnect-app to Norwegian Bokmål
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-11-17 14:40+0000\n"
+"PO-Revision-Date: 2026-02-22 07:19+0100\n"
+"Last-Translator: Imre Eilertsen <imreeil42@gmail.com>\n"
+"Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: main.cpp:38 main.cpp:40
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: main.cpp:42
+#, kde-format
+msgid "© 2015–2025 KDE Connect Team"
+msgstr "© 2015–2026 KDE Connect Team"
+
+#: main.cpp:43
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:44
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
+
+#: main.cpp:45
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#: main.cpp:45
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "dandelionsprout42@eclipso.eu"
+
+#: main.cpp:76
+#, kde-format
+msgctxt "@info:shell"
+msgid "Device id to open the app in"
+msgstr "Enhets-ID å åpne appen i"
+
+#: main.cpp:79
+#, kde-format
+msgctxt "@info:shell"
+msgid "Configuration module to show, requires --device to be set."
+msgstr "Konfigurasjonsmodul for visning, krever at --device er angitt."
+
+#: main.cpp:83
+#, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr "Erstatt en eksisterende forekomst"
+
+#: main.cpp:86
+#, kde-format
+msgid "URL to share"
+msgstr "URL-en som skal deles"
+
+#: qml/DevicePage.qml:36
+#, kde-format
+msgid "Unpair"
+msgstr "Opphev paring"
+
+#: qml/DevicePage.qml:41
+#, kde-format
+msgid "Send Ping"
+msgstr "Send ping"
+
+#: qml/DevicePage.qml:49 qml/PluginSettings.qml:20
+#, kde-format
+msgid "Plugin Settings"
+msgstr "Innstillinger for tillegg"
+
+#: qml/DevicePage.qml:65
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Actions"
+msgstr "Handlinger"
+
+#: qml/DevicePage.qml:67
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Controls"
+msgstr "Kontrollere"
+
+#: qml/DevicePage.qml:113
+#, kde-format
+msgid "Multimedia control"
+msgstr "Multimediakontroll"
+
+#: qml/DevicePage.qml:121
+#, kde-format
+msgid "Remote input"
+msgstr "Fjernstyrings-inndata"
+
+#: qml/DevicePage.qml:129 qml/runcommand.qml:16
+#, kde-format
+msgid "Run command"
+msgstr "Kjør kommando"
+
+#: qml/DevicePage.qml:137 qml/presentationRemote.qml:15
+#, kde-format
+msgid "Presentation Remote"
+msgstr "Presentasjonsfjernkontroll"
+
+#: qml/DevicePage.qml:145 qml/volume.qml:16
+#, kde-format
+msgid "Volume control"
+msgstr "Lydstyrkekontroll"
+
+#: qml/DevicePage.qml:155 qml/mousepad.qml:44
+#, kde-format
+msgid "Lock"
+msgstr "Lås"
+
+#: qml/DevicePage.qml:155
+#, kde-format
+msgid "Unlock"
+msgstr "Lås opp"
+
+#: qml/DevicePage.qml:163
+#, kde-format
+msgid "Find Device"
+msgstr "Finn enhet"
+
+#: qml/DevicePage.qml:171
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Send utklippstavle"
+
+#: qml/DevicePage.qml:178
+#, kde-format
+msgid "Share File"
+msgstr "Del fil"
+
+#: qml/DevicePage.qml:186
+#, kde-format
+msgid "Browse this device"
+msgstr "Bla i denne enheten"
+
+#: qml/DevicePage.qml:194
+#, kde-format
+msgid "Stop virtual monitor session"
+msgstr "Stopp den virtuelle skjermøkten"
+
+#: qml/DevicePage.qml:194
+#, kde-format
+msgid "Use device as an external monitor"
+msgstr "Bruk enheten som en ekstern skjerm"
+
+#: qml/DevicePage.qml:213
+#, kde-format
+msgid "This device is not paired."
+msgstr "Denne enheten er ikke paret."
+
+#: qml/DevicePage.qml:217
+#, kde-format
+msgctxt "Request pairing with a given device"
+msgid "Pair"
+msgstr "Par"
+
+#: qml/DevicePage.qml:224 qml/DevicePage.qml:233
+#, kde-format
+msgid ""
+"Pair requested\n"
+"Key: "
+msgstr ""
+"Forespurt paring\n"
+"Nøkkel: "
+
+#: qml/DevicePage.qml:239
+#, kde-format
+msgid "Accept"
+msgstr "Godta"
+
+#: qml/DevicePage.qml:245
+#, kde-format
+msgid "Reject"
+msgstr "Avvis"
+
+#: qml/DevicePage.qml:256
+#, kde-format
+msgid "This device is not reachable"
+msgstr "Denne enheten kan ikke nås"
+
+#: qml/DevicePage.qml:264
+#, kde-format
+msgid "Please choose a file"
+msgstr "Vennligst velg en fil"
+
+#: qml/Main.qml:87
+#, kde-format
+msgid "Devices"
+msgstr "Enheter"
+
+#: qml/Main.qml:95
+#, kde-format
+msgctxt "@action:button"
+msgid "Refresh"
+msgstr "Oppfrisk"
+
+#: qml/Main.qml:97
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Refresh Devices"
+msgstr "Oppfrisk enheter"
+
+#: qml/Main.qml:133
+#, kde-format
+msgid "Remembered"
+msgstr "Husket på"
+
+#: qml/Main.qml:135
+#, kde-format
+msgid "Available"
+msgstr "Tilgjengelig"
+
+#: qml/Main.qml:137
+#, kde-format
+msgid "Connected"
+msgstr "Tilkoblet"
+
+#: qml/Main.qml:142
+#, kde-format
+msgid "No devices found"
+msgstr "Ingen enheter funnet"
+
+#: qml/Main.qml:214 qml/Main.qml:229
+#, kde-format
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: qml/mousepad.qml:16
+#, kde-format
+msgid "Remote Control"
+msgstr "Fjernstyring"
+
+#: qml/mousepad.qml:61
+#, kde-format
+msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
+msgstr ""
+"Trykk på %1 eller på venstre og høyre museknapp samtidig for å låse opp"
+
+#: qml/mousepad.qml:213
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Left Click"
+msgstr "Venstreklikk"
+
+#: qml/mousepad.qml:222
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Middle Click"
+msgstr "Mellomklikk"
+
+#: qml/mousepad.qml:231
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Right Click"
+msgstr "Høyreklikk"
+
+#: qml/mpris.qml:20
+#, kde-format
+msgid "Multimedia Controls"
+msgstr "Multimediakontrollere"
+
+#: qml/mpris.qml:68
+#, kde-format
+msgid "No players available"
+msgstr "Ingen avspillere er tilgjengelige"
+
+#: qml/mpris.qml:111
+#, kde-format
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: qml/PluginSettings.qml:131
+#, kde-format
+msgid "Configure plugin"
+msgstr "Konfigurer plugin"
+
+#: qml/presentationRemote.qml:22
+#, kde-format
+msgid "Enable Full-Screen"
+msgstr "Skru på fullskjerm"
+
+#: qml/runcommand.qml:23
+#, kde-format
+msgid "Edit commands"
+msgstr "Rediger kommandoer"
+
+#: qml/runcommand.qml:26
+#, kde-format
+msgid "You can edit commands on the connected device"
+msgstr "Du kan redigere kommandoer på den tilkoblede enheten"
+
+#: qml/runcommand.qml:53
+#, kde-format
+msgid "No commands defined"
+msgstr "Ingen kommandoer er definert"
+
+#: qml/Settings.qml:13
+#, kde-format
+msgctxt "@title:window"
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: qml/Settings.qml:21
+#, kde-format
+msgid "Device name"
+msgstr "Navn på enhet"
+
+#: qml/Settings.qml:33
+#, kde-format
+msgctxt "@title:group"
+msgid "Backends"
+msgstr "Backends"
+
+#: qml/Settings.qml:54
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: qml/Settings.qml:56
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Loopback"
+msgstr "Løkkemodus"
+
+#: qml/Settings.qml:58
+#, kde-format
+msgctxt "@info KDE Connect provider name"
+msgid "Network"
+msgstr "Nettverk"
+
+#: qml/Settings.qml:73
+#, kde-format
+msgid "About KDE Connect"
+msgstr "Om KDE Connect"
+
+#: qml/Settings.qml:81
+#, kde-format
+msgid "About KDE"
+msgstr "Om KDE"
+
+#: qml/WelcomePage.qml:27
+#, kde-format
+msgctxt "@title"
+msgid "No Device Selected"
+msgstr "Ingen enhet er valgt"
+
+#: qml/WelcomePage.qml:35
+#, kde-format
+msgctxt "@info"
+msgid "Make sure to install KDE Connect on your other devices."
+msgstr "Sørg for å installere KDE Connect på dine andre enheter."
+
+#: qml/WelcomePage.qml:43
+#, kde-format
+msgctxt "@title:context"
+msgid "KDE Connect Android App"
+msgstr "KDE Connect sin Android-app"
+
+#: qml/WelcomePage.qml:50
+#, kde-format
+msgctxt "Android Application Store"
+msgid "F-Droid"
+msgstr "F-Droid"
+
+#: qml/WelcomePage.qml:57
+#, kde-format
+msgctxt "Android Application Store"
+msgid "Play Store"
+msgstr "Play Butikk"
+
+#: qml/WelcomePage.qml:63
+#, kde-format
+msgctxt "@title:context"
+msgid "KDE Connect iOS App"
+msgstr "KDE Connect sin iOS-app"
+
+#: qml/WelcomePage.qml:68
+#, kde-format
+msgid "Apple Store"
+msgstr "Apple Store"
+
+#: qml/WelcomePage.qml:74
+#, kde-format
+msgid ""
+"If you are having problems, visit the <a href=\"https://userbase.kde.org/"
+"KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
+"Community wiki</span></a> for help."
+msgstr ""
+"Hvis du har problemer, kan du besøke <a href=\"https://userbase.kde.org/"
+"KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect-"
+"samfunnswikien</span></a> for å få hjelp."
