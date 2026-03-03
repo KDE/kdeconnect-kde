@@ -76,9 +76,17 @@ Kirigami.ScrollablePage {
         }
 
         delegate: Kirigami.SwipeListItem {
+            id: pluginDelegate
 
-            checked: serviceCheck.checked
-            onPressed: {
+            readonly property string description : model.description
+
+            checkable: true
+            checked: model.isChecked
+
+            Accessible.description: description
+            Accessible.role: Accessible.CheckBox
+
+            onToggled: {
                 pluginList.currentIndex = model.index
                 model.isChecked = !checked
             }
@@ -87,14 +95,10 @@ Kirigami.ScrollablePage {
                 CheckBox {
                     id: serviceCheck
                     Layout.alignment: Qt.AlignVCenter
-                    checked: model.isChecked
-                    onToggled: {
-                        pluginList.currentIndex = model.index
-                        model.isChecked = checked
-                    }
-                    Accessible.name: model.name
-                    Accessible.description: model.description
+                    checked: pluginDelegate.checked
                     activeFocusOnTab: false
+
+                    Accessible.ignored: true
                 }
 
                 Kirigami.Icon {
@@ -108,13 +112,13 @@ Kirigami.ScrollablePage {
 
                     Label {
                         Layout.fillWidth: true
-                        text: model.name
+                        text: pluginDelegate.text
                         elide: Text.ElideRight
                     }
 
                     Label {
                         Layout.fillWidth: true
-                        text: model.description
+                        text: pluginDelegate.description
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
