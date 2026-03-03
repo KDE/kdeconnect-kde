@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2017, 2018, 2020, 2021, 2022, 2025.
+# Yuri Chornoivan <yurchor@ukr.net>, 2017, 2018, 2020, 2021, 2022, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-02 00:44+0000\n"
-"PO-Revision-Date: 2025-11-11 21:51+0200\n"
+"PO-Revision-Date: 2026-03-02 08:39+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -114,7 +114,7 @@ msgstr "Пристрій, за допомогою якого слід надіс
 #, kde-format
 msgctxt "Label, for a list of items like files or urls"
 msgid "Shared content:"
-msgstr ""
+msgstr "Оприлюднені дані:"
 
 #: kdeconnect-handler.cpp:196
 #, kde-format
