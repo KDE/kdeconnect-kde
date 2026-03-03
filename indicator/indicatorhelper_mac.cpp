@@ -39,7 +39,7 @@ void IndicatorHelper::iconPathHook()
     }
 }
 
-int IndicatorHelper::startDaemon()
+void IndicatorHelper::startDaemon()
 {
     int dbusStatus = DBusHelper::startDBusDaemon();
     if (dbusStatus) {
@@ -59,7 +59,6 @@ int IndicatorHelper::startDaemon()
         QApplication::exit(-10);
     }
     QProcess::startDetached(daemonPath);
-    return 0;
 }
 
 void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
