@@ -1,11 +1,11 @@
 # Translation for kdeconnect-urlhandler.po to Euskara/Basque (eu).
-# Copyright (C) 2017-2025 This file is copyright:
+# Copyright (C) 2017-2026 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 # SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Osoitz <oelkoro@gmail.com>, 2017.
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2019, 2020, 2021, 2022, 2025.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2019, 2020, 2021, 2022, 2025, 2026.
 # Thadah Denyse <gontzalpujana@protonmail.com>, 2019.
 msgid ""
 msgstr ""
