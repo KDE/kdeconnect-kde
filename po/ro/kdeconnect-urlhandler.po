@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2020, 2021, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
+# SPDX-FileCopyrightText: 2020, 2021, 2024, 2025, 2026 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-02 00:44+0000\n"
-"PO-Revision-Date: 2025-11-30 13:55+0000\n"
+"PO-Revision-Date: 2026-03-03 18:54+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -110,7 +110,7 @@ msgstr "Dispozitiv la care se trimite %1:"
 #, kde-format
 msgctxt "Label, for a list of items like files or urls"
 msgid "Shared content:"
-msgstr ""
+msgstr "Conținut partajat:"
 
 #: kdeconnect-handler.cpp:196
 #, kde-format
