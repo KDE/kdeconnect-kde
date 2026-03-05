@@ -169,6 +169,10 @@ void Notification::loadIcon(const NetworkPacket &np)
 
 void Notification::applyIcon()
 {
+    if (!m_notification) {
+        return;
+    }
+
     QPixmap icon(m_iconPath, "PNG");
     m_notification->setPixmap(icon);
 }
