@@ -117,9 +117,7 @@ void Notification::createKNotification(const NetworkPacket &np)
         if (isGroupConversation()) {
             replyAction->setPlaceholderText(i18nc("@info:placeholder", "Reply in %1…", m_groupName));
         } else {
-            // People usually save others with their full name (e.g. John Doe),
-            // we extract the first name so the placeholder becomes "Reply to John" instead of "Reply to John Doe".
-            replyAction->setPlaceholderText(i18nc("@info:placeholder", "Reply to %1…", isConversation() ? m_title.section(QLatin1Char(' '), 0, 0) : m_appName));
+            replyAction->setPlaceholderText(i18nc("@info:placeholder", "Reply to %1…", isConversation() ? m_title : m_appName));
         }
 
         replyAction->setFallbackBehavior(KNotificationReplyAction::FallbackBehavior::UseRegularAction);
