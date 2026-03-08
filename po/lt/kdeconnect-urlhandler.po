@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-02 00:44+0000\n"
-"PO-Revision-Date: 2025-11-19 20:43+0200\n"
+"PO-Revision-Date: 2026-03-07 23:47+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -111,7 +111,7 @@ msgstr "Įrenginys, į kurį siųsti %1:"
 #, kde-format
 msgctxt "Label, for a list of items like files or urls"
 msgid "Shared content:"
-msgstr ""
+msgstr "Bendrinamas turinys:"
 
 #: kdeconnect-handler.cpp:196
 #, kde-format
