@@ -79,6 +79,7 @@ Kirigami.ScrollablePage {
             id: pluginDelegate
 
             readonly property string description : model.description
+            text: model.name
 
             checkable: true
             checked: model.isChecked
