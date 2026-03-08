@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-27 00:43+0000\n"
-"PO-Revision-Date: 2026-02-17 02:03+0200\n"
+"PO-Revision-Date: 2026-03-07 23:48+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -315,7 +315,7 @@ msgstr "Nėra jokių prieinamų leistuvių"
 #: qml/mpris.qml:128
 #, kde-format
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: qml/PluginSettings.qml:131
 #, kde-format
@@ -331,13 +331,13 @@ msgstr "Įjungti visą ekraną"
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Previous Slide"
-msgstr ""
+msgstr "Ankstesnė skaidrė"
 
 #: qml/presentationRemote.qml:47
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Next Slide"
-msgstr ""
+msgstr "Kita skaidrė"
 
 #: qml/runcommand.qml:23
 #, kde-format
