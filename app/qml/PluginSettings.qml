@@ -89,7 +89,7 @@ Kirigami.ScrollablePage {
 
             onToggled: {
                 pluginList.currentIndex = model.index
-                model.isChecked = !checked
+                model.isChecked = !model.isChecked
             }
 
             contentItem: RowLayout {
