@@ -12,6 +12,7 @@
 
 #include "dbusinterfaces/dbusinterfaces.h"
 #include "models/conversationmessage.h"
+#include "thumbnailsprovider.h"
 
 class ConversationListModel : public QStandardItemModel
 {
@@ -69,6 +70,8 @@ private:
 
     DeviceConversationsDbusInterface *m_conversationsInterface;
     QString m_deviceId;
+
+    std::optional<ThumbnailsProvider *> m_thumbnailsProvider;
 };
 
 #endif // CONVERSATIONLISTMODEL_H

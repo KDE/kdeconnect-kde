@@ -87,7 +87,7 @@ private:
     void createRowFromMessage(const ConversationMessage &message);
 
     DeviceConversationsDbusInterface *m_conversationsInterface;
-    ThumbnailsProvider *m_thumbnailsProvider;
+    std::optional<ThumbnailsProvider *> m_thumbnailsProvider;
     QString m_deviceId;
     qint64 m_threadId = INVALID_THREAD_ID;
     QList<ConversationAddress> m_addressList;

@@ -8,8 +8,9 @@
 #include "conversationmodel.h"
 
 #include <KLocalizedString>
-#include <QQmlApplicationEngine>
-#include <QQmlContext>
+
+#include <QApplication>
+#include <QMessageBox>
 
 #include "attachmentinfo.h"
 #include "models/conversationmessage.h"
@@ -50,7 +51,9 @@ void ConversationModel::setThreadId(const qint64 &threadId)
     this->lastRequestedMessageIndex = std::nullopt;
     if (m_threadId != INVALID_THREAD_ID && !m_deviceId.isEmpty()) {
         requestMessages(RequestMessageRole::FetchMore);
-        m_thumbnailsProvider->clear();
+        if (m_thumbnailsProvider) {
+            (*m_thumbnailsProvider)->clear();
+        }
     }
 }
 
@@ -75,11 +78,17 @@ void ConversationModel::setDeviceId(const QString &deviceId)
 
     connect(m_conversationsInterface, &DeviceConversationsDbusInterface::attachmentReceived, this, &ConversationModel::filePathReceived);
 
-    QQmlApplicationEngine *engine = qobject_cast<QQmlApplicationEngine *>(QQmlEngine::contextForObject(this)->engine());
-    m_thumbnailsProvider = dynamic_cast<ThumbnailsProvider *>(engine->imageProvider(QStringLiteral("thumbnailsProvider")));
+    m_thumbnailsProvider = ThumbnailsProvider::getInContextForObject(this);
+    if (!m_thumbnailsProvider) {
+        // This is very unlikely to fail, so if it does, we ought to log a scary error!
+        qCritical("Failed to load thumbnails provider, something didn't get initialised properly!");
+        qCritical("Thumbnails will not be shown.");
+    }
 
-    // Clear any previous data on device change
-    m_thumbnailsProvider->clear();
+    // Clear any previous thumbnails on device change, if we have a thumbnailsProvider
+    if (m_thumbnailsProvider) {
+        (*m_thumbnailsProvider)->clear();
+    }
 
     Q_EMIT deviceIdChanged(deviceId);
 }
@@ -198,13 +207,20 @@ void ConversationModel::createRowFromMessage(const ConversationMessage &message)
         AttachmentInfo attachmentInfo(attachment);
         attachmentInfoList.append(QVariant::fromValue(attachmentInfo));
 
+        // Only compute thumbnails if we have a working thumbnailsProvider
+        if (!m_thumbnailsProvider) {
+            continue;
+        }
+
         if (attachment.mimeType().startsWith(QLatin1String("image")) || attachment.mimeType().startsWith(QLatin1String("video"))) {
             // The message contains thumbnail as Base64 String, convert it back into image thumbnail
             const QByteArray byteArray = attachment.base64EncodedFile().toUtf8();
             QPixmap thumbnail;
             thumbnail.loadFromData(QByteArray::fromBase64(byteArray));
 
-            m_thumbnailsProvider->addImage(attachment.uniqueIdentifier(), thumbnail.toImage());
+            // Unconditionally dereferencing here is fine, because we check that we have a
+            // thumbnailsProvider above this `if` case.
+            (*m_thumbnailsProvider)->addIcon(attachment.uniqueIdentifier(), QIcon(thumbnail));
         }
     }
 

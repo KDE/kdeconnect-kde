@@ -6,23 +6,51 @@
 
 #include "thumbnailsprovider.h"
 
+#include <QPixmap>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+
 ThumbnailsProvider::ThumbnailsProvider()
     : QQuickImageProvider(QQuickImageProvider::Image)
 {
 }
 
-QImage ThumbnailsProvider::requestImage(const QString &id, QSize * /*size*/, const QSize & /*requestedSize*/)
+std::optional<ThumbnailsProvider *> ThumbnailsProvider::getInContextForObject(const QObject *obj)
+{
+    auto engine = QQmlEngine::contextForObject(obj)->engine();
+    if (!engine) {
+        qCritical() << "ThumbnailsProvider::getInContextForObject: No QML engine available for " << obj;
+        return {};
+    }
+    auto imageProvider = engine->imageProvider(QStringLiteral("thumbnailsProvider"));
+    if (!imageProvider) {
+        qCritical() << "ThumbnailsProvider::getInContextForObject: Could not find thumbnailsProvider in QML engine";
+        return {};
+    }
+    return {dynamic_cast<ThumbnailsProvider *>(imageProvider)};
+}
+
+QImage ThumbnailsProvider::requestImage(const QString &id, QSize *size, const QSize &requestedSize)
 {
     if (m_thumbnails.contains(id)) {
-        return m_thumbnails.value(id);
+        auto const &icon = m_thumbnails.value(id);
+        // Try to find a pixmap matching the desired icon size!
+        QPixmap sizedPixmap = icon.pixmap(requestedSize);
+        if (!sizedPixmap) {
+            // No icon sifficiently small was found, let's give the first one
+            sizedPixmap = icon.pixmap(icon.availableSizes().first());
+        }
+        // Inform the caller of the image size we're giving them!
+        *size = sizedPixmap.size();
+        return sizedPixmap.toImage();
     }
 
     return QImage();
 }
 
-void ThumbnailsProvider::addImage(const QString &id, const QImage &image)
+void ThumbnailsProvider::addIcon(const QString &id, const QIcon &icon)
 {
-    m_thumbnails.insert(id, image);
+    m_thumbnails.insert(id, icon);
 }
 
 void ThumbnailsProvider::clear()

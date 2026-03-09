@@ -7,7 +7,11 @@
 
 #include "conversationlistmodel.h"
 
+#include <QApplication>
+#include <QMessageBox>
 #include <QPainter>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include <QString>
 
 #include <KLocalizedString>
@@ -17,6 +21,7 @@
 #include "models/conversationmessage.h"
 #include "sms_conversations_list_debug.h"
 #include "smshelper.h"
+#include "thumbnailsprovider.h"
 
 #define INVALID_THREAD_ID -1
 #define INVALID_DATE -1
@@ -68,6 +73,13 @@ void ConversationListModel::setDeviceId(const QString &deviceId)
     DeviceDbusInterface device(deviceId);
     if (!(device.isValid() && device.isReachable())) {
         return;
+    }
+
+    m_thumbnailsProvider = ThumbnailsProvider::getInContextForObject(this);
+    if (!m_thumbnailsProvider) {
+        // This is very unlikely to fail, so if it does, we ought to log a scary error!
+        qCritical("Failed to load thumbnails provider, something didn't get initialised properly!");
+        qCritical("Thumbnails will not be shown.");
     }
 
     m_deviceId = deviceId;
@@ -211,9 +223,14 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage &mess
     }
 
     // Get the preview from the attachment, if it exists
-    QIcon attachmentPreview;
     if (message.containsAttachment()) {
-        attachmentPreview = SmsHelper::getThumbnailForAttachment(message.attachments().last());
+        auto const attachment = message.attachments().last();
+        QIcon attachmentPreview = SmsHelper::getThumbnailForAttachment(attachment);
+
+        // ...and store it in the ThumbnailsProvider, if we have one
+        if (m_thumbnailsProvider) {
+            (*m_thumbnailsProvider)->addIcon(attachment.uniqueIdentifier(), attachmentPreview);
+        }
     }
 
     // For displaying single line subtitle out of the multiline messages to keep the ListItems consistent
@@ -242,8 +259,8 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage &mess
         item->setData(displayBody, Qt::ToolTipRole);
         item->setData(message.date(), DateRole);
         item->setData(message.isMultitarget(), MultitargetRole);
-        if (!attachmentPreview.isNull()) {
-            item->setData(attachmentPreview, AttachmentPreview);
+        if (message.containsAttachment()) {
+            item->setData(message.attachments().last().uniqueIdentifier(), AttachmentPreview);
         }
     }
 

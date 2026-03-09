@@ -6,6 +6,7 @@
 
 #include "smshelper.h"
 
+#include <QBitmap>
 #include <QClipboard>
 #include <QFileInfo>
 #include <QGuiApplication>
@@ -217,46 +218,75 @@ QSharedPointer<KPeople::PersonData> SmsHelper::lookupPersonByAddress(const QStri
 
 QIcon SmsHelper::combineIcons(const QList<QPixmap> &icons)
 {
-    QIcon icon;
+    // Size in pixel of the mask used to round the icons. Ideally, it
+    // should be at least as big as the icon. As it would take extra
+    // resource to check every icon and/or to re-generate the mask
+    // for each, we're only making one mask with a "big enough for
+    // everyone" size.
+    auto constexpr ROUNDED_MASK_SIZE = 256;
+    auto constexpr ROUNDED_MASK_RADIUS = ROUNDED_MASK_SIZE / 5;
+
     if (icons.size() == 0) {
-        // We have no icon :(
-        // Once we are using the generic icon from KPeople for unknown contacts, this should never happen
-    } else if (icons.size() == 1) {
-        icon = icons.first();
-    } else {
-        // Cook an icon by combining the available icons
-        // Barring better information, use the size of the first icon as the size for the final icon
-        QSize size = icons.first().size();
-        QPixmap canvas(size);
-        canvas.fill(Qt::transparent);
-        QPainter painter(&canvas);
-
-        QSize halfSize = size / 2;
-
-        QRect topLeftQuadrant(QPoint(0, 0), halfSize);
-        QRect topRightQuadrant(topLeftQuadrant.topRight(), halfSize);
-        QRect bottomLeftQuadrant(topLeftQuadrant.bottomLeft(), halfSize);
-        QRect bottomRightQuadrant(topLeftQuadrant.bottomRight(), halfSize);
-
-        if (icons.size() == 2) {
-            painter.drawPixmap(topLeftQuadrant, icons[0]);
-            painter.drawPixmap(bottomRightQuadrant, icons[1]);
-        } else if (icons.size() == 3) {
-            QRect topMiddle(QPoint(halfSize.width() / 2, 0), halfSize);
-            painter.drawPixmap(topMiddle, icons[0]);
-            painter.drawPixmap(bottomLeftQuadrant, icons[1]);
-            painter.drawPixmap(bottomRightQuadrant, icons[2]);
-        } else {
-            // Four or more
-            painter.drawPixmap(topLeftQuadrant, icons[0]);
-            painter.drawPixmap(topRightQuadrant, icons[1]);
-            painter.drawPixmap(bottomLeftQuadrant, icons[2]);
-            painter.drawPixmap(bottomRightQuadrant, icons[3]);
-        }
-
-        icon = canvas;
+        qWarning() << "SmsHelper::combineIcons tried to combine icons but no icon was provided. This should never happen!";
+        return QIcon();
     }
-    return icon;
+
+    // Compute a mask with rounded corners to be used by other icons.
+    QBitmap roundedMask(ROUNDED_MASK_SIZE, ROUNDED_MASK_SIZE);
+    roundedMask.fill(QColorConstants::Color1);
+    QPainter roundedMaskPainter(&roundedMask);
+    roundedMaskPainter.setBrush(QColorConstants::Color0);
+    roundedMaskPainter.drawRoundedRect(0, 0, roundedMask.size().width(), roundedMask.size().height(), ROUNDED_MASK_RADIUS, ROUNDED_MASK_RADIUS);
+
+    auto const roundPixmap = [&roundedMask](QPixmap const &pix) -> QPixmap {
+        // Copy the pixmap so that we can edit it
+        QPixmap output = pix;
+
+        // Apply the mask at the proper scale
+        QPixmap resizedMask = roundedMask.scaled(output.size());
+        output.setMask(QBitmap::fromPixmap(resizedMask));
+
+        return output;
+    };
+
+    // Easy case!
+    if (icons.size() == 1) {
+        return roundPixmap(icons.first());
+    }
+
+    // There are multiple addresses in this discussion, let's cook an icon by combining the available icons!
+
+    // Barring better information, use double the size of the first icon as the size for the final icon
+    QSize size = (icons.first().size()) * 2;
+
+    QPixmap canvas(size);
+    canvas.fill(Qt::transparent);
+    QPainter painter(&canvas);
+
+    QSize halfSize = size / 2;
+
+    QRect topLeftQuadrant(QPoint(0, 0), halfSize);
+    QRect topRightQuadrant(topLeftQuadrant.topRight(), halfSize);
+    QRect bottomLeftQuadrant(topLeftQuadrant.bottomLeft(), halfSize);
+    QRect bottomRightQuadrant(topLeftQuadrant.bottomRight(), halfSize);
+
+    if (icons.size() == 2) {
+        painter.drawPixmap(topLeftQuadrant, roundPixmap(icons[0]));
+        painter.drawPixmap(bottomRightQuadrant, roundPixmap(icons[1]));
+    } else if (icons.size() == 3) {
+        QRect topMiddle(QPoint(halfSize.width() / 2, 0), halfSize);
+        painter.drawPixmap(topMiddle, roundPixmap(icons[0]));
+        painter.drawPixmap(bottomLeftQuadrant, roundPixmap(icons[1]));
+        painter.drawPixmap(bottomRightQuadrant, roundPixmap(icons[2]));
+    } else {
+        // Four or more
+        painter.drawPixmap(topLeftQuadrant, roundPixmap(icons[0]));
+        painter.drawPixmap(topRightQuadrant, roundPixmap(icons[1]));
+        painter.drawPixmap(bottomLeftQuadrant, roundPixmap(icons[2]));
+        painter.drawPixmap(bottomRightQuadrant, roundPixmap(icons[3]));
+    }
+
+    return QIcon(canvas);
 }
 
 QString SmsHelper::getTitleForAddresses(const QList<ConversationAddress> &addresses)

@@ -6,6 +6,9 @@
 
 #include "conversationmessage.h"
 
+#include <QByteArray>
+#include <QString>
+#include <QUrl>
 #include <QVariantMap>
 
 ConversationMessage::ConversationMessage(const QVariantMap &args)
@@ -29,11 +32,15 @@ ConversationMessage::ConversationMessage(const QVariantMap &args)
         QVariant attachment = args.value(QStringLiteral("attachments"));
         const QVariantList jsonAttachments = attachment.toList();
         for (const QVariant &attachmentField : jsonAttachments) {
-            const auto &rawAttachment = attachmentField.toMap();
-            m_attachments.append(Attachment(rawAttachment[QStringLiteral("part_id")].value<qint64>(),
-                                            rawAttachment[QStringLiteral("mime_type")].value<QString>(),
-                                            rawAttachment[QStringLiteral("encoded_thumbnail")].value<QString>(),
-                                            rawAttachment[QStringLiteral("unique_identifier")].value<QString>()));
+            auto const rawAttachment = attachmentField.toMap();
+            auto const partID = rawAttachment[QStringLiteral("part_id")].value<qint64>();
+            auto const mimeType = rawAttachment[QStringLiteral("mime_type")].value<QString>();
+            auto const encodedThumbnail = rawAttachment[QStringLiteral("encoded_thumbnail")].value<QString>();
+            auto const uniqueIdentifier = rawAttachment[QStringLiteral("unique_identifier")].value<QString>();
+            // Need to URL-encode the identifier, as it will be used in URLs, and not encoding it may lead
+            // to parsing issues.
+            auto const encodedUniqueID = QString::fromUtf8(QUrl::toPercentEncoding(uniqueIdentifier, "", " "));
+            m_attachments.append(Attachment(partID, mimeType, encodedThumbnail, encodedUniqueID));
         }
     }
 }
