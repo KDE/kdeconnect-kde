@@ -11,6 +11,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigami.delegates as KirigamiDelegates
+import org.kde.kirigami.platform as KirigamiPlatform
 import org.kde.kdeconnect.sms
 
 Kirigami.ScrollablePage
@@ -255,21 +256,13 @@ Kirigami.ScrollablePage
                     Layout.fillWidth: true
                 }
 
-                Kirigami.Icon {
+                Kirigami.ShadowedImage {
                     id: thumbnailItem
-                    source: {
-                        if (!listItem.attachmentPreview) {
-                            return undefined
-                        }
-
-                        if (listItem.attachmentPreview.hasOwnProperty("name") && listItem.attachmentPreview.name !== "")
-                            return listItem.attachmentPreview.name;
-                        if (listItem.attachmentPreview.hasOwnProperty("source"))
-                            return listItem.attachmentPreview.source;
-                        return listItem.attachmentPreview;
-                    }
-
-                    visible: source !== undefined
+                    source: listItem.attachmentPreview === undefined ? "" : `image://thumbnailsProvider/${listItem.attachmentPreview}`
+                    visible: listItem.attachmentPreview !== undefined
+                    width: KirigamiPlatform.Units.iconSizes.medium
+                    height: KirigamiPlatform.Units.iconSizes.medium
+                    radius: thumbnailItem.width / 6
                 }
             }
         }

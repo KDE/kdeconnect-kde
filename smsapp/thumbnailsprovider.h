@@ -7,21 +7,26 @@
 #ifndef THUMBNAILSPROVIDER_H
 #define THUMBNAILSPROVIDER_H
 
+#include <QIcon>
 #include <QQuickImageProvider>
+
+#include <optional>
 
 class ThumbnailsProvider : public QQuickImageProvider
 {
 public:
     ThumbnailsProvider();
 
+    static std::optional<ThumbnailsProvider *> getInContextForObject(const QObject *obj);
+
     QImage requestImage(const QString &id, QSize *size, const QSize &requestedSize) override;
 
-    void addImage(const QString &id, const QImage &image);
+    void addIcon(const QString &id, const QIcon &icon);
 
     void clear();
 
 private:
-    QHash<QString, QImage> m_thumbnails;
+    QHash<QString, QIcon> m_thumbnails;
 };
 
 #endif // THUMBNAILSPROVIDER_H
