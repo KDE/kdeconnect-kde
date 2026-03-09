@@ -207,7 +207,7 @@ Kirigami.ApplicationWindow {
                             id: announcedNameProperty
                             object: DaemonDbusInterface
                             read: "announcedName"
-                            defaultValue: "DeviceName"
+                            defaultValue: ""
                         }
                     }
 

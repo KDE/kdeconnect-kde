@@ -59,15 +59,15 @@ KdeConnectConfig::KdeConnectConfig()
     d->m_trustedDevices = new QSettings(baseConfigDir().absoluteFilePath(QStringLiteral("trusted_devices")), QSettings::IniFormat);
 
     loadOrGeneratePrivateKeyAndCertificate(privateKeyPath(), certificatePath());
-
-    if (name().isEmpty()) {
-        setName(getDefaultDeviceName());
-    }
 }
 
 QString KdeConnectConfig::name()
 {
-    return d->m_config->value(QStringLiteral("name")).toString();
+    QString storedName = d->m_config->value(QStringLiteral("name")).toString();
+    if (storedName.isEmpty()) {
+        return getDefaultDeviceName(); // Fallback to hostname
+    }
+    return storedName;
 }
 
 void KdeConnectConfig::setName(const QString &name)
