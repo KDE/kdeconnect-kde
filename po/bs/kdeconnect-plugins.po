@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-09 00:42+0000\n"
 "PO-Revision-Date: 2015-02-22 23:17+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -123,7 +123,13 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr ""
 
-#: notifications/notification.cpp:116
+#: notifications/notification.cpp:118
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply in %1…"
+msgstr ""
+
+#: notifications/notification.cpp:120
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
