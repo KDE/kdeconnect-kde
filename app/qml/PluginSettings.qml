@@ -96,8 +96,12 @@ Kirigami.ScrollablePage {
                 CheckBox {
                     id: serviceCheck
                     Layout.alignment: Qt.AlignVCenter
-                    checked: pluginDelegate.checked
+                    checked: model.isChecked
+
                     activeFocusOnTab: false
+                    onToggled: {
+                        model.isChecked = checked
+                    }
 
                     Accessible.ignored: true
                 }
