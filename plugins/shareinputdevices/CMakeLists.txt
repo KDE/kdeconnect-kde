@@ -9,3 +9,5 @@ target_link_libraries(kdeconnect_shareinputdevices
     Qt::GuiPrivate
     PkgConfig::PKG_libei
 )
+
+install(FILES "kdeconnect_shareinputdevices_config.qml" DESTINATION ${KDE_INSTALL_DATADIR}/kdeconnect)
