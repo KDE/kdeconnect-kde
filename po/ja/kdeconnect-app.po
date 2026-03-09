@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-09 02:42+0000\n"
 "PO-Revision-Date: 2026-01-26 19:20+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -312,7 +312,7 @@ msgstr "利用可能なプレーヤーはありません"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:131
+#: qml/PluginSettings.qml:136
 #, kde-format
 msgid "Configure plugin"
 msgstr "プラグインを設定"

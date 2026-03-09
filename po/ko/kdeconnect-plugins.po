@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-09 02:42+0000\n"
 "PO-Revision-Date: 2026-02-04 00:39+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -122,7 +122,15 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "답장"
 
-#: notifications/notification.cpp:116
+#: notifications/notification.cpp:118
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reply to %1…"
+msgctxt "@info:placeholder"
+msgid "Reply in %1…"
+msgstr "%1 님에게 답장…"
+
+#: notifications/notification.cpp:120
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"

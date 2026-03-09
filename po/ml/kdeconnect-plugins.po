@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-09 02:42+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -121,7 +121,13 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "മറുപടി നല്കുക"
 
-#: notifications/notification.cpp:116
+#: notifications/notification.cpp:118
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply in %1…"
+msgstr ""
+
+#: notifications/notification.cpp:120
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"

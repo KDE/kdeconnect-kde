@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-09 02:42+0000\n"
 "PO-Revision-Date: 2025-12-17 11:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -123,7 +123,15 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "Odpovědět"
 
-#: notifications/notification.cpp:116
+#: notifications/notification.cpp:118
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reply to %1…"
+msgctxt "@info:placeholder"
+msgid "Reply in %1…"
+msgstr "Odpovědět %1…"
+
+#: notifications/notification.cpp:120
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"

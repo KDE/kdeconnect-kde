@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-09 02:42+0000\n"
 "PO-Revision-Date: 2026-02-27 16:39+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -125,7 +125,15 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "Відповісти"
 
-#: notifications/notification.cpp:116
+#: notifications/notification.cpp:118
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reply to %1…"
+msgctxt "@info:placeholder"
+msgid "Reply in %1…"
+msgstr "Відповісти %1…"
+
+#: notifications/notification.cpp:120
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-09 02:42+0000\n"
 "PO-Revision-Date: 2024-10-25 21:54-0500\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -120,7 +120,15 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "ਜਵਾਬ ਦਿਓ"
 
-#: notifications/notification.cpp:116
+#: notifications/notification.cpp:118
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reply to %1..."
+msgctxt "@info:placeholder"
+msgid "Reply in %1…"
+msgstr "%1 ਨੂੰ ਜਵਾਬ ਦਿਓ..."
+
+#: notifications/notification.cpp:120
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reply to %1..."
