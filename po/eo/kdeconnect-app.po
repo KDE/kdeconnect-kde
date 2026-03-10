@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-09 00:42+0000\n"
+"POT-Creation-Date: 2026-03-10 00:43+0000\n"
 "PO-Revision-Date: 2025-03-01 17:55+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -314,7 +314,7 @@ msgstr "Neniuj ludantoj disponeblaj"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:136
+#: qml/PluginSettings.qml:140
 #, kde-format
 msgid "Configure plugin"
 msgstr "Agordi kromprogramon"

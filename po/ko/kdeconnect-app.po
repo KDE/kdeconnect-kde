@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-09 00:42+0000\n"
+"POT-Creation-Date: 2026-03-10 00:43+0000\n"
 "PO-Revision-Date: 2026-02-04 00:28+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -313,7 +313,7 @@ msgstr "사용 가능한 재생기 없음"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:136
+#: qml/PluginSettings.qml:140
 #, kde-format
 msgid "Configure plugin"
 msgstr "플러그인 설정"

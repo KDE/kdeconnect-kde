@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-09 00:42+0000\n"
+"POT-Creation-Date: 2026-03-10 00:43+0000\n"
 "PO-Revision-Date: 2026-02-28 22:28+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -70,6 +70,7 @@ msgstr ""
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:24
 #, kde-format
 msgid "Apply"
 msgstr "Aplică"
@@ -455,7 +456,7 @@ msgstr "Fișierul nu a putut fi partajat"
 msgid "%1 does not exist"
 msgstr "%1 nu există"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
 msgctxt ""
 "@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
@@ -463,31 +464,31 @@ msgctxt ""
 msgid "Leave Screen at"
 msgstr "Părăsește ecranul"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:45
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
 msgstr "sus"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:49
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
 msgstr "la stânga"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:53
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
 msgstr "la dreapta"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:57
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
 msgstr "jos"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:65
 #, kde-format
 msgctxt "@info:tooltip edge: screen edge"
 msgid ""

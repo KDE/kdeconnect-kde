@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-19 00:42+0000\n"
+"POT-Creation-Date: 2026-03-10 00:43+0000\n"
 "PO-Revision-Date: 2022-11-16 22:41+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -34,19 +34,19 @@ msgctxt "Caption/title for attachment download/save window"
 msgid "Download attachment"
 msgstr ""
 
-#: conversationlistmodel.cpp:202
+#: conversationlistmodel.cpp:214
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is an image"
 msgid "Picture"
 msgstr "Gambar"
 
-#: conversationlistmodel.cpp:204
+#: conversationlistmodel.cpp:216
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is a video"
 msgid "Video"
 msgstr "Video"
 
-#: conversationlistmodel.cpp:208
+#: conversationlistmodel.cpp:220
 #, kde-format
 msgctxt ""
 "Used as a text placeholder when the most-recent message is an arbitrary "
@@ -54,17 +54,17 @@ msgctxt ""
 msgid "%1 file"
 msgstr "%1 berkas"
 
-#: conversationlistmodel.cpp:224
+#: conversationlistmodel.cpp:241
 #, kde-format
 msgid "You: %1"
 msgstr "Anda: %1"
 
-#: conversationlistmodel.cpp:230
+#: conversationlistmodel.cpp:247
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: conversationlistmodel.cpp:272 conversationlistmodel.cpp:294
+#: conversationlistmodel.cpp:289 conversationlistmodel.cpp:311
 #, kde-format
 msgid "%1"
 msgstr "%1"
@@ -130,12 +130,12 @@ msgstr "Buka dengan default"
 msgid "Download attachment…"
 msgstr ""
 
-#: qml/ConversationList.qml:23
+#: qml/ConversationList.qml:24
 #, kde-format
 msgid "No devices available"
 msgstr "Tidak ada peranti yang tersedia"
 
-#: qml/ConversationList.qml:32
+#: qml/ConversationList.qml:33
 #, kde-format
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
@@ -143,7 +143,7 @@ msgstr ""
 "Tidak ada pesan baru yang bisa dikirim atau diterima, tetapi kamu busa "
 "menelusuri konten yang ter-cache"
 
-#: qml/ConversationList.qml:48
+#: qml/ConversationList.qml:49
 #, kde-format
 msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
@@ -152,7 +152,7 @@ msgstr ""
 "Memuat obrolan dari peranti. Jika ini memakan waktu terlalu lama, silakan "
 "bangunkan peranti Anda dan kemudian klik Segarkan."
 
-#: qml/ConversationList.qml:56
+#: qml/ConversationList.qml:57
 #, kde-format
 msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
@@ -161,33 +161,33 @@ msgstr ""
 "Kiat: Jika Anda mengisi daya peranti, itu seharusnya tidak menuju ke mode "
 "tidur dan seharusnya memuat secara cepat."
 
-#: qml/ConversationList.qml:64 qml/Main.qml:98
+#: qml/ConversationList.qml:65 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
 msgstr "Segarkan"
 
-#: qml/ConversationList.qml:83
+#: qml/ConversationList.qml:84
 #, kde-format
 msgid "Choose recipient"
 msgstr "Pilih penerima"
 
-#: qml/ConversationList.qml:88
+#: qml/ConversationList.qml:89
 #, kde-format
 msgid "Cancel"
 msgstr "Batal"
 
-#: qml/ConversationList.qml:107
+#: qml/ConversationList.qml:108
 #, fuzzy, kde-format
 #| msgid "Search or start conversation..."
 msgid "Search or start a conversation"
 msgstr "Cari atau mulai obrolan baru..."
 
-#: qml/ConversationList.qml:143
+#: qml/ConversationList.qml:144
 #, kde-format
 msgid "Start new conversation"
 msgstr "Mulai obrolan baru"
 
-#: qml/ConversationList.qml:192
+#: qml/ConversationList.qml:193
 #, fuzzy, kde-format
 #| msgctxt "Placeholder message text when no messages are found"
 #| msgid "No matches"
@@ -195,7 +195,7 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "Tidak ada yang cocok"
 
-#: qml/ConversationList.qml:202
+#: qml/ConversationList.qml:203
 #, fuzzy, kde-format
 #| msgid "Start new conversation"
 msgctxt "@info:placeholder"

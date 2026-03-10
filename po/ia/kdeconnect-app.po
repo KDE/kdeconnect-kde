@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-09 00:42+0000\n"
-"PO-Revision-Date: 2026-02-09 12:42+0100\n"
+"POT-Creation-Date: 2026-03-10 00:43+0000\n"
+"PO-Revision-Date: 2026-03-09 10:43+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -316,7 +316,7 @@ msgstr "Necun reproductores disponibile"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:136
+#: qml/PluginSettings.qml:140
 #, kde-format
 msgid "Configure plugin"
 msgstr "Configura Plugin"
@@ -330,13 +330,13 @@ msgstr "Habilita schermo plen"
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Previous Slide"
-msgstr ""
+msgstr "Previe diapositiva"
 
 #: qml/presentationRemote.qml:47
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Next Slide"
-msgstr ""
+msgstr "Proxime diapositiva"
 
 #: qml/runcommand.qml:23
 #, kde-format
