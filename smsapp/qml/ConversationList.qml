@@ -152,6 +152,7 @@ Kirigami.ScrollablePage
                     conversationListModel.createConversationForAddress(filter.text)
                     view.currentIndex = 0
                 }
+                view.currentItem.startChat()
                 filter.enabled = true
             }
 
