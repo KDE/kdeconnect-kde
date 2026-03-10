@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-09 02:42+0000\n"
+"POT-Creation-Date: 2026-03-10 02:45+0000\n"
 "PO-Revision-Date: 2026-02-07 12:30+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -315,7 +315,7 @@ msgstr "No hay reproductores disponibles"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:136
+#: qml/PluginSettings.qml:140
 #, kde-format
 msgid "Configure plugin"
 msgstr "Configurar complemento"

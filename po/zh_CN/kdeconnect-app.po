@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-09 02:42+0000\n"
+"POT-Creation-Date: 2026-03-10 02:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kdeconnect-kde/kdeconnect-app.pot\n"
-"X-Crowdin-File-ID: 49028\n"
+"X-Crowdin-File: /kf6-stable/messages/kdeconnect-kde/kdeconnect-app.pot\n"
+"X-Crowdin-File-ID: 53120\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -312,7 +312,7 @@ msgstr "没有可用的播放器"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/PluginSettings.qml:136
+#: qml/PluginSettings.qml:140
 #, kde-format
 msgid "Configure plugin"
 msgstr "配置插件"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-09 02:42+0000\n"
-"PO-Revision-Date: 2026-01-23 16:11+0100\n"
+"POT-Creation-Date: 2026-03-10 02:45+0000\n"
+"PO-Revision-Date: 2026-03-09 11:06+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -69,6 +69,7 @@ msgstr ""
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:24
 #, kde-format
 msgid "Apply"
 msgstr "Applica"
@@ -124,12 +125,10 @@ msgid "Reply"
 msgstr "Responde"
 
 #: notifications/notification.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply in %1…"
-msgstr "Responde a %1..."
+msgstr "Responde in %1..."
 
 #: notifications/notification.cpp:120
 #, kde-format
@@ -182,17 +181,17 @@ msgstr "Ping!"
 #, kde-format
 msgctxt "@action:label"
 msgid "Display:"
-msgstr ""
+msgstr "Monstrator:"
 
 #: presenter/kdeconnect_presenter_config.qml:25
 #, kde-format
 msgid "Red Dot"
-msgstr ""
+msgstr "Puncto Rubie"
 
 #: presenter/kdeconnect_presenter_config.qml:26
 #, kde-format
 msgid "Electric"
-msgstr ""
+msgstr "Electric"
 
 #: runcommand/kdeconnect_runcommand_config.qml:21
 #, kde-format
@@ -453,7 +452,7 @@ msgstr "Non poteva impartir file"
 msgid "%1 does not exist"
 msgstr "%1 non existe"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
 msgctxt ""
 "@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
@@ -461,31 +460,31 @@ msgctxt ""
 msgid "Leave Screen at"
 msgstr "Lassa schermo a"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:45
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
 msgstr "Culmine"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:49
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
 msgstr "Sinistra"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:53
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
 msgstr "Dextera"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:57
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
 msgstr "Basso"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:65
 #, kde-format
 msgctxt "@info:tooltip edge: screen edge"
 msgid ""

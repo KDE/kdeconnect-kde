@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-09 02:42+0000\n"
-"PO-Revision-Date: 2026-02-27 07:35+0100\n"
+"POT-Creation-Date: 2026-03-10 02:45+0000\n"
+"PO-Revision-Date: 2026-03-09 10:41+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -72,6 +72,7 @@ msgstr ""
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:24
 #, kde-format
 msgid "Apply"
 msgstr "Aplica"
@@ -127,12 +128,10 @@ msgid "Reply"
 msgstr "Respon"
 
 #: notifications/notification.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply in %1…"
-msgstr "Respon a %1…"
+msgstr "Respon en %1…"
 
 #: notifications/notification.cpp:120
 #, kde-format
@@ -456,7 +455,7 @@ msgstr "No s'ha pogut compartir el fitxer"
 msgid "%1 does not exist"
 msgstr "%1 no existix"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:31
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
 #, kde-format
 msgctxt ""
 "@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
@@ -464,31 +463,31 @@ msgctxt ""
 msgid "Leave Screen at"
 msgstr "Deixa la pantalla a"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:45
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
 msgstr "Dalt"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:42
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:49
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
 msgstr "Esquerra"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:46
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:53
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
 msgstr "Dreta"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:50
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:57
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
 msgstr "Baix"
 
-#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:58
+#: shareinputdevices/kdeconnect_shareinputdevices_config.qml:65
 #, kde-format
 msgctxt "@info:tooltip edge: screen edge"
 msgid ""

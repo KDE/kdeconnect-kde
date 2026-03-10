@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-02 00:44+0000\n"
-"PO-Revision-Date: 2026-01-19 17:57+0100\n"
+"PO-Revision-Date: 2026-03-09 11:06+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -110,7 +110,7 @@ msgstr "Dispositivo al qual inviar %1:"
 #, kde-format
 msgctxt "Label, for a list of items like files or urls"
 msgid "Shared content:"
-msgstr ""
+msgstr "Contento compartite:"
 
 #: kdeconnect-handler.cpp:196
 #, kde-format
