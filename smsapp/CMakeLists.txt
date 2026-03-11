@@ -71,6 +71,7 @@ target_link_libraries(kdeconnect-sms PRIVATE
     KF6::People
     KF6::ColorScheme
     KF6::Crash
+    KF6::WindowSystem
     )
 
 set_target_properties(kdeconnect-sms PROPERTIES MACOSX_BUNDLE FALSE)
