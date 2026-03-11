@@ -42,6 +42,7 @@ PlasmoidItem {
     Plasmoid.status: connectedDeviceModel.count > 0 ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
 
     fullRepresentation: FullRepresentation {
+        Plasmoid.backgroundHints: root.inPanel ? PlasmaCore.Types.NoBackground : PlasmaCore.Types.DefaultBackground
         devicesModel: connectedDeviceModel
     }
 

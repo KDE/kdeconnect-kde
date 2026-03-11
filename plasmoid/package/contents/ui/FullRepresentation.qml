@@ -35,20 +35,24 @@ PlasmaExtras.Representation {
 
     PlasmaComponents3.ScrollView {
         anchors.fill: parent
+        contentWidth: availableWidth
+        
+        // Prevent horizontal scrollbar from appearing when vertical scrollbar shows/hides
+        QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
 
         contentItem: ListView {
             id: devicesView
 
-            spacing: Kirigami.Units.smallSpacing
-
             clip: true
+
+            Layout.margins: 0
 
             delegate: DeviceDelegate {
                 width: ListView.view.width - ListView.view.leftMargin - ListView.view.rightMargin
             }
 
             PlasmaExtras.PlaceholderMessage {
-                width: parent.width - Kirigami.Units.gridUnit * 2
+                width: parent.width
                 anchors.centerIn: parent
                 visible: devicesView.count === 0
 
