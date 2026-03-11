@@ -115,7 +115,7 @@ void Notification::createKNotification(const NetworkPacket &np)
         auto replyAction = std::make_unique<KNotificationReplyAction>(i18nc("@action:button", "Reply"));
 
         if (isGroupConversation()) {
-            replyAction->setPlaceholderText(i18nc("@info:placeholder", "Reply in %1…", m_groupName));
+            replyAction->setPlaceholderText(i18nc("@info:placeholder %1 is the name of a group chat", "Reply in %1…", m_groupName));
         } else {
             replyAction->setPlaceholderText(i18nc("@info:placeholder", "Reply to %1…", isConversation() ? m_title : m_appName));
         }
