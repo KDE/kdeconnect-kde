@@ -125,7 +125,7 @@ msgstr "回复"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply in %1…"
-msgstr ""
+msgstr "在 %1 中回复…"
 
 #: notifications/notification.cpp:120
 #, kde-format

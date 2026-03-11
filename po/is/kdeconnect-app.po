@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-10 00:43+0000\n"
-"PO-Revision-Date: 2026-02-25 14:54+0000\n"
+"PO-Revision-Date: 2026-03-10 14:38+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -326,13 +326,13 @@ msgstr "Virkja skjáfylli"
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Previous Slide"
-msgstr ""
+msgstr "Fyrri skyggna"
 
 #: qml/presentationRemote.qml:47
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Next Slide"
-msgstr ""
+msgstr "Næsta skyggna"
 
 #: qml/runcommand.qml:23
 #, kde-format
