@@ -33,6 +33,3 @@ msgstr "Dispositiu no de confiança"
 #, kde-format
 msgid "Device disconnected"
 msgstr "Dispositiu desconnectat"
-
-#~ msgid "error: "
-#~ msgstr "error: "

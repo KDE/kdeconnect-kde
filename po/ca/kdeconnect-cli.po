@@ -353,12 +353,3 @@ msgid ""
 msgstr ""
 "Error: cal especificar el destinatari de l'SMS informant --destination "
 "<número de telèfon>"
-
-#~ msgid "Nothing to be done"
-#~ msgstr "No es fa res"
-
-#~ msgid "Stop pairing to a said device"
-#~ msgstr "Atura l'aparellament amb un dispositiu indicat"
-
-#~ msgid "Unpaired"
-#~ msgstr "Sense aparellar"

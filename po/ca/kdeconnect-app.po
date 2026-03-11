@@ -439,15 +439,3 @@ msgstr ""
 "Si trobeu problemes, visiteu el <a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">wiki Community del KDE "
 "Connect</span></a> per a trobar ajuda."
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Bluetooth"
-#~ msgstr "Bluetooth"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Loopback"
-#~ msgstr "Bucle tancat"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Network"
-#~ msgstr "Xarxa"
