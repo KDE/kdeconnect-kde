@@ -32,7 +32,7 @@ void ShareInputDevicesRemotePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.type() == PACKET_TYPE_SHAREINPUTDEVICES_REQUEST) {
         if (np.has(u"startEdge"_s)) {
-            const Qt::Edge startEdge = np.get<Qt::Edge>(u"startEdge"_s);
+            const Qt::Edge exitEdge = np.get<Qt::Edge>(u"exitEdge"_s);
             const QPointF delta = {np.get<double>(u"deltax"_s), np.get<double>(u"deltay"_s)};
             auto screens = QGuiApplication::screens();
             auto mousePadPlugin = device()->plugin(u"kdeconnect_mousepad"_s);
@@ -43,19 +43,19 @@ void ShareInputDevicesRemotePlugin::receivePacket(const NetworkPacket &np)
             }
             // This is opposite to the sorting in inputcaptureession because here the opposite edge is wanted.
             // For example if on the source side a left barrier was crossed, this is one is entered from the right.
-            if (startEdge == Qt::LeftEdge) {
+            if (exitEdge == Qt::LeftEdge) {
                 std::stable_sort(screens.begin(), screens.end(), [](QScreen *lhs, QScreen *rhs) {
                     return lhs->geometry().x() + lhs->geometry().width() > rhs->geometry().x() + rhs->geometry().width();
                 });
                 m_enterEdge = Qt::RightEdge;
                 m_currentPosition = screens.front()->geometry().topRight() + delta;
-            } else if (startEdge == Qt::RightEdge) {
+            } else if (exitEdge == Qt::RightEdge) {
                 std::stable_sort(screens.begin(), screens.end(), [](QScreen *lhs, QScreen *rhs) {
                     return lhs->geometry().x() < rhs->geometry().x();
                 });
                 m_enterEdge = Qt::LeftEdge;
                 m_currentPosition = screens.front()->geometry().topLeft() + delta;
-            } else if (startEdge == Qt::TopEdge) {
+            } else if (exitEdge == Qt::TopEdge) {
                 std::stable_sort(screens.begin(), screens.end(), [](QScreen *lhs, QScreen *rhs) {
                     return lhs->geometry().y() + lhs->geometry().height() > rhs->geometry().y() + rhs->geometry().height();
                 });
