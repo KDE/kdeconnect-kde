@@ -31,7 +31,7 @@ ShareInputDevicesRemotePlugin::ShareInputDevicesRemotePlugin(QObject *parent, co
 void ShareInputDevicesRemotePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.type() == PACKET_TYPE_SHAREINPUTDEVICES_REQUEST) {
-        if (np.has(u"startEdge"_s)) {
+        if (np.has(u"exitEdge"_s)) {
             const Qt::Edge exitEdge = np.get<Qt::Edge>(u"exitEdge"_s);
             const QPointF delta = {np.get<double>(u"deltax"_s), np.get<double>(u"deltay"_s)};
             auto screens = QGuiApplication::screens();
