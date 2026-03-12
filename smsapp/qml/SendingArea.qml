@@ -46,6 +46,10 @@ ColumnLayout {
         implicitWidth: root.width
         padding: Kirigami.Units.gridUnit * 0.5
         wheelEnabled: true
+        background: Rectangle {
+            // Remove drop shadow that overlapped with the list
+            color: Kirigami.Theme.backgroundColor
+        }
 
         RowLayout {
             anchors.fill: parent
