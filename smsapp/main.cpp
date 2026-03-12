@@ -27,7 +27,6 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
-#include <QWindow>
 
 #include "smshelper.h"
 
@@ -123,6 +122,16 @@ int main(int argc, char *argv[])
 
     KDBusService service(KDBusService::Unique);
 
+    QObject::connect(&service, &KDBusService::activateRequested, &service, [&parser, &data](const QStringList &args, const QString & /*workDir*/) {
+        parser.parse(args);
+
+        data.m_initialMessage = parser.value(QStringLiteral("message"));
+        data.setDeviceId(parser.value(QStringLiteral("device")));
+
+        Q_EMIT data.deviceIdChanged();
+        Q_EMIT data.initialMessageChanged();
+    });
+
     qmlRegisterType<ConversationsSortFilterProxyModel>("org.kde.kdeconnect.sms", 1, 0, "QSortFilterProxyModel");
     qmlRegisterType<ConversationModel>("org.kde.kdeconnect.sms", 1, 0, "ConversationModel");
     qmlRegisterType<ConversationListModel>("org.kde.kdeconnect.sms", 1, 0, "ConversationListModel");
@@ -136,25 +145,6 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.addImageProvider(QStringLiteral("thumbnailsProvider"), new ThumbnailsProvider);
     engine.loadFromModule("org.kde.kdeconnect.sms", "Main");
-
-    QObject::connect(&service, &KDBusService::activateRequested, &service, [&parser, &data, &engine](const QStringList &args, const QString & /*workDir*/) {
-        parser.parse(args);
-
-        data.m_initialMessage = parser.value(QStringLiteral("message"));
-        data.setDeviceId(parser.value(QStringLiteral("device")));
-
-        Q_EMIT data.deviceIdChanged();
-        Q_EMIT data.initialMessageChanged();
-
-        const auto rootObjects = engine.rootObjects();
-        for (QObject *obj : rootObjects) {
-            if (auto *window = qobject_cast<QWindow *>(obj)) {
-                window->setWindowStates(window->windowStates() & ~Qt::WindowMinimized);
-                window->raise();
-                window->requestActivate();
-            }
-        }
-    });
 
     return app.exec();
 }
