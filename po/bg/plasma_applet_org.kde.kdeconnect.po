@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-13 00:43+0000\n"
+"POT-Creation-Date: 2026-03-12 00:43+0000\n"
 "PO-Revision-Date: 2024-11-09 20:04+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -42,148 +42,154 @@ msgstr "Неизвестна"
 msgid "No signal"
 msgstr "Няма сигнал"
 
-#: package/contents/ui/DeviceDelegate.qml:82
+#: package/contents/ui/DeviceDelegate.qml:89
 #, kde-format
 msgid "Virtual Monitor is not available"
 msgstr "Не е наличен виртуален монитор"
 
-#: package/contents/ui/DeviceDelegate.qml:87
+#: package/contents/ui/DeviceDelegate.qml:94
 #, kde-format
 msgid "Please choose a file"
 msgstr "Моля, изберете файл"
 
-#: package/contents/ui/DeviceDelegate.qml:104
+#: package/contents/ui/DeviceDelegate.qml:111
 #, kde-format
 msgid "Share file"
 msgstr "Споделяне на файл"
 
-#: package/contents/ui/DeviceDelegate.qml:112
+#: package/contents/ui/DeviceDelegate.qml:119
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Изпращане на клипборда"
 
-#: package/contents/ui/DeviceDelegate.qml:123
+#: package/contents/ui/DeviceDelegate.qml:130
 #, kde-format
 msgid "Ring my phone"
 msgstr "Позвъняване на моя телефон"
 
-#: package/contents/ui/DeviceDelegate.qml:134
+#: package/contents/ui/DeviceDelegate.qml:141
 #, kde-format
 msgid "Browse this device"
 msgstr "Преглед на това устройство"
 
-#: package/contents/ui/DeviceDelegate.qml:145
+#: package/contents/ui/DeviceDelegate.qml:152
 #, kde-format
 msgid "SMS Messages"
 msgstr "SMS съобщения"
 
-#: package/contents/ui/DeviceDelegate.qml:169
+#: package/contents/ui/DeviceDelegate.qml:195
 #, kde-format
 msgid "File Transfer"
 msgstr "Прехвърляне на файл"
 
-#: package/contents/ui/DeviceDelegate.qml:170
+#: package/contents/ui/DeviceDelegate.qml:196
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "Завлечете тук файлове, за да ги изпратите до вашия телефон."
 
-#: package/contents/ui/DeviceDelegate.qml:192
+#: package/contents/ui/DeviceDelegate.qml:238
 #, kde-format
 msgid "Virtual Display"
 msgstr "Виртуален екран"
 
-#: package/contents/ui/DeviceDelegate.qml:253
+#: package/contents/ui/DeviceDelegate.qml:297
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1 %"
 
-#: package/contents/ui/DeviceDelegate.qml:279
+#: package/contents/ui/DeviceDelegate.qml:310
 #, kde-format
-msgid "Remote Keyboard"
-msgstr "Отдалечена клавиатура"
+msgid "More options…"
+msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:300
-#, kde-format
-msgid "Notifications:"
+#: package/contents/ui/DeviceDelegate.qml:350
+#, fuzzy, kde-format
+#| msgid "Notifications:"
+msgid "Notifications"
 msgstr "Известия:"
 
-#: package/contents/ui/DeviceDelegate.qml:308
+#: package/contents/ui/DeviceDelegate.qml:362
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Отхвърляне на всички известия"
 
-#: package/contents/ui/DeviceDelegate.qml:366
+#: package/contents/ui/DeviceDelegate.qml:380
+#, kde-format
+msgid "Remote Keyboard"
+msgstr "Отдалечена клавиатура"
+
+#: package/contents/ui/DeviceDelegate.qml:616
 #, kde-format
 msgid "Reply"
 msgstr "Отговор"
 
-#: package/contents/ui/DeviceDelegate.qml:379
+#: package/contents/ui/DeviceDelegate.qml:633
 #, kde-format
 msgid "Dismiss"
 msgstr "Отхвърляне"
 
-#: package/contents/ui/DeviceDelegate.qml:392
+#: package/contents/ui/DeviceDelegate.qml:659
 #, kde-format
 msgid "Cancel"
 msgstr "Отказ"
 
-#: package/contents/ui/DeviceDelegate.qml:406
+#: package/contents/ui/DeviceDelegate.qml:674
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Отговор до „%1“…"
 
-#: package/contents/ui/DeviceDelegate.qml:424
+#: package/contents/ui/DeviceDelegate.qml:692
 #, kde-format
 msgid "Send"
 msgstr "Изпращане"
 
-#: package/contents/ui/DeviceDelegate.qml:445
+#: package/contents/ui/DeviceDelegate.qml:724
 #, kde-format
 msgid "Run command"
 msgstr "Изпълняване на команда"
 
-#: package/contents/ui/DeviceDelegate.qml:452
+#: package/contents/ui/DeviceDelegate.qml:731
 #, kde-format
 msgid "Add command"
 msgstr "Добавяне на команда"
 
-#: package/contents/ui/FullRepresentation.qml:64
+#: package/contents/ui/FullRepresentation.qml:68
 #, kde-format
 msgid "No paired devices"
 msgstr "Няма сдвоени устройства"
 
-#: package/contents/ui/FullRepresentation.qml:64
+#: package/contents/ui/FullRepresentation.qml:68
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "Сдвоеното устройство не е налично"
 msgstr[1] "Сдвоените устройства не са налични"
 
-#: package/contents/ui/FullRepresentation.qml:66
+#: package/contents/ui/FullRepresentation.qml:70
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
 "Инсталирайте KDE Connect на вашето Android устройство, за да го интегрирате "
 "с Plasma!"
 
-#: package/contents/ui/FullRepresentation.qml:70
+#: package/contents/ui/FullRepresentation.qml:74
 #, kde-format
 msgid "Pair a Device…"
 msgstr "Сдвояване на устройство…"
 
-#: package/contents/ui/FullRepresentation.qml:82
+#: package/contents/ui/FullRepresentation.qml:86
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Инсталиране от Google Play"
 
-#: package/contents/ui/FullRepresentation.qml:92
+#: package/contents/ui/FullRepresentation.qml:96
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "Инсталиране от F-Droid"
 
-#: package/contents/ui/main.qml:54
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "KDE Connect Settings…"
 msgstr "Настройки на KDE Connect…"

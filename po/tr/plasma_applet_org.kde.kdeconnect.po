@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playground-base-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-13 00:43+0000\n"
+"POT-Creation-Date: 2026-03-12 00:43+0000\n"
 "PO-Revision-Date: 2024-07-13 08:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -44,146 +44,152 @@ msgstr "Bilinmiyor"
 msgid "No signal"
 msgstr "Sinyal yok"
 
-#: package/contents/ui/DeviceDelegate.qml:82
+#: package/contents/ui/DeviceDelegate.qml:89
 #, kde-format
 msgid "Virtual Monitor is not available"
 msgstr "Sanal monitör kullanılamıyor"
 
-#: package/contents/ui/DeviceDelegate.qml:87
+#: package/contents/ui/DeviceDelegate.qml:94
 #, kde-format
 msgid "Please choose a file"
 msgstr "Lütfen bir dosya seçin"
 
-#: package/contents/ui/DeviceDelegate.qml:104
+#: package/contents/ui/DeviceDelegate.qml:111
 #, kde-format
 msgid "Share file"
 msgstr "Share file"
 
-#: package/contents/ui/DeviceDelegate.qml:112
+#: package/contents/ui/DeviceDelegate.qml:119
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Pano Gönder"
 
-#: package/contents/ui/DeviceDelegate.qml:123
+#: package/contents/ui/DeviceDelegate.qml:130
 #, kde-format
 msgid "Ring my phone"
 msgstr "Telefonumu çaldır"
 
-#: package/contents/ui/DeviceDelegate.qml:134
+#: package/contents/ui/DeviceDelegate.qml:141
 #, kde-format
 msgid "Browse this device"
 msgstr "Bu aygıta göz at"
 
-#: package/contents/ui/DeviceDelegate.qml:145
+#: package/contents/ui/DeviceDelegate.qml:152
 #, kde-format
 msgid "SMS Messages"
 msgstr "SMS İletileri"
 
-#: package/contents/ui/DeviceDelegate.qml:169
+#: package/contents/ui/DeviceDelegate.qml:195
 #, kde-format
 msgid "File Transfer"
 msgstr "Dosya Aktarımı"
 
-#: package/contents/ui/DeviceDelegate.qml:170
+#: package/contents/ui/DeviceDelegate.qml:196
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "Telefonunuza aktarmak için bir dosya bırakın."
 
-#: package/contents/ui/DeviceDelegate.qml:192
+#: package/contents/ui/DeviceDelegate.qml:238
 #, kde-format
 msgid "Virtual Display"
 msgstr "Sanal Ekran"
 
-#: package/contents/ui/DeviceDelegate.qml:253
+#: package/contents/ui/DeviceDelegate.qml:297
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%​%1"
 
-#: package/contents/ui/DeviceDelegate.qml:279
+#: package/contents/ui/DeviceDelegate.qml:310
 #, kde-format
-msgid "Remote Keyboard"
-msgstr "Uzaktan Klavye"
+msgid "More options…"
+msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:300
-#, kde-format
-msgid "Notifications:"
+#: package/contents/ui/DeviceDelegate.qml:350
+#, fuzzy, kde-format
+#| msgid "Notifications:"
+msgid "Notifications"
 msgstr "Bildirimler:"
 
-#: package/contents/ui/DeviceDelegate.qml:308
+#: package/contents/ui/DeviceDelegate.qml:362
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Tüm bildirimleri kapat"
 
-#: package/contents/ui/DeviceDelegate.qml:366
+#: package/contents/ui/DeviceDelegate.qml:380
+#, kde-format
+msgid "Remote Keyboard"
+msgstr "Uzaktan Klavye"
+
+#: package/contents/ui/DeviceDelegate.qml:616
 #, kde-format
 msgid "Reply"
 msgstr "Yanıtla"
 
-#: package/contents/ui/DeviceDelegate.qml:379
+#: package/contents/ui/DeviceDelegate.qml:633
 #, kde-format
 msgid "Dismiss"
 msgstr "Reddet"
 
-#: package/contents/ui/DeviceDelegate.qml:392
+#: package/contents/ui/DeviceDelegate.qml:659
 #, kde-format
 msgid "Cancel"
 msgstr "İptal"
 
-#: package/contents/ui/DeviceDelegate.qml:406
+#: package/contents/ui/DeviceDelegate.qml:674
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Yanıtla: %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:424
+#: package/contents/ui/DeviceDelegate.qml:692
 #, kde-format
 msgid "Send"
 msgstr "Gönder"
 
-#: package/contents/ui/DeviceDelegate.qml:445
+#: package/contents/ui/DeviceDelegate.qml:724
 #, kde-format
 msgid "Run command"
 msgstr "Komut çalıştır"
 
-#: package/contents/ui/DeviceDelegate.qml:452
+#: package/contents/ui/DeviceDelegate.qml:731
 #, kde-format
 msgid "Add command"
 msgstr "Komut ekle"
 
-#: package/contents/ui/FullRepresentation.qml:64
+#: package/contents/ui/FullRepresentation.qml:68
 #, kde-format
 msgid "No paired devices"
 msgstr "Eşleştirilmiş aygıt yok"
 
-#: package/contents/ui/FullRepresentation.qml:64
+#: package/contents/ui/FullRepresentation.qml:68
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "Eşleştirilmiş aygıt kullanılamıyor"
 msgstr[1] "Tüm eşleştirilmiş aygıtlar kullanılamıyor"
 
-#: package/contents/ui/FullRepresentation.qml:66
+#: package/contents/ui/FullRepresentation.qml:70
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr "Plasma ile tümleştirmek için Android aygıtınıza KDE Bağlan’ı kurun!"
 
-#: package/contents/ui/FullRepresentation.qml:70
+#: package/contents/ui/FullRepresentation.qml:74
 #, kde-format
 msgid "Pair a Device…"
 msgstr "Aygıt Eşleştir…"
 
-#: package/contents/ui/FullRepresentation.qml:82
+#: package/contents/ui/FullRepresentation.qml:86
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Google Play’den Kur"
 
-#: package/contents/ui/FullRepresentation.qml:92
+#: package/contents/ui/FullRepresentation.qml:96
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "F-Droid’den Kur"
 
-#: package/contents/ui/main.qml:54
+#: package/contents/ui/main.qml:55
 #, kde-format
 msgid "KDE Connect Settings…"
 msgstr "KDE Bağlan Ayarları…"

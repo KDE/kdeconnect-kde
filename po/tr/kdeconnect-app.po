@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-10 00:43+0000\n"
-"PO-Revision-Date: 2026-02-27 07:57+0300\n"
+"PO-Revision-Date: 2026-03-11 16:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -78,7 +78,7 @@ msgstr "Paylaşılacak URL"
 #: qml/DevicePage.qml:36
 #, kde-format
 msgid "Unpair"
-msgstr "Eşleşmeyi kaldır"
+msgstr "Eşleşmeyi Kaldır"
 
 #: qml/DevicePage.qml:41
 #, kde-format
@@ -111,17 +111,17 @@ msgstr "Bilgi"
 #: qml/DevicePage.qml:115
 #, kde-format
 msgid "Multimedia control"
-msgstr "Çoklu ortam denetimi"
+msgstr "Çoklu Ortam Denetimi"
 
 #: qml/DevicePage.qml:123
 #, kde-format
 msgid "Remote input"
-msgstr "Uzaktan giriş"
+msgstr "Uzaktan Giriş"
 
 #: qml/DevicePage.qml:131 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
-msgstr "Komut çalıştır"
+msgstr "Komut Çalıştır"
 
 #: qml/DevicePage.qml:139 qml/presentationRemote.qml:15
 #, kde-format
@@ -131,7 +131,7 @@ msgstr "Sunum Uzaktan Kumandası"
 #: qml/DevicePage.qml:148 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
-msgstr "Ses denetimi"
+msgstr "Ses Denetimi"
 
 #: qml/DevicePage.qml:158
 #, kde-format
@@ -166,7 +166,7 @@ msgstr "Dosya Paylaş"
 #: qml/DevicePage.qml:197
 #, kde-format
 msgid "Browse this device"
-msgstr "Bu aygıta göz at"
+msgstr "Aygıta Göz At"
 
 #: qml/DevicePage.qml:205
 #, kde-format
@@ -221,7 +221,7 @@ msgstr "Bu aygıt erişilebilir değil"
 #: qml/DevicePage.qml:280
 #, kde-format
 msgid "Please choose a file"
-msgstr "Lütfen bir dosya seçin"
+msgstr "Dosya Seç"
 
 #: qml/Main.qml:87
 #, kde-format
