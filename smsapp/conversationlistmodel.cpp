@@ -301,14 +301,13 @@ void ConversationListModel::displayContacts()
 void ConversationListModel::createConversationForAddress(const QString &address)
 {
     QStandardItem *item = new QStandardItem();
-    const QString canonicalizedAddress = SmsHelper::canonicalizePhoneNumber(address);
-    item->setText(canonicalizedAddress);
+    item->setText(address);
 
     QList<ConversationAddress> addresses;
-    addresses.append(ConversationAddress(canonicalizedAddress));
+    addresses.append(ConversationAddress(address));
     item->setData(QVariant::fromValue(addresses), AddressesRole);
 
-    QString displayBody = i18n("%1", canonicalizedAddress);
+    QString displayBody = i18n("%1", address);
     item->setData(displayBody, Qt::ToolTipRole);
     item->setData(false, MultitargetRole);
     item->setData(qint64(INVALID_THREAD_ID), ConversationIdRole);
