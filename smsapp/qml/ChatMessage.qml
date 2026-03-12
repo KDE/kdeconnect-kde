@@ -101,6 +101,7 @@ Item {
                     width: parent.width
                     horizontalAlignment: root.sentByMe ? Text.AlignRight : Text.AlignLeft
                     wrapMode: Text.Wrap
+                    textFormat: Text.PlainText
                     text: root.messageBody
                 }
 
