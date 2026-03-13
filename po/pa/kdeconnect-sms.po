@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-10 02:45+0000\n"
+"POT-Creation-Date: 2026-03-13 02:38+0000\n"
 "PO-Revision-Date: 2024-10-25 21:56-0500\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -63,58 +63,58 @@ msgstr "ਤੁਸੀਂ: %1"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: conversationlistmodel.cpp:289 conversationlistmodel.cpp:311
+#: conversationlistmodel.cpp:289 conversationlistmodel.cpp:310
 #, kde-format
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:82 qml/Main.qml:73
+#: main.cpp:84 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE ਕਨੈਕਟ SMS"
 
-#: main.cpp:84
+#: main.cpp:86
 #, kde-format
 msgid "SMS Instant Messaging"
 msgstr "SMS ਫੌਰੀ ਸੁਨੇਹੇ"
 
-#: main.cpp:86
+#: main.cpp:88
 #, fuzzy, kde-format
 #| msgid "(C) 2018-2022, KDE Connect Team"
 msgid "© 2018–2025 KDE Connect Team"
 msgstr "(C) 2018-2022, KDE ਕਨੈਕਟ ਟੀਮ"
 
-#: main.cpp:87
+#: main.cpp:89
 #, kde-format
 msgid "Simon Redman"
 msgstr ""
 
-#: main.cpp:88
+#: main.cpp:90
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "ਐਲਿਕਸ ਪੋਲ ਗੋਨਜ਼ਾਵੇਜ"
 
-#: main.cpp:89
+#: main.cpp:91
 #, kde-format
 msgid "Nicolas Fella"
 msgstr "ਨਿਕੋਲਸ ਫੇਲਾ"
 
-#: main.cpp:116
+#: main.cpp:118
 #, kde-format
 msgid "Select a device"
 msgstr "ਡਿਵਾਈਸ ਚੁਣੋ"
 
-#: main.cpp:116
+#: main.cpp:118
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: main.cpp:117
+#: main.cpp:119
 #, kde-format
 msgid "Send a message"
 msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
 
-#: main.cpp:117
+#: main.cpp:119
 #, kde-format
 msgid "message"
 msgstr "ਸੁਨੇਹਾ"
@@ -181,7 +181,7 @@ msgstr "ਗੱਲਬਾਤ ਖੋਜੋ ਜਾਂ ਸ਼ੁਰੂ ਕਰੋ"
 msgid "Start new conversation"
 msgstr "ਨਵੀਂ ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
 
-#: qml/ConversationList.qml:193
+#: qml/ConversationList.qml:194
 #, fuzzy, kde-format
 #| msgctxt "Placeholder message text when no messages are found"
 #| msgid "No matches"
@@ -189,7 +189,7 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "ਕੋਈ ਮੇਲ ਨਹੀਂ"
 
-#: qml/ConversationList.qml:203
+#: qml/ConversationList.qml:204
 #, fuzzy, kde-format
 #| msgid "Start new conversation"
 msgctxt "@info:placeholder"

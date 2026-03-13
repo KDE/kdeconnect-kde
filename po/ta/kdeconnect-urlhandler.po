@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2024 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-02 00:44+0000\n"
-"PO-Revision-Date: 2024-04-07 17:39+0530\n"
+"PO-Revision-Date: 2026-03-12 20:50+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "கோ. கிஷோர்"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "Kde-l10n-ta@kde.org"
 
 #. i18n: ectx: property (text), widget (QLabel, devicePickerLabel)
 #: dialog.ui:25
@@ -37,37 +37,37 @@ msgstr "சாதனத்தை தேர்ந்தெடுக்கவு�
 #: dialog.ui:39
 #, kde-format
 msgid "Enter a file location or URL:"
-msgstr ""
+msgstr "கோப்பின் இருப்பிடத்தையோ முகவரியையோ உள்ளிடவும்:"
 
 #: kdeconnect-handler.cpp:52
 #, kde-format
 msgid "KDE Connect URL handler"
-msgstr ""
+msgstr "கே.டீ.யீ. கனெக்ட் முகவரி கையாளி"
 
 #: kdeconnect-handler.cpp:58
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025 கே.டீ.யீ. கனெக்ட் குழு"
 
 #: kdeconnect-handler.cpp:59
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr ""
+msgstr "அலேயிக்சு போல் கொன்ஸாலெசு"
 
 #: kdeconnect-handler.cpp:60
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "ஆல்பர்டு வாக்கா சின்ட்டோரா"
 
 #: kdeconnect-handler.cpp:94
 #, kde-format
 msgid "URL to share"
-msgstr ""
+msgstr "பகிர வேண்டிய முகவரி"
 
 #: kdeconnect-handler.cpp:95
 #, kde-format
 msgid "Select a device"
-msgstr ""
+msgstr "சாதனத்தை தேர்ந்தெடுக்கவும்"
 
 #: kdeconnect-handler.cpp:95
 #, kde-format
@@ -77,44 +77,44 @@ msgstr ""
 #: kdeconnect-handler.cpp:96
 #, kde-format
 msgid "Automatically open the file on the remote device, when supported"
-msgstr ""
+msgstr "முடிந்தால் சேருமிட சாதனத்தில் கோப்பைத் தானாகத் திற"
 
 #: kdeconnect-handler.cpp:147
 #, kde-format
 msgctxt "Placeholder for input field that should contain a file/URL to share"
 msgid "Local file or web URL"
-msgstr ""
+msgstr "உள்ளக கோப்பு அல்லது இணைய முகவரி"
 
 #: kdeconnect-handler.cpp:155
 #, kde-format
 msgid "Device to call %1 with:"
-msgstr ""
+msgstr "%1 தனை அழைப்பதற்கான சாதனம்:"
 
 #: kdeconnect-handler.cpp:158
 #, kde-format
 msgid "Device to open %1 on:"
-msgstr ""
+msgstr "%1 தனை திறப்பதற்கான சாதனம்:"
 
 #: kdeconnect-handler.cpp:161
 #, kde-format
 msgid "Device to send a SMS with:"
-msgstr ""
+msgstr "SMS அனுப்புவதற்கான சாதனம்:"
 
 #: kdeconnect-handler.cpp:164
 #, kde-format
 msgid "Device to send %1 to:"
-msgstr ""
+msgstr "%1 தனை பெற வேண்டிய சாதனம்"
 
 #: kdeconnect-handler.cpp:171
 #, kde-format
 msgctxt "Label, for a list of items like files or urls"
 msgid "Shared content:"
-msgstr ""
+msgstr "பகிர்ந்துள்ளவை:"
 
 #: kdeconnect-handler.cpp:196
 #, kde-format
 msgid "Couldn't share %1"
-msgstr ""
+msgstr "%1 தனை பகிர முடியவில்லை"
 
 #~ msgid "Send URL"
 #~ msgstr "முகவரியை அனுப்பு"
