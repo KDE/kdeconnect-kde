@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-10 00:43+0000\n"
+"POT-Creation-Date: 2026-03-13 00:43+0000\n"
 "PO-Revision-Date: 2020-11-20 01:14+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -64,58 +64,58 @@ msgstr "Sina: %1"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: conversationlistmodel.cpp:289 conversationlistmodel.cpp:311
+#: conversationlistmodel.cpp:289 conversationlistmodel.cpp:310
 #, kde-format
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:82 qml/Main.qml:73
+#: main.cpp:84 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connecti SMS"
 
-#: main.cpp:84
+#: main.cpp:86
 #, kde-format
 msgid "SMS Instant Messaging"
 msgstr "SMS-kiirsuhtlus"
 
-#: main.cpp:86
+#: main.cpp:88
 #, fuzzy, kde-format
 #| msgid "(C) 2018-2019, KDE Connect Team"
 msgid "© 2018–2025 KDE Connect Team"
 msgstr "(C) 2018-2019: KDE Connecti meeskond"
 
-#: main.cpp:87
+#: main.cpp:89
 #, kde-format
 msgid "Simon Redman"
 msgstr "Simon Redman"
 
-#: main.cpp:88
+#: main.cpp:90
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:89
+#: main.cpp:91
 #, kde-format
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:116
+#: main.cpp:118
 #, kde-format
 msgid "Select a device"
 msgstr "Seadme valimine"
 
-#: main.cpp:116
+#: main.cpp:118
 #, kde-format
 msgid "id"
 msgstr "ID"
 
-#: main.cpp:117
+#: main.cpp:119
 #, kde-format
 msgid "Send a message"
 msgstr "Sõnumi saatmine"
 
-#: main.cpp:117
+#: main.cpp:119
 #, kde-format
 msgid "message"
 msgstr "sõnum"
@@ -183,13 +183,13 @@ msgstr "Alusta uut vestlust"
 msgid "Start new conversation"
 msgstr "Alusta uut vestlust"
 
-#: qml/ConversationList.qml:193
+#: qml/ConversationList.qml:194
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr ""
 
-#: qml/ConversationList.qml:203
+#: qml/ConversationList.qml:204
 #, fuzzy, kde-format
 #| msgid "Start new conversation"
 msgctxt "@info:placeholder"
@@ -228,25 +228,25 @@ msgstr "Saatmine nurjus"
 msgid "Max message size limit exceeded."
 msgstr "Sõnumi mahupiirang ületati."
 
-#: qml/SendingArea.qml:63
+#: qml/SendingArea.qml:67
 #, fuzzy, kde-format
 #| msgid "Send a message"
 msgid "Send a message…"
 msgstr "Sõnumi saatmine"
 
-#: qml/SendingArea.qml:119
+#: qml/SendingArea.qml:123
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
 msgstr ""
 
-#: qml/SendingArea.qml:144
+#: qml/SendingArea.qml:148
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
 msgstr ""
 
-#: qml/SendingArea.qml:173
+#: qml/SendingArea.qml:177
 #, fuzzy, kde-format
 #| msgid "Send a message"
 msgctxt "@info:tooltip"

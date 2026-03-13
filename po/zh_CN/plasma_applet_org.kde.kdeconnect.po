@@ -105,10 +105,9 @@ msgid "More options…"
 msgstr ""
 
 #: package/contents/ui/DeviceDelegate.qml:350
-#, fuzzy, kde-format
-#| msgid "Notifications:"
+#, kde-format
 msgid "Notifications"
-msgstr "通知："
+msgstr ""
 
 #: package/contents/ui/DeviceDelegate.qml:362
 #, kde-format

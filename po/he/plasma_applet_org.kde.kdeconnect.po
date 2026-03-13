@@ -3,13 +3,13 @@
 #
 # elkana bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2023, 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-12 00:43+0000\n"
-"PO-Revision-Date: 2024-07-13 15:19+0300\n"
+"PO-Revision-Date: 2026-03-12 13:58+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: package/contents/ui/Battery.qml:33
 #, kde-format
@@ -104,13 +104,12 @@ msgstr "%1%"
 #: package/contents/ui/DeviceDelegate.qml:310
 #, kde-format
 msgid "More options…"
-msgstr ""
+msgstr "אפשרויות נוספות…"
 
 #: package/contents/ui/DeviceDelegate.qml:350
-#, fuzzy, kde-format
-#| msgid "Notifications:"
+#, kde-format
 msgid "Notifications"
-msgstr "התראות:"
+msgstr "התראות"
 
 #: package/contents/ui/DeviceDelegate.qml:362
 #, kde-format

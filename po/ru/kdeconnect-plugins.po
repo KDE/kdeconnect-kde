@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-10 00:43+0000\n"
+"POT-Creation-Date: 2026-03-13 00:43+0000\n"
 "PO-Revision-Date: 2026-03-10 10:27+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -130,8 +130,10 @@ msgid "Reply"
 msgstr "Ответить"
 
 #: notifications/notification.cpp:118
-#, kde-format
-msgctxt "@info:placeholder"
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reply in %1…"
+msgctxt "@info:placeholder %1 is the name of a group chat"
 msgid "Reply in %1…"
 msgstr "Ответить в %1…"
 

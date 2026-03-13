@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-12 00:43+0000\n"
-"PO-Revision-Date: 2024-07-13 05:53+0200\n"
+"PO-Revision-Date: 2026-03-12 07:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.9\n"
 
 #: package/contents/ui/Battery.qml:33
 #, kde-format
@@ -102,13 +102,12 @@ msgstr "%1%"
 #: package/contents/ui/DeviceDelegate.qml:310
 #, kde-format
 msgid "More options…"
-msgstr ""
+msgstr "მეტი პარამეტრი…"
 
 #: package/contents/ui/DeviceDelegate.qml:350
-#, fuzzy, kde-format
-#| msgid "Notifications:"
+#, kde-format
 msgid "Notifications"
-msgstr "შეტყობინებები:"
+msgstr "გაფრთხილებები"
 
 #: package/contents/ui/DeviceDelegate.qml:362
 #, kde-format

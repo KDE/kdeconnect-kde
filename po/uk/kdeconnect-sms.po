@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-10 00:43+0000\n"
+"POT-Creation-Date: 2026-03-13 00:43+0000\n"
 "PO-Revision-Date: 2025-10-14 08:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -66,57 +66,57 @@ msgstr "Ви: %1"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: conversationlistmodel.cpp:289 conversationlistmodel.cpp:311
+#: conversationlistmodel.cpp:289 conversationlistmodel.cpp:310
 #, kde-format
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:82 qml/Main.qml:73
+#: main.cpp:84 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect SMS"
 
-#: main.cpp:84
+#: main.cpp:86
 #, kde-format
 msgid "SMS Instant Messaging"
 msgstr "Миттєвий обмін SMS"
 
-#: main.cpp:86
+#: main.cpp:88
 #, kde-format
 msgid "© 2018–2025 KDE Connect Team"
 msgstr "© Команда KDE Connect, 2018–2025"
 
-#: main.cpp:87
+#: main.cpp:89
 #, kde-format
 msgid "Simon Redman"
 msgstr "Simon Redman"
 
-#: main.cpp:88
+#: main.cpp:90
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:89
+#: main.cpp:91
 #, kde-format
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:116
+#: main.cpp:118
 #, kde-format
 msgid "Select a device"
 msgstr "Виберіть пристрій"
 
-#: main.cpp:116
+#: main.cpp:118
 #, kde-format
 msgid "id"
 msgstr "ід."
 
-#: main.cpp:117
+#: main.cpp:119
 #, kde-format
 msgid "Send a message"
 msgstr "Надіслати повідомлення"
 
-#: main.cpp:117
+#: main.cpp:119
 #, kde-format
 msgid "message"
 msgstr "повідомлення"
@@ -188,13 +188,13 @@ msgstr "Виконайте пошук або розпочніть спілкув
 msgid "Start new conversation"
 msgstr "Розпочати нове спілкування"
 
-#: qml/ConversationList.qml:193
+#: qml/ConversationList.qml:194
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "Нічого не знайдено"
 
-#: qml/ConversationList.qml:203
+#: qml/ConversationList.qml:204
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "No Conversations"
@@ -230,24 +230,24 @@ msgstr "Не вдалося надіслати"
 msgid "Max message size limit exceeded."
 msgstr "Перевищено обмеження на максимальний розмір повідомлення"
 
-#: qml/SendingArea.qml:63
+#: qml/SendingArea.qml:67
 #, kde-format
 msgid "Send a message…"
 msgstr "Надіслати повідомлення…"
 
-#: qml/SendingArea.qml:119
+#: qml/SendingArea.qml:123
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
 msgstr "Долучити зображення або файл"
 
-#: qml/SendingArea.qml:144
+#: qml/SendingArea.qml:148
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
 msgstr "Вилучити долучення"
 
-#: qml/SendingArea.qml:173
+#: qml/SendingArea.qml:177
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"

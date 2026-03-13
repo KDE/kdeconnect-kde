@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-10 00:43+0000\n"
+"POT-Creation-Date: 2026-03-13 00:43+0000\n"
 "PO-Revision-Date: 2025-03-09 17:05+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -65,57 +65,57 @@ msgstr "நீங்கள்: %1"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: conversationlistmodel.cpp:289 conversationlistmodel.cpp:311
+#: conversationlistmodel.cpp:289 conversationlistmodel.cpp:310
 #, kde-format
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:82 qml/Main.qml:73
+#: main.cpp:84 qml/Main.qml:73
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "கே.டீ.யீ. கனெக்ட் SMS"
 
-#: main.cpp:84
+#: main.cpp:86
 #, kde-format
 msgid "SMS Instant Messaging"
 msgstr ""
 
-#: main.cpp:86
+#: main.cpp:88
 #, kde-format
 msgid "© 2018–2025 KDE Connect Team"
 msgstr ""
 
-#: main.cpp:87
+#: main.cpp:89
 #, kde-format
 msgid "Simon Redman"
 msgstr ""
 
-#: main.cpp:88
+#: main.cpp:90
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr ""
 
-#: main.cpp:89
+#: main.cpp:91
 #, kde-format
 msgid "Nicolas Fella"
 msgstr ""
 
-#: main.cpp:116
+#: main.cpp:118
 #, kde-format
 msgid "Select a device"
 msgstr "சாதனத்தை தேர்ந்தெடுக்கவும்"
 
-#: main.cpp:116
+#: main.cpp:118
 #, kde-format
 msgid "id"
 msgstr ""
 
-#: main.cpp:117
+#: main.cpp:119
 #, kde-format
 msgid "Send a message"
 msgstr "செய்தி அனுப்பு"
 
-#: main.cpp:117
+#: main.cpp:119
 #, kde-format
 msgid "message"
 msgstr ""
@@ -187,7 +187,7 @@ msgstr "தேடு அல்லது உரையாடலை துவக்
 msgid "Start new conversation"
 msgstr "புதிய உரையாடலை துவக்கு"
 
-#: qml/ConversationList.qml:193
+#: qml/ConversationList.qml:194
 #, fuzzy, kde-format
 #| msgctxt "Placeholder message text when no messages are found"
 #| msgid "No matches"
@@ -195,7 +195,7 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No Matches"
 msgstr "எதுவும் பொருந்தவில்லை"
 
-#: qml/ConversationList.qml:203
+#: qml/ConversationList.qml:204
 #, fuzzy, kde-format
 #| msgid "Start new conversation"
 msgctxt "@info:placeholder"
@@ -232,24 +232,24 @@ msgstr "அனுப்புவது தோல்வியடைந்தத�
 msgid "Max message size limit exceeded."
 msgstr "செய்தி அதற்கான அதிகபட்ச அளவை மீறியது."
 
-#: qml/SendingArea.qml:63
+#: qml/SendingArea.qml:67
 #, kde-format
 msgid "Send a message…"
 msgstr "செய்தியை அனுப்பு…"
 
-#: qml/SendingArea.qml:119
+#: qml/SendingArea.qml:123
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
 msgstr "படத்தை அல்லது கோப்பை இணை"
 
-#: qml/SendingArea.qml:144
+#: qml/SendingArea.qml:148
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
 msgstr "உடனிணைப்புகளை நீக்கு"
 
-#: qml/SendingArea.qml:173
+#: qml/SendingArea.qml:177
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
