@@ -106,7 +106,7 @@ Kirigami.ScrollablePage {
                 icon.name: modelData.iconName
                 highlighted: false
                 icon.color: "transparent"
-                width: ListView.view.width
+                width: pluginsListView.width
                 enabled: true
                 hoverEnabled: modelData.clickable
                 focusPolicy: modelData.clickable ? Qt.StrongFocus : Qt.NoFocus
@@ -123,6 +123,15 @@ Kirigami.ScrollablePage {
                 Shortcut {
                     sequence: pluginDelegate.Kirigami.MnemonicData.sequence
                     onActivated: clicked()
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    visible: !modelData.clickable
+                    enabled: visible
+                    acceptedButtons: Qt.AllButtons
+                    hoverEnabled: true
+                    preventStealing: true
                 }
             }
         }
