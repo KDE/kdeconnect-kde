@@ -21,6 +21,7 @@ class BatteryAction : public QAction
     Q_OBJECT
 public:
     BatteryAction(DeviceDbusInterface *device);
+    bool hasBattery() const;
     void update();
 private Q_SLOTS:
     void setCharge(int charge);

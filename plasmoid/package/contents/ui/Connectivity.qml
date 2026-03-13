@@ -46,6 +46,7 @@ QtObject {
      * Reports a value between 0 and 4 (inclusive) which represents the strength of the cellular connection
      */
     readonly property int signalStrength: connectivity?.cellularNetworkStrength ?? -1
+    readonly property string iconName: connectivity?.iconName ?? "network-mobile-off"
 
     readonly property string displayString: {
         if (connectivity !== null) {
@@ -56,68 +57,6 @@ QtObject {
     }
 
     property KDEConnect.ConnectivityReportDbusInterface connectivity
-
-    /**
-     * Suggests an icon name to use for the current signal level
-     *
-     * Returns names which correspond to Plasma Framework's network.svg:
-     * https://invent.kde.org/frameworks/plasma-framework/-/blob/master/src/desktoptheme/breeze/icons/network.svg
-     */
-    readonly property string iconName: {
-        // Firstly, get the name prefix which represents the signal strength
-        const signalStrengthIconName =
-            (signalStrength < 0 || connectivity === null) ?
-                // As long as the signal strength is nonsense or the plugin reports as non-ready,
-                // show us as disconnected
-                "network-mobile-off" :
-            (signalStrength === 0) ?
-                "network-mobile-0" :
-            (signalStrength === 1) ?
-                "network-mobile-20" :
-            (signalStrength === 2) ?
-                "network-mobile-60" :
-            (signalStrength === 3) ?
-                "network-mobile-80" :
-            (signalStrength === 4) ?
-                "network-mobile-100" :
-            // Since all possible values are enumerated above, this default case should never be hit.
-            // However, I need it in order for my ternary syntax to be valid!
-            "network-mobile-available";
-
-        // If we understand the network type, append to the icon name to show the type
-        const networkTypeSuffix =
-            (networkType === "5G") ?
-                "-5g" :
-            (networkType === "LTE") ?
-                "-lte" :
-            (networkType === "HSPA") ?
-                "-hspa" :
-            (networkType === "UMTS") ?
-                "-umts" :
-            (networkType === "CDMA2000") ?
-                // GSconnect just uses the 3g icon
-                // No icon for this case!
-                "" :
-            (networkType === "EDGE") ?
-                "-edge" :
-            (networkType === "GPRS") ?
-                "-gprs" :
-            (networkType === "GSM") ?
-                // GSconnect just uses the 2g icon
-                // No icon for this case!
-                "" :
-            (networkType === "CDMA") ?
-                // GSconnect just uses the 2g icon
-                // No icon for this case!
-                "" :
-            (networkType === "iDEN") ?
-                // GSconnect just uses the 2g icon
-                // No icon for this case!
-                "" :
-                ""; // We didn't recognize the network type. Don't append anything.
-
-        return signalStrengthIconName + networkTypeSuffix;
-    }
 
     onAvailableChanged: {
         if (available) {

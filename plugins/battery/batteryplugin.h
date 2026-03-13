@@ -16,6 +16,8 @@ class BatteryPlugin : public KdeConnectPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.battery")
     Q_PROPERTY(int charge READ charge NOTIFY refreshed)
     Q_PROPERTY(bool isCharging READ isCharging NOTIFY refreshed)
+    Q_PROPERTY(bool hasBattery READ hasBattery NOTIFY refreshed)
+    Q_PROPERTY(QString iconName READ iconName NOTIFY refreshed)
 
 public:
     explicit BatteryPlugin(QObject *parent, const QVariantList &args);
@@ -26,6 +28,12 @@ public:
 
     int charge() const;
     bool isCharging() const;
+    bool hasBattery() const;
+
+    /**
+     * Suggests an icon name to use for the current battery level
+     */
+    QString iconName() const;
 
 Q_SIGNALS:
     Q_SCRIPTABLE void refreshed(bool isCharging, int charge);

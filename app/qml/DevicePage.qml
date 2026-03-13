@@ -18,6 +18,16 @@ Kirigami.ScrollablePage {
     property QtObject currentDevice
     title: currentDevice.name
 
+    BatteryInfo {
+        id: batteryInfo
+        device: root.currentDevice
+    }
+
+    ConnectivityInfo {
+        id: connectivityInfo
+        device: root.currentDevice
+    }
+
     function openSettings()
     {
         return pageStack.push(
@@ -92,14 +102,21 @@ Kirigami.ScrollablePage {
                 id: pluginDelegate
                 text: Kirigami.MnemonicData.richTextLabel
                 Accessible.name: Kirigami.MnemonicData.plainTextLabel ?? modelData.name // fallback needed for KF < 6.12
+                Accessible.role: modelData.clickable ? Accessible.Button : Accessible.StaticText
                 icon.name: modelData.iconName
                 highlighted: false
                 icon.color: "transparent"
                 width: ListView.view.width
-                onClicked: modelData.onClick()
-                enabled: loaded
+                enabled: true
+                hoverEnabled: modelData.clickable
+                focusPolicy: modelData.clickable ? Qt.StrongFocus : Qt.NoFocus
+                onClicked: {
+                    if (modelData.clickable) {
+                        modelData.onClick()
+                    }
+                }
 
-                Kirigami.MnemonicData.enabled: enabled && visible
+                Kirigami.MnemonicData.enabled: modelData.clickable && visible
                 Kirigami.MnemonicData.controlType: Kirigami.MnemonicData.MenuItem
                 Kirigami.MnemonicData.label: modelData.name
 
@@ -214,6 +231,22 @@ Kirigami.ScrollablePage {
                     }
                 }
                 section: "action"
+                device: root.currentDevice
+            },
+            PluginItem {
+                pluginName: "battery"
+                name: batteryInfo.displayString
+                iconNameOverride: batteryInfo.iconName
+                hidden: !batteryInfo.hasBattery
+                section: "info"
+                device: root.currentDevice
+            },
+            PluginItem {
+                pluginName: "connectivity_report"
+                name: connectivityInfo.displayString
+                iconNameOverride: connectivityInfo.iconName
+                hidden: !connectivityInfo.available
+                section: "info"
                 device: root.currentDevice
             },
             PluginItem {

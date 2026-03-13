@@ -52,6 +52,29 @@ bool BatteryPlugin::isCharging() const
     return m_isCharging;
 }
 
+bool BatteryPlugin::hasBattery() const
+{
+    return m_charge >= 0;
+}
+
+QString BatteryPlugin::iconName() const
+{
+    // Suggests an icon name to use for the current battery level.
+    if (m_charge < 0) {
+        return QStringLiteral("battery-missing-symbolic");
+    } else if (m_charge < 10) {
+        return m_isCharging ? QStringLiteral("battery-empty-charging-symbolic") : QStringLiteral("battery-empty-symbolic");
+    } else if (m_charge < 25) {
+        return m_isCharging ? QStringLiteral("battery-caution-charging-symbolic") : QStringLiteral("battery-caution-symbolic");
+    } else if (m_charge < 50) {
+        return m_isCharging ? QStringLiteral("battery-low-charging-symbolic") : QStringLiteral("battery-low-symbolic");
+    } else if (m_charge < 75) {
+        return m_isCharging ? QStringLiteral("battery-good-charging-symbolic") : QStringLiteral("battery-good-symbolic");
+    } else {
+        return m_isCharging ? QStringLiteral("battery-full-charging-symbolic") : QStringLiteral("battery-full-symbolic");
+    }
+}
+
 void BatteryPlugin::connected()
 {
     // Explicitly send the current charge

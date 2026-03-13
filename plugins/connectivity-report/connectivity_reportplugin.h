@@ -37,6 +37,7 @@ class ConnectivityReportPlugin : public KdeConnectPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.connectivity_report")
     Q_PROPERTY(QString cellularNetworkType READ cellularNetworkType NOTIFY refreshed)
     Q_PROPERTY(int cellularNetworkStrength READ cellularNetworkStrength NOTIFY refreshed)
+    Q_PROPERTY(QString iconName READ iconName NOTIFY refreshed)
 
 public:
     using KdeConnectPlugin::KdeConnectPlugin;
@@ -46,6 +47,14 @@ public:
 
     QString cellularNetworkType() const;
     int cellularNetworkStrength() const;
+
+    /**
+     * Suggests an icon name to use for the current signal level.
+     *
+     * Returns names which correspond to Plasma Framework's network.svg:
+     * https://invent.kde.org/frameworks/plasma-framework/-/blob/master/src/desktoptheme/breeze/icons/network.svg
+     */
+    QString iconName() const;
 
 Q_SIGNALS:
     Q_SCRIPTABLE void refreshed(QString cellularNetworkType, int cellularNetworkStrength);

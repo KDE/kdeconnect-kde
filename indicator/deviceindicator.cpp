@@ -32,7 +32,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
     setWhenAvailable(
         device->hasPlugin(QStringLiteral("kdeconnect_battery")),
         [battery](bool error, bool available) {
-            battery->setVisible(available && !error);
+            battery->setVisible(available && !error && battery->hasBattery());
             battery->setDisabled(true);
         },
         this);

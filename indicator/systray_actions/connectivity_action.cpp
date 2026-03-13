@@ -35,39 +35,7 @@ void ConnectivityAction::update()
                       m_cellularNetworkStrength * 25));
     }
 
-    // set icon name
-
-    QString iconName = QStringLiteral("network-mobile");
-
-    if (m_cellularNetworkStrength < 0) {
-        iconName += QStringLiteral("-off");
-    } else {
-        int signalStrength;
-        switch (m_cellularNetworkStrength) {
-        case 0:
-            signalStrength = 0;
-            break;
-        case 1:
-            signalStrength = 20;
-            break;
-        case 2:
-            signalStrength = 60;
-            break;
-        case 3:
-            signalStrength = 80;
-            break;
-        default:
-            signalStrength = 100;
-            break;
-        }
-        iconName += QStringLiteral("-") + QString::number(signalStrength);
-    }
-
-    if (connectivity_action::networkTypesWithIcons.contains(m_cellularNetworkType)) {
-        iconName += QStringLiteral("-") + m_cellularNetworkType.toLower();
-    }
-
-    setIcon(QIcon::fromTheme(iconName));
+    setIcon(QIcon::fromTheme(m_connectivityiface.iconName()));
 }
 
 void ConnectivityAction::setCellularNetworkStrength(int cellularNetworkStrength)

@@ -25,6 +25,27 @@ int ConnectivityReportPlugin::cellularNetworkStrength() const
     return m_cellularNetworkStrength;
 }
 
+QString ConnectivityReportPlugin::iconName() const
+{
+    const QString signalStrengthIconName = (m_cellularNetworkStrength < 0) ? QStringLiteral("network-mobile-off")
+        : (m_cellularNetworkStrength == 0)                                 ? QStringLiteral("network-mobile-0")
+        : (m_cellularNetworkStrength == 1)                                 ? QStringLiteral("network-mobile-20")
+        : (m_cellularNetworkStrength == 2)                                 ? QStringLiteral("network-mobile-60")
+        : (m_cellularNetworkStrength == 3)                                 ? QStringLiteral("network-mobile-80")
+        : (m_cellularNetworkStrength == 4)                                 ? QStringLiteral("network-mobile-100")
+                                                                           : QStringLiteral("network-mobile-available"); // Should not happen
+
+    const QString networkTypeSuffix = (m_cellularNetworkType == QLatin1String("5G")) ? QStringLiteral("-5g")
+        : (m_cellularNetworkType == QLatin1String("LTE"))                            ? QStringLiteral("-lte")
+        : (m_cellularNetworkType == QLatin1String("HSPA"))                           ? QStringLiteral("-hspa")
+        : (m_cellularNetworkType == QLatin1String("UMTS"))                           ? QStringLiteral("-umts")
+        : (m_cellularNetworkType == QLatin1String("EDGE"))                           ? QStringLiteral("-edge")
+        : (m_cellularNetworkType == QLatin1String("GPRS"))                           ? QStringLiteral("-gprs")
+                                                                                     : QString();
+
+    return signalStrengthIconName + networkTypeSuffix;
+}
+
 void ConnectivityReportPlugin::receivePacket(const NetworkPacket &np)
 {
     auto subscriptions = np.get<QVariantMap>(QStringLiteral("signalStrengths"), QVariantMap());

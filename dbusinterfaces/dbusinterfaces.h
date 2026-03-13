@@ -78,6 +78,8 @@ class KDECONNECTDBUSINTERFACES_EXPORT BatteryDbusInterface : public OrgKdeKdecon
     Q_OBJECT
     Q_PROPERTY(int charge READ charge NOTIFY refreshedProxy)
     Q_PROPERTY(bool isCharging READ isCharging NOTIFY refreshedProxy)
+    Q_PROPERTY(bool hasBattery READ hasBattery NOTIFY refreshedProxy)
+    Q_PROPERTY(QString iconName READ iconName NOTIFY refreshedProxy)
 public:
     explicit BatteryDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 
@@ -90,6 +92,7 @@ class KDECONNECTDBUSINTERFACES_EXPORT ConnectivityReportDbusInterface : public O
     Q_OBJECT
     Q_PROPERTY(QString cellularNetworkType READ cellularNetworkType NOTIFY refreshedProxy)
     Q_PROPERTY(int cellularNetworkStrength READ cellularNetworkStrength NOTIFY refreshedProxy)
+    Q_PROPERTY(QString iconName READ iconName NOTIFY refreshedProxy)
 public:
     explicit ConnectivityReportDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 

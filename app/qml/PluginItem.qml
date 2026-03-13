@@ -13,7 +13,8 @@ import org.kde.kdeconnect
 QtObject
 {
     property alias pluginName: checker.pluginName
-    property alias iconName: checker.iconName
+    property string iconNameOverride: ""
+    readonly property string iconName: iconNameOverride || checker.iconName
     property alias loaded: checker.available
     property alias device: checker.device
     property var interfaceFactory
@@ -21,6 +22,7 @@ QtObject
     property var name
     property var section
     property bool hidden: false
+    property bool clickable: section !== "info" && loaded
 
     readonly property var checker: PluginChecker {
         id: checker

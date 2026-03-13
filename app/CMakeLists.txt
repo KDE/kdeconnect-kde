@@ -32,6 +32,8 @@ ecm_target_qml_sources(kdeconnect-app SOURCES
     qml/mousepad.qml
     qml/presentationRemote.qml
     qml/PluginItem.qml
+    qml/BatteryInfo.qml
+    qml/ConnectivityInfo.qml
     qml/DevicePage.qml
     qml/runcommand.qml
     qml/volume.qml

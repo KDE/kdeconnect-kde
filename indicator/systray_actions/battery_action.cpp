@@ -22,8 +22,15 @@ BatteryAction::BatteryAction(DeviceDbusInterface *device)
     BatteryAction::update();
 }
 
+bool BatteryAction::hasBattery() const
+{
+    return m_batteryIface.hasBattery();
+}
+
 void BatteryAction::update()
 {
+    setVisible(hasBattery());
+
     if (m_charge < 0)
         setText(i18n("No Battery"));
     else if (m_charging)

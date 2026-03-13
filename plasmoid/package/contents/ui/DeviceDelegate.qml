@@ -281,7 +281,7 @@ PlasmaComponents.ItemDelegate {
                     RowLayout {
                         id: batteryInformation
 
-                        visible: battery.available && battery.charge > -1
+                        visible: battery.available && battery.hasBattery
                         spacing: Kirigami.Units.smallSpacing
 
                         Kirigami.Icon {
