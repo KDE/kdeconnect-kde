@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2017, 2018, 2020, 2025 Vít Pelčák <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2017, 2018, 2020, 2025, 2026 Vít Pelčák <vit@pelcak.org>
 # Vit Pelcak <vit@pelcak.org>, 2021, 2023.
 #
 msgid ""
@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-02 00:44+0000\n"
-"PO-Revision-Date: 2025-12-11 16:10+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-03-13 14:56+0100\n"
+"Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -110,7 +110,7 @@ msgstr "Zařízení, kam odeslat %1:"
 #, kde-format
 msgctxt "Label, for a list of items like files or urls"
 msgid "Shared content:"
-msgstr ""
+msgstr "Sdílený obsah:"
 
 #: kdeconnect-handler.cpp:196
 #, kde-format

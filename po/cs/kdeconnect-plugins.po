@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2018, 2019, 2020, 2023, 2025 Vít Pelčák <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2018, 2019, 2020, 2023, 2025, 2026 Vít Pelčák <vit@pelcak.org>
 # Vit Pelcak <vit@pelcak.org>, 2021, 2022, 2023.
 #
 msgid ""
@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-10 02:45+0000\n"
-"PO-Revision-Date: 2025-12-17 11:24+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-03-13 14:55+0100\n"
+"Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -125,12 +125,10 @@ msgid "Reply"
 msgstr "Odpovědět"
 
 #: notifications/notification.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply in %1…"
-msgstr "Odpovědět %1…"
+msgstr "Odpovědět v %1…"
 
 #: notifications/notification.cpp:120
 #, kde-format
@@ -183,17 +181,17 @@ msgstr "Ping."
 #, kde-format
 msgctxt "@action:label"
 msgid "Display:"
-msgstr ""
+msgstr "Zobrazení:"
 
 #: presenter/kdeconnect_presenter_config.qml:25
 #, kde-format
 msgid "Red Dot"
-msgstr ""
+msgstr "Červená tečka"
 
 #: presenter/kdeconnect_presenter_config.qml:26
 #, kde-format
 msgid "Electric"
-msgstr ""
+msgstr "Elektrický"
 
 #: runcommand/kdeconnect_runcommand_config.qml:21
 #, kde-format
@@ -296,12 +294,10 @@ msgid "Forcefully Close All Vaults"
 msgstr "Vynutit zavření všech sejfů"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "Přidat příkaz"
+msgstr "Upravit příkaz"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
@@ -313,7 +309,7 @@ msgstr "Potvrdit"
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "Potvrdit"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -455,9 +451,7 @@ msgid "%1 does not exist"
 msgstr "%1 neexistuje."
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Leave Screen at"
+#, kde-format
 msgctxt ""
 "@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
 "right edge', the pointer will switch to the connected device there"
@@ -495,6 +489,8 @@ msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
 msgstr ""
+"Tento okraj má rezervováno jiné zařízení. To může vést k neočekávaným "
+"výsledkům když jsou obě připojena zároveň."
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
