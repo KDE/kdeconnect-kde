@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-13 00:43+0000\n"
-"PO-Revision-Date: 2026-03-09 07:37+0100\n"
+"PO-Revision-Date: 2026-03-13 12:12+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -125,12 +125,10 @@ msgid "Reply"
 msgstr "Odgovor"
 
 #: notifications/notification.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply in %1…"
+#, kde-format
 msgctxt "@info:placeholder %1 is the name of a group chat"
 msgid "Reply in %1…"
-msgstr "Odgovori na %1…"
+msgstr "Odgovori v %1…"
 
 #: notifications/notification.cpp:120
 #, kde-format

@@ -102,12 +102,12 @@ msgstr "%1%"
 #: package/contents/ui/DeviceDelegate.qml:310
 #, kde-format
 msgid "More options…"
-msgstr ""
+msgstr "更多选项…"
 
 #: package/contents/ui/DeviceDelegate.qml:350
 #, kde-format
 msgid "Notifications"
-msgstr ""
+msgstr "通知"
 
 #: package/contents/ui/DeviceDelegate.qml:362
 #, kde-format
