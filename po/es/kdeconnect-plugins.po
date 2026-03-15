@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-10 02:45+0000\n"
-"PO-Revision-Date: 2026-01-25 00:37+0100\n"
+"PO-Revision-Date: 2026-03-15 00:21+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -126,12 +126,10 @@ msgid "Reply"
 msgstr "Responder"
 
 #: notifications/notification.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply in %1…"
-msgstr "Responder a %1…"
+msgstr "Responder en %1…"
 
 #: notifications/notification.cpp:120
 #, kde-format
@@ -184,17 +182,17 @@ msgstr "¡Ping!"
 #, kde-format
 msgctxt "@action:label"
 msgid "Display:"
-msgstr ""
+msgstr "Pantalla:"
 
 #: presenter/kdeconnect_presenter_config.qml:25
 #, kde-format
 msgid "Red Dot"
-msgstr ""
+msgstr "Punto rojo"
 
 #: presenter/kdeconnect_presenter_config.qml:26
 #, kde-format
 msgid "Electric"
-msgstr ""
+msgstr "Eléctrico"
 
 #: runcommand/kdeconnect_runcommand_config.qml:21
 #, kde-format

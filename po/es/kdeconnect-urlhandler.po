@@ -1,14 +1,14 @@
 # Spanish translations for kdeconnect-urlhandler.po package.
-# Copyright (C) 2017-2025 This file is copyright:
+# Copyright (C) 2017-2026 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2017, 2018, 2020, 2021, 2022, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2017, 2018, 2020, 2021, 2022, 2025, 2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-02 00:44+0000\n"
-"PO-Revision-Date: 2025-11-16 00:23+0100\n"
+"PO-Revision-Date: 2026-03-15 00:21+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -112,7 +112,7 @@ msgstr "Dispositivo para enviar %1 a:"
 #, kde-format
 msgctxt "Label, for a list of items like files or urls"
 msgid "Shared content:"
-msgstr ""
+msgstr "Contenido compartido:"
 
 #: kdeconnect-handler.cpp:196
 #, kde-format
