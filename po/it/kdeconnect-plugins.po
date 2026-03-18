@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-10 02:45+0000\n"
-"PO-Revision-Date: 2026-02-27 14:23+0100\n"
+"PO-Revision-Date: 2026-03-13 17:01+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -124,12 +124,10 @@ msgid "Reply"
 msgstr "Rispondi"
 
 #: notifications/notification.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply in %1…"
-msgstr "Rispondi a %1…"
+msgstr "Rispondi in %1…"
 
 #: notifications/notification.cpp:120
 #, kde-format
