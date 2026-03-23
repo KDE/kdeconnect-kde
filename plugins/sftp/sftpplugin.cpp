@@ -103,7 +103,7 @@ QString SftpPlugin::getMountError()
 bool SftpPlugin::startBrowsing()
 {
     if (mountAndWait()) {
-        auto *job = new KIO::OpenUrlJob(QUrl(QStringLiteral("kdeconnect://") + deviceId));
+        auto *job = new KIO::OpenUrlJob(QUrl(QStringLiteral("kdeconnect://") + deviceId + QStringLiteral("/")));
         job->setUiDelegate(new KNotificationJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled));
         job->start();
         return true;
