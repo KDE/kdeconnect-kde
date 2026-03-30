@@ -158,8 +158,13 @@ void ClipboardPlugin::receivePacket(const NetworkPacket &np)
             QTemporaryDir tmpDir;
             tmpDir.setAutoRemove(false);
 
-            auto filename = np.get<QString>(QStringLiteral("filename"));
-            QUrl destination(tmpDir.path() + QStringLiteral("/") + filename);
+            const auto filename = np.get<QString>(QStringLiteral("filename"));
+            const QString filePath = QDir::cleanPath(tmpDir.filePath(filename));
+            if (!filePath.startsWith(tmpDir.path() + QStringLiteral("/"))) {
+                qCWarning(KDECONNECT_PLUGIN_CLIPBOARD) << "Directory traversal detected";
+                return;
+            }
+            const QUrl destination = QUrl::fromLocalFile(filePath);
 
             FileTransferJob *job = np.createPayloadTransferJob(destination);
             job->setProperty("destUrl", destination.toString());
