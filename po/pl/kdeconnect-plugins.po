@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-10 02:45+0000\n"
-"PO-Revision-Date: 2026-01-18 15:26+0100\n"
+"PO-Revision-Date: 2026-04-04 18:53+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -125,9 +125,7 @@ msgid "Reply"
 msgstr "Odpowiedz"
 
 #: notifications/notification.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply in %1…"
 msgstr "Odpowiedz na %1…"
@@ -183,17 +181,17 @@ msgstr "Ping!"
 #, kde-format
 msgctxt "@action:label"
 msgid "Display:"
-msgstr ""
+msgstr "Wyświetlacz:"
 
 #: presenter/kdeconnect_presenter_config.qml:25
 #, kde-format
 msgid "Red Dot"
-msgstr ""
+msgstr "Czerwona kropka"
 
 #: presenter/kdeconnect_presenter_config.qml:26
 #, kde-format
 msgid "Electric"
-msgstr ""
+msgstr "Elektryczny"
 
 #: runcommand/kdeconnect_runcommand_config.qml:21
 #, kde-format
@@ -203,7 +201,7 @@ msgstr "Dodaj polecenie…"
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Edytuj"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -296,24 +294,22 @@ msgid "Forcefully Close All Vaults"
 msgstr "Wymuś zamknięcie wszystkich sejfów"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "Dodaj polecenie"
+msgstr "Edytuj polecenie"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "Potwierdź"
 
 #: runcommand/kdeconnect_runcommand_config.qml:199
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "Potwierdź"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
