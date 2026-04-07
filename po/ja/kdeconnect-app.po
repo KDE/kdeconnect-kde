@@ -1,13 +1,14 @@
 # SPDX-FileCopyrightText: 2024, 2026 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2021.
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-10 02:45+0000\n"
-"PO-Revision-Date: 2026-01-26 19:20+0900\n"
-"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
-"Language-Team: Japanese <kde-jp@kde.org>\n"
+"PO-Revision-Date: 2026-03-31 20:07+0900\n"
+"Last-Translator: Mint <5602mint@gmail.com>\n"
+"Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -41,13 +42,13 @@ msgstr "Albert Vaca Cintora"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Ryuichi Yamada"
+msgstr "Ryuichi Yamada, Mint"
 
 #: main.cpp:45
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ryuichi_ya220@outlook.jp"
+msgstr "ryuichi_ya220@outlook.jp, 5602mint@gmail.com"
 
 #: main.cpp:76
 #, kde-format
@@ -258,8 +259,7 @@ msgid "No devices found"
 msgstr "デバイスが見つかりません"
 
 #: qml/Main.qml:215
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "設定"
@@ -326,13 +326,13 @@ msgstr "フルスクリーンを有効化"
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Previous Slide"
-msgstr ""
+msgstr "前のスライド"
 
 #: qml/presentationRemote.qml:47
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Next Slide"
-msgstr ""
+msgstr "次のスライド"
 
 #: qml/runcommand.qml:23
 #, kde-format
@@ -342,7 +342,7 @@ msgstr "コマンドを編集"
 #: qml/runcommand.qml:26
 #, kde-format
 msgid "You can edit commands on the connected device"
-msgstr "接続したデバイスのコマンドを編集可能です"
+msgstr "コマンドは接続したデバイスで編集できます"
 
 #: qml/runcommand.qml:53
 #, kde-format
@@ -379,7 +379,7 @@ msgstr "KDE について"
 #: qml/Settings.qml:91
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "閉じる"
 
 #: qml/WelcomePage.qml:27
 #, kde-format
