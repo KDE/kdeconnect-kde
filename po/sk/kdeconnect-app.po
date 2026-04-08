@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -25,7 +25,7 @@ msgstr "KDE Connect"
 #: main.cpp:42
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2015 – 2025 Tím KDE Connect"
 
 #: main.cpp:43
 #, kde-format
@@ -35,7 +35,7 @@ msgstr "Aleix Pol Gonzalez"
 #: main.cpp:44
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:45
 #, kde-format
@@ -53,19 +53,19 @@ msgstr "wizzardsk@gmail.com,prescott66@gmail.com"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr ""
+msgstr "ID zariadenia, v ktorom sa má aplikácia otvoriť"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
-msgstr ""
+msgstr "Konfiguračný modul na zobrazenie, vyžaduje nastavenie --device."
 
 #: main.cpp:83
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Nahradiť existujúcu inštanciu"
 
 #: main.cpp:86
 #, kde-format
@@ -91,11 +91,10 @@ msgstr "Nastavenia doplnkov"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
-msgstr ""
+msgstr "Akcie"
 
 #: qml/DevicePage.qml:67
-#, fuzzy, kde-format
-#| msgid "Remote Control"
+#, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "Diaľkové ovládanie"
@@ -104,7 +103,7 @@ msgstr "Diaľkové ovládanie"
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
-msgstr ""
+msgstr "Informácia"
 
 #: qml/DevicePage.qml:115
 #, kde-format
@@ -134,7 +133,7 @@ msgstr "Ovládanie hlasitosti"
 #: qml/DevicePage.qml:158
 #, kde-format
 msgid "SMS Messages"
-msgstr ""
+msgstr "SMS správy"
 
 #: qml/DevicePage.qml:166 qml/mousepad.qml:44
 #, kde-format
@@ -164,26 +163,25 @@ msgstr "Zdieľať súbor"
 #: qml/DevicePage.qml:197
 #, kde-format
 msgid "Browse this device"
-msgstr ""
+msgstr "Prehliadať toto zariadenie"
 
 #: qml/DevicePage.qml:205
 #, kde-format
 msgid "Stop virtual monitor session"
-msgstr ""
+msgstr "Zastaviť reláciu virtuálneho monitora"
 
 #: qml/DevicePage.qml:205
 #, kde-format
 msgid "Use device as an external monitor"
-msgstr ""
+msgstr "Použiť zariadenie ako externý monitor"
 
 #: qml/DevicePage.qml:220
 #, kde-format
 msgid "Address: %1 via %2"
-msgstr ""
+msgstr "Adresa: %1 cez %2"
 
 #: qml/DevicePage.qml:229
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid "This device is not paired."
 msgstr "Toto zariadenie nie je spárované"
 
@@ -194,8 +192,7 @@ msgid "Pair"
 msgstr "Spárovať"
 
 #: qml/DevicePage.qml:240 qml/DevicePage.qml:249
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
@@ -222,9 +219,7 @@ msgid "Please choose a file"
 msgstr "Prosím, vyberte súbor"
 
 #: qml/Main.qml:87
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgid "Devices"
 msgstr "Zariadenia"
 
@@ -232,12 +227,10 @@ msgstr "Zariadenia"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "Obnoviť"
 
 #: qml/Main.qml:98
-#, fuzzy, kde-format
-#| msgctxt "Title of the page listing the devices"
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Zariadenia"
@@ -263,8 +256,7 @@ msgid "No devices found"
 msgstr "Nenašli sa žiadne zariadenia"
 
 #: qml/Main.qml:215
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Nastavenia"
@@ -288,19 +280,19 @@ msgstr "Stlačte %1 alebo ľavé a pravé tlačidlo myši súčasne na odomknuti
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Left Click"
-msgstr ""
+msgstr "Kliknutie ľavým tlačidlom"
 
 #: qml/mousepad.qml:222
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Middle Click"
-msgstr ""
+msgstr "Kliknutie stredným tlačidlom"
 
 #: qml/mousepad.qml:231
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Right Click"
-msgstr ""
+msgstr "Kliknutie pravým tlačidlom"
 
 #: qml/mpris.qml:20
 #, kde-format
@@ -331,13 +323,13 @@ msgstr "Povoliť režim na celú obrazovku"
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Previous Slide"
-msgstr ""
+msgstr "Predchádzajúca snímka"
 
 #: qml/presentationRemote.qml:47
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Next Slide"
-msgstr ""
+msgstr "Nasledujúca snímka"
 
 #: qml/runcommand.qml:23
 #, kde-format
@@ -369,7 +361,7 @@ msgstr "Názov zariadenia"
 #, kde-format
 msgctxt "@title:group"
 msgid "Backends"
-msgstr ""
+msgstr "Backendy"
 
 #: qml/Settings.qml:72
 #, kde-format
@@ -384,23 +376,24 @@ msgstr "Informácie o KDE"
 #: qml/Settings.qml:91
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Zavrieť"
 
 #: qml/WelcomePage.qml:27
 #, kde-format
 msgctxt "@title"
 msgid "No Device Selected"
-msgstr ""
+msgstr "Nie je vybraté žiadne zariadenie"
 
 #: qml/WelcomePage.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
 msgstr ""
+"Uistite sa, že máte nainštalovaný KDE Connect na svojich ostatných "
+"zariadeniach."
 
 #: qml/WelcomePage.qml:43
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
 msgstr "KDE Connect"
@@ -409,17 +402,16 @@ msgstr "KDE Connect"
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
-msgstr ""
+msgstr "F-Droid"
 
 #: qml/WelcomePage.qml:57
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
-msgstr ""
+msgstr "Play Store"
 
 #: qml/WelcomePage.qml:63
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
 msgstr "KDE Connect"
@@ -427,7 +419,7 @@ msgstr "KDE Connect"
 #: qml/WelcomePage.qml:68
 #, kde-format
 msgid "Apple Store"
-msgstr ""
+msgstr "Apple Store"
 
 #: qml/WelcomePage.qml:74
 #, kde-format
@@ -436,6 +428,9 @@ msgid ""
 "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
 "Community wiki</span></a> for help."
 msgstr ""
+"Ak máte problémy, navštívte <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline;\">komunitnú wiki KDE Connect</"
+"span></a> pre pomoc."
 
 #~ msgid "(c) 2015, Aleix Pol Gonzalez"
 #~ msgstr "(c) 2015, Aleix Pol Gonzalez"

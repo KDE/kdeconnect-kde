@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -44,14 +44,12 @@ msgid "Ring device"
 msgstr "Prezvoniť zariadenie"
 
 #: deviceindicator.cpp:95
-#, fuzzy, kde-format
-#| msgid "Send a file/URL"
+#, kde-format
 msgid "Send files"
 msgstr "Odoslať súbor/URL"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
 msgstr "Správy SMS..."
 
@@ -97,23 +95,22 @@ msgstr "Nástroj indikátora aplikácie KDE Connect"
 #: main.cpp:61
 #, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2016 – 2025 Tím KDE Connect"
 
 #: main.cpp:62
-#, fuzzy, kde-format
-#| msgid "(C) 2016 Aleix Pol Gonzalez"
+#, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "(C) 2016 Aleix Pol Gonzalez"
 
 #: main.cpp:63
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "Albert Vaca Cintora"
 
 #: main.cpp:101
 #, kde-format
 msgid "Open app"
-msgstr ""
+msgstr "Otvoriť aplikáciu"
 
 #: main.cpp:118
 #, kde-format
@@ -176,7 +173,6 @@ msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
 
 #, fuzzy
-#~| msgid "Configure..."
 #~ msgid "Configure..."
 #~ msgstr "Nastaviť..."
 

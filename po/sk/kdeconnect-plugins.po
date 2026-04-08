@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -32,21 +32,20 @@ msgstr "Batéria na %1%"
 #: clipboard/kdeconnect_clipboard_config.qml:34
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "Automaticky zdieľať schránku z tohto zariadenia"
 
 #: clipboard/kdeconnect_clipboard_config.qml:42
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr ""
+msgstr "Vrátane hesiel (označených správcami hesiel)"
 
 #: clipboard/kdeconnect_clipboard_config.qml:55
 #, kde-format
 msgid "Max Clipboard File Size (MB)"
-msgstr ""
+msgstr "Maximálna veľkosť súboru schránky (MB)"
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "KDE Connect Error"
 msgstr "KDE Connect"
 
@@ -56,6 +55,8 @@ msgid ""
 "Unable to create a virtual drawing tablet. If this error persists, file a "
 "bug report."
 msgstr ""
+"Nepodarilo sa vytvoriť virtuálny kresliaci tablet. Ak táto chyba pretrváva, "
+"nahláste chybu."
 
 #: digitizer/linuxdigitizerimpl.cpp:169
 #, kde-format
@@ -63,13 +64,15 @@ msgid ""
 "Unable to process one or more input events for the virtual device. If this "
 "error persists, file a bug report."
 msgstr ""
+"Nepodarilo sa spracovať jednu alebo viacero vstupných udalostí pre virtuálne "
+"zariadenie. Ak táto chyba pretrváva, nahláste chybu."
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:24
 #, kde-format
 msgid "Apply"
-msgstr ""
+msgstr "Použiť"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:47
 #, kde-format
@@ -77,8 +80,7 @@ msgid "Sound to play:"
 msgstr "Zvuk na prehranie:"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:57
-#, fuzzy, kde-format
-#| msgid "Could not share file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose file"
 msgstr "Nepodarilo sa zdieľať súbor"
@@ -87,7 +89,7 @@ msgstr "Nepodarilo sa zdieľať súbor"
 #, kde-format
 msgctxt "@action:button"
 msgid "Play"
-msgstr ""
+msgstr "Prehrať"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -114,7 +116,7 @@ msgstr "Aktuálny hráč"
 #: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "Nedostupné"
 
 #: notifications/notification.cpp:115
 #, kde-format
@@ -123,17 +125,13 @@ msgid "Reply"
 msgstr "Odpovedať"
 
 #: notifications/notification.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply in %1…"
 msgstr "Odpoveď pre %1..."
 
 #: notifications/notification.cpp:120
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Odpoveď pre %1..."
@@ -172,7 +170,7 @@ msgstr "Stlmiť systémové zvuky"
 #: pausemusic/kdeconnect_pausemusic_config.qml:61
 #, kde-format
 msgid "Resume automatically when call ends"
-msgstr ""
+msgstr "Automaticky pokračovať po ukončení hovoru"
 
 #: ping/pingplugin.cpp:26
 #, kde-format
@@ -183,49 +181,48 @@ msgstr "Ping!"
 #, kde-format
 msgctxt "@action:label"
 msgid "Display:"
-msgstr ""
+msgstr "Displej:"
 
 #: presenter/kdeconnect_presenter_config.qml:25
 #, kde-format
 msgid "Red Dot"
-msgstr ""
+msgstr "Červená bodka"
 
 #: presenter/kdeconnect_presenter_config.qml:26
 #, kde-format
 msgid "Electric"
-msgstr ""
+msgstr "Elektrický"
 
 #: runcommand/kdeconnect_runcommand_config.qml:21
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Add Command…"
 msgstr "Príkaz"
 
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Upraviť"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "Odstrániť"
 
 #: runcommand/kdeconnect_runcommand_config.qml:76
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
-msgstr ""
+msgstr "Žiadne nakonfigurované príkazy"
 
 #: runcommand/kdeconnect_runcommand_config.qml:77
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
 msgstr ""
+"Pridajte príkazy, aby ste ich mohli vzdialene spúšťať z iných zariadení"
 
 #: runcommand/kdeconnect_runcommand_config.qml:83
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
 msgstr "Príkaz"
@@ -234,82 +231,71 @@ msgstr "Príkaz"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "Pridať"
 
 #: runcommand/kdeconnect_runcommand_config.qml:96
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
 msgstr "Príkaz"
 
 #: runcommand/kdeconnect_runcommand_config.qml:105
 #: runcommand/kdeconnect_runcommand_config.qml:183
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgid "Name:"
 msgstr "Názov"
 
 #: runcommand/kdeconnect_runcommand_config.qml:109
 #: runcommand/kdeconnect_runcommand_config.qml:187
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Command:"
 msgstr "Príkaz"
 
 #: runcommand/kdeconnect_runcommand_config.qml:113
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Sample commands:"
 msgstr "Vzorové príkazy"
 
 #: runcommand/kdeconnect_runcommand_config.qml:131
 #: runcommand/kdeconnect_runcommand_config.qml:142
-#, fuzzy, kde-format
-#| msgid "Suspend"
+#, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Uspať"
 
 #: runcommand/kdeconnect_runcommand_config.qml:135
 #: runcommand/kdeconnect_runcommand_config.qml:150
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Uzamknutá obrazovka"
 
 #: runcommand/kdeconnect_runcommand_config.qml:146
-#, fuzzy, kde-format
-#| msgid "Maximum Brightness"
+#, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "Maximálny jas"
 
 #: runcommand/kdeconnect_runcommand_config.qml:154
-#, fuzzy, kde-format
-#| msgid "Unlock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Odomknúť obrazovku"
 
 #: runcommand/kdeconnect_runcommand_config.qml:158
-#, fuzzy, kde-format
-#| msgid "Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Zatvoriť všetky klenby"
 
 #: runcommand/kdeconnect_runcommand_config.qml:162
-#, fuzzy, kde-format
-#| msgid "Forcefully Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
 msgstr "Vynútiť uzavretie všetkých klenieb"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
 msgstr "Príkaz"
@@ -318,13 +304,13 @@ msgstr "Príkaz"
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "Potvrdiť"
 
 #: runcommand/kdeconnect_runcommand_config.qml:199
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "Potvrdiť"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -342,14 +328,12 @@ msgid "Include body"
 msgstr "Zahrnúť telo"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:49
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Include icon"
 msgstr "Zahrnúť telo"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:56
-#, fuzzy, kde-format
-#| msgid "Minimum urgency level"
+#, kde-format
 msgid "Minimum urgency level:"
 msgstr "Minimálna úroveň závažnosti"
 
@@ -359,8 +343,7 @@ msgid "Name"
 msgstr "Názov"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
 msgstr "Zahrnúť telo"
 
@@ -436,17 +419,15 @@ msgid "Save files in:"
 msgstr "Uložiť súbory do:"
 
 #: share/kdeconnect_share_config.qml:63
-#, fuzzy, kde-format
-#| msgid ""
-#| "&percnt;1 in the path will be replaced with the specific device name."
+#, kde-format
 msgid "%1 in the path will be replaced with the specific device name"
-msgstr "&percnt;1 v ceste sa nahradí názvom určeného zariadenia."
+msgstr "%1 in the path will be replaced with the specific device name"
 
 #: share/shareplugin.cpp:161
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "Zdieľaný text z %1 skopírovaný do schránky"
 
 #: share/shareplugin.cpp:201
 #, kde-format
@@ -471,8 +452,7 @@ msgid "%1 does not exist"
 msgstr "Súbor %1 neexistuje"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:38
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt ""
 "@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
 "right edge', the pointer will switch to the connected device there"
@@ -483,25 +463,25 @@ msgstr "Uzamknutá obrazovka"
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "Hore"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:49
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "Vľavo"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:53
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "Vpravo"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:57
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "Dole"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:65
 #, kde-format
@@ -510,6 +490,8 @@ msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
 msgstr ""
+"Iné zariadenie si už rezervovalo tento okraj. To môže viesť k neočakávaným "
+"výsledkom, keď sú obe zariadenia pripojené súčasne."
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
@@ -535,16 +517,17 @@ msgstr "Stlmiť hovor"
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
+"Vzdialené zariadenie nemá nainštalovaného klienta VNC alebo RDP (napr. krdc)."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:186
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "Na lokálnom zariadení je vyžadovaný balík krdp."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:189
 #, kde-format
 msgid "Cannot start a request without a resolution"
-msgstr ""
+msgstr "Nie je možné spustiť požiadavku bez rozlíšenia"
 
 #~ msgid "Discovery Utilities"
 #~ msgstr "Nástroje objavovania"
@@ -649,7 +632,6 @@ msgstr ""
 #~ msgstr "SMS od %1<br>%2"
 
 #, fuzzy
-#~| msgid "Transfer Finished"
 #~ msgid "Transfer Failed"
 #~ msgstr "Prenos ukončený"
 

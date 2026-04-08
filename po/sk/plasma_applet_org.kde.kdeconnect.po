@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: package/contents/ui/Battery.qml:33
 #, kde-format
@@ -44,9 +44,7 @@ msgid "No signal"
 msgstr "Žiadny signál"
 
 #: package/contents/ui/DeviceDelegate.qml:82
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
 msgstr "Spárované zariadenie nie je dostupné"
 
@@ -172,8 +170,7 @@ msgstr ""
 "Nainštalujte KDE Connect na vašom Android zariadení na integráciu s Plasmou!"
 
 #: package/contents/ui/FullRepresentation.qml:70
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
 msgstr "Spárovať zariadenie..."
 
@@ -188,8 +185,7 @@ msgid "Install from F-Droid"
 msgstr "Nainštalovať z F-Droid"
 
 #: package/contents/ui/main.qml:54
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
 msgstr "Nastavenia KDE Connect..."
 

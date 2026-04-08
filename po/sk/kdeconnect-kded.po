@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,10 +28,7 @@ msgid "Your emails"
 msgstr "wizzardsk@gmail.com,prescott66@gmail.com"
 
 #: desktop_daemon.cpp:37
-#, fuzzy, kde-format
-#| msgid ""
-#| "Pairing request from %1\n"
-#| "Key: %2..."
+#, kde-format
 msgid ""
 "Pairing request from %1\n"
 "Key: %2"
@@ -62,7 +59,7 @@ msgstr "Služba aplikácie KDE Connect"
 #: kdeconnectd.cpp:77
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2015 – 2025 Tím KDE Connect"
 
 #: kdeconnectd.cpp:103
 #, kde-format
