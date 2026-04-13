@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-10 02:45+0000\n"
-"PO-Revision-Date: 2025-11-30 13:49+0530\n"
+"PO-Revision-Date: 2026-04-12 20:25+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -133,7 +133,7 @@ msgstr "ஒலியளவு கட்டுப்பாடு"
 #: qml/DevicePage.qml:158
 #, kde-format
 msgid "SMS Messages"
-msgstr ""
+msgstr "SMS குறுஞ்செய்திகள்"
 
 #: qml/DevicePage.qml:166 qml/mousepad.qml:44
 #, kde-format
@@ -258,8 +258,7 @@ msgid "No devices found"
 msgstr "எந்த சாதனங்களும் கண்டுபிடிக்கப்படவில்லை"
 
 #: qml/Main.qml:215
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "அமைப்புகள்"
@@ -327,13 +326,13 @@ msgstr "முழுத்திரை முறையை இயக்கு"
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Previous Slide"
-msgstr ""
+msgstr "முந்தைய பக்கம்"
 
 #: qml/presentationRemote.qml:47
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Next Slide"
-msgstr ""
+msgstr "அடுத்த பக்கம்"
 
 #: qml/runcommand.qml:23
 #, kde-format
@@ -380,7 +379,7 @@ msgstr "கே.டீ.யீ. பற்றி"
 #: qml/Settings.qml:91
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "மூடு"
 
 #: qml/WelcomePage.qml:27
 #, kde-format
