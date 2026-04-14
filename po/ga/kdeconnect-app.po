@@ -1,22 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SPDX-FileCopyrightText: 2026 charlotte <altronic25@protonmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-10 02:45+0000\n"
-"PO-Revision-Date: 2026-02-03 18:38+0000\n"
-"Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
-"Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-04-04 21:55+0100\n"
+"Last-Translator: charlotte <altronic25@protonmail.com>\n"
+"Language-Team: Irish\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -134,7 +134,7 @@ msgstr "Rialú toirte"
 #: qml/DevicePage.qml:158
 #, kde-format
 msgid "SMS Messages"
-msgstr ""
+msgstr "Theachtaireacht SMS"
 
 #: qml/DevicePage.qml:166 qml/mousepad.qml:44
 #, kde-format
@@ -262,7 +262,7 @@ msgstr "Níor aimsíodh aon fheistí"
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
-msgstr ""
+msgstr "Socruithe"
 
 #: qml/Main.qml:230
 #, kde-format
@@ -328,13 +328,13 @@ msgstr "Cumasaigh Lánscáileán"
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Previous Slide"
-msgstr ""
+msgstr "An Sleamhnán Roimhe Seo"
 
 #: qml/presentationRemote.qml:47
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Next Slide"
-msgstr ""
+msgstr "An Chéad Sleamhnán Eile"
 
 #: qml/runcommand.qml:23
 #, kde-format
@@ -381,7 +381,7 @@ msgstr "Maidir le KDE"
 #: qml/Settings.qml:91
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Dún"
 
 #: qml/WelcomePage.qml:27
 #, kde-format
