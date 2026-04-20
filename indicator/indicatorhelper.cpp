@@ -21,9 +21,8 @@ void IndicatorHelper::iconPathHook()
 {
 }
 
-int IndicatorHelper::startDaemon()
+void IndicatorHelper::startDaemon()
 {
-    return 0;
 }
 
 void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
