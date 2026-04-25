@@ -148,12 +148,12 @@ msgstr "没有电池"
 #: systray_actions/battery_action.cpp:30
 #, kde-format
 msgid "Battery: %1% (Charging)"
-msgstr "电池：%1% (正在充电)"
+msgstr "电量：%1% (正在充电)"
 
 #: systray_actions/battery_action.cpp:32
 #, kde-format
 msgid "Battery: %1%"
-msgstr "电池：%1%"
+msgstr "电量：%1%"
 
 #: systray_actions/connectivity_action.cpp:30
 #, kde-format
