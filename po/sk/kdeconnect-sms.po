@@ -156,8 +156,8 @@ msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
 "load quickly."
 msgstr ""
-"Tip: Ak odpojíte a pripojíte vaše zariadenie, nemalo by prejsť do režimu "
-"spánku a malo by sa rýchlo načítať."
+"Tip: Ak pripojíte vaše zariadenie, nemalo by prejsť do režimu spánku a malo "
+"by sa rýchlo načítať."
 
 #: qml/ConversationList.qml:65 qml/Main.qml:98
 #, kde-format
