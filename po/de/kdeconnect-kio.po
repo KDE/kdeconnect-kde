@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-08 00:45+0000\n"
-"PO-Revision-Date: 2026-01-27 16:16+0100\n"
+"PO-Revision-Date: 2026-04-27 23:17+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -53,7 +53,7 @@ msgstr "Hintergrunddienst kann nicht kontaktiert werden."
 #: kiokdeconnect.cpp:311
 #, kde-format
 msgid "KDE Connect"
-msgstr ""
+msgstr "KDE Connect"
 
 #: kiokdeconnect.cpp:321
 #, kde-format
