@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2022, 2025, 2026 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2025-2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-08 00:45+0000\n"
-"PO-Revision-Date: 2026-04-12 20:31+0530\n"
+"PO-Revision-Date: 2026-05-02 18:42+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: kiokdeconnect.cpp:145
 #, kde-format
@@ -23,10 +23,9 @@ msgid "Listing devices…"
 msgstr "சாதனங்கள் பட்டியலிடப்படுகின்றன…"
 
 #: kiokdeconnect.cpp:190
-#, fuzzy, kde-format
-#| msgid "Accessing device..."
+#, kde-format
 msgid "Accessing device…"
-msgstr "சாதனம் அணுகப்படுகிறது..."
+msgstr "சாதனம் அணுகப்படுகிறது…"
 
 #: kiokdeconnect.cpp:205
 #, kde-format
@@ -56,7 +55,7 @@ msgstr "பின்புல நிரலை தொடர்புகொள்�
 #: kiokdeconnect.cpp:311
 #, kde-format
 msgid "KDE Connect"
-msgstr ""
+msgstr "கே.டீ.யீ. கனெக்ட்"
 
 #: kiokdeconnect.cpp:321
 #, kde-format
