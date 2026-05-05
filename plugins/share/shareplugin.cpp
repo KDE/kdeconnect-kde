@@ -242,18 +242,20 @@ void SharePlugin::shareUrl(const QUrl &url, bool open)
     NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
     if (url.isLocalFile() && !url.isRelative()) {
         QSharedPointer<QFile> ioFile(new QFile(url.toLocalFile()));
-
         if (!ioFile->exists()) {
             Daemon::instance()->reportError(i18n("Could not share file"), i18n("%1 does not exist", url.toLocalFile()));
             return;
-        } else {
-            QFileInfo info(*ioFile);
-            packet.setPayload(ioFile, ioFile->size());
-            packet.set<QString>(QStringLiteral("filename"), QUrl(url).fileName());
-            packet.set<qint64>(QStringLiteral("creationTime"), info.birthTime().toMSecsSinceEpoch());
-            packet.set<qint64>(QStringLiteral("lastModified"), info.lastModified().toMSecsSinceEpoch());
-            packet.set<bool>(QStringLiteral("open"), open);
         }
+        QFileInfo info(*ioFile);
+        if (!info.isReadable()) {
+            Daemon::instance()->reportError(i18n("Could not share file"), i18n("Permission denied: %1", url.toLocalFile()));
+            return;
+        }
+        packet.setPayload(ioFile, ioFile->size());
+        packet.set<QString>(QStringLiteral("filename"), QUrl(url).fileName());
+        packet.set<qint64>(QStringLiteral("creationTime"), info.birthTime().toMSecsSinceEpoch());
+        packet.set<qint64>(QStringLiteral("lastModified"), info.lastModified().toMSecsSinceEpoch());
+        packet.set<bool>(QStringLiteral("open"), open);
     } else {
         packet.set<QString>(QStringLiteral("url"), url.toString());
     }
