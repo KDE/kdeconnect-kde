@@ -30,7 +30,7 @@ ConversationsDbusInterface::~ConversationsDbusInterface()
 {
     // Wake all threads which were waiting for a reply from this interface
     // This might result in some noise on dbus, but it's better than leaking a bunch of resources!
-    waitingForMessagesLock.lock();
+    waitingForMessagesLock.lockForWrite();
     conversationsWaitingForMessages.clear();
     waitingForMessages.wakeAll();
     waitingForMessagesLock.unlock();
@@ -122,7 +122,7 @@ void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &m
         Q_EMIT conversationLoaded(conversationID, numMessages);
     }
 
-    waitingForMessagesLock.lock();
+    waitingForMessagesLock.lockForWrite();
     // Remove the waiting flag for all conversations which we just processed
     conversationsWaitingForMessages.subtract(updatedConversationIDs);
     waitingForMessages.wakeAll();
@@ -142,13 +142,32 @@ QList<ConversationMessage> ConversationsDbusInterface::getConversation(const qin
 
 void ConversationsDbusInterface::updateConversation(const qint64 &conversationID)
 {
-    waitingForMessagesLock.lock();
+    // Allow multiple threads to wait for the same conversation. Readers wait
+    // alongside an existing request; only the first thread initiates the fetch.
+    waitingForMessagesLock.lockForRead();
     if (conversationsWaitingForMessages.contains(conversationID)) {
-        // This conversation is already being waited on, don't allow more than one thread to wait at a time
-        qCDebug(KDECONNECT_CONVERSATIONS) << "Not allowing two threads to wait for conversationID" << conversationID;
+        qCDebug(KDECONNECT_CONVERSATIONS) << "Joining existing wait for conversationID" << conversationID;
+        while (conversationsWaitingForMessages.contains(conversationID)) {
+            waitingForMessages.wait(&waitingForMessagesLock);
+        }
         waitingForMessagesLock.unlock();
         return;
     }
+    waitingForMessagesLock.unlock();
+
+    // Nobody is waiting yet. Take write lock to initiate the request.
+    waitingForMessagesLock.lockForWrite();
+    // Double-check: another thread may have started between our read-unlock and write-lock.
+    if (conversationsWaitingForMessages.contains(conversationID)) {
+        waitingForMessagesLock.unlock();
+        waitingForMessagesLock.lockForRead();
+        while (conversationsWaitingForMessages.contains(conversationID)) {
+            waitingForMessages.wait(&waitingForMessagesLock);
+        }
+        waitingForMessagesLock.unlock();
+        return;
+    }
+
     qCDebug(KDECONNECT_CONVERSATIONS) << "Requesting conversation with ID" << conversationID << "from remote";
     conversationsWaitingForMessages.insert(conversationID);
 
@@ -173,22 +192,51 @@ void ConversationsDbusInterface::updateConversation(const qint64 &conversationID
     waitingForMessagesLock.unlock();
 }
 
-void ConversationsDbusInterface::replyToConversation(const qint64 &conversationID, const QString &message, const QVariantList &attachmentUrls)
+void ConversationsDbusInterface::sendSmsForConversation(const ConversationMessage &referenceMessage,
+                                                        const QString &messageText,
+                                                        const QVariantList &attachmentUrls)
 {
-    const auto messagesList = m_conversations[conversationID];
-    if (messagesList.isEmpty()) {
-        qCWarning(KDECONNECT_CONVERSATIONS) << "Got a conversationID for a conversation with no messages!";
-        return;
-    }
-
-    const QList<ConversationAddress> &addressList = messagesList.first().addresses();
+    const QList<ConversationAddress> &addressList = referenceMessage.addresses();
     QVariantList addresses;
-
     for (const auto &address : addressList) {
         addresses << QVariant::fromValue(address);
     }
+    m_smsInterface.sendSms(addresses, messageText, attachmentUrls, referenceMessage.subID());
+}
 
-    m_smsInterface.sendSms(addresses, message, attachmentUrls, messagesList.first().subID());
+void ConversationsDbusInterface::replyToConversation(const qint64 &conversationID, const QString &message, const QVariantList &attachmentUrls)
+{
+    const auto messagesList = m_conversations[conversationID];
+    if (!messagesList.isEmpty()) {
+        sendSmsForConversation(messagesList.first(), message, attachmentUrls);
+        return;
+    }
+
+    // Cache miss: fetch the conversation from the phone, then send (BUG 517659).
+    // The blocking wait must run on a worker thread so the main event loop can
+    // still deliver the phone's response via addMessages(). Using QThread::create
+    // here (rather than the QObject+moveToThread pattern of RequestConversationWorker)
+    // because this is a one-shot task that does not need to signal results back.
+    qCWarning(KDECONNECT_CONVERSATIONS) << "Conversation" << conversationID << "not in cache, requesting from phone";
+
+    QThread *thread = QThread::create([this, conversationID, message, attachmentUrls]() {
+        // Retry a few times as a safety net in case the phone responds before
+        // the cache is populated. The first request should normally succeed.
+        const int maxRetries = 3;
+        for (int attempt = 0; attempt < maxRetries && m_conversations[conversationID].isEmpty(); ++attempt) {
+            updateConversation(conversationID);
+        }
+
+        const auto updatedMessages = m_conversations[conversationID];
+        if (updatedMessages.isEmpty()) {
+            qCWarning(KDECONNECT_CONVERSATIONS) << "Conversation" << conversationID << "still empty after requesting from phone, cannot send";
+            return;
+        }
+
+        sendSmsForConversation(updatedMessages.first(), message, attachmentUrls);
+    });
+    connect(thread, &QThread::finished, thread, &QObject::deleteLater);
+    thread->start();
 }
 
 void ConversationsDbusInterface::sendWithoutConversation(const QVariantList &addresses, const QString &message, const QVariantList &attachmentUrls)

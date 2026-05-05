@@ -13,6 +13,7 @@
 #include <QList>
 #include <QMap>
 #include <QPointer>
+#include <QReadWriteLock>
 #include <QString>
 #include <QStringList>
 
@@ -136,6 +137,13 @@ Q_SIGNALS:
 private: // methods
     QString newId(); // Generates successive identifiers to use as public ids
 
+    /**
+     * Send `messageText` with `attachmentUrls` to the addresses associated with
+     * `referenceMessage`. The reference message is used to determine the
+     * destination addresses and SIM subscription ID for the outgoing SMS.
+     */
+    void sendSmsForConversation(const ConversationMessage &referenceMessage, const QString &messageText, const QVariantList &attachmentUrls);
+
 private: // attributes
     const QString m_device;
 
@@ -166,6 +174,6 @@ private: // attributes
     SmsDbusInterface m_smsInterface;
 
     QSet<qint64> conversationsWaitingForMessages;
-    QMutex waitingForMessagesLock;
+    QReadWriteLock waitingForMessagesLock;
     QWaitCondition waitingForMessages;
 };
