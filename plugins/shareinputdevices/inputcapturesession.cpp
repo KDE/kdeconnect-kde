@@ -246,7 +246,7 @@ void InputCaptureSession::barriersSet(uint response, const QVariantMap &results)
     }
     auto failedBarriers = qdbus_cast<QList<uint>>(results[u"failed_barriers"_s].value<QDBusArgument>());
     if (!failedBarriers.empty()) {
-        qCInfo(KDECONNECT_PLUGIN_SHAREINPUTDEVICES) << "Failed barriers" << failedBarriers;
+        qCDebug(KDECONNECT_PLUGIN_SHAREINPUTDEVICES) << "Failed barriers" << failedBarriers;
     }
     enable();
 }

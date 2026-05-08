@@ -114,7 +114,7 @@ void AlbumArtCache::handleAlbumArt(const NetworkPacket &np)
             return;
         }
         auto fileSize = static_cast<qsizetype>(job->totalAmount(KJob::Unit::Bytes));
-        qCInfo(KDECONNECT_PLUGIN_MPRISREMOTE) << "Finished art transfer! from" << remoteUrl << "to" << localUrl << "size" << fileSize;
+        qCDebug(KDECONNECT_PLUGIN_MPRISREMOTE) << "Finished art transfer! from" << remoteUrl << "to" << localUrl << "size" << fileSize;
         auto *indexItem = new IndexItem{localUrl};
         auto localPath = indexItem->file;
         QWriteLocker locker{&instance()->m_cacheLock};

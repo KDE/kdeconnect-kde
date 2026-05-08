@@ -57,7 +57,7 @@ void RunCommandPlugin::receivePacket(const NetworkPacket &np)
             qCWarning(KDECONNECT_PLUGIN_RUNCOMMAND) << key << "is not a configured command";
         }
         const QJsonObject commandJson = value.toObject();
-        qCInfo(KDECONNECT_PLUGIN_RUNCOMMAND) << "Running:" << COMMAND << ARGS << commandJson[QStringLiteral("command")].toString();
+        qCDebug(KDECONNECT_PLUGIN_RUNCOMMAND) << "Running:" << COMMAND << ARGS << commandJson[QStringLiteral("command")].toString();
         QProcess::startDetached(QStringLiteral(COMMAND), QStringList{QStringLiteral(ARGS), commandJson[QStringLiteral("command")].toString()});
     } else if (np.has(QStringLiteral("setup"))) {
         OpenConfig oc;

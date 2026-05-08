@@ -62,10 +62,10 @@ LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
     m_mdnsDiscovery = new MdnshDiscovery(this);
 #else
     if (AvahiDiscovery::hasAvahiDaemonRunning()) {
-        qCInfo(KDECONNECT_CORE) << "Using Avahi for mDNS discovery";
+        qCDebug(KDECONNECT_CORE) << "Using Avahi for mDNS discovery";
         m_mdnsDiscovery = new AvahiDiscovery(this);
     } else {
-        qCInfo(KDECONNECT_CORE) << "Using mdnsh for mDNS discovery";
+        qCDebug(KDECONNECT_CORE) << "Using mdnsh for mDNS discovery";
         m_mdnsDiscovery = new MdnshDiscovery(this);
     }
 #endif

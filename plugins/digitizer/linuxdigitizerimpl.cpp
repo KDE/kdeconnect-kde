@@ -43,8 +43,8 @@ void LinuxDigitizerImpl::startSession(int width, int height, int resolutionX, in
         endSession();
     }
 
-    qCInfo(KDECONNECT_PLUGIN_DIGITIZER) << "Starting a new drawing tablet session."
-                                        << "width:" << width << "height:" << height << "resolutionX:" << resolutionX << "resolutionY:" << resolutionY;
+    qCDebug(KDECONNECT_PLUGIN_DIGITIZER) << "Starting a new drawing tablet session."
+                                         << "width:" << width << "height:" << height << "resolutionX:" << resolutionX << "resolutionY:" << resolutionY;
 
     m_dev = libevdev_new();
     libevdev_set_name(m_dev, device()->name().toUtf8().constData());
@@ -75,12 +75,12 @@ void LinuxDigitizerImpl::startSession(int width, int height, int resolutionX, in
         return;
     }
 
-    qCInfo(KDECONNECT_PLUGIN_DIGITIZER) << "Started drawing tablet session successfully.";
+    qCDebug(KDECONNECT_PLUGIN_DIGITIZER) << "Started drawing tablet session successfully.";
 }
 
 void LinuxDigitizerImpl::endSession()
 {
-    qCInfo(KDECONNECT_PLUGIN_DIGITIZER) << "Ending drawing tablet session.";
+    qCDebug(KDECONNECT_PLUGIN_DIGITIZER) << "Ending drawing tablet session.";
 
     if (m_uinput != nullptr) {
         libevdev_uinput_destroy(m_uinput);

@@ -137,7 +137,7 @@ void VirtualMonitorPlugin::receivePacket(const NetworkPacket &received)
         url.setPort(received.get<int>(QS("port"), DEFAULT_PORT));
         url.setHost(addr.toString());
 
-        qCInfo(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Received request, try connecting to" << url.toDisplayString();
+        qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Received request, try connecting to" << url.toDisplayString();
 
         if (!QDesktopServices::openUrl(url)) {
             qCWarning(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Failed to open" << url.toDisplayString();
