@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-21 00:45+0000\n"
+"POT-Creation-Date: 2026-05-08 00:44+0000\n"
 "PO-Revision-Date: 2026-03-16 16:13+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -444,15 +444,20 @@ msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Deschide legătura"
 
-#: share/shareplugin.cpp:247
+#: share/shareplugin.cpp:246 share/shareplugin.cpp:251
 #, kde-format
 msgid "Could not share file"
 msgstr "Fișierul nu a putut fi partajat"
 
-#: share/shareplugin.cpp:247
+#: share/shareplugin.cpp:246
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 nu există"
+
+#: share/shareplugin.cpp:251
+#, kde-format
+msgid "Permission denied: %1"
+msgstr ""
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:43
 #, kde-format

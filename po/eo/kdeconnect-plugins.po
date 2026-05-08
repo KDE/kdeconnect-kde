@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-21 00:45+0000\n"
+"POT-Creation-Date: 2026-05-08 00:44+0000\n"
 "PO-Revision-Date: 2024-05-10 11:33+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -460,15 +460,20 @@ msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Malfermi Ligon"
 
-#: share/shareplugin.cpp:247
+#: share/shareplugin.cpp:246 share/shareplugin.cpp:251
 #, kde-format
 msgid "Could not share file"
 msgstr "Ne eblis kunhavigi dosieron"
 
-#: share/shareplugin.cpp:247
+#: share/shareplugin.cpp:246
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 ne ekzistas"
+
+#: share/shareplugin.cpp:251
+#, kde-format
+msgid "Permission denied: %1"
+msgstr ""
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:43
 #, fuzzy, kde-format
