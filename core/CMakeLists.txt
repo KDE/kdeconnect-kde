@@ -38,7 +38,6 @@ target_sources(kdeconnectcore PRIVATE
 ecm_qt_declare_logging_category(kdeconnectcore
     HEADER kdeconnect_debug.h
     IDENTIFIER KDECONNECT_CORE CATEGORY_NAME kdeconnect.core
-    DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (core)")
 
 

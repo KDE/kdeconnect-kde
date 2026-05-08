@@ -4,7 +4,6 @@ add_executable(kdeconnectd kdeconnectd.cpp desktop_daemon.cpp ${CMAKE_SOURCE_DIR
 ecm_qt_declare_logging_category(kdeconnectd
     HEADER kdeconnectd_debug.h
     IDENTIFIER KDECONNECT_DAEMON CATEGORY_NAME kdeconnect.daemon
-    DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (daemon)")
 target_link_libraries(kdeconnectd
     kdeconnectcore

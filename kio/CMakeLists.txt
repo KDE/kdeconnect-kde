@@ -6,7 +6,6 @@ set_target_properties(kio_kdeconnect PROPERTIES OUTPUT_NAME "kdeconnect")
 ecm_qt_declare_logging_category(kio_kdeconnect
     HEADER kdeconnectkio_debug.h
     IDENTIFIER KDECONNECT_KIO CATEGORY_NAME kdeconnect.kio
-    DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (kio)")
 
 

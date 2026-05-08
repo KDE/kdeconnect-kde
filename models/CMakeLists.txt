@@ -20,7 +20,6 @@ target_sources(kdeconnectmodels PRIVATE ${models_SRC})
 ecm_qt_declare_logging_category(kdeconnectmodels
     HEADER models_debug.h
     IDENTIFIER KDECONNECT_MODELS CATEGORY_NAME kdeconnect.models
-    DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (models)")
 
 

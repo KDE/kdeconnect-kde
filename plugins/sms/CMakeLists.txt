@@ -8,7 +8,6 @@ target_sources(kdeconnect_sms PRIVATE
 ecm_qt_declare_logging_category(kdeconnect_sms
     HEADER kdeconnect_conversations_debug.h
     IDENTIFIER KDECONNECT_CONVERSATIONS CATEGORY_NAME kdeconnect.conversations
-    DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (conversations)")
 
 target_link_libraries(kdeconnect_sms

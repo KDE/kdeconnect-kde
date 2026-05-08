@@ -34,7 +34,6 @@ add_executable(kdeconnect-indicator MACOSX_BUNDLE ${indicator_SRCS})
 ecm_qt_declare_logging_category(kdeconnect-indicator
     HEADER indicator_debug.h
     IDENTIFIER KDECONNECT_INDICATOR CATEGORY_NAME kdeconnect.indicator
-    DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (indicator)")
 
 
