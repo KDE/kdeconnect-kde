@@ -3,13 +3,13 @@
 #
 # elkana bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2025, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:44+0000\n"
-"PO-Revision-Date: 2026-03-14 12:54+0200\n"
+"PO-Revision-Date: 2026-05-09 07:13+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: battery/batteryplugin.cpp:150
 #, kde-format
@@ -453,7 +453,7 @@ msgstr "%1 לא קיים"
 #: share/shareplugin.cpp:251
 #, kde-format
 msgid "Permission denied: %1"
-msgstr ""
+msgstr "ההרשאה נדחתה: %1"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:43
 #, kde-format

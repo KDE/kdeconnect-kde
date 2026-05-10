@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:44+0000\n"
-"PO-Revision-Date: 2026-03-15 00:23+0100\n"
+"PO-Revision-Date: 2026-05-09 21:13+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -456,7 +456,7 @@ msgstr "%1 no existe"
 #: share/shareplugin.cpp:251
 #, kde-format
 msgid "Permission denied: %1"
-msgstr ""
+msgstr "Permiso denegado: %1"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:43
 #, kde-format
