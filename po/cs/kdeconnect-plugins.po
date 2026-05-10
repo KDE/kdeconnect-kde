@@ -2,6 +2,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # SPDX-FileCopyrightText: 2014, 2015, 2016, 2018, 2019, 2020, 2023, 2025, 2026 Vít Pelčák <vit@pelcak.org>
 # Vit Pelcak <vit@pelcak.org>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
