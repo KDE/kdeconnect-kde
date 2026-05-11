@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2021, 2023, 2024 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2023-2024, 2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2024-10-20 16:20+0530\n"
+"PO-Revision-Date: 2026-05-10 16:43+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -49,10 +49,9 @@ msgid "Send files"
 msgstr "கோப்புகளை அனுப்பு"
 
 #: deviceindicator.cpp:117
-#, fuzzy, kde-format
-#| msgid "SMS Messages..."
+#, kde-format
 msgid "SMS Messages…"
-msgstr "SMS குறுஞ்செய்திகள்..."
+msgstr "SMS குறுஞ்செய்திகள்…"
 
 #: deviceindicator.cpp:130
 #, kde-format
@@ -96,23 +95,22 @@ msgstr "கே.டீ.யீ. கனெக்ட் நிலைகாட்ட�
 #: main.cpp:61
 #, kde-format
 msgid "© 2016–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2016–2025 கே.டீ.யீ. கனெக்ட் குழு"
 
 #: main.cpp:62
-#, fuzzy, kde-format
-#| msgid "(C) 2016 Aleix Pol Gonzalez"
+#, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "(C) 2016 அலேயிக்சு போல் கொன்ஸாலெசு"
+msgstr "அலேயிக்சு போல் கொன்ஸாலெசு"
 
 #: main.cpp:63
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr ""
+msgstr "ஆல்பர்டு வாக்கா சின்ட்டோரா"
 
 #: main.cpp:101
 #, kde-format
 msgid "Open app"
-msgstr ""
+msgstr "செயலியை திற"
 
 #: main.cpp:118
 #, kde-format
