@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:44+0000\n"
-"PO-Revision-Date: 2026-03-15 23:09+0200\n"
+"PO-Revision-Date: 2026-05-16 01:19+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -457,7 +457,7 @@ msgstr "%1 nėra"
 #: share/shareplugin.cpp:251
 #, kde-format
 msgid "Permission denied: %1"
-msgstr ""
+msgstr "Leidimas atmestas: %1"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:43
 #, kde-format
