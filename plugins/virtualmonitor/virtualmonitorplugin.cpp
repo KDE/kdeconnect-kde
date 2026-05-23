@@ -99,7 +99,8 @@ void VirtualMonitorPlugin::connected()
     qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Local device supports Virtual Monitor:" << m_capabilitiesLocal.virtualMonitor;
 
     auto screen = QGuiApplication::primaryScreen();
-    auto resolution = screen->size();
+    // QScreen size() is in logical pixels.
+    auto resolution = screen->size() * screen->devicePixelRatio();
     QString resolutionString = QString::number(resolution.width()) + QLatin1Char('x') + QString::number(resolution.height());
     NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR,
                      {
