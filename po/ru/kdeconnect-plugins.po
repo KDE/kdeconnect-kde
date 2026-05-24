@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-10 02:45+0000\n"
+"POT-Creation-Date: 2026-05-24 02:35+0000\n"
 "PO-Revision-Date: 2026-03-10 10:24+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -521,19 +521,19 @@ msgstr "Пропущенный вызов от %1"
 msgid "Mute Call"
 msgstr "Выключить звук звонка"
 
-#: virtualmonitor/virtualmonitorplugin.cpp:183
+#: virtualmonitor/virtualmonitorplugin.cpp:184
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
 "На удалённом устройстве не установленно приложение, обеспечивающее поддержку "
 "VNC или RDP (например: krdc)."
 
-#: virtualmonitor/virtualmonitorplugin.cpp:186
+#: virtualmonitor/virtualmonitorplugin.cpp:187
 #, kde-format
 msgid "The krdp package is required on the local device."
 msgstr "На это устройство необходимо установить пакет krdp."
 
-#: virtualmonitor/virtualmonitorplugin.cpp:189
+#: virtualmonitor/virtualmonitorplugin.cpp:190
 #, kde-format
 msgid "Cannot start a request without a resolution"
 msgstr "Невозможно начать запрос без указания разрешения."

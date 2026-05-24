@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-10 02:45+0000\n"
+"POT-Creation-Date: 2026-05-24 02:35+0000\n"
 "PO-Revision-Date: 2026-05-10 16:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -511,17 +511,17 @@ msgstr "%1 தனிலிருந்தான தவறிய அழைப்�
 msgid "Mute Call"
 msgstr "மணியை ஒலியடக்கு"
 
-#: virtualmonitor/virtualmonitorplugin.cpp:183
+#: virtualmonitor/virtualmonitorplugin.cpp:184
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr "தொலை சாதனத்தில் VNC நிரலோ RDP நிரலோ (எ.கா. krdc) இல்லை."
 
-#: virtualmonitor/virtualmonitorplugin.cpp:186
+#: virtualmonitor/virtualmonitorplugin.cpp:187
 #, kde-format
 msgid "The krdp package is required on the local device."
 msgstr "இந்த சாதனத்தில் krdp நிறுவப்பட்டிருக்க வேண்டும்."
 
-#: virtualmonitor/virtualmonitorplugin.cpp:189
+#: virtualmonitor/virtualmonitorplugin.cpp:190
 #, kde-format
 msgid "Cannot start a request without a resolution"
 msgstr "பகுதிறனை குறிப்பிடாமல் கோரிக்கையிட முடியாது"
