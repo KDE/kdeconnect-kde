@@ -52,8 +52,8 @@ void RequestConversationWorker::handleRequestConversation()
 
         size_t numCachedMessages = messagesList.count();
         size_t requestEnd = start + numHandled;
-        size_t numRemainingMessages = numCachedMessages - requestEnd;
-        double percentRemaining = ((double)numRemainingMessages / numCachedMessages) * 100;
+        size_t numRemainingMessages = numCachedMessages > requestEnd ? numCachedMessages - requestEnd : 0;
+        double percentRemaining = numCachedMessages > 0 ? ((double)numRemainingMessages / numCachedMessages) * 100 : 0;
 
         if (percentRemaining < CACHE_LOW_WATER_MARK_PERCENT || numRemainingMessages < MIN_NUMBER_TO_REQUEST) {
             parent->updateConversation(conversationID);
@@ -65,6 +65,10 @@ void RequestConversationWorker::handleRequestConversation()
 
 size_t RequestConversationWorker::replyForConversation(const QList<ConversationMessage> &conversation, size_t start, size_t howMany)
 {
+    if (conversation.isEmpty() || start >= (size_t)conversation.size()) {
+        return 0;
+    }
+
     // Messages are sorted in ascending order of keys, meaning the front of the list has the oldest
     // messages (smallest timestamp number)
     // Therefore, return the end of the list first (most recent messages)
