@@ -228,7 +228,7 @@ PlasmaComponents.ItemDelegate {
                         id: virtualMonitorButton
                         icon.name: "krdc"
                         icon.width: Kirigami.Units.iconSizes.small
-                        icon.height: icon.width
+                        icon.height: Kirigami.Units.iconSizes.small
                         visible: virtualmonitor.available
                         display: PlasmaComponents.AbstractButton.IconOnly
                         checked: visible && virtualmonitor.plugin.active
@@ -321,9 +321,8 @@ PlasmaComponents.ItemDelegate {
                     Layout.margins: 0
                     spacing: Kirigami.Units.smallSpacing
 
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: root.notificationsExpanded = !root.notificationsExpanded
+                    TapHandler {
+                        onTapped: root.notificationsExpanded = !root.notificationsExpanded
                         cursorShape: Qt.PointingHandCursor
                     }
 
@@ -357,7 +356,7 @@ PlasmaComponents.ItemDelegate {
                         visible: notificationsModel.isAnyDimissable;
                         icon.name: "edit-clear-history"
                         icon.width: Kirigami.Units.iconSizes.smallMedium
-                        icon.height: icon.width
+                        icon.height: Kirigami.Units.iconSizes.smallMedium
 
                         PlasmaComponents.ToolTip.text: i18n("Dismiss all notifications")
                         onClicked: dismissAllAnimation.start();
@@ -412,7 +411,7 @@ PlasmaComponents.ItemDelegate {
                 NumberAnimation { 
                     target: notificationsColumn
                     property: "x"
-                    to: LayoutMirroring.enabled ? -notificationsContainer.width : notificationsContainer.width
+                    to: notificationsContainer.LayoutMirroring.enabled ? -notificationsContainer.width : notificationsContainer.width
                     duration: Kirigami.Units.shortDuration
                 }
                 ScriptAction { 
@@ -487,17 +486,10 @@ PlasmaComponents.ItemDelegate {
 
                         Layout.margins: 0
 
-                        Behavior on height {
-                            NumberAnimation {
-                                duration: Kirigami.Units.shortDuration
-                                easing.type: Easing.InOutQuad
-                            }
-                        }
-
                         // Dismiss with animation
                         SequentialAnimation {
                             id: dismissAnimation
-                            NumberAnimation { target: listitem; property: "x"; to: LayoutMirroring.enabled ? -width : width; duration: Kirigami.Units.shortDuration }
+                            NumberAnimation { target: listitem; property: "x"; to: listitem.LayoutMirroring.enabled ? -width : width; duration: Kirigami.Units.shortDuration }
                             ScriptAction { script: listitem.model.dbusInterface.dismiss() }
                         }
 
@@ -612,7 +604,7 @@ PlasmaComponents.ItemDelegate {
                                             enabled: listitem.model.repliable && !listitem.replying
                                             icon.name: "mail-reply-sender"
                                             icon.width: Kirigami.Units.iconSizes.smallMedium
-                                            icon.height: icon.width
+                                            icon.height: Kirigami.Units.iconSizes.smallMedium
                                             PlasmaComponents.ToolTip.text: i18n("Reply")
                                             onClicked: {
                                                 listitem.replying = true;
@@ -629,7 +621,7 @@ PlasmaComponents.ItemDelegate {
                                             Layout.alignment: Qt.AlignTop
                                             icon.name: "window-close"
                                             icon.width: Kirigami.Units.iconSizes.smallMedium
-                                            icon.height: icon.width
+                                            icon.height: Kirigami.Units.iconSizes.smallMedium
                                             PlasmaComponents.ToolTip.text: i18n("Dismiss")
                                             onClicked: dismissAnimation.start()
                                         }
