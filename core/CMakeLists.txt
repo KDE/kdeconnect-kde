@@ -12,6 +12,9 @@ endif()
 option(LOOPBACK_ENABLED "Loopback backend enabled" OFF)
 
 add_library(kdeconnectcore)
+
+qt_extract_metatypes(kdeconnectcore)
+
 target_sources(kdeconnectcore PRIVATE
     ${backends_kdeconnect_SRCS}
 

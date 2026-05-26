@@ -89,3 +89,5 @@ target_link_libraries(kdeconnectdbusinterfaces
 LINK_PUBLIC
     Qt::DBus
 )
+
+qt_extract_metatypes(kdeconnectdbusinterfaces)

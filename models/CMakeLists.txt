@@ -15,6 +15,8 @@ set(models_SRC
 add_library(kdeconnectmodels STATIC)
 set_property(TARGET kdeconnectmodels PROPERTY POSITION_INDEPENDENT_CODE ON)
 
+qt_extract_metatypes(kdeconnectmodels)
+
 target_sources(kdeconnectmodels PRIVATE ${models_SRC})
 
 ecm_qt_declare_logging_category(kdeconnectmodels
