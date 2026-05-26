@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-24 00:44+0000\n"
-"PO-Revision-Date: 2026-04-26 21:41+0200\n"
+"PO-Revision-Date: 2026-05-25 19:20+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: battery/batteryplugin.cpp:150
 #, kde-format
@@ -453,7 +453,7 @@ msgstr "%1이(가) 없음"
 #: share/shareplugin.cpp:251
 #, kde-format
 msgid "Permission denied: %1"
-msgstr ""
+msgstr "권한 거부됨: %1"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:43
 #, kde-format
