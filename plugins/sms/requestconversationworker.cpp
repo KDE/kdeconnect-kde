@@ -32,8 +32,14 @@ void RequestConversationWorker::handleRequestConversation()
     auto messagesList = parent->getConversation(conversationID);
 
     if (messagesList.isEmpty()) {
-        // Since there are no messages in the conversation, it's likely that it is a junk ID, but go ahead anyway
+        // The phone advertised a conversation with no messages (likely a junk ID,
+        // a thread the user just deleted, or a not-yet-synced thread). Bail out
+        // here: falling through into replyForConversation() does
+        // `conversation.crbegin() + start` on an empty QList, which is UB and
+        // segfaults inside QVariant::fromValue when *it is dereferenced.
         qCWarning(KDECONNECT_CONVERSATIONS) << "Got a conversationID for a conversation with no messages!" << conversationID;
+        Q_EMIT finished();
+        return;
     }
 
     // In case the remote takes awhile to respond, we should go ahead and do anything we can from the cache
