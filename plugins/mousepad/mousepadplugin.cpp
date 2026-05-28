@@ -20,6 +20,9 @@
 #if WITH_X11
 #include "x11remoteinput.h"
 #endif
+#ifdef WITH_HYPRLAND_BACKEND
+#include "hyprlandremoteinput.h"
+#endif
 #endif
 
 K_PLUGIN_CLASS_WITH_JSON(MousepadPlugin, "kdeconnect_mousepad.json")
@@ -34,7 +37,17 @@ MousepadPlugin::MousepadPlugin(QObject *parent, const QVariantList &args)
     m_impl = new MacOSRemoteInput(this);
 #else
     if (QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
-        m_impl = new WaylandRemoteInput(this);
+        // Try wlr-virtual-pointer backend first (works on Hyprland, Sway, etc.)
+#ifdef WITH_HYPRLAND_BACKEND
+        if (HyprlandRemoteInput::isAvailable()) {
+            qDebug() << "Using Hyprland/wlr-virtual-pointer backend for remote input";
+            m_impl = new HyprlandRemoteInput(this);
+        } else
+#endif
+        {
+            // Fall back to portal-based RemoteDesktop backend
+            m_impl = new WaylandRemoteInput(this);
+        }
     }
 #if WITH_X11
     if (QGuiApplication::platformName() == QLatin1String("xcb")) {

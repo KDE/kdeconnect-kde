@@ -6,11 +6,13 @@
 
 #include "remotekeyboardplugin.h"
 #include "plugin_remotekeyboard_debug.h"
+#include "virtualkeyboardinjector.h"
 #include <KPluginFactory>
 #include <QDebug>
 #include <QKeySequence>
 #include <QString>
 #include <QVariantMap>
+#include <linux/input.h>
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteKeyboardPlugin, "kdeconnect_remotekeyboard.json")
 
@@ -56,6 +58,11 @@ RemoteKeyboardPlugin::RemoteKeyboardPlugin(QObject *parent, const QVariantList &
     : KdeConnectPlugin(parent, args)
     , m_remoteState(false)
 {
+    // Initialize virtual keyboard injector for direct compositor key injection
+    // This bypasses the QML/Plasma signal path that doesn't work on non-KDE compositors
+    if (VirtualKeyboardInjector::isAvailable()) {
+        m_keyboardInjector = new VirtualKeyboardInjector(this);
+    }
 }
 
 void RemoteKeyboardPlugin::receivePacket(const NetworkPacket &np)
@@ -65,16 +72,61 @@ void RemoteKeyboardPlugin::receivePacket(const NetworkPacket &np)
             qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Invalid packet of type" << PACKET_TYPE_MOUSEPAD_ECHO;
             return;
         }
-        //        qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Received keypress" << np;
-        Q_EMIT keyPressReceived(np.get<QString>(QStringLiteral("key")),
-                                np.get<int>(QStringLiteral("specialKey"), 0),
-                                np.get<int>(QStringLiteral("shift"), false),
-                                np.get<int>(QStringLiteral("ctrl"), false),
-                                np.get<int>(QStringLiteral("alt"), 0));
+        QString key = np.get<QString>(QStringLiteral("key"));
+        int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
+        int shift = np.get<int>(QStringLiteral("shift"), false);
+        int ctrl = np.get<int>(QStringLiteral("ctrl"), false);
+        int alt = np.get<int>(QStringLiteral("alt"), 0);
+
+        // Inject keyboard events
+        if (m_keyboardInjector) {
+            if (specialKey) {
+                // Send modifiers if present
+                if (ctrl)
+                    m_keyboardInjector->sendKeycode(KEY_LEFTCTRL, true);
+                if (alt)
+                    m_keyboardInjector->sendKeycode(KEY_LEFTALT, true);
+                if (shift)
+                    m_keyboardInjector->sendKeycode(KEY_LEFTSHIFT, true);
+
+                m_keyboardInjector->sendSpecialKey(specialKey);
+
+                // Release modifiers
+                if (ctrl)
+                    m_keyboardInjector->sendKeycode(KEY_LEFTCTRL, false);
+                if (alt)
+                    m_keyboardInjector->sendKeycode(KEY_LEFTALT, false);
+                if (shift)
+                    m_keyboardInjector->sendKeycode(KEY_LEFTSHIFT, false);
+            } else if (!key.isEmpty()) {
+                // Apply modifiers from packet fields
+                // Use setModifiers (explicit modifier mask) in addition to key events
+                if (ctrl)
+                    m_keyboardInjector->sendKeycode(KEY_LEFTCTRL, true);
+                if (alt)
+                    m_keyboardInjector->sendKeycode(KEY_LEFTALT, true);
+                if (shift)
+                    m_keyboardInjector->sendKeycode(KEY_LEFTSHIFT, true);
+                m_keyboardInjector->setModifiers(shift, ctrl, alt, false);
+
+                m_keyboardInjector->sendText(key);
+
+                if (shift)
+                    m_keyboardInjector->sendKeycode(KEY_LEFTSHIFT, false);
+                if (alt)
+                    m_keyboardInjector->sendKeycode(KEY_LEFTALT, false);
+                if (ctrl)
+                    m_keyboardInjector->sendKeycode(KEY_LEFTCTRL, false);
+                m_keyboardInjector->setModifiers(false, false, false, false);
+            }
+        }
+
+        // Always emit the signal for the QML UI (existing behavior)
+        Q_EMIT keyPressReceived(key, specialKey, shift, ctrl, alt);
     } else if (np.type() == PACKET_TYPE_MOUSEPAD_KEYBOARDSTATE) {
-        //        qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Received keyboardstate" << np;
-        if (m_remoteState != np.get<bool>(QStringLiteral("state"))) {
-            m_remoteState = np.get<bool>(QStringLiteral("state"));
+        bool state = np.get<bool>(QStringLiteral("state"));
+        if (m_remoteState != state) {
+            m_remoteState = state;
             Q_EMIT remoteStateChanged(m_remoteState);
         }
     }

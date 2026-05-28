@@ -7,9 +7,11 @@
 #pragma once
 
 #include <QDBusInterface>
+#include <QPointer>
 #include <QVariantMap>
 #include <core/kdeconnectplugin.h>
 
+class VirtualKeyboardInjector;
 struct FakeKey;
 
 #define PACKET_TYPE_MOUSEPAD_REQUEST QLatin1String("kdeconnect.mousepad.request")
@@ -24,6 +26,7 @@ class RemoteKeyboardPlugin : public KdeConnectPlugin
 
 private:
     bool m_remoteState;
+    QPointer<VirtualKeyboardInjector> m_keyboardInjector;
 
 public:
     explicit RemoteKeyboardPlugin(QObject *parent, const QVariantList &args);

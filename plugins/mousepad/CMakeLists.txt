@@ -6,6 +6,30 @@ if(UNIX AND NOT APPLE)
     target_sources(kdeconnect_mousepad PRIVATE ${wayland_SRCS})
     target_link_libraries(kdeconnect_mousepad Wayland::Client Qt::WaylandClient PkgConfig::XkbCommon PkgConfig::PKG_libei)
 
+    # wlr-virtual-pointer backend for Hyprland/Sway/wlroots compositors
+    find_package(WaylandScanner QUIET)
+    if(WaylandScanner_FOUND)
+        find_package(Wayland QUIET COMPONENTS Client)
+        if(Wayland_FOUND)
+            # Generate protocol bindings
+            set(HYPRLAND_PROTOCOLS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/protocols)
+            ecm_add_wayland_client_protocol(kdeconnect_mousepad
+                PROTOCOL ${HYPRLAND_PROTOCOLS_DIR}/wlr-virtual-pointer-unstable-v1.xml
+                BASENAME virtual-pointer
+                PRIVATE_CODE
+            )
+            ecm_add_wayland_client_protocol(kdeconnect_mousepad
+                PROTOCOL ${HYPRLAND_PROTOCOLS_DIR}/virtual-keyboard-unstable-v1.xml
+                BASENAME virtual-keyboard
+                PRIVATE_CODE
+            )
+            target_sources(kdeconnect_mousepad PUBLIC hyprlandremoteinput.cpp)
+            target_include_directories(kdeconnect_mousepad PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+            target_link_libraries(kdeconnect_mousepad Wayland::Client PkgConfig::XkbCommon)
+
+            target_compile_definitions(kdeconnect_mousepad PRIVATE WITH_HYPRLAND_BACKEND)
+        endif()
+    endif()
 
     if (WITH_X11)
         find_package(LibFakeKey REQUIRED)
