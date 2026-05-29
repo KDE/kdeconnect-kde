@@ -434,15 +434,3 @@ msgstr ""
 "Ако имате проблеми, посетете  <a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">KDE Connect Community wiki</"
 "span></a>за помощ."
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Bluetooth"
-#~ msgstr "Bluetooth"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Loopback"
-#~ msgstr "Виртуален интерфейс (Loopback)"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Network"
-#~ msgstr "Мрежа"
