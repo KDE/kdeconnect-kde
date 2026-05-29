@@ -9,6 +9,9 @@
 #include "mprisremoteplayermediaplayer2.h"
 #include "mprisremoteplayermediaplayer2player.h"
 #include "mprisremoteplugin.h"
+#ifdef Q_OS_MACOS
+#include "mprisremoteplayernowplaying-macos.h"
+#endif
 
 #include <QDateTime>
 
@@ -42,6 +45,9 @@ MprisRemotePlayer::MprisRemotePlayer(QString id, MprisRemotePlugin *plugin)
     // Expose this player on the newly created connection. This allows multiple mpris services in the same Qt process
     new MprisRemotePlayerMediaPlayer2(this, plugin);
     new MprisRemotePlayerMediaPlayer2Player(this, plugin);
+#ifdef Q_OS_MACOS
+    new MprisRemotePlayerNowPlaying(this, plugin);
+#endif
 
     m_dbusConnection.registerObject(QStringLiteral("/org/mpris/MediaPlayer2"), this);
     // Make sure our service name is unique. Reuse the connection name for this.

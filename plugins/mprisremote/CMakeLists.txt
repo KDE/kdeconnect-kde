@@ -12,3 +12,8 @@ target_link_libraries(kdeconnect_mprisremote
     Qt::DBus
     Qt::Core # for hash
 )
+
+if(APPLE)
+    target_sources(kdeconnect_mprisremote PRIVATE mprisremoteplayernowplaying-macos.mm)
+    target_link_libraries(kdeconnect_mprisremote "-framework AppKit" "-framework MediaPlayer")
+endif()
