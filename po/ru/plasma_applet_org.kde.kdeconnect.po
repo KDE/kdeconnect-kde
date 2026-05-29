@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:45+0000\n"
+"POT-Creation-Date: 2026-05-29 00:43+0000\n"
 "PO-Revision-Date: 2026-04-03 19:56+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -107,53 +107,53 @@ msgstr "%1%"
 msgid "More options…"
 msgstr "Дополнительные параметры…"
 
-#: package/contents/ui/DeviceDelegate.qml:350
+#: package/contents/ui/DeviceDelegate.qml:349
 #, kde-format
 msgid "Notifications"
 msgstr "Уведомления"
 
-#: package/contents/ui/DeviceDelegate.qml:362
+#: package/contents/ui/DeviceDelegate.qml:361
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Отклонить все уведомления"
 
-#: package/contents/ui/DeviceDelegate.qml:380
+#: package/contents/ui/DeviceDelegate.qml:379
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Удалённая клавиатура"
 
-#: package/contents/ui/DeviceDelegate.qml:616
+#: package/contents/ui/DeviceDelegate.qml:608
 #, kde-format
 msgid "Reply"
 msgstr "Ответить"
 
-#: package/contents/ui/DeviceDelegate.qml:633
+#: package/contents/ui/DeviceDelegate.qml:625
 #, kde-format
 msgid "Dismiss"
 msgstr "Отклонить"
 
-#: package/contents/ui/DeviceDelegate.qml:659
+#: package/contents/ui/DeviceDelegate.qml:651
 #, kde-format
 msgid "Cancel"
 msgstr "Отмена"
 
-#: package/contents/ui/DeviceDelegate.qml:674
+#: package/contents/ui/DeviceDelegate.qml:666
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Ответить %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:692
+#: package/contents/ui/DeviceDelegate.qml:684
 #, kde-format
 msgid "Send"
 msgstr "Отправить"
 
-#: package/contents/ui/DeviceDelegate.qml:724
+#: package/contents/ui/DeviceDelegate.qml:716
 #, kde-format
 msgid "Run command"
 msgstr "Выполнить команду"
 
-#: package/contents/ui/DeviceDelegate.qml:731
+#: package/contents/ui/DeviceDelegate.qml:723
 #, kde-format
 msgid "Add command"
 msgstr "Добавить команду"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2026-05-29 00:43+0000\n"
 "PO-Revision-Date: 2025-11-09 14:11+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -259,92 +259,99 @@ msgstr ""
 "Показване на точката за монтиране на файловата система на посоченото "
 "устройство"
 
-#: kdeconnect-cli.cpp:151
+#: kdeconnect-cli.cpp:154
+#, kde-format
+msgctxt ""
+"Details on how a device is connected eg: on <network address> via Bluetooth"
+msgid "on %1 via %2"
+msgstr ""
+
+#: kdeconnect-cli.cpp:157
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(сдвоено и достъпно)"
 
-#: kdeconnect-cli.cpp:153
+#: kdeconnect-cli.cpp:159
 #, kde-format
 msgid "(reachable)"
 msgstr "(достъпно)"
 
-#: kdeconnect-cli.cpp:155 kdeconnect-cli.cpp:181
+#: kdeconnect-cli.cpp:161 kdeconnect-cli.cpp:183
 #, kde-format
 msgid "(paired)"
 msgstr "(сдвоено)"
 
-#: kdeconnect-cli.cpp:164
+#: kdeconnect-cli.cpp:166
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "Намерено е едно устройство"
 msgstr[1] "Намерени са %1 устройства"
 
-#: kdeconnect-cli.cpp:166
+#: kdeconnect-cli.cpp:168
 #, kde-format
 msgid "No devices found"
 msgstr "Няма намерени устройства"
 
-#: kdeconnect-cli.cpp:183
+#: kdeconnect-cli.cpp:185
 #, kde-format
 msgid "(unpaired)"
 msgstr "(несдвоено)"
 
-#: kdeconnect-cli.cpp:243
+#: kdeconnect-cli.cpp:245
 #, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "%1 е споделен"
 
-#: kdeconnect-cli.cpp:256
+#: kdeconnect-cli.cpp:258
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Споделен текст: %1"
 
-#: kdeconnect-cli.cpp:267
+#: kdeconnect-cli.cpp:269
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Заявено е заключване на %1"
 
-#: kdeconnect-cli.cpp:269
+#: kdeconnect-cli.cpp:271
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Заявено е отключване на %1"
 
-#: kdeconnect-cli.cpp:280
+#: kdeconnect-cli.cpp:282
 #, kde-format
 msgid "waiting for device…"
 msgstr "изчакване на устройство…"
 
-#: kdeconnect-cli.cpp:293
+#: kdeconnect-cli.cpp:295
 #, kde-format
 msgid "Device not found"
 msgstr "Не е намерено устройство"
 
-#: kdeconnect-cli.cpp:295
+#: kdeconnect-cli.cpp:297
 #, kde-format
 msgid "Already paired"
 msgstr "Вече е сдвоено"
 
-#: kdeconnect-cli.cpp:297
+#: kdeconnect-cli.cpp:299
 #, kde-format
 msgid "Pair requested"
 msgstr "(запитване за сдвояване)"
 
-#: kdeconnect-cli.cpp:307
+#: kdeconnect-cli.cpp:309
 #, kde-format
 msgid "Already not paired"
 msgstr "Вече не е сдвоено"
 
-#: kdeconnect-cli.cpp:309
+#: kdeconnect-cli.cpp:311
 #, kde-format
 msgid "Successfully unpaired"
 msgstr "Успешно разкачени"
 
-#: kdeconnect-cli.cpp:367
+#: kdeconnect-cli.cpp:369
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "

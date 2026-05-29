@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:45+0000\n"
+"POT-Creation-Date: 2026-05-29 00:43+0000\n"
 "PO-Revision-Date: 2024-08-04 17:09+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -103,54 +103,54 @@ msgstr "%1%"
 msgid "More options…"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:350
+#: package/contents/ui/DeviceDelegate.qml:349
 #, fuzzy, kde-format
 #| msgid "Notifications:"
 msgid "Notifications"
 msgstr "அறிவிப்புகள்:"
 
-#: package/contents/ui/DeviceDelegate.qml:362
+#: package/contents/ui/DeviceDelegate.qml:361
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "அனைத்து அறிவிப்புகளையும் அகற்று"
 
-#: package/contents/ui/DeviceDelegate.qml:380
+#: package/contents/ui/DeviceDelegate.qml:379
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "தொலை விசைப்பலகை"
 
-#: package/contents/ui/DeviceDelegate.qml:616
+#: package/contents/ui/DeviceDelegate.qml:608
 #, kde-format
 msgid "Reply"
 msgstr "பதிலளி"
 
-#: package/contents/ui/DeviceDelegate.qml:633
+#: package/contents/ui/DeviceDelegate.qml:625
 #, kde-format
 msgid "Dismiss"
 msgstr "அகற்று"
 
-#: package/contents/ui/DeviceDelegate.qml:659
+#: package/contents/ui/DeviceDelegate.qml:651
 #, kde-format
 msgid "Cancel"
 msgstr "ரத்து செய்"
 
-#: package/contents/ui/DeviceDelegate.qml:674
+#: package/contents/ui/DeviceDelegate.qml:666
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "%1-க்கான பதில்…"
 
-#: package/contents/ui/DeviceDelegate.qml:692
+#: package/contents/ui/DeviceDelegate.qml:684
 #, kde-format
 msgid "Send"
 msgstr "அனுப்பு"
 
-#: package/contents/ui/DeviceDelegate.qml:724
+#: package/contents/ui/DeviceDelegate.qml:716
 #, kde-format
 msgid "Run command"
 msgstr "கட்டளையை இயக்கு"
 
-#: package/contents/ui/DeviceDelegate.qml:731
+#: package/contents/ui/DeviceDelegate.qml:723
 #, kde-format
 msgid "Add command"
 msgstr "கட்டளையை சேர்"

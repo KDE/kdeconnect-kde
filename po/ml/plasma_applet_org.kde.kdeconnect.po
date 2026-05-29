@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:45+0000\n"
+"POT-Creation-Date: 2026-05-29 00:43+0000\n"
 "PO-Revision-Date: 2020-02-02 13:49+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -104,54 +104,54 @@ msgstr "%1%"
 msgid "More options…"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:350
+#: package/contents/ui/DeviceDelegate.qml:349
 #, fuzzy, kde-format
 #| msgid "Notifications:"
 msgid "Notifications"
 msgstr "അറിയിപ്പുകൾ:"
 
-#: package/contents/ui/DeviceDelegate.qml:362
+#: package/contents/ui/DeviceDelegate.qml:361
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "എല്ലാ അറിയിപ്പുകളും ഉപേക്ഷിക്കുക"
 
-#: package/contents/ui/DeviceDelegate.qml:380
+#: package/contents/ui/DeviceDelegate.qml:379
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "വിദൂര കീബോർഡ്"
 
-#: package/contents/ui/DeviceDelegate.qml:616
+#: package/contents/ui/DeviceDelegate.qml:608
 #, kde-format
 msgid "Reply"
 msgstr "മറുപടി"
 
-#: package/contents/ui/DeviceDelegate.qml:633
+#: package/contents/ui/DeviceDelegate.qml:625
 #, kde-format
 msgid "Dismiss"
 msgstr "ഉപേക്ഷിക്കുക"
 
-#: package/contents/ui/DeviceDelegate.qml:659
+#: package/contents/ui/DeviceDelegate.qml:651
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:674
+#: package/contents/ui/DeviceDelegate.qml:666
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:692
+#: package/contents/ui/DeviceDelegate.qml:684
 #, kde-format
 msgid "Send"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:724
+#: package/contents/ui/DeviceDelegate.qml:716
 #, kde-format
 msgid "Run command"
 msgstr "ആജ്ഞ പ്രവർത്തിപ്പിക്കുക"
 
-#: package/contents/ui/DeviceDelegate.qml:731
+#: package/contents/ui/DeviceDelegate.qml:723
 #, kde-format
 msgid "Add command"
 msgstr "ആജ്ഞ കൂട്ടിച്ചേർക്കുക"
