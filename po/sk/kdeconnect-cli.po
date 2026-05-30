@@ -259,7 +259,7 @@ msgstr "Vypísať bod pripojenia súborového systému daného zariadenia"
 msgctxt ""
 "Details on how a device is connected eg: on <network address> via Bluetooth"
 msgid "on %1 via %2"
-msgstr ""
+msgstr "na %1 cez %2"
 
 #: kdeconnect-cli.cpp:157
 #, kde-format
