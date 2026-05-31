@@ -166,6 +166,7 @@ endif()
 ki18n_install(po)
 
 if(BUILD_TESTING)
+    add_compile_definitions(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
