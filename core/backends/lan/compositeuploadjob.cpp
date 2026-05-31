@@ -20,6 +20,7 @@ CompositeUploadJob::CompositeUploadJob(Device *device, bool displayNotification)
     , m_port(0)
     , m_device(device)
     , m_running(false)
+    , m_timeout(this)
     , m_currentJobNum(1)
     , m_totalJobs(0)
     , m_currentJobSendPayloadSize(0)
@@ -30,6 +31,10 @@ CompositeUploadJob::CompositeUploadJob(Device *device, bool displayNotification)
     , m_updatePacketPending(false)
 {
     setCapabilities(Killable);
+
+    m_timeout.setSingleShot(true);
+    m_timeout.setInterval(30000);
+    connect(&m_timeout, &QTimer::timeout, this, &CompositeUploadJob::timeoutTriggered);
 
     if (displayNotification) {
         Daemon::instance()->jobTracker()->registerJob(this);
@@ -82,6 +87,7 @@ bool CompositeUploadJob::startListening()
     }
 
     qCDebug(KDECONNECT_CORE) << "CompositeUploadJob::startListening() - listening on port: " << m_port;
+
     return true;
 }
 
@@ -105,6 +111,7 @@ void CompositeUploadJob::startNextSubJob()
 
     if (m_device->sendPacket(np)) {
         m_server->resumeAccepting();
+        m_timeout.start();
     } else {
         setError(SendingNetworkPacketFailed);
         setErrorText(i18n("Failed to send packet to %1", m_device->name()));
@@ -115,6 +122,10 @@ void CompositeUploadJob::startNextSubJob()
 
 void CompositeUploadJob::newConnection()
 {
+    if (!m_running) {
+        return;
+    }
+    m_timeout.stop();
     m_server->pauseAccepting();
 
     m_socket = m_server->nextPendingConnection();
@@ -209,11 +220,25 @@ bool CompositeUploadJob::doKill()
 {
     if (m_running) {
         m_running = false;
-
+        m_timeout.stop();
+        m_server->close();
         return m_currentJob->stop();
     }
 
     return true;
+}
+
+void CompositeUploadJob::timeoutTriggered()
+{
+    if (!m_running) {
+        return;
+    }
+    m_running = false;
+    qCWarning(KDECONNECT_CORE) << "CompositeUploadJob::timeoutTriggered() - no connection received, closing port" << m_port;
+    m_server->close();
+    setError(ConnectionTimeoutError);
+    setErrorText(i18n("Timeout waiting for receiver to connect"));
+    emitResult();
 }
 
 void CompositeUploadJob::slotProcessedAmount(KJob * /*job*/, KJob::Unit unit, qulonglong amount)
