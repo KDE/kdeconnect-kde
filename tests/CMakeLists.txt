@@ -20,6 +20,7 @@ set(kdeconnect_libraries
 ecm_add_test(notificationstest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(pluginloadtest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(sendfiletest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
+target_sources(sendfiletest PRIVATE testdevice.cpp)
 ecm_add_test(smshelpertest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 if (WIN32 OR APPLE)
     ecm_add_test(mdnstest.cpp LINK_LIBRARIES ${kdeconnect_libraries})

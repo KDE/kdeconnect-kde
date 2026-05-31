@@ -19,6 +19,7 @@
 #include "core/kdeconnectplugin.h"
 #include "kdeconnect-version.h"
 #include "testdaemon.h"
+#include "testdevice.h"
 #include <backends/lan/compositeuploadjob.h>
 #include <backends/pairinghandler.h>
 #include <plugins/share/shareplugin.h>
@@ -127,6 +128,34 @@ private Q_SLOTS:
         const QByteArray resultContents = resultFile.readAll(), originContents = originFile.readAll();
         QCOMPARE(resultContents.size(), originContents.size());
         QCOMPARE(resultFile.readAll(), originFile.readAll());
+    }
+
+    void testTimeout()
+    {
+        const QString aFile = QFINDTESTDATA("sendfiletest.cpp");
+
+        DeviceInfo deviceInfo = KdeConnectConfig::instance().deviceInfo();
+        KdeConnectConfig::instance().addTrustedDevice(deviceInfo);
+
+        TestDevice *device = new TestDevice(this, deviceInfo.id);
+        m_daemon->addDevice(device);
+
+        QSharedPointer<QFile> f(new QFile(aFile));
+        NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
+        np.setPayload(f, f->size());
+
+        CompositeUploadJob *job = new CompositeUploadJob(device, false);
+#ifdef BUILD_TESTING
+        job->testSetTimeoutMs(1000);
+#endif
+        UploadJob *uj = new UploadJob(np);
+        job->addSubjob(uj);
+
+        QSignalSpy spy(job, &KJob::result);
+        job->start();
+
+        QVERIFY(spy.wait(5000));
+        QCOMPARE(job->error(), CompositeUploadJob::ConnectionTimeoutError);
     }
 
 private:
