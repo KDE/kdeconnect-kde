@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-24 00:44+0000\n"
-"PO-Revision-Date: 2026-03-13 18:07+0100\n"
+"PO-Revision-Date: 2026-05-26 23:17+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -29,7 +29,7 @@ msgstr "%1: Niedriger Akkustand"
 #: battery/batteryplugin.cpp:151
 #, kde-format
 msgid "Battery at %1%"
-msgstr "Akku bei %1 %"
+msgstr "Akku bei %1 %"
 
 #: clipboard/kdeconnect_clipboard_config.qml:34
 #, kde-format
@@ -460,7 +460,7 @@ msgstr "%1 existiert nicht"
 #: share/shareplugin.cpp:251
 #, kde-format
 msgid "Permission denied: %1"
-msgstr ""
+msgstr "Zugriff verweigert: %1"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:43
 #, kde-format
