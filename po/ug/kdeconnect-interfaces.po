@@ -1,0 +1,33 @@
+# Uyghur translation for kdeconnect-interfaces.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Abduqadir Abliz <sahranbay@gmail.com>, 2026., YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-12-15 00:42+0000\n"
+"PO-Revision-Date: 2026-05-30 17:17-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
+"Language: ug\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: devicesmodel.cpp:221
+#, kde-format
+msgid "Device trusted and connected"
+msgstr "ئۈسكۈنىگە ئىشەندى ۋە باغلاندى"
+
+#: devicesmodel.cpp:221
+#, kde-format
+msgid "Device not trusted"
+msgstr "ئۈسكۈنىگە ئىشەنمىدى"
+
+#: devicesmodel.cpp:221
+#, kde-format
+msgid "Device disconnected"
+msgstr "ئۈسكۈنە ئۈزۈلدى"

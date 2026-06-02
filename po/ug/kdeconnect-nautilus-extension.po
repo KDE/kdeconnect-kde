@@ -1,0 +1,27 @@
+# Uyghur translation for kdeconnect-nautilus-extension.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Abduqadir Abliz <sahranbay@gmail.com>, 2026., YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"PO-Revision-Date: 2026-05-30 17:18-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
+"Language: ug\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: kdeconnect-share.py:105
+#, python-format
+msgid "Send to %s via KDE Connect"
+msgstr "KDE باغلىنىشى ئارقىلىق %s غا يوللايدۇ"
+
+#: kdeconnect-share.py:112
+msgid "Send via KDE Connect"
+msgstr "KDE باغلىنىشى ئارقىلىق يوللايدۇ"

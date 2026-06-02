@@ -1,0 +1,458 @@
+# Uyghur translation for kdeconnect-app.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Abduqadir Abliz <sahranbay@gmail.com>, 2026., YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-04-08 00:45+0000\n"
+"PO-Revision-Date: 2026-05-30 17:17-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
+"Language: ug\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: main.cpp:38 main.cpp:40
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE باغلىنىش"
+
+#: main.cpp:42
+#, kde-format
+msgid "© 2015–2025 KDE Connect Team"
+msgstr "© 2015–2025 KDE باغلىنىش قوشۇنى"
+
+#: main.cpp:43
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:44
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
+
+#: main.cpp:45
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
+
+#: main.cpp:45
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
+
+#: main.cpp:76
+#, kde-format
+msgctxt "@info:shell"
+msgid "Device id to open the app in"
+msgstr ""
+
+#: main.cpp:79
+#, kde-format
+msgctxt "@info:shell"
+msgid "Configuration module to show, requires --device to be set."
+msgstr ""
+
+#: main.cpp:83
+#, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr "مەۋجۇت ئۈلگىنى ئالماشتۇر"
+
+#: main.cpp:86
+#, kde-format
+msgid "URL to share"
+msgstr ""
+
+#: qml/BatteryInfo.qml:26
+#, kde-format
+msgid "Battery: No info"
+msgstr ""
+
+#: qml/BatteryInfo.qml:28
+#, kde-format
+msgid "Battery: %1% (Charging)"
+msgstr ""
+
+#: qml/BatteryInfo.qml:30
+#, kde-format
+msgid "Battery: %1%"
+msgstr ""
+
+#: qml/ConnectivityInfo.qml:20
+#, kde-format
+msgid "Unknown"
+msgstr "يوچۇن"
+
+#: qml/ConnectivityInfo.qml:26
+#, kde-format
+msgid "Mobile Network: No signal"
+msgstr ""
+
+#: qml/ConnectivityInfo.qml:28
+#, kde-format
+msgid "Mobile Network: %1"
+msgstr ""
+
+#: qml/DevicePage.qml:46
+#, kde-format
+msgid "Unpair"
+msgstr ""
+
+#: qml/DevicePage.qml:51
+#, kde-format
+msgid "Send Ping"
+msgstr ""
+
+#: qml/DevicePage.qml:59 qml/PluginSettings.qml:20
+#, kde-format
+msgid "Plugin Settings"
+msgstr "قىستۇرما تەڭشىكى"
+
+#: qml/DevicePage.qml:75
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Actions"
+msgstr "مەشغۇلات"
+
+#: qml/DevicePage.qml:77
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Controls"
+msgstr ""
+
+#: qml/DevicePage.qml:79
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Information"
+msgstr "ئۇچۇر"
+
+#: qml/DevicePage.qml:141
+#, kde-format
+msgid "Multimedia control"
+msgstr ""
+
+#: qml/DevicePage.qml:149
+#, kde-format
+msgid "Remote input"
+msgstr ""
+
+#: qml/DevicePage.qml:157 qml/runcommand.qml:16
+#, kde-format
+msgid "Run command"
+msgstr ""
+
+#: qml/DevicePage.qml:165 qml/presentationRemote.qml:15
+#, kde-format
+msgid "Presentation Remote"
+msgstr ""
+
+#: qml/DevicePage.qml:174 qml/volume.qml:16
+#, kde-format
+msgid "Volume control"
+msgstr ""
+
+#: qml/DevicePage.qml:184
+#, kde-format
+msgid "SMS Messages"
+msgstr "قىسقا ئۇچۇر"
+
+#: qml/DevicePage.qml:192 qml/mousepad.qml:44
+#, kde-format
+msgid "Lock"
+msgstr "قۇلۇپلا"
+
+#: qml/DevicePage.qml:192
+#, kde-format
+msgid "Unlock"
+msgstr "قۇلۇپ ئاچ"
+
+#: qml/DevicePage.qml:200
+#, kde-format
+msgid "Find Device"
+msgstr ""
+
+#: qml/DevicePage.qml:208
+#, kde-format
+msgid "Send Clipboard"
+msgstr "چاپلاش تاختىسى يوللا"
+
+#: qml/DevicePage.qml:215
+#, kde-format
+msgid "Share File"
+msgstr ""
+
+#: qml/DevicePage.qml:223
+#, kde-format
+msgid "Browse this device"
+msgstr ""
+
+#: qml/DevicePage.qml:231
+#, kde-format
+msgid "Stop virtual monitor session"
+msgstr ""
+
+#: qml/DevicePage.qml:231
+#, kde-format
+msgid "Use device as an external monitor"
+msgstr ""
+
+#: qml/DevicePage.qml:262
+#, kde-format
+msgid "Address: %1 via %2"
+msgstr ""
+
+#: qml/DevicePage.qml:271
+#, kde-format
+msgid "This device is not paired."
+msgstr ""
+
+#: qml/DevicePage.qml:275
+#, kde-format
+msgctxt "Request pairing with a given device"
+msgid "Pair"
+msgstr ""
+
+#: qml/DevicePage.qml:282 qml/DevicePage.qml:291
+#, kde-format
+msgid ""
+"Pair requested\n"
+"Key: "
+msgstr ""
+
+#: qml/DevicePage.qml:297
+#, kde-format
+msgid "Accept"
+msgstr "قوشۇل"
+
+#: qml/DevicePage.qml:303
+#, kde-format
+msgid "Reject"
+msgstr "رەت قىل"
+
+#: qml/DevicePage.qml:314
+#, kde-format
+msgid "This device is not reachable"
+msgstr ""
+
+#: qml/DevicePage.qml:322
+#, kde-format
+msgid "Please choose a file"
+msgstr "بىر ھۆججەت تاللاڭ"
+
+#: qml/Main.qml:87
+#, kde-format
+msgid "Devices"
+msgstr "ئۈسكۈنە"
+
+#: qml/Main.qml:95
+#, kde-format
+msgctxt "@action:button"
+msgid "Refresh"
+msgstr "يېڭىلا"
+
+#: qml/Main.qml:98
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Refresh Devices"
+msgstr ""
+
+#: qml/Main.qml:134
+#, kde-format
+msgid "Remembered"
+msgstr ""
+
+#: qml/Main.qml:136
+#, kde-format
+msgid "Available"
+msgstr "ئىشلەتكىلى بولىدۇ"
+
+#: qml/Main.qml:138
+#, kde-format
+msgid "Connected"
+msgstr "باغلاندى"
+
+#: qml/Main.qml:143
+#, kde-format
+msgid "No devices found"
+msgstr "ھېچقانداق ئۈسكۈنە تېپىلمىدى"
+
+#: qml/Main.qml:215
+#, kde-format
+msgctxt "@action:button"
+msgid "Settings"
+msgstr "تەڭشەك"
+
+#: qml/Main.qml:230
+#, kde-format
+msgid "Settings"
+msgstr "تەڭشەك"
+
+#: qml/mousepad.qml:16
+#, kde-format
+msgid "Remote Control"
+msgstr ""
+
+#: qml/mousepad.qml:61
+#, kde-format
+msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
+msgstr ""
+
+#: qml/mousepad.qml:213
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Left Click"
+msgstr ""
+
+#: qml/mousepad.qml:222
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Middle Click"
+msgstr "ئوتتۇرا چېكىش"
+
+#: qml/mousepad.qml:231
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Right Click"
+msgstr ""
+
+#: qml/mpris.qml:20
+#, kde-format
+msgid "Multimedia Controls"
+msgstr ""
+
+#: qml/mpris.qml:68
+#, kde-format
+msgid "No players available"
+msgstr ""
+
+#: qml/mpris.qml:128
+#, kde-format
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: qml/PluginSettings.qml:140
+#, kde-format
+msgid "Configure plugin"
+msgstr ""
+
+#: qml/presentationRemote.qml:22
+#, kde-format
+msgid "Enable Full-Screen"
+msgstr ""
+
+#: qml/presentationRemote.qml:39
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Previous Slide"
+msgstr "ئالدىنقى تام تەسۋىر"
+
+#: qml/presentationRemote.qml:47
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Next Slide"
+msgstr "كېيىنكى تام تەسۋىر"
+
+#: qml/runcommand.qml:23
+#, kde-format
+msgid "Edit commands"
+msgstr ""
+
+#: qml/runcommand.qml:26
+#, kde-format
+msgid "You can edit commands on the connected device"
+msgstr ""
+
+#: qml/runcommand.qml:53
+#, kde-format
+msgid "No commands defined"
+msgstr ""
+
+#: qml/Settings.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "Settings"
+msgstr "تەڭشەك"
+
+#: qml/Settings.qml:27
+#, kde-format
+msgid "Device name"
+msgstr ""
+
+#: qml/Settings.qml:39
+#, kde-format
+msgctxt "@title:group"
+msgid "Backends"
+msgstr "ئارقا ئۇچلار"
+
+#: qml/Settings.qml:72
+#, kde-format
+msgid "About KDE Connect"
+msgstr ""
+
+#: qml/Settings.qml:80
+#, kde-format
+msgid "About KDE"
+msgstr "KDE ھەققىدە"
+
+#: qml/Settings.qml:91
+#, kde-format
+msgid "Close"
+msgstr "ياپ"
+
+#: qml/WelcomePage.qml:27
+#, kde-format
+msgctxt "@title"
+msgid "No Device Selected"
+msgstr ""
+
+#: qml/WelcomePage.qml:35
+#, kde-format
+msgctxt "@info"
+msgid "Make sure to install KDE Connect on your other devices."
+msgstr ""
+
+#: qml/WelcomePage.qml:43
+#, kde-format
+msgctxt "@title:context"
+msgid "KDE Connect Android App"
+msgstr ""
+
+#: qml/WelcomePage.qml:50
+#, kde-format
+msgctxt "Android Application Store"
+msgid "F-Droid"
+msgstr ""
+
+#: qml/WelcomePage.qml:57
+#, kde-format
+msgctxt "Android Application Store"
+msgid "Play Store"
+msgstr ""
+
+#: qml/WelcomePage.qml:63
+#, kde-format
+msgctxt "@title:context"
+msgid "KDE Connect iOS App"
+msgstr ""
+
+#: qml/WelcomePage.qml:68
+#, kde-format
+msgid "Apple Store"
+msgstr ""
+
+#: qml/WelcomePage.qml:74
+#, kde-format
+msgid ""
+"If you are having problems, visit the <a href=\"https://userbase.kde.org/"
+"KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
+"Community wiki</span></a> for help."
+msgstr ""
