@@ -60,6 +60,7 @@ Name[sr@latin]=KDE‑konekcija
 Name[sv]=KDE-anslut
 Name[ta]=கே.டீ.யீ. கனெக்ட்
 Name[tr]=KDE Bağlan
+Name[ug]=KDE باغلىنىش
 Name[uk]=З’єднання KDE
 Name[zh_CN]=KDE Connect
 Name[zh_TW]=KDE Connect
