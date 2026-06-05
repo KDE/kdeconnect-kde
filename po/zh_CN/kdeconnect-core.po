@@ -36,7 +36,7 @@ msgstr "发送数据包给 %1 失败"
 #: backends/lan/compositeuploadjob.cpp:240
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "等待接收器连接超时"
 
 #: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
