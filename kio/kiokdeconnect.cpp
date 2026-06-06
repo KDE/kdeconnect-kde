@@ -140,6 +140,39 @@ bool KioKdeconnect::rewriteUrl(const QUrl &url, QUrl &newUrl)
     return true;
 }
 
+void KioKdeconnect::adjustUDSEntry(KIO::UDSEntry &entry, UDSEntryCreationMode creationMode) const
+{
+    const auto mode = entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE);
+    if ((mode & QT_STAT_MASK) == QT_STAT_DIR) {
+        static const QHash<QString, QString> s_folderIcons = {
+            {QStringLiteral("Audiobooks"), QStringLiteral("folder-book")},
+            {QStringLiteral("DCIM"), QStringLiteral("camera-photo")},
+            {QStringLiteral("Documents"), QStringLiteral("folder-documents")},
+            {QStringLiteral("Download"), QStringLiteral("folder-downloads")},
+            {QStringLiteral("Movies"), QStringLiteral("folder-videos")},
+            {QStringLiteral("Music"), QStringLiteral("folder-music")},
+            {QStringLiteral("Pictures"), QStringLiteral("folder-pictures")},
+        };
+
+        KdeConnectUrl kurl(requestedUrl());
+
+        QString path;
+        if (creationMode == UDSEntryCreationInStat) {
+            // URL points to the file itself.
+            KdeConnectUrl kurl(requestedUrl());
+            path = kurl.relativePath();
+        } else {
+            // Can we assume relativePath() ends with a trailing slash?
+            path = kurl.relativePath() + entry.stringValue(KIO::UDSEntry::UDS_NAME);
+        }
+
+        const QString iconName = s_folderIcons.value(path);
+        if (!iconName.isEmpty()) {
+            entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, iconName);
+        }
+    }
+}
+
 KIO::WorkerResult KioKdeconnect::listAllDevices()
 {
     infoMessage(i18n("Listing devices…"));

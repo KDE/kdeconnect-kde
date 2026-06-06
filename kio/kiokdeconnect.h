@@ -21,6 +21,7 @@ public:
     KioKdeconnect(const QByteArray &pool, const QByteArray &app);
 
     bool rewriteUrl(const QUrl &url, QUrl &newUrl) override;
+    void adjustUDSEntry(KIO::UDSEntry &entry, UDSEntryCreationMode creationMode) const override;
 
     KIO::WorkerResult get(const QUrl &url) override;
     KIO::WorkerResult listDir(const QUrl &url) override;
