@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-01 00:43+0000\n"
-"PO-Revision-Date: 2026-02-04 00:30+0100\n"
+"PO-Revision-Date: 2026-06-06 12:15+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: backends/bluetooth/asynclinkprovider.cpp:57
 #, kde-format
@@ -36,7 +36,7 @@ msgstr "%1(으)로 패킷을 보낼 수 없음"
 #: backends/lan/compositeuploadjob.cpp:240
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "수신자의 연결을 기다릴 시간 제한"
 
 #: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
