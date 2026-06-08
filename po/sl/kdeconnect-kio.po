@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:45+0000\n"
+"POT-Creation-Date: 2026-06-08 00:44+0000\n"
 "PO-Revision-Date: 2026-04-08 07:10+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -18,47 +18,47 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.9\n"
 
-#: kiokdeconnect.cpp:145
+#: kiokdeconnect.cpp:178
 #, kde-format
 msgid "Listing devices…"
 msgstr "Naštevanje naprav…"
 
-#: kiokdeconnect.cpp:190
+#: kiokdeconnect.cpp:223
 #, kde-format
 msgid "Accessing device…"
 msgstr "Dostopanje do naprave…"
 
-#: kiokdeconnect.cpp:205
+#: kiokdeconnect.cpp:238
 #, kde-format
 msgid "No such device: %0"
 msgstr "Ni take naprave: %0"
 
-#: kiokdeconnect.cpp:211
+#: kiokdeconnect.cpp:244
 #, kde-format
 msgid "%0 is not paired"
 msgstr "%0 ni uparjena"
 
-#: kiokdeconnect.cpp:215
+#: kiokdeconnect.cpp:248
 #, kde-format
 msgid "%0 is not connected"
 msgstr "%0 ni povezana"
 
-#: kiokdeconnect.cpp:219
+#: kiokdeconnect.cpp:252
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
 msgstr "%0 nima vtičnika za oddaljeni sistem datotek"
 
-#: kiokdeconnect.cpp:284
+#: kiokdeconnect.cpp:317
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Ni bilo mogoče vzpostaviti stika z storitvijo v ozadju."
 
-#: kiokdeconnect.cpp:311
+#: kiokdeconnect.cpp:344
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: kiokdeconnect.cpp:321
+#: kiokdeconnect.cpp:354
 #, kde-format
 msgid "Failed to get mount point: %1"
 msgstr "Ni bilo mogoče pridobiti točke priklopa: %1"

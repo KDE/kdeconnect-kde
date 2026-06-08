@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:45+0000\n"
+"POT-Creation-Date: 2026-06-08 00:44+0000\n"
 "PO-Revision-Date: 2026-05-09 15:51+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -19,47 +19,47 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 26.04.0\n"
 
-#: kiokdeconnect.cpp:145
+#: kiokdeconnect.cpp:178
 #, kde-format
 msgid "Listing devices…"
 msgstr "Nasłuchiwanie za urządzeniami…"
 
-#: kiokdeconnect.cpp:190
+#: kiokdeconnect.cpp:223
 #, kde-format
 msgid "Accessing device…"
 msgstr "Uzyskiwanie dostępu do urządzenia…"
 
-#: kiokdeconnect.cpp:205
+#: kiokdeconnect.cpp:238
 #, kde-format
 msgid "No such device: %0"
 msgstr "Brak urządzenia: %0"
 
-#: kiokdeconnect.cpp:211
+#: kiokdeconnect.cpp:244
 #, kde-format
 msgid "%0 is not paired"
 msgstr "Urządzenie „%0” nie jest sparowane"
 
-#: kiokdeconnect.cpp:215
+#: kiokdeconnect.cpp:248
 #, kde-format
 msgid "%0 is not connected"
 msgstr "Urządzenie „%0” nie jest podłączone"
 
-#: kiokdeconnect.cpp:219
+#: kiokdeconnect.cpp:252
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
 msgstr "Urządzenie „%0” nie ma wtyczki zdalnego systemu plików"
 
-#: kiokdeconnect.cpp:284
+#: kiokdeconnect.cpp:317
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Nie można połączyć z usługą w tle."
 
-#: kiokdeconnect.cpp:311
+#: kiokdeconnect.cpp:344
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: kiokdeconnect.cpp:321
+#: kiokdeconnect.cpp:354
 #, kde-format
 msgid "Failed to get mount point: %1"
 msgstr "Nie udało się uzyskać punktu podpięcia: %1"

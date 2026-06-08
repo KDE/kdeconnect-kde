@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:45+0000\n"
+"POT-Creation-Date: 2026-06-08 00:44+0000\n"
 "PO-Revision-Date: 2026-05-02 18:42+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -17,47 +17,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 26.04.0\n"
 
-#: kiokdeconnect.cpp:145
+#: kiokdeconnect.cpp:178
 #, kde-format
 msgid "Listing devices…"
 msgstr "சாதனங்கள் பட்டியலிடப்படுகின்றன…"
 
-#: kiokdeconnect.cpp:190
+#: kiokdeconnect.cpp:223
 #, kde-format
 msgid "Accessing device…"
 msgstr "சாதனம் அணுகப்படுகிறது…"
 
-#: kiokdeconnect.cpp:205
+#: kiokdeconnect.cpp:238
 #, kde-format
 msgid "No such device: %0"
 msgstr "இப்படிப்பட்ட சாதனம் இல்லை: %0"
 
-#: kiokdeconnect.cpp:211
+#: kiokdeconnect.cpp:244
 #, kde-format
 msgid "%0 is not paired"
 msgstr "%0 இணைக்கப்படவில்லை"
 
-#: kiokdeconnect.cpp:215
+#: kiokdeconnect.cpp:248
 #, kde-format
 msgid "%0 is not connected"
 msgstr "%0 தொடர்பில் இல்லை"
 
-#: kiokdeconnect.cpp:219
+#: kiokdeconnect.cpp:252
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
 msgstr "%0, தொலை கோப்பு முறைமை செருகுநிரலை கொண்டிருக்கவில்லை"
 
-#: kiokdeconnect.cpp:284
+#: kiokdeconnect.cpp:317
 #, kde-format
 msgid "Could not contact background service."
 msgstr "பின்புல நிரலை தொடர்புகொள்ள முடியவில்லை."
 
-#: kiokdeconnect.cpp:311
+#: kiokdeconnect.cpp:344
 #, kde-format
 msgid "KDE Connect"
 msgstr "கே.டீ.யீ. கனெக்ட்"
 
-#: kiokdeconnect.cpp:321
+#: kiokdeconnect.cpp:354
 #, kde-format
 msgid "Failed to get mount point: %1"
 msgstr "ஏற்ற மையத்தை பெற முடியவில்லை: %1"

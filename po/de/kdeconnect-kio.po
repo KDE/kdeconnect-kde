@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:45+0000\n"
+"POT-Creation-Date: 2026-06-08 00:44+0000\n"
 "PO-Revision-Date: 2026-04-27 23:17+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -15,47 +15,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#: kiokdeconnect.cpp:145
+#: kiokdeconnect.cpp:178
 #, kde-format
 msgid "Listing devices…"
 msgstr "Geräte werden aufgelistet …"
 
-#: kiokdeconnect.cpp:190
+#: kiokdeconnect.cpp:223
 #, kde-format
 msgid "Accessing device…"
 msgstr "Auf Gerät wird zugegriffen …"
 
-#: kiokdeconnect.cpp:205
+#: kiokdeconnect.cpp:238
 #, kde-format
 msgid "No such device: %0"
 msgstr "Kein solches Gerät: %0"
 
-#: kiokdeconnect.cpp:211
+#: kiokdeconnect.cpp:244
 #, kde-format
 msgid "%0 is not paired"
 msgstr "%0 ist nicht gekoppelt"
 
-#: kiokdeconnect.cpp:215
+#: kiokdeconnect.cpp:248
 #, kde-format
 msgid "%0 is not connected"
 msgstr "%0 ist nicht verbunden"
 
-#: kiokdeconnect.cpp:219
+#: kiokdeconnect.cpp:252
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
 msgstr "%0 hat kein Dateisystem-Modul für Fernzugriffe"
 
-#: kiokdeconnect.cpp:284
+#: kiokdeconnect.cpp:317
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Hintergrunddienst kann nicht kontaktiert werden."
 
-#: kiokdeconnect.cpp:311
+#: kiokdeconnect.cpp:344
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: kiokdeconnect.cpp:321
+#: kiokdeconnect.cpp:354
 #, kde-format
 msgid "Failed to get mount point: %1"
 msgstr "Ermitteln des Einhängepunkts fehlgeschlagen: %1"

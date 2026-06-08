@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:45+0000\n"
+"POT-Creation-Date: 2026-06-08 00:44+0000\n"
 "PO-Revision-Date: 2026-04-26 21:41+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,47 +17,47 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 25.08.1\n"
 
-#: kiokdeconnect.cpp:145
+#: kiokdeconnect.cpp:178
 #, kde-format
 msgid "Listing devices…"
 msgstr "장치 목록 표시 중…"
 
-#: kiokdeconnect.cpp:190
+#: kiokdeconnect.cpp:223
 #, kde-format
 msgid "Accessing device…"
 msgstr "장치에 접근 중…"
 
-#: kiokdeconnect.cpp:205
+#: kiokdeconnect.cpp:238
 #, kde-format
 msgid "No such device: %0"
 msgstr "장치 없음: %0"
 
-#: kiokdeconnect.cpp:211
+#: kiokdeconnect.cpp:244
 #, kde-format
 msgid "%0 is not paired"
 msgstr "%0이(가) 페어링되지 않음|/|%0$[이가 $0] 페어링되지 않음"
 
-#: kiokdeconnect.cpp:215
+#: kiokdeconnect.cpp:248
 #, kde-format
 msgid "%0 is not connected"
 msgstr "%0이(가) 연결되지 않음|/|%0$[이가 %0] 연결되지 않음"
 
-#: kiokdeconnect.cpp:219
+#: kiokdeconnect.cpp:252
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
 msgstr "%0에 원격 파일 시스템 플러그인이 없음"
 
-#: kiokdeconnect.cpp:284
+#: kiokdeconnect.cpp:317
 #, kde-format
 msgid "Could not contact background service."
 msgstr "백그라운드 서비스에 연결할 수 없습니다."
 
-#: kiokdeconnect.cpp:311
+#: kiokdeconnect.cpp:344
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: kiokdeconnect.cpp:321
+#: kiokdeconnect.cpp:354
 #, kde-format
 msgid "Failed to get mount point: %1"
 msgstr "마운트 지점을 가져올 수 없음: %1"

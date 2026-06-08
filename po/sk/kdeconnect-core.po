@@ -37,7 +37,7 @@ msgstr "Zlyhalo odosielanie paketu do zariadenia %1"
 #: backends/lan/compositeuploadjob.cpp:240
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "Vypršal časový limit pri čakaní na pripojenie prijímača"
 
 #: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
