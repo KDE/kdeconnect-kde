@@ -2,23 +2,23 @@
     "KDE-KIO-Protocols": {
         "kdeconnect": {
             "Icon": "kdeconnect",
-            "copyFromFile": false,
-            "copyToFile": false,
-            "deleting": false,
+            "deleting": true,
             "exec": "kdeconnect",
             "input": "none",
+            "linking": false,
             "listing": [
                 "Name",
                 "Type",
                 "Access"
             ],
-            "makedir": false,
+            "makedir": true,
             "maxInstances": 2,
-            "moving": false,
+            "moving": true,
+            "opening": true,
             "output": "filesystem",
             "protocol": "kdeconnect",
             "reading": true,
-            "writing": false
+            "writing": true
         }
     }
 }
