@@ -244,7 +244,7 @@ void BluetoothLinkProvider::clientIdentityReceived(const QBluetoothAddress &peer
         certificateBody = certificateBody.prepend(QStringLiteral("-----BEGIN CERTIFICATE-----\n")).append(QStringLiteral("\n-----END CERTIFICATE-----\n"));
     }
     QSslCertificate receivedCertificate(certificateBody.toLatin1());
-    DeviceInfo deviceInfo = deviceInfo.FromIdentityPacketAndCert(receivedPacket, receivedCertificate);
+    DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(receivedPacket, receivedCertificate);
     BluetoothDeviceLink *deviceLink = new BluetoothDeviceLink(deviceInfo, this, mSockets[peer], socket);
 
     DeviceInfo myDeviceInfo = KdeConnectConfig::instance().deviceInfo();
@@ -361,7 +361,7 @@ void BluetoothLinkProvider::serverDataReceived(const QBluetoothAddress &peer, QS
         certificateBody = certificateBody.prepend(QStringLiteral("-----BEGIN CERTIFICATE-----\n")).append(QStringLiteral("-----END CERTIFICATE-----\n"));
     }
     QSslCertificate receivedCertificate(certificateBody.toLatin1());
-    DeviceInfo deviceInfo = deviceInfo.FromIdentityPacketAndCert(receivedPacket, receivedCertificate);
+    DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(receivedPacket, receivedCertificate);
     BluetoothDeviceLink *deviceLink = new BluetoothDeviceLink(deviceInfo, this, mSockets[peer], socket);
 
     addLink(deviceLink, deviceInfo.id);
