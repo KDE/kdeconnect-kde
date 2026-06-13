@@ -647,6 +647,40 @@ Announcer::Announcer(const QString &instanceName, const QString &serviceType, ui
     detectHostAddresses();
 }
 
+// Heuristic to detect virtual interfaces (bridges, VM/container adapters, etc.) whose addresses
+// are typically not reachable from other devices on the physical LAN. Advertising such addresses
+// in our mDNS A/AAAA records can make our hostname resolve to an unroutable address on remote
+// devices. We can't rely on QNetworkInterface::type(): bridges like virbr0/docker0 report as
+// Ethernet (ARPHRD_ETHER), while the only things flagged Virtual are tunnels (tun/WireGuard),
+// which we want to keep advertising in case a VPN is the machine's only connectivity. So we match
+// on well-known virtual-interface name prefixes instead.
+static bool isVirtualInterface(const QNetworkInterface &iface)
+{
+    // Only clearly-virtual interfaces that are never a machine's primary LAN link. We deliberately
+    // avoid prefixes that can legitimately be the real connection (e.g. "bridge" on a virtualization
+    // host, or "tun"/"tap" when a VPN is the only connectivity), since wrongly dropping those would
+    // leave us advertising no usable address at all.
+    static const QStringList virtualPrefixes = {
+        QStringLiteral("virbr"), // libvirt bridge
+        QStringLiteral("vnet"), // libvirt guest tap
+        QStringLiteral("vmnet"), // VMware host-only/NAT
+        QStringLiteral("vboxnet"), // VirtualBox host-only
+        QStringLiteral("docker"), // Docker bridge
+        QStringLiteral("br-"), // Docker user-defined bridges
+        QStringLiteral("veth"), // container veth pairs
+        QStringLiteral("awdl"), // macOS Apple Wireless Direct Link (AirDrop, not LAN)
+        QStringLiteral("llw"), // macOS low-latency WLAN (peer-to-peer, not LAN)
+    };
+
+    const QString name = iface.name();
+    for (const QString &prefix : virtualPrefixes) {
+        if (name.startsWith(prefix)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void Announcer::detectHostAddresses()
 {
     self.addressesV4.clear();
@@ -654,6 +688,10 @@ void Announcer::detectHostAddresses()
     for (const QNetworkInterface &iface : QNetworkInterface::allInterfaces()) {
         int flags = iface.flags();
         if (!(flags & QNetworkInterface::IsUp) || !(flags & QNetworkInterface::CanMulticast) || (flags & QNetworkInterface::IsLoopBack)) {
+            continue;
+        }
+        if (isVirtualInterface(iface)) {
+            qCDebug(KDECONNECT_CORE) << "Skipping virtual interface for mDNS announce:" << iface.name();
             continue;
         }
         for (const QNetworkAddressEntry &ifaceAddress : iface.addressEntries()) {
