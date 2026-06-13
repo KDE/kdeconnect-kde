@@ -88,11 +88,11 @@ void BluetoothLinkProvider::enable()
 void BluetoothLinkProvider::disable()
 {
     if (!mDisabled) {
-        mDisabled = true;
         onStop();
-
+        mDisabled = true;
         mBluetoothServer = nullptr;
-        mServiceDiscoveryAgent = nullptr;
+
+        mServiceDiscoveryAgent->stop();
     }
 }
 
