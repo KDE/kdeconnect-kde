@@ -54,7 +54,7 @@ QString AsyncLinkProvider::name()
 
 QString AsyncLinkProvider::displayName()
 {
-    return i18nc("@info", "Bluetooth");
+    return i18nc("@info", "Bluetooth (beta)");
 }
 
 int AsyncLinkProvider::priority()

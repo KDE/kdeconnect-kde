@@ -84,7 +84,8 @@ void KdeConnectConfig::setDisabledLinkProviders(const QStringList disabledProvid
 
 QStringList KdeConnectConfig::disabledLinkProviders() const
 {
-    return d->m_config->value(QStringLiteral("disabled_providers")).toStringList();
+    // AsyncLinkProvider (Bluetooth) is disabled by default
+    return d->m_config->value(QStringLiteral("disabled_providers"), QStringList{QStringLiteral("AsyncLinkProvider")}).toStringList();
 }
 
 DeviceType KdeConnectConfig::deviceType()
