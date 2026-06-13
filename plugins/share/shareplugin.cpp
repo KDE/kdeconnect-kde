@@ -72,7 +72,7 @@ static QString cleanFilename(const QString &filename)
 void SharePlugin::setDateModified(const QUrl &destination, const qint64 timestamp)
 {
     QFile receivedFile(destination.toLocalFile());
-    if (!receivedFile.exists() || !receivedFile.open(QIODevice::ReadWrite | QIODevice::Text)) {
+    if (!receivedFile.exists() || !receivedFile.open(QIODevice::ReadWrite)) {
         return;
     }
     receivedFile.setFileTime(QDateTime::fromMSecsSinceEpoch(timestamp), QFileDevice::FileTime(QFileDevice::FileModificationTime));
@@ -81,7 +81,7 @@ void SharePlugin::setDateModified(const QUrl &destination, const qint64 timestam
 void SharePlugin::setDateCreated(const QUrl &destination, const qint64 timestamp)
 {
     QFile receivedFile(destination.toLocalFile());
-    if (!receivedFile.exists() || !receivedFile.open(QIODevice::ReadWrite | QIODevice::Text)) {
+    if (!receivedFile.exists() || !receivedFile.open(QIODevice::ReadWrite)) {
         return;
     }
     receivedFile.setFileTime(QDateTime::fromMSecsSinceEpoch(timestamp), QFileDevice::FileTime(QFileDevice::FileBirthTime));
