@@ -26,7 +26,7 @@ QtObject {
         if (object) {
             const signal = object[change];
             if (signal) {
-                signal.connect(valueReceived);
+                signal.connect(this, valueReceived);
             } else {
                 console.warn(`couldn't find signal ${change} for ${object}`);
             }
