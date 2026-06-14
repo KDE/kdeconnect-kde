@@ -22,7 +22,6 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin *aPlugin)
     : QObject(aPlugin)
     , m_plugin(aPlugin)
 {
-    setTranslatedAppName();
     loadApplications();
 
     connect(m_plugin->config(), &KdeConnectPluginConfig::configChanged, this, &NotificationsListener::loadApplications);
@@ -31,22 +30,6 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin *aPlugin)
 NotificationsListener::~NotificationsListener()
 {
     qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Destroying NotificationsListener";
-}
-
-void NotificationsListener::setTranslatedAppName()
-{
-    QString filePath =
-        QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("knotifications6/kdeconnect.notifyrc"), QStandardPaths::LocateFile);
-    if (filePath.isEmpty()) {
-        qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS)
-            << "Couldn't find kdeconnect.notifyrc to hide kdeconnect notifications on the devices. Using default name.";
-        m_translatedAppName = QStringLiteral("KDE Connect");
-        return;
-    }
-
-    KConfig config(filePath, KConfig::OpenFlag::SimpleConfig);
-    KConfigGroup globalgroup(&config, QStringLiteral("Global"));
-    m_translatedAppName = globalgroup.readEntry(QStringLiteral("Name"), QStringLiteral("KDE Connect"));
 }
 
 void NotificationsListener::loadApplications()
@@ -63,10 +46,6 @@ void NotificationsListener::loadApplications()
 
 bool NotificationsListener::checkApplicationName(const QString &appName, const QString iconName)
 {
-    if (m_translatedAppName == appName) {
-        return false;
-    }
-
     auto it = m_applications.constFind(appName);
     if (it == m_applications.cend()) {
         // new application -> add to config

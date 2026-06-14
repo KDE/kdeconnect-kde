@@ -110,6 +110,8 @@ void Notification::createKNotification(const NetworkPacket &np)
     }
 
     m_notification->setHint(QStringLiteral("x-kde-origin-name"), m_device->name());
+    // Mark this notification so sendnotifications can filter it out and not echo it back to the device
+    m_notification->setHint(QStringLiteral("x-kdeconnect-source-device"), m_device->name());
 
     if (!m_requestReplyId.isEmpty()) {
         auto replyAction = std::make_unique<KNotificationReplyAction>(i18nc("@action:button", "Reply"));
