@@ -36,8 +36,5 @@ private Q_SLOTS:
     void loadApplications();
 
 private:
-    void setTranslatedAppName();
-
     QHash<QString, NotifyingApplication> m_applications;
-    QString m_translatedAppName;
 };

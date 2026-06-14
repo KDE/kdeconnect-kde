@@ -265,6 +265,11 @@ void DBusNotificationsListener::onNotify(const NotificationManager::Notification
 {
     qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Got notification from " << notification.applicationName() << " with id " << notification.id();
 
+    // Drop notifications that the notifications plugin created from a remote device, to avoid echoing them back
+    if (notification.hints().contains(QStringLiteral("x-kdeconnect-source-device"))) {
+        return;
+    }
+
     auto *config = m_plugin->config();
     if (notification.timeout() > 0 && config->getBool(QStringLiteral("generalPersistent"), false)) {
         return;
