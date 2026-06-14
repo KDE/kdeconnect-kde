@@ -18,12 +18,12 @@ public:
     LoopbackLinkProvider(bool disabled);
     ~LoopbackLinkProvider() override;
 
-    QString name() override
+    QString id() const override
     {
-        return QStringLiteral("LoopbackLinkProvider");
+        return QStringLiteral("loopback");
     }
 
-    QString displayName() override
+    QString displayName() const override
     {
         return i18nc("@info", "Loopback");
     }

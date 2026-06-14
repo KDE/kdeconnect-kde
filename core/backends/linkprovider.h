@@ -22,8 +22,8 @@ class KDECONNECTCORE_EXPORT LinkProvider : public QObject
 public:
     LinkProvider();
 
-    virtual QString name() = 0;
-    virtual QString displayName() = 0;
+    virtual QString id() const = 0;
+    virtual QString displayName() const = 0;
     virtual int priority() = 0;
 
     virtual void enable() = 0;

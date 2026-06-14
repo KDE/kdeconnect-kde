@@ -32,12 +32,12 @@ public:
 
     QString provider() const
     {
-        return nameFromProvider;
+        return idFromProvider;
     }
 
     QString providerName() const
     {
-        return displayNameFromProvider;
+        return displayidFromProvider;
     }
 
     virtual bool sendPacket(NetworkPacket &np) = 0;
@@ -48,8 +48,8 @@ public:
 
 private:
     int priorityFromProvider;
-    QString nameFromProvider;
-    QString displayNameFromProvider;
+    QString idFromProvider;
+    QString displayidFromProvider;
 
 Q_SIGNALS:
     void receivedPacket(const NetworkPacket &np);
