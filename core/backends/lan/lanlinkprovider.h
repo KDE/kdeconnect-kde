@@ -33,12 +33,12 @@ public:
     LanLinkProvider(bool testMode = false, bool disabled = false);
     ~LanLinkProvider() override;
 
-    QString name() override
+    QString id() const override
     {
-        return QStringLiteral("LanLinkProvider");
+        return QStringLiteral("lan");
     }
 
-    QString displayName() override
+    QString displayName() const override
     {
         return i18nc("@info", "LAN");
     }

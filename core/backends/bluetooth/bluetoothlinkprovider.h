@@ -1,45 +1,38 @@
 /**
- * SPDX-FileCopyrightText: 2016 Saikrishna Arcot <saiarcot895@gmail.com>
+ * SPDX-FileCopyrightText: 2025 Rob Emery <git@mintsoft.net>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef BLUETOOTHLINKPROVIDER_H
-#define BLUETOOTHLINKPROVIDER_H
+#pragma once
 
-#include <QBluetoothAddress>
-#include <QBluetoothDeviceDiscoveryAgent>
-#include <QBluetoothLocalDevice>
-#include <QBluetoothServer>
-#include <QBluetoothServiceDiscoveryAgent>
-#include <QBluetoothSocket>
-#include <QBluetoothUuid>
-#include <QObject>
+#include <QMutex>
 #include <QPointer>
+#include <QQueue>
+#include <QThread>
+#include <QTimer>
+#include <qtmetamacros.h>
 
+#include "../devicelink.h"
 #include "../linkprovider.h"
 
-class BluetoothDeviceLink;
-class ConnectionMultiplexer;
-class MultiplexChannel;
+class BluetoothLinkProviderImpl;
 
-class KDECONNECTCORE_EXPORT BluetoothLinkProvider : public LinkProvider
+class BluetoothLinkProvider : public LinkProvider
 {
     Q_OBJECT
-
 public:
-    BluetoothLinkProvider(bool disabled = false);
-
+    BluetoothLinkProvider(bool isDisabled);
     ~BluetoothLinkProvider() override;
 
-    QString name() override
+    QString id() const override
     {
-        return QStringLiteral("SynchronousBluetoothLinkProvider");
+        return QStringLiteral("bluetooth");
     }
 
-    QString displayName() override
+    QString displayName() const override
     {
-        return i18nc("@info", "Bluetooth");
+        return i18nc("@info", "Bluetooth (beta)");
     }
 
     int priority() override
@@ -48,41 +41,24 @@ public:
     }
 
     void enable() override;
-
     void disable() override;
-
-public Q_SLOTS:
-    virtual void onNetworkChange() override;
-    virtual void onStart() override;
-    virtual void onStop() override;
-    virtual void onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr) override;
-    void onStartDiscovery();
-    void connectError();
-
-private Q_SLOTS:
-    void socketDisconnected(const QBluetoothAddress &peerAddress, MultiplexChannel *socket);
-
-    void serverNewConnection();
-    void serverDataReceived(const QBluetoothAddress &peerAddress, QSharedPointer<MultiplexChannel> socket);
-    void clientConnected(QPointer<QBluetoothSocket> socket);
-    void clientIdentityReceived(const QBluetoothAddress &peerAddress, QSharedPointer<MultiplexChannel> socket);
-
-    void serviceDiscovered(const QBluetoothServiceInfo &info);
+    void onStart() override;
+    void onStop() override;
+    void onNetworkChange() override;
+    void onLinkDestroyed(const QString &a, DeviceLink *b) override;
+Q_SIGNALS:
+    void enableRequestEvent();
+    void disableRequestEvent();
+    void startRequestEvent();
+    void stopRequestEvent();
+    void networkChangeEvent();
 
 private:
-    void addLink(BluetoothDeviceLink *deviceLink, const QString &deviceId);
-    QList<QBluetoothAddress> getPairedDevices();
-    void tryToInitialise();
+    BluetoothLinkProviderImpl *wrappedInstance;
+    bool startDisabled;
+    QThread workerThread;
+    QTimer *connectTimer;
 
-    QBluetoothUuid mServiceUuid;
-    QPointer<QBluetoothServer> mBluetoothServer;
-    QBluetoothServiceInfo mKdeconnectService;
-    QBluetoothServiceDiscoveryAgent *mServiceDiscoveryAgent;
-    bool mDisabled;
-
-    QMap<QString, DeviceLink *> mLinks;
-
-    QMap<QBluetoothAddress, ConnectionMultiplexer *> mSockets;
+private Q_SLOTS:
+    void onNewDeviceLink(DeviceLink *link);
 };
-
-#endif

@@ -19,7 +19,6 @@
 #include "notificationserverinfo.h"
 
 #ifdef KDECONNECT_BLUETOOTH
-#include "backends/bluetooth/asynclinkprovider.h"
 #include "backends/bluetooth/bluetoothlinkprovider.h"
 #endif
 
@@ -83,14 +82,14 @@ void Daemon::init()
         d->m_linkProviders.insert(new LoopbackLinkProvider(false));
         qCDebug(KDECONNECT_CORE) << "Constructed LoopbackLink Backend";
     } else {
-        d->m_linkProviders.insert(new LanLinkProvider(false, disabledLinkProviders.contains(QStringLiteral("LanLinkProvider"))));
+        d->m_linkProviders.insert(new LanLinkProvider(false, disabledLinkProviders.contains(QStringLiteral("lan"))));
         qCDebug(KDECONNECT_CORE) << "Constructed LanLinkProvider Backend";
 #ifdef KDECONNECT_BLUETOOTH
-        d->m_linkProviders.insert(new AsyncLinkProvider(disabledLinkProviders.contains(QStringLiteral("AsyncLinkProvider"))));
-        qCDebug(KDECONNECT_CORE) << "Constructed AsyncLinkProvider<AsyncLinkProvider> Backend";
+        d->m_linkProviders.insert(new BluetoothLinkProvider(disabledLinkProviders.contains(QStringLiteral("bluetooth"))));
+        qCDebug(KDECONNECT_CORE) << "Constructed BluetoothLinkProvider Backend";
 #endif
 #ifdef KDECONNECT_LOOPBACK
-        d->m_linkProviders.insert(new LoopbackLinkProvider(disabledLinkProviders.contains(QStringLiteral("LoopbackLinkProvider"))));
+        d->m_linkProviders.insert(new LoopbackLinkProvider(disabledLinkProviders.contains(QStringLiteral("loopback"))));
         qCDebug(KDECONNECT_CORE) << "Constructed LoopbackLinkProvider Backend";
 #endif
     }
@@ -138,7 +137,7 @@ void Daemon::forceOnNetworkChange()
 {
     qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to" << d->m_linkProviders.size() << "LinkProviders";
     for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
-        qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to:" << a->name();
+        qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to:" << a->id();
         a->onNetworkChange();
     }
 }
@@ -165,9 +164,9 @@ QStringList Daemon::linkProviders() const
     QStringList returnValue;
 
     for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
-        QString line(a->displayName() + u'|' + a->name());
+        QString line(a->displayName() + u'|' + a->id());
 
-        if (disabledLinkProviders.contains(a->name())) {
+        if (disabledLinkProviders.contains(a->id())) {
             line += QStringLiteral("|disabled");
         } else {
             line += QStringLiteral("|enabled");
@@ -187,7 +186,7 @@ void Daemon::setLinkProviderState(const QString &linkProviderName, bool enabled)
     LinkProvider *providerByName = nullptr;
     const auto allLinkProviders = getLinkProviders();
     for (LinkProvider *provider : allLinkProviders) {
-        if (provider->name() == linkProviderName || provider->displayName() == linkProviderName) {
+        if (provider->id().toLower() == linkProviderName.toLower() || provider->displayName().toLower() == linkProviderName.toLower()) {
             providerByName = provider;
             break;
         }
@@ -195,13 +194,13 @@ void Daemon::setLinkProviderState(const QString &linkProviderName, bool enabled)
     Q_ASSERT(providerByName);
 
     auto disabledLinkProviders = configInstance.disabledLinkProviders();
-    if (!enabled && !disabledLinkProviders.contains(providerByName->name())) {
-        qCDebug(KDECONNECT_CORE) << "disabling" << providerByName->name();
-        disabledLinkProviders.append(providerByName->name());
+    if (!enabled && !disabledLinkProviders.contains(providerByName->id())) {
+        qCDebug(KDECONNECT_CORE) << "disabling" << providerByName->id();
+        disabledLinkProviders.append(providerByName->id());
         providerByName->disable();
-    } else if (enabled && disabledLinkProviders.contains(providerByName->name())) {
-        qCDebug(KDECONNECT_CORE) << "enabling " << providerByName->name();
-        disabledLinkProviders.removeAll(providerByName->name());
+    } else if (enabled && disabledLinkProviders.contains(providerByName->id())) {
+        qCDebug(KDECONNECT_CORE) << "enabling " << providerByName->id();
+        disabledLinkProviders.removeAll(providerByName->id());
         providerByName->enable();
     } else {
         qCDebug(KDECONNECT_CORE) << "No changes to the disabledLinkProviders have been made, returning";

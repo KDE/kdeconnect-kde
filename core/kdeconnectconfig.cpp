@@ -78,17 +78,17 @@ void KdeConnectConfig::setName(const QString &name)
 
 void KdeConnectConfig::setDisabledLinkProviders(const QStringList disabledProviders)
 {
-    d->m_config->setValue(QStringLiteral("disabled_providers"), disabledProviders);
+    d->m_config->setValue(QStringLiteral("disabled_providers_v2"), disabledProviders);
     d->m_config->sync();
 }
 
 QStringList KdeConnectConfig::disabledLinkProviders() const
 {
-    // AsyncLinkProvider (Bluetooth) is disabled by default because it causes
+    // BluetoothLinkProvider is disabled by default because it causes
     // issues with other BT devices:
     // - https://bugs.kde.org/show_bug.cgi?id=520578
     // - https://bugs.kde.org/show_bug.cgi?id=513536
-    return d->m_config->value(QStringLiteral("disabled_providers"), QStringList{QStringLiteral("AsyncLinkProvider")}).toStringList();
+    return d->m_config->value(QStringLiteral("disabled_providers_v2"), QStringList{QStringLiteral("bluetooth"), QStringLiteral("loopback")}).toStringList();
 }
 
 DeviceType KdeConnectConfig::deviceType()
