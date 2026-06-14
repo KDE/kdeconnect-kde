@@ -187,7 +187,7 @@ void Daemon::setLinkProviderState(const QString &linkProviderName, bool enabled)
     LinkProvider *providerByName = nullptr;
     const auto allLinkProviders = getLinkProviders();
     for (LinkProvider *provider : allLinkProviders) {
-        if (provider->name() == linkProviderName) {
+        if (provider->name() == linkProviderName || provider->displayName() == linkProviderName) {
             providerByName = provider;
             break;
         }
@@ -195,13 +195,13 @@ void Daemon::setLinkProviderState(const QString &linkProviderName, bool enabled)
     Q_ASSERT(providerByName);
 
     auto disabledLinkProviders = configInstance.disabledLinkProviders();
-    if (!enabled && !disabledLinkProviders.contains(linkProviderName)) {
-        qCDebug(KDECONNECT_CORE) << "disabling" << linkProviderName;
-        disabledLinkProviders.append(linkProviderName);
+    if (!enabled && !disabledLinkProviders.contains(providerByName->name())) {
+        qCDebug(KDECONNECT_CORE) << "disabling" << providerByName->name();
+        disabledLinkProviders.append(providerByName->name());
         providerByName->disable();
-    } else if (enabled && disabledLinkProviders.contains(linkProviderName)) {
-        qCDebug(KDECONNECT_CORE) << "enabling " << linkProviderName;
-        disabledLinkProviders.removeAll(linkProviderName);
+    } else if (enabled && disabledLinkProviders.contains(providerByName->name())) {
+        qCDebug(KDECONNECT_CORE) << "enabling " << providerByName->name();
+        disabledLinkProviders.removeAll(providerByName->name());
         providerByName->enable();
     } else {
         qCDebug(KDECONNECT_CORE) << "No changes to the disabledLinkProviders have been made, returning";
