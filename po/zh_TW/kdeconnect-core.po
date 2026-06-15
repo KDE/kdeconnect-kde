@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-17 00:44+0000\n"
+"POT-Creation-Date: 2026-06-15 02:42+0000\n"
 "PO-Revision-Date: 2025-11-29 18:05+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -26,22 +26,27 @@ msgctxt "@info"
 msgid "Bluetooth"
 msgstr "藍牙"
 
-#: backends/lan/compositeuploadjob.cpp:78
+#: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "找不到任何可用的連接埠"
 
-#: backends/lan/compositeuploadjob.cpp:110
+#: backends/lan/compositeuploadjob.cpp:117
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "無法傳送封包到 %1"
 
-#: backends/lan/compositeuploadjob.cpp:256
+#: backends/lan/compositeuploadjob.cpp:240
+#, kde-format
+msgid "Timeout waiting for receiver to connect"
+msgstr ""
+
+#: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
 msgid "Sending to %1"
 msgstr "正在傳送到 %1"
 
-#: backends/lan/compositeuploadjob.cpp:256
+#: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
 msgid "File"
 msgstr "檔案"

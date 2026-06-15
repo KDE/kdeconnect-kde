@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-24 02:35+0000\n"
+"POT-Creation-Date: 2026-06-15 02:42+0000\n"
 "PO-Revision-Date: 2023-06-09 03:03+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -117,13 +117,13 @@ msgstr ""
 msgid "N/A"
 msgstr ""
 
-#: notifications/notification.cpp:115
+#: notifications/notification.cpp:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Responder"
 
-#: notifications/notification.cpp:118
+#: notifications/notification.cpp:120
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reply to %1..."
@@ -131,7 +131,7 @@ msgctxt "@info:placeholder"
 msgid "Reply in %1…"
 msgstr "Responder a %1..."
 
-#: notifications/notification.cpp:120
+#: notifications/notification.cpp:122
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reply to %1..."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-24 02:35+0000\n"
+"POT-Creation-Date: 2026-06-15 02:42+0000\n"
 "PO-Revision-Date: 2026-06-03 22:13+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -115,13 +115,13 @@ msgstr "Jelenlegi lejátszó"
 msgid "N/A"
 msgstr "-"
 
-#: notifications/notification.cpp:115
+#: notifications/notification.cpp:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Válasz"
 
-#: notifications/notification.cpp:118
+#: notifications/notification.cpp:120
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reply to %1…"
@@ -129,7 +129,7 @@ msgctxt "@info:placeholder"
 msgid "Reply in %1…"
 msgstr "Válasz erre: %1…"
 
-#: notifications/notification.cpp:120
+#: notifications/notification.cpp:122
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"

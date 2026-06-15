@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-24 02:35+0000\n"
+"POT-Creation-Date: 2026-06-15 02:42+0000\n"
 "PO-Revision-Date: 2026-03-09 21:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -118,19 +118,19 @@ msgstr "المشغل الحالي"
 msgid "N/A"
 msgstr "غ/م"
 
-#: notifications/notification.cpp:115
+#: notifications/notification.cpp:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "رُدّ"
 
-#: notifications/notification.cpp:118
+#: notifications/notification.cpp:120
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply in %1…"
 msgstr "ردّ في %1…"
 
-#: notifications/notification.cpp:120
+#: notifications/notification.cpp:122
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"

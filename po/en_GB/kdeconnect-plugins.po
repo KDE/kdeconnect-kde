@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-24 02:35+0000\n"
+"POT-Creation-Date: 2026-06-15 02:42+0000\n"
 "PO-Revision-Date: 2024-05-21 19:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -115,13 +115,13 @@ msgstr "Current Player"
 msgid "N/A"
 msgstr ""
 
-#: notifications/notification.cpp:115
+#: notifications/notification.cpp:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Reply"
 
-#: notifications/notification.cpp:118
+#: notifications/notification.cpp:120
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reply to %1..."
@@ -129,7 +129,7 @@ msgctxt "@info:placeholder"
 msgid "Reply in %1…"
 msgstr "Reply to %1..."
 
-#: notifications/notification.cpp:120
+#: notifications/notification.cpp:122
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reply to %1..."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-24 02:35+0000\n"
+"POT-Creation-Date: 2026-06-15 02:42+0000\n"
 "PO-Revision-Date: 2025-06-01 14:58+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -117,13 +117,13 @@ msgstr "Gjeldande spelar"
 msgid "N/A"
 msgstr "–"
 
-#: notifications/notification.cpp:115
+#: notifications/notification.cpp:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Svar"
 
-#: notifications/notification.cpp:118
+#: notifications/notification.cpp:120
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reply to %1..."
@@ -131,7 +131,7 @@ msgctxt "@info:placeholder"
 msgid "Reply in %1…"
 msgstr "Svar til %1 …"
 
-#: notifications/notification.cpp:120
+#: notifications/notification.cpp:122
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reply to %1..."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-24 02:35+0000\n"
+"POT-Creation-Date: 2026-06-15 02:42+0000\n"
 "PO-Revision-Date: 2026-02-03 18:41+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -119,13 +119,13 @@ msgstr "Imreoir Reatha"
 msgid "N/A"
 msgstr "N/B"
 
-#: notifications/notification.cpp:115
+#: notifications/notification.cpp:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Freagra"
 
-#: notifications/notification.cpp:118
+#: notifications/notification.cpp:120
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reply to %1…"
@@ -133,7 +133,7 @@ msgctxt "@info:placeholder"
 msgid "Reply in %1…"
 msgstr "Freagra chuig %1…"
 
-#: notifications/notification.cpp:120
+#: notifications/notification.cpp:122
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"

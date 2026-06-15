@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-17 00:44+0000\n"
+"POT-Creation-Date: 2026-06-15 02:42+0000\n"
 "PO-Revision-Date: 2026-02-22 07:15+0100\n"
 "Last-Translator: Imre Eilertsen <imreeil42@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@nuug.no>\n"
@@ -26,22 +26,27 @@ msgctxt "@info"
 msgid "Bluetooth"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:78
+#: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:110
+#: backends/lan/compositeuploadjob.cpp:117
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:256
+#: backends/lan/compositeuploadjob.cpp:240
+#, kde-format
+msgid "Timeout waiting for receiver to connect"
+msgstr ""
+
+#: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
 msgid "Sending to %1"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:256
+#: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
 msgid "File"
 msgstr ""
