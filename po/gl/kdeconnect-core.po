@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-01 00:43+0000\n"
+"POT-Creation-Date: 2026-06-15 00:43+0000\n"
 "PO-Revision-Date: 2025-02-28 07:10+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: backends/bluetooth/asynclinkprovider.cpp:57
 #, kde-format
 msgctxt "@info"
-msgid "Bluetooth"
+msgid "Bluetooth (beta)"
 msgstr ""
 
 #: backends/lan/compositeuploadjob.cpp:83
@@ -129,27 +129,27 @@ msgstr "O nome do ficheiro xa está presente."
 msgid "Received incomplete file from: %1"
 msgstr "Recibiuse un ficheiro incompleto de: %1"
 
-#: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
+#: kdeconnectconfig.cpp:352 kdeconnectconfig.cpp:386
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Non foi posíbel iniciar KDE Connect."
 
-#: kdeconnectconfig.cpp:348
+#: kdeconnectconfig.cpp:352
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "Non foi posíbel xerar a chave privada."
 
-#: kdeconnectconfig.cpp:367
+#: kdeconnectconfig.cpp:371
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Non foi posíbel almacenar o ficheiro de chave privada: %1"
 
-#: kdeconnectconfig.cpp:382
+#: kdeconnectconfig.cpp:386
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Non foi posíbel xerar o certificado do dispositivo."
 
-#: kdeconnectconfig.cpp:398
+#: kdeconnectconfig.cpp:402
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Non foi posíbel almacenar o ficheiro de certificado: %1"

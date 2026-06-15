@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-01 00:43+0000\n"
+"POT-Creation-Date: 2026-06-15 00:43+0000\n"
 "PO-Revision-Date: 2026-06-02 10:32+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -18,9 +18,11 @@ msgstr ""
 "X-Generator: Lokalize 26.04.1\n"
 
 #: backends/bluetooth/asynclinkprovider.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Bluetooth"
 msgctxt "@info"
-msgid "Bluetooth"
+msgid "Bluetooth (beta)"
 msgstr "Bluetooth"
 
 #: backends/lan/compositeuploadjob.cpp:83
@@ -130,27 +132,27 @@ msgstr "Bestandsnaam reeds aanwezig"
 msgid "Received incomplete file from: %1"
 msgstr "Onvolledig bestand ontvangen van: %1"
 
-#: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
+#: kdeconnectconfig.cpp:352 kdeconnectconfig.cpp:386
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Starten van KDE Connect is mislukt"
 
-#: kdeconnectconfig.cpp:348
+#: kdeconnectconfig.cpp:352
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "Kon de privé sleutel niet genereren"
 
-#: kdeconnectconfig.cpp:367
+#: kdeconnectconfig.cpp:371
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Kon privé sleutelbestand niet opslaan: %1"
 
-#: kdeconnectconfig.cpp:382
+#: kdeconnectconfig.cpp:386
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Kon het certificaat van het apparaat niet genereren."
 
-#: kdeconnectconfig.cpp:398
+#: kdeconnectconfig.cpp:402
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Kon certificaatbestand niet opslaan: %1"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-01 00:43+0000\n"
+"POT-Creation-Date: 2026-06-15 00:43+0000\n"
 "PO-Revision-Date: 2017-05-26 11:26+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: backends/bluetooth/asynclinkprovider.cpp:57
 #, kde-format
 msgctxt "@info"
-msgid "Bluetooth"
+msgid "Bluetooth (beta)"
 msgstr ""
 
 #: backends/lan/compositeuploadjob.cpp:83
@@ -139,29 +139,29 @@ msgstr "Назив фајла већ постоји"
 msgid "Received incomplete file from: %1"
 msgstr "Примљен недовршен фајл: %1"
 
-#: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
+#: kdeconnectconfig.cpp:352 kdeconnectconfig.cpp:386
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Пропало покретање КДЕ‑конекције"
 
-#: kdeconnectconfig.cpp:348
+#: kdeconnectconfig.cpp:352
 #, fuzzy, kde-format
 #| msgid "Could not store private key file: %1"
 msgid "Could not generate the private key."
 msgstr "Не могу да сместим фајл личног кључа: %1"
 
-#: kdeconnectconfig.cpp:367
+#: kdeconnectconfig.cpp:371
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Не могу да сместим фајл личног кључа: %1"
 
-#: kdeconnectconfig.cpp:382
+#: kdeconnectconfig.cpp:386
 #, fuzzy, kde-format
 #| msgid "Could not store certificate file: %1"
 msgid "Could not generate the device certificate."
 msgstr "Не могу да сместим фајл сертификата: %1"
 
-#: kdeconnectconfig.cpp:398
+#: kdeconnectconfig.cpp:402
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Не могу да сместим фајл сертификата: %1"

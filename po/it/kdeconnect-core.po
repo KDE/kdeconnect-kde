@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2015, 2018, 2019, 2020, 2021, 2023, 2025 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2015, 2018-2021, 2023, 2025-2026 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-01 00:43+0000\n"
-"PO-Revision-Date: 2025-11-26 14:13+0100\n"
+"POT-Creation-Date: 2026-06-15 00:43+0000\n"
+"PO-Revision-Date: 2026-06-02 15:34+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,12 +15,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: backends/bluetooth/asynclinkprovider.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Bluetooth"
 msgctxt "@info"
-msgid "Bluetooth"
+msgid "Bluetooth (beta)"
 msgstr "Bluetooth"
 
 #: backends/lan/compositeuploadjob.cpp:83
@@ -36,7 +38,7 @@ msgstr "Invio pacchetto a %1 non riuscito"
 #: backends/lan/compositeuploadjob.cpp:240
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "Tempo scaduto in attesa della connessione del ricevitore"
 
 #: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
@@ -129,27 +131,27 @@ msgstr "Nome del file già presente"
 msgid "Received incomplete file from: %1"
 msgstr "Ricevuto un file incompleto da: %1"
 
-#: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
+#: kdeconnectconfig.cpp:352 kdeconnectconfig.cpp:386
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "L'avvio di KDE Connect non è riuscito"
 
-#: kdeconnectconfig.cpp:348
+#: kdeconnectconfig.cpp:352
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "Impossibile generare la chiave privata."
 
-#: kdeconnectconfig.cpp:367
+#: kdeconnectconfig.cpp:371
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Impossibile memorizzare il file della chiave privata: %1"
 
-#: kdeconnectconfig.cpp:382
+#: kdeconnectconfig.cpp:386
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Impossibile generare il certificato del dispositivo."
 
-#: kdeconnectconfig.cpp:398
+#: kdeconnectconfig.cpp:402
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Impossibile memorizzare il file del certificato: %1"

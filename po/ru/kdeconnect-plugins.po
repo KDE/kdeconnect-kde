@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-24 00:44+0000\n"
+"POT-Creation-Date: 2026-06-15 00:43+0000\n"
 "PO-Revision-Date: 2026-04-03 19:56+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -123,19 +123,19 @@ msgstr "Текущий проигрыватель"
 msgid "N/A"
 msgstr "Недоступно"
 
-#: notifications/notification.cpp:115
+#: notifications/notification.cpp:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Ответить"
 
-#: notifications/notification.cpp:118
+#: notifications/notification.cpp:120
 #, kde-format
 msgctxt "@info:placeholder %1 is the name of a group chat"
 msgid "Reply in %1…"
 msgstr "Ответить в %1…"
 
-#: notifications/notification.cpp:120
+#: notifications/notification.cpp:122
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"

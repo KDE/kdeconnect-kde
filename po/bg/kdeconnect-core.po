@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-01 00:43+0000\n"
+"POT-Creation-Date: 2026-06-15 00:43+0000\n"
 "PO-Revision-Date: 2025-11-28 21:25+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -18,9 +18,11 @@ msgstr ""
 "X-Generator: Lokalize 25.07.70\n"
 
 #: backends/bluetooth/asynclinkprovider.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Bluetooth"
 msgctxt "@info"
-msgid "Bluetooth"
+msgid "Bluetooth (beta)"
 msgstr "Bluetooth"
 
 #: backends/lan/compositeuploadjob.cpp:83
@@ -128,27 +130,27 @@ msgstr "Това име на файл вече съществува"
 msgid "Received incomplete file from: %1"
 msgstr "Получен е непълен файл от: %1"
 
-#: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
+#: kdeconnectconfig.cpp:352 kdeconnectconfig.cpp:386
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connect не успя да стартира"
 
-#: kdeconnectconfig.cpp:348
+#: kdeconnectconfig.cpp:352
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "Не може да се генерира частен ключ."
 
-#: kdeconnectconfig.cpp:367
+#: kdeconnectconfig.cpp:371
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Не може да се съхрани частен ключ: %1"
 
-#: kdeconnectconfig.cpp:382
+#: kdeconnectconfig.cpp:386
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Не може да се генерира сертификат на устройството."
 
-#: kdeconnectconfig.cpp:398
+#: kdeconnectconfig.cpp:402
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Не може да се съхрани сертификат на файл: %1"

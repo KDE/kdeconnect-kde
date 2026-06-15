@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-01 00:43+0000\n"
+"POT-Creation-Date: 2026-06-15 00:43+0000\n"
 "PO-Revision-Date: 2026-06-01 05:43+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -19,9 +19,11 @@ msgstr ""
 "X-Generator: Poedit 3.9\n"
 
 #: backends/bluetooth/asynclinkprovider.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Bluetooth"
 msgctxt "@info"
-msgid "Bluetooth"
+msgid "Bluetooth (beta)"
 msgstr "ბლუთუზი"
 
 #: backends/lan/compositeuploadjob.cpp:83
@@ -129,27 +131,27 @@ msgstr "ფაილის სახელი უკვე არსებობ
 msgid "Received incomplete file from: %1"
 msgstr "მიღებულია დაუსრულებელი ფაილი წყაროდან: %1"
 
-#: kdeconnectconfig.cpp:348 kdeconnectconfig.cpp:382
+#: kdeconnectconfig.cpp:352 kdeconnectconfig.cpp:386
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connect -ის გაშვების შეცდომა"
 
-#: kdeconnectconfig.cpp:348
+#: kdeconnectconfig.cpp:352
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "პირადი გასაღების გენერაციის შეცდომა."
 
-#: kdeconnectconfig.cpp:367
+#: kdeconnectconfig.cpp:371
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "პირადი გასაღების დამახსოვრების შეცდომა: %1"
 
-#: kdeconnectconfig.cpp:382
+#: kdeconnectconfig.cpp:386
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "მოწყობილობის სერტიფიკატის გენერაციის შეცდომა."
 
-#: kdeconnectconfig.cpp:398
+#: kdeconnectconfig.cpp:402
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "სერტიფიკატის ფაილის დამახსოვრების შეცდომა: %1"

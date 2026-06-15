@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-24 00:44+0000\n"
+"POT-Creation-Date: 2026-06-15 00:43+0000\n"
 "PO-Revision-Date: 2017-09-28 17:57+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -117,20 +117,20 @@ msgstr ""
 msgid "N/A"
 msgstr ""
 
-#: notifications/notification.cpp:115
+#: notifications/notification.cpp:117
 #, fuzzy, kde-format
 #| msgid "Reply"
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Odgovori"
 
-#: notifications/notification.cpp:118
+#: notifications/notification.cpp:120
 #, kde-format
 msgctxt "@info:placeholder %1 is the name of a group chat"
 msgid "Reply in %1…"
 msgstr ""
 
-#: notifications/notification.cpp:120
+#: notifications/notification.cpp:122
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
