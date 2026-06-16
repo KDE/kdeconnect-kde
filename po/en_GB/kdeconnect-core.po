@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-15 00:43+0000\n"
+"POT-Creation-Date: 2026-06-16 00:44+0000\n"
 "PO-Revision-Date: 2024-05-21 19:33+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -16,12 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.02.2\n"
-
-#: backends/bluetooth/asynclinkprovider.cpp:57
-#, kde-format
-msgctxt "@info"
-msgid "Bluetooth (beta)"
-msgstr ""
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format

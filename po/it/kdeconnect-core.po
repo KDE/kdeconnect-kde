@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-15 00:43+0000\n"
+"POT-Creation-Date: 2026-06-16 00:44+0000\n"
 "PO-Revision-Date: 2026-06-02 15:34+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -16,14 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 26.04.1\n"
-
-#: backends/bluetooth/asynclinkprovider.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Bluetooth"
-msgctxt "@info"
-msgid "Bluetooth (beta)"
-msgstr "Bluetooth"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -155,6 +147,13 @@ msgstr "Impossibile generare il certificato del dispositivo."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Impossibile memorizzare il file del certificato: %1"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Bluetooth"
+#~ msgctxt "@info"
+#~ msgid "Bluetooth (beta)"
+#~ msgstr "Bluetooth"
 
 #~ msgid "Received incomplete file: %1"
 #~ msgstr "Ricevuto un file incompleto: %1"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-15 00:43+0000\n"
+"POT-Creation-Date: 2026-06-16 00:44+0000\n"
 "PO-Revision-Date: 2024-02-10 10:06-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -16,12 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.4\n"
-
-#: backends/bluetooth/asynclinkprovider.cpp:57
-#, kde-format
-msgctxt "@info"
-msgid "Bluetooth (beta)"
-msgstr ""
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format

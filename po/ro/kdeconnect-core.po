@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2020, 2021, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
+# SPDX-FileCopyrightText: 2020, 2021, 2024, 2025, 2026 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-15 00:43+0000\n"
-"PO-Revision-Date: 2025-11-30 13:48+0000\n"
+"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"PO-Revision-Date: 2026-06-15 13:18+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,15 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.1\n"
-
-#: backends/bluetooth/asynclinkprovider.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Bluetooth"
-msgctxt "@info"
-msgid "Bluetooth (beta)"
-msgstr "Bluetooth"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -39,7 +31,7 @@ msgstr "Trimiterea pachetului spre %1 a eșuat"
 #: backends/lan/compositeuploadjob.cpp:240
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "Așteptarea pentru conectarea destinatarului a expirat"
 
 #: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
@@ -156,6 +148,10 @@ msgstr "Certificatul dispozitivului nu a putut fi generat."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Fișierul cu certificat nu a putut fi stocat: %1"
+
+#~ msgctxt "@info"
+#~ msgid "Bluetooth (beta)"
+#~ msgstr "Bluetooth (beta)"
 
 #~ msgid "Received incomplete file: %1"
 #~ msgstr "S-a primit fișier incomplet: %1"

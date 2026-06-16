@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-15 00:43+0000\n"
-"PO-Revision-Date: 2026-06-01 08:40+0300\n"
+"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"PO-Revision-Date: 2026-06-15 09:40+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -19,14 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
-
-#: backends/bluetooth/asynclinkprovider.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Bluetooth"
-msgctxt "@info"
-msgid "Bluetooth (beta)"
-msgstr "Bluetooth"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -159,6 +151,12 @@ msgstr "Не вдалося створити сертифікат пристро
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Не вдалося зберегти файл сертифіката: %1"
+
+#~| msgctxt "@info"
+#~| msgid "Bluetooth"
+#~ msgctxt "@info"
+#~ msgid "Bluetooth (beta)"
+#~ msgstr "Bluetooth (бета)"
 
 #~ msgid "Received incomplete file: %1"
 #~ msgstr "Файл отримано не повністю: %1"

@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2023, 2025 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2023, 2025-2026 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-15 00:43+0000\n"
-"PO-Revision-Date: 2025-11-28 21:25+0100\n"
+"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"PO-Revision-Date: 2026-06-15 20:28+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,15 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.07.70\n"
-
-#: backends/bluetooth/asynclinkprovider.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Bluetooth"
-msgctxt "@info"
-msgid "Bluetooth (beta)"
-msgstr "Bluetooth"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -38,7 +30,7 @@ msgstr "Неуспешно изпращане на пакет до %1"
 #: backends/lan/compositeuploadjob.cpp:240
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "Времето за изчакване на свързването с приемното устройство изтече."
 
 #: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
@@ -154,3 +146,9 @@ msgstr "Не може да се генерира сертификат на ус�
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Не може да се съхрани сертификат на файл: %1"
+
+#~| msgctxt "@info"
+#~| msgid "Bluetooth"
+#~ msgctxt "@info"
+#~ msgid "Bluetooth (beta)"
+#~ msgstr "Bluetooth (beta)"

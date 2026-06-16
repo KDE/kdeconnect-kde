@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-15 00:43+0000\n"
+"POT-Creation-Date: 2026-06-16 00:44+0000\n"
 "PO-Revision-Date: 2026-06-07 16:06+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -19,14 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 26.07.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-#: backends/bluetooth/asynclinkprovider.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Bluetooth"
-msgctxt "@info"
-msgid "Bluetooth (beta)"
-msgstr "藍牙"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -156,6 +148,13 @@ msgstr "無法產生裝置憑證。"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "無法儲存憑證檔案：%1"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Bluetooth"
+#~ msgctxt "@info"
+#~ msgid "Bluetooth (beta)"
+#~ msgstr "藍牙"
 
 #~ msgid "Received incomplete file: %1"
 #~ msgstr "接收到不完整的檔案：%1"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-15 00:43+0000\n"
-"PO-Revision-Date: 2026-06-01 05:43+0200\n"
+"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"PO-Revision-Date: 2026-06-15 04:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -17,14 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.9\n"
-
-#: backends/bluetooth/asynclinkprovider.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Bluetooth"
-msgctxt "@info"
-msgid "Bluetooth (beta)"
-msgstr "ბლუთუზი"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -156,27 +148,6 @@ msgstr "მოწყობილობის სერტიფიკატი�
 msgid "Could not store certificate file: %1"
 msgstr "სერტიფიკატის ფაილის დამახსოვრების შეცდომა: %1"
 
-#~ msgid "Received incomplete file: %1"
-#~ msgstr "მიღებული ფაილი დაუსრულებელია: %1"
-
-#~ msgid ""
-#~ "Could not find support for RSA in your QCA installation. If your "
-#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
-#~ "sure you have them installed and try again."
-#~ msgstr ""
-#~ "თქვენს QCA-ის აგებაში RSA-ის მხარდაჭერა ვერ ვიპოვე. თუ თქვენს "
-#~ "დისტრიბუტივს QCA-ossl და QCA-gnupg პაკეტები ცალ-ცალკე აქვს, დარწმუნდით, "
-#~ "რომ ისინი დაყენებულია და თავიდან სცადეთ."
-
-#~ msgid "%1: Pairing already requested for this device"
-#~ msgstr "%1: ამ მოწყობილობასთან დაწყვილების მოთხოვნა უკვე გაგზავნილია"
-
-#~ msgid ""
-#~ "This device cannot be paired because it is running an old version of KDE "
-#~ "Connect."
-#~ msgstr ""
-#~ "მასზე გაშვებული KDE Connect-ის ვერსიის სიძველის გამო მოწყობილობასთან "
-#~ "დაწყვილება შეუძლებელია."
-
-#~ msgid "Already paired"
-#~ msgstr "უკვე შეწყვილებულია"
+#~ msgctxt "@info"
+#~ msgid "Bluetooth (beta)"
+#~ msgstr "ბლუთუზი (ბეტა)"
