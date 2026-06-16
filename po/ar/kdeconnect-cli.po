@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-15 02:42+0000\n"
-"PO-Revision-Date: 2025-11-12 20:04+0400\n"
+"PO-Revision-Date: 2026-06-05 11:55+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -259,7 +259,7 @@ msgstr "اطبع نقطة الضم لنظام الملفات الخاص بالج
 msgctxt ""
 "Details on how a device is connected eg: on <network address> via Bluetooth"
 msgid "on %1 via %2"
-msgstr ""
+msgstr "على %1 بواسطة %2"
 
 #: kdeconnect-cli.cpp:157
 #, kde-format

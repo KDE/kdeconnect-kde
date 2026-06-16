@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-15 02:42+0000\n"
-"PO-Revision-Date: 2025-11-27 16:19+0100\n"
+"PO-Revision-Date: 2026-06-02 19:17+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -42,7 +42,7 @@ msgstr "Impossible d'envoyer le paquet à %1"
 #: backends/lan/compositeuploadjob.cpp:240
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "Délai d'attente dépassé en attendant la connexion du récepteur"
 
 #: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
