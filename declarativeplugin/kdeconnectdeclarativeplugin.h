@@ -229,6 +229,18 @@ class OpenConfigForeign
     QML_FOREIGN(OpenConfig)
 };
 
+class DeviceNotificationsDbusInterfaceFactory : public QObject
+{
+    Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
+public:
+    Q_INVOKABLE DeviceNotificationsDbusInterface *create(const QString &deviceId)
+    {
+        return new DeviceNotificationsDbusInterface(deviceId);
+    }
+};
+
 class DeviceDbusInterfaceFactory : public QObject
 {
     Q_OBJECT

@@ -146,6 +146,14 @@ Kirigami.ScrollablePage {
                 device: root.currentDevice
             },
             PluginItem {
+                name: i18nd("kdeconnect-app", "Notifications")
+                interfaceFactory: DeviceNotificationsDbusInterfaceFactory
+                component: "NotificationPanel.qml"
+                pluginName: "notifications"
+                section: "control"
+                device: root.currentDevice
+            },
+            PluginItem {
                 name: i18nd("kdeconnect-app", "Remote input")
                 interfaceFactory: RemoteControlDbusInterfaceFactory
                 component: "mousepad.qml"
