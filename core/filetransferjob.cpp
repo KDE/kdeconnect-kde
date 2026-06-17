@@ -47,7 +47,7 @@ void FileTransferJob::start()
             QFileInfo fileInfo(m_destination.toLocalFile());
             QString path = fileInfo.path();
             QString fileName = fileInfo.fileName();
-            m_destination.setPath(path + QStringLiteral("/") + KFileUtils::suggestName(QUrl(path), fileName), QUrl::DecodedMode);
+            m_destination.setPath(path + QStringLiteral("/") + KFileUtils::suggestName(QUrl::fromLocalFile(path), fileName), QUrl::DecodedMode);
         } else {
             setError(2);
             setErrorText(i18n("Filename already present"));
