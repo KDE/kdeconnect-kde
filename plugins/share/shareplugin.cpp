@@ -128,7 +128,7 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
 
             FileTransferJob *job = np.createPayloadTransferJob(destination);
             job->setOriginName(device()->name() + QStringLiteral(": ") + filename);
-            job->setAutoRenameIfDestinatinonExists(true);
+            job->setAutoRenameIfDestinationExists(true);
             connect(job, &KJob::result, this, [this, dateCreated, dateModified, open](KJob *job) -> void {
                 finished(job, dateCreated, dateModified, open);
             });

@@ -45,7 +45,7 @@ public:
     {
         m_from = from;
     }
-    void setAutoRenameIfDestinatinonExists(bool autoRename)
+    void setAutoRenameIfDestinationExists(bool autoRename)
     {
         m_autoRename = autoRename;
     }
