@@ -16,6 +16,7 @@
 #include <QTemporaryFile>
 
 #include <KApplicationTrader>
+#include <KFileUtils>
 #include <KIO/Job>
 #include <KIO/MkpathJob>
 #include <KIO/OpenUrlJob>
@@ -121,9 +122,17 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
 
             if (!m_compositeJob) {
                 m_compositeJob = new CompositeFileTransferJob(device(), this);
-                m_compositeJob->setProperty("destUrl", destinationDir().toString());
+
+                QFileInfo fileInfo(destination.toLocalFile());
+                QString path = fileInfo.path();
+                QString fileName = fileInfo.fileName();
+                destination.setPath(path + QStringLiteral("/") + KFileUtils::suggestName(QUrl::fromLocalFile(path), fileName), QUrl::DecodedMode);
+
+                m_compositeJob->setProperty("destUrl", destination);
                 m_compositeJob->setProperty("immediateProgressReporting", true);
                 Daemon::instance()->jobTracker()->registerJob(m_compositeJob);
+            } else {
+                m_compositeJob->setProperty("destUrl", destinationDir().toString());
             }
 
             FileTransferJob *job = np.createPayloadTransferJob(destination);
