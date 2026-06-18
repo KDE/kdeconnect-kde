@@ -145,10 +145,3 @@ msgstr "无法生成设备证书。"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "无法保存证书文件：%1"
-
-#, fuzzy
-#~| msgctxt "@info"
-#~| msgid "Bluetooth"
-#~ msgctxt "@info"
-#~ msgid "Bluetooth (beta)"
-#~ msgstr "蓝牙"

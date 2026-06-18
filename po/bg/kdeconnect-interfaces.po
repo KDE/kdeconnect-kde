@@ -32,6 +32,3 @@ msgstr "Устройството не е надеждно"
 #, kde-format
 msgid "Device disconnected"
 msgstr "Връзката с устройството е прекъсната"
-
-#~ msgid "error: "
-#~ msgstr "грешка: "
