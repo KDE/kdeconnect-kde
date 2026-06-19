@@ -3,7 +3,7 @@
 #
 # Alexander Potashev <aspotashev@gmail.com>, 2015, 2017.
 # Dmitry Serov <dmitri.s93@gmail.com>, 2015.
-# SPDX-FileCopyrightText: 2019, 2021, 2024, 2025 Alexander Yavorsky <kekcuha@gmail.com>
+# SPDX-FileCopyrightText: 2019, 2021, 2024-2026 Alexander Yavorsky <kekcuha@gmail.com>
 # Дронова Юлия <juliette.tux@gmail.com>, 2021.
 # SPDX-FileCopyrightText: 2023, 2025 Olesya Gerasimenko <translation-team@basealt.ru>
 msgid ""
@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-15 02:42+0000\n"
-"PO-Revision-Date: 2025-12-18 19:29+0300\n"
-"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-06-18 18:18+0200\n"
+"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: backends/bluetooth/asynclinkprovider.cpp:57
 #, kde-format
@@ -41,7 +41,7 @@ msgstr "Не удалось отправить пакет на %1"
 #: backends/lan/compositeuploadjob.cpp:240
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "Превышено время ожидания подключения приёмника"
 
 #: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
