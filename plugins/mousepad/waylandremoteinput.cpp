@@ -440,8 +440,8 @@ void RemoteDesktopSession::keyboardSendText(QStringView text, bool modified)
         for (const QChar character : text) {
             const auto keysym = xkb_utf32_to_keysym(character.unicode());
             if (keysym != XKB_KEY_NoSymbol) {
-                s_session->keyboardKeysym(keysym, true);
-                s_session->keyboardKeysym(keysym, false);
+                keyboardKeysym(keysym, true);
+                keyboardKeysym(keysym, false);
             } else {
                 qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "Cannot send character" << character;
             }
