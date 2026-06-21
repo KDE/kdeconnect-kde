@@ -340,10 +340,15 @@ void RemoteDesktopSession::handleEiEvents()
         case EI_EVENT_KEYBOARD_KEY:
         case EI_EVENT_DEVICE_START_EMULATING:
         case EI_EVENT_DEVICE_STOP_EMULATING:
+        case EI_EVENT_PONG: // Ignore because we are never calling ei_ping()
+        case EI_EVENT_TEXT_KEYSYM:
+        case EI_EVENT_TEXT_UTF8:
         case EI_EVENT_TOUCH_DOWN:
         case EI_EVENT_TOUCH_MOTION:
         case EI_EVENT_TOUCH_UP:
             qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "Unexpected event of type" << ei_event_get_type(event);
+            break;
+        case EI_EVENT_SYNC: // Ignore because that's libeis pinging us
             break;
         }
         ei_event_unref(event);
