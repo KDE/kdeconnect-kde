@@ -426,6 +426,24 @@ void RemoteDesktopSession::keyboardKeysym(int sym, bool press)
     }
 }
 
+void RemoteDesktopSession::keyboardSendText(QStringView text, bool modified)
+{
+    if (m_ei && m_keyboard && !modified) {
+        const QByteArray utfkey = text.toUtf8();
+        ei_device_text_utf8_with_length(m_keyboard, utfkey.constData(), utfkey.size());
+    } else {
+        for (const QChar character : text) {
+            const auto keysym = xkb_utf32_to_keysym(character.unicode());
+            if (keysym != XKB_KEY_NoSymbol) {
+                s_session->keyboardKeysym(keysym, true);
+                s_session->keyboardKeysym(keysym, false);
+            } else {
+                qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "Cannot send character" << character;
+            }
+        }
+    }
+}
+
 WaylandRemoteInput::WaylandRemoteInput(QObject *parent)
     : AbstractRemoteInput(parent)
 {
@@ -495,15 +513,8 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
                 s_session->keyboardKeycode(SpecialKeysMap[specialKey], true);
                 s_session->keyboardKeycode(SpecialKeysMap[specialKey], false);
             } else if (!key.isEmpty()) {
-                for (const QChar character : key) {
-                    const auto keysym = xkb_utf32_to_keysym(character.unicode());
-                    if (keysym != XKB_KEY_NoSymbol) {
-                        s_session->keyboardKeysym(keysym, true);
-                        s_session->keyboardKeysym(keysym, false);
-                    } else {
-                        qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "Cannot send character" << character;
-                    }
-                }
+                const bool modified = ctrl || alt || shift || super;
+                s_session->keyboardSendText(key, modified);
             }
 
             if (ctrl)

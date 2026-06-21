@@ -37,6 +37,7 @@ public:
     void pointerMotionAbsolute(double x, double y);
     void keyboardKeysym(int sym, bool press);
     void keyboardKeycode(int key, bool press);
+    void keyboardSendText(QStringView text, bool modified);
 
 private Q_SLOTS:
     void handleXdpSessionCreated(uint code, const QVariantMap &results);
