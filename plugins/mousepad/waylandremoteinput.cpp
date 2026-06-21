@@ -495,15 +495,40 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
                 s_session->keyboardKeycode(SpecialKeysMap[specialKey], true);
                 s_session->keyboardKeycode(SpecialKeysMap[specialKey], false);
             } else if (!key.isEmpty()) {
-                for (const QChar character : key) {
-                    const auto keysym = xkb_utf32_to_keysym(character.unicode());
-                    if (keysym != XKB_KEY_NoSymbol) {
-                        s_session->keyboardKeysym(keysym, true);
-                        s_session->keyboardKeysym(keysym, false);
-                    } else {
-                        qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "Cannot send character" << character;
+                const QString service = QStringLiteral("org.kde.Plasma.Keyboard");
+                static const bool hasPK = QDBusConnection::sessionBus().interface()->isServiceRegistered(service);
+                if (hasPK) {
+                    auto *iface = new QDBusInterface(QStringLiteral("org.kde.Plasma.Keyboard"),
+                                                     QStringLiteral("/Input"),
+                                                     QStringLiteral("org.kde.Plasma.Keyboard"),
+                                                     QDBusConnection::sessionBus(),
+                                                     this);
+
+                    auto call = iface->asyncCall(QStringLiteral("enterText"), key);
+                    auto *watcher = new QDBusPendingCallWatcher(call, iface);
+
+                    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, iface, [iface, watcher] {
+                        QDBusPendingReply<bool> reply = *watcher;
+
+                        if (reply.isError()) {
+                            qWarning() << "enterText failed:" << reply.error().message();
+                        } else {
+                            qDebug() << "enterText returned:" << reply.value();
+                        }
+
+                        watcher->deleteLater();
+                        iface->deleteLater();
+                    });
+                } else
+                    for (const QChar character : key) {
+                        const auto keysym = xkb_utf32_to_keysym(character.unicode());
+                        if (keysym != XKB_KEY_NoSymbol) {
+                            s_session->keyboardKeysym(keysym, true);
+                            s_session->keyboardKeysym(keysym, false);
+                        } else {
+                            qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "Cannot send character" << character;
+                        }
                     }
-                }
             }
 
             if (ctrl)
