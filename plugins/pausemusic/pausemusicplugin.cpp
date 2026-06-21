@@ -60,17 +60,21 @@ void PauseMusicPlugin::receivePacket(const NetworkPacket &np)
             // Search for interfaces currently playing
             const QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
             for (const QString &iface : interfaces) {
-                if (iface.startsWith(QLatin1String("org.mpris.MediaPlayer2"))) {
-                    OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QDBusConnection::sessionBus());
-                    QString status = mprisInterface.playbackStatus();
-                    if (status == QLatin1String("Playing")) {
-                        if (!pausedSources.contains(iface)) {
-                            pausedSources.insert(iface);
-                            if (mprisInterface.canPause()) {
-                                mprisInterface.Pause();
-                            } else {
-                                mprisInterface.Stop();
-                            }
+                if (!iface.startsWith(QStringLiteral("org.mpris.MediaPlayer2."))) {
+                    continue;
+                }
+                if (iface.startsWith(QStringLiteral("org.mpris.MediaPlayer2.kdeconnect."))) {
+                    continue;
+                }
+                OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QDBusConnection::sessionBus());
+                QString status = mprisInterface.playbackStatus();
+                if (status == QLatin1String("Playing")) {
+                    if (!pausedSources.contains(iface)) {
+                        pausedSources.insert(iface);
+                        if (mprisInterface.canPause()) {
+                            mprisInterface.Pause();
+                        } else {
+                            mprisInterface.Stop();
                         }
                     }
                 }
