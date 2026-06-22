@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-10 02:45+0000\n"
-"PO-Revision-Date: 2026-02-27 07:34+0100\n"
+"PO-Revision-Date: 2026-06-21 11:07+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: main.cpp:38 main.cpp:40
 #, kde-format
@@ -275,7 +275,7 @@ msgstr "Configuració"
 #: qml/mousepad.qml:16
 #, kde-format
 msgid "Remote Control"
-msgstr "Control remot"
+msgstr "Comandament a distància"
 
 #: qml/mousepad.qml:61
 #, kde-format
@@ -315,7 +315,7 @@ msgstr "No hi ha disponible cap reproductor"
 #: qml/mpris.qml:128
 #, kde-format
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: qml/PluginSettings.qml:140
 #, kde-format
