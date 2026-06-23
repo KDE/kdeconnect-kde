@@ -24,4 +24,12 @@ It can be difficult to understand a new feature from the text description in
 the summary, so put enough detail here that so that we can understand how to run
 the new feature and we can play with it ourselves to understand it.
 
+## AI Usage
+
+- Please disclose whether you used AI tools to assist with the work.
+  - [ ] YES
+    - Please ensure you have read and respected AGENTS.md when submitting AI-assisted code changes.
+  - [ ] NO
+- Regardless of whether or not you used AI, please be prepared to discuss this change with the reviewers.
+
 /label ~feature
