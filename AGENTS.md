@@ -1,7 +1,7 @@
 # Instructions for KDE Connect
 
 > [!IMPORTANT]
-> This project does **not** accept pull requests that are fully or predominantly AI-engineerd. AI tools may be utilized solely to complete a execute a design which has been planned by a human.
+> This project does **not** accept pull requests that are fully or predominantly AI-engineerd. AI tools may only be used to execute a design which has been planned by a human.
 >
 > Read more: [CONTRIBUTING.md](CONTRIBUTING.md)
 
