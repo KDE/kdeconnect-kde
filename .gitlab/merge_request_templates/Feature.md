@@ -25,11 +25,11 @@ the summary, so put enough detail here that so that we can understand how to run
 the new feature and we can play with it ourselves to understand it.
 
 ## AI Usage
+Say whether you used AI or LLM tools to develop this fix. A simple 'Yes' or
+'No' is enough.
 
-- Please disclose whether you used AI tools to assist with the work.
-  - [ ] YES
-    - Please ensure you have read and respected AGENTS.md when submitting AI-assisted code changes.
-  - [ ] NO
-- Regardless of whether or not you used AI, please be prepared to discuss this change with the reviewers.
+Used AI: <!-- Answer -->
+
+Ensure that you read and respect AGENTS.md when submitting AI-assisted code.
 
 /label ~feature

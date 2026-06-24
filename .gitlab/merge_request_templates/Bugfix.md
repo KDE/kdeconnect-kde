@@ -30,11 +30,11 @@ that the bug has been fixed. If any other behavior has been changed, share
 the steps to verify that the new behavior doesn't have any regressions.
 
 ## AI Usage
+Say whether you used AI or LLM tools to develop this fix. A simple 'Yes' or
+'No' is enough.
 
-- Please disclose whether you used AI tools to assist with the work.
-  - [ ] YES
-    - Please ensure you have read and respected AGENTS.md when submitting AI-assisted code changes.
-  - [ ] NO
-- Regardless of whether or not you used AI, please be prepared to discuss this change with the reviewers.
+Used AI: <!-- Answer -->
+
+Ensure that you read and respect AGENTS.md when submitting AI-assisted code.
 
 /label ~bugfix
