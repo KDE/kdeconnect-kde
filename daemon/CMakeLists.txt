@@ -32,3 +32,11 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DEST
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
 install(TARGETS kdeconnectd ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS})
 
+if (UNIX AND NOT APPLE)
+    configure_file(kdeconnectd.service.in ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectd.service)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectd.service DESTINATION ${KDE_INSTALL_SYSTEMDUSERUNITDIR})
+    install(CODE "
+        include(${CMAKE_SOURCE_DIR}/cmake/SystemctlEnable.cmake)
+        systemctl_enable(kdeconnectd.service graphical-session.target ${KDE_INSTALL_FULL_SYSTEMDUSERUNITDIR})
+    ")
+endif()

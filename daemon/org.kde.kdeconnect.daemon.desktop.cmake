@@ -4,6 +4,7 @@ Exec=@KDE_INSTALL_FULL_BINDIR@/kdeconnectd
 StartupNotify=false
 X-KDE-autostart-phase=1
 X-GNOME-Autostart-enabled=true
+X-systemd-skip=true
 NoDisplay=true
 Icon=kdeconnect
 
