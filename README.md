@@ -50,7 +50,7 @@ KDE Connect consists of a UI-agnostic "core" library that exposes a series of DB
 
 The basic structure of a NetworkPacket is the following:
 
-```
+```json
 {
   "id": 123456789,
   "type": "com.example.myplugin",
