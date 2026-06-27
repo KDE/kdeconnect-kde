@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-15 02:42+0000\n"
-"PO-Revision-Date: 2025-11-26 14:13+0100\n"
+"PO-Revision-Date: 2026-06-15 09:55+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: backends/bluetooth/asynclinkprovider.cpp:57
 #, kde-format
@@ -36,7 +36,7 @@ msgstr "Invio pacchetto a %1 non riuscito"
 #: backends/lan/compositeuploadjob.cpp:240
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "Tempo scaduto in attesa della connessione del ricevitore"
 
 #: backends/lan/compositeuploadjob.cpp:281
 #, kde-format

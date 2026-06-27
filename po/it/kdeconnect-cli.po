@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-15 02:42+0000\n"
-"PO-Revision-Date: 2025-11-10 07:40+0100\n"
+"PO-Revision-Date: 2026-05-30 07:18+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -261,7 +261,7 @@ msgstr "Stampa il punto di montaggio per il file system di un dato dispositivo"
 msgctxt ""
 "Details on how a device is connected eg: on <network address> via Bluetooth"
 msgid "on %1 via %2"
-msgstr ""
+msgstr "su %1 tramite %2"
 
 #: kdeconnect-cli.cpp:157
 #, kde-format
