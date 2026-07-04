@@ -1,18 +1,18 @@
 # Translation for kdeconnect-core.po to Euskara/Basque (eu).
-# Copyright (C) 2017-2025 This file is copyright:
+# Copyright (C) 2017-2026 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2025-2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Osoitz <oelkoro@gmail.com>, 2017.
 # Thadah Denyse <gontzalpujana@protonmail.com>, 2019.
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2019, 2020, 2021, 2023, 2025.
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2019, 2020, 2021, 2023, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-15 02:42+0000\n"
-"PO-Revision-Date: 2025-12-08 08:03+0100\n"
+"PO-Revision-Date: 2026-07-03 22:14+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: backends/bluetooth/asynclinkprovider.cpp:57
 #, kde-format
@@ -36,12 +36,12 @@ msgstr "Ezin izan du ataka erabilgarri bat aurkitu"
 #: backends/lan/compositeuploadjob.cpp:117
 #, kde-format
 msgid "Failed to send packet to %1"
-msgstr "%1(r)i paketea bidaltzea huts egin du"
+msgstr "%1(r)a paketea bidaltzeak huts egin du"
 
 #: backends/lan/compositeuploadjob.cpp:240
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "Hartzailea konektatzeko zain, denbora-muga gainditu da"
 
 #: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
