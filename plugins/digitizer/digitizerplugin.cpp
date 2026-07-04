@@ -14,6 +14,8 @@
 
 #if defined(Q_OS_LINUX)
 #include "linuxdigitizerimpl.h"
+#elif defined(Q_OS_WIN)
+#include "windowsdigitizerimpl.h"
 #endif
 
 #include "plugin_digitizer_debug.h"
@@ -26,6 +28,8 @@ DigitizerPlugin::DigitizerPlugin(QObject *parent, const QVariantList &args)
 {
 #if defined(Q_OS_LINUX)
     m_impl = new LinuxDigitizerImpl(this, device());
+#elif defined(Q_OS_WIN)
+    m_impl = new WindowsDigitizerImpl(this, device());
 #endif
 
     if (!m_impl) {
