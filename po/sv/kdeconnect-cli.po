@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2023, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2014-2020, 2023, 2025-2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-15 02:42+0000\n"
-"PO-Revision-Date: 2025-10-10 21:23+0200\n"
+"PO-Revision-Date: 2026-07-04 12:01+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -68,7 +68,7 @@ msgstr "Lista alla enheter"
 #: kdeconnect-cli.cpp:70
 #, kde-format
 msgid "List available (paired and reachable) devices"
-msgstr "Lista tillgängliga enheter (ihopparade som går att nå)"
+msgstr "Lista tillgängliga enheter (parkopplade som går att nå)"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
@@ -123,28 +123,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "Sök efter enheter på nätverket och återupprätta anslutningar"
 
 #: kdeconnect-cli.cpp:81
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "Begär ihopparning med angiven enhet"
+msgstr "Begär parkoppling med angiven enhet"
 
 #: kdeconnect-cli.cpp:82
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "Hitta angiven enhet genom att ringa till den."
+msgstr "Hitta enhet genom att ringa till den"
 
 #: kdeconnect-cli.cpp:83
-#, fuzzy, kde-format
-#| msgid "waiting for device…"
+#, kde-format
 msgid "Unpair from device"
-msgstr "Väntar på apparat…"
+msgstr "Avsluta parkoppling med enhet"
 
 #: kdeconnect-cli.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "Skicka ping till angiven enhet"
+msgstr "Skicka ping till enhet"
 
 #: kdeconnect-cli.cpp:85
 #, kde-format
@@ -157,28 +153,24 @@ msgid "message"
 msgstr "meddelande"
 
 #: kdeconnect-cli.cpp:86
-#, fuzzy, kde-format
-#| msgid "Sends the current clipboard to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "Skickar nuvarande klippbord till angiven enhet"
+msgstr "Skicka klippbord till enhet"
 
 #: kdeconnect-cli.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share a file/URL to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "Dela en fil eller webbadress med angiven enhet"
+msgstr "Dela en fil eller webbadress med enhet"
 
 #: kdeconnect-cli.cpp:88
-#, fuzzy, kde-format
-#| msgid "Share text to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "Dela text med angiven enhet"
+msgstr "Dela text med enhet"
 
 #: kdeconnect-cli.cpp:89
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "Visa underrättelser på angiven enhet"
+msgstr "Visa underrättelser på enhet"
 
 #: kdeconnect-cli.cpp:90
 #, kde-format
@@ -229,28 +221,24 @@ msgid "Device Name"
 msgstr "Enhetsnamn"
 
 #: kdeconnect-cli.cpp:99
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "Hämta krypteringsinformation för angiven enhet"
+msgstr "Hämta krypteringsinformation för enhet"
 
 #: kdeconnect-cli.cpp:100
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
-msgstr "Listar externa kommandon och deras identifierare"
+msgstr "Lista externa kommandon och deras identifierare"
 
 #: kdeconnect-cli.cpp:101
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
 msgstr "Utför ett externt kommando enligt identifierare"
 
 #: kdeconnect-cli.cpp:102
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "Skickar tangentnedtryckningar till angiven enhet"
+msgstr "Skicka tangentnedtryckningar till enhet"
 
 #: kdeconnect-cli.cpp:103
 #, kde-format
@@ -272,12 +260,12 @@ msgstr "Skriv ut monteringsplats för filsystemet på en angiven enhet"
 msgctxt ""
 "Details on how a device is connected eg: on <network address> via Bluetooth"
 msgid "on %1 via %2"
-msgstr ""
+msgstr "på %1 via %2"
 
 #: kdeconnect-cli.cpp:157
 #, kde-format
 msgid "(paired and reachable)"
-msgstr "(Ihopparad och kan nås)"
+msgstr "(parkopplad och kan nås)"
 
 #: kdeconnect-cli.cpp:159
 #, kde-format
@@ -287,7 +275,7 @@ msgstr "(kan nås)"
 #: kdeconnect-cli.cpp:161 kdeconnect-cli.cpp:183
 #, kde-format
 msgid "(paired)"
-msgstr "(ihopparad)"
+msgstr "(parkopplad)"
 
 #: kdeconnect-cli.cpp:166
 #, kde-format
@@ -304,14 +292,13 @@ msgstr "Ingen enhet hittades"
 #: kdeconnect-cli.cpp:185
 #, kde-format
 msgid "(unpaired)"
-msgstr "(oparad)"
+msgstr "(inte parkopplad)"
 
 #: kdeconnect-cli.cpp:245
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
-msgstr "Delad: %1"
+msgstr "Delad %1"
 
 #: kdeconnect-cli.cpp:258
 #, kde-format
@@ -333,7 +320,7 @@ msgstr "Begärde att %1 ska låsas upp."
 #: kdeconnect-cli.cpp:282
 #, kde-format
 msgid "waiting for device…"
-msgstr "Väntar på apparat…"
+msgstr "Väntar på enhet…"
 
 #: kdeconnect-cli.cpp:295
 #, kde-format
@@ -343,22 +330,22 @@ msgstr "Enhet hittades inte"
 #: kdeconnect-cli.cpp:297
 #, kde-format
 msgid "Already paired"
-msgstr "Redan ihopparade"
+msgstr "Redan parkopplade"
 
 #: kdeconnect-cli.cpp:299
 #, kde-format
 msgid "Pair requested"
-msgstr "Begärde para ihop"
+msgstr "Begärde parkoppling"
 
 #: kdeconnect-cli.cpp:309
 #, kde-format
 msgid "Already not paired"
-msgstr "Redan inte ihopparade"
+msgstr "Redan inte parkopplade"
 
 #: kdeconnect-cli.cpp:311
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "Parkoppling avslutad med lyckat resultat"
 
 #: kdeconnect-cli.cpp:369
 #, kde-format
