@@ -366,7 +366,7 @@ void RemoteDesktopSession::pointerButton(int button, bool down)
         ei_device_button_button(m_pointer, button, down);
         ei_device_frame(m_pointer, ei_now(m_ei));
     } else {
-        iface->NotifyPointerButton(m_xdpPath, {}, BTN_LEFT, down);
+        iface->NotifyPointerButton(m_xdpPath, {}, button, down);
     }
 }
 
