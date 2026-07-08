@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2015-2024, 2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-29 00:43+0000\n"
-"PO-Revision-Date: 2024-07-13 07:48+0200\n"
+"PO-Revision-Date: 2026-07-07 21:45+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: package/contents/ui/Battery.qml:35
 #, kde-format
@@ -101,13 +101,12 @@ msgstr "%1 %"
 #: package/contents/ui/DeviceDelegate.qml:310
 #, kde-format
 msgid "More options…"
-msgstr ""
+msgstr "Fler alternativ…"
 
 #: package/contents/ui/DeviceDelegate.qml:349
-#, fuzzy, kde-format
-#| msgid "Notifications:"
+#, kde-format
 msgid "Notifications"
-msgstr "Underrättelser:"
+msgstr "Underrättelser"
 
 #: package/contents/ui/DeviceDelegate.qml:361
 #, kde-format
