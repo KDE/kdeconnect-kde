@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-16 00:44+0000\n"
-"PO-Revision-Date: 2026-01-19 17:26+0100\n"
+"PO-Revision-Date: 2026-07-14 17:55+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -30,7 +30,7 @@ msgstr "Il falleva a inviar pacchetto a %1"
 #: backends/lan/compositeuploadjob.cpp:240
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "Tempore limite excedite attendente le connexion del receptor"
 
 #: backends/lan/compositeuploadjob.cpp:281
 #, kde-format
