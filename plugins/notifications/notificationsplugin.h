@@ -8,6 +8,7 @@
 
 #include <core/kdeconnectplugin.h>
 
+#include "config-X11.h"
 #include "notification.h"
 
 #define PACKET_TYPE_NOTIFICATION_REQUEST QStringLiteral("kdeconnect.notification.request")

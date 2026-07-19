@@ -8,10 +8,10 @@
 
 #pragma once
 
-#include <config-mousepad.h>
 #include <core/kdeconnectplugin.h>
 
 #include "abstractremoteinput.h"
+#include "config-X11.h"
 
 #define PACKET_TYPE_MOUSEPAD_KEYBOARDSTATE QLatin1String("kdeconnect.mousepad.keyboardstate")
 

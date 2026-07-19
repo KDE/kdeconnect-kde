@@ -138,6 +138,8 @@ if (WIN32)
     add_compile_definitions(WIN_SDK_VERSION=${WIN_SDK_VERSION})
 endif()
 
+configure_file(config-X11.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-X11.h)
+
 add_subdirectory(core)
 add_subdirectory(plugins)
 add_subdirectory(dbusinterfaces)

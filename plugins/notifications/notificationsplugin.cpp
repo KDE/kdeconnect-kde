@@ -15,7 +15,7 @@
 #include <KPluginFactory>
 #include <KSystemClipboard>
 
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+#if WITH_X11
 #include <KStartupInfo>
 #include <private/qtx11extras_p.h>
 #endif
@@ -158,7 +158,7 @@ void NotificationsPlugin::replyRequested(Notification *noti)
     SendReplyDialog *dialog = new SendReplyDialog(originalMessage, replyId, appName);
     connect(dialog, &SendReplyDialog::sendReply, this, &NotificationsPlugin::sendReply);
     dialog->show();
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+#if WITH_X11
     auto window = qobject_cast<QWindow *>(dialog->windowHandle());
     if (window && QX11Info::isPlatformX11()) {
         KStartupInfo::setNewStartupId(window, QX11Info::nextStartupId());

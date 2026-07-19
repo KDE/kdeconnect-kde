@@ -1,5 +1,7 @@
 kdeconnect_add_plugin(kdeconnect_mousepad SOURCES mousepadplugin.cpp abstractremoteinput.cpp)
 
+target_include_directories(kdeconnect_mousepad PRIVATE ${CMAKE_BINARY_DIR})
+
 if(UNIX AND NOT APPLE)
     pkg_check_modules(PKG_libei REQUIRED IMPORTED_TARGET libei-1.0)
     target_sources(kdeconnect_mousepad PUBLIC waylandremoteinput.cpp ${SRCS})
@@ -20,8 +22,6 @@ if(UNIX AND NOT APPLE)
         target_include_directories(kdeconnect_mousepad PRIVATE ${XTEST_INCLUDE_DIRS} ${X11_INCLUDE_DIR} ${LibFakeKey_INCLUDE_DIRS})
     endif()
 endif()
-
-configure_file(config-mousepad.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-mousepad.h)
 
 target_link_libraries(kdeconnect_mousepad kdeconnectcore kdeconnectdbusinterfaces Qt::Gui KF6::I18n)
 
