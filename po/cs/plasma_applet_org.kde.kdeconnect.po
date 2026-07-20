@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-29 00:43+0000\n"
-"PO-Revision-Date: 2026-03-13 14:56+0100\n"
-"Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-07-19 11:50+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Poedit 3.9\n"
 
 #: package/contents/ui/Battery.qml:35
 #, kde-format
@@ -149,7 +149,7 @@ msgstr "Odeslat"
 #: package/contents/ui/DeviceDelegate.qml:716
 #, kde-format
 msgid "Run command"
-msgstr "Spustit příkaz:"
+msgstr "Spustit příkaz"
 
 #: package/contents/ui/DeviceDelegate.qml:723
 #, kde-format
@@ -174,7 +174,7 @@ msgstr[2] "Všechna spárovaná zařízení jsou nedostupná"
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
 "Pro integraci zařízení Android a prostředí Plasma je potřeba nainstalovat "
-"KDE Connect."
+"KDE Connect!"
 
 #: package/contents/ui/FullRepresentation.qml:74
 #, kde-format

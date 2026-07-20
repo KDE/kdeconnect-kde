@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-15 00:43+0000\n"
-"PO-Revision-Date: 2026-05-09 10:53+0200\n"
+"PO-Revision-Date: 2026-07-19 11:50+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Poedit 3.9\n"
 
 #: battery/batteryplugin.cpp:150
 #, kde-format
@@ -176,7 +176,7 @@ msgstr "Po skončení telefonátu automaticky pokračovat"
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
-msgstr "Ping."
+msgstr "Ping!"
 
 #: presenter/kdeconnect_presenter_config.qml:23
 #, kde-format
@@ -376,12 +376,12 @@ msgstr "Selhalo spuštění sshfs"
 #: sftp/mounter.cpp:145
 #, kde-format
 msgid "sshfs process crashed"
-msgstr "Proces sshfs zhavaroval."
+msgstr "Proces sshfs zhavaroval"
 
 #: sftp/mounter.cpp:149
 #, kde-format
 msgid "Unknown error in sshfs"
-msgstr "Neznámá chyba v sshfs "
+msgstr "Neznámá chyba v sshfs"
 
 #: sftp/mounter.cpp:160
 #, kde-format
