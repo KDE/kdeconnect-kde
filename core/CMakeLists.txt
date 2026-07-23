@@ -3,9 +3,7 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
 
-option(BLUETOOTH_ENABLED "Bluetooth support for kdeconnect" ON)
 if(BLUETOOTH_ENABLED)
-    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Bluetooth)
     add_subdirectory(backends/bluetooth)
 endif()
 
@@ -45,8 +43,6 @@ ecm_qt_declare_logging_category(kdeconnectcore
 
 
 target_include_directories(kdeconnectcore PUBLIC ${PROJECT_SOURCE_DIR})
-
-find_package(OpenSSL REQUIRED COMPONENTS Crypto)
 
 target_link_libraries(kdeconnectcore
 PUBLIC

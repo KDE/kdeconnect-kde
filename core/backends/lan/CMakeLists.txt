@@ -10,7 +10,7 @@ set(backends_kdeconnect_SRCS
     backends/lan/mdnsh_wrapper.cpp
 )
 
-if(NOT APPLE AND NOT WIN32)
+if(UNIX AND NOT APPLE)
     set(backends_kdeconnect_SRCS
         ${backends_kdeconnect_SRCS}
         backends/lan/avahidiscovery.cpp
