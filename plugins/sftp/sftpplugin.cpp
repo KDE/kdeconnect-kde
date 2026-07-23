@@ -52,6 +52,13 @@ void SftpPlugin::removeFromDolphin()
     QUrl kioUrl(QStringLiteral("kdeconnect://") + deviceId + QStringLiteral("/"));
     for (int i = 0; i < m_placesModel.rowCount(); ++i) {
         QModelIndex index = m_placesModel.index(i, 0);
+        // Skip Solid device entries: when the KDE Connect Solid backend is installed, each device
+        // shows up in the places model with a kdeconnect://<deviceId>/ URL that matches kioUrl.
+        // removePlace() is a no-op for device items, so trying to remove one here would never
+        // decrease rowCount() and the --i below would spin on the same row forever (100% CPU hang).
+        if (m_placesModel.isDevice(index)) {
+            continue;
+        }
         QUrl url = m_placesModel.url(index);
         if (url == kioUrl) {
             m_placesModel.removePlace(index);
