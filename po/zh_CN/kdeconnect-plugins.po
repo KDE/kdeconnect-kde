@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-15 00:43+0000\n"
+"POT-Creation-Date: 2026-07-24 02:38+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -398,12 +398,12 @@ msgstr "KDE Connect"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "抱歉，无法处理 SFTP 协议。"
 
-#: sftp/sftpplugin.cpp:167
+#: sftp/sftpplugin.cpp:174
 #, kde-format
 msgid "All files"
 msgstr "所有文件"
 
-#: sftp/sftpplugin.cpp:168
+#: sftp/sftpplugin.cpp:175
 #, kde-format
 msgid "Camera pictures"
 msgstr "相机图片"
