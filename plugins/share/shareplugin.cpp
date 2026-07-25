@@ -71,6 +71,9 @@ static QString cleanFilename(const QString &filename)
 
 void SharePlugin::setDateModified(const QUrl &destination, const qint64 timestamp)
 {
+    if (timestamp == 0) {
+        return;
+    }
     QFile receivedFile(destination.toLocalFile());
     if (!receivedFile.exists() || !receivedFile.open(QIODevice::ReadWrite)) {
         return;
@@ -80,6 +83,9 @@ void SharePlugin::setDateModified(const QUrl &destination, const qint64 timestam
 
 void SharePlugin::setDateCreated(const QUrl &destination, const qint64 timestamp)
 {
+    if (timestamp == 0) {
+        return;
+    }
     QFile receivedFile(destination.toLocalFile());
     if (!receivedFile.exists() || !receivedFile.open(QIODevice::ReadWrite)) {
         return;
