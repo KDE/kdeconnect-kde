@@ -27,6 +27,7 @@
 
 #include "core/daemon.h"
 #include "core/filetransferjob.h"
+#include "core/notificationserverinfo.h"
 #include "plugin_share_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SharePlugin, "kdeconnect_share.json")
@@ -164,7 +165,16 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
         KNotification *notif = new KNotification(QStringLiteral("textShareReceived"));
         notif->setComponentName(QStringLiteral("kdeconnect"));
         notif->setText(text);
-        notif->setTitle(i18nc("@info Some piece of text was received from a connected device", "Shared text from %1 copied to clipboard", device()->name()));
+        if (NotificationServerInfo::instance().supportedHints().testFlag(NotificationServerInfo::X_KDE_ORIGIN_NAME)) {
+            notif->setTitle(i18nc("@info Some piece of text was received from a connected device", "Shared text copied to clipboard", device()->name()));
+            notif->setHint(QStringLiteral("x-kde-origin-name"), device()->name());
+        } else {
+            notif->setTitle(
+                i18nc("@info Some piece of text was received from a connected device", "Shared text from %1 copied to clipboard", device()->name()));
+        }
+
+        // Mark this notification so sendnotifications can filter it out and not echo it back to the device
+        notif->setHint(QStringLiteral("x-kdeconnect-source-device"), device()->name());
 
         auto openTextEditor = [this, text, notif] {
             KService::Ptr service = KApplicationTrader::preferredService(QStringLiteral("text/plain"));
