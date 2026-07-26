@@ -91,6 +91,7 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
             CGEventSetType(event, kCGEventLeftMouseUp);
             CGEventPost(kCGHIDEventTap, event);
             CFRelease(event);
+            m_leftButtonPressed = false;
         } else if (isDoubleClick) {
             CGEventRef event = CGEventCreateMouseEvent(NULL, kCGEventLeftMouseDown, CGPointMake(point.x(), point.y()), kCGMouseButtonLeft);
             CGEventPost(kCGHIDEventTap, event);
@@ -108,26 +109,29 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
             CGEventSetType(event, kCGEventLeftMouseUp);
             CGEventPost(kCGHIDEventTap, event);
             CFRelease(event);
-		} else if (isMiddleClick) {
+            m_leftButtonPressed = false;
+        } else if (isMiddleClick) {
             CGEventRef event = CGEventCreateMouseEvent(NULL, kCGEventOtherMouseDown, CGPointMake(point.x(), point.y()), kCGMouseButtonLeft);
             CGEventPost(kCGHIDEventTap, event);
             CGEventSetType(event, kCGEventOtherMouseUp);
             CGEventPost(kCGHIDEventTap, event);
             CFRelease(event);
-		} else if (isRightClick) {
+        } else if (isRightClick) {
             CGEventRef event = CGEventCreateMouseEvent(NULL, kCGEventRightMouseDown, CGPointMake(point.x(), point.y()), kCGMouseButtonLeft);
             CGEventPost(kCGHIDEventTap, event);
             CGEventSetType(event, kCGEventRightMouseUp);
             CGEventPost(kCGHIDEventTap, event);
             CFRelease(event);
-		} else if (isSingleHold) {
+        } else if (isSingleHold) {
             CGEventRef event = CGEventCreateMouseEvent(NULL, kCGEventLeftMouseDown, CGPointMake(point.x(), point.y()), kCGMouseButtonLeft);
             CGEventPost(kCGHIDEventTap, event);
             CFRelease(event);
+            m_leftButtonPressed = true;
         } else if (isSingleRelease) {
             CGEventRef event = CGEventCreateMouseEvent(NULL, kCGEventLeftMouseUp, CGPointMake(point.x(), point.y()), kCGMouseButtonLeft);
             CGEventPost(kCGHIDEventTap, event);
             CFRelease(event);
+            m_leftButtonPressed = false;
         } else if (isScroll) {
             CGEventRef event = CGEventCreateScrollWheelEvent(NULL, kCGScrollEventUnitPixel, 1, dy);
             CGEventPost(kCGHIDEventTap, event);
@@ -209,11 +213,11 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
 
         }
     } else { //Is a mouse move event
-         if (dx || dy) {
+        if (dx || dy) {
             QPoint point = QCursor::pos();
-            QCursor::setPos(point.x() + (int)dx, point.y() + (int)dy);
+            setMousePos(QPoint(point.x() + (int)dx, point.y() + (int)dy));
         } else if (np.has(QStringLiteral("x")) || np.has(QStringLiteral("y"))) {
-            QCursor::setPos(x, y);
+            setMousePos(QPoint((int)x, (int)y));
         }
     }
     return true;
@@ -221,6 +225,20 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
 
 bool MacOSRemoteInput::hasKeyboardSupport() {
     return true;
+}
+
+void MacOSRemoteInput::setMousePos(const QPoint &pos)
+{
+    if (m_leftButtonPressed) {
+        // Moving the cursor via QCursor::setPos() with a button pressed does not
+        // generate a kCGEventLeftMouseDragged event, so without this apps never
+        // see a "mouse dragged" event and the mouse moves without dragging anything.
+        CGEventRef event = CGEventCreateMouseEvent(NULL, kCGEventLeftMouseDragged, CGPointMake(pos.x(), pos.y()), kCGMouseButtonLeft);
+        CGEventPost(kCGHIDEventTap, event);
+        CFRelease(event);
+    } else {
+        QCursor::setPos(pos);
+    }
 }
 
 #include "moc_macosremoteinput.cpp"

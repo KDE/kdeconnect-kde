@@ -8,6 +8,8 @@
 
 #include "abstractremoteinput.h"
 
+#include <QPoint>
+
 class MacOSRemoteInput : public AbstractRemoteInput
 {
     Q_OBJECT
@@ -17,4 +19,9 @@ public:
 
     bool handlePacket(const NetworkPacket &np) override;
     bool hasKeyboardSupport() override;
+
+private:
+    void setMousePos(const QPoint &pos);
+
+    bool m_leftButtonPressed = false;
 };
