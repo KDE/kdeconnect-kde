@@ -24,6 +24,10 @@ add_executable(kdeconnect-app
     ${kdeconnect_custom_icons_SRCS}
 )
 
+if (APPLE)
+    target_sources(kdeconnect-app PRIVATE macosforegroundapp.mm)
+endif()
+
 ecm_add_qml_module(kdeconnect-app URI org.kde.kdeconnect.app)
 
 ecm_target_qml_sources(kdeconnect-app SOURCES
@@ -45,6 +49,10 @@ ecm_target_qml_sources(kdeconnect-app SOURCES
 )
 
 target_link_libraries(kdeconnect-app PRIVATE Qt::Quick Qt::QuickControls2 Qt::Widgets KF6::CoreAddons KF6::I18n KF6::ColorScheme KF6::Crash KF6::ItemModels KF6::DBusAddons KF6::WindowSystem)
+
+if (APPLE)
+    target_link_libraries(kdeconnect-app PRIVATE "-framework AppKit")
+endif()
 
 set_target_properties(kdeconnect-app PROPERTIES MACOSX_BUNDLE FALSE)
 install(TARGETS kdeconnect-app ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS_BUNDLE})
