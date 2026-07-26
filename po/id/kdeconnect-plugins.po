@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-24 00:43+0000\n"
+"POT-Creation-Date: 2026-07-26 00:43+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -442,35 +442,35 @@ msgstr "Simpan file di:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "&percnt;1 di dalam alur akan digantikan dengan nama peranti tertentu"
 
-#: share/shareplugin.cpp:161
+#: share/shareplugin.cpp:167
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr ""
 
-#: share/shareplugin.cpp:201
+#: share/shareplugin.cpp:207
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr ""
 
-#: share/shareplugin.cpp:205
+#: share/shareplugin.cpp:211
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr ""
 
-#: share/shareplugin.cpp:246 share/shareplugin.cpp:251
+#: share/shareplugin.cpp:252 share/shareplugin.cpp:257
 #, kde-format
 msgid "Could not share file"
 msgstr "Tidak bisa berbagi file"
 
-#: share/shareplugin.cpp:246
+#: share/shareplugin.cpp:252
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 tidak ada"
 
-#: share/shareplugin.cpp:251
+#: share/shareplugin.cpp:257
 #, kde-format
 msgid "Permission denied: %1"
 msgstr ""

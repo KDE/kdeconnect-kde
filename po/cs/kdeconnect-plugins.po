@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-24 00:43+0000\n"
+"POT-Creation-Date: 2026-07-26 00:43+0000\n"
 "PO-Revision-Date: 2026-07-19 11:50+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -423,35 +423,35 @@ msgstr "Uložit soubory v:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 v cestě bude nahrazen konkrétním názvem zařízení"
 
-#: share/shareplugin.cpp:161
+#: share/shareplugin.cpp:167
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Sdílený text %1 byl zkopírován do schránky"
 
-#: share/shareplugin.cpp:201
+#: share/shareplugin.cpp:207
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Otevřít v textovém editoru"
 
-#: share/shareplugin.cpp:205
+#: share/shareplugin.cpp:211
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Otevřít odkaz"
 
-#: share/shareplugin.cpp:246 share/shareplugin.cpp:251
+#: share/shareplugin.cpp:252 share/shareplugin.cpp:257
 #, kde-format
 msgid "Could not share file"
 msgstr "Soubor nelze sdílet"
 
-#: share/shareplugin.cpp:246
+#: share/shareplugin.cpp:252
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 neexistuje."
 
-#: share/shareplugin.cpp:251
+#: share/shareplugin.cpp:257
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Přístup odepřen: %1"
