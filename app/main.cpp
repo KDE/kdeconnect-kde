@@ -23,10 +23,18 @@
 #include <KLocalizedString>
 #include <KWindowSystem>
 
+#if defined(Q_OS_MAC)
+#include "macosforegroundapp.h"
+#endif
+
 static void raiseWindow(QWindow *window)
 {
+#if defined(Q_OS_MAC)
+    activateWindowForMacOS(window);
+#else
     KWindowSystem::updateStartupId(window);
     KWindowSystem::activateWindow(window);
+#endif
 }
 
 int main(int argc, char *argv[])
@@ -124,6 +132,7 @@ int main(int argc, char *argv[])
         auto mo = obj->metaObject();
         mo->invokeMethod(obj, "openDevice", Qt::QueuedConnection, Q_ARG(QVariant, device), Q_ARG(QVariant, config));
     }
+    raiseWindow(obj);
     QObject::connect(&dbusService, &KDBusService::activateRequested, obj, [obj](const QStringList & /*arguments*/, const QString & /*workingDirectory*/) {
         raiseWindow(obj);
     });
