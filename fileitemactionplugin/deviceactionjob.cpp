@@ -18,6 +18,8 @@
 
 #include <dbushelper.h>
 
+#include <algorithm>
+
 #include "kdeconnect_fileitemaction_debug.h"
 
 DeviceActionJob::DeviceActionJob(const QList<QUrl> &urls, QObject *parent)
@@ -156,6 +158,14 @@ void DeviceActionJob::onDeviceIconNameReplyFinished(QDBusPendingCallWatcher *wat
 void DeviceActionJob::finalizeActions()
 {
     for (const auto &[deviceId, device] : std::as_const(m_devices).asKeyValueRange()) {
+        // Don't offer "Send to" the same device.
+        const bool urlIsSameDevice = std::all_of(m_urls.cbegin(), m_urls.cend(), [&deviceId](const QUrl &url) {
+            return url.scheme() == QLatin1String("kdeconnect") && url.host() == deviceId;
+        });
+        if (urlIsSameDevice) {
+            continue;
+        }
+
         QAction *action = new QAction(QIcon::fromTheme(device.iconName), device.name, m_actionParent);
         action->setProperty("id", deviceId);
         connect(action, &QAction::triggered, action, [deviceId, urls = m_urls] {
