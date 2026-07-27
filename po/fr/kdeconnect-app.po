@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:45+0000\n"
+"POT-Creation-Date: 2026-07-27 00:44+0000\n"
 "PO-Revision-Date: 2026-04-09 12:07+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -16,45 +16,45 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#: main.cpp:38 main.cpp:40
+#: main.cpp:46 main.cpp:48
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDEConnect"
 
-#: main.cpp:42
+#: main.cpp:50
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
 msgstr "© 2015 - 2025, L'équipe de développement de KDEConnect"
 
-#: main.cpp:43
+#: main.cpp:51
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:44
+#: main.cpp:52
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: main.cpp:45
+#: main.cpp:53
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Simon Depiets, Xavier Besnard"
 
-#: main.cpp:45
+#: main.cpp:53
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sdepiets@gmail.com, xavier.besnard@kde.org"
 
-#: main.cpp:76
+#: main.cpp:84
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
 msgstr "Identifiant du périphérique sur lequel ouvrir l'application"
 
-#: main.cpp:79
+#: main.cpp:87
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
@@ -62,13 +62,13 @@ msgstr ""
 "Module de configuration afficher. Nécessite que l'option « --device » soit "
 "définie."
 
-#: main.cpp:83
+#: main.cpp:91
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "Remplacer une instance existante"
 
-#: main.cpp:86
+#: main.cpp:94
 #, kde-format
 msgid "URL to share"
 msgstr "URL à partager"
@@ -143,86 +143,91 @@ msgstr "Contrôle multimédia"
 
 #: qml/DevicePage.qml:149
 #, kde-format
+msgid "Notifications"
+msgstr ""
+
+#: qml/DevicePage.qml:157
+#, kde-format
 msgid "Remote input"
 msgstr "Saisie à distance"
 
-#: qml/DevicePage.qml:157 qml/runcommand.qml:16
+#: qml/DevicePage.qml:165 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Exécuter une commande"
 
-#: qml/DevicePage.qml:165 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:173 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Présentation à distance"
 
-#: qml/DevicePage.qml:174 qml/volume.qml:16
+#: qml/DevicePage.qml:182 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Contrôle du volume"
 
-#: qml/DevicePage.qml:184
+#: qml/DevicePage.qml:192
 #, kde-format
 msgid "SMS Messages"
 msgstr "Messages SMS"
 
-#: qml/DevicePage.qml:192 qml/mousepad.qml:44
+#: qml/DevicePage.qml:200 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Verrouiller"
 
-#: qml/DevicePage.qml:192
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "Unlock"
 msgstr "Déverrouiller"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:208
 #, kde-format
 msgid "Find Device"
 msgstr "Trouver l'appareil"
 
-#: qml/DevicePage.qml:208
+#: qml/DevicePage.qml:216
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Envoyer le presse-papier"
 
-#: qml/DevicePage.qml:215
+#: qml/DevicePage.qml:223
 #, kde-format
 msgid "Share File"
 msgstr "Partager un fichier"
 
-#: qml/DevicePage.qml:223
+#: qml/DevicePage.qml:231
 #, kde-format
 msgid "Browse this device"
 msgstr "Naviguer dans ce périphérique"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "Arrêter la session du moniteur virtuel"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "Utiliser le périphérique comme écran externe"
 
-#: qml/DevicePage.qml:262
+#: qml/DevicePage.qml:270
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr "Adresse : %1 via %2"
 
-#: qml/DevicePage.qml:271
+#: qml/DevicePage.qml:279
 #, kde-format
 msgid "This device is not paired."
 msgstr "Ce périphérique n'est pas associé."
 
-#: qml/DevicePage.qml:275
+#: qml/DevicePage.qml:283
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Associer"
 
-#: qml/DevicePage.qml:282 qml/DevicePage.qml:291
+#: qml/DevicePage.qml:290 qml/DevicePage.qml:299
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -231,22 +236,22 @@ msgstr ""
 "Association demandée\n"
 "Clé :"
 
-#: qml/DevicePage.qml:297
+#: qml/DevicePage.qml:305
 #, kde-format
 msgid "Accept"
 msgstr "Accepter"
 
-#: qml/DevicePage.qml:303
+#: qml/DevicePage.qml:311
 #, kde-format
 msgid "Reject"
 msgstr "Rejeter"
 
-#: qml/DevicePage.qml:314
+#: qml/DevicePage.qml:322
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Ce périphérique est injoignable"
 
-#: qml/DevicePage.qml:322
+#: qml/DevicePage.qml:330
 #, kde-format
 msgid "Please choose a file"
 msgstr "Veuillez choisir un fichier"
@@ -343,6 +348,39 @@ msgstr "Aucun lecteur disponible"
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
+
+#: qml/NotificationPanel.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Active Notifications"
+msgstr ""
+
+#: qml/NotificationPanel.qml:196
+#, kde-format
+msgid "Reply"
+msgstr ""
+
+#: qml/NotificationPanel.qml:213
+#, kde-format
+msgid "Dismiss"
+msgstr ""
+
+#: qml/NotificationPanel.qml:244
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: qml/NotificationPanel.qml:262
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr ""
+
+#: qml/NotificationPanel.qml:281
+#, fuzzy, kde-format
+#| msgid "Send Ping"
+msgid "Send"
+msgstr "Envoyer un « ping »"
 
 #: qml/PluginSettings.qml:140
 #, kde-format

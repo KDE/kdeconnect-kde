@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:45+0000\n"
+"POT-Creation-Date: 2026-07-27 00:44+0000\n"
 "PO-Revision-Date: 2026-03-31 20:07+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -18,57 +18,57 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#: main.cpp:38 main.cpp:40
+#: main.cpp:46 main.cpp:48
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:42
+#: main.cpp:50
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
 msgstr "© 2015–2025 KDE Connect Team"
 
-#: main.cpp:43
+#: main.cpp:51
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:44
+#: main.cpp:52
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: main.cpp:45
+#: main.cpp:53
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Ryuichi Yamada, Mint"
 
-#: main.cpp:45
+#: main.cpp:53
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ryuichi_ya220@outlook.jp, 5602mint@gmail.com"
 
-#: main.cpp:76
+#: main.cpp:84
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
 msgstr ""
 
-#: main.cpp:79
+#: main.cpp:87
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
 msgstr ""
 
-#: main.cpp:83
+#: main.cpp:91
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "既存のインスタンスを置換"
 
-#: main.cpp:86
+#: main.cpp:94
 #, kde-format
 msgid "URL to share"
 msgstr "共有する URL"
@@ -143,86 +143,91 @@ msgstr "マルチメディアコントロール"
 
 #: qml/DevicePage.qml:149
 #, kde-format
+msgid "Notifications"
+msgstr ""
+
+#: qml/DevicePage.qml:157
+#, kde-format
 msgid "Remote input"
 msgstr "リモート入力"
 
-#: qml/DevicePage.qml:157 qml/runcommand.qml:16
+#: qml/DevicePage.qml:165 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "コマンド実行"
 
-#: qml/DevicePage.qml:165 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:173 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "プレゼンテーション"
 
-#: qml/DevicePage.qml:174 qml/volume.qml:16
+#: qml/DevicePage.qml:182 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "ボリューム操作"
 
-#: qml/DevicePage.qml:184
+#: qml/DevicePage.qml:192
 #, kde-format
 msgid "SMS Messages"
 msgstr ""
 
-#: qml/DevicePage.qml:192 qml/mousepad.qml:44
+#: qml/DevicePage.qml:200 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "ロック"
 
-#: qml/DevicePage.qml:192
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "Unlock"
 msgstr "ロック解除"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:208
 #, kde-format
 msgid "Find Device"
 msgstr "デバイスを探す"
 
-#: qml/DevicePage.qml:208
+#: qml/DevicePage.qml:216
 #, kde-format
 msgid "Send Clipboard"
 msgstr "クリップボードを送信"
 
-#: qml/DevicePage.qml:215
+#: qml/DevicePage.qml:223
 #, kde-format
 msgid "Share File"
 msgstr "ファイル共有 "
 
-#: qml/DevicePage.qml:223
+#: qml/DevicePage.qml:231
 #, kde-format
 msgid "Browse this device"
 msgstr "このデバイスを閲覧"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "仮想モニタセッションを停止"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "デバイスを外部モニタとして使用"
 
-#: qml/DevicePage.qml:262
+#: qml/DevicePage.qml:270
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:271
+#: qml/DevicePage.qml:279
 #, kde-format
 msgid "This device is not paired."
 msgstr "このデバイスはペアリングされていません。"
 
-#: qml/DevicePage.qml:275
+#: qml/DevicePage.qml:283
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "ペア"
 
-#: qml/DevicePage.qml:282 qml/DevicePage.qml:291
+#: qml/DevicePage.qml:290 qml/DevicePage.qml:299
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -231,22 +236,22 @@ msgstr ""
 "ペアリングが要求されました\n"
 "キー:"
 
-#: qml/DevicePage.qml:297
+#: qml/DevicePage.qml:305
 #, kde-format
 msgid "Accept"
 msgstr "承諾"
 
-#: qml/DevicePage.qml:303
+#: qml/DevicePage.qml:311
 #, kde-format
 msgid "Reject"
 msgstr "拒否"
 
-#: qml/DevicePage.qml:314
+#: qml/DevicePage.qml:322
 #, kde-format
 msgid "This device is not reachable"
 msgstr "このデバイスに到達できません"
 
-#: qml/DevicePage.qml:322
+#: qml/DevicePage.qml:330
 #, kde-format
 msgid "Please choose a file"
 msgstr "ファイルを選択してください"
@@ -341,6 +346,39 @@ msgstr "利用可能なプレーヤーはありません"
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
+
+#: qml/NotificationPanel.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Active Notifications"
+msgstr ""
+
+#: qml/NotificationPanel.qml:196
+#, kde-format
+msgid "Reply"
+msgstr ""
+
+#: qml/NotificationPanel.qml:213
+#, kde-format
+msgid "Dismiss"
+msgstr ""
+
+#: qml/NotificationPanel.qml:244
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: qml/NotificationPanel.qml:262
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr ""
+
+#: qml/NotificationPanel.qml:281
+#, fuzzy, kde-format
+#| msgid "Send Ping"
+msgid "Send"
+msgstr "Ping を送信"
 
 #: qml/PluginSettings.qml:140
 #, kde-format

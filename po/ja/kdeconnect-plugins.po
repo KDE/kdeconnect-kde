@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:43+0000\n"
+"POT-Creation-Date: 2026-07-27 00:44+0000\n"
 "PO-Revision-Date: 2026-03-31 20:44+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -425,35 +425,43 @@ msgstr "ファイルの保存先:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "パスの %1 は特定のデバイス名に置き換えられます"
 
-#: share/shareplugin.cpp:167
+#: share/shareplugin.cpp:169
+#, fuzzy, kde-format
+#| msgctxt "@info Some piece of text was received from a connected device"
+#| msgid "Shared text from %1 copied to clipboard"
+msgctxt "@info Some piece of text was received from a connected device"
+msgid "Shared text copied to clipboard"
+msgstr "%1 から共有されたテキストがクリップボードにコピーされました"
+
+#: share/shareplugin.cpp:173
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "%1 から共有されたテキストがクリップボードにコピーされました"
 
-#: share/shareplugin.cpp:207
+#: share/shareplugin.cpp:217
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "テキストエディタで開く"
 
-#: share/shareplugin.cpp:211
+#: share/shareplugin.cpp:221
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "リンクを開く"
 
-#: share/shareplugin.cpp:252 share/shareplugin.cpp:257
+#: share/shareplugin.cpp:262 share/shareplugin.cpp:267
 #, kde-format
 msgid "Could not share file"
 msgstr "ファイルを共有できませんでした"
 
-#: share/shareplugin.cpp:252
+#: share/shareplugin.cpp:262
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1は存在しません。"
 
-#: share/shareplugin.cpp:257
+#: share/shareplugin.cpp:267
 #, kde-format
 msgid "Permission denied: %1"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:43+0000\n"
+"POT-Creation-Date: 2026-07-27 00:44+0000\n"
 "PO-Revision-Date: 2026-07-07 21:52+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -421,35 +421,43 @@ msgstr "Spara filer i:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 i sökvägen kommer att ersättas med det specifika enhetsnamnet."
 
-#: share/shareplugin.cpp:167
+#: share/shareplugin.cpp:169
+#, fuzzy, kde-format
+#| msgctxt "@info Some piece of text was received from a connected device"
+#| msgid "Shared text from %1 copied to clipboard"
+msgctxt "@info Some piece of text was received from a connected device"
+msgid "Shared text copied to clipboard"
+msgstr "Delad text från %1 kopierad till klippbordet"
+
+#: share/shareplugin.cpp:173
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Delad text från %1 kopierad till klippbordet"
 
-#: share/shareplugin.cpp:207
+#: share/shareplugin.cpp:217
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Öppna i texteditor"
 
-#: share/shareplugin.cpp:211
+#: share/shareplugin.cpp:221
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Öppna länk"
 
-#: share/shareplugin.cpp:252 share/shareplugin.cpp:257
+#: share/shareplugin.cpp:262 share/shareplugin.cpp:267
 #, kde-format
 msgid "Could not share file"
 msgstr "Kunde inte dela fil"
 
-#: share/shareplugin.cpp:252
+#: share/shareplugin.cpp:262
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 finns inte"
 
-#: share/shareplugin.cpp:257
+#: share/shareplugin.cpp:267
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Åtkomst nekas: %1"

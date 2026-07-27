@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2026-07-27 00:44+0000\n"
 "PO-Revision-Date: 2024-02-27 12:52+0100\n"
 "Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 
-#: sendfileitemaction.cpp:72
+#: sendfileitemaction.cpp:35
 #, kde-format
 msgid "Send via KDE Connect"
 msgstr "Pošlji s KDE Connect"
 
-#: sendfileitemaction.cpp:79
+#: sendfileitemaction.cpp:47
 #, kde-format
 msgid "Send to '%1' via KDE Connect"
 msgstr "Pošlji na »%1« s KDE Connect"

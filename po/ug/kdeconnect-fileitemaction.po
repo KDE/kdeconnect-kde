@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2026-07-27 00:44+0000\n"
 "PO-Revision-Date: 2026-05-30 17:17-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Poedit 3.9\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: sendfileitemaction.cpp:72
+#: sendfileitemaction.cpp:35
 #, kde-format
 msgid "Send via KDE Connect"
 msgstr "KDE باغلىنىشى ئارقىلىق يوللايدۇ"
 
-#: sendfileitemaction.cpp:79
+#: sendfileitemaction.cpp:47
 #, kde-format
 msgid "Send to '%1' via KDE Connect"
 msgstr "KDE باغلىنىشى ئارقىلىق «%1» غا يوللايدۇ"

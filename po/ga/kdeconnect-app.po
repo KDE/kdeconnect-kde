@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:45+0000\n"
+"POT-Creation-Date: 2026-07-27 00:44+0000\n"
 "PO-Revision-Date: 2026-04-04 21:55+0100\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
@@ -18,57 +18,57 @@ msgstr ""
 "3 : 4\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#: main.cpp:38 main.cpp:40
+#: main.cpp:46 main.cpp:48
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:42
+#: main.cpp:50
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
 msgstr "© 2015–2025 Foireann KDE Connect"
 
-#: main.cpp:43
+#: main.cpp:51
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:44
+#: main.cpp:52
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: main.cpp:45
+#: main.cpp:53
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Aindriú Mac Giolla Eoin"
 
-#: main.cpp:45
+#: main.cpp:53
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aindriu80@yahoo.com"
 
-#: main.cpp:76
+#: main.cpp:84
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
 msgstr "Aitheantas gléis chun an aip a oscailt ann"
 
-#: main.cpp:79
+#: main.cpp:87
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
 msgstr "Chun an modúl cumraíochta a thaispeáint, ní mór --device a shocrú."
 
-#: main.cpp:83
+#: main.cpp:91
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "Cuir cás atá ann cheana ina áit"
 
-#: main.cpp:86
+#: main.cpp:94
 #, kde-format
 msgid "URL to share"
 msgstr "URL le roinnt"
@@ -143,86 +143,91 @@ msgstr "Rialú ilmheán"
 
 #: qml/DevicePage.qml:149
 #, kde-format
+msgid "Notifications"
+msgstr ""
+
+#: qml/DevicePage.qml:157
+#, kde-format
 msgid "Remote input"
 msgstr "Ionchur cianda"
 
-#: qml/DevicePage.qml:157 qml/runcommand.qml:16
+#: qml/DevicePage.qml:165 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Rith an t-ordú"
 
-#: qml/DevicePage.qml:165 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:173 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Cianrialtán Cur i Láthair"
 
-#: qml/DevicePage.qml:174 qml/volume.qml:16
+#: qml/DevicePage.qml:182 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Rialú toirte"
 
-#: qml/DevicePage.qml:184
+#: qml/DevicePage.qml:192
 #, kde-format
 msgid "SMS Messages"
 msgstr "Theachtaireacht SMS"
 
-#: qml/DevicePage.qml:192 qml/mousepad.qml:44
+#: qml/DevicePage.qml:200 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Glasáil"
 
-#: qml/DevicePage.qml:192
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "Unlock"
 msgstr "Díghlasáil"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:208
 #, kde-format
 msgid "Find Device"
 msgstr "Aimsigh Gléas"
 
-#: qml/DevicePage.qml:208
+#: qml/DevicePage.qml:216
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Seol an Ghearrthaisce"
 
-#: qml/DevicePage.qml:215
+#: qml/DevicePage.qml:223
 #, kde-format
 msgid "Share File"
 msgstr "Comhroinn Comhad"
 
-#: qml/DevicePage.qml:223
+#: qml/DevicePage.qml:231
 #, kde-format
 msgid "Browse this device"
 msgstr "Brabhsáil an gléas seo"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "Stop seisiún monatóireachta fíorúil"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "Úsáid an gléas mar mhonatóir seachtrach"
 
-#: qml/DevicePage.qml:262
+#: qml/DevicePage.qml:270
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr "Seoladh: %1 trí %2"
 
-#: qml/DevicePage.qml:271
+#: qml/DevicePage.qml:279
 #, kde-format
 msgid "This device is not paired."
 msgstr "Níl an gléas seo péireáilte."
 
-#: qml/DevicePage.qml:275
+#: qml/DevicePage.qml:283
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Péire"
 
-#: qml/DevicePage.qml:282 qml/DevicePage.qml:291
+#: qml/DevicePage.qml:290 qml/DevicePage.qml:299
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -231,22 +236,22 @@ msgstr ""
 "Péire iarrtha\n"
 "Eochair: "
 
-#: qml/DevicePage.qml:297
+#: qml/DevicePage.qml:305
 #, kde-format
 msgid "Accept"
 msgstr "Glac leis"
 
-#: qml/DevicePage.qml:303
+#: qml/DevicePage.qml:311
 #, kde-format
 msgid "Reject"
 msgstr "Diúltaigh"
 
-#: qml/DevicePage.qml:314
+#: qml/DevicePage.qml:322
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Níl an gléas seo inrochtana"
 
-#: qml/DevicePage.qml:322
+#: qml/DevicePage.qml:330
 #, kde-format
 msgid "Please choose a file"
 msgstr "Roghnaigh comhad le do thoil"
@@ -343,6 +348,39 @@ msgstr "Níl aon imreoirí ar fáil"
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
+
+#: qml/NotificationPanel.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Active Notifications"
+msgstr ""
+
+#: qml/NotificationPanel.qml:196
+#, kde-format
+msgid "Reply"
+msgstr ""
+
+#: qml/NotificationPanel.qml:213
+#, kde-format
+msgid "Dismiss"
+msgstr ""
+
+#: qml/NotificationPanel.qml:244
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: qml/NotificationPanel.qml:262
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr ""
+
+#: qml/NotificationPanel.qml:281
+#, fuzzy, kde-format
+#| msgid "Send Ping"
+msgid "Send"
+msgstr "Seol Ping"
 
 #: qml/PluginSettings.qml:140
 #, kde-format
