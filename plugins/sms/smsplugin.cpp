@@ -188,9 +188,8 @@ void SmsPlugin::getAttachment(const qint64 &partID, const QString &uniqueIdentif
 Attachment SmsPlugin::createAttachmentFromUrl(const QString &url)
 {
     QFile file(url);
-    file.open(QIODevice::ReadOnly);
-
-    if (!file.exists()) {
+    if (!file.open(QIODevice::ReadOnly)) {
+        qCWarning(KDECONNECT_PLUGIN_SMS) << "Could not read the attachment" << url << file.errorString();
         return Attachment();
     }
 
