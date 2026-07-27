@@ -105,15 +105,22 @@ void FileTransferJob::transferFinished()
         setErrorText(m_reply->errorString());
     } else {
         // TODO: MD5-check the file
-        if (m_size == m_written) {
-            qCDebug(KDECONNECT_CORE) << "Finished transfer" << m_destination;
-        } else {
+        // A payload size of -1 means the sender does not know how much it is going to send,
+        // and a sender can also announce less than it ends up sending, so only a file that
+        // stops short of the announced size is an incomplete one.
+        if (m_size >= 0 && m_written < m_size) {
             qCDebug(KDECONNECT_CORE) << "Received incomplete file (" << m_written << "/" << m_size << "bytes ), deleting";
 
             deleteDestinationFile();
 
             setError(3);
             setErrorText(i18n("Received incomplete file from: %1", m_from));
+        } else {
+            if (m_size >= 0 && m_written > m_size) {
+                qCInfo(KDECONNECT_CORE) << "Received" << (m_written - m_size) << "bytes more than the announced" << m_size
+                                        << "and keeping them, the sender announced a size it did not keep to";
+            }
+            qCDebug(KDECONNECT_CORE) << "Finished transfer" << m_destination;
         }
     }
     emitResult();
