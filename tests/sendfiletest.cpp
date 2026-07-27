@@ -130,6 +130,95 @@ private Q_SLOTS:
         QCOMPARE(resultFile.readAll(), originFile.readAll());
     }
 
+    void testMoreDataThanAnnounced()
+    {
+        // A sender can announce a size that turns out to be smaller than what it then sends,
+        // for instance when the file it reads is being rewritten as it goes. The file arrives
+        // whole, so it has to be kept.
+        const QString aFile = QFINDTESTDATA("sendfiletest.cpp");
+        const QString destFile = QDir::tempPath() + QStringLiteral("/kdeconnect-test-longer-than-announced");
+        QFile(destFile).remove();
+
+        DeviceInfo deviceInfo = KdeConnectConfig::instance().deviceInfo();
+        KdeConnectConfig::instance().addTrustedDevice(deviceInfo);
+
+        Device *device = new Device(this, deviceInfo.id);
+        m_daemon->addDevice(device);
+
+        QSharedPointer<QFile> f(new QFile(aFile));
+        const qint64 actualSize = f->size();
+        QVERIFY(actualSize > 16);
+
+        NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
+        np.setPayload(f, actualSize - 16);
+
+        CompositeUploadJob *job = new CompositeUploadJob(device, false);
+        UploadJob *uj = new UploadJob(np);
+        job->addSubjob(uj);
+        job->start();
+
+        f->open(QIODevice::ReadWrite);
+
+        FileTransferJob *ft = np.createPayloadTransferJob(QUrl::fromLocalFile(destFile));
+        QSignalSpy spyTransfer(ft, &KJob::result);
+        ft->start();
+
+        QVERIFY(spyTransfer.count() || spyTransfer.wait());
+
+        if (ft->error()) {
+            qWarning() << "fterror" << ft->errorString();
+        }
+        QCOMPARE(ft->error(), 0);
+
+        QFile resultFile(destFile);
+        QVERIFY(resultFile.exists());
+        QCOMPARE(resultFile.size(), actualSize);
+    }
+
+    void testUnannouncedSize()
+    {
+        // A sender that does not know how big the payload is announces a size of -1, which the
+        // Android app does whenever the content provider has no size to give. Nothing was
+        // promised, so nothing can fall short of it.
+        const QString aFile = QFINDTESTDATA("sendfiletest.cpp");
+        const QString destFile = QDir::tempPath() + QStringLiteral("/kdeconnect-test-unannounced-size");
+        QFile(destFile).remove();
+
+        DeviceInfo deviceInfo = KdeConnectConfig::instance().deviceInfo();
+        KdeConnectConfig::instance().addTrustedDevice(deviceInfo);
+
+        Device *device = new Device(this, deviceInfo.id);
+        m_daemon->addDevice(device);
+
+        QSharedPointer<QFile> f(new QFile(aFile));
+        const qint64 actualSize = f->size();
+
+        NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
+        np.setPayload(f, -1);
+
+        CompositeUploadJob *job = new CompositeUploadJob(device, false);
+        UploadJob *uj = new UploadJob(np);
+        job->addSubjob(uj);
+        job->start();
+
+        f->open(QIODevice::ReadWrite);
+
+        FileTransferJob *ft = np.createPayloadTransferJob(QUrl::fromLocalFile(destFile));
+        QSignalSpy spyTransfer(ft, &KJob::result);
+        ft->start();
+
+        QVERIFY(spyTransfer.count() || spyTransfer.wait());
+
+        if (ft->error()) {
+            qWarning() << "fterror" << ft->errorString();
+        }
+        QCOMPARE(ft->error(), 0);
+
+        QFile resultFile(destFile);
+        QVERIFY(resultFile.exists());
+        QCOMPARE(resultFile.size(), actualSize);
+    }
+
     void testTimeout()
     {
         const QString aFile = QFINDTESTDATA("sendfiletest.cpp");
