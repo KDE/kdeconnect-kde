@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 00:44+0000\n"
-"PO-Revision-Date: 2026-07-07 21:52+0200\n"
+"PO-Revision-Date: 2026-07-27 09:41+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -422,12 +422,10 @@ msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 i sökvägen kommer att ersättas med det specifika enhetsnamnet."
 
 #: share/shareplugin.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@info Some piece of text was received from a connected device"
-#| msgid "Shared text from %1 copied to clipboard"
+#, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
-msgstr "Delad text från %1 kopierad till klippbordet"
+msgstr "Delad text kopierad till klippbordet"
 
 #: share/shareplugin.cpp:173
 #, kde-format

@@ -375,10 +375,9 @@ msgid "Reply to %1…"
 msgstr ""
 
 #: qml/NotificationPanel.qml:281
-#, fuzzy, kde-format
-#| msgid "Send Ping"
+#, kde-format
 msgid "Send"
-msgstr "发送 Ping"
+msgstr ""
 
 #: qml/PluginSettings.qml:140
 #, kde-format

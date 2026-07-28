@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 00:44+0000\n"
-"PO-Revision-Date: 2026-05-08 05:53-0300\n"
+"PO-Revision-Date: 2026-07-27 06:58-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: battery/batteryplugin.cpp:150
 #, kde-format
@@ -431,18 +431,16 @@ msgstr ""
 "O %1 na localização será substituído pelo nome do dispositivo indicado."
 
 #: share/shareplugin.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@info Some piece of text was received from a connected device"
-#| msgid "Shared text from %1 copied to clipboard"
+#, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
-msgstr "Texto copiado de %1 para área de transferência"
+msgstr "Texto copiado para a área de transferência"
 
 #: share/shareplugin.cpp:173
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr "Texto copiado de %1 para área de transferência"
+msgstr "Texto copiado de %1 para a área de transferência"
 
 #: share/shareplugin.cpp:217
 #, kde-format
