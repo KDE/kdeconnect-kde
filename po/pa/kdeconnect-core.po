@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"POT-Creation-Date: 2026-07-29 02:42+0000\n"
 "PO-Revision-Date: 2024-02-10 10:06-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -117,7 +117,7 @@ msgstr ""
 msgid "Filename already present"
 msgstr "ਫਾਇਲ-ਨਾਂ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
 
-#: filetransferjob.cpp:116
+#: filetransferjob.cpp:117
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "ਇਸ ਤੋਂ ਅਧੂਰੀ ਫਾਇਲ ਮਿਲੀ: %1"

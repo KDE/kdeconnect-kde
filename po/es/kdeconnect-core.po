@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"POT-Creation-Date: 2026-07-29 02:42+0000\n"
 "PO-Revision-Date: 2026-06-06 22:48+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -119,7 +119,7 @@ msgstr "Versión del protocolo: %1\n"
 msgid "Filename already present"
 msgstr "Nombre de archivo ya presente"
 
-#: filetransferjob.cpp:116
+#: filetransferjob.cpp:117
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Archivo incompleto recibido desde: %1"
