@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"POT-Creation-Date: 2026-07-29 00:45+0000\n"
 "PO-Revision-Date: 2026-06-15 17:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -123,7 +123,7 @@ msgstr "إصدار الميفاق: %1\n"
 msgid "Filename already present"
 msgstr "اسم الملفّ موجود فعلًا"
 
-#: filetransferjob.cpp:116
+#: filetransferjob.cpp:117
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "استُقبل ملفّ غير مكتمل من: %1"

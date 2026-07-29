@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"POT-Creation-Date: 2026-07-29 00:45+0000\n"
 "PO-Revision-Date: 2026-07-03 22:14+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -122,7 +122,7 @@ msgstr "Protokoloaren bertsioa: %1\n"
 msgid "Filename already present"
 msgstr "Fitxategi-izena badago aurretik"
 
-#: filetransferjob.cpp:116
+#: filetransferjob.cpp:117
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Osatu gabeko fitxategia jaso da hemendik: %1"
