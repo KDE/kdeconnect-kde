@@ -12,6 +12,7 @@
 #include <QFileSystemWatcher>
 #include <QMap>
 #include <QPair>
+#include <QProcess>
 #include <QString>
 #include <core/kdeconnectplugin.h>
 
@@ -26,5 +27,10 @@ public:
     void connected() override;
 
 private:
+    QProcess *currentProcess = nullptr;
+    void startCommand(const NetworkPacket &np);
     void sendConfig();
+    void onProcessFinished(int exitCode, QProcess::ExitStatus exitStatus);
+    void onProcessReadyReadState(bool isErrorOutput);
+    void sendOutput(const QStringList &standard, const QStringList &error) const;
 };

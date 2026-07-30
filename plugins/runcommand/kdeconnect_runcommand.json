@@ -176,7 +176,8 @@
         "Name[zh_TW]": "執行遠端指令"
     },
     "X-KdeConnect-OutgoingPacketType": [
-        "kdeconnect.runcommand"
+        "kdeconnect.runcommand",
+        "kdeconnect.runcommand.output"
     ],
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.runcommand.request"
