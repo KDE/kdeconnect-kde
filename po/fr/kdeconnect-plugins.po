@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 00:44+0000\n"
-"PO-Revision-Date: 2026-05-09 17:54+0200\n"
+"PO-Revision-Date: 2026-07-28 07:06+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.3\n"
 "X-Text-Markup: kde4\n"
 
 #: battery/batteryplugin.cpp:150
@@ -440,12 +440,10 @@ msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 dans l'emplacement sera remplacé par le nom associé du périphérique"
 
 #: share/shareplugin.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@info Some piece of text was received from a connected device"
-#| msgid "Shared text from %1 copied to clipboard"
+#, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
-msgstr "Texte partagé à partir de %1, copié dans le presse-papier"
+msgstr "Texte partagé copié dans le presse-papier"
 
 #: share/shareplugin.cpp:173
 #, kde-format
