@@ -69,8 +69,7 @@ void RunCommandPlugin::receivePacket(const NetworkPacket &np)
 
 void RunCommandPlugin::startCommand(const NetworkPacket &np)
 {
-    if (currentProcess)
-    {
+    if (currentProcess) {
         disconnect(stderrConn);
         disconnect(stdoutConn);
         currentProcess = nullptr;
@@ -89,8 +88,12 @@ void RunCommandPlugin::startCommand(const NetworkPacket &np)
     auto *process = new QProcess(this);
     process->setProcessChannelMode(QProcess::SeparateChannels);
 
-    stderrConn = connect(process, &QProcess::readyReadStandardError, this, [this] {onProcessReadyReadState(true);});
-    stderrConn = connect(process, &QProcess::readyReadStandardOutput, this, [this] {onProcessReadyReadState(false);});
+    stderrConn = connect(process, &QProcess::readyReadStandardError, this, [this] {
+        onProcessReadyReadState(true);
+    });
+    stderrConn = connect(process, &QProcess::readyReadStandardOutput, this, [this] {
+        onProcessReadyReadState(false);
+    });
     connect(process, &QProcess::finished, this, &RunCommandPlugin::onProcessFinished);
 
     connect(process, &QProcess::finished, process, &QObject::deleteLater);
@@ -107,7 +110,6 @@ void RunCommandPlugin::onProcessFinished(int exitCode, QProcess::ExitStatus exit
     currentProcess = nullptr;
 }
 
-
 void RunCommandPlugin::onProcessReadyReadState(const bool isErrorOutput)
 {
     auto *process = qobject_cast<QProcess *>(sender());
@@ -115,11 +117,9 @@ void RunCommandPlugin::onProcessReadyReadState(const bool isErrorOutput)
         return;
     }
 
-    if (isErrorOutput)
-    {
+    if (isErrorOutput) {
         process->setReadChannel(QProcess::StandardError);
-    } else
-    {
+    } else {
         process->setReadChannel(QProcess::StandardOutput);
     }
 
@@ -129,24 +129,18 @@ void RunCommandPlugin::onProcessReadyReadState(const bool isErrorOutput)
     while (!stream.atEnd()) {
         output.append(stream.readLine());
         if (output.size() == 5) {
-            if (isErrorOutput)
-            {
+            if (isErrorOutput) {
                 sendOutput(empty, output);
-            }
-            else
-            {
+            } else {
                 sendOutput(output, empty);
             }
             output.clear();
         }
     }
     if (!output.isEmpty()) {
-        if (isErrorOutput)
-        {
+        if (isErrorOutput) {
             sendOutput(empty, output);
-        }
-        else
-        {
+        } else {
             sendOutput(output, empty);
         }
     }

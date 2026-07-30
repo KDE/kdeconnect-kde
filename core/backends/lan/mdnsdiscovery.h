@@ -13,7 +13,7 @@ class LanLinkProvider;
 class KDECONNECTCORE_EXPORT MdnsDiscovery
 {
 public:
-    virtual ~MdnsDiscovery() {};
+    virtual ~MdnsDiscovery() = default;
     virtual void onStart() = 0;
     virtual void onStop() = 0;
     virtual void onNetworkChange() = 0;
