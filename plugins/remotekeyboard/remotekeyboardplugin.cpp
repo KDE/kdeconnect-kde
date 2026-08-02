@@ -68,9 +68,10 @@ void RemoteKeyboardPlugin::receivePacket(const NetworkPacket &np)
         //        qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Received keypress" << np;
         Q_EMIT keyPressReceived(np.get<QString>(QStringLiteral("key")),
                                 np.get<int>(QStringLiteral("specialKey"), 0),
-                                np.get<int>(QStringLiteral("shift"), false),
-                                np.get<int>(QStringLiteral("ctrl"), false),
-                                np.get<int>(QStringLiteral("alt"), 0));
+                                np.get<bool>(QStringLiteral("shift"), false),
+                                np.get<bool>(QStringLiteral("ctrl"), false),
+                                np.get<bool>(QStringLiteral("alt"), false),
+                                np.get<bool>(QStringLiteral("super"), false));
     } else if (np.type() == PACKET_TYPE_MOUSEPAD_KEYBOARDSTATE) {
         //        qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Received keyboardstate" << np;
         if (m_remoteState != np.get<bool>(QStringLiteral("state"))) {
@@ -80,7 +81,7 @@ void RemoteKeyboardPlugin::receivePacket(const NetworkPacket &np)
     }
 }
 
-void RemoteKeyboardPlugin::sendKeyPress(const QString &key, int specialKey, bool shift, bool ctrl, bool alt, bool sendAck) const
+void RemoteKeyboardPlugin::sendKeyPress(const QString &key, int specialKey, bool shift, bool ctrl, bool alt, bool super, bool sendAck) const
 {
     NetworkPacket np(PACKET_TYPE_MOUSEPAD_REQUEST,
                      {{QStringLiteral("key"), key},
@@ -88,6 +89,7 @@ void RemoteKeyboardPlugin::sendKeyPress(const QString &key, int specialKey, bool
                       {QStringLiteral("shift"), shift},
                       {QStringLiteral("ctrl"), ctrl},
                       {QStringLiteral("alt"), alt},
+                      {QStringLiteral("super"), super},
                       {QStringLiteral("sendAck"), sendAck}});
     sendPacket(np);
 }
@@ -110,7 +112,7 @@ void RemoteKeyboardPlugin::sendQKeyEvent(const QVariantMap &keyEvent, bool sendA
         text = QKeySequence(key).toString().toLower();
     }
 
-    sendKeyPress(text, k, modifiers & Qt::ShiftModifier, modifiers & Qt::ControlModifier, modifiers & Qt::AltModifier, sendAck);
+    sendKeyPress(text, k, modifiers & Qt::ShiftModifier, modifiers & Qt::ControlModifier, modifiers & Qt::AltModifier, modifiers & Qt::MetaModifier, sendAck);
 }
 
 int RemoteKeyboardPlugin::translateQtKey(int qtKey) const

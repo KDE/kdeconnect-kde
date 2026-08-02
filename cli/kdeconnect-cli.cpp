@@ -395,7 +395,7 @@ int main(int argc, char **argv)
             if (in.open(stdin, QIODevice::ReadOnly | QIODevice::Unbuffered)) {
                 while (!in.atEnd()) {
                     QByteArray line = in.readLine(); // sanitize to ASCII-codes > 31?
-                    msg.setArguments({QString::fromLatin1(line), -1, false, false, false});
+                    msg.setArguments({QString::fromLatin1(line), -1, false, false, false, false});
                     blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
                 }
                 in.close();
