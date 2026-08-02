@@ -60,13 +60,6 @@ int SpecialKeysMap[] = {
     XK_F12, // 32
 };
 
-template<typename T, size_t N>
-size_t arraySize(T (&arr)[N])
-{
-    (void)arr;
-    return N;
-}
-
 X11RemoteInput::X11RemoteInput(QObject *parent)
     : AbstractRemoteInput(parent)
     , m_fakekey(nullptr)
@@ -110,6 +103,7 @@ bool X11RemoteInput::handlePacket(const NetworkPacket &np)
     bool isScroll = np.get<bool>(QStringLiteral("scroll"), false);
     QString key = np.get<QString>(QStringLiteral("key"), QLatin1String(""));
     int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
+    bool validSpecialKey = (specialKey > 0 && specialKey < (int)std::size(SpecialKeysMap));
 
     Display *display = QX11Info::display();
     if (!display) {
@@ -148,7 +142,7 @@ bool X11RemoteInput::handlePacket(const NetworkPacket &np)
                 XTestFakeButtonEvent(display, MouseWheelUp, True, 0);
                 XTestFakeButtonEvent(display, MouseWheelUp, False, 0);
             }
-        } else if (!key.isEmpty() || specialKey) {
+        } else if (!key.isEmpty() || validSpecialKey) {
             bool ctrl = np.get<bool>(QStringLiteral("ctrl"), false);
             bool alt = np.get<bool>(QStringLiteral("alt"), false);
             bool shift = np.get<bool>(QStringLiteral("shift"), false);
@@ -163,17 +157,10 @@ bool X11RemoteInput::handlePacket(const NetworkPacket &np)
             if (super)
                 XTestFakeKeyEvent(display, XKeysymToKeycode(display, XK_Super_L), True, 0);
 
-            if (specialKey) {
-                if (specialKey >= (int)arraySize(SpecialKeysMap)) {
-                    qWarning() << "Unsupported special key identifier";
-                    return false;
-                }
-
+            if (validSpecialKey) {
                 int keycode = XKeysymToKeycode(display, SpecialKeysMap[specialKey]);
-
                 XTestFakeKeyEvent(display, keycode, True, 0);
                 XTestFakeKeyEvent(display, keycode, False, 0);
-
             } else {
                 if (!m_fakekey) {
                     m_fakekey = fakekey_init(display);
