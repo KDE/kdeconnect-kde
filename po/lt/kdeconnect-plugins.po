@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 00:44+0000\n"
-"PO-Revision-Date: 2026-05-16 01:19+0300\n"
+"PO-Revision-Date: 2026-08-01 14:46+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: battery/batteryplugin.cpp:150
 #, kde-format
@@ -427,12 +427,10 @@ msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 kelyje bus pakeista tam tikru įrenginio pavadinimu"
 
 #: share/shareplugin.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@info Some piece of text was received from a connected device"
-#| msgid "Shared text from %1 copied to clipboard"
+#, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
-msgstr "Bendrintas tekstas iš %1 nukopijuotas į iškarpinę"
+msgstr "Bendrintas tekstas nukopijuotas į iškarpinę"
 
 #: share/shareplugin.cpp:173
 #, kde-format

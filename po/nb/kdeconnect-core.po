@@ -1,6 +1,6 @@
 # Translation of kdeconnect-core to Norwegian Bokmål
 #
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Imre Eilertsen <imreeil42@gmail.com>, 2026.
 #
 msgid ""
 msgstr ""

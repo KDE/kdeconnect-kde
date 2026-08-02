@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 00:44+0000\n"
-"PO-Revision-Date: 2026-04-10 22:41+0300\n"
+"PO-Revision-Date: 2026-08-01 14:45+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: main.cpp:46 main.cpp:48
 #, kde-format
@@ -147,7 +147,7 @@ msgstr "Įvairialypės terpės valdymas"
 #: qml/DevicePage.qml:149
 #, kde-format
 msgid "Notifications"
-msgstr ""
+msgstr "Pranešimai"
 
 #: qml/DevicePage.qml:157
 #, kde-format
@@ -356,34 +356,33 @@ msgstr "%1 – %2"
 #, kde-format
 msgctxt "@title:window"
 msgid "Active Notifications"
-msgstr ""
+msgstr "Aktyvūs pranešimai"
 
 #: qml/NotificationPanel.qml:196
 #, kde-format
 msgid "Reply"
-msgstr ""
+msgstr "Atsakyti"
 
 #: qml/NotificationPanel.qml:213
 #, kde-format
 msgid "Dismiss"
-msgstr ""
+msgstr "Atmesti"
 
 #: qml/NotificationPanel.qml:244
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Atsisakyti"
 
 #: qml/NotificationPanel.qml:262
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "Atsakyti %1…"
 
 #: qml/NotificationPanel.qml:281
-#, fuzzy, kde-format
-#| msgid "Send Ping"
+#, kde-format
 msgid "Send"
-msgstr "Siųsti ryšio patikrinimą"
+msgstr "Siųsti"
 
 #: qml/PluginSettings.qml:140
 #, kde-format
