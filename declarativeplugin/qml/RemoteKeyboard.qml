@@ -32,7 +32,7 @@ QQC2.TextField {
     Connections {
         target: root.remoteKeyboard
 
-        function onKeyPressReceived(key: string, specialKey: int, shift: bool, ctrl: bool, alt: bool): void {
+        function onKeyPressReceived(key: string, specialKey: int, shift: bool, ctrl: bool, alt: bool, meta: bool): void {
             //console.log("XXX received keypress key=" + key + " special=" + specialKey + " shift=" + shift + " ctrl=" + ctrl + " text=" + text + " cursorPos=" + cursorPosition);
             // interpret some special keys:
             if (specialKey === 12 || specialKey === 14) { // Return/Esc -> clear
@@ -69,7 +69,7 @@ QQC2.TextField {
                         sanitized += key.charAt(i);
                     }
                 }
-                if (sanitized.length > 0 && !ctrl && !alt) {
+                if (sanitized.length > 0 && !ctrl && !alt && !meta) {
                     // insert sanitized at current pos:
                     const pos = cursorPosition;
                     text = text.substring(0, pos)
