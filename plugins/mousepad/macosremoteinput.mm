@@ -49,9 +49,6 @@ int SpecialKeysMap[] = {
     kVK_F12,            // 32
 };
 
-template <typename T, size_t N>
-size_t arraySize(T(&arr)[N]) { (void)arr; return N; }
-
 MacOSRemoteInput::MacOSRemoteInput(QObject* parent)
     : AbstractRemoteInput(parent)
 {
@@ -83,6 +80,7 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
     bool isScroll = np.get<bool>(QStringLiteral("scroll"), false);
     QString key = np.get<QString>(QStringLiteral("key"), QLatin1String(""));
     int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
+    bool validSpecialKey = (specialKey > 0 && specialKey < (int)std::size(SpecialKeysMap));
 
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isSingleRelease || isScroll || !key.isEmpty() || specialKey) {
         QPoint point = QCursor::pos();
@@ -138,7 +136,7 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
             CGEventRef event = CGEventCreateScrollWheelEvent(NULL, kCGScrollEventUnitPixel, 1, dy);
             CGEventPost(kCGHIDEventTap, event);
             CFRelease(event);
-        } else if (!key.isEmpty() || specialKey) {
+        } else if (!key.isEmpty() || validSpecialKey) {
             // Get function keys
             bool ctrl = np.get<bool>(QStringLiteral("ctrl"), false);
             bool alt = np.get<bool>(QStringLiteral("alt"), false);
@@ -168,13 +166,8 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
             }
 
             // Keys
-            if (specialKey)
+            if (validSpecialKey)
             {
-                if (specialKey >= (int)arraySize(SpecialKeysMap)) {
-                    qWarning() << "Unsupported special key identifier";
-                    return false;
-                }
-
                 CGEventRef specialKeyDownEvent = CGEventCreateKeyboardEvent(NULL, (CGKeyCode)SpecialKeysMap[specialKey], true),
                            specialKeyUpEvent = CGEventCreateKeyboardEvent(NULL, (CGKeyCode)SpecialKeysMap[specialKey], false);
 
