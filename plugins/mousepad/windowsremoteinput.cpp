@@ -30,10 +30,10 @@ int SpecialKeysMap[] = {
     VK_ESCAPE, // 14
     VK_SNAPSHOT, // 15
     VK_SCROLL, // 16
-    0, // 17
-    0, // 18
-    0, // 19
-    0, // 20
+    VK_LCONTROL, // 17
+    VK_LMENU, // 18
+    VK_LSHIFT, // 19
+    VK_LWIN, // 20
     VK_F1, // 21
     VK_F2, // 22
     VK_F3, // 23

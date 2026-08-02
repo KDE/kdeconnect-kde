@@ -42,10 +42,10 @@ int SpecialKeysMap[] = {
     KEY_ESC, // 14
     KEY_SYSRQ, // 15
     KEY_SCROLLLOCK, // 16
-    0, // 17
-    0, // 18
-    0, // 19
-    0, // 20
+    KEY_LEFTCTRL, // 17
+    KEY_LEFTALT, // 18
+    KEY_LEFTSHIFT, // 19
+    KEY_LEFTMETA, // 20
     KEY_F1, // 21
     KEY_F2, // 22
     KEY_F3, // 23
