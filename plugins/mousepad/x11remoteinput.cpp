@@ -42,10 +42,10 @@ int SpecialKeysMap[] = {
     XK_Escape, // 14
     XK_Sys_Req, // 15
     XK_Scroll_Lock, // 16
-    0, // 17
-    0, // 18
-    0, // 19
-    0, // 20
+    XK_Control_L, // 17
+    XK_Alt_L, // 18
+    XK_Shift_L, // 19
+    XK_Super_L, // 20
     XK_F1, // 21
     XK_F2, // 22
     XK_F3, // 23

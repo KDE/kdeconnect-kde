@@ -31,10 +31,10 @@ int SpecialKeysMap[] = {
     kVK_Escape,         // 14
     0,                  // 15
     0,                  // 16
-    0,                  // 17
-    0,                  // 18
-    0,                  // 19
-    0,                  // 20
+    kVK_Control,        // 17
+    kVK_Option,         // 18
+    kVK_Shift,          // 19
+    kVK_Command,        // 20
     kVK_F1,             // 21
     kVK_F2,             // 22
     kVK_F3,             // 23
