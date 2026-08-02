@@ -453,6 +453,7 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
     const bool isScroll = np.get<bool>(QStringLiteral("scroll"), false);
     const QString key = np.get<QString>(QStringLiteral("key"), QLatin1String(""));
     const int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
+    bool validSpecialKey = (specialKey > 0 && specialKey < (int)std::size(SpecialKeysMap));
 
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isSingleRelease || isScroll || !key.isEmpty() || specialKey) {
         if (isSingleClick) {
@@ -476,7 +477,7 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
             s_session->pointerButton(BTN_LEFT, false);
         } else if (isScroll) {
             s_session->pointerAxis(dx, dy);
-        } else if (specialKey || !key.isEmpty()) {
+        } else if (validSpecialKey || !key.isEmpty()) {
             bool ctrl = np.get<bool>(QStringLiteral("ctrl"), false);
             bool alt = np.get<bool>(QStringLiteral("alt"), false);
             bool shift = np.get<bool>(QStringLiteral("shift"), false);
@@ -491,9 +492,10 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
             if (super)
                 s_session->keyboardKeycode(KEY_LEFTMETA, true);
 
-            if (specialKey) {
-                s_session->keyboardKeycode(SpecialKeysMap[specialKey], true);
-                s_session->keyboardKeycode(SpecialKeysMap[specialKey], false);
+            if (validSpecialKey) {
+                const int keycode = SpecialKeysMap[specialKey];
+                s_session->keyboardKeycode(keycode, true);
+                s_session->keyboardKeycode(keycode, false);
             } else if (!key.isEmpty()) {
                 for (const QChar character : key) {
                     const auto keysym = xkb_utf32_to_keysym(character.unicode());

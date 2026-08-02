@@ -48,13 +48,6 @@ int SpecialKeysMap[] = {
     VK_F12, // 32
 };
 
-template<typename T, size_t N>
-size_t arraySize(T (&arr)[N])
-{
-    (void)arr;
-    return N;
-}
-
 WindowsRemoteInput::WindowsRemoteInput(QObject *parent)
     : AbstractRemoteInput(parent)
 {
@@ -76,6 +69,7 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket &np)
     bool isScroll = np.get<bool>(QStringLiteral("scroll"), false);
     QString key = np.get<QString>(QStringLiteral("key"), QLatin1String(""));
     int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
+    bool validSpecialKey = (specialKey > 0 && specialKey < (int)std::size(SpecialKeysMap));
 
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || isSingleRelease || !key.isEmpty() || specialKey) {
         INPUT input = {0};
@@ -116,7 +110,7 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket &np)
             input.mi.mouseData = dy;
             ::SendInput(1, &input, sizeof(INPUT));
 
-        } else if (!key.isEmpty() || specialKey) {
+        } else if (!key.isEmpty() || validSpecialKey) {
             input.type = INPUT_KEYBOARD;
 
             input.ki.time = 0;
@@ -146,18 +140,12 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket &np)
                 ::SendInput(1, &input, sizeof(INPUT));
             }
 
-            if (specialKey) {
-                if (specialKey >= (int)arraySize(SpecialKeysMap)) {
-                    qWarning() << "Unsupported special key identifier";
-                    return false;
-                }
-
+            if (validSpecialKey) {
                 input.ki.wVk = SpecialKeysMap[specialKey];
                 ::SendInput(1, &input, sizeof(INPUT));
 
                 input.ki.dwFlags = KEYEVENTF_KEYUP;
                 ::SendInput(1, &input, sizeof(INPUT));
-
             } else {
                 for (int i = 0; i < key.length(); i++) {
                     wchar_t inputChar = (wchar_t)key.at(i).unicode();
