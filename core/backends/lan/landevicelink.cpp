@@ -59,28 +59,41 @@ QHostAddress LanDeviceLink::hostAddress() const
 
 bool LanDeviceLink::sendPacket(NetworkPacket &np)
 {
-    if (np.payload() && np.hasPayload()) {
+    // FIXME: Remove packet-type-specific logic from the link
+    if (np.type() == PACKET_TYPE_SHARE_REQUEST && np.payload()) {
+        // A new file to share (even one with no payload, like an empty file, which still has a
+        // payload device attached by SharePlugin::shareUrl() even though its size is 0). This
+        // goes through the composite job so it gets counted and sequenced with the others.
+        // Note: CompositeUploadJob strips the payload device before re-sending this packet as a
+        // header once it's this file's turn, so that re-send falls through to the plain write
+        // below instead of being mistaken for another new file and re-enqueued.
         Device *device = Daemon::instance()->getDevice(deviceId());
         if (device == nullptr) {
             qCWarning(KDECONNECT_CORE) << "Device disconnected" << deviceId();
             return false;
         }
-        // FIXME: Remove packet-type-specific logic from the link
-        if (np.type() == PACKET_TYPE_SHARE_REQUEST && np.payloadSize() >= 0) {
-            if (!m_compositeUploadJob || !m_compositeUploadJob->isRunning()) {
-                m_compositeUploadJob = new CompositeUploadJob(device, true);
-            }
 
-            m_compositeUploadJob->addSubjob(new UploadJob(np));
-
-            if (!m_compositeUploadJob->isRunning()) {
-                m_compositeUploadJob->start();
-            }
-        } else { // Infinite stream
-            CompositeUploadJob *fireAndForgetJob = new CompositeUploadJob(device, false);
-            fireAndForgetJob->addSubjob(new UploadJob(np));
-            fireAndForgetJob->start();
+        if (!m_compositeUploadJob || !m_compositeUploadJob->isRunning()) {
+            m_compositeUploadJob = new CompositeUploadJob(device, true);
         }
+
+        m_compositeUploadJob->addSubjob(new UploadJob(np));
+
+        if (!m_compositeUploadJob->isRunning()) {
+            m_compositeUploadJob->start();
+        }
+
+        return true;
+    } else if (np.payload() && np.hasPayload()) { // Infinite stream
+        Device *device = Daemon::instance()->getDevice(deviceId());
+        if (device == nullptr) {
+            qCWarning(KDECONNECT_CORE) << "Device disconnected" << deviceId();
+            return false;
+        }
+
+        CompositeUploadJob *fireAndForgetJob = new CompositeUploadJob(device, false);
+        fireAndForgetJob->addSubjob(new UploadJob(np));
+        fireAndForgetJob->start();
 
         return true;
     } else {
