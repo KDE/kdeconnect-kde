@@ -29,4 +29,12 @@ Add a more detailed description of how to exercise the new behavior, showing
 that the bug has been fixed. If any other behavior has been changed, share
 the steps to verify that the new behavior doesn't have any regressions.
 
+## AI Usage
+Say whether you used AI or LLM tools to develop this fix. A simple 'Yes' or
+'No' is enough.
+
+Used AI: <!-- Answer -->
+
+Ensure that you read and respect AGENTS.md when submitting AI-assisted code.
+
 /label ~bugfix

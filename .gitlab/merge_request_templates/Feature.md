@@ -24,4 +24,12 @@ It can be difficult to understand a new feature from the text description in
 the summary, so put enough detail here that so that we can understand how to run
 the new feature and we can play with it ourselves to understand it.
 
+## AI Usage
+Say whether you used AI or LLM tools to develop this fix. A simple 'Yes' or
+'No' is enough.
+
+Used AI: <!-- Answer -->
+
+Ensure that you read and respect AGENTS.md when submitting AI-assisted code.
+
 /label ~feature
