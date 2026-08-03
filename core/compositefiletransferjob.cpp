@@ -114,7 +114,13 @@ void CompositeFileTransferJob::slotResult(KJob *job)
     // Copies job error and errorText and emits result if job is in error otherwise removes job from subjob list
     KCompositeJob::slotResult(job);
 
-    if (error() || !m_running) {
+    if (error()) {
+        // KCompositeJob::slotResult() already called emitResult() for us in this case.
+        m_running = false;
+        return;
+    }
+
+    if (!m_running) {
         return;
     }
 
@@ -129,6 +135,10 @@ void CompositeFileTransferJob::slotResult(KJob *job)
             startNextSubJob();
         }
     } else {
+        // Mark as finished before emitting the result: a file received right after this point
+        // (e.g. from another share action) must start a new composite job rather than being
+        // silently attached to this one, which has already stopped picking up new subjobs.
+        m_running = false;
         emitResult();
     }
 }
