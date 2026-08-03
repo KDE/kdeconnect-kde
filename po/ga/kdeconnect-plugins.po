@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 02:39+0000\n"
+"POT-Creation-Date: 2026-08-03 02:43+0000\n"
 "PO-Revision-Date: 2026-02-03 18:41+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -427,35 +427,35 @@ msgstr "Sábháil comhaid i:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "Cuirfear ainm an ghléis shonraigh in ionad %1 sa chonair"
 
-#: share/shareplugin.cpp:167
+#: share/shareplugin.cpp:173
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Téacs comhroinnte ó %1 cóipeáilte chuig an ghearrthaisce"
 
-#: share/shareplugin.cpp:207
+#: share/shareplugin.cpp:213
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Oscail san Eagarthóir Téacs"
 
-#: share/shareplugin.cpp:211
+#: share/shareplugin.cpp:217
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Oscail an Nasc"
 
-#: share/shareplugin.cpp:252 share/shareplugin.cpp:257
+#: share/shareplugin.cpp:258 share/shareplugin.cpp:263
 #, kde-format
 msgid "Could not share file"
 msgstr "Níorbh fhéidir an comhad a roinnt"
 
-#: share/shareplugin.cpp:252
+#: share/shareplugin.cpp:258
 #, kde-format
 msgid "%1 does not exist"
 msgstr "Níl %1 ann"
 
-#: share/shareplugin.cpp:257
+#: share/shareplugin.cpp:263
 #, kde-format
 msgid "Permission denied: %1"
 msgstr ""
