@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:44+0000\n"
+"POT-Creation-Date: 2026-08-03 00:42+0000\n"
 "PO-Revision-Date: 2026-02-03 18:41+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -427,7 +427,7 @@ msgstr "Sábháil comhaid i:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "Cuirfear ainm an ghléis shonraigh in ionad %1 sa chonair"
 
-#: share/shareplugin.cpp:169
+#: share/shareplugin.cpp:175
 #, fuzzy, kde-format
 #| msgctxt "@info Some piece of text was received from a connected device"
 #| msgid "Shared text from %1 copied to clipboard"
@@ -435,35 +435,35 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
 msgstr "Téacs comhroinnte ó %1 cóipeáilte chuig an ghearrthaisce"
 
-#: share/shareplugin.cpp:173
+#: share/shareplugin.cpp:179
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Téacs comhroinnte ó %1 cóipeáilte chuig an ghearrthaisce"
 
-#: share/shareplugin.cpp:217
+#: share/shareplugin.cpp:223
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Oscail san Eagarthóir Téacs"
 
-#: share/shareplugin.cpp:221
+#: share/shareplugin.cpp:227
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Oscail an Nasc"
 
-#: share/shareplugin.cpp:262 share/shareplugin.cpp:267
+#: share/shareplugin.cpp:268 share/shareplugin.cpp:273
 #, kde-format
 msgid "Could not share file"
 msgstr "Níorbh fhéidir an comhad a roinnt"
 
-#: share/shareplugin.cpp:262
+#: share/shareplugin.cpp:268
 #, kde-format
 msgid "%1 does not exist"
 msgstr "Níl %1 ann"
 
-#: share/shareplugin.cpp:267
+#: share/shareplugin.cpp:273
 #, kde-format
 msgid "Permission denied: %1"
 msgstr ""

@@ -144,7 +144,7 @@ msgstr "多媒体控制"
 #: qml/DevicePage.qml:149
 #, kde-format
 msgid "Notifications"
-msgstr ""
+msgstr "通知"
 
 #: qml/DevicePage.qml:157
 #, kde-format
@@ -351,33 +351,33 @@ msgstr "%1 - %2"
 #, kde-format
 msgctxt "@title:window"
 msgid "Active Notifications"
-msgstr ""
+msgstr "活动通知"
 
 #: qml/NotificationPanel.qml:196
 #, kde-format
 msgid "Reply"
-msgstr ""
+msgstr "回复"
 
 #: qml/NotificationPanel.qml:213
 #, kde-format
 msgid "Dismiss"
-msgstr ""
+msgstr "消除"
 
 #: qml/NotificationPanel.qml:244
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: qml/NotificationPanel.qml:262
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "回复给 %1…"
 
 #: qml/NotificationPanel.qml:281
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "发送"
 
 #: qml/PluginSettings.qml:140
 #, kde-format
