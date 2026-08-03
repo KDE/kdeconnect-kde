@@ -124,36 +124,25 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
         const qint64 dateModified = np.get<qint64>(QStringLiteral("lastModified"), QDateTime::currentMSecsSinceEpoch());
         const bool open = np.get<bool>(QStringLiteral("open"), false);
 
-        if (np.hasPayload()) {
-            if (!m_compositeJob) {
-                m_compositeJob = new CompositeFileTransferJob(device(), this);
-                m_compositeJob->setProperty("destUrl", destinationDir().toString());
-                m_compositeJob->setProperty("immediateProgressReporting", true);
-                Daemon::instance()->jobTracker()->registerJob(m_compositeJob);
-            }
+        // Every incoming file (even ones with no payload, like empty files) goes through the same
+        // composite job so it gets counted, auto-renamed and timestamped like any other file.
+        if (!m_compositeJob) {
+            m_compositeJob = new CompositeFileTransferJob(device(), this);
+            m_compositeJob->setProperty("destUrl", destinationDir().toString());
+            m_compositeJob->setProperty("immediateProgressReporting", true);
+            Daemon::instance()->jobTracker()->registerJob(m_compositeJob);
+        }
 
-            FileTransferJob *job = np.createPayloadTransferJob(destination);
-            job->setOriginName(device()->name() + QStringLiteral(": ") + filename);
-            job->setAutoRenameIfDestinationExists(true);
-            connect(job, &KJob::result, this, [this, dateCreated, dateModified, open](KJob *job) -> void {
-                finished(job, dateCreated, dateModified, open);
-            });
-            m_compositeJob->addSubjob(job);
+        FileTransferJob *job = np.createPayloadTransferJob(destination);
+        job->setOriginName(device()->name() + QStringLiteral(": ") + filename);
+        job->setAutoRenameIfDestinationExists(true);
+        connect(job, &KJob::result, this, [this, dateCreated, dateModified, open](KJob *job) -> void {
+            finished(job, dateCreated, dateModified, open);
+        });
+        m_compositeJob->addSubjob(job);
 
-            if (!m_compositeJob->isRunning()) {
-                m_compositeJob->start();
-            }
-        } else {
-            QFile file(destination.toLocalFile());
-            if (file.open(QIODevice::WriteOnly)) {
-                file.close();
-                setDateCreated(destination, dateCreated);
-                setDateModified(destination, dateModified);
-                Q_EMIT shareReceived(destination.toString());
-                if (open) {
-                    QDesktopServices::openUrl(destination);
-                }
-            }
+        if (!m_compositeJob->isRunning()) {
+            m_compositeJob->start();
         }
     } else if (np.has(QStringLiteral("text"))) {
         QString text = np.get<QString>(QStringLiteral("text"));

@@ -29,6 +29,16 @@ void UploadJob::setSocket(QSslSocket *socket)
 
 void UploadJob::start()
 {
+    if (!m_networkPacket.hasPayload()) {
+        // No actual payload to send (e.g. an empty file): nothing to do, even though m_input may
+        // be a valid-but-empty QIODevice (SharePlugin::shareUrl() always attaches one). Complete
+        // asynchronously (like a real transfer would) instead of synchronously, so we don't
+        // re-enter the composite job's result handling while it may still be in the middle of
+        // having subjobs added to it.
+        QMetaObject::invokeMethod(this, "finishWithoutTransfer", Qt::QueuedConnection);
+        return;
+    }
+
     if (!m_input->open(QIODevice::ReadOnly)) {
         qCWarning(KDECONNECT_CORE) << "error when opening the input to upload";
         return; // TODO: Handle error, clean up...
@@ -80,9 +90,16 @@ void UploadJob::aboutToClose()
     emitResult();
 }
 
+void UploadJob::finishWithoutTransfer()
+{
+    emitResult();
+}
+
 bool UploadJob::stop()
 {
-    m_input->close();
+    if (m_input) {
+        m_input->close();
+    }
 
     return true;
 }

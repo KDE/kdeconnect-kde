@@ -28,7 +28,8 @@ FileTransferJob::FileTransferJob(const NetworkPacket *np, const QUrl &destinatio
     , m_np(np)
     , m_autoRename(false)
 {
-    Q_ASSERT(m_origin);
+    // m_origin can be null when the packet has no payload (e.g. an empty file): we still want to
+    // go through the same job so it gets counted, auto-renamed and timestamped like any other file.
     // Disabled this assert: QBluetoothSocket doesn't report "->isReadable() == true" until it's connected
     // Q_ASSERT(m_origin->isReadable());
     if (m_destination.scheme().isEmpty()) {
@@ -61,7 +62,18 @@ void FileTransferJob::start()
 
 void FileTransferJob::doStart()
 {
-    if (m_origin && m_origin->bytesAvailable())
+    if (!m_origin) {
+        // No payload to transfer (e.g. an empty file): just create the destination file.
+        QFile file(m_destination.toLocalFile());
+        if (!file.open(QIODevice::WriteOnly)) {
+            setError(1);
+            setErrorText(i18n("Could not create destination file: %1", m_destination.toLocalFile()));
+        }
+        emitResult();
+        return;
+    }
+
+    if (m_origin->bytesAvailable())
         startTransfer();
 
     connect(m_origin.data(), &QIODevice::readyRead, this, &FileTransferJob::startTransfer);

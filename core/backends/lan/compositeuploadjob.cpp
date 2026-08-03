@@ -104,15 +104,27 @@ void CompositeUploadJob::startNextSubJob()
 
     // TODO: Create a copy of the networkpacket that can be re-injected if sending via lan fails?
     NetworkPacket np = m_currentJob->getNetworkPacket();
-    np.setPayload(nullptr, np.payloadSize());
-    np.setPayloadTransferInfo({{QStringLiteral("port"), m_port}});
     np.set<int>(QStringLiteral("numberOfFiles"), m_totalJobs);
     np.set<quint64>(QStringLiteral("totalPayloadSize"), m_totalPayloadSize);
 
+    const bool hasPayload = np.hasPayload();
+    // This packet is now just a header announcing the transfer to the other end: strip the payload
+    // socket instead of mistaking it for a new file to enqueue.
+    np.setPayload(nullptr, np.payloadSize());
+    if (hasPayload) {
+        np.setPayloadTransferInfo({{QStringLiteral("port"), m_port}});
+    }
+
     if (m_device->sendPacket(np)) {
-        m_server->resumeAccepting();
-        m_timeout.start();
+        if (hasPayload) {
+            m_server->resumeAccepting();
+            m_timeout.start();
+        } else {
+            // Nothing to transfer for this file (e.g. it's empty), the subjob is already done.
+            m_currentJob->start();
+        }
     } else {
+        m_running = false;
         setError(SendingNetworkPacketFailed);
         setErrorText(i18n("Failed to send packet to %1", m_device->name()));
 
@@ -262,7 +274,13 @@ void CompositeUploadJob::slotResult(KJob *job)
     // Copies job error and errorText and emits result if job is in error otherwise removes job from subjob list
     KCompositeJob::slotResult(job);
 
-    if (error() || !m_running) {
+    if (error()) {
+        // KCompositeJob::slotResult() already called emitResult() for us in this case.
+        m_running = false;
+        return;
+    }
+
+    if (!m_running) {
         return;
     }
 
@@ -272,6 +290,10 @@ void CompositeUploadJob::slotResult(KJob *job)
         m_currentJobNum++;
         startNextSubJob();
     } else {
+        // Mark as finished before emitting the result: a new file added right after this point
+        // (e.g. from another share action) must start a new composite job rather than being
+        // silently attached to this one, which has already stopped picking up new subjobs.
+        m_running = false;
         emitResult();
     }
 }
