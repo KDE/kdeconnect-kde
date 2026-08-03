@@ -14,6 +14,7 @@
 #include <KPluginFactory>
 #include <QBuffer>
 #include <QEventLoop>
+#include <QFileInfo>
 #include <QImage>
 #include <QMimeType>
 #include <QObject>
@@ -93,7 +94,7 @@ void ClipboardPlugin::sendClipboard(const QVariant &content)
 
         qCDebug(KDECONNECT_PLUGIN_CLIPBOARD) << fileSize << " " << configSize;
 
-        if (!ioFile->exists()) {
+        if (!QFileInfo(*ioFile).isFile()) {
             qCDebug(KDECONNECT_PLUGIN_CLIPBOARD) << "Could not open file " << url.toDisplayString();
             return;
         } else if (fileSize > configSize) {
