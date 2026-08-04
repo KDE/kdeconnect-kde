@@ -22,15 +22,16 @@ class RunCommandPlugin : public KdeConnectPlugin
 
 public:
     explicit RunCommandPlugin(QObject *parent, const QVariantList &args);
+    ~RunCommandPlugin();
 
     void receivePacket(const NetworkPacket &np) override;
     void connected() override;
 
 private:
-    QProcess *currentProcess = nullptr;
+    QMap<unsigned int, QProcess *> currentProcesses;
     void startCommand(const NetworkPacket &np);
     void sendConfig();
-    void onProcessFinished(int exitCode, QProcess::ExitStatus exitStatus);
-    void onProcessReadyReadState(bool isErrorOutput);
-    void sendOutput(const QStringList &standard, const QStringList &error) const;
+    void onProcessFinished(unsigned int id, int exitCode, QProcess::ExitStatus exitStatus);
+    void onProcessReadyReadState(unsigned int id, bool isErrorOutput);
+    void sendOutput(unsigned int id, const QStringList &standard, const QStringList &error) const;
 };

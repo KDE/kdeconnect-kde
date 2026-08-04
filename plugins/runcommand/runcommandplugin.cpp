@@ -24,9 +24,9 @@
 #include <core/openconfig.h>
 
 #include "plugin_runcommand_debug.h"
-#include "runcommandoutput.h"
 
 #define PACKET_TYPE_RUNCOMMAND QStringLiteral("kdeconnect.runcommand")
+#define PACKET_TYPE_RUNCOMMAND_OUTPUT QStringLiteral("kdeconnect.runcommand.output")
 
 #ifdef Q_OS_WIN
 #define COMMAND "cmd"
@@ -47,6 +47,11 @@ RunCommandPlugin::RunCommandPlugin(QObject *parent, const QVariantList &args)
     connect(config(), &KdeConnectPluginConfig::configChanged, this, &RunCommandPlugin::sendConfig);
 }
 
+RunCommandPlugin::~RunCommandPlugin()
+{
+    currentProcesses.clear();
+}
+
 void RunCommandPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("requestCommandList"), false)) {
@@ -60,20 +65,19 @@ void RunCommandPlugin::receivePacket(const NetworkPacket &np)
         OpenConfig oc;
         oc.openConfiguration(device()->id(), QStringLiteral("kdeconnect_runcommand"));
     } else if (np.has(QStringLiteral("stop"))) {
-        if (currentProcess) {
-            currentProcess->terminate();
-            currentProcess = nullptr;
+        for (QProcess *process : std::as_const(currentProcesses)) {
+            process->terminate(); // will trigger onProcessFinished
         }
     }
 }
 
 void RunCommandPlugin::startCommand(const NetworkPacket &np)
 {
-    if (currentProcess) {
-        disconnect(stderrConn);
-        disconnect(stdoutConn);
-        currentProcess = nullptr;
+    static unsigned id = 0;
+    if (id == std::numeric_limits<unsigned>::max()) {
+        id = 0;
     }
+    unsigned int currentId = id++;
 
     QJsonDocument commandsDocument = QJsonDocument::fromJson(config()->getByteArray(QStringLiteral("commands"), "{}"));
     QJsonObject commands = commandsDocument.object();
@@ -88,29 +92,46 @@ void RunCommandPlugin::startCommand(const NetworkPacket &np)
     auto *process = new QProcess(this);
     process->setProcessChannelMode(QProcess::SeparateChannels);
 
-    stderrConn = connect(process, &QProcess::readyReadStandardError, this, [this] {
-        onProcessReadyReadState(true);
+    stderrConn = connect(process, &QProcess::readyReadStandardError, this, [this, currentId] {
+        onProcessReadyReadState(currentId, true);
     });
-    stderrConn = connect(process, &QProcess::readyReadStandardOutput, this, [this] {
-        onProcessReadyReadState(false);
+    stderrConn = connect(process, &QProcess::readyReadStandardOutput, this, [this, currentId] {
+        onProcessReadyReadState(currentId, false);
     });
-    connect(process, &QProcess::finished, this, &RunCommandPlugin::onProcessFinished);
+    connect(process, &QProcess::finished, this, [this, currentId](int exitCode, QProcess::ExitStatus exitStatus) {
+        onProcessFinished(currentId, exitCode, exitStatus);
+    });
 
-    connect(process, &QProcess::finished, process, &QObject::deleteLater);
-    currentProcess = process;
+    currentProcesses[currentId] = process;
 
-    process->start(QStringLiteral(COMMAND), QStringList{QStringLiteral(ARGS), commandJson[QStringLiteral("command")].toString()});
+    QString command = commandJson[QStringLiteral("command")].toString();
+    process->start(QStringLiteral(COMMAND), QStringList{QStringLiteral(ARGS), command});
+
+    NetworkPacket npOutput(PACKET_TYPE_RUNCOMMAND_OUTPUT,
+                           {
+                               {QStringLiteral("commandStarted"), true},
+                               {QStringLiteral("command"), command},
+                               {QStringLiteral("id"), currentId},
+                           });
+    sendPacket(npOutput);
 }
 
-void RunCommandPlugin::onProcessFinished(int exitCode, QProcess::ExitStatus exitStatus)
+void RunCommandPlugin::onProcessFinished(unsigned int id, int exitCode, QProcess::ExitStatus exitStatus)
 {
     qCDebug(KDECONNECT_PLUGIN_RUNCOMMAND) << "Finished with exit code: " << exitCode << " and status " << exitStatus;
-    NetworkPacket npOutput(PACKET_TYPE_RUNCOMMAND_OUTPUT, {{QStringLiteral("commandFinished"), exitCode != EXIT_FAILURE}});
+    NetworkPacket npOutput(PACKET_TYPE_RUNCOMMAND_OUTPUT,
+                           {
+                               {QStringLiteral("commandFinished"), true},
+                               {QStringLiteral("success"), exitCode != EXIT_FAILURE},
+                               {QStringLiteral("exitCode"), exitCode},
+                               {QStringLiteral("id"), id},
+                           });
     sendPacket(npOutput);
-    currentProcess = nullptr;
+    currentProcesses.remove(id);
+    sender()->deleteLater();
 }
 
-void RunCommandPlugin::onProcessReadyReadState(const bool isErrorOutput)
+void RunCommandPlugin::onProcessReadyReadState(unsigned int id, const bool isErrorOutput)
 {
     auto *process = qobject_cast<QProcess *>(sender());
     if (!process) {
@@ -130,26 +151,32 @@ void RunCommandPlugin::onProcessReadyReadState(const bool isErrorOutput)
         output.append(stream.readLine());
         if (output.size() == 5) {
             if (isErrorOutput) {
-                sendOutput(empty, output);
+                sendOutput(id, empty, output);
             } else {
-                sendOutput(output, empty);
+                sendOutput(id, output, empty);
             }
             output.clear();
         }
     }
     if (!output.isEmpty()) {
         if (isErrorOutput) {
-            sendOutput(empty, output);
+            sendOutput(id, empty, output);
         } else {
-            sendOutput(output, empty);
+            sendOutput(id, output, empty);
         }
     }
 }
 
-void RunCommandPlugin::sendOutput(const QStringList &standard, const QStringList &error) const
+void RunCommandPlugin::sendOutput(unsigned int id, const QStringList &standard, const QStringList &error) const
 {
     qCDebug(KDECONNECT_PLUGIN_RUNCOMMAND) << "Sending stdout: " << standard << " and stderr: " << error;
-    NetworkPacket npOutput(PACKET_TYPE_RUNCOMMAND_OUTPUT, {{QStringLiteral("stdout"), standard}, {QStringLiteral("stderr"), error}});
+    NetworkPacket npOutput(PACKET_TYPE_RUNCOMMAND_OUTPUT,
+                           {
+                               {QStringLiteral("commandOutput"), true},
+                               {QStringLiteral("stdout"), standard},
+                               {QStringLiteral("stderr"), error},
+                               {QStringLiteral("id"), id},
+                           });
     sendPacket(npOutput);
 }
 
