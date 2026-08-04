@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-03 00:42+0000\n"
-"PO-Revision-Date: 2026-05-12 03:13+0900\n"
+"PO-Revision-Date: 2026-08-04 07:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: Traditional Chinese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.07.70\n"
+"X-Generator: Lokalize 26.11.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: battery/batteryplugin.cpp:150
@@ -422,12 +422,10 @@ msgid "%1 in the path will be replaced with the specific device name"
 msgstr "在路徑中的 %1 將會以指定的裝置名稱取代。"
 
 #: share/shareplugin.cpp:175
-#, fuzzy, kde-format
-#| msgctxt "@info Some piece of text was received from a connected device"
-#| msgid "Shared text from %1 copied to clipboard"
+#, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
-msgstr "從 %1 分享來的文字已複製到剪貼簿"
+msgstr "分享來的文字已複製到剪貼簿"
 
 #: share/shareplugin.cpp:179
 #, kde-format
