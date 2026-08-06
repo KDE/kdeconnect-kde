@@ -99,6 +99,34 @@ KIO::WorkerResult handleDBusError(QDBusReply<T> &reply)
     return KIO::WorkerResult::pass();
 }
 
+KIO::WorkerResult handleUnknownObjectDBusError(const QString &deviceId)
+{
+    DaemonDbusInterface daemon;
+
+    auto devsRepl = daemon.devices(false, false);
+    devsRepl.waitForFinished();
+
+    if (!devsRepl.value().contains(deviceId)) {
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("No such device: %0").arg(deviceId));
+    }
+
+    DeviceDbusInterface dev(deviceId);
+
+    if (!dev.isPaired()) {
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("%0 is not paired").arg(dev.name()));
+    }
+
+    if (!dev.isReachable()) {
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("%0 is not connected").arg(dev.name()));
+    }
+
+    if (!dev.hasPlugin(QStringLiteral("kdeconnect_sftp"))) {
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("%0 has no Remote Filesystem plugin").arg(dev.name()));
+    }
+
+    return KIO::WorkerResult::pass();
+}
+
 KioKdeconnect::KioKdeconnect(const QByteArray &pool, const QByteArray &app)
     : ForwardingWorkerBase("kdeconnect", pool, app)
     , m_dbusInterface(new DaemonDbusInterface(this))
@@ -229,27 +257,8 @@ KIO::WorkerResult KioKdeconnect::listDevice(const QString &device)
     QDBusReply<bool> mountreply = interface.mountAndWait();
 
     if (mountreply.error().type() == QDBusError::UnknownObject) {
-        DaemonDbusInterface daemon;
-
-        auto devsRepl = daemon.devices(false, false);
-        devsRepl.waitForFinished();
-
-        if (!devsRepl.value().contains(device)) {
-            return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("No such device: %0").arg(device));
-        }
-
-        DeviceDbusInterface dev(device);
-
-        if (!dev.isPaired()) {
-            return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("%0 is not paired").arg(dev.name()));
-        }
-
-        if (!dev.isReachable()) {
-            return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("%0 is not connected").arg(dev.name()));
-        }
-
-        if (!dev.hasPlugin(QStringLiteral("kdeconnect_sftp"))) {
-            return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("%0 has no Remote Filesystem plugin").arg(dev.name()));
+        if (auto result = handleUnknownObjectDBusError(device); !result.success()) {
+            return result;
         }
     }
 
@@ -351,6 +360,12 @@ KIO::WorkerResult KioKdeconnect::stat(const QUrl &url)
 
     const QDBusReply<QString> mountPointReply = interface.mountPoint();
     if (!mountPointReply.isValid()) {
+        if (mountPointReply.error().type() == QDBusError::UnknownObject) {
+            if (auto result = handleUnknownObjectDBusError(currentDevice); !result.success()) {
+                return result;
+            }
+        }
+
         return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Failed to get mount point: %1", mountPointReply.error().message()));
     }
 
