@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-08 00:44+0000\n"
+"POT-Creation-Date: 2026-08-07 00:45+0000\n"
 "PO-Revision-Date: 2026-04-08 09:02+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -21,47 +21,47 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: kiokdeconnect.cpp:178
-#, kde-format
-msgid "Listing devices…"
-msgstr "S'estan llistant els dispositius…"
-
-#: kiokdeconnect.cpp:223
-#, kde-format
-msgid "Accessing device…"
-msgstr "S'està accedint al dispositiu…"
-
-#: kiokdeconnect.cpp:238
+#: kiokdeconnect.cpp:110
 #, kde-format
 msgid "No such device: %0"
 msgstr "El dispositiu no existix: %0"
 
-#: kiokdeconnect.cpp:244
+#: kiokdeconnect.cpp:116
 #, kde-format
 msgid "%0 is not paired"
 msgstr "%0 no està aparellat"
 
-#: kiokdeconnect.cpp:248
+#: kiokdeconnect.cpp:120
 #, kde-format
 msgid "%0 is not connected"
 msgstr "%0 no està connectat"
 
-#: kiokdeconnect.cpp:252
+#: kiokdeconnect.cpp:124
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
 msgstr "%0 no té cap connector de sistema de fitxers remot"
 
-#: kiokdeconnect.cpp:317
+#: kiokdeconnect.cpp:206
+#, kde-format
+msgid "Listing devices…"
+msgstr "S'estan llistant els dispositius…"
+
+#: kiokdeconnect.cpp:251
+#, kde-format
+msgid "Accessing device…"
+msgstr "S'està accedint al dispositiu…"
+
+#: kiokdeconnect.cpp:326
 #, kde-format
 msgid "Could not contact background service."
 msgstr "No s'ha pogut contactar utilitzant el servei en segon pla."
 
-#: kiokdeconnect.cpp:344
+#: kiokdeconnect.cpp:353
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: kiokdeconnect.cpp:354
+#: kiokdeconnect.cpp:369
 #, kde-format
 msgid "Failed to get mount point: %1"
 msgstr "Ha fallat mentre s'obtenia el punt de muntatge: %1"

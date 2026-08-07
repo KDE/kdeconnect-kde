@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-08 00:44+0000\n"
+"POT-Creation-Date: 2026-08-07 00:45+0000\n"
 "PO-Revision-Date: 2026-04-09 12:07+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -22,47 +22,47 @@ msgstr ""
 "X-Generator: Lokalize 25.12.3\n"
 "X-Text-Markup: kde4\n"
 
-#: kiokdeconnect.cpp:178
-#, kde-format
-msgid "Listing devices…"
-msgstr "Construction de la liste des périphériques en cours..."
-
-#: kiokdeconnect.cpp:223
-#, kde-format
-msgid "Accessing device…"
-msgstr "Accès au périphérique en cours..."
-
-#: kiokdeconnect.cpp:238
+#: kiokdeconnect.cpp:110
 #, kde-format
 msgid "No such device: %0"
 msgstr "Aucun périphérique : %0"
 
-#: kiokdeconnect.cpp:244
+#: kiokdeconnect.cpp:116
 #, kde-format
 msgid "%0 is not paired"
 msgstr "%0 n'est pas associé"
 
-#: kiokdeconnect.cpp:248
+#: kiokdeconnect.cpp:120
 #, kde-format
 msgid "%0 is not connected"
 msgstr "%0 n'est pas connecté"
 
-#: kiokdeconnect.cpp:252
+#: kiokdeconnect.cpp:124
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
 msgstr "%0 n'a aucun module externe de système de fichiers à distance"
 
-#: kiokdeconnect.cpp:317
+#: kiokdeconnect.cpp:206
+#, kde-format
+msgid "Listing devices…"
+msgstr "Construction de la liste des périphériques en cours..."
+
+#: kiokdeconnect.cpp:251
+#, kde-format
+msgid "Accessing device…"
+msgstr "Accès au périphérique en cours..."
+
+#: kiokdeconnect.cpp:326
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Impossible de contacter le service d'arrière plan."
 
-#: kiokdeconnect.cpp:344
+#: kiokdeconnect.cpp:353
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDEConnect"
 
-#: kiokdeconnect.cpp:354
+#: kiokdeconnect.cpp:369
 #, kde-format
 msgid "Failed to get mount point: %1"
 msgstr "Impossible d'obtenir le point de montage : %1"
