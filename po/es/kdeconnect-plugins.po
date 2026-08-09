@@ -2,14 +2,14 @@
 # Copyright (C) 2014-2026 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2025, 2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2014-2023, 2025-2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 # SPDX-FileCopyrightText: 2015 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-03 00:42+0000\n"
-"PO-Revision-Date: 2026-05-09 21:13+0100\n"
+"PO-Revision-Date: 2026-08-08 17:21+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -426,12 +426,10 @@ msgid "%1 in the path will be replaced with the specific device name"
 msgstr "Se sustituirá %1 en la ruta por el nombre específico del dispositivo"
 
 #: share/shareplugin.cpp:175
-#, fuzzy, kde-format
-#| msgctxt "@info Some piece of text was received from a connected device"
-#| msgid "Shared text from %1 copied to clipboard"
+#, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
-msgstr "Texto compartido de %1 copiado al portapapeles"
+msgstr "Texto compartido copiado al portapapeles"
 
 #: share/shareplugin.cpp:179
 #, kde-format

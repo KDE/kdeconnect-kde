@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # SPDX-FileCopyrightText: 2020, 2025 Eloy Cuadra <ecuadra@eloihr.net>
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2020-2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 00:44+0000\n"
-"PO-Revision-Date: 2026-04-11 18:16+0100\n"
+"PO-Revision-Date: 2026-08-08 17:21+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -145,7 +145,7 @@ msgstr "Control multimedia"
 #: qml/DevicePage.qml:149
 #, kde-format
 msgid "Notifications"
-msgstr ""
+msgstr "Notificaciones"
 
 #: qml/DevicePage.qml:157
 #, kde-format
@@ -354,34 +354,33 @@ msgstr "%1 - %2"
 #, kde-format
 msgctxt "@title:window"
 msgid "Active Notifications"
-msgstr ""
+msgstr "Notificaciones activas"
 
 #: qml/NotificationPanel.qml:196
 #, kde-format
 msgid "Reply"
-msgstr ""
+msgstr "Responder"
 
 #: qml/NotificationPanel.qml:213
 #, kde-format
 msgid "Dismiss"
-msgstr ""
+msgstr "Descartar"
 
 #: qml/NotificationPanel.qml:244
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: qml/NotificationPanel.qml:262
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "Responder a %1…"
 
 #: qml/NotificationPanel.qml:281
-#, fuzzy, kde-format
-#| msgid "Send Ping"
+#, kde-format
 msgid "Send"
-msgstr "Enviar sonido"
+msgstr "Enviar"
 
 #: qml/PluginSettings.qml:140
 #, kde-format
