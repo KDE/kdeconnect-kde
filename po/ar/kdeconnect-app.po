@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 00:44+0000\n"
-"PO-Revision-Date: 2026-04-09 11:30+0400\n"
+"PO-Revision-Date: 2026-08-10 13:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: main.cpp:46 main.cpp:48
 #, kde-format
@@ -145,7 +145,7 @@ msgstr "تحكّمات الوسائط المتعدّدة"
 #: qml/DevicePage.qml:149
 #, kde-format
 msgid "Notifications"
-msgstr ""
+msgstr "الإشعارات"
 
 #: qml/DevicePage.qml:157
 #, kde-format
@@ -352,34 +352,33 @@ msgstr "%1 - %2"
 #, kde-format
 msgctxt "@title:window"
 msgid "Active Notifications"
-msgstr ""
+msgstr "الإشعارات النشطة"
 
 #: qml/NotificationPanel.qml:196
 #, kde-format
 msgid "Reply"
-msgstr ""
+msgstr "ردّ"
 
 #: qml/NotificationPanel.qml:213
 #, kde-format
 msgid "Dismiss"
-msgstr ""
+msgstr "تجاهل"
 
 #: qml/NotificationPanel.qml:244
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "ألغِ"
 
 #: qml/NotificationPanel.qml:262
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "ردّ على %1…"
 
 #: qml/NotificationPanel.qml:281
-#, fuzzy, kde-format
-#| msgid "Send Ping"
+#, kde-format
 msgid "Send"
-msgstr "أرسل وخزة"
+msgstr "أرسل"
 
 #: qml/PluginSettings.qml:140
 #, kde-format
