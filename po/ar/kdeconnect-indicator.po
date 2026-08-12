@@ -142,7 +142,7 @@ msgstr[0] "جهاز متصل"
 msgstr[1] "جهاز واحد متصل"
 msgstr[2] "جهازان متصلان"
 msgstr[3] "%1 أجهزة متصلة"
-msgstr[4] "%1 جهازاً متصلا"
+msgstr[4] "%1 جهازًا متصلا"
 msgstr[5] "%1 جهاز متصل"
 
 #: systray_actions/battery_action.cpp:35
