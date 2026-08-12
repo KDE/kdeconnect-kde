@@ -147,7 +147,7 @@ msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
 "your device and then click Refresh."
 msgstr ""
-"تحميل المحادثات من الجهاز. إذا استغرق هذا وقتًا طويلاً، فيرجى إيقاظ جهازك ثم "
+"تحميل المحادثات من الجهاز. إذا استغرق هذا وقتًا طويلًا، فيرجى إيقاظ جهازك ثم "
 "انقر فوق تحديث."
 
 #: qml/ConversationList.qml:57
