@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:45+0000\n"
+"POT-Creation-Date: 2026-08-14 00:45+0000\n"
 "PO-Revision-Date: 2026-07-07 21:46+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -22,22 +22,22 @@ msgstr ""
 msgid "Couldn't find an available port"
 msgstr "Kunde inte hitta en tillgänglig port"
 
-#: backends/lan/compositeuploadjob.cpp:117
+#: backends/lan/compositeuploadjob.cpp:129
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Misslyckades skicka paket till %1"
 
-#: backends/lan/compositeuploadjob.cpp:240
+#: backends/lan/compositeuploadjob.cpp:252
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
 msgstr "Tidsgräns överskriden vid väntan på att mottagaren ska ansluta"
 
-#: backends/lan/compositeuploadjob.cpp:281
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Sending to %1"
 msgstr "Skickar till %1"
 
-#: backends/lan/compositeuploadjob.cpp:281
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "File"
 msgstr "Fil"
@@ -112,12 +112,18 @@ msgstr "SHA256-fingeravtryck för den andra apparatens certifikat är: %1\n"
 msgid "Protocol version: %1\n"
 msgstr "Protokollversion: %1\n"
 
-#: filetransferjob.cpp:53
+#: filetransferjob.cpp:54
 #, kde-format
 msgid "Filename already present"
 msgstr "Filnamnet finns redan"
 
-#: filetransferjob.cpp:117
+#: filetransferjob.cpp:70
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not create destination file: %1"
+msgstr "Kunde inte lagra certifikatfil: %1"
+
+#: filetransferjob.cpp:129
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Mottog ofullständig fil från: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-03 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:45+0000\n"
 "PO-Revision-Date: 2024-04-27 16:46+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -423,7 +423,7 @@ msgstr "Uložiť súbory do:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 in the path will be replaced with the specific device name"
 
-#: share/shareplugin.cpp:175
+#: share/shareplugin.cpp:164
 #, fuzzy, kde-format
 #| msgctxt "@info Some piece of text was received from a connected device"
 #| msgid "Shared text from %1 copied to clipboard"
@@ -431,35 +431,35 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
 msgstr "Zdieľaný text z %1 skopírovaný do schránky"
 
-#: share/shareplugin.cpp:179
+#: share/shareplugin.cpp:168
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Zdieľaný text z %1 skopírovaný do schránky"
 
-#: share/shareplugin.cpp:223
+#: share/shareplugin.cpp:212
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Otvoriť v textovom editore"
 
-#: share/shareplugin.cpp:227
+#: share/shareplugin.cpp:216
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Otvoriť odkaz"
 
-#: share/shareplugin.cpp:268 share/shareplugin.cpp:273
+#: share/shareplugin.cpp:257 share/shareplugin.cpp:262
 #, kde-format
 msgid "Could not share file"
 msgstr "Nepodarilo sa zdieľať súbor"
 
-#: share/shareplugin.cpp:268
+#: share/shareplugin.cpp:257
 #, kde-format
 msgid "%1 does not exist"
 msgstr "Súbor %1 neexistuje"
 
-#: share/shareplugin.cpp:273
+#: share/shareplugin.cpp:262
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Prístup odmietnutý: %1"

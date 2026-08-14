@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:45+0000\n"
+"POT-Creation-Date: 2026-08-14 00:45+0000\n"
 "PO-Revision-Date: 2026-06-15 13:18+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -23,22 +23,22 @@ msgstr ""
 msgid "Couldn't find an available port"
 msgstr "Nu a putut fi găsit un port disponibil"
 
-#: backends/lan/compositeuploadjob.cpp:117
+#: backends/lan/compositeuploadjob.cpp:129
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Trimiterea pachetului spre %1 a eșuat"
 
-#: backends/lan/compositeuploadjob.cpp:240
+#: backends/lan/compositeuploadjob.cpp:252
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
 msgstr "Așteptarea pentru conectarea destinatarului a expirat"
 
-#: backends/lan/compositeuploadjob.cpp:281
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Sending to %1"
 msgstr "Se trimite la %1"
 
-#: backends/lan/compositeuploadjob.cpp:281
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "File"
 msgstr "Fișier"
@@ -114,12 +114,18 @@ msgstr "Amprenta SHA256 a certificatului dispozitivului distant e: %1\n"
 msgid "Protocol version: %1\n"
 msgstr "Versiune protocol: %1\n"
 
-#: filetransferjob.cpp:53
+#: filetransferjob.cpp:54
 #, kde-format
 msgid "Filename already present"
 msgstr "Denumirea de fișier există deja"
 
-#: filetransferjob.cpp:117
+#: filetransferjob.cpp:70
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not create destination file: %1"
+msgstr "Fișierul cu certificat nu a putut fi stocat: %1"
+
+#: filetransferjob.cpp:129
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "S-a primit fișier incomplet de la: %1"

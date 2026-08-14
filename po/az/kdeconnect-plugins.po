@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-03 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:45+0000\n"
 "PO-Revision-Date: 2023-10-11 18:10+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -442,7 +442,7 @@ msgstr "Faylları burda saxlamaq:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "&percnt;1 yolda cihaz adı ilə əvəz olunacaq"
 
-#: share/shareplugin.cpp:175
+#: share/shareplugin.cpp:164
 #, fuzzy, kde-format
 #| msgctxt "@info Some piece of text was received from a connected device"
 #| msgid "Shared text from %1 copied to clipboard"
@@ -450,35 +450,35 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
 msgstr "%1 paylaşdığı mətn mübadilə yaddaşına kopyalandı"
 
-#: share/shareplugin.cpp:179
+#: share/shareplugin.cpp:168
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "%1 paylaşdığı mətn mübadilə yaddaşına kopyalandı"
 
-#: share/shareplugin.cpp:223
+#: share/shareplugin.cpp:212
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Mətn redaktorunda aç"
 
-#: share/shareplugin.cpp:227
+#: share/shareplugin.cpp:216
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Keçidi aç"
 
-#: share/shareplugin.cpp:268 share/shareplugin.cpp:273
+#: share/shareplugin.cpp:257 share/shareplugin.cpp:262
 #, kde-format
 msgid "Could not share file"
 msgstr "Fayl paylaşıla bilmədi"
 
-#: share/shareplugin.cpp:268
+#: share/shareplugin.cpp:257
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 mövcud deyil"
 
-#: share/shareplugin.cpp:273
+#: share/shareplugin.cpp:262
 #, kde-format
 msgid "Permission denied: %1"
 msgstr ""

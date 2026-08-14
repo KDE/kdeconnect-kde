@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:45+0000\n"
+"POT-Creation-Date: 2026-08-14 00:45+0000\n"
 "PO-Revision-Date: 2026-06-15 09:40+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -25,22 +25,22 @@ msgstr ""
 msgid "Couldn't find an available port"
 msgstr "Не вдалося знайти доступний порт"
 
-#: backends/lan/compositeuploadjob.cpp:117
+#: backends/lan/compositeuploadjob.cpp:129
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Не вдалося надіслати пакет до %1"
 
-#: backends/lan/compositeuploadjob.cpp:240
+#: backends/lan/compositeuploadjob.cpp:252
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
 msgstr "Перевищення часу очікування на встановлення з'єднання з отримувачем"
 
-#: backends/lan/compositeuploadjob.cpp:281
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Sending to %1"
 msgstr "Надсилаємо на %1"
 
-#: backends/lan/compositeuploadjob.cpp:281
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "File"
 msgstr "Файл"
@@ -117,12 +117,18 @@ msgstr "Відбиток SHA256 сертифіката віддаленого п
 msgid "Protocol version: %1\n"
 msgstr "Версія протоколу: %1\n"
 
-#: filetransferjob.cpp:53
+#: filetransferjob.cpp:54
 #, kde-format
 msgid "Filename already present"
 msgstr "Файл із такою назвою вже існує"
 
-#: filetransferjob.cpp:117
+#: filetransferjob.cpp:70
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not create destination file: %1"
+msgstr "Не вдалося зберегти файл сертифіката: %1"
+
+#: filetransferjob.cpp:129
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Файл отримано не повністю від %1"

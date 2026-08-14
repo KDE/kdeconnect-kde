@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-03 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:45+0000\n"
 "PO-Revision-Date: 2026-07-27 11:18+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -425,41 +425,41 @@ msgstr "Bestanden opslaan in:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 in het pad zal worden vervangen door de specifieke apparaatnaam."
 
-#: share/shareplugin.cpp:175
+#: share/shareplugin.cpp:164
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
 msgstr "Gedeelde tekst is gekopieerd naar het klembord"
 
-#: share/shareplugin.cpp:179
+#: share/shareplugin.cpp:168
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Gedeelde tekst van %1 is gekopieerd naar het klembord"
 
-#: share/shareplugin.cpp:223
+#: share/shareplugin.cpp:212
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "In tekstbewerker openen"
 
-#: share/shareplugin.cpp:227
+#: share/shareplugin.cpp:216
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Koppeling openen"
 
-#: share/shareplugin.cpp:268 share/shareplugin.cpp:273
+#: share/shareplugin.cpp:257 share/shareplugin.cpp:262
 #, kde-format
 msgid "Could not share file"
 msgstr "Kon bestand niet delen"
 
-#: share/shareplugin.cpp:268
+#: share/shareplugin.cpp:257
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 bestaat niet"
 
-#: share/shareplugin.cpp:273
+#: share/shareplugin.cpp:262
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Toegang geweigerd: %1"

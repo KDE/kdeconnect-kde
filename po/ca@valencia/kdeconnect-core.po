@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:45+0000\n"
+"POT-Creation-Date: 2026-08-14 00:45+0000\n"
 "PO-Revision-Date: 2026-06-15 09:02+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -26,22 +26,22 @@ msgstr ""
 msgid "Couldn't find an available port"
 msgstr "No s'ha pogut trobar un port disponible"
 
-#: backends/lan/compositeuploadjob.cpp:117
+#: backends/lan/compositeuploadjob.cpp:129
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Ha fallat mentre s'enviava un paquet a %1"
 
-#: backends/lan/compositeuploadjob.cpp:240
+#: backends/lan/compositeuploadjob.cpp:252
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
 msgstr "Temps màxim d'espera fins que es connecte el receptor"
 
-#: backends/lan/compositeuploadjob.cpp:281
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Sending to %1"
 msgstr "S'està enviant a %1"
 
-#: backends/lan/compositeuploadjob.cpp:281
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "File"
 msgstr "Fitxer"
@@ -117,12 +117,18 @@ msgstr "L'empremta digital SHA256 del certificat del dispositiu remot és: %1\n"
 msgid "Protocol version: %1\n"
 msgstr "Versió del protocol: %1\n"
 
-#: filetransferjob.cpp:53
+#: filetransferjob.cpp:54
 #, kde-format
 msgid "Filename already present"
 msgstr "El nom de fitxer ja està present"
 
-#: filetransferjob.cpp:117
+#: filetransferjob.cpp:70
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not create destination file: %1"
+msgstr "No s'ha pogut emmagatzemar el fitxer del certificat: %1"
+
+#: filetransferjob.cpp:129
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "S'ha rebut un fitxer incomplet des de: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:45+0000\n"
+"POT-Creation-Date: 2026-08-14 00:45+0000\n"
 "PO-Revision-Date: 2024-04-27 16:46+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -23,22 +23,22 @@ msgstr ""
 msgid "Couldn't find an available port"
 msgstr "Nepodarilo sa nájsť dostupný port"
 
-#: backends/lan/compositeuploadjob.cpp:117
+#: backends/lan/compositeuploadjob.cpp:129
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Zlyhalo odosielanie paketu do zariadenia %1"
 
-#: backends/lan/compositeuploadjob.cpp:240
+#: backends/lan/compositeuploadjob.cpp:252
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
 msgstr "Vypršal časový limit pri čakaní na pripojenie prijímača"
 
-#: backends/lan/compositeuploadjob.cpp:281
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Sending to %1"
 msgstr "Odosiela sa do zariadenia %1"
 
-#: backends/lan/compositeuploadjob.cpp:281
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "File"
 msgstr "Súbor"
@@ -114,12 +114,18 @@ msgstr "Odtlačok SHA256 certifikátu vzdialeného zariadenia je: %1\n"
 msgid "Protocol version: %1\n"
 msgstr "Verzia protokolu: %1\n"
 
-#: filetransferjob.cpp:53
+#: filetransferjob.cpp:54
 #, kde-format
 msgid "Filename already present"
 msgstr "Názov súboru už existuje"
 
-#: filetransferjob.cpp:117
+#: filetransferjob.cpp:70
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not create destination file: %1"
+msgstr "Nepodarilo sa uložiť súbor s certifikátom: %1"
+
+#: filetransferjob.cpp:129
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Prijatý neúplný súbor zo zariadenia: %1"

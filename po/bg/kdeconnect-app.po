@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 00:44+0000\n"
-"PO-Revision-Date: 2026-05-29 13:10+0200\n"
+"PO-Revision-Date: 2026-08-13 08:08+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: main.cpp:46 main.cpp:48
 #, kde-format
@@ -145,7 +145,7 @@ msgstr "Мултимедиен контрол"
 #: qml/DevicePage.qml:149
 #, kde-format
 msgid "Notifications"
-msgstr ""
+msgstr "Известия"
 
 #: qml/DevicePage.qml:157
 #, kde-format
@@ -353,34 +353,33 @@ msgstr "%1 - %2"
 #, kde-format
 msgctxt "@title:window"
 msgid "Active Notifications"
-msgstr ""
+msgstr "Активни известия"
 
 #: qml/NotificationPanel.qml:196
 #, kde-format
 msgid "Reply"
-msgstr ""
+msgstr "Отговор"
 
 #: qml/NotificationPanel.qml:213
 #, kde-format
 msgid "Dismiss"
-msgstr ""
+msgstr "Отхвърляне"
 
 #: qml/NotificationPanel.qml:244
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Отказ"
 
 #: qml/NotificationPanel.qml:262
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "Отговор до „%1“…"
 
 #: qml/NotificationPanel.qml:281
-#, fuzzy, kde-format
-#| msgid "Send Ping"
+#, kde-format
 msgid "Send"
-msgstr "Изпращане на сигнал"
+msgstr "Изпращане"
 
 #: qml/PluginSettings.qml:140
 #, kde-format

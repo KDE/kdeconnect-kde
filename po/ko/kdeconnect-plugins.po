@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-03 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:45+0000\n"
 "PO-Revision-Date: 2026-05-25 19:20+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -422,7 +422,7 @@ msgstr "파일 저장 경로:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "경로 중 %1 문자열은 지정한 장치 이름으로 대체됩니다"
 
-#: share/shareplugin.cpp:175
+#: share/shareplugin.cpp:164
 #, fuzzy, kde-format
 #| msgctxt "@info Some piece of text was received from a connected device"
 #| msgid "Shared text from %1 copied to clipboard"
@@ -430,35 +430,35 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
 msgstr "%1에서 공유한 텍스트를 클립보드에 복사함"
 
-#: share/shareplugin.cpp:179
+#: share/shareplugin.cpp:168
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "%1에서 공유한 텍스트를 클립보드에 복사함"
 
-#: share/shareplugin.cpp:223
+#: share/shareplugin.cpp:212
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "텍스트 편집기에서 열기"
 
-#: share/shareplugin.cpp:227
+#: share/shareplugin.cpp:216
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "링크 열기"
 
-#: share/shareplugin.cpp:268 share/shareplugin.cpp:273
+#: share/shareplugin.cpp:257 share/shareplugin.cpp:262
 #, kde-format
 msgid "Could not share file"
 msgstr "파일을 공유할 수 없음"
 
-#: share/shareplugin.cpp:268
+#: share/shareplugin.cpp:257
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1이(가) 없음"
 
-#: share/shareplugin.cpp:273
+#: share/shareplugin.cpp:262
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "권한 거부됨: %1"

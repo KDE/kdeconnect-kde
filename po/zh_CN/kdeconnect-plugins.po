@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-03 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -418,41 +418,41 @@ msgstr "将文件保存在："
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "路径中的 %1 将被替换为设备名称。"
 
-#: share/shareplugin.cpp:175
+#: share/shareplugin.cpp:164
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
 msgstr "分享的文本已复制到剪贴板"
 
-#: share/shareplugin.cpp:179
+#: share/shareplugin.cpp:168
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "来自 %1 的分享文本已复制到剪贴板"
 
-#: share/shareplugin.cpp:223
+#: share/shareplugin.cpp:212
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "使用文本编辑器打开"
 
-#: share/shareplugin.cpp:227
+#: share/shareplugin.cpp:216
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "打开链接"
 
-#: share/shareplugin.cpp:268 share/shareplugin.cpp:273
+#: share/shareplugin.cpp:257 share/shareplugin.cpp:262
 #, kde-format
 msgid "Could not share file"
 msgstr "无法分享文件"
 
-#: share/shareplugin.cpp:268
+#: share/shareplugin.cpp:257
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 不存在"
 
-#: share/shareplugin.cpp:273
+#: share/shareplugin.cpp:262
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "权限被拒绝：%1$"
