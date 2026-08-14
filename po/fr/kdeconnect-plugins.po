@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-03 02:43+0000\n"
+"POT-Creation-Date: 2026-08-14 02:44+0000\n"
 "PO-Revision-Date: 2026-05-09 17:54+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -439,35 +439,35 @@ msgstr "Enregistrer les fichiers dans :"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 dans l'emplacement sera remplacé par le nom associé du périphérique"
 
-#: share/shareplugin.cpp:173
+#: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Texte partagé à partir de %1, copié dans le presse-papier"
 
-#: share/shareplugin.cpp:213
+#: share/shareplugin.cpp:202
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Ouvrir dans un éditeur de texte"
 
-#: share/shareplugin.cpp:217
+#: share/shareplugin.cpp:206
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Ouvrir un lien"
 
-#: share/shareplugin.cpp:258 share/shareplugin.cpp:263
+#: share/shareplugin.cpp:247 share/shareplugin.cpp:252
 #, kde-format
 msgid "Could not share file"
 msgstr "Impossible de partager le fichier"
 
-#: share/shareplugin.cpp:258
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 n'existe pas."
 
-#: share/shareplugin.cpp:263
+#: share/shareplugin.cpp:252
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Permission refusée : %1"

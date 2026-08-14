@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-08 00:44+0000\n"
+"POT-Creation-Date: 2026-08-14 02:44+0000\n"
 "PO-Revision-Date: 2026-04-19 17:10+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -17,47 +17,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: kiokdeconnect.cpp:178
-#, kde-format
-msgid "Listing devices…"
-msgstr "Listante dispositivos..."
-
-#: kiokdeconnect.cpp:223
-#, kde-format
-msgid "Accessing device…"
-msgstr "Accedente a dispositivo..."
-
-#: kiokdeconnect.cpp:238
+#: kiokdeconnect.cpp:110
 #, kde-format
 msgid "No such device: %0"
 msgstr "Necun tal dispositivo: %0"
 
-#: kiokdeconnect.cpp:244
+#: kiokdeconnect.cpp:116
 #, kde-format
 msgid "%0 is not paired"
 msgstr "%0 non es associate"
 
-#: kiokdeconnect.cpp:248
+#: kiokdeconnect.cpp:120
 #, kde-format
 msgid "%0 is not connected"
 msgstr "%0 non es connectite"
 
-#: kiokdeconnect.cpp:252
+#: kiokdeconnect.cpp:124
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
 msgstr "%0 non ha plugin de systema de file remote"
 
-#: kiokdeconnect.cpp:317
+#: kiokdeconnect.cpp:206
+#, kde-format
+msgid "Listing devices…"
+msgstr "Listante dispositivos..."
+
+#: kiokdeconnect.cpp:251
+#, kde-format
+msgid "Accessing device…"
+msgstr "Accedente a dispositivo..."
+
+#: kiokdeconnect.cpp:326
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Non pote continger servicio de fundo."
 
-#: kiokdeconnect.cpp:344
+#: kiokdeconnect.cpp:353
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: kiokdeconnect.cpp:354
+#: kiokdeconnect.cpp:369
 #, kde-format
 msgid "Failed to get mount point: %1"
 msgstr "Il falleva a obtener puncto de montage: %1 "

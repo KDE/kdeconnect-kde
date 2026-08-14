@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-03 02:43+0000\n"
+"POT-Creation-Date: 2026-08-14 02:44+0000\n"
 "PO-Revision-Date: 2026-07-03 22:03+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -428,35 +428,35 @@ msgstr "Gorde fitxategiak hemen:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "bide-izeneko %1 gailu-izen zehatzarekin ordezkatuko da"
 
-#: share/shareplugin.cpp:173
+#: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "%1(e)tik partekatutako testua arbelera kopiatu du"
 
-#: share/shareplugin.cpp:213
+#: share/shareplugin.cpp:202
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Ireki testu-editorean"
 
-#: share/shareplugin.cpp:217
+#: share/shareplugin.cpp:206
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Ireki esteka"
 
-#: share/shareplugin.cpp:258 share/shareplugin.cpp:263
+#: share/shareplugin.cpp:247 share/shareplugin.cpp:252
 #, kde-format
 msgid "Could not share file"
 msgstr "Ezin izan da fitxategia partekatu"
 
-#: share/shareplugin.cpp:258
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 ez da existitzen"
 
-#: share/shareplugin.cpp:263
+#: share/shareplugin.cpp:252
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Baimena ukatu da: %1"

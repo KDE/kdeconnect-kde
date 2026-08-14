@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-08 00:44+0000\n"
+"POT-Creation-Date: 2026-08-14 02:44+0000\n"
 "PO-Revision-Date: 2017-03-20 21:07+0100\n"
 "Last-Translator: Slobodan Simic <slsimic@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -18,49 +18,49 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: kiokdeconnect.cpp:178
+#: kiokdeconnect.cpp:110
+#, kde-format
+msgid "No such device: %0"
+msgstr ""
+
+#: kiokdeconnect.cpp:116
+#, kde-format
+msgid "%0 is not paired"
+msgstr ""
+
+#: kiokdeconnect.cpp:120
+#, kde-format
+msgid "%0 is not connected"
+msgstr ""
+
+#: kiokdeconnect.cpp:124
+#, kde-format
+msgid "%0 has no Remote Filesystem plugin"
+msgstr ""
+
+#: kiokdeconnect.cpp:206
 #, fuzzy, kde-format
 #| msgid "Listing devices..."
 msgid "Listing devices…"
 msgstr "Листам уређаје..."
 
-#: kiokdeconnect.cpp:223
+#: kiokdeconnect.cpp:251
 #, fuzzy, kde-format
 #| msgid "Accessing device..."
 msgid "Accessing device…"
 msgstr "Приступам уређајима..."
 
-#: kiokdeconnect.cpp:238
-#, kde-format
-msgid "No such device: %0"
-msgstr ""
-
-#: kiokdeconnect.cpp:244
-#, kde-format
-msgid "%0 is not paired"
-msgstr ""
-
-#: kiokdeconnect.cpp:248
-#, kde-format
-msgid "%0 is not connected"
-msgstr ""
-
-#: kiokdeconnect.cpp:252
-#, kde-format
-msgid "%0 has no Remote Filesystem plugin"
-msgstr ""
-
-#: kiokdeconnect.cpp:317
+#: kiokdeconnect.cpp:326
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Не могу да контактирам позадински сервис."
 
-#: kiokdeconnect.cpp:344
+#: kiokdeconnect.cpp:353
 #, kde-format
 msgid "KDE Connect"
 msgstr ""
 
-#: kiokdeconnect.cpp:354
+#: kiokdeconnect.cpp:369
 #, kde-format
 msgid "Failed to get mount point: %1"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-03 02:43+0000\n"
+"POT-Creation-Date: 2026-08-14 02:44+0000\n"
 "PO-Revision-Date: 2026-05-16 01:19+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -426,35 +426,35 @@ msgstr "Įrašyti failus į:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 kelyje bus pakeista tam tikru įrenginio pavadinimu"
 
-#: share/shareplugin.cpp:173
+#: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Bendrintas tekstas iš %1 nukopijuotas į iškarpinę"
 
-#: share/shareplugin.cpp:213
+#: share/shareplugin.cpp:202
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Atverti tekstų redaktoriuje"
 
-#: share/shareplugin.cpp:217
+#: share/shareplugin.cpp:206
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Atverti nuorodą"
 
-#: share/shareplugin.cpp:258 share/shareplugin.cpp:263
+#: share/shareplugin.cpp:247 share/shareplugin.cpp:252
 #, kde-format
 msgid "Could not share file"
 msgstr "Nepavyko bendrinti failo"
 
-#: share/shareplugin.cpp:258
+#: share/shareplugin.cpp:247
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 nėra"
 
-#: share/shareplugin.cpp:263
+#: share/shareplugin.cpp:252
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Leidimas atmestas: %1"

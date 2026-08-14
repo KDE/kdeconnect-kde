@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-08 00:44+0000\n"
+"POT-Creation-Date: 2026-08-14 02:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,47 +17,47 @@ msgstr ""
 "X-Crowdin-File: /kf6-stable/messages/kdeconnect-kde/kdeconnect-kio.pot\n"
 "X-Crowdin-File-ID: 52386\n"
 
-#: kiokdeconnect.cpp:178
-#, kde-format
-msgid "Listing devices…"
-msgstr "正在列出设备…"
-
-#: kiokdeconnect.cpp:223
-#, kde-format
-msgid "Accessing device…"
-msgstr "正在访问设备…"
-
-#: kiokdeconnect.cpp:238
+#: kiokdeconnect.cpp:110
 #, kde-format
 msgid "No such device: %0"
 msgstr "不存在此设备：%0"
 
-#: kiokdeconnect.cpp:244
+#: kiokdeconnect.cpp:116
 #, kde-format
 msgid "%0 is not paired"
 msgstr "%0 未配对"
 
-#: kiokdeconnect.cpp:248
+#: kiokdeconnect.cpp:120
 #, kde-format
 msgid "%0 is not connected"
 msgstr "%0 未连接"
 
-#: kiokdeconnect.cpp:252
+#: kiokdeconnect.cpp:124
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
 msgstr "%0 没有远程文件系统插件"
 
-#: kiokdeconnect.cpp:317
+#: kiokdeconnect.cpp:206
+#, kde-format
+msgid "Listing devices…"
+msgstr "正在列出设备…"
+
+#: kiokdeconnect.cpp:251
+#, kde-format
+msgid "Accessing device…"
+msgstr "正在访问设备…"
+
+#: kiokdeconnect.cpp:326
 #, kde-format
 msgid "Could not contact background service."
 msgstr "无法连接后台服务。"
 
-#: kiokdeconnect.cpp:344
+#: kiokdeconnect.cpp:353
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: kiokdeconnect.cpp:354
+#: kiokdeconnect.cpp:369
 #, kde-format
 msgid "Failed to get mount point: %1"
 msgstr "无法获取挂载点：%1"

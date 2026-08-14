@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-08 00:44+0000\n"
+"POT-Creation-Date: 2026-08-14 02:44+0000\n"
 "PO-Revision-Date: 2019-11-19 23:41+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -17,49 +17,49 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 19.08.1\n"
 
-#: kiokdeconnect.cpp:178
+#: kiokdeconnect.cpp:110
+#, kde-format
+msgid "No such device: %0"
+msgstr "Pole sellist seadet: %0"
+
+#: kiokdeconnect.cpp:116
+#, kde-format
+msgid "%0 is not paired"
+msgstr "%0 ei ole paardunud"
+
+#: kiokdeconnect.cpp:120
+#, kde-format
+msgid "%0 is not connected"
+msgstr "%0 ei ole ühendatud"
+
+#: kiokdeconnect.cpp:124
+#, kde-format
+msgid "%0 has no Remote Filesystem plugin"
+msgstr "%0 on ilma võrgufailisüsteemi pluginata"
+
+#: kiokdeconnect.cpp:206
 #, fuzzy, kde-format
 #| msgid "Listing devices..."
 msgid "Listing devices…"
 msgstr "Seadmete tuvastamine..."
 
-#: kiokdeconnect.cpp:223
+#: kiokdeconnect.cpp:251
 #, fuzzy, kde-format
 #| msgid "Accessing device..."
 msgid "Accessing device…"
 msgstr "Seadmega ühendumine..."
 
-#: kiokdeconnect.cpp:238
-#, kde-format
-msgid "No such device: %0"
-msgstr "Pole sellist seadet: %0"
-
-#: kiokdeconnect.cpp:244
-#, kde-format
-msgid "%0 is not paired"
-msgstr "%0 ei ole paardunud"
-
-#: kiokdeconnect.cpp:248
-#, kde-format
-msgid "%0 is not connected"
-msgstr "%0 ei ole ühendatud"
-
-#: kiokdeconnect.cpp:252
-#, kde-format
-msgid "%0 has no Remote Filesystem plugin"
-msgstr "%0 on ilma võrgufailisüsteemi pluginata"
-
-#: kiokdeconnect.cpp:317
+#: kiokdeconnect.cpp:326
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Ühendumine taustateenusega nurjus."
 
-#: kiokdeconnect.cpp:344
+#: kiokdeconnect.cpp:353
 #, kde-format
 msgid "KDE Connect"
 msgstr ""
 
-#: kiokdeconnect.cpp:354
+#: kiokdeconnect.cpp:369
 #, kde-format
 msgid "Failed to get mount point: %1"
 msgstr ""
