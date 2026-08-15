@@ -659,9 +659,6 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
         // qCDebug(KDECONNECT_CORE) << "Reusing link to" << deviceId;
         deviceLink->reset(socket);
     } else {
-        deviceLink = new LanDeviceLink(deviceInfo, this, socket);
-        // Socket disconnection will now be handled by LanDeviceLink
-        disconnect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);
         bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceInfo.id);
         if (!isDeviceTrusted && m_links.size() > MAX_UNPAIRED_CONNECTIONS) {
             qCWarning(KDECONNECT_CORE) << "Too many unpaired devices to remember them all. Ignoring" << deviceInfo.id;
@@ -669,6 +666,9 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
             socket->deleteLater();
             return;
         }
+        deviceLink = new LanDeviceLink(deviceInfo, this, socket);
+        // Socket disconnection will now be handled by LanDeviceLink
+        disconnect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);
         m_links[deviceInfo.id] = deviceLink;
     }
     Q_EMIT onConnectionReceived(deviceLink);
