@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-14 00:45+0000\n"
-"PO-Revision-Date: 2026-06-15 06:30+0200\n"
+"PO-Revision-Date: 2026-08-14 07:06+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -121,10 +121,9 @@ msgid "Filename already present"
 msgstr "Ime datoteke je že uporabljeno"
 
 #: filetransferjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not create destination file: %1"
-msgstr "Datoteke potrdila ni bilo mogoče shraniti: %1"
+msgstr "Ciljne datoteke ni bilo mogoče ustvariti: %1"
 
 #: filetransferjob.cpp:129
 #, kde-format

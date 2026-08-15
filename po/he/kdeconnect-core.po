@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-14 00:45+0000\n"
-"PO-Revision-Date: 2026-06-02 09:17+0300\n"
+"PO-Revision-Date: 2026-08-14 09:58+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -123,10 +123,9 @@ msgid "Filename already present"
 msgstr "שם הקובץ כבר קיים"
 
 #: filetransferjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not create destination file: %1"
-msgstr "לא ניתן לאחסן את קובץ האישור: %1"
+msgstr "לא ניתן ליצור את קובץ היעד: %1"
 
 #: filetransferjob.cpp:129
 #, kde-format

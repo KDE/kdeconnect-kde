@@ -424,12 +424,10 @@ msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 in the path will be replaced with the specific device name"
 
 #: share/shareplugin.cpp:164
-#, fuzzy, kde-format
-#| msgctxt "@info Some piece of text was received from a connected device"
-#| msgid "Shared text from %1 copied to clipboard"
+#, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
-msgstr "Zdieľaný text z %1 skopírovaný do schránky"
+msgstr "Zdieľaný text skopírovaný do schránky"
 
 #: share/shareplugin.cpp:168
 #, kde-format

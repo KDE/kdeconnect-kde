@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-14 00:45+0000\n"
-"PO-Revision-Date: 2026-06-02 20:12+0200\n"
+"PO-Revision-Date: 2026-08-15 00:17+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -120,10 +120,9 @@ msgid "Filename already present"
 msgstr "Název souboru již existuje"
 
 #: filetransferjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not create destination file: %1"
-msgstr "Nelze uložit soubor certifikátu: %1"
+msgstr "Nelze vytvořit cílový soubor: %1"
 
 #: filetransferjob.cpp:129
 #, kde-format

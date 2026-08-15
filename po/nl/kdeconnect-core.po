@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-14 00:45+0000\n"
-"PO-Revision-Date: 2026-06-15 15:36+0200\n"
+"PO-Revision-Date: 2026-08-14 10:40+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -120,10 +120,9 @@ msgid "Filename already present"
 msgstr "Bestandsnaam reeds aanwezig"
 
 #: filetransferjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not create destination file: %1"
-msgstr "Kon certificaatbestand niet opslaan: %1"
+msgstr "Kon bestemmingsbestand niet opslaan: %1"
 
 #: filetransferjob.cpp:129
 #, kde-format
