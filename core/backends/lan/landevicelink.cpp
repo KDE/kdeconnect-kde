@@ -6,6 +6,8 @@
 
 #include "landevicelink.h"
 
+#include <QTimer>
+
 #include <KLocalizedString>
 
 #include "backends/linkprovider.h"
@@ -29,14 +31,20 @@ LanDeviceLink::LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *pare
 void LanDeviceLink::reset(QSslSocket *socket)
 {
     if (m_socket) {
-        disconnect(m_socket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
+        disconnect(m_socket, &QAbstractSocket::disconnected, this, nullptr);
         delete m_socket;
     }
 
     m_socket = socket;
     socket->setParent(this);
 
-    connect(socket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
+    connect(socket, &QAbstractSocket::disconnected, this, [this, socket]() {
+        QTimer::singleShot(0, this, [this, socket]() {
+            if (m_socket == socket) {
+                delete this;
+            }
+        });
+    });
     connect(socket, &QAbstractSocket::readyRead, this, &LanDeviceLink::dataReceived);
 }
 
