@@ -309,7 +309,7 @@ void LanLinkProvider::udpBroadcastReceived()
         qint64 now = QDateTime::currentMSecsSinceEpoch();
         if (m_lastConnectionTime[deviceId] + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now) {
             qCDebug(KDECONNECT_CORE) << "Discarding second UPD packet from the same device" << deviceId << "received too quickly";
-            return;
+            continue;
         }
         m_lastConnectionTime[deviceId] = now;
 
