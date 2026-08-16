@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-14 00:45+0000\n"
-"PO-Revision-Date: 2026-06-06 22:48+0100\n"
+"PO-Revision-Date: 2026-08-16 00:36+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -120,10 +120,9 @@ msgid "Filename already present"
 msgstr "Nombre de archivo ya presente"
 
 #: filetransferjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not create destination file: %1"
-msgstr "No se pudo almacenar archivo del certificado: %1"
+msgstr "No se pudo crear el archivo en destino: %1"
 
 #: filetransferjob.cpp:129
 #, kde-format
@@ -154,10 +153,3 @@ msgstr "No se pudo generar el certificado del dispositivo."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "No se pudo almacenar archivo del certificado: %1"
-
-#, fuzzy
-#~| msgctxt "@info"
-#~| msgid "Bluetooth"
-#~ msgctxt "@info"
-#~ msgid "Bluetooth (beta)"
-#~ msgstr "Bluetooth"
