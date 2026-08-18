@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-14 00:45+0000\n"
-"PO-Revision-Date: 2026-06-02 13:12+0300\n"
+"PO-Revision-Date: 2026-08-17 12:54+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -122,10 +122,9 @@ msgid "Filename already present"
 msgstr "Failo pavadinimas jau yra"
 
 #: filetransferjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not create destination file: %1"
-msgstr "Nepavyko laikyti liudijimo failo: %1"
+msgstr "Nepavyko sukurti paskirties failo: %1"
 
 #: filetransferjob.cpp:129
 #, kde-format
