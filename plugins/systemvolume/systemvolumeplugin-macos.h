@@ -34,5 +34,7 @@ public:
     void updateDeviceMuted(AudioDeviceID deviceId);
 
 private:
+    void clearSinks();
+
     QMap<QString, MacOSCoreAudioDevice *> m_sinksMap;
 };

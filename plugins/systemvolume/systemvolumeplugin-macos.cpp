@@ -13,6 +13,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QMetaObject>
 
 K_PLUGIN_CLASS_WITH_JSON(SystemvolumePlugin, "kdeconnect_systemvolume.json")
 
@@ -27,7 +28,6 @@ private:
 
 public:
     MacOSCoreAudioDevice(AudioDeviceID);
-    ~MacOSCoreAudioDevice();
 
     void setVolume(float volume);
     float volume();
@@ -73,8 +73,13 @@ OSStatus onVolumeChanged(AudioObjectID object, UInt32 numAddresses, const AudioO
     Q_UNUSED(addresses);
     Q_UNUSED(numAddresses);
 
-    SystemvolumePlugin *plugin = (SystemvolumePlugin *)context;
-    plugin->updateDeviceVolume(object);
+    SystemvolumePlugin *plugin = static_cast<SystemvolumePlugin *>(context);
+    QMetaObject::invokeMethod(
+        plugin,
+        [plugin, object]() {
+            plugin->updateDeviceVolume(object);
+        },
+        Qt::QueuedConnection);
     return noErr;
 }
 
@@ -84,8 +89,13 @@ OSStatus onMutedChanged(AudioObjectID object, UInt32 numAddresses, const AudioOb
     Q_UNUSED(addresses);
     Q_UNUSED(numAddresses);
 
-    SystemvolumePlugin *plugin = (SystemvolumePlugin *)context;
-    plugin->updateDeviceMuted(object);
+    SystemvolumePlugin *plugin = static_cast<SystemvolumePlugin *>(context);
+    QMetaObject::invokeMethod(
+        plugin,
+        [plugin, object]() {
+            plugin->updateDeviceMuted(object);
+        },
+        Qt::QueuedConnection);
     return noErr;
 }
 
@@ -95,8 +105,13 @@ OSStatus onDefaultChanged(AudioObjectID object, UInt32 numAddresses, const Audio
     Q_UNUSED(addresses);
     Q_UNUSED(numAddresses);
 
-    SystemvolumePlugin *plugin = (SystemvolumePlugin *)context;
-    plugin->sendSinkList();
+    SystemvolumePlugin *plugin = static_cast<SystemvolumePlugin *>(context);
+    QMetaObject::invokeMethod(
+        plugin,
+        [plugin]() {
+            plugin->sendSinkList();
+        },
+        Qt::QueuedConnection);
     return noErr;
 }
 
@@ -106,8 +121,13 @@ OSStatus onOutputSourceChanged(AudioObjectID object, UInt32 numAddresses, const 
     Q_UNUSED(addresses);
     Q_UNUSED(numAddresses);
 
-    SystemvolumePlugin *plugin = (SystemvolumePlugin *)context;
-    plugin->sendSinkList();
+    SystemvolumePlugin *plugin = static_cast<SystemvolumePlugin *>(context);
+    QMetaObject::invokeMethod(
+        plugin,
+        [plugin]() {
+            plugin->sendSinkList();
+        },
+        Qt::QueuedConnection);
     return noErr;
 }
 
@@ -217,6 +237,7 @@ SystemvolumePlugin::SystemvolumePlugin(QObject *parent, const QVariantList &args
 SystemvolumePlugin::~SystemvolumePlugin()
 {
     AudioObjectRemovePropertyListener(kAudioObjectSystemObject, &kAudioDefaultOutputDevicePropertyAddress, &onDefaultChanged, (void *)this);
+    clearSinks();
 }
 
 void SystemvolumePlugin::receivePacket(const NetworkPacket &np)
@@ -245,12 +266,7 @@ void SystemvolumePlugin::sendSinkList()
     QJsonDocument document;
     QJsonArray array;
 
-    if (!m_sinksMap.empty()) {
-        for (MacOSCoreAudioDevice *sink : m_sinksMap) {
-            delete sink;
-        }
-        m_sinksMap.clear();
-    }
+    clearSinks();
 
     std::vector<AudioObjectID> deviceIds = GetAllOutputAudioDeviceIDs();
 
@@ -297,6 +313,19 @@ void SystemvolumePlugin::connected()
     sendSinkList();
 }
 
+void SystemvolumePlugin::clearSinks()
+{
+    for (MacOSCoreAudioDevice *sink : m_sinksMap) {
+        AudioObjectRemovePropertyListener(sink->m_deviceId, &kAudioMasterVolumePropertyAddress, &onVolumeChanged, (void *)this);
+        AudioObjectRemovePropertyListener(sink->m_deviceId, &kAudioLeftVolumePropertyAddress, &onVolumeChanged, (void *)this);
+        AudioObjectRemovePropertyListener(sink->m_deviceId, &kAudioRightVolumePropertyAddress, &onVolumeChanged, (void *)this);
+        AudioObjectRemovePropertyListener(sink->m_deviceId, &kAudioMasterMutedPropertyAddress, &onMutedChanged, (void *)this);
+        AudioObjectRemovePropertyListener(sink->m_deviceId, &kAudioMasterDataSourcePropertyAddress, &onOutputSourceChanged, (void *)this);
+        delete sink;
+    }
+    m_sinksMap.clear();
+}
+
 void SystemvolumePlugin::updateDeviceMuted(AudioDeviceID deviceId)
 {
     for (MacOSCoreAudioDevice *sink : m_sinksMap) {
@@ -330,20 +359,6 @@ MacOSCoreAudioDevice::MacOSCoreAudioDevice(AudioDeviceID deviceId)
     : m_deviceId(deviceId)
 {
     updateType();
-}
-
-MacOSCoreAudioDevice::~MacOSCoreAudioDevice()
-{
-    // Volume listener
-    AudioObjectRemovePropertyListener(m_deviceId, &kAudioMasterVolumePropertyAddress, &onVolumeChanged, (void *)this);
-    AudioObjectRemovePropertyListener(m_deviceId, &kAudioLeftVolumePropertyAddress, &onVolumeChanged, (void *)this);
-    AudioObjectRemovePropertyListener(m_deviceId, &kAudioRightVolumePropertyAddress, &onVolumeChanged, (void *)this);
-
-    // Muted listener
-    AudioObjectRemovePropertyListener(m_deviceId, &kAudioMasterMutedPropertyAddress, &onMutedChanged, (void *)this);
-
-    // Data source listener
-    AudioObjectRemovePropertyListener(m_deviceId, &kAudioMasterDataSourcePropertyAddress, &onOutputSourceChanged, (void *)this);
 }
 
 void MacOSCoreAudioDevice::setVolume(float volume)
