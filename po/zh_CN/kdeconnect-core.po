@@ -117,10 +117,9 @@ msgid "Filename already present"
 msgstr "文件名已存在"
 
 #: filetransferjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not create destination file: %1"
-msgstr "无法保存证书文件：%1"
+msgstr "无法创建目标文件：%1"
 
 #: filetransferjob.cpp:129
 #, kde-format
