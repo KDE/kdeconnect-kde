@@ -133,6 +133,19 @@ void DevicesModel::setDisplayFilter(int flags)
     Q_EMIT displayFilterChanged(flags);
 }
 
+bool DevicesModel::busy() const
+{
+    return m_busy;
+}
+
+void DevicesModel::setBusy(bool busy)
+{
+    if (m_busy != busy) {
+        m_busy = busy;
+        Q_EMIT busyChanged(busy);
+    }
+}
+
 void DevicesModel::refreshDeviceList()
 {
     if (!m_dbusInterface->isValid()) {
@@ -140,6 +153,8 @@ void DevicesModel::refreshDeviceList()
         qCWarning(KDECONNECT_MODELS) << "dbus interface not valid";
         return;
     }
+
+    setBusy(true);
 
     bool onlyPaired = (m_displayFilter & StatusFilterFlag::Paired);
     bool onlyReachable = (m_displayFilter & StatusFilterFlag::Reachable);
@@ -157,20 +172,20 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher *watcher)
     QDBusPendingReply<QStringList> pendingDeviceIds = *watcher;
     if (pendingDeviceIds.isError()) {
         qCWarning(KDECONNECT_MODELS) << "error while refreshing device list" << pendingDeviceIds.error().message();
-        return;
+    } else {
+        Q_ASSERT(m_deviceList.isEmpty());
+        const QStringList deviceIds = pendingDeviceIds.value();
+
+        if (!deviceIds.isEmpty()) {
+            beginInsertRows(QModelIndex(), 0, deviceIds.count() - 1);
+            for (const QString &id : deviceIds) {
+                appendDevice(new DeviceDbusInterface(id, this));
+            }
+            endInsertRows();
+        }
     }
 
-    Q_ASSERT(m_deviceList.isEmpty());
-    const QStringList deviceIds = pendingDeviceIds.value();
-
-    if (deviceIds.isEmpty())
-        return;
-
-    beginInsertRows(QModelIndex(), 0, deviceIds.count() - 1);
-    for (const QString &id : deviceIds) {
-        appendDevice(new DeviceDbusInterface(id, this));
-    }
-    endInsertRows();
+    setBusy(false);
 }
 
 void DevicesModel::appendDevice(DeviceDbusInterface *dev)

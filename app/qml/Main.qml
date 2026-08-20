@@ -14,6 +14,10 @@ import org.kde.config as KConfig
 Kirigami.ApplicationWindow {
     id: root
     property int columnWidth: Kirigami.Units.gridUnit * 13
+
+    property string pendingDeviceId
+    property string pendingPluginConfig
+
     minimumWidth: Kirigami.Units.gridUnit * 15
     minimumHeight: Kirigami.Units.gridUnit * 15
     wideScreen: width > columnWidth * 5
@@ -30,6 +34,15 @@ Kirigami.ApplicationWindow {
     }
 
     function openDevice(deviceId, pluginConfig) {
+        if (devicesModel.busy) {
+            root.pendingDeviceId = deviceId;
+            root.pendingPluginConfig = pluginConfig;
+            return;
+        }
+
+        root.pendingDeviceId = "";
+        root.pendingPluginConfig = "";
+
         pageStack.clear();
         let device = devicesModel.deviceForId(deviceId);
         if (!device) {
@@ -48,6 +61,11 @@ Kirigami.ApplicationWindow {
 
     DevicesModel {
         id: devicesModel
+        onBusyChanged: (busy) => {
+            if (!busy && root.pendingDeviceId) {
+                root.openDevice(root.pendingDeviceId, root.pendingPluginConfig);
+            }
+        }
     }
 
     globalDrawer: Kirigami.OverlayDrawer {
@@ -144,8 +162,14 @@ Kirigami.ApplicationWindow {
                         icon.name: 'edit-none-symbolic'
                         anchors.centerIn: parent
                         width: parent.width - (Kirigami.Units.largeSpacing * 4)
-                        visible: devices.count === 0
+                        visible: devices.count === 0 && !devicesModel.busy
                     }
+
+                    QQC2.BusyIndicator {
+                        anchors.centerIn: parent
+                        visible: devicesModel.busy
+                    }
+
                     model: DevicesSortProxyModel {
                         sourceModel: devicesModel
                     }
