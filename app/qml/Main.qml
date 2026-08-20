@@ -155,7 +155,7 @@ Kirigami.ApplicationWindow {
                         text: Kirigami.MnemonicData.richTextLabel
                         Accessible.name: Kirigami.MnemonicData.plainTextLabel ?? model.name // fallback needed for KF < 6.12
                         width: ListView.view.width
-                        highlighted: false
+                        highlighted: (pageStack.items[0] as DevicePage)?.currentDevice === device
                         Accessible.role: Accessible.PageTab
                         Accessible.description: toolTip
 
@@ -171,6 +171,7 @@ Kirigami.ApplicationWindow {
                         contentItem: Kirigami.IconTitleSubtitle {
                             title: delegate.text
                             subtitle: toolTip
+                            selected: delegate.highlighted
                             icon: icon.fromControlsIcon(delegate.icon)
                         }
 
