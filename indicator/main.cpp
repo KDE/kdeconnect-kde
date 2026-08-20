@@ -127,11 +127,15 @@ int main(int argc, char **argv)
         // Add quit menu
 #if defined(Q_OS_MAC)
         menu->addAction(i18n("Quit"), qApp, []() {
-            auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect.daemon"),
-                                                          QStringLiteral("/MainApplication"),
-                                                          QStringLiteral("org.qtproject.Qt.QCoreApplication"),
-                                                          QStringLiteral("quit"));
-            QDBusConnection::sessionBus().call(message, QDBus::NoBlock);
+            const auto quitApplication = [](const QString &service) {
+                const auto message = QDBusMessage::createMethodCall(service,
+                                                                    QStringLiteral("/MainApplication"),
+                                                                    QStringLiteral("org.qtproject.Qt.QCoreApplication"),
+                                                                    QStringLiteral("quit"));
+                QDBusConnection::sessionBus().call(message, QDBus::NoBlock);
+            };
+            quitApplication(QStringLiteral("org.kde.kdeconnect.app"));
+            quitApplication(QStringLiteral("org.kde.kdeconnect.daemon"));
             qApp->quit();
         });
 #elif defined(Q_OS_WIN)
