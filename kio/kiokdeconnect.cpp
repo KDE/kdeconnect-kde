@@ -384,6 +384,28 @@ KIO::WorkerResult KioKdeconnect::stat(const QUrl &url)
     }
 
     if (kurl.relativePath().isEmpty()) {
+        SftpDbusInterface interface(kurl.deviceId());
+
+        QDBusReply<QVariantMap> directoriesReply = interface.getDirectories();
+        if (auto result = handleDBusError(directoriesReply); !result.success()) {
+            return result;
+        }
+
+        const auto directories = directoriesReply.value();
+
+        QString dirPath;
+        for (auto it = directories.begin(); it != directories.end(); ++it) {
+            if (it.value().toString() == kurl.storageDirectory()) {
+                dirPath = it.key();
+                break;
+            }
+        }
+
+        if (dirPath.isEmpty()) {
+            return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, kurl.storageDirectory());
+        }
+
+        dirEntry.fastInsert(KIO::UDSEntry::UDS_NAME, kurl.storageDirectory());
         statEntry(dirEntry);
         return KIO::WorkerResult::pass();
     }
