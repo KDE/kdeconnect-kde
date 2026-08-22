@@ -33,8 +33,11 @@ DeviceDbusInterface::DeviceDbusInterface(const QString &id, QObject *parent)
 {
     connect(this, &OrgKdeKdeconnectDeviceInterface::pairStateChanged, this, &DeviceDbusInterface::pairStateChangedProxy);
     connect(this, &OrgKdeKdeconnectDeviceInterface::reachableChanged, this, &DeviceDbusInterface::reachableChangedProxy);
+    connect(this, &OrgKdeKdeconnectDeviceInterface::linksChanged, this, &DeviceDbusInterface::linksChangedProxy);
     connect(this, &OrgKdeKdeconnectDeviceInterface::nameChanged, this, &DeviceDbusInterface::nameChangedProxy);
     connect(this, &OrgKdeKdeconnectDeviceInterface::typeChanged, this, &DeviceDbusInterface::typeChangedProxy);
+    connect(this, &OrgKdeKdeconnectDeviceInterface::statusIconNameChanged, this, &DeviceDbusInterface::statusIconNameChangedProxy);
+    connect(this, &OrgKdeKdeconnectDeviceInterface::pluginsChanged, this, &DeviceDbusInterface::pluginsChangedProxy);
 }
 
 QString DeviceDbusInterface::id() const
@@ -176,6 +179,7 @@ RemoteSystemVolumeDbusInterface::RemoteSystemVolumeDbusInterface(const QString &
                                                         QDBusConnection::sessionBus(),
                                                         parent)
 {
+    connect(this, &OrgKdeKdeconnectDeviceRemotesystemvolumeInterface::sinksChanged, this, &RemoteSystemVolumeDbusInterface::sinksChangedProxy);
 }
 
 VirtualmonitorDbusInterface::VirtualmonitorDbusInterface(const QString &deviceId, QObject *parent)

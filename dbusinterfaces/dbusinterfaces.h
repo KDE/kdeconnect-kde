@@ -51,13 +51,18 @@ class KDECONNECTDBUSINTERFACES_EXPORT DeviceDbusInterface : public OrgKdeKdeconn
     Q_OBJECT
     // Workaround because qdbusxml2cpp is not generating NOTIFY for properties
     Q_PROPERTY(QString type READ type NOTIFY typeChangedProxy)
+    Q_PROPERTY(QString name READ name NOTIFY nameChangedProxy)
+    Q_PROPERTY(QString iconName READ iconName NOTIFY typeChangedProxy)
+    Q_PROPERTY(QString verificationKey READ verificationKey NOTIFY pairStateChangedProxy)
+    Q_PROPERTY(QString statusIconName READ statusIconName NOTIFY statusIconNameChangedProxy)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChangedProxy)
+    Q_PROPERTY(QStringList reachableAddresses READ reachableAddresses NOTIFY linksChangedProxy)
+    Q_PROPERTY(QStringList activeProviderNames READ activeProviderNames NOTIFY linksChangedProxy)
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChangedProxy)
     Q_PROPERTY(bool isPairRequested READ isPairRequested NOTIFY pairStateChangedProxy)
     Q_PROPERTY(bool isPairRequestedByPeer READ isPairRequestedByPeer NOTIFY pairStateChangedProxy)
     Q_PROPERTY(int pairState READ pairState NOTIFY pairStateChangedProxy)
-    Q_PROPERTY(QString name READ name NOTIFY nameChangedProxy)
-    Q_PROPERTY(QString verificationKey READ verificationKey NOTIFY pairStateChangedProxy)
+    Q_PROPERTY(QStringList supportedPlugins READ supportedPlugins NOTIFY pluginsChangedProxy)
 
 public:
     explicit DeviceDbusInterface(const QString &deviceId, QObject *parent = nullptr);
@@ -68,6 +73,9 @@ public:
 Q_SIGNALS:
     void nameChangedProxy(const QString &name);
     void typeChangedProxy(const QString &type);
+    void statusIconNameChangedProxy();
+    void linksChangedProxy();
+    void pluginsChangedProxy();
     void pairStateChangedProxy(int pairState);
     void reachableChangedProxy(bool reachable);
 
@@ -222,10 +230,13 @@ public:
 class KDECONNECTDBUSINTERFACES_EXPORT RemoteSystemVolumeDbusInterface : public OrgKdeKdeconnectDeviceRemotesystemvolumeInterface
 {
     Q_OBJECT
-    // Workaround because qdbusxml2cpp is not generating CONSTANT for properties and qml complains at runtime
+    // Workaround because qdbusxml2cpp is not generating NOTIFY or CONSTANT for properties and qml complains at runtime
+    Q_PROPERTY(QByteArray sinks READ sinks NOTIFY sinksChangedProxy)
     Q_PROPERTY(QString deviceId READ deviceId CONSTANT)
 public:
     explicit RemoteSystemVolumeDbusInterface(const QString &deviceId, QObject *parent = nullptr);
+Q_SIGNALS:
+    void sinksChangedProxy();
 };
 
 class KDECONNECTDBUSINTERFACES_EXPORT VirtualmonitorDbusInterface : public OrgKdeKdeconnectDeviceVirtualmonitorInterface
