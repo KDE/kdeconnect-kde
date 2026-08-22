@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:44+0000\n"
+"POT-Creation-Date: 2026-08-22 00:45+0000\n"
 "PO-Revision-Date: 2026-02-22 07:19+0100\n"
 "Last-Translator: Imre Eilertsen <imreeil42@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@nuug.no>\n"
@@ -258,50 +258,50 @@ msgstr "Denne enheten kan ikke nås"
 msgid "Please choose a file"
 msgstr "Vennligst velg en fil"
 
-#: qml/Main.qml:87
+#: qml/Main.qml:105
 #, kde-format
 msgid "Devices"
 msgstr "Enheter"
 
-#: qml/Main.qml:95
+#: qml/Main.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Oppfrisk"
 
-#: qml/Main.qml:98
+#: qml/Main.qml:116
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Oppfrisk enheter"
 
-#: qml/Main.qml:134
+#: qml/Main.qml:152
 #, kde-format
 msgid "Remembered"
 msgstr "Husket på"
 
-#: qml/Main.qml:136
+#: qml/Main.qml:154
 #, kde-format
 msgid "Available"
 msgstr "Tilgjengelig"
 
-#: qml/Main.qml:138
+#: qml/Main.qml:156
 #, kde-format
 msgid "Connected"
 msgstr "Tilkoblet"
 
-#: qml/Main.qml:143
+#: qml/Main.qml:161
 #, kde-format
 msgid "No devices found"
 msgstr "Ingen enheter funnet"
 
-#: qml/Main.qml:215
+#: qml/Main.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr ""
 
-#: qml/Main.qml:230
+#: qml/Main.qml:255
 #, kde-format
 msgid "Settings"
 msgstr "Innstillinger"

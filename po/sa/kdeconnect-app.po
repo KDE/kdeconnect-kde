@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:44+0000\n"
+"POT-Creation-Date: 2026-08-22 00:45+0000\n"
 "PO-Revision-Date: 2024-12-25 19:36+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -263,52 +263,52 @@ msgstr "एतत् यन्त्रं न प्राप्यते"
 msgid "Please choose a file"
 msgstr "कृपया सञ्चिकां चिनोतु"
 
-#: qml/Main.qml:87
+#: qml/Main.qml:105
 #, kde-format
 msgid "Devices"
 msgstr "यन्त्राणि"
 
-#: qml/Main.qml:95
+#: qml/Main.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "ताजगी"
 
-#: qml/Main.qml:98
+#: qml/Main.qml:116
 #, fuzzy, kde-format
 #| msgid "Devices"
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "यन्त्राणि"
 
-#: qml/Main.qml:134
+#: qml/Main.qml:152
 #, kde-format
 msgid "Remembered"
 msgstr "स्मर्यते"
 
-#: qml/Main.qml:136
+#: qml/Main.qml:154
 #, kde-format
 msgid "Available"
 msgstr "उपलब्धः"
 
-#: qml/Main.qml:138
+#: qml/Main.qml:156
 #, kde-format
 msgid "Connected"
 msgstr "संबद्धः"
 
-#: qml/Main.qml:143
+#: qml/Main.qml:161
 #, kde-format
 msgid "No devices found"
 msgstr "न यन्त्राणि प्राप्तानि"
 
-#: qml/Main.qml:215
+#: qml/Main.qml:240
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "सेटिंग्स्"
 
-#: qml/Main.qml:230
+#: qml/Main.qml:255
 #, kde-format
 msgid "Settings"
 msgstr "सेटिंग्स्"

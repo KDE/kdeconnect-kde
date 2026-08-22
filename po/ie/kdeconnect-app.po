@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:44+0000\n"
+"POT-Creation-Date: 2026-08-22 00:45+0000\n"
 "PO-Revision-Date: 2022-11-16 16:11+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -258,53 +258,53 @@ msgstr "Ti aparate es ínatingibil"
 msgid "Please choose a file"
 msgstr "Ples selecter un file"
 
-#: qml/Main.qml:87
+#: qml/Main.qml:105
 #, fuzzy, kde-format
 #| msgid "Find Device"
 msgid "Devices"
 msgstr "Trovar li aparate"
 
-#: qml/Main.qml:95
+#: qml/Main.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr ""
 
-#: qml/Main.qml:98
+#: qml/Main.qml:116
 #, fuzzy, kde-format
 #| msgid "Find Device"
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Trovar li aparate"
 
-#: qml/Main.qml:134
+#: qml/Main.qml:152
 #, kde-format
 msgid "Remembered"
 msgstr "Memorat"
 
-#: qml/Main.qml:136
+#: qml/Main.qml:154
 #, kde-format
 msgid "Available"
 msgstr "Disponibil"
 
-#: qml/Main.qml:138
+#: qml/Main.qml:156
 #, kde-format
 msgid "Connected"
 msgstr "Conexet"
 
-#: qml/Main.qml:143
+#: qml/Main.qml:161
 #, kde-format
 msgid "No devices found"
 msgstr "Null aparates trovat"
 
-#: qml/Main.qml:215
+#: qml/Main.qml:240
 #, fuzzy, kde-format
 #| msgid "Plugin Settings"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Parametres del plugin"
 
-#: qml/Main.qml:230
+#: qml/Main.qml:255
 #, fuzzy, kde-format
 #| msgid "Plugin Settings"
 msgid "Settings"

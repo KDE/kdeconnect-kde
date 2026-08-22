@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:44+0000\n"
+"POT-Creation-Date: 2026-08-22 00:45+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -257,53 +257,53 @@ msgstr "Perangkat ini belum bisa diraih"
 msgid "Please choose a file"
 msgstr "Silakan pilih sebuah file"
 
-#: qml/Main.qml:87
+#: qml/Main.qml:105
 #, fuzzy, kde-format
 #| msgid "Find Device"
 msgid "Devices"
 msgstr "Temukan Peranti"
 
-#: qml/Main.qml:95
+#: qml/Main.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr ""
 
-#: qml/Main.qml:98
+#: qml/Main.qml:116
 #, fuzzy, kde-format
 #| msgid "Find Device"
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Temukan Peranti"
 
-#: qml/Main.qml:134
+#: qml/Main.qml:152
 #, kde-format
 msgid "Remembered"
 msgstr "Diingat"
 
-#: qml/Main.qml:136
+#: qml/Main.qml:154
 #, kde-format
 msgid "Available"
 msgstr "Tersedia"
 
-#: qml/Main.qml:138
+#: qml/Main.qml:156
 #, kde-format
 msgid "Connected"
 msgstr "Terkoneksi"
 
-#: qml/Main.qml:143
+#: qml/Main.qml:161
 #, kde-format
 msgid "No devices found"
 msgstr "Tidak ada peranti yang ditemukan"
 
-#: qml/Main.qml:215
+#: qml/Main.qml:240
 #, fuzzy, kde-format
 #| msgid "Plugin Settings"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Pengaturan Plugin"
 
-#: qml/Main.qml:230
+#: qml/Main.qml:255
 #, fuzzy, kde-format
 #| msgid "Plugin Settings"
 msgid "Settings"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-29 00:43+0000\n"
-"PO-Revision-Date: 2026-05-29 13:07+0200\n"
+"PO-Revision-Date: 2026-08-21 19:24+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -136,7 +136,7 @@ msgstr "Намиране на устройство чрез позвъняван
 #: kdeconnect-cli.cpp:83
 #, kde-format
 msgid "Unpair from device"
-msgstr "Разкачване от устройство"
+msgstr "Разделяне с устройство"
 
 #: kdeconnect-cli.cpp:84
 #, kde-format
@@ -349,7 +349,7 @@ msgstr "Вече не е сдвоено"
 #: kdeconnect-cli.cpp:311
 #, kde-format
 msgid "Successfully unpaired"
-msgstr "Успешно разкачени"
+msgstr "Успешно разделени"
 
 #: kdeconnect-cli.cpp:369
 #, kde-format
