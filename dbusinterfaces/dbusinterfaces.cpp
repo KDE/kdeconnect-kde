@@ -34,6 +34,7 @@ DeviceDbusInterface::DeviceDbusInterface(const QString &id, QObject *parent)
     connect(this, &OrgKdeKdeconnectDeviceInterface::pairStateChanged, this, &DeviceDbusInterface::pairStateChangedProxy);
     connect(this, &OrgKdeKdeconnectDeviceInterface::reachableChanged, this, &DeviceDbusInterface::reachableChangedProxy);
     connect(this, &OrgKdeKdeconnectDeviceInterface::nameChanged, this, &DeviceDbusInterface::nameChangedProxy);
+    connect(this, &OrgKdeKdeconnectDeviceInterface::typeChanged, this, &DeviceDbusInterface::typeChangedProxy);
 }
 
 QString DeviceDbusInterface::id() const
