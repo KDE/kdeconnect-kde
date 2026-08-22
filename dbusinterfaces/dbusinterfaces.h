@@ -50,6 +50,7 @@ class KDECONNECTDBUSINTERFACES_EXPORT DeviceDbusInterface : public OrgKdeKdeconn
 {
     Q_OBJECT
     // Workaround because qdbusxml2cpp is not generating NOTIFY for properties
+    Q_PROPERTY(QString type READ type NOTIFY typeChangedProxy)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChangedProxy)
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChangedProxy)
     Q_PROPERTY(bool isPairRequested READ isPairRequested NOTIFY pairStateChangedProxy)
@@ -66,6 +67,7 @@ public:
 
 Q_SIGNALS:
     void nameChangedProxy(const QString &name);
+    void typeChangedProxy(const QString &type);
     void pairStateChangedProxy(int pairState);
     void reachableChangedProxy(bool reachable);
 
