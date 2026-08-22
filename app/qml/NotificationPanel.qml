@@ -18,7 +18,7 @@ Kirigami.ScrollablePage {
     required property var pluginInterface
     required property var device
 
-    title: i18nc("@title:window", "Active Notifications")
+    title: i18nc("@title:window", "Notifications")
     Component.onCompleted: {
         console.log("device =", device.id());
         console.log("pluginInterface =", pluginInterface);
