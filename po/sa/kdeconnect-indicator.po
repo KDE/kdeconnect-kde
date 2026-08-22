@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-16 00:43+0000\n"
+"POT-Creation-Date: 2026-08-22 02:41+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -132,12 +132,12 @@ msgstr "युग्म"
 msgid "Reject"
 msgstr "अस्वीकार"
 
-#: main.cpp:129 main.cpp:138
+#: main.cpp:129 main.cpp:142
 #, kde-format
 msgid "Quit"
 msgstr "परिजहातु"
 
-#: main.cpp:155 main.cpp:177
+#: main.cpp:159 main.cpp:181
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

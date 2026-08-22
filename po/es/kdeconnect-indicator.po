@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-16 00:43+0000\n"
+"POT-Creation-Date: 2026-08-22 02:41+0000\n"
 "PO-Revision-Date: 2025-06-28 23:41+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -131,12 +131,12 @@ msgstr "Emparejar"
 msgid "Reject"
 msgstr "Rechazar"
 
-#: main.cpp:129 main.cpp:138
+#: main.cpp:129 main.cpp:142
 #, kde-format
 msgid "Quit"
 msgstr "Quitar"
 
-#: main.cpp:155 main.cpp:177
+#: main.cpp:159 main.cpp:181
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

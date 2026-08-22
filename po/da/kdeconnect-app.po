@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 02:44+0000\n"
+"POT-Creation-Date: 2026-08-22 02:41+0000\n"
 "PO-Revision-Date: 2025-07-31 12:18+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -288,14 +288,14 @@ msgstr "Forbundet"
 msgid "No devices found"
 msgstr "Ingen enheder fundet"
 
-#: qml/Main.qml:215
+#: qml/Main.qml:216
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Indstillinger"
 
-#: qml/Main.qml:230
+#: qml/Main.qml:231
 #, kde-format
 msgid "Settings"
 msgstr "Indstillinger"

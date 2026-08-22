@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 02:44+0000\n"
+"POT-Creation-Date: 2026-08-22 02:41+0000\n"
 "PO-Revision-Date: 2026-04-12 20:25+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -287,13 +287,13 @@ msgstr "இணைந்துள்ளது"
 msgid "No devices found"
 msgstr "எந்த சாதனங்களும் கண்டுபிடிக்கப்படவில்லை"
 
-#: qml/Main.qml:215
+#: qml/Main.qml:216
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "அமைப்புகள்"
 
-#: qml/Main.qml:230
+#: qml/Main.qml:231
 #, kde-format
 msgid "Settings"
 msgstr "அமைப்புகள்"

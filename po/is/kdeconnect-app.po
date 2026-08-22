@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 02:44+0000\n"
+"POT-Creation-Date: 2026-08-22 02:41+0000\n"
 "PO-Revision-Date: 2026-04-13 18:17+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -288,13 +288,13 @@ msgstr "Tengt"
 msgid "No devices found"
 msgstr "Engin tæki fundust"
 
-#: qml/Main.qml:215
+#: qml/Main.qml:216
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Stillingar"
 
-#: qml/Main.qml:230
+#: qml/Main.qml:231
 #, kde-format
 msgid "Settings"
 msgstr "Stillingar"

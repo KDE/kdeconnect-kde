@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 02:44+0000\n"
+"POT-Creation-Date: 2026-08-22 02:41+0000\n"
 "PO-Revision-Date: 2026-05-30 17:17-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -286,13 +286,13 @@ msgstr "باغلاندى"
 msgid "No devices found"
 msgstr "ھېچقانداق ئۈسكۈنە تېپىلمىدى"
 
-#: qml/Main.qml:215
+#: qml/Main.qml:216
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "تەڭشەك"
 
-#: qml/Main.qml:230
+#: qml/Main.qml:231
 #, kde-format
 msgid "Settings"
 msgstr "تەڭشەك"
