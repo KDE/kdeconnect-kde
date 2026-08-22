@@ -103,7 +103,7 @@ Kirigami.ScrollablePage {
                 Kirigami.Separator {
                     anchors.bottom: parent.bottom
                     anchors.horizontalCenter: parent.horizontalCenter
-                    width: parent.width - deviceHeaderContainer.leftPadding - deviceHeaderContainer.rightPadding
+                    width: parent.width
                     opacity: 0.5
                     visible: index < notificationsModel.count - 1
                 }
