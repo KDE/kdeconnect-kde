@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 00:45+0000\n"
+"POT-Creation-Date: 2026-08-23 00:44+0000\n"
 "PO-Revision-Date: 2026-08-08 17:21+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -351,10 +351,11 @@ msgid "%1 - %2"
 msgstr "%1 - %2"
 
 #: qml/NotificationPanel.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Notifications"
 msgctxt "@title:window"
-msgid "Active Notifications"
-msgstr "Notificaciones activas"
+msgid "Notifications"
+msgstr "Notificaciones"
 
 #: qml/NotificationPanel.qml:196
 #, kde-format
@@ -502,3 +503,7 @@ msgstr ""
 "Si tiene problemas, visite la <a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">Wiki de la comunidad KDE "
 "Connect</span></a> para obtener ayuda."
+
+#~ msgctxt "@title:window"
+#~ msgid "Active Notifications"
+#~ msgstr "Notificaciones activas"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 00:45+0000\n"
+"POT-Creation-Date: 2026-08-23 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -348,10 +348,11 @@ msgid "%1 - %2"
 msgstr "%1 - %2"
 
 #: qml/NotificationPanel.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Notifications"
 msgctxt "@title:window"
-msgid "Active Notifications"
-msgstr "活动通知"
+msgid "Notifications"
+msgstr "通知"
 
 #: qml/NotificationPanel.qml:196
 #, kde-format
@@ -499,3 +500,7 @@ msgstr ""
 "如果您遇到问题，请访问 <a href=\"https://userbase.kde.org/KDEConnect\"><span "
 "style=\" text-decoration: underline;\">KDE Connect 社区百科</span></a> 寻求帮"
 "助。"
+
+#~ msgctxt "@title:window"
+#~ msgid "Active Notifications"
+#~ msgstr "活动通知"

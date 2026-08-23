@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 00:45+0000\n"
+"POT-Creation-Date: 2026-08-23 00:44+0000\n"
 "PO-Revision-Date: 2026-07-27 08:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -351,10 +351,11 @@ msgid "%1 - %2"
 msgstr "%1 – %2"
 
 #: qml/NotificationPanel.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Notifications"
 msgctxt "@title:window"
-msgid "Active Notifications"
-msgstr "Активні сповіщення"
+msgid "Notifications"
+msgstr "Сповіщення"
 
 #: qml/NotificationPanel.qml:196
 #, kde-format
@@ -502,6 +503,10 @@ msgstr ""
 "Якщо у вас виникають проблеми, спробуйте знайти довідкову інформацію на "
 "сторінці <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-"
 "decoration: underline;\">KDE Connect у вікі спільноти</span></a>."
+
+#~ msgctxt "@title:window"
+#~ msgid "Active Notifications"
+#~ msgstr "Активні сповіщення"
 
 #~ msgid "@action:button"
 #~ msgstr "Параметри"

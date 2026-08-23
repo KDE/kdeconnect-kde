@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 00:45+0000\n"
+"POT-Creation-Date: 2026-08-23 00:44+0000\n"
 "PO-Revision-Date: 2026-07-27 12:37+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -348,10 +348,11 @@ msgid "%1 - %2"
 msgstr "%1 - %2"
 
 #: qml/NotificationPanel.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Notifications"
 msgctxt "@title:window"
-msgid "Active Notifications"
-msgstr "Aktivní upozornění"
+msgid "Notifications"
+msgstr "Upozornění"
 
 #: qml/NotificationPanel.qml:196
 #, kde-format
@@ -499,3 +500,7 @@ msgstr ""
 "Pokud máte problémy, hledejte pomoc na <a href=\"https://community.kde.org/"
 "KDEConnect\"><span style=\" text-decoration: underline; \">Wiki komunity KDE "
 "Connect</span></a>."
+
+#~ msgctxt "@title:window"
+#~ msgid "Active Notifications"
+#~ msgstr "Aktivní upozornění"

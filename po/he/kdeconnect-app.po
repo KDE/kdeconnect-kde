@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 00:45+0000\n"
+"POT-Creation-Date: 2026-08-23 00:44+0000\n"
 "PO-Revision-Date: 2026-07-28 08:48+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -349,10 +349,11 @@ msgid "%1 - %2"
 msgstr "%1 - %2"
 
 #: qml/NotificationPanel.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Notifications"
 msgctxt "@title:window"
-msgid "Active Notifications"
-msgstr "התראות פעילות"
+msgid "Notifications"
+msgstr "התראות"
 
 #: qml/NotificationPanel.qml:196
 #, kde-format
@@ -500,6 +501,10 @@ msgstr ""
 "אם נתקלת בבעיות, מומלץ לבקר ב<a href=\"https://userbase.kde.org/KDEConnect"
 "\"><span style=\" text-decoration: underline;\">וויקי של קהילת KDE Connect</"
 "span></a> לקבלת עזרה."
+
+#~ msgctxt "@title:window"
+#~ msgid "Active Notifications"
+#~ msgstr "התראות פעילות"
 
 #~ msgctxt "@info KDE Connect provider name"
 #~ msgid "Bluetooth"
