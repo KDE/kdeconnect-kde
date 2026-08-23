@@ -19,7 +19,6 @@
 #include "kdeconnect-version.h"
 #include "models/conversationmessage.h"
 #include "models/devicesmodel.h"
-#include "models/notificationsmodel.h"
 
 #include <dbushelper.h>
 
@@ -409,12 +408,12 @@ int main(int argc, char **argv)
         if (device.isEmpty())
             return 1;
 
-        NotificationsModel notifications;
-        notifications.setDeviceId(device);
-        for (int i = 0, rows = notifications.rowCount(); i < rows; ++i) {
-            QModelIndex idx = notifications.index(i);
-            QTextStream(stdout) << "- " << idx.data(NotificationsModel::AppNameModelRole).toString() << ": "
-                                << idx.data(NotificationsModel::NameModelRole).toString() << Qt::endl;
+        DeviceNotificationsDbusInterface notifIface(device);
+        const QStringList ids = blockOnReply<QStringList>(notifIface.activeNotifications());
+
+        for (const QString &id : ids) {
+            NotificationDbusInterface notification(device, id);
+            QTextStream(stdout) << "- " << notification.appName() << ": " << notification.ticker() << Qt::endl;
         }
     } else if (parser.isSet(QStringLiteral("list-commands"))) {
         QString device = getDevice(iface, parser);
