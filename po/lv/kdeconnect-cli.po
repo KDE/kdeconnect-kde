@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:43+0000\n"
+"POT-Creation-Date: 2026-08-24 00:44+0000\n"
 "PO-Revision-Date: 2025-11-08 09:44+0200\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "toms.trasuns@posteo.net"
 
-#: kdeconnect-cli.cpp:38
+#: kdeconnect-cli.cpp:37
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -41,57 +41,57 @@ msgstr ""
 "Ierīces ID un nosaukumi ir atrodami, izmantojot arī „kdeconnect-cli -l“ \n"
 "Pilnīgāku palīdzību meklējiet ar „--help“ parametru"
 
-#: kdeconnect-cli.cpp:58
+#: kdeconnect-cli.cpp:57
 #, kde-format
 msgid "KDE Connect CLI tool"
 msgstr "„KDE Connect“ CLI rīks"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:59
 #, kde-format
 msgid "© 2015–2025, KDE Connect Team"
 msgstr "© 2015—2025, „KDE Connect“ komanda"
 
-#: kdeconnect-cli.cpp:61
+#: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: kdeconnect-cli.cpp:62
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: kdeconnect-cli.cpp:68
+#: kdeconnect-cli.cpp:67
 #, kde-format
 msgid "List all devices"
 msgstr "Uzskaitīt visas ierīces"
 
-#: kdeconnect-cli.cpp:70
+#: kdeconnect-cli.cpp:69
 #, kde-format
 msgid "List available (paired and reachable) devices"
 msgstr "Uzskaitīt pieejamās (sapārotas un sasniedzamās) ierīces"
 
-#: kdeconnect-cli.cpp:71
+#: kdeconnect-cli.cpp:70
 #, kde-format
 msgid "List all backends and status"
 msgstr "Uzskaitīt visas aizmugursistēmas un statusu"
 
-#: kdeconnect-cli.cpp:72
+#: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "Enable the specified backend"
 msgstr "Ieslēgt attiecīgo aizmugursistēmu"
 
-#: kdeconnect-cli.cpp:72 kdeconnect-cli.cpp:73
+#: kdeconnect-cli.cpp:71 kdeconnect-cli.cpp:72
 #, kde-format
 msgid "backend"
 msgstr "aizmugursistēma"
 
-#: kdeconnect-cli.cpp:73
+#: kdeconnect-cli.cpp:72
 #, kde-format
 msgid "Disable the specified backend"
 msgstr "Izslēgt attiecīgo aizmugursistēmu"
 
-#: kdeconnect-cli.cpp:75
+#: kdeconnect-cli.cpp:74
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices id, to ease "
@@ -100,7 +100,7 @@ msgstr ""
 "Likt „--list-devices“ un „--list-available“ izdrukāt tikai ierīču ID, lai "
 "atvieglotu skriptēšanu"
 
-#: kdeconnect-cli.cpp:77
+#: kdeconnect-cli.cpp:76
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices name, to ease "
@@ -109,7 +109,7 @@ msgstr ""
 "Likt „--list-devices“ un „--list-available“ izdrukāt tikai ierīču nosaukumu, "
 "lai atvieglotu skriptēšanu"
 
-#: kdeconnect-cli.cpp:79
+#: kdeconnect-cli.cpp:78
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices id and name, "
@@ -118,87 +118,87 @@ msgstr ""
 "Likt „--list-devices“ un „--list-available“ izdrukāt tikai ierīču ID un "
 "nosaukumu, lai atvieglotu skriptēšanu"
 
-#: kdeconnect-cli.cpp:80
+#: kdeconnect-cli.cpp:79
 #, kde-format
 msgid "Search for devices in the network and re-establish connections"
 msgstr "Meklēt ierīces tīklā un atjaunot savienojumus"
 
-#: kdeconnect-cli.cpp:81
+#: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Request pairing with device"
 msgstr "Lūgt sapārošanu ar ierīci"
 
-#: kdeconnect-cli.cpp:82
+#: kdeconnect-cli.cpp:81
 #, kde-format
 msgid "Find device by ringing it"
 msgstr "Atrast ierīci, liekot tai atskaņot signālu"
 
-#: kdeconnect-cli.cpp:83
+#: kdeconnect-cli.cpp:82
 #, kde-format
 msgid "Unpair from device"
 msgstr "Atpārot ierīci"
 
-#: kdeconnect-cli.cpp:84
+#: kdeconnect-cli.cpp:83
 #, kde-format
 msgid "Send ping to device"
 msgstr "Nosūta „ping“ signālu uz ierīci"
 
-#: kdeconnect-cli.cpp:85
+#: kdeconnect-cli.cpp:84
 #, kde-format
 msgid "Same as ping but you can set the message to display"
 msgstr "Tas pats, kas „ping“, bet varat norādīt parādāmo ziņojumu"
 
-#: kdeconnect-cli.cpp:85 kdeconnect-cli.cpp:92
+#: kdeconnect-cli.cpp:84 kdeconnect-cli.cpp:91
 #, kde-format
 msgid "message"
 msgstr "ziņojums"
 
-#: kdeconnect-cli.cpp:86
+#: kdeconnect-cli.cpp:85
 #, kde-format
 msgid "Send clipboard to device"
 msgstr "Nosūtīt starpliktuves saturu uz ierīci"
 
-#: kdeconnect-cli.cpp:87
+#: kdeconnect-cli.cpp:86
 #, kde-format
 msgid "Share file/URL to device"
 msgstr "Dalīties ar datni/URL ar ierīci"
 
-#: kdeconnect-cli.cpp:88
+#: kdeconnect-cli.cpp:87
 #, kde-format
 msgid "Share text to device"
 msgstr "Dalīties ar tekstu ar ierīci"
 
-#: kdeconnect-cli.cpp:89
+#: kdeconnect-cli.cpp:88
 #, kde-format
 msgid "Display notifications on device"
 msgstr "Parādīt paziņojumu ierīcē"
 
-#: kdeconnect-cli.cpp:90
+#: kdeconnect-cli.cpp:89
 #, kde-format
 msgid "Lock the specified device"
 msgstr "Bloķēt attiecīgo ierīci"
 
-#: kdeconnect-cli.cpp:91
+#: kdeconnect-cli.cpp:90
 #, kde-format
 msgid "Unlock the specified device"
 msgstr "Atbloķēt attiecīgo ierīci"
 
-#: kdeconnect-cli.cpp:92
+#: kdeconnect-cli.cpp:91
 #, kde-format
 msgid "Sends an SMS. Requires destination"
 msgstr "Nosūtīt īsziņu. Nepieciešams galamērķis"
 
-#: kdeconnect-cli.cpp:93
+#: kdeconnect-cli.cpp:92
 #, kde-format
 msgid "Phone number to send the message"
 msgstr "Tālruņa numurs, uz kuru nosūtīt ziņojumu"
 
-#: kdeconnect-cli.cpp:93
+#: kdeconnect-cli.cpp:92
 #, kde-format
 msgid "phone number"
 msgstr "tālruņa numurs"
 
-#: kdeconnect-cli.cpp:95
+#: kdeconnect-cli.cpp:94
 #, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
@@ -206,79 +206,79 @@ msgstr ""
 "Datņu URL, kur nosūtīt pielikumus ar ziņojumu (iespējams padot vairākas "
 "reizes)"
 
-#: kdeconnect-cli.cpp:96
+#: kdeconnect-cli.cpp:95
 #, kde-format
 msgid "file URLs"
 msgstr "datņu URL"
 
-#: kdeconnect-cli.cpp:97
+#: kdeconnect-cli.cpp:96
 #, kde-format
 msgid "Device ID"
 msgstr "Ierīces ID"
 
-#: kdeconnect-cli.cpp:98
+#: kdeconnect-cli.cpp:97
 #, kde-format
 msgid "Device Name"
 msgstr "Ierīces nosaukums"
 
-#: kdeconnect-cli.cpp:99
+#: kdeconnect-cli.cpp:98
 #, kde-format
 msgid "Get encryption info about device"
 msgstr "Iegūt šifrēšanas informāciju par ierīci"
 
-#: kdeconnect-cli.cpp:100
+#: kdeconnect-cli.cpp:99
 #, kde-format
 msgid "List remote commands and their ids"
 msgstr "Uzskaitīt attālās vadības komandas un to ID"
 
-#: kdeconnect-cli.cpp:101
+#: kdeconnect-cli.cpp:100
 #, kde-format
 msgid "Execute remote command by id"
 msgstr "Izpildīt attālas vadības komandu pēc ID"
 
-#: kdeconnect-cli.cpp:102
+#: kdeconnect-cli.cpp:101
 #, kde-format
 msgid "Send keys to device"
 msgstr "Nosūtīt taustiņu spiedienus uz ierīci"
 
-#: kdeconnect-cli.cpp:103
+#: kdeconnect-cli.cpp:102
 #, kde-format
 msgid "Display this device's id and exit"
 msgstr "Parāda ierīces ID un iziet"
 
-#: kdeconnect-cli.cpp:104
+#: kdeconnect-cli.cpp:103
 #, kde-format
 msgid "Mount filesystem of a said device"
 msgstr "Piemontēt minētās ierīces datņu sistēmu"
 
-#: kdeconnect-cli.cpp:105
+#: kdeconnect-cli.cpp:104
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr "Drukāt attiecīgās ierīces datņu sistēmas montēšanas vietu"
 
-#: kdeconnect-cli.cpp:154
+#: kdeconnect-cli.cpp:153
 #, kde-format
 msgctxt ""
 "Details on how a device is connected eg: on <network address> via Bluetooth"
 msgid "on %1 via %2"
 msgstr ""
 
-#: kdeconnect-cli.cpp:157
+#: kdeconnect-cli.cpp:156
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(sapārots un sasniedzams)"
 
-#: kdeconnect-cli.cpp:159
+#: kdeconnect-cli.cpp:158
 #, kde-format
 msgid "(reachable)"
 msgstr "(sasniedzams)"
 
-#: kdeconnect-cli.cpp:161 kdeconnect-cli.cpp:183
+#: kdeconnect-cli.cpp:160 kdeconnect-cli.cpp:182
 #, kde-format
 msgid "(paired)"
 msgstr "(sapārots)"
 
-#: kdeconnect-cli.cpp:166
+#: kdeconnect-cli.cpp:165
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
@@ -286,71 +286,71 @@ msgstr[0] "Atrasta %1 ierīce"
 msgstr[1] "Atrastas %1 ierīces"
 msgstr[2] "Atrasts %1 ierīču"
 
-#: kdeconnect-cli.cpp:168
+#: kdeconnect-cli.cpp:167
 #, kde-format
 msgid "No devices found"
 msgstr "Nav atrastu ierīču"
 
-#: kdeconnect-cli.cpp:185
+#: kdeconnect-cli.cpp:184
 #, kde-format
 msgid "(unpaired)"
 msgstr "(atpārota)"
 
-#: kdeconnect-cli.cpp:245
+#: kdeconnect-cli.cpp:244
 #, fuzzy, kde-format
 #| msgid "Shared %1"
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Nosūtīts %1"
 
-#: kdeconnect-cli.cpp:258
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Nosūtīts teksts: %1"
 
-#: kdeconnect-cli.cpp:269
+#: kdeconnect-cli.cpp:268
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Pieprasīts bloķēt %1."
 
-#: kdeconnect-cli.cpp:271
+#: kdeconnect-cli.cpp:270
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Pieprasīts atbloķēt %1."
 
-#: kdeconnect-cli.cpp:282
+#: kdeconnect-cli.cpp:281
 #, kde-format
 msgid "waiting for device…"
 msgstr "gaida ierīci…"
 
-#: kdeconnect-cli.cpp:295
+#: kdeconnect-cli.cpp:294
 #, kde-format
 msgid "Device not found"
 msgstr "Ierīce nav atrasta"
 
-#: kdeconnect-cli.cpp:297
+#: kdeconnect-cli.cpp:296
 #, kde-format
 msgid "Already paired"
 msgstr "Jau ir sapārota"
 
-#: kdeconnect-cli.cpp:299
+#: kdeconnect-cli.cpp:298
 #, kde-format
 msgid "Pair requested"
 msgstr "Pieprasīta sapārošana"
 
-#: kdeconnect-cli.cpp:309
+#: kdeconnect-cli.cpp:308
 #, kde-format
 msgid "Already not paired"
 msgstr "Nav vairs sapārota"
 
-#: kdeconnect-cli.cpp:311
+#: kdeconnect-cli.cpp:310
 #, kde-format
 msgid "Successfully unpaired"
 msgstr "Ierīce ir atpārota"
 
-#: kdeconnect-cli.cpp:369
+#: kdeconnect-cli.cpp:368
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:43+0000\n"
+"POT-Creation-Date: 2026-08-24 00:44+0000\n"
 "PO-Revision-Date: 2026-06-07 16:06+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 "liueigi@gmail.com, pan93412@gmail.com, brli@chakralinux.org, mail@kisaragi-"
 "hiu.com"
 
-#: kdeconnect-cli.cpp:38
+#: kdeconnect-cli.cpp:37
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -44,57 +44,57 @@ msgstr ""
 "裝置 ID 及名稱可使用「kdeconnect-cli -l」找到。\n"
 "請使用 --help 選項查閱完整說明。"
 
-#: kdeconnect-cli.cpp:58
+#: kdeconnect-cli.cpp:57
 #, kde-format
 msgid "KDE Connect CLI tool"
 msgstr "KDE Connect 指令列工具"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:59
 #, kde-format
 msgid "© 2015–2025, KDE Connect Team"
 msgstr "© 2015–2025, KDE Connect 團隊"
 
-#: kdeconnect-cli.cpp:61
+#: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: kdeconnect-cli.cpp:62
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: kdeconnect-cli.cpp:68
+#: kdeconnect-cli.cpp:67
 #, kde-format
 msgid "List all devices"
 msgstr "列出全部裝置"
 
-#: kdeconnect-cli.cpp:70
+#: kdeconnect-cli.cpp:69
 #, kde-format
 msgid "List available (paired and reachable) devices"
 msgstr "列出可用的裝置（已經配對並且可連線）"
 
-#: kdeconnect-cli.cpp:71
+#: kdeconnect-cli.cpp:70
 #, kde-format
 msgid "List all backends and status"
 msgstr "列出所有後端介面與狀態"
 
-#: kdeconnect-cli.cpp:72
+#: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "Enable the specified backend"
 msgstr "啟用指定的後端介面"
 
-#: kdeconnect-cli.cpp:72 kdeconnect-cli.cpp:73
+#: kdeconnect-cli.cpp:71 kdeconnect-cli.cpp:72
 #, kde-format
 msgid "backend"
 msgstr "後端介面"
 
-#: kdeconnect-cli.cpp:73
+#: kdeconnect-cli.cpp:72
 #, kde-format
 msgid "Disable the specified backend"
 msgstr "停用指定的後端介面"
 
-#: kdeconnect-cli.cpp:75
+#: kdeconnect-cli.cpp:74
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices id, to ease "
@@ -103,7 +103,7 @@ msgstr ""
 "下達 --list-devices 或者 --list-available ，能夠只有列出裝置的 ID，看起來比較"
 "簡潔。"
 
-#: kdeconnect-cli.cpp:77
+#: kdeconnect-cli.cpp:76
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices name, to ease "
@@ -112,7 +112,7 @@ msgstr ""
 "下達 --list-devices 或者 --list-available ，能夠只有列出裝置的名稱，看起來比"
 "較簡潔。"
 
-#: kdeconnect-cli.cpp:79
+#: kdeconnect-cli.cpp:78
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices id and name, "
@@ -121,234 +121,234 @@ msgstr ""
 "下達 --list-devices 或者 --list-available ，能夠只有列出裝置的 ID 與名稱，看"
 "起來比較簡潔。"
 
-#: kdeconnect-cli.cpp:80
+#: kdeconnect-cli.cpp:79
 #, kde-format
 msgid "Search for devices in the network and re-establish connections"
 msgstr "搜尋網路中的裝置並且嘗試重新連接。"
 
-#: kdeconnect-cli.cpp:81
+#: kdeconnect-cli.cpp:80
 #, kde-format
 msgid "Request pairing with device"
 msgstr "請求與裝置配對"
 
-#: kdeconnect-cli.cpp:82
+#: kdeconnect-cli.cpp:81
 #, kde-format
 msgid "Find device by ringing it"
 msgstr "讓裝置發出聲響以便尋找"
 
-#: kdeconnect-cli.cpp:83
+#: kdeconnect-cli.cpp:82
 #, kde-format
 msgid "Unpair from device"
 msgstr "從裝置解除配對"
 
-#: kdeconnect-cli.cpp:84
+#: kdeconnect-cli.cpp:83
 #, kde-format
 msgid "Send ping to device"
 msgstr "發送 Ping 回應封包給裝置"
 
-#: kdeconnect-cli.cpp:85
+#: kdeconnect-cli.cpp:84
 #, kde-format
 msgid "Same as ping but you can set the message to display"
 msgstr "與 Ping 回應封包一樣的功能，但是你可以填寫一些訊息來顯示。"
 
-#: kdeconnect-cli.cpp:85 kdeconnect-cli.cpp:92
+#: kdeconnect-cli.cpp:84 kdeconnect-cli.cpp:91
 #, kde-format
 msgid "message"
 msgstr "訊息"
 
-#: kdeconnect-cli.cpp:86
+#: kdeconnect-cli.cpp:85
 #, kde-format
 msgid "Send clipboard to device"
 msgstr "傳送剪貼簿內容給裝置"
 
-#: kdeconnect-cli.cpp:87
+#: kdeconnect-cli.cpp:86
 #, kde-format
 msgid "Share file/URL to device"
 msgstr "分享檔案/網址給裝置"
 
-#: kdeconnect-cli.cpp:88
+#: kdeconnect-cli.cpp:87
 #, kde-format
 msgid "Share text to device"
 msgstr "分享文字給裝置"
 
-#: kdeconnect-cli.cpp:89
+#: kdeconnect-cli.cpp:88
 #, kde-format
 msgid "Display notifications on device"
 msgstr "在裝置上顯示通知"
 
-#: kdeconnect-cli.cpp:90
+#: kdeconnect-cli.cpp:89
 #, kde-format
 msgid "Lock the specified device"
 msgstr "鎖定指定的裝置"
 
-#: kdeconnect-cli.cpp:91
+#: kdeconnect-cli.cpp:90
 #, kde-format
 msgid "Unlock the specified device"
 msgstr "解除鎖定指定的裝置"
 
-#: kdeconnect-cli.cpp:92
+#: kdeconnect-cli.cpp:91
 #, kde-format
 msgid "Sends an SMS. Requires destination"
 msgstr "傳送簡訊。需要指定目的地"
 
-#: kdeconnect-cli.cpp:93
+#: kdeconnect-cli.cpp:92
 #, kde-format
 msgid "Phone number to send the message"
 msgstr "欲傳送訊息的電話號碼"
 
-#: kdeconnect-cli.cpp:93
+#: kdeconnect-cli.cpp:92
 #, kde-format
 msgid "phone number"
 msgstr "電話號碼"
 
-#: kdeconnect-cli.cpp:95
+#: kdeconnect-cli.cpp:94
 #, kde-format
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr "嵌入在送出訊息附加檔案內的網址（可重複指定）"
 
-#: kdeconnect-cli.cpp:96
+#: kdeconnect-cli.cpp:95
 #, kde-format
 msgid "file URLs"
 msgstr "檔案網址"
 
-#: kdeconnect-cli.cpp:97
+#: kdeconnect-cli.cpp:96
 #, kde-format
 msgid "Device ID"
 msgstr "裝置 ID"
 
-#: kdeconnect-cli.cpp:98
+#: kdeconnect-cli.cpp:97
 #, kde-format
 msgid "Device Name"
 msgstr "裝置名稱"
 
-#: kdeconnect-cli.cpp:99
+#: kdeconnect-cli.cpp:98
 #, kde-format
 msgid "Get encryption info about device"
 msgstr "取得裝置關於加密的資訊"
 
-#: kdeconnect-cli.cpp:100
+#: kdeconnect-cli.cpp:99
 #, kde-format
 msgid "List remote commands and their ids"
 msgstr "列出遠端指令及其 ID"
 
-#: kdeconnect-cli.cpp:101
+#: kdeconnect-cli.cpp:100
 #, kde-format
 msgid "Execute remote command by id"
 msgstr "以 ID 來執行遠端指令"
 
-#: kdeconnect-cli.cpp:102
+#: kdeconnect-cli.cpp:101
 #, kde-format
 msgid "Send keys to device"
 msgstr "傳送按鍵給裝置"
 
-#: kdeconnect-cli.cpp:103
+#: kdeconnect-cli.cpp:102
 #, kde-format
 msgid "Display this device's id and exit"
 msgstr "顯示裝置編號並退出"
 
-#: kdeconnect-cli.cpp:104
+#: kdeconnect-cli.cpp:103
 #, kde-format
 msgid "Mount filesystem of a said device"
 msgstr "掛載裝置的檔案系統"
 
-#: kdeconnect-cli.cpp:105
+#: kdeconnect-cli.cpp:104
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr "輸出"
 
-#: kdeconnect-cli.cpp:154
+#: kdeconnect-cli.cpp:153
 #, kde-format
 msgctxt ""
 "Details on how a device is connected eg: on <network address> via Bluetooth"
 msgid "on %1 via %2"
 msgstr "於 %1 透過 %2"
 
-#: kdeconnect-cli.cpp:157
+#: kdeconnect-cli.cpp:156
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "（已配對且可連線）"
 
-#: kdeconnect-cli.cpp:159
+#: kdeconnect-cli.cpp:158
 #, kde-format
 msgid "(reachable)"
 msgstr "（可連線）"
 
-#: kdeconnect-cli.cpp:161 kdeconnect-cli.cpp:183
+#: kdeconnect-cli.cpp:160 kdeconnect-cli.cpp:182
 #, kde-format
 msgid "(paired)"
 msgstr "（已配對）"
 
-#: kdeconnect-cli.cpp:166
+#: kdeconnect-cli.cpp:165
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "找到 %1 個裝置"
 
-#: kdeconnect-cli.cpp:168
+#: kdeconnect-cli.cpp:167
 #, kde-format
 msgid "No devices found"
 msgstr "沒有找到任何裝置"
 
-#: kdeconnect-cli.cpp:185
+#: kdeconnect-cli.cpp:184
 #, kde-format
 msgid "(unpaired)"
 msgstr "（未配對）"
 
-#: kdeconnect-cli.cpp:245
+#: kdeconnect-cli.cpp:244
 #, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "已分享 %1"
 
-#: kdeconnect-cli.cpp:258
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Shared text: %1"
 msgstr "已分享文字：%1"
 
-#: kdeconnect-cli.cpp:269
+#: kdeconnect-cli.cpp:268
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "向裝置 %1 提出鎖定需求。"
 
-#: kdeconnect-cli.cpp:271
+#: kdeconnect-cli.cpp:270
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "向裝置 %1 提出解鎖需求。"
 
-#: kdeconnect-cli.cpp:282
+#: kdeconnect-cli.cpp:281
 #, kde-format
 msgid "waiting for device…"
 msgstr "等待裝置中…"
 
-#: kdeconnect-cli.cpp:295
+#: kdeconnect-cli.cpp:294
 #, kde-format
 msgid "Device not found"
 msgstr "沒有找到裝置"
 
-#: kdeconnect-cli.cpp:297
+#: kdeconnect-cli.cpp:296
 #, kde-format
 msgid "Already paired"
 msgstr "已經配對"
 
-#: kdeconnect-cli.cpp:299
+#: kdeconnect-cli.cpp:298
 #, kde-format
 msgid "Pair requested"
 msgstr "已請求配對"
 
-#: kdeconnect-cli.cpp:309
+#: kdeconnect-cli.cpp:308
 #, kde-format
 msgid "Already not paired"
 msgstr "已經沒有取消配對"
 
-#: kdeconnect-cli.cpp:311
+#: kdeconnect-cli.cpp:310
 #, kde-format
 msgid "Successfully unpaired"
 msgstr "成功解除配對"
 
-#: kdeconnect-cli.cpp:369
+#: kdeconnect-cli.cpp:368
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "

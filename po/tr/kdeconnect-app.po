@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-23 00:44+0000\n"
-"PO-Revision-Date: 2026-07-27 19:34+0300\n"
+"PO-Revision-Date: 2026-08-23 18:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -352,8 +352,7 @@ msgid "%1 - %2"
 msgstr "%1 — %2"
 
 #: qml/NotificationPanel.qml:21
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Bildirimler"

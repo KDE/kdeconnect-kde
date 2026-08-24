@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-23 00:44+0000\n"
-"PO-Revision-Date: 2026-07-27 08:42+0300\n"
+"PO-Revision-Date: 2026-08-23 13:30+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -351,8 +351,7 @@ msgid "%1 - %2"
 msgstr "%1 – %2"
 
 #: qml/NotificationPanel.qml:21
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Сповіщення"

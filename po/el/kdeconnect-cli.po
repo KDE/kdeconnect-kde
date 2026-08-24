@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:43+0000\n"
+"POT-Creation-Date: 2026-08-24 00:44+0000\n"
 "PO-Revision-Date: 2021-06-14 15:37+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sstavra@gmail.com"
 
-#: kdeconnect-cli.cpp:38
+#: kdeconnect-cli.cpp:37
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -41,59 +41,59 @@ msgstr ""
 "«kdeconnect-cli -l» \n"
 "Δείτε την πλήρη βοήθεια με την επιλογή --help"
 
-#: kdeconnect-cli.cpp:58
+#: kdeconnect-cli.cpp:57
 #, kde-format
 msgid "KDE Connect CLI tool"
 msgstr "Εργαλείο γραμμής εντολών KDE Connect"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:59
 #, kde-format
 msgid "© 2015–2025, KDE Connect Team"
 msgstr ""
 
-#: kdeconnect-cli.cpp:61
+#: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: kdeconnect-cli.cpp:62
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: kdeconnect-cli.cpp:68
+#: kdeconnect-cli.cpp:67
 #, kde-format
 msgid "List all devices"
 msgstr "Λίστα όλων των συσκευών"
 
-#: kdeconnect-cli.cpp:70
+#: kdeconnect-cli.cpp:69
 #, kde-format
 msgid "List available (paired and reachable) devices"
 msgstr "Λίστα διαθέσιμων (συζευγμένων και μη) συσκευών"
 
-#: kdeconnect-cli.cpp:71
+#: kdeconnect-cli.cpp:70
 #, kde-format
 msgid "List all backends and status"
 msgstr ""
 
-#: kdeconnect-cli.cpp:72
+#: kdeconnect-cli.cpp:71
 #, fuzzy, kde-format
 #| msgid "Unlock the specified device"
 msgid "Enable the specified backend"
 msgstr "Ξεκλείδωμα της καθορισμένης συσκευής"
 
-#: kdeconnect-cli.cpp:72 kdeconnect-cli.cpp:73
+#: kdeconnect-cli.cpp:71 kdeconnect-cli.cpp:72
 #, kde-format
 msgid "backend"
 msgstr ""
 
-#: kdeconnect-cli.cpp:73
+#: kdeconnect-cli.cpp:72
 #, fuzzy, kde-format
 #| msgid "Unlock the specified device"
 msgid "Disable the specified backend"
 msgstr "Ξεκλείδωμα της καθορισμένης συσκευής"
 
-#: kdeconnect-cli.cpp:75
+#: kdeconnect-cli.cpp:74
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices id, to ease "
@@ -102,7 +102,7 @@ msgstr ""
 "Make --list-devices ή --list-available δείχνει μόνο τον κωδικό της συσκευής "
 "για διευκόλυνση της συγγραφής σεναρίων"
 
-#: kdeconnect-cli.cpp:77
+#: kdeconnect-cli.cpp:76
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices name, to ease "
@@ -111,7 +111,7 @@ msgstr ""
 "Make --list-devices ή --list-available δείχνει μόνο το όνομα της συσκευής "
 "για διευκόλυνση της συγγραφής σεναρίων"
 
-#: kdeconnect-cli.cpp:79
+#: kdeconnect-cli.cpp:78
 #, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices id and name, "
@@ -120,95 +120,95 @@ msgstr ""
 "Make --list-devices ή --list-available δείχνει μόνο τον κωδικό της συσκευής "
 "και το όνομα για διευκόλυνση της συγγραφής σεναρίων"
 
-#: kdeconnect-cli.cpp:80
+#: kdeconnect-cli.cpp:79
 #, kde-format
 msgid "Search for devices in the network and re-establish connections"
 msgstr "Αναζήτηση συσκευών στο δίκτυο και αναδημιουργία συνδέσεων"
 
-#: kdeconnect-cli.cpp:81
+#: kdeconnect-cli.cpp:80
 #, fuzzy, kde-format
 #| msgid "Request pairing to a said device"
 msgid "Request pairing with device"
 msgstr "Αίτημα σύζευξης σε δοθείσα συσκευή"
 
-#: kdeconnect-cli.cpp:82
+#: kdeconnect-cli.cpp:81
 #, fuzzy, kde-format
 #| msgid "Find the said device by ringing it."
 msgid "Find device by ringing it"
 msgstr "Αναζήτηση της δοθείσας συσκευής με κλήση."
 
-#: kdeconnect-cli.cpp:83
+#: kdeconnect-cli.cpp:82
 #, fuzzy, kde-format
 #| msgid "waiting for device..."
 msgid "Unpair from device"
 msgstr "αναμονή για συσκευή..."
 
-#: kdeconnect-cli.cpp:84
+#: kdeconnect-cli.cpp:83
 #, fuzzy, kde-format
 #| msgid "Sends a ping to said device"
 msgid "Send ping to device"
 msgstr "Αποστέλλει ping σε δοθείσα συσκευή"
 
-#: kdeconnect-cli.cpp:85
+#: kdeconnect-cli.cpp:84
 #, kde-format
 msgid "Same as ping but you can set the message to display"
 msgstr "Όπως το ping, αλλά μπορείτε να ορίσετε το κείμενο του μηνύματος"
 
-#: kdeconnect-cli.cpp:85 kdeconnect-cli.cpp:92
+#: kdeconnect-cli.cpp:84 kdeconnect-cli.cpp:91
 #, kde-format
 msgid "message"
 msgstr "Μήνυμα"
 
-#: kdeconnect-cli.cpp:86
+#: kdeconnect-cli.cpp:85
 #, fuzzy, kde-format
 #| msgid "Sends a ping to said device"
 msgid "Send clipboard to device"
 msgstr "Αποστέλλει ping σε δοθείσα συσκευή"
 
-#: kdeconnect-cli.cpp:87
+#: kdeconnect-cli.cpp:86
 #, fuzzy, kde-format
 #| msgid "Share a file/URL to a said device"
 msgid "Share file/URL to device"
 msgstr "Διαμοιρασμός αρχείου/URL σε δοθείσα συσκευή"
 
-#: kdeconnect-cli.cpp:88
+#: kdeconnect-cli.cpp:87
 #, fuzzy, kde-format
 #| msgid "Share text to a said device"
 msgid "Share text to device"
 msgstr "Διαμοιρασμός κειμένου σε δοθείσα συσκευή"
 
-#: kdeconnect-cli.cpp:89
+#: kdeconnect-cli.cpp:88
 #, fuzzy, kde-format
 #| msgid "Display the notifications on a said device"
 msgid "Display notifications on device"
 msgstr "Εμφάνιση των ειδοποιήσεων σε δοθείσα συσκευή"
 
-#: kdeconnect-cli.cpp:90
+#: kdeconnect-cli.cpp:89
 #, kde-format
 msgid "Lock the specified device"
 msgstr "Κλείδωμα της καθορισμένης συσκευής"
 
-#: kdeconnect-cli.cpp:91
+#: kdeconnect-cli.cpp:90
 #, kde-format
 msgid "Unlock the specified device"
 msgstr "Ξεκλείδωμα της καθορισμένης συσκευής"
 
-#: kdeconnect-cli.cpp:92
+#: kdeconnect-cli.cpp:91
 #, kde-format
 msgid "Sends an SMS. Requires destination"
 msgstr "Αποστέλλει SMS. Απαιτεί προορισμό"
 
-#: kdeconnect-cli.cpp:93
+#: kdeconnect-cli.cpp:92
 #, kde-format
 msgid "Phone number to send the message"
 msgstr "Ο αριθμός τηλεφώνου για την αποστολή του μηνύματος"
 
-#: kdeconnect-cli.cpp:93
+#: kdeconnect-cli.cpp:92
 #, kde-format
 msgid "phone number"
 msgstr "αριθμός τηλεφώνου"
 
-#: kdeconnect-cli.cpp:95
+#: kdeconnect-cli.cpp:94
 #, fuzzy, kde-format
 #| msgid ""
 #| "File urls to send attachments with the message (can be passed multiple "
@@ -219,157 +219,157 @@ msgstr ""
 "Τα url του αρχείου για την αποστολή συνημμένων με το μήνυμα (μπορούν να "
 "δοθούν πολλές φορές)"
 
-#: kdeconnect-cli.cpp:96
+#: kdeconnect-cli.cpp:95
 #, fuzzy, kde-format
 #| msgid "file urls"
 msgid "file URLs"
 msgstr "τα url του αρχείου"
 
-#: kdeconnect-cli.cpp:97
+#: kdeconnect-cli.cpp:96
 #, kde-format
 msgid "Device ID"
 msgstr "ID συσκευής"
 
-#: kdeconnect-cli.cpp:98
+#: kdeconnect-cli.cpp:97
 #, kde-format
 msgid "Device Name"
 msgstr "Όνομα συσκευής"
 
-#: kdeconnect-cli.cpp:99
+#: kdeconnect-cli.cpp:98
 #, fuzzy, kde-format
 #| msgid "Get encryption info about said device"
 msgid "Get encryption info about device"
 msgstr "Ανάκτηση πληροφοριών κρυπτογράφησης για τη δοθείσα συσκευή"
 
-#: kdeconnect-cli.cpp:100
+#: kdeconnect-cli.cpp:99
 #, fuzzy, kde-format
 #| msgid "Lists remote commands and their ids"
 msgid "List remote commands and their ids"
 msgstr "Καταγράφει απομακρυσμένες εντολές με τον κωδικό τους"
 
-#: kdeconnect-cli.cpp:101
+#: kdeconnect-cli.cpp:100
 #, fuzzy, kde-format
 #| msgid "Executes a remote command by id"
 msgid "Execute remote command by id"
 msgstr "Εκτελεί μια απομακρυσμένη εντολή με βάση τον κωδικό της"
 
-#: kdeconnect-cli.cpp:102
+#: kdeconnect-cli.cpp:101
 #, fuzzy, kde-format
 #| msgid "Sends keys to a said device"
 msgid "Send keys to device"
 msgstr "Αποστέλλει πληκτρολογήσεις σε δοθείσα συσκευή"
 
-#: kdeconnect-cli.cpp:103
+#: kdeconnect-cli.cpp:102
 #, kde-format
 msgid "Display this device's id and exit"
 msgstr "Εμφάνιση της ταυτότητας αυτής της συσκευής και έξοδος"
 
-#: kdeconnect-cli.cpp:104
+#: kdeconnect-cli.cpp:103
 #, fuzzy, kde-format
 #| msgid "Sends keys to a said device"
 msgid "Mount filesystem of a said device"
 msgstr "Αποστέλλει πληκτρολογήσεις σε δοθείσα συσκευή"
 
-#: kdeconnect-cli.cpp:105
+#: kdeconnect-cli.cpp:104
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr ""
 
-#: kdeconnect-cli.cpp:154
+#: kdeconnect-cli.cpp:153
 #, kde-format
 msgctxt ""
 "Details on how a device is connected eg: on <network address> via Bluetooth"
 msgid "on %1 via %2"
 msgstr ""
 
-#: kdeconnect-cli.cpp:157
+#: kdeconnect-cli.cpp:156
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(συζευγμένη και προσβάσιμη)"
 
-#: kdeconnect-cli.cpp:159
+#: kdeconnect-cli.cpp:158
 #, kde-format
 msgid "(reachable)"
 msgstr "(προσβάσιμη)"
 
-#: kdeconnect-cli.cpp:161 kdeconnect-cli.cpp:183
+#: kdeconnect-cli.cpp:160 kdeconnect-cli.cpp:182
 #, kde-format
 msgid "(paired)"
 msgstr "(συζευγμένη)"
 
-#: kdeconnect-cli.cpp:166
+#: kdeconnect-cli.cpp:165
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "1 συσκευή βρέθηκε"
 msgstr[1] "%1 συσκευές βρέθηκαν"
 
-#: kdeconnect-cli.cpp:168
+#: kdeconnect-cli.cpp:167
 #, kde-format
 msgid "No devices found"
 msgstr "Δεν βρέθηκαν συσκευές"
 
-#: kdeconnect-cli.cpp:185
+#: kdeconnect-cli.cpp:184
 #, kde-format
 msgid "(unpaired)"
 msgstr "(ασύζευκτη)"
 
-#: kdeconnect-cli.cpp:245
+#: kdeconnect-cli.cpp:244
 #, fuzzy, kde-format
 #| msgid "Shared %1"
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Διαμοιρασμένο: %1"
 
-#: kdeconnect-cli.cpp:258
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Διαμοιρασμένο κείμενο: %1"
 
-#: kdeconnect-cli.cpp:269
+#: kdeconnect-cli.cpp:268
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Αίτημα κλειδώματος του %1."
 
-#: kdeconnect-cli.cpp:271
+#: kdeconnect-cli.cpp:270
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Αίτημα ξεκλειδώματος του %1."
 
-#: kdeconnect-cli.cpp:282
+#: kdeconnect-cli.cpp:281
 #, fuzzy, kde-format
 #| msgid "waiting for device..."
 msgid "waiting for device…"
 msgstr "αναμονή για συσκευή..."
 
-#: kdeconnect-cli.cpp:295
+#: kdeconnect-cli.cpp:294
 #, kde-format
 msgid "Device not found"
 msgstr "Η συσκευή δεν βρέθηκε"
 
-#: kdeconnect-cli.cpp:297
+#: kdeconnect-cli.cpp:296
 #, kde-format
 msgid "Already paired"
 msgstr "Ήδη συζευγμένη"
 
-#: kdeconnect-cli.cpp:299
+#: kdeconnect-cli.cpp:298
 #, kde-format
 msgid "Pair requested"
 msgstr "Ζητήθηκε σύζευξη"
 
-#: kdeconnect-cli.cpp:309
+#: kdeconnect-cli.cpp:308
 #, kde-format
 msgid "Already not paired"
 msgstr "Ήδη μη συζευγμένη"
 
-#: kdeconnect-cli.cpp:311
+#: kdeconnect-cli.cpp:310
 #, kde-format
 msgid "Successfully unpaired"
 msgstr ""
 
-#: kdeconnect-cli.cpp:369
+#: kdeconnect-cli.cpp:368
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
