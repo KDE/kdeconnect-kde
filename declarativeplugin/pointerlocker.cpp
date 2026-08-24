@@ -9,8 +9,6 @@
 
 #include <QCursor>
 #include <QGuiApplication>
-#include <QQmlContext>
-#include <QQmlEngine>
 
 #include <QDebug>
 

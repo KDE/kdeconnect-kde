@@ -7,7 +7,6 @@
 #include "thumbnailsprovider.h"
 
 #include <QPixmap>
-#include <QQmlApplicationEngine>
 #include <QQmlContext>
 
 ThumbnailsProvider::ThumbnailsProvider()

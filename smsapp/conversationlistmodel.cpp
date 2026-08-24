@@ -10,8 +10,6 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QPainter>
-#include <QQmlApplicationEngine>
-#include <QQmlContext>
 #include <QString>
 
 #include <KLocalizedString>

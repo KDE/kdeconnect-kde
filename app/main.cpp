@@ -9,7 +9,6 @@
 #include <QIcon>
 #include <QProcess>
 #include <QQmlApplicationEngine>
-#include <QQmlContext>
 #include <QQuickStyle>
 #include <QStandardPaths>
 #include <QWindow>
