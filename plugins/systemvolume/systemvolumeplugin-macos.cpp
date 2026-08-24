@@ -41,15 +41,15 @@ public:
 
 static const AudioObjectPropertyAddress kAudioHardwarePropertyAddress = {kAudioHardwarePropertyDevices,
                                                                          kAudioObjectPropertyScopeGlobal,
-                                                                         kAudioObjectPropertyElementMaster};
+                                                                         kAudioObjectPropertyElementMain};
 
 static const AudioObjectPropertyAddress kAudioStreamPropertyAddress = {kAudioDevicePropertyStreams,
                                                                        kAudioDevicePropertyScopeOutput,
-                                                                       kAudioObjectPropertyElementMaster};
+                                                                       kAudioObjectPropertyElementMain};
 
 static const AudioObjectPropertyAddress kAudioMasterVolumePropertyAddress = {kAudioDevicePropertyVolumeScalar,
                                                                              kAudioDevicePropertyScopeOutput,
-                                                                             kAudioObjectPropertyElementMaster};
+                                                                             kAudioObjectPropertyElementMain};
 
 static const AudioObjectPropertyAddress kAudioLeftVolumePropertyAddress = {kAudioDevicePropertyVolumeScalar, kAudioDevicePropertyScopeOutput, 1};
 
@@ -57,15 +57,15 @@ static const AudioObjectPropertyAddress kAudioRightVolumePropertyAddress = {kAud
 
 static const AudioObjectPropertyAddress kAudioMasterMutedPropertyAddress = {kAudioDevicePropertyMute,
                                                                             kAudioDevicePropertyScopeOutput,
-                                                                            kAudioObjectPropertyElementMaster};
+                                                                            kAudioObjectPropertyElementMain};
 
 static const AudioObjectPropertyAddress kAudioMasterDataSourcePropertyAddress = {kAudioDevicePropertyDataSource,
                                                                                  kAudioDevicePropertyScopeOutput,
-                                                                                 kAudioObjectPropertyElementMaster};
+                                                                                 kAudioObjectPropertyElementMain};
 
 static const AudioObjectPropertyAddress kAudioDefaultOutputDevicePropertyAddress = {kAudioHardwarePropertyDefaultOutputDevice,
                                                                                     kAudioObjectPropertyScopeGlobal,
-                                                                                    kAudioObjectPropertyElementMaster};
+                                                                                    kAudioObjectPropertyElementMain};
 
 OSStatus onVolumeChanged(AudioObjectID object, UInt32 numAddresses, const AudioObjectPropertyAddress addresses[], void *context)
 {
@@ -172,7 +172,7 @@ QString translateDeviceSource(AudioObjectID deviceId)
     UInt32 translationSize = sizeof(AudioValueTranslation);
     AudioObjectPropertyAddress propertyAddress = {kAudioDevicePropertyDataSourceNameForIDCFString,
                                                   kAudioDevicePropertyScopeOutput,
-                                                  kAudioObjectPropertyElementMaster};
+                                                  kAudioObjectPropertyElementMain};
 
     OSStatus result = AudioObjectGetPropertyData(deviceId, &propertyAddress, 0, NULL, &translationSize, &translation);
     if (result != noErr) {
