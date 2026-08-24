@@ -48,7 +48,19 @@ ecm_target_qml_sources(kdeconnect-app SOURCES
     qml/NotificationPanel.qml
 )
 
-target_link_libraries(kdeconnect-app PRIVATE Qt::Quick Qt::QuickControls2 Qt::Widgets KF6::CoreAddons KF6::I18n KF6::ColorScheme KF6::Crash KF6::ItemModels KF6::DBusAddons KF6::WindowSystem)
+target_link_libraries(kdeconnect-app PRIVATE
+    Qt::Quick
+    Qt::QuickControls2
+    Qt::Widgets
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::I18nQml
+    KF6::ColorScheme
+    KF6::Crash
+    KF6::ItemModels
+    KF6::DBusAddons
+    KF6::WindowSystem
+)
 
 if (APPLE)
     target_link_libraries(kdeconnect-app PRIVATE "-framework AppKit")

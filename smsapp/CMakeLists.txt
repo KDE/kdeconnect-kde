@@ -65,11 +65,12 @@ target_link_libraries(kdeconnect-sms PRIVATE
     KF6::CoreAddons
     KF6::DBusAddons
     KF6::I18n
+    KF6::I18nQml
     KF6::People
     KF6::ColorScheme
     KF6::Crash
     KF6::WindowSystem
-    )
+)
 
 set_target_properties(kdeconnect-sms PROPERTIES MACOSX_BUNDLE FALSE)
 install(TARGETS kdeconnect-sms ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS})

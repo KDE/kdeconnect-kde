@@ -17,7 +17,7 @@
 #include <KConfigGroup>
 #include <KCrash>
 #include <KDBusService>
-#include <KLocalizedContext>
+#include <KLocalizedQmlContext>
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowSystem>
@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance<AppData>("org.kde.kdeconnect.sms", 1, 0, "AppData", &data);
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+    KLocalization::setupLocalizedContext(&engine);
     engine.addImageProvider(QStringLiteral("thumbnailsProvider"), new ThumbnailsProvider);
     engine.loadFromModule("org.kde.kdeconnect.sms", "Main");
 
