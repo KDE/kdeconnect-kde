@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-14 02:44+0000\n"
-"PO-Revision-Date: 2026-01-05 16:05+0200\n"
+"PO-Revision-Date: 2026-02-25 14:10+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -202,7 +202,7 @@ msgstr "Lisää komento…"
 #: runcommand/kdeconnect_runcommand_config.qml:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Muokkaa"
 
 #: runcommand/kdeconnect_runcommand_config.qml:64
 #, kde-format
@@ -295,24 +295,22 @@ msgid "Forcefully Close All Vaults"
 msgstr "Pakota kaikki holvien sulkeminen"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "Lisää komento"
+msgstr "Muokkaa komentoa"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "Vahvista"
 
 #: runcommand/kdeconnect_runcommand_config.qml:199
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "Vahvista"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -461,37 +459,36 @@ msgid "Permission denied: %1"
 msgstr ""
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:43
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt ""
 "@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
 "right edge', the pointer will switch to the connected device there"
 msgid "Leave Screen at"
-msgstr "Lukitse näyttö"
+msgstr "Jätä näyttö"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:51
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr "Ylhäällä"
+msgstr "ylälaitaan"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:55
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr "Vasemmalla"
+msgstr "vasempaan laitaan"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:59
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr "Oikealla"
+msgstr "oikeaan laitaan"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:63
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr "Alhaalla"
+msgstr "alalaitaan"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:71
 #, kde-format
@@ -500,6 +497,8 @@ msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
 msgstr ""
+"Tämän reunan toinen laite on jo varannut. Lopputulos voi olla odottamaton, "
+"jos kumpikin on yhdistetty yhtä aikaa."
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format

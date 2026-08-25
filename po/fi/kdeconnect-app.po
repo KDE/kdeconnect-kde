@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-22 02:41+0000\n"
-"PO-Revision-Date: 2026-01-05 15:58+0200\n"
+"PO-Revision-Date: 2026-02-26 15:37+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -164,7 +164,7 @@ msgstr "Äänenvoimakkuuden säätö"
 #: qml/DevicePage.qml:184
 #, kde-format
 msgid "SMS Messages"
-msgstr ""
+msgstr "Tekstiviestit"
 
 #: qml/DevicePage.qml:192 qml/mousepad.qml:44
 #, kde-format
@@ -289,8 +289,7 @@ msgid "No devices found"
 msgstr "Laitteita ei löytynyt"
 
 #: qml/Main.qml:216
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Asetukset"
@@ -411,7 +410,7 @@ msgstr "Tietoa KDE:sta"
 #: qml/Settings.qml:91
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Sulje"
 
 #: qml/WelcomePage.qml:27
 #, kde-format
