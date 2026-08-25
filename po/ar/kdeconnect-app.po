@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:44+0000\n"
+"POT-Creation-Date: 2026-08-25 00:44+0000\n"
 "PO-Revision-Date: 2026-08-10 13:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -19,57 +19,57 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#: main.cpp:46 main.cpp:48
+#: main.cpp:45 main.cpp:47
 #, kde-format
 msgid "KDE Connect"
 msgstr "جسر كِيدِي"
 
-#: main.cpp:50
+#: main.cpp:49
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
 msgstr "© 2015–2025 فريق جسر كِيدِي"
 
-#: main.cpp:51
+#: main.cpp:50
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "أليكس بول غونزاليس"
 
-#: main.cpp:52
+#: main.cpp:51
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "ألبرت فاكا سينتورا"
 
-#: main.cpp:53
+#: main.cpp:52
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "زايد السعيدي"
 
-#: main.cpp:53
+#: main.cpp:52
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
 
-#: main.cpp:84
+#: main.cpp:83
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
 msgstr "معرّف الجهاز لفتح التطبيق في"
 
-#: main.cpp:87
+#: main.cpp:86
 #, kde-format
 msgctxt "@info:shell"
 msgid "Configuration module to show, requires --device to be set."
 msgstr "وحدة التهيئة للعرض، تتطلب ضبط --device."
 
-#: main.cpp:91
+#: main.cpp:90
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "استبدل نسخة موجودة"
 
-#: main.cpp:94
+#: main.cpp:93
 #, kde-format
 msgid "URL to share"
 msgstr "الربط للمشاركة"
