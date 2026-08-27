@@ -17,8 +17,6 @@ include:
       - /gitlab-templates/yaml-lint.yml
   - project: sysadmin/ci-utilities
     file:
-      - /gitlab-templates/craft-macos-x86-64-qt6.yml
-      - /gitlab-templates/craft-macos-arm64-qt6.yml
     rules:
       - if: $CI_COMMIT_BRANCH =~ /^release\//
         when: never
