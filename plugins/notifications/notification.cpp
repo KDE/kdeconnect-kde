@@ -59,7 +59,7 @@ void Notification::show()
 {
     m_ready = true;
     Q_EMIT ready();
-    if (!m_silent) {
+    if (!m_silent && m_notification) {
         m_notification->sendEvent();
     }
 }
