@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-14 00:45+0000\n"
-"PO-Revision-Date: 2026-07-16 16:46+0200\n"
+"PO-Revision-Date: 2026-08-31 16:55+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -119,10 +119,9 @@ msgid "Filename already present"
 msgstr "Nomine de file ja presente"
 
 #: filetransferjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not create destination file: %1"
-msgstr "Non pote immagazinar file de certificato : %1"
+msgstr "Non pote crear file de destination : %1"
 
 #: filetransferjob.cpp:129
 #, kde-format
