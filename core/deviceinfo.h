@@ -57,18 +57,18 @@ struct DeviceType {
     {
         switch (value) {
         case DeviceType::Phone:
-            return QStringLiteral("smartphone");
+            return QStringLiteral("smartphone-symbolic");
         case DeviceType::Tablet:
-            return QStringLiteral("tablet");
+            return QStringLiteral("tablet-symbolic");
         case DeviceType::Tv:
-            return QStringLiteral("video-television");
+            return QStringLiteral("video-television-symbolic");
         case DeviceType::Desktop:
-            return QStringLiteral("computer");
+            return QStringLiteral("computer-symbolic");
         case DeviceType::Laptop:
-            return QStringLiteral("computer-laptop");
+            return QStringLiteral("computer-laptop-symbolic");
         default:
         case DeviceType::Unknown:
-            return QStringLiteral("computer");
+            return QStringLiteral("computer-symbolic");
         }
     }
 
