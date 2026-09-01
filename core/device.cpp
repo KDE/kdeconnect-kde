@@ -77,8 +77,6 @@ void Device::init()
 {
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
-    connect(this, &Device::reachableChanged, this, &Device::statusIconNameChanged);
-    connect(this, &Device::pairStateChanged, this, &Device::statusIconNameChanged);
     connect(this, &Device::typeChanged, this, &Device::statusIconNameChanged);
 
     connect(d->m_pairingHandler, &PairingHandler::incomingPairRequest, this, &Device::pairingHandler_incomingPairRequest);
@@ -433,11 +431,6 @@ QHostAddress Device::getLocalIpAddress() const
 QString Device::iconName() const
 {
     return d->m_deviceInfo.type.icon();
-}
-
-QString Device::statusIconName() const
-{
-    return d->m_deviceInfo.type.iconForStatus(isReachable(), isPaired());
 }
 
 KdeConnectPlugin *Device::plugin(const QString &pluginName) const

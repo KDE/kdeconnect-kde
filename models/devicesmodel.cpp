@@ -247,7 +247,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
         return status;
     }
     case IconNameRole:
-        return device->statusIconName();
+        return device->iconName();
     case DeviceRole:
         return QVariant::fromValue<QObject *>(device);
     default:

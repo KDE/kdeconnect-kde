@@ -27,7 +27,7 @@ class KDECONNECTCORE_EXPORT Device : public QObject
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(QString iconName READ iconName NOTIFY typeChanged)
     Q_PROPERTY(QString verificationKey READ verificationKey NOTIFY pairStateChanged)
-    Q_PROPERTY(QString statusIconName READ statusIconName NOTIFY statusIconNameChanged)
+    Q_PROPERTY(QString statusIconName READ statusIconName NOTIFY typeChanged)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChanged)
     Q_PROPERTY(QStringList reachableAddresses READ reachableAddresses NOTIFY linksChanged)
     Q_PROPERTY(QStringList activeProviderNames READ activeProviderNames NOTIFY linksChanged)
@@ -66,7 +66,11 @@ public:
         return type().toString();
     };
     QString iconName() const;
-    QString statusIconName() const;
+    // Deprecated: use iconName()
+    QString statusIconName() const
+    {
+        return iconName();
+    }
     Q_SCRIPTABLE QString verificationKey() const;
     Q_SCRIPTABLE QString encryptionInfo() const;
 
@@ -135,6 +139,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void pairingFailed(const QString &error);
     Q_SCRIPTABLE void nameChanged(const QString &name);
     Q_SCRIPTABLE void typeChanged(const QString &type);
+    // Deprecated, use typeChanged
     Q_SCRIPTABLE void statusIconNameChanged();
 
 private:
