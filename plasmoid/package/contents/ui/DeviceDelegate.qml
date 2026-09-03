@@ -329,12 +329,16 @@ PlasmaComponents.ItemDelegate {
                     // Collapse/Expand indicator - clickable
                     Kirigami.Icon {
                         id: collapseIcon
-                        source: "arrow-right"
+                        source: LayoutMirroring.enabled ? "arrow-left" : "arrow-right"
                         Layout.preferredHeight: Kirigami.Units.iconSizes.small
                         Layout.preferredWidth: Layout.preferredHeight
                         color: Kirigami.Theme.textColor
 
+<<<<<<< Updated upstream
                         rotation: root.notificationsExpanded ? 90 : 0
+=======
+                        rotation: root.notificationsExpanded ? LayoutMirroring.enabled? -90 : 90 : 0
+>>>>>>> Stashed changes
 
                         Behavior on rotation {
                             NumberAnimation {
