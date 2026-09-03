@@ -329,12 +329,12 @@ PlasmaComponents.ItemDelegate {
                     // Collapse/Expand indicator - clickable
                     Kirigami.Icon {
                         id: collapseIcon
-                        source: "arrow-down"
+                        source: "arrow-right"
                         Layout.preferredHeight: Kirigami.Units.iconSizes.small
                         Layout.preferredWidth: Layout.preferredHeight
                         color: Kirigami.Theme.textColor
 
-                        rotation: root.notificationsExpanded ? 180 : 0
+                        rotation: root.notificationsExpanded ? 90 : 0
 
                         Behavior on rotation {
                             NumberAnimation {
