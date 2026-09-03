@@ -334,11 +334,7 @@ PlasmaComponents.ItemDelegate {
                         Layout.preferredWidth: Layout.preferredHeight
                         color: Kirigami.Theme.textColor
 
-<<<<<<< Updated upstream
-                        rotation: root.notificationsExpanded ? 90 : 0
-=======
                         rotation: root.notificationsExpanded ? LayoutMirroring.enabled? -90 : 90 : 0
->>>>>>> Stashed changes
 
                         Behavior on rotation {
                             NumberAnimation {
