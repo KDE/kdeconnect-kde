@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2018, 2019, 2020, 2021, 2023, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2014-2016, 2018-2021, 2023, 2025-2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-14 02:44+0000\n"
-"PO-Revision-Date: 2025-12-24 16:22+0100\n"
+"PO-Revision-Date: 2026-09-06 10:31+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -31,7 +31,7 @@ msgstr "Nie udało się wysyłanie pakietu do %1"
 #: backends/lan/compositeuploadjob.cpp:252
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "Przekroczono czas oczekiwania na połączenie się odbiornika"
 
 #: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
@@ -120,10 +120,9 @@ msgid "Filename already present"
 msgstr "Nazwa pliku już istnieje"
 
 #: filetransferjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not create destination file: %1"
-msgstr "Nie można zachować pliku certyfikatu: %1"
+msgstr "Nie można utworzyć pliku docelowego: %1"
 
 #: filetransferjob.cpp:129
 #, kde-format
