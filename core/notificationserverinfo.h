@@ -17,6 +17,7 @@ public:
     enum Hint {
         X_KDE_DISPLAY_APPNAME = 1,
         X_KDE_ORIGIN_NAME = 2,
+        BODY_MARKUP = 4,
     };
 
     Q_DECLARE_FLAGS(Hints, Hint)
@@ -28,7 +29,7 @@ public:
     Hints supportedHints();
 
 private:
-    Hints m_supportedHints;
+    Hints m_supportedHints = {};
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(NotificationServerInfo::Hints)

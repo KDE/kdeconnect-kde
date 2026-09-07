@@ -188,22 +188,28 @@ void Notification::applyIcon()
 QString Notification::getConversationMessages()
 {
     QString conversation;
+    const bool supportsMarkup = NotificationServerInfo::instance().supportedHints().testFlag(NotificationServerInfo::BODY_MARKUP);
     // To avoid showing the sender of the first message twice (in title and text) at the start of the conversation.
     QString prevSender = m_title;
 
     for (const QJsonValue &messageElement : m_conversation) {
         const Message message = Message::fromObject(messageElement.toObject());
         if (message.sender != prevSender) {
-            conversation.append(QStringLiteral("<b>"));
-            conversation.append(message.sender.toHtmlEscaped());
-            conversation.append(QStringLiteral("</b><br/>"));
+            if (supportsMarkup) {
+                conversation.append(QStringLiteral("<b>"));
+                conversation.append(message.sender.toHtmlEscaped());
+                conversation.append(QStringLiteral("</b><br/>"));
+            } else {
+                conversation.append(message.sender);
+                conversation.append(QStringLiteral(":\n"));
+            }
 
             prevSender = message.sender;
         }
-        conversation.append(message.content.toHtmlEscaped());
-        conversation.append(QStringLiteral("<br/>"));
+        conversation.append(supportsMarkup ? message.content.toHtmlEscaped() : message.content);
+        conversation.append(supportsMarkup ? QStringLiteral("<br/>") : QStringLiteral("\n"));
     }
-    return conversation.chopped(5); // NOTE: We return it chopped to remove the trailing new line.
+    return conversation.chopped(supportsMarkup ? 5 : 1);
 }
 
 void Notification::reply()

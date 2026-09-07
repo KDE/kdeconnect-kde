@@ -44,6 +44,10 @@ void NotificationServerInfo::init()
         if (reply.value().contains(QLatin1String("x-kde-origin-name"))) {
             m_supportedHints |= X_KDE_ORIGIN_NAME;
         }
+
+        if (reply.value().contains(QLatin1String("body-markup"))) {
+            m_supportedHints |= BODY_MARKUP;
+        }
     });
 }
 
