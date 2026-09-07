@@ -22,6 +22,7 @@ NotificationServerInfo &NotificationServerInfo::instance()
 
 void NotificationServerInfo::init()
 {
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
     QDBusMessage query = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.Notifications"),
                                                         QStringLiteral("/org/freedesktop/Notifications"),
                                                         QStringLiteral("org.freedesktop.Notifications"),
@@ -49,6 +50,7 @@ void NotificationServerInfo::init()
             m_supportedHints |= BODY_MARKUP;
         }
     });
+#endif
 }
 
 NotificationServerInfo::Hints NotificationServerInfo::supportedHints()
