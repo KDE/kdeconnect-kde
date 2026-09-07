@@ -198,7 +198,7 @@ QString Notification::getConversationMessages()
             if (supportsMarkup) {
                 conversation.append(QStringLiteral("<b>"));
                 conversation.append(message.sender.toHtmlEscaped());
-                conversation.append(QStringLiteral("</b><br/>"));
+                conversation.append(QStringLiteral("</b>\n"));
             } else {
                 conversation.append(message.sender);
                 conversation.append(QStringLiteral(":\n"));
