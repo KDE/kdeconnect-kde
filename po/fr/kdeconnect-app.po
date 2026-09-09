@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-22 02:41+0000\n"
-"PO-Revision-Date: 2026-04-09 12:07+0200\n"
+"PO-Revision-Date: 2026-08-24 09:26+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -260,13 +260,13 @@ msgstr "Périphériques"
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr "Rafraîchir"
+msgstr "Rafraichir"
 
 #: qml/Main.qml:98
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
-msgstr "Rafraîchir la liste des périphériques"
+msgstr "Rafraichir la liste des périphériques"
 
 #: qml/Main.qml:134
 #, kde-format

@@ -148,7 +148,7 @@ msgid ""
 msgstr ""
 "Chargement des conversations à partir de l'appareil. Si cela prend beaucoup "
 "de temps, veuillez réveiller votre périphérique, puis cliquez sur "
-"« Rafraîchir »."
+"« Rafraichir »."
 
 #: qml/ConversationList.qml:57
 #, kde-format
@@ -162,7 +162,7 @@ msgstr ""
 #: qml/ConversationList.qml:65 qml/Main.qml:98
 #, kde-format
 msgid "Refresh"
-msgstr "Rafraîchir"
+msgstr "Rafraichir"
 
 #: qml/ConversationList.qml:84
 #, kde-format
