@@ -24,7 +24,11 @@ if(HAS_DEPS)
         target_sources(kdeconnect_digitizer PUBLIC linuxdigitizerimpl.cpp)
     endif()
 
-    install(FILES 40-kdeconnect-uinput.rules DESTINATION ${KDE_INSTALL_LIBDIR}/udev/rules.d)
+    pkg_get_variable(UDEVDIR udev udevdir)
+    if (NOT UDEVDIR) # happens on FreeBSD
+        set(UDEVDIR "${KDE_INSTALL_LIBDIR}/udev/rules.d")
+    endif()
+    install(FILES 40-kdeconnect-uinput.rules DESTINATION "${UDEVDIR}")
 
     message(STATUS "digitizer: Dependencies met, compiling.")
 else()
