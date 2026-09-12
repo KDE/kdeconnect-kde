@@ -37,6 +37,7 @@ FormCard.FormCardPage {
         wrapMode: Text.WordWrap
 
         Layout.fillWidth: true
+        Layout.topMargin: Kirigami.Units.largeSpacing
     }
 
     FormCard.FormHeader {
