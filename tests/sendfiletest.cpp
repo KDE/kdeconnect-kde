@@ -8,6 +8,7 @@
 #include <QSignalSpy>
 #include <QSocketNotifier>
 #include <QStandardPaths>
+#include <QTcpSocket>
 #include <QTemporaryFile>
 #include <QTest>
 #include <backends/lan/uploadjob.h>
@@ -383,6 +384,41 @@ private Q_SLOTS:
 
         QSignalSpy spy(job, &KJob::result);
         job->start();
+
+        QVERIFY(spy.wait(5000));
+        QCOMPARE(job->error(), CompositeUploadJob::ConnectionTimeoutError);
+    }
+
+    void testTlsHandshakeTimeout()
+    {
+        const QString aFile = QFINDTESTDATA("sendfiletest.cpp");
+
+        DeviceInfo deviceInfo = KdeConnectConfig::instance().deviceInfo();
+        KdeConnectConfig::instance().addTrustedDevice(deviceInfo);
+
+        TestDevice *device = new TestDevice(this, deviceInfo.id);
+        m_daemon->addDevice(device);
+
+        QSharedPointer<QFile> f(new QFile(aFile));
+        NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
+        np.setPayload(f, f->size());
+
+        CompositeUploadJob *job = new CompositeUploadJob(device, false);
+#ifdef BUILD_TESTING
+        job->testSetTimeoutMs(1000);
+#endif
+        job->addSubjob(new UploadJob(np));
+
+        QSignalSpy spy(job, &KJob::result);
+        job->start();
+
+        QTRY_VERIFY(device->getLastPacket());
+        const quint16 port = device->getLastPacket()->payloadTransferInfo().value(QStringLiteral("port")).toUInt();
+        QVERIFY(port);
+
+        QTcpSocket socket;
+        socket.connectToHost(QHostAddress::LocalHost, port);
+        QVERIFY(socket.waitForConnected());
 
         QVERIFY(spy.wait(5000));
         QCOMPARE(job->error(), CompositeUploadJob::ConnectionTimeoutError);

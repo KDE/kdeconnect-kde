@@ -137,7 +137,6 @@ void CompositeUploadJob::newConnection()
     if (!m_running) {
         return;
     }
-    m_timeout.stop();
     m_server->pauseAccepting();
 
     m_socket = m_server->nextPendingConnection();
@@ -170,6 +169,7 @@ void CompositeUploadJob::newConnection()
         m_running = false;
     });
     connect(m_socket, &QSslSocket::encrypted, this, [this]() {
+        m_timeout.stop();
         if (!m_timer.isValid()) {
             m_timer.start();
         }
