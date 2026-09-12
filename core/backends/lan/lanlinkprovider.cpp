@@ -659,6 +659,8 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
         deviceLink = linkIterator.value();
         if (deviceLink->deviceInfo().certificate != deviceInfo.certificate) {
             qWarning() << "LanLink was asked to replace a socket but the certificate doesn't match, aborting";
+            socket->abort();
+            socket->deleteLater();
             return;
         }
         // qCDebug(KDECONNECT_CORE) << "Reusing link to" << deviceId;
