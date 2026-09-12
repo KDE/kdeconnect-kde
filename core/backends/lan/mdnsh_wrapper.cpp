@@ -723,10 +723,16 @@ void Announcer::stopAnnouncing()
 
 void Announcer::stopListeningForQueries()
 {
-    delete socketNotifier;
-    socketNotifier = nullptr;
-    delete socketNotifierV6;
-    socketNotifierV6 = nullptr;
+    if (socketNotifier) {
+        mdns_socket_close(socketNotifier->socket());
+        delete socketNotifier;
+        socketNotifier = nullptr;
+    }
+    if (socketNotifierV6) {
+        mdns_socket_close(socketNotifierV6->socket());
+        delete socketNotifierV6;
+        socketNotifierV6 = nullptr;
+    }
 }
 
 void Announcer::sendMulticastAnnounce(bool isGoodbye)
