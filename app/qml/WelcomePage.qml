@@ -69,8 +69,4 @@ FormCard.FormCardPage {
             onClicked: Qt.openUrlExternally("https://apps.apple.com/us/app/kde-connect/id1580245991")
         }
     }
-
-    FormCard.FormSectionText {
-        text: i18n("If you are having problems, visit the <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect Community wiki</span></a> for help.")
-    }
 }
