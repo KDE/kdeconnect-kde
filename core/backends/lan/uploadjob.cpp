@@ -41,7 +41,8 @@ void UploadJob::start()
 
     if (!m_input->open(QIODevice::ReadOnly)) {
         qCWarning(KDECONNECT_CORE) << "error when opening the input to upload";
-        return; // TODO: Handle error, clean up...
+        QMetaObject::invokeMethod(this, "inputOpenFailed", Qt::QueuedConnection);
+        return;
     }
 
     if (!m_socket) {
@@ -92,6 +93,13 @@ void UploadJob::aboutToClose()
 
 void UploadJob::finishWithoutTransfer()
 {
+    emitResult();
+}
+
+void UploadJob::inputOpenFailed()
+{
+    setError(UserDefinedError);
+    setErrorText(i18n("Could not open source file: %1", m_input->errorString()));
     emitResult();
 }
 

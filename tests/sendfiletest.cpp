@@ -222,6 +222,27 @@ private Q_SLOTS:
         QCOMPARE(resultFile.size(), 0);
     }
 
+    void testUploadMissingInput()
+    {
+        QTemporaryFile temporaryFile;
+        QVERIFY(temporaryFile.open());
+        const QString missingFilePath = temporaryFile.fileName();
+        temporaryFile.close();
+        QVERIFY(QFile::remove(missingFilePath));
+
+        QSharedPointer<QFile> input(new QFile(missingFilePath));
+        NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
+        packet.setPayload(input, 1);
+
+        UploadJob job(packet);
+        QSignalSpy resultSpy(&job, &KJob::result);
+        job.start();
+
+        QVERIFY(resultSpy.wait());
+        QVERIFY(job.error());
+        QVERIFY(!job.errorText().isEmpty());
+    }
+
     void testMultipleEmptyFilesInOneCompositeUpload()
     {
         // Regression test for a bug where sending several empty files in one go got the count

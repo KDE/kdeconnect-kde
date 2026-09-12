@@ -42,6 +42,7 @@ private Q_SLOTS:
     void encryptedBytesWritten(qint64 bytes);
     void aboutToClose();
     void finishWithoutTransfer();
+    void inputOpenFailed();
 };
 
 #endif // UPLOADJOB_H
