@@ -495,10 +495,11 @@ QString Device::verificationKey() const
 
 QString Device::pluginIconName(const QString &pluginName)
 {
-    if (hasPlugin(pluginName)) {
-        return d->m_plugins[pluginName]->iconName();
+    KdeConnectPlugin *loadedPlugin = plugin(pluginName);
+    if (loadedPlugin == nullptr) {
+        return QString();
     }
-    return QString();
+    return loadedPlugin->iconName();
 }
 
 #include "moc_device.cpp"
