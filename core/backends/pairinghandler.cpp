@@ -94,7 +94,6 @@ bool PairingHandler::requestPairing()
 
     if (m_pairState == PairState::Paired) {
         qWarning() << m_device->name() << ": requestPairing was called on an already paired device.";
-        Q_EMIT pairingFailed(i18n("%1: Already paired", m_device->name()));
         return false;
     }
     if (m_pairState == PairState::RequestedByPeer) {
