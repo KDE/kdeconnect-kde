@@ -175,6 +175,9 @@ void Device::reloadPlugins()
                     plugin = loader->instantiatePluginForDevice(pluginName, this);
                 }
                 Q_ASSERT(plugin);
+                if (!plugin) {
+                    continue;
+                }
 
                 for (const QString &interface : incomingCapabilities) {
                     newPluginsByIncomingCapability.insert(interface, plugin);
