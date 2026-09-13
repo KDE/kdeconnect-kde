@@ -427,10 +427,19 @@ void LanLinkProvider::encrypted(QSslSocket *socket, std::shared_ptr<NetworkPacke
     QString deviceId = identityPacket->get<QString>(QStringLiteral("deviceId"));
     int protocolVersion = identityPacket->get<int>(QStringLiteral("protocolVersion"), -1);
     if (protocolVersion >= 8) {
+        QTimer *timer = new QTimer(socket);
+        timer->setSingleShot(true);
+        timer->setInterval(1000);
+        connect(timer, &QTimer::timeout, socket, [socket] {
+            qCWarning(KDECONNECT_CORE) << "LanLinkProvider/encrypted: Host timed out without sending its encrypted identity." << socket->peerAddress();
+            socket->abort();
+        });
+        timer->start();
+
         NetworkPacket myIdentity = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
         socket->write(myIdentity.serialize());
         socket->flush();
-        connect(socket, &QIODevice::readyRead, this, [this, socket, protocolVersion, deviceId]() {
+        connect(socket, &QIODevice::readyRead, this, [this, socket, timer, protocolVersion, deviceId]() {
             if (socket->bytesAvailable() > MAX_IDENTITY_PACKET_SIZE) {
                 qCWarning(KDECONNECT_CORE) << "Remote device sent a packet too large";
                 socket->abort();
@@ -463,6 +472,8 @@ void LanLinkProvider::encrypted(QSslSocket *socket, std::shared_ptr<NetworkPacke
             }
             DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(secureIdentityPacket, socket->peerCertificate());
 
+            timer->stop();
+            timer->deleteLater();
             addLink(socket, deviceInfo);
         });
     } else {
