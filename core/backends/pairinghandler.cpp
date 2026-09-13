@@ -179,6 +179,10 @@ void PairingHandler::pairingDone()
 
 QString PairingHandler::verificationKey() const
 {
+    if (m_pairState != PairState::Requested && m_pairState != PairState::RequestedByPeer) {
+        return i18n("Pairing is not in progress");
+    }
+
     auto a = KdeConnectConfig::instance().certificate().publicKey().toDer();
     auto b = m_device->certificate().publicKey().toDer();
     if (a < b) {
