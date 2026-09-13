@@ -27,11 +27,11 @@ PairingHandler::PairingHandler(Device *parent, PairState initialState)
 
 void PairingHandler::packetReceived(const NetworkPacket &np)
 {
-    m_pairingTimeout.stop();
     bool wantsPair = np.get<bool>(QStringLiteral("pair"));
     if (wantsPair) {
         switch (m_pairState) {
         case PairState::Requested:
+            m_pairingTimeout.stop();
             pairingDone();
             break;
         case PairState::RequestedByPeer:
@@ -69,6 +69,7 @@ void PairingHandler::packetReceived(const NetworkPacket &np)
             break;
         }
     } else { // wantsPair == false
+        m_pairingTimeout.stop();
         qCDebug(KDECONNECT_CORE) << "Unpair request received";
         switch (m_pairState) {
         case PairState::NotPaired:
