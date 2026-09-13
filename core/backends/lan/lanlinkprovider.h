@@ -51,7 +51,7 @@ public:
     void enable() override;
     void disable() override;
 
-    void sendUdpIdentityPacket(const QList<QHostAddress> &addresses);
+    void deviceDiscovered(const QHostAddress &address, int port, const QString &deviceId, int protocolVersion);
 
     static void configureSslSocket(QSslSocket *socket, const QString &deviceId, bool isDeviceTrusted);
     static void configureSocket(QSslSocket *socket);
@@ -73,9 +73,9 @@ public Q_SLOTS:
     void onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr) override;
     void onStart() override;
     void onStop() override;
-    void tcpSocketConnected(QSslSocket *socket, std::shared_ptr<NetworkPacket> receivedPacket, QHostAddress sender);
-    void encrypted(QSslSocket *socket, std::shared_ptr<NetworkPacket> identityPacket);
-    void connectError(QSslSocket *socket, QHostAddress sender, QAbstractSocket::SocketError socketError);
+    void tcpSocketConnected(QSslSocket *socket, const QString &deviceId, int protocolVersion);
+    void encrypted(QSslSocket *socket, const QString &deviceId, int protocolVersion);
+    void recoverConnectionError(QHostAddress address);
 
 private Q_SLOTS:
     void udpBroadcastReceived();
@@ -87,8 +87,9 @@ private Q_SLOTS:
 private:
     void addLink(QSslSocket *socket, const DeviceInfo &deviceInfo);
     QList<QHostAddress> getBroadcastAddresses();
-    void sendUdpIdentityPacket(QUdpSocket &socket, const QList<QHostAddress> &addresses);
-    void broadcastUdpIdentityPacket();
+    void sendUdpDiscoveryPacket(const QList<QHostAddress> &addresses);
+    void sendUdpDiscoveryPacket(QUdpSocket &socket, const QList<QHostAddress> &addresses);
+    void broadcastUdpDiscoveryPacket();
     bool isProtocolDowngrade(const QString &deviceId, int protocolVersion) const;
 
     Server *m_server;

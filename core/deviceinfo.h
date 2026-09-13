@@ -115,6 +115,27 @@ struct DeviceInfo {
     {
     }
 
+    NetworkPacket toUdpDiscoveryPacket(int tcpPort)
+    {
+        NetworkPacket np(PACKET_TYPE_IDENTITY);
+        np.set(QStringLiteral("deviceId"), id);
+        np.set(QStringLiteral("deviceName"), name); // Unused but needed to pass validation on older implementations
+        np.set(QStringLiteral("protocolVersion"), protocolVersion);
+        np.set(QStringLiteral("tcpPort"), tcpPort);
+        return np;
+    }
+
+    NetworkPacket toConnectionPacket(const QString &targetDeviceId, int targetProtocolVersion)
+    {
+        NetworkPacket np(PACKET_TYPE_IDENTITY);
+        np.set(QStringLiteral("deviceId"), id);
+        np.set(QStringLiteral("deviceName"), name); // Unused but needed to pass validation on older implementations
+        np.set(QStringLiteral("protocolVersion"), protocolVersion);
+        np.set(QStringLiteral("targetDeviceId"), targetDeviceId);
+        np.set(QStringLiteral("targetProtocolVersion"), targetProtocolVersion);
+        return np;
+    }
+
     NetworkPacket toIdentityPacket()
     {
         NetworkPacket np(PACKET_TYPE_IDENTITY);
@@ -152,6 +173,17 @@ struct DeviceInfo {
     {
         return np->type() == PACKET_TYPE_IDENTITY && !filterName(np->get(QLatin1String("deviceName"), QString())).isEmpty()
             && isValidDeviceId(np->get(QLatin1String("deviceId"), QString()));
+    }
+
+    static bool isValidUdpDiscoveryPacket(NetworkPacket *np)
+    {
+        return np->type() == PACKET_TYPE_IDENTITY && isValidDeviceId(np->get(QLatin1String("deviceId"), QString()));
+    }
+
+    static bool isValidConnectionPacket(NetworkPacket *np)
+    {
+        return np->type() == PACKET_TYPE_IDENTITY && isValidDeviceId(np->get(QLatin1String("deviceId"), QString()))
+            && isValidDeviceId(np->get(QLatin1String("targetDeviceId"), QString()));
     }
 
     static bool isValidDeviceId(const QString &deviceId)

@@ -148,7 +148,7 @@ void LanLinkProvider::onStart()
         }
     }
 
-    broadcastUdpIdentityPacket();
+    broadcastUdpDiscoveryPacket();
 
     m_mdnsDiscovery->onStart();
 
@@ -191,19 +191,19 @@ void LanLinkProvider::debouncedOnNetworkChange()
 
     Q_ASSERT(m_tcpPort != 0);
 
-    broadcastUdpIdentityPacket();
+    broadcastUdpDiscoveryPacket();
     m_mdnsDiscovery->onNetworkChange();
 }
 
-void LanLinkProvider::broadcastUdpIdentityPacket()
+void LanLinkProvider::broadcastUdpDiscoveryPacket()
 {
     if (qEnvironmentVariableIsSet("KDECONNECT_DISABLE_UDP_BROADCAST")) {
         qWarning() << "Not broadcasting UDP because KDECONNECT_DISABLE_UDP_BROADCAST is set";
         return;
     }
-    qCDebug(KDECONNECT_CORE) << "Broadcasting identity packet";
+    qCDebug(KDECONNECT_CORE) << "Broadcasting UDP discovery packet";
 
-    sendUdpIdentityPacket(getBroadcastAddresses());
+    sendUdpDiscoveryPacket(getBroadcastAddresses());
 }
 
 QList<QHostAddress> LanLinkProvider::getBroadcastAddresses()
@@ -229,7 +229,7 @@ QList<QHostAddress> LanLinkProvider::getBroadcastAddresses()
     return destinations;
 }
 
-void LanLinkProvider::sendUdpIdentityPacket(const QList<QHostAddress> &addresses)
+void LanLinkProvider::sendUdpDiscoveryPacket(const QList<QHostAddress> &addresses)
 {
     // Broadcast from every local IP address to reach all networks
     QUdpSocket sendSocket;
@@ -241,7 +241,7 @@ void LanLinkProvider::sendUdpIdentityPacket(const QList<QHostAddress> &addresses
                 if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
                     qCDebug(KDECONNECT_CORE) << "Broadcasting as" << sourceAddress;
                     sendSocket.bind(sourceAddress);
-                    sendUdpIdentityPacket(sendSocket, addresses);
+                    sendUdpDiscoveryPacket(sendSocket, addresses);
                     sendSocket.close();
                 }
             }
@@ -249,26 +249,13 @@ void LanLinkProvider::sendUdpIdentityPacket(const QList<QHostAddress> &addresses
     }
 }
 
-void LanLinkProvider::sendUdpIdentityPacket(QUdpSocket &socket, const QList<QHostAddress> &addresses)
+void LanLinkProvider::sendUdpDiscoveryPacket(QUdpSocket &socket, const QList<QHostAddress> &addresses)
 {
     DeviceInfo myDeviceInfo = KdeConnectConfig::instance().deviceInfo();
-    NetworkPacket identityPacket = myDeviceInfo.toIdentityPacket();
-    identityPacket.set(QStringLiteral("tcpPort"), m_tcpPort);
-    const QByteArray payload = identityPacket.serialize();
-
+    NetworkPacket discoveryPacket = myDeviceInfo.toUdpDiscoveryPacket(m_tcpPort);
+    const QByteArray payload = discoveryPacket.serialize();
     for (auto &address : addresses) {
-        qint64 bytes = socket.writeDatagram(payload, address, UDP_PORT);
-        if (bytes == -1 && socket.error() == QAbstractSocket::DatagramTooLargeError) {
-            // On macOS and FreeBSD, UDP broadcasts larger than MTU get dropped. See:
-            // https://opensource.apple.com/source/xnu/xnu-3789.1.32/bsd/netinet/ip_output.c.auto.html#:~:text=/*%20don%27t%20allow%20broadcast%20messages%20to%20be%20fragmented%20*/
-            // We remove the capabilities to reduce the size of the packet.
-            // This should only happen for broadcasts, so UDP packets sent from MDNS discoveries should still work.
-            qWarning() << "Identity packet to" << address << "got rejected because it was too large. Retrying without including the capabilities";
-            identityPacket.set(QStringLiteral("outgoingCapabilities"), QStringList());
-            identityPacket.set(QStringLiteral("incomingCapabilities"), QStringList());
-            const QByteArray smallPayload = identityPacket.serialize();
-            socket.writeDatagram(smallPayload, address, UDP_PORT);
-        }
+        socket.writeDatagram(payload, address, UDP_PORT);
     }
 }
 
@@ -282,98 +269,97 @@ void LanLinkProvider::udpBroadcastReceived()
         QHostAddress sender;
 
         m_udpSocket.readDatagram(datagram.data(), datagram.size(), &sender);
-
-        if (sender.isLoopback() && !m_testMode)
-            continue;
-
-        std::shared_ptr<NetworkPacket> receivedPacket = std::shared_ptr<NetworkPacket>{new NetworkPacket()};
-        bool success = NetworkPacket::unserialize(datagram, receivedPacket.get());
-
         // qCDebug(KDECONNECT_CORE) << "Datagram " << datagram.data() ;
 
-        if (!success) {
-            qCDebug(KDECONNECT_CORE) << "Could not unserialize UDP packet";
+        if (sender.isLoopback() && !m_testMode) {
             continue;
         }
 
-        if (!DeviceInfo::isValidIdentityPacket(receivedPacket.get())) {
-            qCWarning(KDECONNECT_CORE) << "Invalid identity packet received";
+        NetworkPacket receivedPacket;
+        bool success = NetworkPacket::unserialize(datagram, &receivedPacket);
+        if (!success || !DeviceInfo::isValidUdpDiscoveryPacket(&receivedPacket)) {
+            qCWarning(KDECONNECT_CORE) << "Invalid connection packet received";
             continue;
         }
 
-        QString deviceId = receivedPacket->get<QString>(QStringLiteral("deviceId"));
-
+        QString deviceId = receivedPacket.get<QString>(QStringLiteral("deviceId"));
         if (deviceId == KdeConnectConfig::instance().deviceId()) {
-            // qCDebug(KDECONNECT_CORE) << "Ignoring my own broadcast";
+            // Ignore my own broadcast
             continue;
         }
+        int protocolVersion = receivedPacket.get<int>(QStringLiteral("protocolVersion"), 0);
+        int tcpPort = receivedPacket.get<int>(QStringLiteral("tcpPort"));
 
-        int tcpPort = receivedPacket->get<int>(QStringLiteral("tcpPort"));
-        if (tcpPort < MIN_TCP_PORT || tcpPort > MAX_TCP_PORT) {
-            qCDebug(KDECONNECT_CORE) << "TCP port outside of kdeconnect's range";
-            continue;
-        }
-
-        const qint64 now = QDateTime::currentMSecsSinceEpoch();
-        if (now - m_lastConnectionTimeCleanup >= MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE) {
-            for (auto it = m_lastConnectionTime.begin(); it != m_lastConnectionTime.end();) {
-                if (it.value() + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE <= now) {
-                    it = m_lastConnectionTime.erase(it);
-                } else {
-                    ++it;
-                }
-            }
-            m_lastConnectionTimeCleanup = now;
-        }
-
-        const auto lastConnectionTime = m_lastConnectionTime.constFind(deviceId);
-        if (lastConnectionTime != m_lastConnectionTime.cend() && lastConnectionTime.value() + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now) {
-            qCDebug(KDECONNECT_CORE) << "Discarding second UPD packet from the same device" << deviceId << "received too quickly";
-            continue;
-        }
-        if (lastConnectionTime == m_lastConnectionTime.cend() && m_lastConnectionTime.size() >= MAX_TRACKED_CONNECTION_TIMES) {
-            qCDebug(KDECONNECT_CORE) << "Too many recent device identities, ignoring" << deviceId;
-            continue;
-        }
-        m_lastConnectionTime.insert(deviceId, now);
-
-        bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
-        int protocolVersion = receivedPacket->get<int>(QStringLiteral("protocolVersion"), 0);
-        if (isDeviceTrusted && isProtocolDowngrade(deviceId, protocolVersion)) {
-            qCWarning(KDECONNECT_CORE) << "Refusing to connect to a device using an older protocol version. Ignoring " << deviceId;
-            return;
-        }
-
-        // qCDebug(KDECONNECT_CORE) << "Received Udp identity packet from" << sender << " asking for a tcp connection on port " << tcpPort;
-
-        QSslSocket *socket = new QSslSocket(this);
-        socket->setProxy(QNetworkProxy::NoProxy);
-        connect(socket, &QAbstractSocket::errorOccurred, this, [this, socket, sender](QAbstractSocket::SocketError socketError) {
-            connectError(socket, sender, socketError);
-        });
-        connect(socket, &QAbstractSocket::connected, this, [this, socket, receivedPacket, sender]() {
-            tcpSocketConnected(socket, receivedPacket, sender);
-        });
-        socket->connectToHost(sender, tcpPort);
+        deviceDiscovered(sender, tcpPort, deviceId, protocolVersion);
     }
 }
 
-void LanLinkProvider::connectError(QSslSocket *socket, QHostAddress sender, QAbstractSocket::SocketError socketError)
+// We discovered a device (via mDNS or UDP broadcast) and want to connect to it.
+void LanLinkProvider::deviceDiscovered(const QHostAddress &address, int port, const QString &deviceId, int protocolVersion)
 {
-    qCDebug(KDECONNECT_CORE) << "Socket error" << socketError;
-    qCDebug(KDECONNECT_CORE) << "Fallback (1), try reverse connection (send udp packet)" << socket->errorString();
-    NetworkPacket np = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
-    np.set(QStringLiteral("tcpPort"), m_tcpPort);
-    m_udpSocket.writeDatagram(np.serialize(), sender, UDP_PORT);
+    if (protocolVersion < 8) {
+        qCWarning(KDECONNECT_CORE) << "LanLinkProvider/encrypted: Ignoring device" << deviceId << "using too old protocol version" << protocolVersion;
+        return;
+    }
 
-    // The socket we created didn't work, and we didn't manage
-    // to create a LanDeviceLink from it, deleting everything.
-    socket->deleteLater();
+    if (port < MIN_TCP_PORT || port > MAX_TCP_PORT) {
+        qCDebug(KDECONNECT_CORE) << "TCP port outside of kdeconnect's range";
+        return;
+    }
+
+    const qint64 now = QDateTime::currentMSecsSinceEpoch();
+    if (now - m_lastConnectionTimeCleanup >= MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE) {
+        for (auto it = m_lastConnectionTime.begin(); it != m_lastConnectionTime.end();) {
+            if (it.value() + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE <= now) {
+                it = m_lastConnectionTime.erase(it);
+            } else {
+                ++it;
+            }
+        }
+        m_lastConnectionTimeCleanup = now;
+    }
+
+    const auto lastConnectionTime = m_lastConnectionTime.constFind(deviceId);
+    if (lastConnectionTime != m_lastConnectionTime.cend() && lastConnectionTime.value() + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now) {
+        qCDebug(KDECONNECT_CORE) << "Discarding second discovery of the same device" << deviceId << "received too quickly";
+        return;
+    }
+    if (lastConnectionTime == m_lastConnectionTime.cend() && m_lastConnectionTime.size() >= MAX_TRACKED_CONNECTION_TIMES) {
+        qCDebug(KDECONNECT_CORE) << "Too many recent device identities, ignoring" << deviceId;
+        return;
+    }
+    m_lastConnectionTime.insert(deviceId, now);
+
+    bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
+    if (isDeviceTrusted && isProtocolDowngrade(deviceId, protocolVersion)) {
+        qCWarning(KDECONNECT_CORE) << "Refusing to connect to a device using an older protocol version. Ignoring " << deviceId;
+        return;
+    }
+
+    qCDebug(KDECONNECT_CORE) << "Attempting to connect to " << address << port;
+
+    QSslSocket *socket = new QSslSocket(this);
+    socket->setProxy(QNetworkProxy::NoProxy);
+    connect(socket, &QAbstractSocket::errorOccurred, this, [this, socket, address](QAbstractSocket::SocketError socketError) {
+        qCWarning(KDECONNECT_CORE) << socket->errorString() << socketError;
+        recoverConnectionError(address);
+        socket->deleteLater();
+    });
+    connect(socket, &QAbstractSocket::connected, this, [this, socket, deviceId, protocolVersion]() {
+        tcpSocketConnected(socket, deviceId, protocolVersion);
+    });
+    socket->connectToHost(address, port);
 }
 
-// We received a UDP packet and answered by connecting to them by TCP. This gets called on a successful connection.
-// TODO: When we support protocol version 8 only, this method doesn't need to take a networkpacket, just deviceId and protocolVersion
-void LanLinkProvider::tcpSocketConnected(QSslSocket *socket, std::shared_ptr<NetworkPacket> receivedPacket, QHostAddress sender)
+void LanLinkProvider::recoverConnectionError(QHostAddress sender)
+{
+    qCInfo(KDECONNECT_CORE) << "Connection error, attempting reverse connection";
+    NetworkPacket np = KdeConnectConfig::instance().deviceInfo().toUdpDiscoveryPacket(m_tcpPort);
+    m_udpSocket.writeDatagram(np.serialize(), sender, UDP_PORT);
+}
+
+// We discovered a device and connected to it via TCP. This gets called on a successful connection.
+void LanLinkProvider::tcpSocketConnected(QSslSocket *socket, const QString &deviceId, int protocolVersion)
 {
     disconnect(socket, &QAbstractSocket::errorOccurred, this, nullptr);
 
@@ -382,104 +368,85 @@ void LanLinkProvider::tcpSocketConnected(QSslSocket *socket, std::shared_ptr<Net
     // If socket disconnects due to any reason after connection, link on ssl failure
     connect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);
 
-    const QString &deviceId = receivedPacket->get<QString>(QStringLiteral("deviceId"));
-    const int protocolVersion = receivedPacket->get<int>(QStringLiteral("protocolVersion"));
-
-    NetworkPacket np2 = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
-    np2.set(QStringLiteral("targetDeviceId"), deviceId);
-    np2.set(QStringLiteral("targetProtocolVersion"), protocolVersion);
-    socket->write(np2.serialize());
+    NetworkPacket response = KdeConnectConfig::instance().deviceInfo().toConnectionPacket(deviceId, protocolVersion);
+    socket->write(response.serialize());
     bool success = socket->waitForBytesWritten();
-
-    if (success) {
-        qCDebug(KDECONNECT_CORE) << "TCP connection done (i'm the existing device)";
-
-        // if ssl supported
-        bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
-        configureSslSocket(socket, deviceId, isDeviceTrusted);
-
-        qCDebug(KDECONNECT_CORE) << "Starting server ssl (I'm the client TCP socket)";
-
-        connect(socket, &QSslSocket::encrypted, this, [this, socket, receivedPacket]() {
-            encrypted(socket, receivedPacket);
-        });
-
-        connect(socket, &QSslSocket::sslErrors, this, &LanLinkProvider::sslErrors);
-
-        socket->startServerEncryption();
-    } else {
-        // The socket doesn't seem to work, so we can't create the connection.
-
-        qCDebug(KDECONNECT_CORE) << "Fallback (2), try reverse connection (send udp packet)";
-        m_udpSocket.writeDatagram(np2.serialize(), sender, UDP_PORT);
-
-        // Disconnect should trigger deleteLater
-        socket->abort();
+    if (!success) {
+        recoverConnectionError(socket->peerAddress());
+        socket->abort(); // Triggers deleteLater
+        return;
     }
+
+    bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
+    configureSslSocket(socket, deviceId, isDeviceTrusted);
+
+    qCDebug(KDECONNECT_CORE) << "Starting server SSL (I'm the client TCP socket)";
+
+    connect(socket, &QSslSocket::encrypted, this, [this, socket, deviceId, protocolVersion]() {
+        encrypted(socket, deviceId, protocolVersion);
+    });
+
+    connect(socket, &QSslSocket::sslErrors, this, &LanLinkProvider::sslErrors);
+
+    socket->startServerEncryption();
 }
 
-void LanLinkProvider::encrypted(QSslSocket *socket, std::shared_ptr<NetworkPacket> identityPacket)
+void LanLinkProvider::encrypted(QSslSocket *socket, const QString &deviceId, int protocolVersion)
 {
-    qCDebug(KDECONNECT_CORE) << "Socket successfully established an SSL connection";
+    qCDebug(KDECONNECT_CORE) << "Successfully established an SSL connection with" << deviceId;
 
     Q_ASSERT(socket->mode() != QSslSocket::UnencryptedMode);
 
-    QString deviceId = identityPacket->get<QString>(QStringLiteral("deviceId"));
-    int protocolVersion = identityPacket->get<int>(QStringLiteral("protocolVersion"), -1);
-    if (protocolVersion >= 8) {
-        QTimer *timer = new QTimer(socket);
-        timer->setSingleShot(true);
-        timer->setInterval(1000);
-        connect(timer, &QTimer::timeout, socket, [socket] {
-            qCWarning(KDECONNECT_CORE) << "LanLinkProvider/encrypted: Host timed out without sending its encrypted identity." << socket->peerAddress();
+    QTimer *timer = new QTimer(socket);
+    timer->setSingleShot(true);
+    timer->setInterval(1000);
+    connect(timer, &QTimer::timeout, socket, [socket] {
+        qCWarning(KDECONNECT_CORE) << "LanLinkProvider/encrypted: Host timed out without sending its encrypted identity." << socket->peerAddress();
+        socket->abort();
+    });
+    timer->start();
+
+    NetworkPacket myIdentity = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
+    socket->write(myIdentity.serialize());
+    socket->flush();
+    connect(socket, &QIODevice::readyRead, this, [this, socket, timer, protocolVersion, deviceId]() {
+        if (socket->bytesAvailable() > MAX_IDENTITY_PACKET_SIZE) {
+            qCWarning(KDECONNECT_CORE) << "Remote device sent a packet too large";
             socket->abort();
-        });
-        timer->start();
+            return;
+        }
+        if (!socket->canReadLine()) {
+            // This can happen if the packet is large enough to be split in two chunks
+            return;
+        }
+        disconnect(socket, &QIODevice::readyRead, nullptr, nullptr);
+        QByteArray identityString = socket->readLine();
 
-        NetworkPacket myIdentity = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
-        socket->write(myIdentity.serialize());
-        socket->flush();
-        connect(socket, &QIODevice::readyRead, this, [this, socket, timer, protocolVersion, deviceId]() {
-            if (socket->bytesAvailable() > MAX_IDENTITY_PACKET_SIZE) {
-                qCWarning(KDECONNECT_CORE) << "Remote device sent a packet too large";
-                socket->abort();
-                return;
-            }
-            if (!socket->canReadLine()) {
-                // This can happen if the packet is large enough to be split in two chunks
-                return;
-            }
-            disconnect(socket, &QIODevice::readyRead, nullptr, nullptr);
-            QByteArray identityString = socket->readLine();
-            NetworkPacket secureIdentityPacket;
-            bool success = NetworkPacket::unserialize(identityString, &secureIdentityPacket);
-            if (!success || !DeviceInfo::isValidIdentityPacket(&secureIdentityPacket)) {
-                qCWarning(KDECONNECT_CORE) << "Remote device doesn't correctly implement protocol version 8";
-                socket->abort();
-                return;
-            }
-            int newProtocolVersion = secureIdentityPacket.get<int>(QStringLiteral("protocolVersion"), 0);
-            if (newProtocolVersion != protocolVersion) {
-                qCWarning(KDECONNECT_CORE) << "Protocol version changed half-way through the handshake:" << protocolVersion << "->" << newProtocolVersion;
-                socket->abort();
-                return;
-            }
-            QString newDeviceId = secureIdentityPacket.get<QString>(QStringLiteral("deviceId"));
-            if (newDeviceId != deviceId) {
-                qCWarning(KDECONNECT_CORE) << "Device ID changed half-way through the handshake:" << deviceId << "->" << newDeviceId;
-                socket->abort();
-                return;
-            }
-            DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(secureIdentityPacket, socket->peerCertificate());
+        NetworkPacket secureIdentityPacket;
+        bool success = NetworkPacket::unserialize(identityString, &secureIdentityPacket);
+        if (!success || !DeviceInfo::isValidIdentityPacket(&secureIdentityPacket)) {
+            qCWarning(KDECONNECT_CORE) << "Remote device doesn't correctly implement protocol version 8";
+            socket->abort();
+            return;
+        }
+        int newProtocolVersion = secureIdentityPacket.get<int>(QStringLiteral("protocolVersion"), 0);
+        if (newProtocolVersion != protocolVersion) {
+            qCWarning(KDECONNECT_CORE) << "Protocol version changed half-way through the handshake:" << protocolVersion << "->" << newProtocolVersion;
+            socket->abort();
+            return;
+        }
+        QString newDeviceId = secureIdentityPacket.get<QString>(QStringLiteral("deviceId"));
+        if (newDeviceId != deviceId) {
+            qCWarning(KDECONNECT_CORE) << "Device ID changed half-way through the handshake:" << deviceId << "->" << newDeviceId;
+            socket->abort();
+            return;
+        }
+        DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(secureIdentityPacket, socket->peerCertificate());
 
-            timer->stop();
-            timer->deleteLater();
-            addLink(socket, deviceInfo);
-        });
-    } else {
-        DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(*identityPacket, socket->peerCertificate());
+        timer->stop();
+        timer->deleteLater();
         addLink(socket, deviceInfo);
-    }
+    });
 }
 
 void LanLinkProvider::sslErrors(const QList<QSslError> &errors)
@@ -503,8 +470,7 @@ void LanLinkProvider::sslErrors(const QList<QSslError> &errors)
     }
 }
 
-// I'm the new device and this is the answer to my UDP identity packet (no data received yet). They are connecting to us through TCP, and they should send an
-// identity.
+// Another device discovered us and is connecting to us via TCP.
 void LanLinkProvider::newTcpConnection()
 {
     qCDebug(KDECONNECT_CORE) << "LanLinkProvider newTcpConnection";
@@ -530,7 +496,7 @@ void LanLinkProvider::newTcpConnection()
     }
 }
 
-// I'm the new device and this is the TCP response to my UDP identity packet
+// Another device discovered us and we received their connection packet.
 void LanLinkProvider::tcpPacketReceived()
 {
     QSslSocket *socket = qobject_cast<QSslSocket *>(sender());
@@ -542,57 +508,58 @@ void LanLinkProvider::tcpPacketReceived()
     }
 
     if (!socket->canReadLine()) {
-        // This can happen if the packet is large enough to be split in two chunks
+        // Not an error. This can happen if the packet is large enough to be split in two chunks.
         return;
     }
 
     const QByteArray data = socket->readLine();
+    // qCDebug(KDECONNECT_CORE) << "LanLinkProvider received connection packet:" << data;
 
-    qCDebug(KDECONNECT_CORE) << "LanLinkProvider received reply:" << data;
-
-    std::shared_ptr<NetworkPacket> np = std::shared_ptr<NetworkPacket>{new NetworkPacket()};
-    bool success = NetworkPacket::unserialize(data, np.get());
-
-    if (!success) {
+    NetworkPacket receivedPacket;
+    bool success = NetworkPacket::unserialize(data, &receivedPacket);
+    if (!success || !DeviceInfo::isValidConnectionPacket(&receivedPacket)) {
+        qCWarning(KDECONNECT_CORE) << "Invalid connection packet received";
+        socket->abort();
         return;
     }
 
-    if (!DeviceInfo::isValidIdentityPacket(np.get())) {
-        qCWarning(KDECONNECT_CORE) << "Invalid identity packet received";
-        return;
-    }
-
-    QString targetDeviceId = np->get<QString>(QStringLiteral("targetDeviceId"));
-    int targetProtocolVersion = np->get<int>(QStringLiteral("targetProtocolVersion"), -1);
+    QString targetDeviceId = receivedPacket.get<QString>(QStringLiteral("targetDeviceId"));
+    int targetProtocolVersion = receivedPacket.get<int>(QStringLiteral("targetProtocolVersion"), -1);
     if (!targetDeviceId.isEmpty() && targetDeviceId != KdeConnectConfig::instance().deviceId()) {
         qCWarning(KDECONNECT_CORE) << "Received a connection request for a device that isn't me:" << targetDeviceId;
+        socket->abort();
         return;
     }
     if (targetProtocolVersion != -1 && targetProtocolVersion != NetworkPacket::s_protocolVersion) {
         qCWarning(KDECONNECT_CORE) << "Received a connection request for a protocol version that isn't mine:" << targetProtocolVersion;
+        socket->abort();
         return;
     }
 
-    const QString &deviceId = np->get<QString>(QStringLiteral("deviceId"));
+    const QString &deviceId = receivedPacket.get<QString>(QStringLiteral("deviceId"));
 
     bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
-    int protocolVersion = np->get<int>(QStringLiteral("protocolVersion"), 0);
+    int protocolVersion = receivedPacket.get<int>(QStringLiteral("protocolVersion"), 0);
     if (isDeviceTrusted && isProtocolDowngrade(deviceId, protocolVersion)) {
         qCWarning(KDECONNECT_CORE) << "Refusing to connect to a device using an older protocol version" << protocolVersion << ". Ignoring" << deviceId;
+        socket->abort();
         return;
     }
-
-    // qCDebug(KDECONNECT_CORE) << "Handshaking done (i'm the new device)";
+    if (protocolVersion < 8) {
+        qCWarning(KDECONNECT_CORE) << "LanLinkProvider/tcpPacketReceived: Ignoring device" << deviceId << "using too old protocol version" << protocolVersion;
+        socket->abort();
+        return;
+    }
 
     // This socket will now be owned by the LanDeviceLink or we don't want more data to be received, forget about it
     disconnect(socket, &QIODevice::readyRead, this, &LanLinkProvider::tcpPacketReceived);
 
     configureSslSocket(socket, deviceId, isDeviceTrusted);
 
-    qCDebug(KDECONNECT_CORE) << "Starting client ssl (but I'm the server TCP socket)";
+    qCDebug(KDECONNECT_CORE) << "Starting client SSL (I'm the server TCP socket)";
 
-    connect(socket, &QSslSocket::encrypted, this, [this, socket, np]() {
-        encrypted(socket, np);
+    connect(socket, &QSslSocket::encrypted, this, [this, socket, deviceId, protocolVersion]() {
+        encrypted(socket, deviceId, protocolVersion);
     });
 
     if (isDeviceTrusted) {

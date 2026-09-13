@@ -48,19 +48,17 @@ void PairingHandler::packetReceived(const NetworkPacket &np)
                 Q_EMIT unpaired();
             }
 
-            if (m_device->protocolVersion() >= 8) {
-                m_pairingTimestamp = np.get<long>(QStringLiteral("timestamp"), -1L);
-                if (m_pairingTimestamp == -1L) {
-                    m_pairState = PairState::NotPaired;
-                    Q_EMIT unpaired();
-                    return;
-                }
-                long currentTimestamp = QDateTime::currentDateTime().toSecsSinceEpoch();
-                if (abs(m_pairingTimestamp - currentTimestamp) > ALLOWED_TIMESTAMP_TIME_DIFFERENCE_SECONDS) {
-                    m_pairState = PairState::NotPaired;
-                    Q_EMIT pairingFailed(i18n("Device clocks are out of sync"));
-                    return;
-                }
+            m_pairingTimestamp = np.get<long>(QStringLiteral("timestamp"), -1L);
+            if (m_pairingTimestamp == -1L) {
+                m_pairState = PairState::NotPaired;
+                Q_EMIT unpaired();
+                return;
+            }
+            long currentTimestamp = QDateTime::currentDateTime().toSecsSinceEpoch();
+            if (abs(m_pairingTimestamp - currentTimestamp) > ALLOWED_TIMESTAMP_TIME_DIFFERENCE_SECONDS) {
+                m_pairState = PairState::NotPaired;
+                Q_EMIT pairingFailed(i18n("Device clocks are out of sync"));
+                return;
             }
 
             m_pairState = PairState::RequestedByPeer;
@@ -203,11 +201,9 @@ QString PairingHandler::verificationKey() const
     hash.addData(a);
     hash.addData(b);
 
-    if (m_device->protocolVersion() >= 8) {
-        QByteArray timestamp;
-        timestamp.setNum(m_pairingTimestamp);
-        hash.addData(timestamp);
-    }
+    QByteArray timestamp;
+    timestamp.setNum(m_pairingTimestamp);
+    hash.addData(timestamp);
 
     return QString::fromLatin1(hash.result().toHex().left(8).toUpper());
 }
