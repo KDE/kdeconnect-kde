@@ -48,6 +48,8 @@ static const int MAX_UNPAIRED_CONNECTIONS = 42;
 
 static const long MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE = 500;
 
+static const int MAX_TRACKED_CONNECTION_TIMES = 1024;
+
 LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
     : m_server(new Server(this))
     , m_udpSocket(this)
@@ -306,18 +308,34 @@ void LanLinkProvider::udpBroadcastReceived()
             continue;
         }
 
-        qint64 now = QDateTime::currentMSecsSinceEpoch();
-        if (m_lastConnectionTime[deviceId] + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now) {
-            qCDebug(KDECONNECT_CORE) << "Discarding second UPD packet from the same device" << deviceId << "received too quickly";
-            continue;
-        }
-        m_lastConnectionTime[deviceId] = now;
-
         int tcpPort = receivedPacket->get<int>(QStringLiteral("tcpPort"));
         if (tcpPort < MIN_TCP_PORT || tcpPort > MAX_TCP_PORT) {
             qCDebug(KDECONNECT_CORE) << "TCP port outside of kdeconnect's range";
             continue;
         }
+
+        const qint64 now = QDateTime::currentMSecsSinceEpoch();
+        if (now - m_lastConnectionTimeCleanup >= MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE) {
+            for (auto it = m_lastConnectionTime.begin(); it != m_lastConnectionTime.end();) {
+                if (it.value() + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE <= now) {
+                    it = m_lastConnectionTime.erase(it);
+                } else {
+                    ++it;
+                }
+            }
+            m_lastConnectionTimeCleanup = now;
+        }
+
+        const auto lastConnectionTime = m_lastConnectionTime.constFind(deviceId);
+        if (lastConnectionTime != m_lastConnectionTime.cend() && lastConnectionTime.value() + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now) {
+            qCDebug(KDECONNECT_CORE) << "Discarding second UPD packet from the same device" << deviceId << "received too quickly";
+            continue;
+        }
+        if (lastConnectionTime == m_lastConnectionTime.cend() && m_lastConnectionTime.size() >= MAX_TRACKED_CONNECTION_TIMES) {
+            qCDebug(KDECONNECT_CORE) << "Too many recent device identities, ignoring" << deviceId;
+            continue;
+        }
+        m_lastConnectionTime.insert(deviceId, now);
 
         bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
         int protocolVersion = receivedPacket->get<int>(QStringLiteral("protocolVersion"), 0);

@@ -98,6 +98,7 @@ private:
     QMap<QString, LanDeviceLink *> m_links;
 
     QMap<QString, qint64> m_lastConnectionTime;
+    qint64 m_lastConnectionTimeCleanup = 0;
     const bool m_testMode;
     QTimer m_combineNetworkChangeTimer;
 
