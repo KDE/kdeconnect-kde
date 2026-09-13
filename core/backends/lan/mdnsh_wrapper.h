@@ -73,6 +73,11 @@ public:
         self.txtRecords[key.toLatin1()] = value.toLatin1();
     }
 
+    void setPort(uint16_t port)
+    {
+        self.port = port;
+    }
+
     void startAnnouncing();
     void stopAnnouncing();
 

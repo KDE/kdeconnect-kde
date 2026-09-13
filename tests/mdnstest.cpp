@@ -31,7 +31,8 @@ private Q_SLOTS:
         QString txtKey = QStringLiteral("keyerino");
         QString txtValue = QStringLiteral("valuerino");
 
-        MdnshWrapper::Announcer announcer(instanceName, serviceType, instancePort);
+        MdnshWrapper::Announcer announcer(instanceName, serviceType, 0);
+        announcer.setPort(instancePort);
         announcer.putTxtRecord(txtKey, txtValue);
 
         MdnshWrapper::Discoverer discoverer;

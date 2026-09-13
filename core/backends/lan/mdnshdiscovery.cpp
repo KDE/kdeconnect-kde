@@ -15,7 +15,8 @@
 const QString kServiceType = QStringLiteral("_kdeconnect._udp.local");
 
 MdnshDiscovery::MdnshDiscovery(LanLinkProvider *lanLinkProvider)
-    : mdnsAnnouncer(KdeConnectConfig::instance().deviceId(), kServiceType, lanLinkProvider->tcpPort())
+    : m_lanLinkProvider(lanLinkProvider)
+    , mdnsAnnouncer(KdeConnectConfig::instance().deviceId(), kServiceType, lanLinkProvider->tcpPort())
 {
     KdeConnectConfig &config = KdeConnectConfig::instance();
     mdnsAnnouncer.putTxtRecord(QStringLiteral("id"), config.deviceId());
@@ -45,6 +46,7 @@ MdnshDiscovery::~MdnshDiscovery()
 
 void MdnshDiscovery::onStart()
 {
+    mdnsAnnouncer.setPort(m_lanLinkProvider->tcpPort());
     mdnsAnnouncer.startAnnouncing();
     mdnsDiscoverer.startDiscovering(kServiceType);
 }

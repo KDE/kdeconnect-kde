@@ -29,6 +29,7 @@ public:
     void onNetworkChange() override;
 
 private:
+    LanLinkProvider *const m_lanLinkProvider;
     MdnshWrapper::Discoverer mdnsDiscoverer;
     MdnshWrapper::Announcer mdnsAnnouncer;
 };
