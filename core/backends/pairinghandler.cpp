@@ -128,10 +128,15 @@ bool PairingHandler::requestPairing()
 
 bool PairingHandler::acceptPairing()
 {
-    m_pairingTimeout.stop();
     if (m_pairState == PairState::Paired) {
         return true;
     }
+    if (m_pairState != PairState::RequestedByPeer) {
+        qWarning() << "Cannot accept pairing without a pairing request";
+        return false;
+    }
+
+    m_pairingTimeout.stop();
     NetworkPacket np(PACKET_TYPE_PAIR, {{QStringLiteral("pair"), true}});
     const bool success = m_device->sendPacket(np);
     if (success) {
