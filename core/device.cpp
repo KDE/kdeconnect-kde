@@ -87,6 +87,9 @@ void Device::init()
 
 Device::~Device()
 {
+    for (DeviceLink *link : std::as_const(d->m_deviceLinks)) {
+        disconnect(link, &QObject::destroyed, this, &Device::linkDestroyed);
+    }
     delete d;
 }
 
