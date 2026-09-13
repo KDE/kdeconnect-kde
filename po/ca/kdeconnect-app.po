@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-11 00:45+0000\n"
+"POT-Creation-Date: 2026-09-13 00:44+0000\n"
 "PO-Revision-Date: 2026-08-23 09:00+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -467,45 +467,43 @@ msgid "Make sure to install KDE Connect on your other devices."
 msgstr ""
 "Assegureu-vos d'instal·lar el KDE Connect als altres dispositius vostres."
 
-#: qml/WelcomePage.qml:43
+#: qml/WelcomePage.qml:44
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
 msgstr "Aplicació d'Android KDE Connect"
 
-#: qml/WelcomePage.qml:50
+#: qml/WelcomePage.qml:51
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
 msgstr "F-Droid"
 
-#: qml/WelcomePage.qml:57
+#: qml/WelcomePage.qml:58
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
 msgstr "Play Store"
 
-#: qml/WelcomePage.qml:63
+#: qml/WelcomePage.qml:64
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
 msgstr "Aplicació d'iOS KDE Connect"
 
-#: qml/WelcomePage.qml:68
+#: qml/WelcomePage.qml:69
 #, kde-format
 msgid "Apple Store"
 msgstr "Apple Store"
 
-#: qml/WelcomePage.qml:74
-#, kde-format
-msgid ""
-"If you are having problems, visit the <a href=\"https://userbase.kde.org/"
-"KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
-"Community wiki</span></a> for help."
-msgstr ""
-"Si trobeu problemes, visiteu el <a href=\"https://userbase.kde.org/KDEConnect"
-"\"><span style=\" text-decoration: underline;\">wiki Community del KDE "
-"Connect</span></a> per a trobar ajuda."
+#~ msgid ""
+#~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
+#~ "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
+#~ "Community wiki</span></a> for help."
+#~ msgstr ""
+#~ "Si trobeu problemes, visiteu el <a href=\"https://userbase.kde.org/"
+#~ "KDEConnect\"><span style=\" text-decoration: underline;\">wiki Community "
+#~ "del KDE Connect</span></a> per a trobar ajuda."
 
 #~ msgctxt "@title:window"
 #~ msgid "Active Notifications"
