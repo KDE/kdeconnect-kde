@@ -435,7 +435,7 @@ QString Device::iconName() const
 
 KdeConnectPlugin *Device::plugin(const QString &pluginName) const
 {
-    return d->m_plugins[pluginName];
+    return d->m_plugins.value(pluginName);
 }
 
 void Device::setPluginEnabled(const QString &pluginName, bool enabled)
