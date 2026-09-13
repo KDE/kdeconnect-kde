@@ -160,6 +160,7 @@ void PairingHandler::cancelPairing()
 
 void PairingHandler::unpair()
 {
+    m_pairingTimeout.stop();
     m_pairState = PairState::NotPaired;
     NetworkPacket np(PACKET_TYPE_PAIR, {{QStringLiteral("pair"), false}});
     m_device->sendPacket(np);
