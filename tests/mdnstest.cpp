@@ -35,6 +35,8 @@ private Q_SLOTS:
         announcer.setPort(instancePort);
         announcer.putTxtRecord(txtKey, txtValue);
 
+        MdnshWrapper::Announcer unrelatedAnnouncer(QStringLiteral("unrelated"), QStringLiteral("_unrelated._udp.local"), 1234);
+
         MdnshWrapper::Discoverer discoverer;
 
         QSignalSpy spy(&discoverer, &MdnshWrapper::Discoverer::serviceFound);
@@ -42,20 +44,25 @@ private Q_SLOTS:
         connect(&discoverer,
                 &MdnshWrapper::Discoverer::serviceFound,
                 this,
-                [instanceName, instancePort, txtKey, txtValue](const MdnshWrapper::Discoverer::MdnsService &service) {
+                [instanceName, instancePort, serviceType, txtKey, txtValue](const MdnshWrapper::Discoverer::MdnsService &service) {
                     QCOMPARE(instanceName, service.name);
+                    QCOMPARE(serviceType + QLatin1Char('.'), service.serviceType);
                     QCOMPARE(instancePort, service.port);
                     QVERIFY(service.txtRecords.size() == 1);
                     QVERIFY(service.txtRecords.contains(txtKey));
                     QCOMPARE(txtValue, service.txtRecords.value(txtKey));
                 });
 
-        announcer.startAnnouncing();
         discoverer.startDiscovering(serviceType);
+        unrelatedAnnouncer.startAnnouncing();
+        QTest::qWait(100);
+        QCOMPARE(spy.count(), 0);
 
+        announcer.startAnnouncing();
         QVERIFY(spy.wait(2000));
         QVERIFY(spy.count() > 0);
 
+        unrelatedAnnouncer.stopAnnouncing();
         discoverer.stopDiscovering();
         announcer.stopAnnouncing();
     }

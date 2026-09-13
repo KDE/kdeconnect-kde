@@ -29,6 +29,7 @@ class KDECONNECTCORE_EXPORT Discoverer : public QObject
 public:
     struct MdnsService {
         QString name; // The instance-name part in "<instance-name>._<service-type>._tcp.local."
+        QString serviceType; // ie: "_<service-type>._tcp.local."
         uint16_t port;
         QHostAddress address; // An IPv4 address (IPv6 addresses are ignored)
         QMap<QString, QString> txtRecords;
@@ -44,7 +45,7 @@ Q_SIGNALS:
     void serviceFound(const MdnshWrapper::Discoverer::MdnsService &service);
 
 private:
-    int listenForQueryResponses();
+    int listenForQueryResponses(const QByteArray &wantedServiceType);
     void stopListeningForQueryResponses();
 
     QVector<QSocketNotifier *> responseSocketNotifiers;

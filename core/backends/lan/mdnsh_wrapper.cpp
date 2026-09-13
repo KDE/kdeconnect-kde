@@ -100,23 +100,21 @@ static int query_callback(int sock,
     Q_UNUSED(entry_type);
     Q_UNUSED(rclass);
     Q_UNUSED(ttl);
-    Q_UNUSED(name_offset);
     Q_UNUSED(name_length);
 
     // qCDebug(KDECONNECT_CORE) << "Received DNS record of type" << recordTypeToStr(record_type) << "from socket" << sock << "with type" <<
     // entryTypeToStr(entry_type);
 
-    Discoverer::MdnsService *discoveredService = (Discoverer::MdnsService *)user_data;
+    Discoverer::MdnsService *discoveredService = static_cast<Discoverer::MdnsService *>(user_data);
 
     switch (record_type) {
     case MDNS_RECORDTYPE_PTR: {
-        // We don't use mdns_record_parse_ptr() because we want to extract just the service name instead of the full
-        // "<instance-name>._<service-type>._tcp.local." string
+        char serviceTypeBuffer[256];
+        const mdns_string_t serviceType = mdns_string_extract(data, size, &name_offset, serviceTypeBuffer, sizeof(serviceTypeBuffer));
+        discoveredService->serviceType = QString::fromLatin1(serviceType.str, serviceType.length);
+
         mdns_string_pair_t instanceNamePos = mdns_get_next_substring(data, size, record_offset);
         discoveredService->name = QString::fromLatin1((char *)data + instanceNamePos.offset, instanceNamePos.length);
-        // static char instanceNameBuffer[256];
-        // mdns_string_t instanceName = mdns_record_parse_ptr(data, size, record_offset, record_length, instanceNameBuffer, sizeof(instanceNameBuffer));
-        // discoveredService->name = QString::fromLatin1(instanceName.str, instanceName.length);
         if (discoveredService->address == QHostAddress::Null) {
             discoveredService->address = QHostAddress(from); // In case we don't receive a A record, use from as address
         }
@@ -157,7 +155,12 @@ static int query_callback(int sock,
 
 void Discoverer::startDiscovering(const QString &serviceType)
 {
-    int num_sockets = listenForQueryResponses();
+    QByteArray wantedServiceType = serviceType.toLatin1();
+    if (!wantedServiceType.endsWith('.')) {
+        wantedServiceType.append('.');
+    }
+
+    int num_sockets = listenForQueryResponses(wantedServiceType);
     if (num_sockets <= 0) {
         qCWarning(KDECONNECT_CORE) << "Failed to open any MDNS server sockets";
         return;
@@ -180,7 +183,7 @@ void Discoverer::stopListeningForQueryResponses()
     responseSocketNotifiers.clear();
 }
 
-int Discoverer::listenForQueryResponses()
+int Discoverer::listenForQueryResponses(const QByteArray &wantedServiceType)
 {
     // Open a socket for each interface
     QVector<int> sockets;
@@ -216,17 +219,22 @@ int Discoverer::listenForQueryResponses()
     // Start listening on all sockets
     for (int socket : std::as_const(sockets)) {
         QSocketNotifier *socketNotifier = new QSocketNotifier(socket, QSocketNotifier::Read);
-        QObject::connect(socketNotifier, &QSocketNotifier::activated, this, [this](QSocketDescriptor socket) {
+        QObject::connect(socketNotifier, &QSocketNotifier::activated, this, [this, wantedServiceType](QSocketDescriptor socket) {
             MdnsService discoveredService;
 
             static char buffer[2048];
-            size_t num_records = mdns_query_recv(socket, buffer, sizeof(buffer), query_callback, (void *)&discoveredService, 0);
+            size_t num_records = mdns_query_recv(socket, buffer, sizeof(buffer), query_callback, &discoveredService, 0);
             Q_UNUSED(num_records);
-
-            // qCDebug(KDECONNECT_CORE) << "Discovered service" << discoveredService.name << "at" << discoveredService.address << "in" <<  num_records <<
+            // qCDebug(KDECONNECT_CORE) << "Discovered service" << discoveredService.name << "at" << discoveredService.address << "in" << num_records <<
             // "records via socket" << socket;
 
-            Q_EMIT serviceFound(discoveredService);
+            if (discoveredService.serviceType.toLatin1().compare(wantedServiceType, Qt::CaseInsensitive) != 0) {
+                return;
+            }
+
+            if (!discoveredService.name.isEmpty() && !discoveredService.address.isNull()) {
+                Q_EMIT serviceFound(discoveredService);
+            }
         });
         responseSocketNotifiers.append(socketNotifier);
     }
