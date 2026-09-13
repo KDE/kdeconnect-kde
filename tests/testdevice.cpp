@@ -34,6 +34,7 @@ bool TestDevice::sendPacket(NetworkPacket &np)
     for (QVariantMap::ConstIterator iter = np.body().constBegin(); iter != np.body().constEnd(); iter++)
         lastPacket->set(iter.key(), iter.value());
     lastPacket->setPayload(np.payload(), np.payloadSize());
+    lastPacket->setPayloadTransferInfo(np.payloadTransferInfo());
     return true;
 }
 
