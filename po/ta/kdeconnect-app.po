@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 02:41+0000\n"
+"POT-Creation-Date: 2026-09-13 02:37+0000\n"
 "PO-Revision-Date: 2026-04-12 20:25+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -423,45 +423,43 @@ msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
 msgstr "இன்னொரு சாதனத்திலும் கே.டீ.யீ. கனெக்ட் தனை நிறுவ வேண்டும்."
 
-#: qml/WelcomePage.qml:43
+#: qml/WelcomePage.qml:44
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
 msgstr "கே.டீ.யீ. கனெக்ட் ஆண்ட்ராய்டு செயலி"
 
-#: qml/WelcomePage.qml:50
+#: qml/WelcomePage.qml:51
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
 msgstr "எஃப்-டிராய்டு"
 
-#: qml/WelcomePage.qml:57
+#: qml/WelcomePage.qml:58
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
 msgstr "கூகுள் கடை"
 
-#: qml/WelcomePage.qml:63
+#: qml/WelcomePage.qml:64
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
 msgstr "கே.டீ.யீ. கனெக்ட் iOS செயலி"
 
-#: qml/WelcomePage.qml:68
+#: qml/WelcomePage.qml:69
 #, kde-format
 msgid "Apple Store"
 msgstr "ஆப்பிள் கடை"
 
-#: qml/WelcomePage.qml:74
-#, kde-format
-msgid ""
-"If you are having problems, visit the <a href=\"https://userbase.kde.org/"
-"KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
-"Community wiki</span></a> for help."
-msgstr ""
-"ஏதேனும் பிரச்சனை ஏற்பட்டால், <a href=\"https://userbase.kde.org/KDEConnect"
-"\"><span style=\" text-decoration: underline;\">கே.டீ.யீ. கனெக்டின் சமூக "
-"விக்கியில்</span></a> உங்களுக்கு உதவியாக ஏதாவது உள்ளதா என பார்க்கவும்."
+#~ msgid ""
+#~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
+#~ "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
+#~ "Community wiki</span></a> for help."
+#~ msgstr ""
+#~ "ஏதேனும் பிரச்சனை ஏற்பட்டால், <a href=\"https://userbase.kde.org/KDEConnect"
+#~ "\"><span style=\" text-decoration: underline;\">கே.டீ.யீ. கனெக்டின் சமூக "
+#~ "விக்கியில்</span></a> உங்களுக்கு உதவியாக ஏதாவது உள்ளதா என பார்க்கவும்."
 
 #~ msgctxt "@info KDE Connect provider name"
 #~ msgid "Bluetooth"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 02:41+0000\n"
+"POT-Creation-Date: 2026-09-13 02:37+0000\n"
 "PO-Revision-Date: 2026-04-08 23:22+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -427,45 +427,43 @@ msgctxt "@info"
 msgid "Make sure to install KDE Connect on your other devices."
 msgstr "請記得在您其他裝置上安裝 KDE Connect。"
 
-#: qml/WelcomePage.qml:43
+#: qml/WelcomePage.qml:44
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect Android App"
 msgstr "KDE Connect Android 應用程式"
 
-#: qml/WelcomePage.qml:50
+#: qml/WelcomePage.qml:51
 #, kde-format
 msgctxt "Android Application Store"
 msgid "F-Droid"
 msgstr "F-Droid"
 
-#: qml/WelcomePage.qml:57
+#: qml/WelcomePage.qml:58
 #, kde-format
 msgctxt "Android Application Store"
 msgid "Play Store"
 msgstr "Play 商店"
 
-#: qml/WelcomePage.qml:63
+#: qml/WelcomePage.qml:64
 #, kde-format
 msgctxt "@title:context"
 msgid "KDE Connect iOS App"
 msgstr "KDE Connect iOS 應用程式"
 
-#: qml/WelcomePage.qml:68
+#: qml/WelcomePage.qml:69
 #, kde-format
 msgid "Apple Store"
 msgstr "Apple Store"
 
-#: qml/WelcomePage.qml:74
-#, kde-format
-msgid ""
-"If you are having problems, visit the <a href=\"https://userbase.kde.org/"
-"KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
-"Community wiki</span></a> for help."
-msgstr ""
-"如果您有遇到問題，可以造訪 <a href=\"https://userbase.kde.org/KDEConnect"
-"\"><span style=\" text-decoration: underline;\">KDE Connect 社群 wiki</"
-"span></a> 取得幫助。"
+#~ msgid ""
+#~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
+#~ "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
+#~ "Community wiki</span></a> for help."
+#~ msgstr ""
+#~ "如果您有遇到問題，可以造訪 <a href=\"https://userbase.kde.org/KDEConnect"
+#~ "\"><span style=\" text-decoration: underline;\">KDE Connect 社群 wiki</"
+#~ "span></a> 取得幫助。"
 
 #~ msgctxt "@info KDE Connect provider name"
 #~ msgid "Bluetooth"
