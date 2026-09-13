@@ -151,6 +151,11 @@ bool PairingHandler::acceptPairing()
 
 void PairingHandler::cancelPairing()
 {
+    if (m_pairState != PairState::Requested && m_pairState != PairState::RequestedByPeer) {
+        qWarning() << "Cannot cancel pairing when no pairing is in progress";
+        return;
+    }
+
     m_pairingTimeout.stop();
     m_pairState = PairState::NotPaired;
     NetworkPacket np(PACKET_TYPE_PAIR, {{QStringLiteral("pair"), false}});
