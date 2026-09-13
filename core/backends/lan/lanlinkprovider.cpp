@@ -696,8 +696,8 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
         deviceLink->reset(socket);
     } else {
         bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceInfo.id);
-        if (!isDeviceTrusted && m_links.size() > MAX_UNPAIRED_CONNECTIONS) {
-            qCWarning(KDECONNECT_CORE) << "Too many unpaired devices to remember them all. Ignoring" << deviceInfo.id;
+        if (!isDeviceTrusted && m_links.size() >= MAX_UNPAIRED_CONNECTIONS) {
+            qCWarning(KDECONNECT_CORE) << "Too many devices on the network. Ignoring" << deviceInfo.id;
             socket->abort();
             socket->deleteLater();
             return;
