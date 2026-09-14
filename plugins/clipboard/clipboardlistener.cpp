@@ -61,6 +61,7 @@ ClipboardListener::ClipboardListener()
     m_clipboardMonitorTimer.start(1000); // Refresh 1s
 #endif
     connect(clipboard, &KSystemClipboard::changed, this, &ClipboardListener::updateClipboard);
+    updateClipboard(QClipboard::Clipboard);
 }
 
 void ClipboardListener::updateClipboard(QClipboard::Mode mode)
