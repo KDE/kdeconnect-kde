@@ -177,6 +177,9 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
 
             if (defaultApp == QLatin1String("org.kde.kate") || defaultApp == QLatin1String("org.kde.kwrite")) {
                 QProcess *proc = new QProcess();
+#ifdef Q_OS_UNIX
+                proc->setUnixProcessParameters(QProcess::UnixProcessFlag::CloseFileDescriptors);
+#endif
                 connect(proc, &QProcess::finished, proc, &QObject::deleteLater);
                 if (const QString token = notif->xdgActivationToken(); !token.isEmpty()) {
                     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();

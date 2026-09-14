@@ -389,6 +389,10 @@ mdns_socket_open_ipv4(const struct sockaddr_in* saddr) {
 	int sock = (int)socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	if (sock < 0)
 		return -1;
+#ifndef _WIN32
+	const int fdflags = fcntl(sock, F_GETFD, 0);
+	fcntl(sock, F_SETFD, fdflags | FD_CLOEXEC);
+#endif
 	if (mdns_socket_setup_ipv4(sock, saddr)) {
 		mdns_socket_close(sock);
 		return -1;
@@ -453,6 +457,10 @@ mdns_socket_open_ipv6(const struct sockaddr_in6* saddr) {
 	int sock = (int)socket(AF_INET6, SOCK_DGRAM, IPPROTO_UDP);
 	if (sock < 0)
 		return -1;
+#ifndef _WIN32
+	const int fdflags = fcntl(sock, F_GETFD, 0);
+	fcntl(sock, F_SETFD, fdflags | FD_CLOEXEC);
+#endif
 	if (mdns_socket_setup_ipv6(sock, saddr)) {
 		mdns_socket_close(sock);
 		return -1;

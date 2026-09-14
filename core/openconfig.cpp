@@ -5,10 +5,10 @@
  */
 
 #include "openconfig.h"
+#include "processhelper.h"
 
 #include <QCoreApplication>
 #include <QDebug>
-#include <QProcess>
 
 #include <KIO/CommandLauncherJob>
 
@@ -34,9 +34,9 @@ void OpenConfig::openConfiguration(const QString &deviceId, const QString &plugi
     }
 
 #if defined(Q_OS_WIN)
-    QProcess::startDetached(QStringLiteral("kdeconnect-app.exe"), args);
+    ProcessHelper::startDetached(QStringLiteral("kdeconnect-app.exe"), args);
 #elif defined(Q_OS_MAC)
-    QProcess::startDetached(QCoreApplication::applicationDirPath() + QLatin1String("/kdeconnect-app"), args);
+    ProcessHelper::startDetached(QCoreApplication::applicationDirPath() + QLatin1String("/kdeconnect-app"), args);
 #else
     auto job = new KIO::CommandLauncherJob(QStringLiteral("kdeconnect-app"), args);
     job->setDesktopName(QStringLiteral("org.kde.kdeconnect.app"));

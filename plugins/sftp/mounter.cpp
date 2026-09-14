@@ -62,6 +62,7 @@ void Mounter::onPacketReceived(const NetworkPacket &np)
 
     m_proc = new KProcess();
     m_proc->setOutputChannelMode(KProcess::MergedChannels);
+    m_proc->setUnixProcessParameters(QProcess::UnixProcessFlag::CloseFileDescriptors);
 
     connect(m_proc, &QProcess::started, this, &Mounter::onStarted);
     connect(m_proc, &QProcess::errorOccurred, this, &Mounter::onError);
@@ -200,11 +201,14 @@ void Mounter::unmount(bool finished)
         }
 
         // Free mount point (won't always succeed if the path is in use)
+        KProcess unmountProcess;
+        unmountProcess.setUnixProcessParameters(QProcess::UnixProcessFlag::CloseFileDescriptors);
 #if defined(HAVE_FUSERMOUNT)
-        KProcess::execute(QStringList{QStringLiteral("fusermount"), QStringLiteral("-u"), m_mountPoint}, 10000);
+        unmountProcess.setProgram(QStringList{QStringLiteral("fusermount"), QStringLiteral("-u"), m_mountPoint});
 #else
-        KProcess::execute(QStringList{QStringLiteral("umount"), m_mountPoint}, 10000);
+        unmountProcess.setProgram(QStringList{QStringLiteral("umount"), m_mountPoint});
 #endif
+        unmountProcess.execute(10000);
         m_proc = nullptr;
     }
     m_started = false;

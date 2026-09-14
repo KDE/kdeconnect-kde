@@ -96,6 +96,7 @@ int startDBusDaemon()
         kdeconnectDBusConfiguration = QLatin1String(qgetenv("craftRoot")) + QLatin1String("/../share/dbus-1/session.conf");
     }
     m_dbusProcess = new QProcess();
+    m_dbusProcess->setUnixProcessParameters(QProcess::UnixProcessFlag::CloseFileDescriptors);
     m_dbusProcess->setProgram(dbusDaemonExecutable);
     m_dbusProcess->setArguments({QStringLiteral("--print-address"),
                                  QStringLiteral("--nofork"),

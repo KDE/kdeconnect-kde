@@ -10,12 +10,13 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
+#include <core/processhelper.h>
+
 #include <QDBusConnection>
 #include <QDebug>
 #include <QFile>
 #include <QFileInfo>
 #include <QMimeDatabase>
-#include <QProcess>
 
 #include <core/daemon.h>
 #include <core/device.h>
@@ -214,7 +215,7 @@ QString SmsPlugin::dbusPath() const
 void SmsPlugin::launchApp()
 {
     const QString kdeconnectsmsExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-sms"), {QCoreApplication::applicationDirPath()});
-    QProcess::startDetached(kdeconnectsmsExecutable, {QStringLiteral("--device"), device()->id()});
+    ProcessHelper::startDetached(kdeconnectsmsExecutable, {QStringLiteral("--device"), device()->id()});
 }
 
 #include "moc_smsplugin.cpp"

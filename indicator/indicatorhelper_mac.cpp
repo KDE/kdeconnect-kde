@@ -12,11 +12,11 @@
 #include <QFile>
 #include <QIcon>
 #include <QMessageBox>
-#include <QProcess>
 #include <QStandardPaths>
 #include <QThread>
 
 #include "serviceregister_mac.h"
+#include <core/processhelper.h>
 #include <dbushelper.h>
 #include <kdeconnectconfig.h>
 
@@ -58,7 +58,7 @@ int IndicatorHelper::startDaemon()
         QMessageBox::critical(nullptr, i18n("KDE Connect"), i18n("Cannot find kdeconnectd"), QMessageBox::Abort, QMessageBox::Abort);
         QApplication::exit(-10);
     }
-    QProcess::startDetached(daemonPath);
+    ProcessHelper::startDetached(daemonPath);
     return 0;
 }
 

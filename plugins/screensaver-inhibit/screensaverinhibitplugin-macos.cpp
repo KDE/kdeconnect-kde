@@ -17,6 +17,7 @@ ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject *parent, const QVaria
 {
     if (QFile::exists(QStringLiteral("/usr/bin/caffeinate"))) {
         m_caffeinateProcess = new QProcess();
+        m_caffeinateProcess->setUnixProcessParameters(QProcess::UnixProcessFlag::CloseFileDescriptors);
         m_caffeinateProcess->setProgram(QStringLiteral("caffeinate"));
         m_caffeinateProcess->setArguments({QStringLiteral("-d")}); // Prevent the display from sleeping
         m_caffeinateProcess->start();

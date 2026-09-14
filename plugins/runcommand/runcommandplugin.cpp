@@ -90,6 +90,9 @@ void RunCommandPlugin::startCommand(const NetworkPacket &np)
 
     qCDebug(KDECONNECT_PLUGIN_RUNCOMMAND) << "Running:" << COMMAND << ARGS << commandJson[QStringLiteral("command")].toString();
     auto *process = new QProcess(this);
+#ifdef Q_OS_UNIX
+    process->setUnixProcessParameters(QProcess::UnixProcessFlag::CloseFileDescriptors);
+#endif
     process->setProcessChannelMode(QProcess::SeparateChannels);
 
     stderrConn = connect(process, &QProcess::readyReadStandardError, this, [this, currentId] {

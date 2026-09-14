@@ -13,6 +13,7 @@
 
 #include "dbusinterfaces/dbusinterfaces.h"
 
+#include <core/processhelper.h>
 #include <dbushelper.h>
 #include <dbushelpers.h>
 #include <systray_actions.h>
@@ -116,7 +117,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
     if (!kdeconnectsmsExecutable.isEmpty()) {
         auto smsapp = addAction(QIcon::fromTheme(QStringLiteral("message-new")), i18n("SMS Messages…"));
         QObject::connect(smsapp, &QAction::triggered, device, [device, kdeconnectsmsExecutable]() {
-            QProcess::startDetached(kdeconnectsmsExecutable, {QStringLiteral("--device"), device->id()});
+            ProcessHelper::startDetached(kdeconnectsmsExecutable, {QStringLiteral("--device"), device->id()});
         });
         setWhenAvailable(
             device->hasPlugin(QStringLiteral("kdeconnect_sms")),

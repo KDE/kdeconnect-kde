@@ -212,6 +212,9 @@ bool VirtualMonitorPlugin::requestRdp()
     const QString port = QString::number(s_port++);
 
     auto process = new QProcess(this);
+#ifdef Q_OS_UNIX
+    process->setUnixProcessParameters(QProcess::UnixProcessFlag::CloseFileDescriptors);
+#endif
     process->setProgram(QS("krdpserver"));
     const double scale = m_remoteResolution.value(QLatin1String("scale")).toDouble();
     QStringList args = {QS("--virtual-monitor"),

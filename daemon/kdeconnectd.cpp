@@ -9,7 +9,6 @@
 #include <QCommandLineParser>
 #include <QDBusMessage>
 #include <QIcon>
-#include <QProcess>
 #include <QQuickStyle>
 #include <QStandardPaths>
 #include <QTimer>
@@ -28,6 +27,7 @@
 
 #include "desktop_daemon.h"
 #include "kdeconnect-version.h"
+#include <core/processhelper.h>
 
 // Copied from plasma-workspace/libkworkspace/kworkspace.cpp
 static void detectPlatform(int argc, char **argv)
@@ -121,7 +121,7 @@ int main(int argc, char *argv[])
 
 #ifdef Q_OS_WIN
     // make sure indicator shows up in the tray whenever daemon is spawned
-    QProcess::startDetached(QStringLiteral("kdeconnect-indicator.exe"), QStringList());
+    ProcessHelper::startDetached(QStringLiteral("kdeconnect-indicator.exe"));
 #endif
 
     return app.exec();
