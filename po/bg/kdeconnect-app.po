@@ -453,12 +453,3 @@ msgstr "KDE Connect iOS App"
 #, kde-format
 msgid "Apple Store"
 msgstr "Apple Store"
-
-#~ msgid ""
-#~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#~ "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
-#~ "Community wiki</span></a> for help."
-#~ msgstr ""
-#~ "Ако имате проблеми, посетете  <a href=\"https://userbase.kde.org/"
-#~ "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
-#~ "Community wiki</span></a>за помощ."
