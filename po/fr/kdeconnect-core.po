@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:45+0000\n"
+"POT-Creation-Date: 2026-09-14 00:42+0000\n"
 "PO-Revision-Date: 2026-08-15 09:07+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -48,40 +48,46 @@ msgstr "Envoi vers %1"
 msgid "File"
 msgstr "Fichier"
 
+#: backends/lan/uploadjob.cpp:102
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not open source file: %1"
+msgstr "Impossible de stocker le fichier de certificat : %1"
+
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
 msgstr "Les horloges du périphérique ne sont pas synchronisées."
 
-#: backends/pairinghandler.cpp:80
+#: backends/pairinghandler.cpp:81
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "Annulé par l'autre périphérique"
-
-#: backends/pairinghandler.cpp:96
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1 : déjà associé"
 
 #: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1 : périphérique non accessible"
 
-#: backends/pairinghandler.cpp:142
+#: backends/pairinghandler.cpp:147
 #, kde-format
 msgid "Device not reachable"
 msgstr "Périphérique non accessible"
 
-#: backends/pairinghandler.cpp:153
+#: backends/pairinghandler.cpp:163
 #, kde-format
 msgid "Cancelled by user"
 msgstr "Annulé par l'utilisateur"
 
-#: backends/pairinghandler.cpp:169
+#: backends/pairinghandler.cpp:180
 #, kde-format
 msgid "Timed out"
 msgstr "Délai expiré"
+
+#: backends/pairinghandler.cpp:193
+#, kde-format
+msgid "Pairing is not in progress"
+msgstr ""
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
@@ -103,18 +109,18 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destination"
 
-#: device.cpp:473
+#: device.cpp:479
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "L'empreinte « SHA256 » du certificat de votre appareil est : %1\n"
 
-#: device.cpp:479
+#: device.cpp:485
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr ""
 "L'empreinte « SHA256 » du certificat de votre appareil distant est : %1\n"
 
-#: device.cpp:481
+#: device.cpp:487
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "Version de protocole : %1\n"
@@ -158,6 +164,9 @@ msgstr "Impossible de générer le certificat du périphérique."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Impossible de stocker le fichier de certificat : %1"
+
+#~ msgid "%1: Already paired"
+#~ msgstr "%1 : déjà associé"
 
 #, fuzzy
 #~| msgctxt "@info"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:45+0000\n"
+"POT-Creation-Date: 2026-09-14 00:42+0000\n"
 "PO-Revision-Date: 2026-06-15 13:18+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -43,40 +43,46 @@ msgstr "Se trimite la %1"
 msgid "File"
 msgstr "Fișier"
 
+#: backends/lan/uploadjob.cpp:102
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not open source file: %1"
+msgstr "Fișierul cu certificat nu a putut fi stocat: %1"
+
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
 msgstr "Ceasurile dispozitivelor nu se potrivesc"
 
-#: backends/pairinghandler.cpp:80
+#: backends/pairinghandler.cpp:81
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "Anulat de către partener"
-
-#: backends/pairinghandler.cpp:96
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: Asociat deja"
 
 #: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: Dispozitivul nu e accesibil"
 
-#: backends/pairinghandler.cpp:142
+#: backends/pairinghandler.cpp:147
 #, kde-format
 msgid "Device not reachable"
 msgstr "Dispozitivul nu e accesibil"
 
-#: backends/pairinghandler.cpp:153
+#: backends/pairinghandler.cpp:163
 #, kde-format
 msgid "Cancelled by user"
 msgstr "Anulat de utilizator"
 
-#: backends/pairinghandler.cpp:169
+#: backends/pairinghandler.cpp:180
 #, kde-format
 msgid "Timed out"
 msgstr "A expirat"
+
+#: backends/pairinghandler.cpp:193
+#, kde-format
+msgid "Pairing is not in progress"
+msgstr ""
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
@@ -99,17 +105,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destinație"
 
-#: device.cpp:473
+#: device.cpp:479
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Amprenta SHA256 a certificatului acestui dispozitiv e: %1\n"
 
-#: device.cpp:479
+#: device.cpp:485
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Amprenta SHA256 a certificatului dispozitivului distant e: %1\n"
 
-#: device.cpp:481
+#: device.cpp:487
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "Versiune protocol: %1\n"
@@ -154,6 +160,9 @@ msgstr "Certificatul dispozitivului nu a putut fi generat."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Fișierul cu certificat nu a putut fi stocat: %1"
+
+#~ msgid "%1: Already paired"
+#~ msgstr "%1: Asociat deja"
 
 #~ msgctxt "@info"
 #~ msgid "Bluetooth (beta)"

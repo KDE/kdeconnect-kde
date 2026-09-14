@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:45+0000\n"
+"POT-Creation-Date: 2026-09-14 00:42+0000\n"
 "PO-Revision-Date: 2026-08-17 19:36+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -44,40 +44,46 @@ msgstr "يرسل إلى %1..."
 msgid "File"
 msgstr "ملف"
 
+#: backends/lan/uploadjob.cpp:102
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not open source file: %1"
+msgstr "تعذّر تخزين ملفّ الشّهادة: %1"
+
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
 msgstr "ساعات الجهاز غير متزامنة"
 
-#: backends/pairinghandler.cpp:80
+#: backends/pairinghandler.cpp:81
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "ألغاه ندّ آخر"
-
-#: backends/pairinghandler.cpp:96
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: مُقترن به فعلًا"
 
 #: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: لا يمكن الوصول إلى الجهاز"
 
-#: backends/pairinghandler.cpp:142
+#: backends/pairinghandler.cpp:147
 #, kde-format
 msgid "Device not reachable"
 msgstr "لا يمكن الوصول إلى الجهاز"
 
-#: backends/pairinghandler.cpp:153
+#: backends/pairinghandler.cpp:163
 #, kde-format
 msgid "Cancelled by user"
 msgstr "ألغاه المستخدم"
 
-#: backends/pairinghandler.cpp:169
+#: backends/pairinghandler.cpp:180
 #, kde-format
 msgid "Timed out"
 msgstr "انتهت المهلة"
+
+#: backends/pairinghandler.cpp:193
+#, kde-format
+msgid "Pairing is not in progress"
+msgstr ""
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
@@ -103,17 +109,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "المقصد"
 
-#: device.cpp:473
+#: device.cpp:479
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "بصمة SHA256 لشهادة جهازك هي: %1\n"
 
-#: device.cpp:479
+#: device.cpp:485
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "بصمة SHA256 لشهادة الجهاز البعيد هي: %1\n"
 
-#: device.cpp:481
+#: device.cpp:487
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "إصدار الميفاق: %1\n"
@@ -157,6 +163,9 @@ msgstr "تعذّر توليد شهادة الجهاز."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "تعذّر تخزين ملفّ الشّهادة: %1"
+
+#~ msgid "%1: Already paired"
+#~ msgstr "%1: مُقترن به فعلًا"
 
 #~ msgctxt "@info"
 #~ msgid "Bluetooth (beta)"

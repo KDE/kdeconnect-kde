@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:45+0000\n"
+"POT-Creation-Date: 2026-09-14 00:42+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -44,40 +44,46 @@ msgstr "%1 प्रति प्रेषयन्"
 msgid "File"
 msgstr "सञ्चिका"
 
+#: backends/lan/uploadjob.cpp:102
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not open source file: %1"
+msgstr "प्रमाणपत्रसञ्चिकां संग्रहीतुं न शक्तवान्: %1"
+
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
 msgstr ""
 
-#: backends/pairinghandler.cpp:80
+#: backends/pairinghandler.cpp:81
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "अन्यैः सहपाठिभिः रद्दः"
-
-#: backends/pairinghandler.cpp:96
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: पूर्वमेव युग्मितम्"
 
 #: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: यन्त्रं न प्राप्यते"
 
-#: backends/pairinghandler.cpp:142
+#: backends/pairinghandler.cpp:147
 #, kde-format
 msgid "Device not reachable"
 msgstr "यन्त्रं न प्राप्यते"
 
-#: backends/pairinghandler.cpp:153
+#: backends/pairinghandler.cpp:163
 #, kde-format
 msgid "Cancelled by user"
 msgstr "उपयोक्त्रा रद्दं कृतम्"
 
-#: backends/pairinghandler.cpp:169
+#: backends/pairinghandler.cpp:180
 #, kde-format
 msgid "Timed out"
 msgstr "समयः समाप्तः"
+
+#: backends/pairinghandler.cpp:193
+#, kde-format
+msgid "Pairing is not in progress"
+msgstr ""
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
@@ -99,17 +105,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "गन्तव्य"
 
-#: device.cpp:473
+#: device.cpp:479
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "भवतः उपकरणप्रमाणपत्रस्य SHA256 अङ्गुलिचिह्नम् अस्ति: %1\n"
 
-#: device.cpp:479
+#: device.cpp:485
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "दूरस्थयन्त्रप्रमाणपत्रस्य SHA256 अङ्गुलिचिह्नम् अस्ति: %1\n"
 
-#: device.cpp:481
+#: device.cpp:487
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr ""
@@ -154,3 +160,6 @@ msgstr "यन्त्रप्रमाणपत्रं जनयितु�
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "प्रमाणपत्रसञ्चिकां संग्रहीतुं न शक्तवान्: %1"
+
+#~ msgid "%1: Already paired"
+#~ msgstr "%1: पूर्वमेव युग्मितम्"

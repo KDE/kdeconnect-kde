@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:45+0000\n"
+"POT-Creation-Date: 2026-09-14 00:42+0000\n"
 "PO-Revision-Date: 2026-08-14 07:15+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -43,40 +43,46 @@ msgstr "%1-თან გაგზავნა"
 msgid "File"
 msgstr "ფაილი"
 
+#: backends/lan/uploadjob.cpp:102
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not open source file: %1"
+msgstr "სერტიფიკატის ფაილის დამახსოვრების შეცდომა: %1"
+
 #: backends/pairinghandler.cpp:61
 #, kde-format
 msgid "Device clocks are out of sync"
 msgstr "მოწყობილობის საათების სინქრონიზაცია დარღვეულია"
 
-#: backends/pairinghandler.cpp:80
+#: backends/pairinghandler.cpp:81
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "გაუქმებულია პარტნიორის მიერ"
-
-#: backends/pairinghandler.cpp:96
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: უკვე შეწყვილებულია"
 
 #: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: მოწყობილობა მიუწვდომელია"
 
-#: backends/pairinghandler.cpp:142
+#: backends/pairinghandler.cpp:147
 #, kde-format
 msgid "Device not reachable"
 msgstr "მოწყობილობა მიუწვდომელია"
 
-#: backends/pairinghandler.cpp:153
+#: backends/pairinghandler.cpp:163
 #, kde-format
 msgid "Cancelled by user"
 msgstr "შეწყვეტილია მომხმარებლის მიერ"
 
-#: backends/pairinghandler.cpp:169
+#: backends/pairinghandler.cpp:180
 #, kde-format
 msgid "Timed out"
 msgstr "ვადა გავიდა"
+
+#: backends/pairinghandler.cpp:193
+#, kde-format
+msgid "Pairing is not in progress"
+msgstr ""
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
@@ -98,17 +104,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "დანიშნულება"
 
-#: device.cpp:473
+#: device.cpp:479
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "თქვენი მოწყობილობის სერტიფიკატის SHA256 ანაბეჭდია: %1\n"
 
-#: device.cpp:479
+#: device.cpp:485
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "დაშორებული მოწყობილობის სერტიფიკატის SHA256 ანაბეჭდია: %1\n"
 
-#: device.cpp:481
+#: device.cpp:487
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "პროკოლის ვერსია: %1\n"
@@ -152,6 +158,9 @@ msgstr "მოწყობილობის სერტიფიკატი�
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "სერტიფიკატის ფაილის დამახსოვრების შეცდომა: %1"
+
+#~ msgid "%1: Already paired"
+#~ msgstr "%1: უკვე შეწყვილებულია"
 
 #~ msgctxt "@info"
 #~ msgid "Bluetooth (beta)"
