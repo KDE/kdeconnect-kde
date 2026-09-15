@@ -136,7 +136,7 @@ msgstr "Намиране на устройство чрез позвъняван
 #: kdeconnect-cli.cpp:83
 #, kde-format
 msgid "Unpair from device"
-msgstr "Разкачване от устройство"
+msgstr "Разделяне с устройство"
 
 #: kdeconnect-cli.cpp:84
 #, kde-format
@@ -349,7 +349,7 @@ msgstr "Вече не е сдвоено"
 #: kdeconnect-cli.cpp:311
 #, kde-format
 msgid "Successfully unpaired"
-msgstr "Успешно разкачени"
+msgstr "Успешно разделени"
 
 #: kdeconnect-cli.cpp:369
 #, kde-format
