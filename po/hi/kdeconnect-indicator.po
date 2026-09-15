@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-21 00:44+0000\n"
+"POT-Creation-Date: 2026-09-15 00:43+0000\n"
 "PO-Revision-Date: 2024-06-08 20:33+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -27,40 +27,40 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "आपके ईमेल"
 
-#: deviceindicator.cpp:53
+#: deviceindicator.cpp:54
 #, kde-format
 msgid "Browse device"
 msgstr "उपकरण ब्राउज़ करें"
 
-#: deviceindicator.cpp:67
+#: deviceindicator.cpp:68
 #, kde-format
 msgid "Send clipboard"
 msgstr "क्लिपबोर्ड भेजें"
 
-#: deviceindicator.cpp:81
+#: deviceindicator.cpp:82
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "उपकरण को रिंग करें"
 
-#: deviceindicator.cpp:95
+#: deviceindicator.cpp:96
 #, fuzzy, kde-format
 #| msgid "Send a file/URL"
 msgid "Send files"
 msgstr "फ़ाइल/यूआरएल भेजें"
 
-#: deviceindicator.cpp:117
+#: deviceindicator.cpp:118
 #, fuzzy, kde-format
 #| msgid "SMS Messages..."
 msgid "SMS Messages…"
 msgstr "एसएमएस भेजें..."
 
-#: deviceindicator.cpp:130
+#: deviceindicator.cpp:131
 #, kde-format
 msgid "Run command"
 msgstr "समादेश चलाएँ"
 
-#: deviceindicator.cpp:132
+#: deviceindicator.cpp:133
 #, kde-format
 msgid "Add commands"
 msgstr "समादेश जोड़ें"

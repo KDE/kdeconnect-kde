@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-21 00:44+0000\n"
+"POT-Creation-Date: 2026-09-15 00:43+0000\n"
 "PO-Revision-Date: 2023-10-11 18:12+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,40 +27,40 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xxmn77@gmail.com"
 
-#: deviceindicator.cpp:53
+#: deviceindicator.cpp:54
 #, kde-format
 msgid "Browse device"
 msgstr "Cihaza baxmaq"
 
-#: deviceindicator.cpp:67
+#: deviceindicator.cpp:68
 #, kde-format
 msgid "Send clipboard"
 msgstr "Mübadilə yaddaşını göndərin"
 
-#: deviceindicator.cpp:81
+#: deviceindicator.cpp:82
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Cihaza zəng göndərin"
 
-#: deviceindicator.cpp:95
+#: deviceindicator.cpp:96
 #, fuzzy, kde-format
 #| msgid "Send a file/URL"
 msgid "Send files"
 msgstr "Fayl/URL göndərin"
 
-#: deviceindicator.cpp:117
+#: deviceindicator.cpp:118
 #, fuzzy, kde-format
 #| msgid "SMS Messages..."
 msgid "SMS Messages…"
 msgstr "SMS İsmarıclar..."
 
-#: deviceindicator.cpp:130
+#: deviceindicator.cpp:131
 #, kde-format
 msgid "Run command"
 msgstr "Əmri başlatmaq"
 
-#: deviceindicator.cpp:132
+#: deviceindicator.cpp:133
 #, kde-format
 msgid "Add commands"
 msgstr "Əmrlər əlavə etmək"

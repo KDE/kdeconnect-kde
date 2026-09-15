@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:45+0000\n"
+"POT-Creation-Date: 2026-09-15 00:43+0000\n"
 "PO-Revision-Date: 2026-03-31 20:44+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -368,29 +368,29 @@ msgstr ""
 "正規表現で定義されている送信されるべきでない通知\n"
 "上記で選択した場合、このパターンは通知全体に要約され適用されます。"
 
-#: sftp/mounter.cpp:141
+#: sftp/mounter.cpp:142
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "sshfs の開始に失敗しました"
 
-#: sftp/mounter.cpp:145
+#: sftp/mounter.cpp:146
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs のプロセスがクラッシュしました"
 
-#: sftp/mounter.cpp:149
+#: sftp/mounter.cpp:150
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "sshfs の不明なエラー"
 
-#: sftp/mounter.cpp:160
+#: sftp/mounter.cpp:161
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 "ファイルシステムへのアクセス中にエラーが発生しました。sshfs が終了コード %0 "
 "で終了しました"
 
-#: sftp/mounter.cpp:169
+#: sftp/mounter.cpp:170
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "ファイルシステムのマウントに失敗: デバイスが応答していません"
@@ -439,29 +439,29 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "%1 から共有されたテキストがクリップボードにコピーされました"
 
-#: share/shareplugin.cpp:212
+#: share/shareplugin.cpp:215
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "テキストエディタで開く"
 
-#: share/shareplugin.cpp:216
+#: share/shareplugin.cpp:219
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "リンクを開く"
 
-#: share/shareplugin.cpp:257 share/shareplugin.cpp:262
+#: share/shareplugin.cpp:260 share/shareplugin.cpp:265
 #, kde-format
 msgid "Could not share file"
 msgstr "ファイルを共有できませんでした"
 
-#: share/shareplugin.cpp:257
+#: share/shareplugin.cpp:260
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1は存在しません。"
 
-#: share/shareplugin.cpp:262
+#: share/shareplugin.cpp:265
 #, kde-format
 msgid "Permission denied: %1"
 msgstr ""

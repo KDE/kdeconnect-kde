@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:45+0000\n"
+"POT-Creation-Date: 2026-09-15 00:43+0000\n"
 "PO-Revision-Date: 2026-08-13 08:08+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -368,27 +368,27 @@ msgstr ""
 "Този шаблон се прилага към обобщението или, ако е избрано по-горе, към "
 "тялото на известието."
 
-#: sftp/mounter.cpp:141
+#: sftp/mounter.cpp:142
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Неуспешно стартиране на sshfs"
 
-#: sftp/mounter.cpp:145
+#: sftp/mounter.cpp:146
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs процесът се срина"
 
-#: sftp/mounter.cpp:149
+#: sftp/mounter.cpp:150
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Неизвестна грешка в sshfs"
 
-#: sftp/mounter.cpp:160
+#: sftp/mounter.cpp:161
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "Грешка при достъп до файловата система. sshfs завърши с изходен код %0"
 
-#: sftp/mounter.cpp:169
+#: sftp/mounter.cpp:170
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Неуспешно монтиране на файловата система: устройството не отговаря"
@@ -435,29 +435,29 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Споделеният текст от %1 е копиран в клипборда"
 
-#: share/shareplugin.cpp:212
+#: share/shareplugin.cpp:215
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Отваряне в текстов редактор"
 
-#: share/shareplugin.cpp:216
+#: share/shareplugin.cpp:219
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Отваряне на връзка"
 
-#: share/shareplugin.cpp:257 share/shareplugin.cpp:262
+#: share/shareplugin.cpp:260 share/shareplugin.cpp:265
 #, kde-format
 msgid "Could not share file"
 msgstr "Файлът не можа да се сподели"
 
-#: share/shareplugin.cpp:257
+#: share/shareplugin.cpp:260
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 не съществува"
 
-#: share/shareplugin.cpp:262
+#: share/shareplugin.cpp:265
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Отказан достъп: %1"

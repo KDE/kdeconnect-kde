@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-21 00:44+0000\n"
+"POT-Creation-Date: 2026-09-15 00:43+0000\n"
 "PO-Revision-Date: 2025-07-31 18:25+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -28,38 +28,38 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
 
-#: deviceindicator.cpp:53
+#: deviceindicator.cpp:54
 #, kde-format
 msgid "Browse device"
 msgstr "تصفّح جهاز"
 
-#: deviceindicator.cpp:67
+#: deviceindicator.cpp:68
 #, kde-format
 msgid "Send clipboard"
 msgstr "أرسل الحافظة"
 
-#: deviceindicator.cpp:81
+#: deviceindicator.cpp:82
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "رنّ على الجهاز"
 
-#: deviceindicator.cpp:95
+#: deviceindicator.cpp:96
 #, kde-format
 msgid "Send files"
 msgstr "أرسل ملفّات"
 
-#: deviceindicator.cpp:117
+#: deviceindicator.cpp:118
 #, kde-format
 msgid "SMS Messages…"
 msgstr "الرسائل النصية القصيرة…"
 
-#: deviceindicator.cpp:130
+#: deviceindicator.cpp:131
 #, kde-format
 msgid "Run command"
 msgstr "نفّذ أمرًا"
 
-#: deviceindicator.cpp:132
+#: deviceindicator.cpp:133
 #, kde-format
 msgid "Add commands"
 msgstr "أضف أوامر"

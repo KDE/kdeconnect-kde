@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-21 00:44+0000\n"
+"POT-Creation-Date: 2026-09-15 00:43+0000\n"
 "PO-Revision-Date: 2025-06-28 23:41+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -30,38 +30,38 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "vrcordoba@gmail.com"
 
-#: deviceindicator.cpp:53
+#: deviceindicator.cpp:54
 #, kde-format
 msgid "Browse device"
 msgstr "Navegar dispositivo"
 
-#: deviceindicator.cpp:67
+#: deviceindicator.cpp:68
 #, kde-format
 msgid "Send clipboard"
 msgstr "Enviar portapapeles"
 
-#: deviceindicator.cpp:81
+#: deviceindicator.cpp:82
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Hacer sonar el dispositivo"
 
-#: deviceindicator.cpp:95
+#: deviceindicator.cpp:96
 #, kde-format
 msgid "Send files"
 msgstr "Enviar archivos"
 
-#: deviceindicator.cpp:117
+#: deviceindicator.cpp:118
 #, kde-format
 msgid "SMS Messages…"
 msgstr "Mensajes SMS…"
 
-#: deviceindicator.cpp:130
+#: deviceindicator.cpp:131
 #, kde-format
 msgid "Run command"
 msgstr "Ejecutar orden"
 
-#: deviceindicator.cpp:132
+#: deviceindicator.cpp:133
 #, kde-format
 msgid "Add commands"
 msgstr "Añadir órdenes"

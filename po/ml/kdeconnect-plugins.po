@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:45+0000\n"
+"POT-Creation-Date: 2026-09-15 00:43+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -376,27 +376,27 @@ msgid ""
 "notifications."
 msgstr ""
 
-#: sftp/mounter.cpp:141
+#: sftp/mounter.cpp:142
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "sshfs തുടങ്ങുവാൻ സാധിച്ചില്ല"
 
-#: sftp/mounter.cpp:145
+#: sftp/mounter.cpp:146
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs പ്രക്രിയ തകർന്നു"
 
-#: sftp/mounter.cpp:149
+#: sftp/mounter.cpp:150
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "sshfs-ൽ അറിയപ്പെടാത്ത പിശക് "
 
-#: sftp/mounter.cpp:160
+#: sftp/mounter.cpp:161
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 
-#: sftp/mounter.cpp:169
+#: sftp/mounter.cpp:170
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "ഫയൽസിസ്റ്റം ഘടിപ്പിക്കാൻ സാധിച്ചില്ല: ഉപകരണം മറുപടി നല്കുന്നില്ല"
@@ -443,29 +443,29 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr ""
 
-#: share/shareplugin.cpp:212
+#: share/shareplugin.cpp:215
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr ""
 
-#: share/shareplugin.cpp:216
+#: share/shareplugin.cpp:219
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr ""
 
-#: share/shareplugin.cpp:257 share/shareplugin.cpp:262
+#: share/shareplugin.cpp:260 share/shareplugin.cpp:265
 #, kde-format
 msgid "Could not share file"
 msgstr "ഫയൽ പങ്കുവെയ്ക്കാൻ സാധിച്ചില്ല"
 
-#: share/shareplugin.cpp:257
+#: share/shareplugin.cpp:260
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 നിലനിൽക്കുന്നില്ല"
 
-#: share/shareplugin.cpp:262
+#: share/shareplugin.cpp:265
 #, kde-format
 msgid "Permission denied: %1"
 msgstr ""

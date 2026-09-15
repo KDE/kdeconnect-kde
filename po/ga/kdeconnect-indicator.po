@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-21 00:44+0000\n"
+"POT-Creation-Date: 2026-09-15 00:43+0000\n"
 "PO-Revision-Date: 2026-02-03 18:39+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -28,38 +28,38 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aindriu80@yahoo.com"
 
-#: deviceindicator.cpp:53
+#: deviceindicator.cpp:54
 #, kde-format
 msgid "Browse device"
 msgstr "Brabhsáil gléas"
 
-#: deviceindicator.cpp:67
+#: deviceindicator.cpp:68
 #, kde-format
 msgid "Send clipboard"
 msgstr "Seol an ghearrthaisce"
 
-#: deviceindicator.cpp:81
+#: deviceindicator.cpp:82
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Gléas fáinne"
 
-#: deviceindicator.cpp:95
+#: deviceindicator.cpp:96
 #, kde-format
 msgid "Send files"
 msgstr "Seol comhaid"
 
-#: deviceindicator.cpp:117
+#: deviceindicator.cpp:118
 #, kde-format
 msgid "SMS Messages…"
 msgstr "Teachtaireachtaí SMS…"
 
-#: deviceindicator.cpp:130
+#: deviceindicator.cpp:131
 #, kde-format
 msgid "Run command"
 msgstr "Rith an t-ordú"
 
-#: deviceindicator.cpp:132
+#: deviceindicator.cpp:133
 #, kde-format
 msgid "Add commands"
 msgstr "Cuir orduithe leis"

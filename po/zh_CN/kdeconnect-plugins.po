@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:45+0000\n"
+"POT-Creation-Date: 2026-09-15 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -363,27 +363,27 @@ msgstr ""
 "定义不应发送哪些通知的正则表达式。\n"
 "此模式应用于摘要，如果在上面选择，则也可以匹配通知正文。"
 
-#: sftp/mounter.cpp:141
+#: sftp/mounter.cpp:142
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "启动 sshfs 失败"
 
-#: sftp/mounter.cpp:145
+#: sftp/mounter.cpp:146
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs 进程崩溃"
 
-#: sftp/mounter.cpp:149
+#: sftp/mounter.cpp:150
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "sshfs 未知错误"
 
-#: sftp/mounter.cpp:160
+#: sftp/mounter.cpp:161
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "访问文件系统时出错。sshfs 完成退出代码 %0"
 
-#: sftp/mounter.cpp:169
+#: sftp/mounter.cpp:170
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "挂载文件系统出错：设备未响应"
@@ -430,29 +430,29 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "来自 %1 的分享文本已复制到剪贴板"
 
-#: share/shareplugin.cpp:212
+#: share/shareplugin.cpp:215
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "使用文本编辑器打开"
 
-#: share/shareplugin.cpp:216
+#: share/shareplugin.cpp:219
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "打开链接"
 
-#: share/shareplugin.cpp:257 share/shareplugin.cpp:262
+#: share/shareplugin.cpp:260 share/shareplugin.cpp:265
 #, kde-format
 msgid "Could not share file"
 msgstr "无法分享文件"
 
-#: share/shareplugin.cpp:257
+#: share/shareplugin.cpp:260
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 不存在"
 
-#: share/shareplugin.cpp:262
+#: share/shareplugin.cpp:265
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "权限被拒绝：%1$"

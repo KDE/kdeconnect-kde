@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:42+0000\n"
-"PO-Revision-Date: 2026-08-14 19:06+0300\n"
+"PO-Revision-Date: 2026-09-14 18:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -44,10 +44,9 @@ msgid "File"
 msgstr "Dosya"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "Sertifika dosyası depolanamadı: %1"
+msgstr "Kaynak dosya açılamadı: %1"
 
 #: backends/pairinghandler.cpp:61
 #, kde-format
@@ -82,7 +81,7 @@ msgstr "Zaman aşımına uğradı"
 #: backends/pairinghandler.cpp:193
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "Şu anda süren bir eşleşme yok"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format

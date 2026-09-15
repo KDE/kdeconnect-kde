@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:42+0000\n"
-"PO-Revision-Date: 2026-08-17 19:36+0400\n"
+"PO-Revision-Date: 2026-09-14 21:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -45,10 +45,9 @@ msgid "File"
 msgstr "ملف"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "تعذّر تخزين ملفّ الشّهادة: %1"
+msgstr "تعذّر فتح ملف المصدر: %1"
 
 #: backends/pairinghandler.cpp:61
 #, kde-format
@@ -83,7 +82,7 @@ msgstr "انتهت المهلة"
 #: backends/pairinghandler.cpp:193
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "لا تجري عملية اقتران"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format

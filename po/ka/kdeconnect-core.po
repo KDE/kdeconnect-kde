@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:42+0000\n"
-"PO-Revision-Date: 2026-08-14 07:15+0200\n"
+"PO-Revision-Date: 2026-09-14 04:44+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -44,10 +44,9 @@ msgid "File"
 msgstr "ფაილი"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "სერტიფიკატის ფაილის დამახსოვრების შეცდომა: %1"
+msgstr "წყარო ფაილის გახსნა შეუძლებელია: %1"
 
 #: backends/pairinghandler.cpp:61
 #, kde-format
@@ -82,7 +81,7 @@ msgstr "ვადა გავიდა"
 #: backends/pairinghandler.cpp:193
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "დაწყვილება არ მიმდინარეობს"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format

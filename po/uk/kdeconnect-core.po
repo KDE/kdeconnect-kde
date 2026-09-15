@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:42+0000\n"
-"PO-Revision-Date: 2026-08-14 08:41+0300\n"
+"PO-Revision-Date: 2026-09-14 10:16+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -46,10 +46,9 @@ msgid "File"
 msgstr "Файл"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "Не вдалося зберегти файл сертифіката: %1"
+msgstr "Не вдалося відкрити файл коду: %1"
 
 #: backends/pairinghandler.cpp:61
 #, kde-format
@@ -84,7 +83,7 @@ msgstr "Перевищено час очікування"
 #: backends/pairinghandler.cpp:193
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "Пов'язування не виконується"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format

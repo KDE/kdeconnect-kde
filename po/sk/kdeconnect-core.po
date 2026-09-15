@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:42+0000\n"
-"PO-Revision-Date: 2024-04-27 16:46+0200\n"
-"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"PO-Revision-Date: 2026-09-14 20:10+0200\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -44,10 +44,9 @@ msgid "File"
 msgstr "Súbor"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "Nepodarilo sa uložiť súbor s certifikátom: %1"
+msgstr "Nepodarilo sa otvoriť zdrojový súbor: %1"
 
 #: backends/pairinghandler.cpp:61
 #, kde-format
@@ -82,7 +81,7 @@ msgstr "Časový limit vypršal"
 #: backends/pairinghandler.cpp:193
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "Párovanie neprebieha"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format

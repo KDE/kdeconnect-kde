@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:42+0000\n"
-"PO-Revision-Date: 2026-08-31 16:55+0200\n"
+"PO-Revision-Date: 2026-09-14 18:16+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -43,10 +43,9 @@ msgid "File"
 msgstr "File"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "Non pote immagazinar file de certificato : %1"
+msgstr "Non pote aperir le filefonte: %1"
 
 #: backends/pairinghandler.cpp:61
 #, kde-format
@@ -81,7 +80,7 @@ msgstr "Expirate"
 #: backends/pairinghandler.cpp:193
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "Le accopulamento non es in curso "
 
 #: compositefiletransferjob.cpp:47
 #, kde-format

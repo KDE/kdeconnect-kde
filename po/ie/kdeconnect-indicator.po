@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-21 00:44+0000\n"
+"POT-Creation-Date: 2026-09-15 00:43+0000\n"
 "PO-Revision-Date: 2022-11-16 16:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -28,41 +28,41 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mistresssilvara@hotmail.com"
 
-#: deviceindicator.cpp:53
+#: deviceindicator.cpp:54
 #, kde-format
 msgid "Browse device"
 msgstr "Navigar ti aparate"
 
-#: deviceindicator.cpp:67
+#: deviceindicator.cpp:68
 #, kde-format
 msgid "Send clipboard"
 msgstr ""
 
-#: deviceindicator.cpp:81
+#: deviceindicator.cpp:82
 #, fuzzy, kde-format
 #| msgid "Ring device"
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Sonar"
 
-#: deviceindicator.cpp:95
+#: deviceindicator.cpp:96
 #, fuzzy, kde-format
 #| msgid "Send a file/URL"
 msgid "Send files"
 msgstr "Inviar un file o URL"
 
-#: deviceindicator.cpp:117
+#: deviceindicator.cpp:118
 #, fuzzy, kde-format
 #| msgid "SMS Messages..."
 msgid "SMS Messages…"
 msgstr "Missages SMS..."
 
-#: deviceindicator.cpp:130
+#: deviceindicator.cpp:131
 #, kde-format
 msgid "Run command"
 msgstr "Lansar un comande"
 
-#: deviceindicator.cpp:132
+#: deviceindicator.cpp:133
 #, fuzzy, kde-format
 msgid "Add commands"
 msgstr "Comandes"
