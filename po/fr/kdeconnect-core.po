@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:42+0000\n"
-"PO-Revision-Date: 2026-08-15 09:07+0200\n"
+"PO-Revision-Date: 2026-09-15 07:14+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 26.07.90\n"
+"X-Generator: Lokalize 26.08.0\n"
 "X-Text-Markup: kde4\n"
 
 #: backends/lan/compositeuploadjob.cpp:83
@@ -49,10 +49,9 @@ msgid "File"
 msgstr "Fichier"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "Impossible de stocker le fichier de certificat : %1"
+msgstr "Impossible d'ouvrir le fichier source : « %1 »"
 
 #: backends/pairinghandler.cpp:61
 #, kde-format
@@ -87,7 +86,7 @@ msgstr "Délai expiré"
 #: backends/pairinghandler.cpp:193
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "L'association n'est pas en cours."
 
 #: compositefiletransferjob.cpp:47
 #, kde-format

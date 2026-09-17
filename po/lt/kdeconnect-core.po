@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:42+0000\n"
-"PO-Revision-Date: 2026-08-17 12:54+0300\n"
+"PO-Revision-Date: 2026-09-16 15:07+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -45,10 +45,9 @@ msgid "File"
 msgstr "Failas"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "Nepavyko laikyti liudijimo failo: %1"
+msgstr "Nepavyko atverti šaltinio failo: %1"
 
 #: backends/pairinghandler.cpp:61
 #, kde-format
@@ -83,7 +82,7 @@ msgstr "Pasibaigė laikas"
 #: backends/pairinghandler.cpp:193
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "Vyksta suporavimas"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
