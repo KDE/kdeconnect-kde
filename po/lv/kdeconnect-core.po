@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-14 00:42+0000\n"
+"POT-Creation-Date: 2026-09-19 00:44+0000\n"
 "PO-Revision-Date: 2025-02-28 15:14+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -50,37 +50,37 @@ msgstr "Datne"
 msgid "Could not open source file: %1"
 msgstr "Neizdevās saglabāt sertifikāta datni: %1"
 
-#: backends/pairinghandler.cpp:61
+#: backends/pairinghandler.cpp:60
 #, kde-format
 msgid "Device clocks are out of sync"
 msgstr "Ierīču pulksteņi nav sinhronizēti"
 
-#: backends/pairinghandler.cpp:81
+#: backends/pairinghandler.cpp:79
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "Atcēla otra puse"
 
-#: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
+#: backends/pairinghandler.cpp:103 backends/pairinghandler.cpp:122
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: Ierīce nav sasniedzama"
 
-#: backends/pairinghandler.cpp:147
+#: backends/pairinghandler.cpp:145
 #, kde-format
 msgid "Device not reachable"
 msgstr "Ierīce nav sasniedzama"
 
-#: backends/pairinghandler.cpp:163
+#: backends/pairinghandler.cpp:161
 #, kde-format
 msgid "Cancelled by user"
 msgstr "Atcēla lietotājs"
 
-#: backends/pairinghandler.cpp:180
+#: backends/pairinghandler.cpp:178
 #, kde-format
 msgid "Timed out"
 msgstr "Izbeidzās laiks"
 
-#: backends/pairinghandler.cpp:193
+#: backends/pairinghandler.cpp:191
 #, kde-format
 msgid "Pairing is not in progress"
 msgstr ""

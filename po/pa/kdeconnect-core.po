@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-14 00:42+0000\n"
+"POT-Creation-Date: 2026-09-19 00:44+0000\n"
 "PO-Revision-Date: 2024-02-10 10:06-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -48,37 +48,37 @@ msgstr "ਫਾਇਲ"
 msgid "Could not open source file: %1"
 msgstr "ਸਰਟੀਫਿਕੇਟ ਫਾਇਲ ਨੂੰ ਸੰਭਾਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ: %1"
 
-#: backends/pairinghandler.cpp:61
+#: backends/pairinghandler.cpp:60
 #, kde-format
 msgid "Device clocks are out of sync"
 msgstr ""
 
-#: backends/pairinghandler.cpp:81
+#: backends/pairinghandler.cpp:79
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "ਹੋਰ ਪੀਅਰ ਵਲੋਂ ਰੱਦ ਕੀਤਾ"
 
-#: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
+#: backends/pairinghandler.cpp:103 backends/pairinghandler.cpp:122
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: ਡਿਵਾਈਸ ਪਹੁੰਚ ਵਿੱਚ ਨਹੀਂ ਹੈ"
 
-#: backends/pairinghandler.cpp:147
+#: backends/pairinghandler.cpp:145
 #, kde-format
 msgid "Device not reachable"
 msgstr "ਡਿਵਾਈਸ ਪਹੁੰਚ ਵਿੱਚ ਨਹੀਂ ਹੈ"
 
-#: backends/pairinghandler.cpp:163
+#: backends/pairinghandler.cpp:161
 #, kde-format
 msgid "Cancelled by user"
 msgstr "ਵਰਤੋਂਕਾਰ ਵਲੋਂ ਰੱਦ ਕੀਤਾ"
 
-#: backends/pairinghandler.cpp:180
+#: backends/pairinghandler.cpp:178
 #, kde-format
 msgid "Timed out"
 msgstr "ਸਮਾਂ ਸਮਾਪਤ"
 
-#: backends/pairinghandler.cpp:193
+#: backends/pairinghandler.cpp:191
 #, kde-format
 msgid "Pairing is not in progress"
 msgstr ""

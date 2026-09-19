@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-14 00:42+0000\n"
+"POT-Creation-Date: 2026-09-19 00:44+0000\n"
 "PO-Revision-Date: 2026-06-15 13:18+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -49,37 +49,37 @@ msgstr "Fișier"
 msgid "Could not open source file: %1"
 msgstr "Fișierul cu certificat nu a putut fi stocat: %1"
 
-#: backends/pairinghandler.cpp:61
+#: backends/pairinghandler.cpp:60
 #, kde-format
 msgid "Device clocks are out of sync"
 msgstr "Ceasurile dispozitivelor nu se potrivesc"
 
-#: backends/pairinghandler.cpp:81
+#: backends/pairinghandler.cpp:79
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "Anulat de către partener"
 
-#: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
+#: backends/pairinghandler.cpp:103 backends/pairinghandler.cpp:122
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: Dispozitivul nu e accesibil"
 
-#: backends/pairinghandler.cpp:147
+#: backends/pairinghandler.cpp:145
 #, kde-format
 msgid "Device not reachable"
 msgstr "Dispozitivul nu e accesibil"
 
-#: backends/pairinghandler.cpp:163
+#: backends/pairinghandler.cpp:161
 #, kde-format
 msgid "Cancelled by user"
 msgstr "Anulat de utilizator"
 
-#: backends/pairinghandler.cpp:180
+#: backends/pairinghandler.cpp:178
 #, kde-format
 msgid "Timed out"
 msgstr "A expirat"
 
-#: backends/pairinghandler.cpp:193
+#: backends/pairinghandler.cpp:191
 #, kde-format
 msgid "Pairing is not in progress"
 msgstr ""

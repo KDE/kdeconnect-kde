@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-14 00:42+0000\n"
+"POT-Creation-Date: 2026-09-19 00:44+0000\n"
 "PO-Revision-Date: 2026-09-15 14:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -50,37 +50,37 @@ msgstr "檔案"
 msgid "Could not open source file: %1"
 msgstr "無法開啟來源檔案：%1"
 
-#: backends/pairinghandler.cpp:61
+#: backends/pairinghandler.cpp:60
 #, kde-format
 msgid "Device clocks are out of sync"
 msgstr "裝置時鐘不同步"
 
-#: backends/pairinghandler.cpp:81
+#: backends/pairinghandler.cpp:79
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "已被對方取消"
 
-#: backends/pairinghandler.cpp:105 backends/pairinghandler.cpp:124
+#: backends/pairinghandler.cpp:103 backends/pairinghandler.cpp:122
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: 裝置無法連接"
 
-#: backends/pairinghandler.cpp:147
+#: backends/pairinghandler.cpp:145
 #, kde-format
 msgid "Device not reachable"
 msgstr "裝置無法連接"
 
-#: backends/pairinghandler.cpp:163
+#: backends/pairinghandler.cpp:161
 #, kde-format
 msgid "Cancelled by user"
 msgstr "已被使用者取消"
 
-#: backends/pairinghandler.cpp:180
+#: backends/pairinghandler.cpp:178
 #, kde-format
 msgid "Timed out"
 msgstr "逾時"
 
-#: backends/pairinghandler.cpp:193
+#: backends/pairinghandler.cpp:191
 #, kde-format
 msgid "Pairing is not in progress"
 msgstr "目前並未在進行配對"
