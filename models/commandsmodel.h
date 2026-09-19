@@ -24,7 +24,7 @@ class KDECONNECTMODELS_EXPORT CommandsModel : public QAbstractListModel
 
 public:
     enum ModelRoles {
-        KeyRole,
+        KeyRole = Qt::UserRole,
         NameRole,
         CommandRole,
     };

@@ -28,7 +28,7 @@ class KDECONNECTMODELS_EXPORT RemoteSinksModel : public QAbstractListModel
 
 public:
     enum ModelRoles {
-        NameRole,
+        NameRole = Qt::UserRole,
         DescriptionRole,
         MaxVolumeRole,
         VolumeRole,
