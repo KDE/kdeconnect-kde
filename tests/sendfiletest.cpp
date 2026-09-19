@@ -61,7 +61,7 @@ private Q_SLOTS:
         QByteArray content("12312312312313213123213123");
 
         QTemporaryFile temp;
-        temp.open();
+        QVERIFY(temp.open());
         temp.write(content);
         temp.close();
 
@@ -107,7 +107,7 @@ private Q_SLOTS:
         QCOMPARE(device->isPaired(), true);
 
         QTemporaryFile temp;
-        temp.open();
+        QVERIFY(temp.open());
         temp.close();
         QCOMPARE(QFileInfo(temp.fileName()).size(), 0);
 
@@ -149,7 +149,7 @@ private Q_SLOTS:
         QSignalSpy spyUpload(job, &KJob::result);
         job->start();
 
-        f->open(QIODevice::ReadWrite);
+        QVERIFY(f->open(QIODevice::ReadWrite));
 
         FileTransferJob *ft = np.createPayloadTransferJob(QUrl::fromLocalFile(destFile));
 
@@ -260,7 +260,7 @@ private Q_SLOTS:
         TestDevice *device = new TestDevice(this, deviceInfo.id);
 
         QTemporaryFile empty;
-        empty.open();
+        QVERIFY(empty.open());
         empty.close();
 
         CompositeUploadJob *job = new CompositeUploadJob(device, false);
@@ -320,7 +320,7 @@ private Q_SLOTS:
         job->addSubjob(uj);
         job->start();
 
-        f->open(QIODevice::ReadWrite);
+        QVERIFY(f->open(QIODevice::ReadWrite));
 
         FileTransferJob *ft = np.createPayloadTransferJob(QUrl::fromLocalFile(destFile));
         QSignalSpy spyTransfer(ft, &KJob::result);
@@ -364,7 +364,7 @@ private Q_SLOTS:
         job->addSubjob(uj);
         job->start();
 
-        f->open(QIODevice::ReadWrite);
+        QVERIFY(f->open(QIODevice::ReadWrite));
 
         FileTransferJob *ft = np.createPayloadTransferJob(QUrl::fromLocalFile(destFile));
         QSignalSpy spyTransfer(ft, &KJob::result);
