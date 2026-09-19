@@ -81,7 +81,7 @@ LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
 
     m_udpSocket.setProxy(QNetworkProxy::NoProxy);
 
-    connect(&m_udpSocket, &QAbstractSocket::errorOccurred, nullptr, [](QAbstractSocket::SocketError socketError) {
+    connect(&m_udpSocket, &QAbstractSocket::errorOccurred, this, [](QAbstractSocket::SocketError socketError) {
         qWarning() << "Error sending UDP packet:" << socketError;
     });
 
