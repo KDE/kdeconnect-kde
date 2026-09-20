@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:44+0000\n"
-"PO-Revision-Date: 2026-08-16 00:36+0100\n"
+"PO-Revision-Date: 2026-09-19 18:05+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -44,10 +44,9 @@ msgid "File"
 msgstr "Archivo"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "No se pudo almacenar archivo del certificado: %1"
+msgstr "No se pudo abrir archivo fuente: %1"
 
 #: backends/pairinghandler.cpp:60
 #, kde-format
@@ -82,7 +81,7 @@ msgstr "Se alcanzó el tiempo máximo de espera"
 #: backends/pairinghandler.cpp:191
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "La vinculación no está en progreso"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
@@ -159,6 +158,3 @@ msgstr "No se pudo generar el certificado del dispositivo."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "No se pudo almacenar archivo del certificado: %1"
-
-#~ msgid "%1: Already paired"
-#~ msgstr "%1: Ya conectado"

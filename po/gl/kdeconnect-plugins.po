@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 00:43+0000\n"
+"POT-Creation-Date: 2026-09-20 00:45+0000\n"
 "PO-Revision-Date: 2025-06-19 09:41+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -455,29 +455,29 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "O texto compartido por %1 copiouse no portapapeis"
 
-#: share/shareplugin.cpp:215
+#: share/shareplugin.cpp:219
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Abrir nun editor de texto"
 
-#: share/shareplugin.cpp:219
+#: share/shareplugin.cpp:223
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Abrir a ligazón"
 
-#: share/shareplugin.cpp:260 share/shareplugin.cpp:265
+#: share/shareplugin.cpp:264 share/shareplugin.cpp:269
 #, kde-format
 msgid "Could not share file"
 msgstr "Non foi posíbel compartir o ficheiro"
 
-#: share/shareplugin.cpp:260
+#: share/shareplugin.cpp:264
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 non existe"
 
-#: share/shareplugin.cpp:265
+#: share/shareplugin.cpp:269
 #, kde-format
 msgid "Permission denied: %1"
 msgstr ""

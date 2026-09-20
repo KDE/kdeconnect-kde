@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 00:43+0000\n"
+"POT-Creation-Date: 2026-09-20 00:45+0000\n"
 "PO-Revision-Date: 2026-06-25 11:47+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -445,29 +445,29 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Полученный от %1 текст скопирован в буфер обмена"
 
-#: share/shareplugin.cpp:215
+#: share/shareplugin.cpp:219
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Открыть в текстовом редакторе"
 
-#: share/shareplugin.cpp:219
+#: share/shareplugin.cpp:223
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Открыть ссылку"
 
-#: share/shareplugin.cpp:260 share/shareplugin.cpp:265
+#: share/shareplugin.cpp:264 share/shareplugin.cpp:269
 #, kde-format
 msgid "Could not share file"
 msgstr "Не удалось поделиться файлом"
 
-#: share/shareplugin.cpp:260
+#: share/shareplugin.cpp:264
 #, kde-format
 msgid "%1 does not exist"
 msgstr "Файл «%1» не существует"
 
-#: share/shareplugin.cpp:265
+#: share/shareplugin.cpp:269
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Доступ запрещён: %1"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 00:43+0000\n"
+"POT-Creation-Date: 2026-09-20 00:45+0000\n"
 "PO-Revision-Date: 2026-05-10 16:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -436,29 +436,29 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "%1 பகிர்ந்த உரை பிடிப்புப்பலகைக்கு நகலெடுக்கப்பட்டுள்ளது"
 
-#: share/shareplugin.cpp:215
+#: share/shareplugin.cpp:219
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "உரைதிருத்தியில் திற"
 
-#: share/shareplugin.cpp:219
+#: share/shareplugin.cpp:223
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "இணைப்பை திற"
 
-#: share/shareplugin.cpp:260 share/shareplugin.cpp:265
+#: share/shareplugin.cpp:264 share/shareplugin.cpp:269
 #, kde-format
 msgid "Could not share file"
 msgstr "கோப்பைப் பகிர முடியவில்லை"
 
-#: share/shareplugin.cpp:260
+#: share/shareplugin.cpp:264
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 என்பது இல்லை"
 
-#: share/shareplugin.cpp:265
+#: share/shareplugin.cpp:269
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "அனுமதி மறுக்கப்பட்டது: %1"

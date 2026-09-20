@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 00:43+0000\n"
+"POT-Creation-Date: 2026-09-20 00:45+0000\n"
 "PO-Revision-Date: 2026-08-04 07:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -433,29 +433,29 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "從 %1 分享來的文字已複製到剪貼簿"
 
-#: share/shareplugin.cpp:215
+#: share/shareplugin.cpp:219
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "用編輯器開啟"
 
-#: share/shareplugin.cpp:219
+#: share/shareplugin.cpp:223
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "開啟連結"
 
-#: share/shareplugin.cpp:260 share/shareplugin.cpp:265
+#: share/shareplugin.cpp:264 share/shareplugin.cpp:269
 #, kde-format
 msgid "Could not share file"
 msgstr "無法分享檔案"
 
-#: share/shareplugin.cpp:260
+#: share/shareplugin.cpp:264
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 不存在"
 
-#: share/shareplugin.cpp:265
+#: share/shareplugin.cpp:269
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "存取被拒：%1"

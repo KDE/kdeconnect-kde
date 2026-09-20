@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 00:43+0000\n"
+"POT-Creation-Date: 2026-09-20 00:45+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -454,29 +454,29 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr ""
 
-#: share/shareplugin.cpp:215
+#: share/shareplugin.cpp:219
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr ""
 
-#: share/shareplugin.cpp:219
+#: share/shareplugin.cpp:223
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr ""
 
-#: share/shareplugin.cpp:260 share/shareplugin.cpp:265
+#: share/shareplugin.cpp:264 share/shareplugin.cpp:269
 #, kde-format
 msgid "Could not share file"
 msgstr "Tidak bisa berbagi file"
 
-#: share/shareplugin.cpp:260
+#: share/shareplugin.cpp:264
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 tidak ada"
 
-#: share/shareplugin.cpp:265
+#: share/shareplugin.cpp:269
 #, kde-format
 msgid "Permission denied: %1"
 msgstr ""
