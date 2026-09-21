@@ -145,7 +145,7 @@ private:
     void loadIcon(const NetworkPacket &np);
     void applyIcon();
 
-    QString getConversationMessages();
+    QString getConversationMessages(bool supportsMarkup) const;
 
     static QMap<QString, FileTransferJob *> s_downloadsInProgress;
 };

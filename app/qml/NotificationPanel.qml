@@ -128,6 +128,7 @@ Kirigami.ScrollablePage {
                                             id: notificationAppName
 
                                             text: listitem.model.appName
+                                            textFormat: Text.PlainText
                                             level: 5
                                             elide: Text.ElideRight
                                             maximumLineCount: 1
@@ -142,6 +143,7 @@ Kirigami.ScrollablePage {
                                     // Notification title
                                     Kirigami.SelectableLabel {
                                         text: listitem.model.title
+                                        textFormat: TextEdit.PlainText
                                         visible: text.length > 0
                                         font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.2
                                         font.weight: Font.DemiBold

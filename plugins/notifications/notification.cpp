@@ -79,33 +79,36 @@ void Notification::createKNotification(const NetworkPacket &np)
                                 true); // This means the notification won't be deleted automatically, but only with KNotifications 5.81
     }
 
-    if (isConversation()) {
-        m_title = isGroupConversation() ? m_groupName : Message::fromObject(m_conversation.at(0).toObject()).sender;
-        m_text = getConversationMessages();
-    }
+    const bool supportsMarkup = NotificationServerInfo::instance().supportedHints().testFlag(NotificationServerInfo::BODY_MARKUP);
 
-    QString escapedTitle = m_title.toHtmlEscaped();
-    // notification title text does not have markup, but in some cases below it is used in body text so we escape it
-    QString escapedText = m_text.toHtmlEscaped();
-    QString escapedTicker = m_ticker.toHtmlEscaped();
+    QString ticker = m_ticker;
+    QString title = m_title;
+    QString text = isConversation() ? getConversationMessages(supportsMarkup) : m_text;
+
+    if (supportsMarkup) {
+        ticker = ticker.toHtmlEscaped();
+        title = title.toHtmlEscaped();
+        if (!isConversation()) {
+            // getConversationMessages() already produces escaped text for conversations
+            text = text.toHtmlEscaped();
+        }
+    }
 
     if (NotificationServerInfo::instance().supportedHints().testFlag(NotificationServerInfo::X_KDE_DISPLAY_APPNAME)) {
         m_notification->setTitle(m_title);
-        m_notification->setText(isConversation() ? m_text : escapedText);
-        m_notification->setHint(QStringLiteral("x-kde-display-appname"), m_appName.toHtmlEscaped());
+        m_notification->setText(text);
+        m_notification->setHint(QStringLiteral("x-kde-display-appname"), m_appName);
     } else {
         m_notification->setTitle(m_appName);
 
-        if (m_title.isEmpty() && m_text.isEmpty()) {
-            m_notification->setText(escapedTicker);
-        } else if (m_appName == m_title) {
-            m_notification->setText(escapedText);
-        } else if (m_title.isEmpty()) {
-            m_notification->setText(escapedText);
-        } else if (m_text.isEmpty()) {
-            m_notification->setText(escapedTitle);
+        if (title.isEmpty() && text.isEmpty()) {
+            m_notification->setText(ticker);
+        } else if (m_appName == m_title || title.isEmpty()) {
+            m_notification->setText(text);
+        } else if (text.isEmpty()) {
+            m_notification->setText(title);
         } else {
-            m_notification->setText(escapedTitle + QStringLiteral(": ") + escapedText);
+            m_notification->setText(title + QStringLiteral(": ") + text);
         }
     }
 
@@ -185,10 +188,9 @@ void Notification::applyIcon()
     m_notification->setPixmap(icon);
 }
 
-QString Notification::getConversationMessages()
+QString Notification::getConversationMessages(bool supportsMarkup) const
 {
     QString conversation;
-    const bool supportsMarkup = NotificationServerInfo::instance().supportedHints().testFlag(NotificationServerInfo::BODY_MARKUP);
     // To avoid showing the sender of the first message twice (in title and text) at the start of the conversation.
     QString prevSender = m_title;
 
@@ -235,6 +237,12 @@ void Notification::parseNetworkPacket(const NetworkPacket &np)
     m_payloadHash = np.get<QString>(QStringLiteral("payloadHash"));
     m_requestReplyId = np.get<QString>(QStringLiteral("requestReplyId"), QString());
     m_conversation = np.get<QJsonArray>(QStringLiteral("conversation"), QJsonArray());
+
+    if (isConversation()) {
+        m_title = isGroupConversation() ? m_groupName : Message::fromObject(m_conversation.at(0).toObject()).sender;
+        bool supportsMarkup = true; // The QML app and plasmoid, which query this via D-Bus, support HTML.
+        m_text = getConversationMessages(supportsMarkup);
+    }
 
     m_hasIcon = !m_payloadHash.isEmpty();
     m_actions.clear();
