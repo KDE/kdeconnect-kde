@@ -2,22 +2,22 @@
 # Copyright (C) 2020-2026 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# SPDX-FileCopyrightText: 2020, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2020, 2025-2026 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-13 02:37+0000\n"
-"PO-Revision-Date: 2026-04-11 18:16+0100\n"
-"Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
+"PO-Revision-Date: 2026-09-21 00:15+0200\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: main.cpp:46 main.cpp:48
 #, kde-format
@@ -180,7 +180,7 @@ msgstr "Desbloquear"
 #: qml/DevicePage.qml:200
 #, kde-format
 msgid "Find Device"
-msgstr "Encontar dispositivo"
+msgstr "Encontrar dispositivo"
 
 #: qml/DevicePage.qml:208
 #, kde-format
@@ -454,12 +454,3 @@ msgstr "KDE Connect iOS App"
 #, kde-format
 msgid "Apple Store"
 msgstr "Apple Store"
-
-#~ msgid ""
-#~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#~ "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
-#~ "Community wiki</span></a> for help."
-#~ msgstr ""
-#~ "Si tiene problemas, visite la <a href=\"https://userbase.kde.org/"
-#~ "KDEConnect\"><span style=\" text-decoration: underline;\">Wiki de la "
-#~ "comunidad KDE Connect</span></a> para obtener ayuda."
