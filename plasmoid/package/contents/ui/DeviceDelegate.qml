@@ -569,6 +569,7 @@ PlasmaComponents.ItemDelegate {
                                                 Kirigami.Heading {
                                                     id: notificationAppName
                                                     text: listitem.model.appName
+                                                    textFormat: Text.PlainText
                                                     level: 5
                                                     elide: listitem.checked ? Text.ElideNone : Text.ElideRight
                                                     maximumLineCount: listitem.checked ? 0 : 1
@@ -588,6 +589,7 @@ PlasmaComponents.ItemDelegate {
                                             Kirigami.Heading {
                                                 id: notificationTitle
                                                 text: listitem.model.title
+                                                textFormat: Text.PlainText
                                                 level: 2
                                                 type: Kirigami.Heading.Type.Primary
                                                 visible: text.length > 0
