@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 02:44+0000\n"
+"POT-Creation-Date: 2026-09-22 02:49+0000\n"
 "PO-Revision-Date: 2026-05-29 13:05+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -119,19 +119,19 @@ msgstr "Текущ играч"
 msgid "N/A"
 msgstr "Не е налично"
 
-#: notifications/notification.cpp:117
+#: notifications/notification.cpp:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Отговор"
 
-#: notifications/notification.cpp:120
+#: notifications/notification.cpp:123
 #, kde-format
 msgctxt "@info:placeholder %1 is the name of a group chat"
 msgid "Reply in %1…"
 msgstr "Отговор в %1…"
 
-#: notifications/notification.cpp:122
+#: notifications/notification.cpp:125
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
