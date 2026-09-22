@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 00:44+0000\n"
+"POT-Creation-Date: 2026-09-22 00:44+0000\n"
 "PO-Revision-Date: 2026-08-23 08:35+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -353,28 +353,28 @@ msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Underrättelser"
 
-#: qml/NotificationPanel.qml:162
+#: qml/NotificationPanel.qml:164
 #, kde-format
 msgid "Reply"
 msgstr "Svara"
 
-#: qml/NotificationPanel.qml:179
+#: qml/NotificationPanel.qml:181
 #, kde-format
 msgid "Dismiss"
 msgstr "Stäng"
 
-#: qml/NotificationPanel.qml:206
+#: qml/NotificationPanel.qml:208
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: qml/NotificationPanel.qml:224
+#: qml/NotificationPanel.qml:226
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Svara till %1…"
 
-#: qml/NotificationPanel.qml:243
+#: qml/NotificationPanel.qml:245
 #, kde-format
 msgid "Send"
 msgstr "Skicka"

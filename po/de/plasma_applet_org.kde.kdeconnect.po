@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:43+0000\n"
+"POT-Creation-Date: 2026-09-22 00:44+0000\n"
 "PO-Revision-Date: 2026-03-13 18:07+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -118,38 +118,38 @@ msgstr "Alle Benachrichtigungen verwerfen"
 msgid "Remote Keyboard"
 msgstr "Entfernte Tastatur"
 
-#: package/contents/ui/DeviceDelegate.qml:608
+#: package/contents/ui/DeviceDelegate.qml:610
 #, kde-format
 msgid "Reply"
 msgstr "Antworten"
 
-#: package/contents/ui/DeviceDelegate.qml:625
+#: package/contents/ui/DeviceDelegate.qml:627
 #, kde-format
 msgid "Dismiss"
 msgstr "Verwerfen"
 
-#: package/contents/ui/DeviceDelegate.qml:651
+#: package/contents/ui/DeviceDelegate.qml:653
 #, kde-format
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: package/contents/ui/DeviceDelegate.qml:666
+#: package/contents/ui/DeviceDelegate.qml:668
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "%1 antworten …"
 
-#: package/contents/ui/DeviceDelegate.qml:684
+#: package/contents/ui/DeviceDelegate.qml:686
 #, kde-format
 msgid "Send"
 msgstr "Senden"
 
-#: package/contents/ui/DeviceDelegate.qml:716
+#: package/contents/ui/DeviceDelegate.qml:718
 #, kde-format
 msgid "Run command"
 msgstr "Befehl ausführen"
 
-#: package/contents/ui/DeviceDelegate.qml:723
+#: package/contents/ui/DeviceDelegate.qml:725
 #, kde-format
 msgid "Add command"
 msgstr "Befehl hinzufügen"

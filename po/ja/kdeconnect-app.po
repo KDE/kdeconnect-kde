@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 00:44+0000\n"
+"POT-Creation-Date: 2026-09-22 00:44+0000\n"
 "PO-Revision-Date: 2026-03-31 20:07+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -353,28 +353,28 @@ msgctxt "@title:window"
 msgid "Notifications"
 msgstr ""
 
-#: qml/NotificationPanel.qml:162
+#: qml/NotificationPanel.qml:164
 #, kde-format
 msgid "Reply"
 msgstr ""
 
-#: qml/NotificationPanel.qml:179
+#: qml/NotificationPanel.qml:181
 #, kde-format
 msgid "Dismiss"
 msgstr ""
 
-#: qml/NotificationPanel.qml:206
+#: qml/NotificationPanel.qml:208
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: qml/NotificationPanel.qml:224
+#: qml/NotificationPanel.qml:226
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr ""
 
-#: qml/NotificationPanel.qml:243
+#: qml/NotificationPanel.qml:245
 #, fuzzy, kde-format
 #| msgid "Send Ping"
 msgid "Send"

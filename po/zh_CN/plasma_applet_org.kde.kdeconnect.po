@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:43+0000\n"
+"POT-Creation-Date: 2026-09-22 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -119,38 +119,38 @@ msgstr "清除所有通知"
 msgid "Remote Keyboard"
 msgstr "远程键盘"
 
-#: package/contents/ui/DeviceDelegate.qml:608
+#: package/contents/ui/DeviceDelegate.qml:610
 #, kde-format
 msgid "Reply"
 msgstr "回复"
 
-#: package/contents/ui/DeviceDelegate.qml:625
+#: package/contents/ui/DeviceDelegate.qml:627
 #, kde-format
 msgid "Dismiss"
 msgstr "忽略"
 
-#: package/contents/ui/DeviceDelegate.qml:651
+#: package/contents/ui/DeviceDelegate.qml:653
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: package/contents/ui/DeviceDelegate.qml:666
+#: package/contents/ui/DeviceDelegate.qml:668
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "回复给 %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:684
+#: package/contents/ui/DeviceDelegate.qml:686
 #, kde-format
 msgid "Send"
 msgstr "发送"
 
-#: package/contents/ui/DeviceDelegate.qml:716
+#: package/contents/ui/DeviceDelegate.qml:718
 #, kde-format
 msgid "Run command"
 msgstr "运行命令"
 
-#: package/contents/ui/DeviceDelegate.qml:723
+#: package/contents/ui/DeviceDelegate.qml:725
 #, kde-format
 msgid "Add command"
 msgstr "添加命令"

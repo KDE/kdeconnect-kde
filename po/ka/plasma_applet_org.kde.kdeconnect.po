@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:43+0000\n"
+"POT-Creation-Date: 2026-09-22 00:44+0000\n"
 "PO-Revision-Date: 2026-03-12 07:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -119,38 +119,38 @@ msgstr "ყველა გაფრთხილების მოცილე�
 msgid "Remote Keyboard"
 msgstr "დაშორებული კლავიატურა"
 
-#: package/contents/ui/DeviceDelegate.qml:608
+#: package/contents/ui/DeviceDelegate.qml:610
 #, kde-format
 msgid "Reply"
 msgstr "პასუხი"
 
-#: package/contents/ui/DeviceDelegate.qml:625
+#: package/contents/ui/DeviceDelegate.qml:627
 #, kde-format
 msgid "Dismiss"
 msgstr "მოსილება"
 
-#: package/contents/ui/DeviceDelegate.qml:651
+#: package/contents/ui/DeviceDelegate.qml:653
 #, kde-format
 msgid "Cancel"
 msgstr "შეწყვეტა"
 
-#: package/contents/ui/DeviceDelegate.qml:666
+#: package/contents/ui/DeviceDelegate.qml:668
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "%1-ისთვის პასუხი…"
 
-#: package/contents/ui/DeviceDelegate.qml:684
+#: package/contents/ui/DeviceDelegate.qml:686
 #, kde-format
 msgid "Send"
 msgstr "გაგზავნა"
 
-#: package/contents/ui/DeviceDelegate.qml:716
+#: package/contents/ui/DeviceDelegate.qml:718
 #, kde-format
 msgid "Run command"
 msgstr "ბრძანების გაშვება"
 
-#: package/contents/ui/DeviceDelegate.qml:723
+#: package/contents/ui/DeviceDelegate.qml:725
 #, kde-format
 msgid "Add command"
 msgstr "ბრძანების დამატება"

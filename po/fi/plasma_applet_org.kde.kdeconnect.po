@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:43+0000\n"
+"POT-Creation-Date: 2026-09-22 00:44+0000\n"
 "PO-Revision-Date: 2024-10-21 17:41+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -120,38 +120,38 @@ msgstr "Hylkää kaikki ilmoitukset"
 msgid "Remote Keyboard"
 msgstr "Etänäppäimistö"
 
-#: package/contents/ui/DeviceDelegate.qml:608
+#: package/contents/ui/DeviceDelegate.qml:610
 #, kde-format
 msgid "Reply"
 msgstr "Vastaa"
 
-#: package/contents/ui/DeviceDelegate.qml:625
+#: package/contents/ui/DeviceDelegate.qml:627
 #, kde-format
 msgid "Dismiss"
 msgstr "Hylkää"
 
-#: package/contents/ui/DeviceDelegate.qml:651
+#: package/contents/ui/DeviceDelegate.qml:653
 #, kde-format
 msgid "Cancel"
 msgstr "Peru"
 
-#: package/contents/ui/DeviceDelegate.qml:666
+#: package/contents/ui/DeviceDelegate.qml:668
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Vastaa: %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:684
+#: package/contents/ui/DeviceDelegate.qml:686
 #, kde-format
 msgid "Send"
 msgstr "Lähetä"
 
-#: package/contents/ui/DeviceDelegate.qml:716
+#: package/contents/ui/DeviceDelegate.qml:718
 #, kde-format
 msgid "Run command"
 msgstr "Suorita komento"
 
-#: package/contents/ui/DeviceDelegate.qml:723
+#: package/contents/ui/DeviceDelegate.qml:725
 #, kde-format
 msgid "Add command"
 msgstr "Lisää komento"

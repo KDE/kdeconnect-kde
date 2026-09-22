@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:43+0000\n"
+"POT-Creation-Date: 2026-09-22 00:44+0000\n"
 "PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -121,38 +121,38 @@ msgstr "सर्वाणि सूचनानि निरस्तं कु
 msgid "Remote Keyboard"
 msgstr "दूरस्थ कीबोर्ड"
 
-#: package/contents/ui/DeviceDelegate.qml:608
+#: package/contents/ui/DeviceDelegate.qml:610
 #, kde-format
 msgid "Reply"
 msgstr "उत्तरं"
 
-#: package/contents/ui/DeviceDelegate.qml:625
+#: package/contents/ui/DeviceDelegate.qml:627
 #, kde-format
 msgid "Dismiss"
 msgstr "उत्सृज्"
 
-#: package/contents/ui/DeviceDelegate.qml:651
+#: package/contents/ui/DeviceDelegate.qml:653
 #, kde-format
 msgid "Cancel"
 msgstr "निरसयतु"
 
-#: package/contents/ui/DeviceDelegate.qml:666
+#: package/contents/ui/DeviceDelegate.qml:668
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "%1 इत्यस्य उत्तरं ददातु…"
 
-#: package/contents/ui/DeviceDelegate.qml:684
+#: package/contents/ui/DeviceDelegate.qml:686
 #, kde-format
 msgid "Send"
 msgstr "प्रेषयतु"
 
-#: package/contents/ui/DeviceDelegate.qml:716
+#: package/contents/ui/DeviceDelegate.qml:718
 #, kde-format
 msgid "Run command"
 msgstr "आदेशं चालयन्तु"
 
-#: package/contents/ui/DeviceDelegate.qml:723
+#: package/contents/ui/DeviceDelegate.qml:725
 #, kde-format
 msgid "Add command"
 msgstr "आदेशं योजयतु"
