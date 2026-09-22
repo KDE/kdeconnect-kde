@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 00:44+0000\n"
+"POT-Creation-Date: 2026-09-22 16:00+0000\n"
 "PO-Revision-Date: 2026-02-25 14:10+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -369,48 +369,48 @@ msgstr ""
 "valittu\n"
 "yllä, myös ilmoitusten sisällölle."
 
-#: sftp/mounter.cpp:142
+#: sftp/mounter.cpp:153
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "sshfs:n käynnistys epäonnistui"
 
-#: sftp/mounter.cpp:146
+#: sftp/mounter.cpp:157
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs-prosessi kaatui"
 
-#: sftp/mounter.cpp:150
+#: sftp/mounter.cpp:161
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Tuntematon sshfs-virhe"
 
 # Tämä on kamala, keksikää parempi!
-#: sftp/mounter.cpp:161
+#: sftp/mounter.cpp:172
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "Virhe pääsyssä tiedostojärjestelmään. sshfs päättyi virhekoodiin %0"
 
-#: sftp/mounter.cpp:170
+#: sftp/mounter.cpp:181
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Tiedostojärjestelmän liittäminen epäonnistui: laite ei vastaa"
 
-#: sftp/sftpplugin-win.cpp:93
+#: sftp/sftpplugin-win.cpp:97
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:94
+#: sftp/sftpplugin-win.cpp:98
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "SFTP-yhteyskäytäntöä ei voi käsitellä. Pahoittelut harmista"
 
-#: sftp/sftpplugin.cpp:174
+#: sftp/sftpplugin.cpp:181
 #, kde-format
 msgid "All files"
 msgstr "Kaikki tiedostot"
 
-#: sftp/sftpplugin.cpp:175
+#: sftp/sftpplugin.cpp:182
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamerakuvat"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-22 00:44+0000\n"
-"PO-Revision-Date: 2026-05-30 17:17-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -31,12 +31,12 @@ msgstr "© 2015–2025 KDE باغلىنىش قوشۇنى"
 #: main.cpp:50
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr ""
 
 #: main.cpp:51
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
+msgstr ""
 
 #: main.cpp:52
 #, kde-format
@@ -86,7 +86,7 @@ msgstr ""
 #: qml/BatteryInfo.qml:30
 #, kde-format
 msgid "Battery: %1%"
-msgstr ""
+msgstr "توكدان: %1%"
 
 #: qml/ConnectivityInfo.qml:20
 #, kde-format
@@ -106,7 +106,7 @@ msgstr ""
 #: qml/DevicePage.qml:46
 #, kde-format
 msgid "Unpair"
-msgstr ""
+msgstr "جۈپلىمە"
 
 #: qml/DevicePage.qml:51
 #, kde-format
@@ -144,7 +144,7 @@ msgstr ""
 #: qml/DevicePage.qml:149
 #, kde-format
 msgid "Notifications"
-msgstr ""
+msgstr "ئۇقتۇرۇش"
 
 #: qml/DevicePage.qml:157
 #, kde-format
@@ -225,7 +225,7 @@ msgstr ""
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
-msgstr ""
+msgstr "جۈپلە"
 
 #: qml/DevicePage.qml:290 qml/DevicePage.qml:299
 #, kde-format
@@ -343,28 +343,28 @@ msgstr ""
 #: qml/mpris.qml:128
 #, kde-format
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr ""
 
 #: qml/NotificationPanel.qml:21
 #, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
-msgstr ""
+msgstr "ئۇقتۇرۇش"
 
 #: qml/NotificationPanel.qml:164
 #, kde-format
 msgid "Reply"
-msgstr ""
+msgstr "جاۋاب قايتۇر"
 
 #: qml/NotificationPanel.qml:181
 #, kde-format
 msgid "Dismiss"
-msgstr ""
+msgstr "تاشلىۋەت"
 
 #: qml/NotificationPanel.qml:208
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "ۋاز كەچ"
 
 #: qml/NotificationPanel.qml:226
 #, kde-format
@@ -375,7 +375,7 @@ msgstr ""
 #: qml/NotificationPanel.qml:245
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "يوللا"
 
 #: qml/PluginSettings.qml:140
 #, kde-format

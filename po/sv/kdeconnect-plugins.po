@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 00:44+0000\n"
+"POT-Creation-Date: 2026-09-22 16:00+0000\n"
 "PO-Revision-Date: 2026-07-27 09:41+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -366,47 +366,47 @@ msgstr ""
 "Mönstret används med sammanfattningen, och om det är valt ovan, också "
 "underrättelsernas text."
 
-#: sftp/mounter.cpp:142
+#: sftp/mounter.cpp:153
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Misslyckades starta sshfs"
 
-#: sftp/mounter.cpp:146
+#: sftp/mounter.cpp:157
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs-processen kraschade"
 
-#: sftp/mounter.cpp:150
+#: sftp/mounter.cpp:161
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Okänt fel i sshfs"
 
-#: sftp/mounter.cpp:161
+#: sftp/mounter.cpp:172
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "Fel vid åtkomst av filsystem. sshfs avslutades med slutkod %0"
 
-#: sftp/mounter.cpp:170
+#: sftp/mounter.cpp:181
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Misslyckades montera filsystem: apparaten svarar inte"
 
-#: sftp/sftpplugin-win.cpp:93
+#: sftp/sftpplugin-win.cpp:97
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE-anslut"
 
-#: sftp/sftpplugin-win.cpp:94
+#: sftp/sftpplugin-win.cpp:98
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Kan inte hantera SFTP-protokollet. Ursäkta besväret."
 
-#: sftp/sftpplugin.cpp:174
+#: sftp/sftpplugin.cpp:181
 #, kde-format
 msgid "All files"
 msgstr "Alla filer"
 
-#: sftp/sftpplugin.cpp:175
+#: sftp/sftpplugin.cpp:182
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamerabilder"

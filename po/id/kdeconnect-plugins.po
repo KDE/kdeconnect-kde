@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 00:44+0000\n"
+"POT-Creation-Date: 2026-09-22 16:00+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -385,47 +385,47 @@ msgstr ""
 "Pola ini diterapkan pada ringkasan dan jika yang dipilih di atas pada bodi "
 "notifikasi."
 
-#: sftp/mounter.cpp:142
+#: sftp/mounter.cpp:153
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Gagal menjalankan sshfs"
 
-#: sftp/mounter.cpp:146
+#: sftp/mounter.cpp:157
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "Proses sshfs mogok"
 
-#: sftp/mounter.cpp:150
+#: sftp/mounter.cpp:161
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Galat yang tak diketahui dalam sshfs"
 
-#: sftp/mounter.cpp:161
+#: sftp/mounter.cpp:172
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "Galat ketika mengakses sistem file. sshfs terselesaikan dengan kode %0"
 
-#: sftp/mounter.cpp:170
+#: sftp/mounter.cpp:181
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Gagal mengaitkan sistem file: peranti tidak merespons"
 
-#: sftp/sftpplugin-win.cpp:93
+#: sftp/sftpplugin-win.cpp:97
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:94
+#: sftp/sftpplugin-win.cpp:98
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Tidak bisa menangani protokol SFTP. Maaf atas ketidaknyamanan ini"
 
-#: sftp/sftpplugin.cpp:174
+#: sftp/sftpplugin.cpp:181
 #, kde-format
 msgid "All files"
 msgstr "Semua file"
 
-#: sftp/sftpplugin.cpp:175
+#: sftp/sftpplugin.cpp:182
 #, kde-format
 msgid "Camera pictures"
 msgstr "Gambar kamera"

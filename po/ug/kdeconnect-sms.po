@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-25 00:44+0000\n"
-"PO-Revision-Date: 2026-05-30 17:18-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -62,12 +62,12 @@ msgstr ""
 #: conversationlistmodel.cpp:245
 #, kde-format
 msgid "%1: %2"
-msgstr "%1: %2"
+msgstr ""
 
 #: conversationlistmodel.cpp:287 conversationlistmodel.cpp:308
 #, kde-format
 msgid "%1"
-msgstr "%1"
+msgstr ""
 
 #: main.cpp:84 qml/Main.qml:73
 #, kde-format
@@ -92,12 +92,12 @@ msgstr ""
 #: main.cpp:90
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr ""
 
 #: main.cpp:91
 #, kde-format
 msgid "Nicolas Fella"
-msgstr "Nicolas Fella"
+msgstr ""
 
 #: main.cpp:118
 #, kde-format

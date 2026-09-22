@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-22 00:44+0000\n"
-"PO-Revision-Date: 2026-05-30 17:18-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -26,7 +26,7 @@ msgstr ""
 #: package/contents/ui/Battery.qml:37
 #, kde-format
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: package/contents/ui/Battery.qml:40
 #, kde-format
@@ -97,7 +97,7 @@ msgstr ""
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: package/contents/ui/DeviceDelegate.qml:310
 #, kde-format
@@ -153,7 +153,7 @@ msgstr ""
 #: package/contents/ui/DeviceDelegate.qml:725
 #, kde-format
 msgid "Add command"
-msgstr ""
+msgstr "بۇيرۇق قوش"
 
 #: package/contents/ui/FullRepresentation.qml:68
 #, kde-format

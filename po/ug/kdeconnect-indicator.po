@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-15 00:43+0000\n"
-"PO-Revision-Date: 2026-05-30 17:17-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -99,12 +99,12 @@ msgstr ""
 #: main.cpp:62
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr ""
 
 #: main.cpp:63
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
+msgstr ""
 
 #: main.cpp:101
 #, kde-format
@@ -120,7 +120,7 @@ msgstr ""
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
-msgstr ""
+msgstr "جۈپلە"
 
 #: main.cpp:124
 #, kde-format
@@ -151,7 +151,7 @@ msgstr ""
 #: systray_actions/battery_action.cpp:39
 #, kde-format
 msgid "Battery: %1%"
-msgstr ""
+msgstr "توكدان: %1%"
 
 #: systray_actions/connectivity_action.cpp:30
 #, kde-format

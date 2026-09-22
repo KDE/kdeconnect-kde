@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-02 00:44+0000\n"
-"PO-Revision-Date: 2026-05-30 17:18-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -53,12 +53,12 @@ msgstr "© 2015–2025 KDE باغلىنىش قوشۇنى"
 #: kdeconnect-handler.cpp:59
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr ""
 
 #: kdeconnect-handler.cpp:60
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
+msgstr ""
 
 #: kdeconnect-handler.cpp:94
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-24 00:44+0000\n"
-"PO-Revision-Date: 2026-05-30 17:17-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -50,12 +50,12 @@ msgstr "© 2015–2025 KDE باغلىنىش قوشۇنى"
 #: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr ""
 
 #: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
+msgstr ""
 
 #: kdeconnect-cli.cpp:67
 #, kde-format
@@ -202,7 +202,7 @@ msgstr ""
 #: kdeconnect-cli.cpp:96
 #, kde-format
 msgid "Device ID"
-msgstr ""
+msgstr "ئۈسكۈنە كىملىكى"
 
 #: kdeconnect-cli.cpp:97
 #, kde-format
