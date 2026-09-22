@@ -26,6 +26,7 @@ public:
         return m_started;
     }
     void onPacketReceived(const NetworkPacket &np);
+    void restart();
 
 Q_SIGNALS:
     void mounted();
@@ -40,7 +41,7 @@ private Q_SLOTS:
     void start();
 
 private:
-    void unmount(bool finished);
+    void unmount(bool finished, bool notify = true);
 
 private:
     SftpPlugin *m_sftp;
