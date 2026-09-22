@@ -6,6 +6,7 @@
 
 #include "landevicelink.h"
 
+#include <QNetworkProxy>
 #include <QTimer>
 
 #include <KLocalizedString>
@@ -136,6 +137,7 @@ void LanDeviceLink::dataReceived()
             const QVariantMap transferInfo = packet.payloadTransferInfo();
 
             QSharedPointer<QSslSocket> socket(new QSslSocket);
+            socket->setProxy(QNetworkProxy::NoProxy);
 
             LanLinkProvider::configureSslSocket(socket.data(), deviceId(), true);
 

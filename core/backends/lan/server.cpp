@@ -9,6 +9,7 @@
 #include "kdeconnectconfig.h"
 #include "lanlinkprovider.h"
 
+#include <QNetworkProxy>
 #include <QSslError>
 #include <QSslKey>
 #include <QSslSocket>
@@ -16,6 +17,7 @@
 Server::Server(QObject *parent)
     : QTcpServer(parent)
 {
+    setProxy(QNetworkProxy::NoProxy);
     connect(this, &QTcpServer::acceptError, this, &Server::errorFound);
 }
 
