@@ -116,6 +116,17 @@ void Mounter::onPacketReceived(const NetworkPacket &np)
     m_proc->write("\n");
 }
 
+void Mounter::restart()
+{
+    if (!m_started) {
+        return;
+    }
+
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Restarting mount";
+    unmount(false, false);
+    start();
+}
+
 void Mounter::onStarted()
 {
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process started";
@@ -178,7 +189,7 @@ void Mounter::start()
     m_connectTimer.start();
 }
 
-void Mounter::unmount(bool finished)
+void Mounter::unmount(bool finished, bool notify)
 {
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Unmount" << m_proc;
     if (m_proc) {
@@ -195,7 +206,9 @@ void Mounter::unmount(bool finished)
                 qCDebug(KDECONNECT_PLUGIN_SFTP) << "Free" << proc;
                 proc->deleteLater();
             });
-            Q_EMIT unmounted();
+            if (notify) {
+                Q_EMIT unmounted();
+            }
         } else {
             m_proc->deleteLater();
         }

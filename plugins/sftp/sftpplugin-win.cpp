@@ -35,6 +35,10 @@ bool SftpPlugin::startBrowsing()
 
 void SftpPlugin::receivePacket(const NetworkPacket &np)
 {
+    if (np.get<bool>(QStringLiteral("serverStopped"), false)) {
+        return;
+    }
+
     if (np.has(QStringLiteral("errorMessage"))) {
         QString message = np.get<QString>(QStringLiteral("errorMessage"));
         qCWarning(KDECONNECT_PLUGIN_SFTP) << message;
