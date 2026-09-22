@@ -140,7 +140,7 @@
         "Name[tr]": "Sunucu",
         "Name[uk]": "Презентатор",
         "Name[zh_CN]": "演讲者",
-        "Name[zh_TW]": "提供者"
+        "Name[zh_TW]": "簡報工具"
     },
     "X-KdeConnect-OutgoingPacketType": [],
     "X-KdeConnect-SupportedPacketType": [
