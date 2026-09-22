@@ -26,9 +26,9 @@ if(HAS_DEPS)
 
     pkg_get_variable(UDEVDIR udev udevdir)
     if (NOT UDEVDIR) # happens on FreeBSD
-        set(UDEVDIR "${KDE_INSTALL_LIBDIR}/udev/rules.d")
+        set(UDEVDIR "${KDE_INSTALL_LIBDIR}/udev")
     endif()
-    install(FILES 40-kdeconnect-uinput.rules DESTINATION "${UDEVDIR}")
+    install(FILES 40-kdeconnect-uinput.rules DESTINATION "${UDEVDIR}/rules.d")
 
     message(STATUS "digitizer: Dependencies met, compiling.")
 else()
