@@ -11,6 +11,8 @@
 #include "generated/systeminterfaces/request.h"
 #include "generated/systeminterfaces/session.h"
 
+#include <KConfigGroup>
+#include <KSharedConfig>
 #include <QRandomGenerator>
 #include <private/qxkbcommon_p.h>
 
@@ -100,10 +102,17 @@ InputCaptureSession::InputCaptureSession(QObject *parent)
     connect(m_inputCapturePortal, &OrgFreedesktopPortalInputCaptureInterface::ZonesChanged, this, &InputCaptureSession::zonesChanged);
 
     const QString token = u"kdeconnect_shareinputdevices%1"_s.arg(QRandomGenerator::global()->generate());
+    QVariantMap options = {{u"handle_token"_s, token}, {u"session_handle_token"_s, token}, {u"capabilities"_s, 3u}};
+    KConfigGroup stateConfig = KSharedConfig::openStateConfig()->group(QStringLiteral("inputcapture"));
+    QString restoreToken = stateConfig.readEntry(QStringLiteral("RestoreToken"), QString());
+    if (restoreToken.length() > 0) {
+        options[QLatin1String("restore_token")] = restoreToken;
+    }
+
     auto request = new OrgFreedesktopPortalRequestInterface(portalName(), requestPath(token), QDBusConnection::sessionBus(), this);
     connect(request, &OrgFreedesktopPortalRequestInterface::Response, request, &QObject::deleteLater);
     connect(request, &OrgFreedesktopPortalRequestInterface::Response, this, &InputCaptureSession::sessionCreated);
-    auto call = m_inputCapturePortal->CreateSession(QString(), {{u"handle_token"_s, token}, {u"session_handle_token"_s, token}, {u"capabilities"_s, 3u}});
+    auto call = m_inputCapturePortal->CreateSession(QString(), options);
     connect(new QDBusPendingCallWatcher(call, this), &QDBusPendingCallWatcher::finished, request, [request](QDBusPendingCallWatcher *watcher) {
         watcher->deleteLater();
         if (watcher->isError()) {
@@ -129,6 +138,10 @@ void InputCaptureSession::sessionCreated(uint response, const QVariantMap &resul
         qCWarning(KDECONNECT_PLUGIN_SHAREINPUTDEVICES) << "Couldn't create input capture session";
         return;
     }
+
+    KConfigGroup stateConfig = KSharedConfig::openStateConfig()->group(QStringLiteral("inputcapture"));
+    stateConfig.writeEntry(QStringLiteral("RestoreToken"), results[QStringLiteral("restore_token")].toString());
+
     m_session = std::make_unique<OrgFreedesktopPortalSessionInterface>(portalName(),
                                                                        results[u"session_handle"_s].value<QDBusObjectPath>().path(),
                                                                        QDBusConnection::sessionBus());
@@ -226,7 +239,10 @@ void InputCaptureSession::setUpBarrier()
     connect(request, &OrgFreedesktopPortalRequestInterface::Response, this, &InputCaptureSession::barriersSet);
     auto call = m_inputCapturePortal->SetPointerBarriers(
         QDBusObjectPath(m_session->path()),
-        {{u"handle_token"_s, token}},
+        {
+            {u"handle_token"_s, token},
+            {u"persist_mode"_s, QVariant::fromValue<uint>(2)}, // Persist permission until explicitly revoked by user
+        },
         {{{u"barrier_id"_s, 1}, {u"position"_s, QVariant::fromValue(QList<int>{m_barrier.x1(), m_barrier.y1(), m_barrier.x2(), m_barrier.y2()})}}},
         m_currentZoneSet);
     connect(new QDBusPendingCallWatcher(call, this), &QDBusPendingCallWatcher::finished, request, [request](QDBusPendingCallWatcher *watcher) {
