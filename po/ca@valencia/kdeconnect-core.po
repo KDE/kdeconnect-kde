@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:44+0000\n"
-"PO-Revision-Date: 2026-08-14 12:20+0200\n"
+"PO-Revision-Date: 2026-09-14 10:01+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -47,10 +47,9 @@ msgid "File"
 msgstr "Fitxer"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "No s'ha pogut emmagatzemar el fitxer del certificat: %1"
+msgstr "No s'ha pogut obrir el fitxer d'origen: %1"
 
 #: backends/pairinghandler.cpp:60
 #, kde-format
@@ -85,7 +84,7 @@ msgstr "Ha excedit el temps"
 #: backends/pairinghandler.cpp:191
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "L'aparellament no està en curs"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
@@ -162,6 +161,3 @@ msgstr "No s'ha pogut generar el certificat del dispositiu."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "No s'ha pogut emmagatzemar el fitxer del certificat: %1"
-
-#~ msgid "%1: Already paired"
-#~ msgstr "%1: Ja està aparellat"

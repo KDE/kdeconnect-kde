@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:44+0000\n"
-"PO-Revision-Date: 2026-08-25 11:36+0300\n"
-"Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
+"PO-Revision-Date: 2026-09-22 22:06+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -48,10 +48,9 @@ msgid "File"
 msgstr "Файл"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "Не удалось сохранить файл сертификата: %1"
+msgstr "Не удалось открыть исходный файл: %1"
 
 #: backends/pairinghandler.cpp:60
 #, kde-format
@@ -86,7 +85,7 @@ msgstr "Истекло время ожидания"
 #: backends/pairinghandler.cpp:191
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "Сопряжение не выполняется"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format

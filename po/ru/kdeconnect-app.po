@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-22 00:44+0000\n"
-"PO-Revision-Date: 2026-06-25 11:48+0200\n"
+"PO-Revision-Date: 2026-09-22 22:06+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -150,7 +150,7 @@ msgstr "Управление мультимедиа"
 #: qml/DevicePage.qml:149
 #, kde-format
 msgid "Notifications"
-msgstr ""
+msgstr "Уведомления"
 
 #: qml/DevicePage.qml:157
 #, kde-format
@@ -231,7 +231,7 @@ msgstr "Это устройство не сопряжено."
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
-msgstr "Cоздать сопряжение"
+msgstr "Создать сопряжение"
 
 #: qml/DevicePage.qml:290 qml/DevicePage.qml:299
 #, kde-format
@@ -358,34 +358,33 @@ msgstr "%1 - %2"
 #, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
-msgstr ""
+msgstr "Уведомления"
 
 #: qml/NotificationPanel.qml:164
 #, kde-format
 msgid "Reply"
-msgstr ""
+msgstr "Ответить"
 
 #: qml/NotificationPanel.qml:181
 #, kde-format
 msgid "Dismiss"
-msgstr ""
+msgstr "Отклонить"
 
 #: qml/NotificationPanel.qml:208
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: qml/NotificationPanel.qml:226
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "Ответить %1…"
 
 #: qml/NotificationPanel.qml:245
-#, fuzzy, kde-format
-#| msgid "Send Ping"
+#, kde-format
 msgid "Send"
-msgstr "Отправить тестовый сигнал"
+msgstr "Отправить"
 
 #: qml/PluginSettings.qml:140
 #, kde-format

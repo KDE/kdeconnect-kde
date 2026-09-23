@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 00:44+0000\n"
+"POT-Creation-Date: 2026-09-22 16:00+0000\n"
 "PO-Revision-Date: 2025-06-01 14:58+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -48,7 +48,6 @@ msgstr ""
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
 #, fuzzy, kde-format
-#| msgid "KDE Connect"
 msgid "KDE Connect Error"
 msgstr "KDE Connect"
 
@@ -80,7 +79,6 @@ msgstr "Lyd som skal spelast:"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:57
 #, fuzzy, kde-format
-#| msgid "Could not share file"
 msgctxt "@action:button"
 msgid "Choose file"
 msgstr "Klarte ikkje dela fil"
@@ -126,16 +124,12 @@ msgstr "Svar"
 
 #: notifications/notification.cpp:123
 #, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
 msgctxt "@info:placeholder %1 is the name of a group chat"
 msgid "Reply in %1…"
 msgstr "Svar til %1 …"
 
 #: notifications/notification.cpp:125
 #, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1..."
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Svar til %1 …"
@@ -245,7 +239,6 @@ msgstr ""
 #: runcommand/kdeconnect_runcommand_config.qml:105
 #: runcommand/kdeconnect_runcommand_config.qml:183
 #, fuzzy, kde-format
-#| msgid "Name"
 msgid "Name:"
 msgstr "Namn"
 
@@ -348,7 +341,6 @@ msgstr "Namn"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, fuzzy, kde-format
-#| msgid "Include body"
 msgid "Excluded"
 msgstr "Ta med meldingstekst"
 
@@ -373,48 +365,48 @@ msgstr ""
 "Mønsteret vert brukt på samandraget og, viss det er valt ovanfor, "
 "meldingsteksten."
 
-#: sftp/mounter.cpp:142
+#: sftp/mounter.cpp:153
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Klarte ikkje starta sshfs"
 
-#: sftp/mounter.cpp:146
+#: sftp/mounter.cpp:157
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs-prosessen krasja"
 
-#: sftp/mounter.cpp:150
+#: sftp/mounter.cpp:161
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Ukjend feil i sshfs"
 
-#: sftp/mounter.cpp:161
+#: sftp/mounter.cpp:172
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 "Klarte ikkje kopla til filsystemet. sshfs vart avslutta med feilkoden %0."
 
-#: sftp/mounter.cpp:170
+#: sftp/mounter.cpp:181
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Klarte ikkje montera filsystem: eininga svarar ikkje"
 
-#: sftp/sftpplugin-win.cpp:93
+#: sftp/sftpplugin-win.cpp:97
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:94
+#: sftp/sftpplugin-win.cpp:98
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Kan dessverre ikkje handtera SFTP-protokollen."
 
-#: sftp/sftpplugin.cpp:174
+#: sftp/sftpplugin.cpp:181
 #, kde-format
 msgid "All files"
 msgstr "Alle filer"
 
-#: sftp/sftpplugin.cpp:175
+#: sftp/sftpplugin.cpp:182
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamerabilete"
@@ -431,8 +423,6 @@ msgstr ""
 
 #: share/shareplugin.cpp:164
 #, fuzzy, kde-format
-#| msgctxt "@info Some piece of text was received from a connected device"
-#| msgid "Shared text from %1 copied to clipboard"
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
 msgstr "Delt tekst frå %1 kopiert til utklippstavla"
