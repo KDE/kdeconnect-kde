@@ -30,6 +30,14 @@ Kirigami.ScrollablePage {
 
     function openSettings()
     {
+        for (let index = 0; index < pageStack.depth; ++index) {
+            const page = pageStack.get(index);
+            if (page.isPluginSettingsPage && page.device === currentDevice.id()) {
+                pageStack.currentIndex = index;
+                return page;
+            }
+        }
+
         return pageStack.push(
             Qt.resolvedUrl("PluginSettings.qml"),
             {device: currentDevice.id()}

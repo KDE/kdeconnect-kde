@@ -16,6 +16,7 @@ Kirigami.ScrollablePage {
 
     property string device
     property string filterString
+    readonly property bool isPluginSettingsPage: true
 
     title: i18n("Plugin Settings")
 
