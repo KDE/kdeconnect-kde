@@ -133,7 +133,7 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
             CFRelease(event);
             m_leftButtonPressed = false;
         } else if (isScroll) {
-            CGEventRef event = CGEventCreateScrollWheelEvent(NULL, kCGScrollEventUnitPixel, 2, (int)dy, (int)dx);
+            CGEventRef event = CGEventCreateScrollWheelEvent(NULL, kCGScrollEventUnitPixel, 2, (int)dy, -(int)dx);
             CGEventPost(kCGHIDEventTap, event);
             CFRelease(event);
         } else if (!key.isEmpty() || validSpecialKey) {
