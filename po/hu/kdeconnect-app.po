@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 00:44+0000\n"
+"POT-Creation-Date: 2026-09-25 00:45+0000\n"
 "PO-Revision-Date: 2025-07-08 22:50+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -103,131 +103,131 @@ msgstr ""
 msgid "Mobile Network: %1"
 msgstr ""
 
-#: qml/DevicePage.qml:46
+#: qml/DevicePage.qml:54
 #, kde-format
 msgid "Unpair"
 msgstr "Leválasztás"
 
-#: qml/DevicePage.qml:51
+#: qml/DevicePage.qml:59
 #, kde-format
 msgid "Send Ping"
 msgstr "Ping küldése"
 
-#: qml/DevicePage.qml:59 qml/PluginSettings.qml:20
+#: qml/DevicePage.qml:67 qml/PluginSettings.qml:21
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Bővítménybeállítások"
 
-#: qml/DevicePage.qml:75
+#: qml/DevicePage.qml:83
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
 msgstr "Műveletek"
 
-#: qml/DevicePage.qml:77
+#: qml/DevicePage.qml:85
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "Vezérlők"
 
-#: qml/DevicePage.qml:79
+#: qml/DevicePage.qml:87
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
 msgstr ""
 
-#: qml/DevicePage.qml:141
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "Multimedia control"
 msgstr "Multimédiavezérlés"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Notifications"
 msgstr ""
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:165
 #, kde-format
 msgid "Remote input"
 msgstr "Távoli bevitel"
 
-#: qml/DevicePage.qml:165 qml/runcommand.qml:16
+#: qml/DevicePage.qml:173 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Parancs végrehajtása"
 
-#: qml/DevicePage.qml:173 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:181 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Prezentáció-távirányító"
 
-#: qml/DevicePage.qml:182 qml/volume.qml:16
+#: qml/DevicePage.qml:190 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Hangerőszabályzó"
 
-#: qml/DevicePage.qml:192
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "SMS Messages"
 msgstr ""
 
-#: qml/DevicePage.qml:200 qml/mousepad.qml:44
+#: qml/DevicePage.qml:208 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Zárolás"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:208
 #, kde-format
 msgid "Unlock"
 msgstr "Feloldás"
 
-#: qml/DevicePage.qml:208
+#: qml/DevicePage.qml:216
 #, kde-format
 msgid "Find Device"
 msgstr "Eszköz keresése"
 
-#: qml/DevicePage.qml:216
+#: qml/DevicePage.qml:224
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Vágólap küldése"
 
-#: qml/DevicePage.qml:223
+#: qml/DevicePage.qml:231
 #, kde-format
 msgid "Share File"
 msgstr "Fájl megosztása"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Browse this device"
 msgstr "Eszköz böngészése"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:247
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr ""
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:247
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr ""
 
-#: qml/DevicePage.qml:270
+#: qml/DevicePage.qml:278
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:279
+#: qml/DevicePage.qml:287
 #, kde-format
 msgid "This device is not paired."
 msgstr "Az eszköz nincs párosítva."
 
-#: qml/DevicePage.qml:283
+#: qml/DevicePage.qml:291
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Párosítás"
 
-#: qml/DevicePage.qml:290 qml/DevicePage.qml:299
+#: qml/DevicePage.qml:298 qml/DevicePage.qml:307
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -236,22 +236,22 @@ msgstr ""
 "Párosítás kérve\n"
 "Kulcs: "
 
-#: qml/DevicePage.qml:305
+#: qml/DevicePage.qml:313
 #, kde-format
 msgid "Accept"
 msgstr "Elfogadás"
 
-#: qml/DevicePage.qml:311
+#: qml/DevicePage.qml:319
 #, kde-format
 msgid "Reject"
 msgstr "Elutasítás"
 
-#: qml/DevicePage.qml:322
+#: qml/DevicePage.qml:330
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Az eszköz nem érhető el"
 
-#: qml/DevicePage.qml:330
+#: qml/DevicePage.qml:338
 #, kde-format
 msgid "Please choose a file"
 msgstr "Válasszon egy fájlt"
@@ -382,7 +382,7 @@ msgstr ""
 msgid "Send"
 msgstr "Ping küldése"
 
-#: qml/PluginSettings.qml:140
+#: qml/PluginSettings.qml:141
 #, kde-format
 msgid "Configure plugin"
 msgstr "Bővítmény beállítása"

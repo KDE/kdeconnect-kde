@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 00:44+0000\n"
+"POT-Creation-Date: 2026-09-25 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -103,131 +103,131 @@ msgstr "移动网络：无信号"
 msgid "Mobile Network: %1"
 msgstr "移动网络：%1"
 
-#: qml/DevicePage.qml:46
+#: qml/DevicePage.qml:54
 #, kde-format
 msgid "Unpair"
 msgstr "取消配对"
 
-#: qml/DevicePage.qml:51
+#: qml/DevicePage.qml:59
 #, kde-format
 msgid "Send Ping"
 msgstr "发送 Ping"
 
-#: qml/DevicePage.qml:59 qml/PluginSettings.qml:20
+#: qml/DevicePage.qml:67 qml/PluginSettings.qml:21
 #, kde-format
 msgid "Plugin Settings"
 msgstr "插件设置"
 
-#: qml/DevicePage.qml:75
+#: qml/DevicePage.qml:83
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
 msgstr "操作"
 
-#: qml/DevicePage.qml:77
+#: qml/DevicePage.qml:85
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "控制"
 
-#: qml/DevicePage.qml:79
+#: qml/DevicePage.qml:87
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
 msgstr "信息"
 
-#: qml/DevicePage.qml:141
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "Multimedia control"
 msgstr "多媒体控制"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Notifications"
 msgstr "通知"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:165
 #, kde-format
 msgid "Remote input"
 msgstr "远程输入"
 
-#: qml/DevicePage.qml:165 qml/runcommand.qml:16
+#: qml/DevicePage.qml:173 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "运行命令"
 
-#: qml/DevicePage.qml:173 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:181 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "演示遥控"
 
-#: qml/DevicePage.qml:182 qml/volume.qml:16
+#: qml/DevicePage.qml:190 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "音量控制"
 
-#: qml/DevicePage.qml:192
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "SMS Messages"
 msgstr "短信"
 
-#: qml/DevicePage.qml:200 qml/mousepad.qml:44
+#: qml/DevicePage.qml:208 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "锁定"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:208
 #, kde-format
 msgid "Unlock"
 msgstr "解锁"
 
-#: qml/DevicePage.qml:208
+#: qml/DevicePage.qml:216
 #, kde-format
 msgid "Find Device"
 msgstr "查找设备"
 
-#: qml/DevicePage.qml:216
+#: qml/DevicePage.qml:224
 #, kde-format
 msgid "Send Clipboard"
 msgstr "发送剪贴板"
 
-#: qml/DevicePage.qml:223
+#: qml/DevicePage.qml:231
 #, kde-format
 msgid "Share File"
 msgstr "共享文件"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Browse this device"
 msgstr "浏览此设备"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:247
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "停止虚拟监视器会话"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:247
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "使用设备作为外接监视器"
 
-#: qml/DevicePage.qml:270
+#: qml/DevicePage.qml:278
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr "地址：%1 (通过 %2)"
 
-#: qml/DevicePage.qml:279
+#: qml/DevicePage.qml:287
 #, kde-format
 msgid "This device is not paired."
 msgstr "此设备尚未配对。"
 
-#: qml/DevicePage.qml:283
+#: qml/DevicePage.qml:291
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "配对"
 
-#: qml/DevicePage.qml:290 qml/DevicePage.qml:299
+#: qml/DevicePage.qml:298 qml/DevicePage.qml:307
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -236,22 +236,22 @@ msgstr ""
 "配对请求已发送\n"
 "密钥："
 
-#: qml/DevicePage.qml:305
+#: qml/DevicePage.qml:313
 #, kde-format
 msgid "Accept"
 msgstr "接受"
 
-#: qml/DevicePage.qml:311
+#: qml/DevicePage.qml:319
 #, kde-format
 msgid "Reject"
 msgstr "拒绝"
 
-#: qml/DevicePage.qml:322
+#: qml/DevicePage.qml:330
 #, kde-format
 msgid "This device is not reachable"
 msgstr "设备不可达"
 
-#: qml/DevicePage.qml:330
+#: qml/DevicePage.qml:338
 #, kde-format
 msgid "Please choose a file"
 msgstr "请选择文件"
@@ -379,7 +379,7 @@ msgstr "回复给 %1…"
 msgid "Send"
 msgstr "发送"
 
-#: qml/PluginSettings.qml:140
+#: qml/PluginSettings.qml:141
 #, kde-format
 msgid "Configure plugin"
 msgstr "配置插件"

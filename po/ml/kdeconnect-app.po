@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 00:44+0000\n"
+"POT-Creation-Date: 2026-09-25 00:45+0000\n"
 "PO-Revision-Date: 2020-01-28 02:48+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -102,155 +102,155 @@ msgstr ""
 msgid "Mobile Network: %1"
 msgstr ""
 
-#: qml/DevicePage.qml:46
+#: qml/DevicePage.qml:54
 #, kde-format
 msgid "Unpair"
 msgstr "മറക്കുക"
 
-#: qml/DevicePage.qml:51
+#: qml/DevicePage.qml:59
 #, kde-format
 msgid "Send Ping"
 msgstr "ഒന്ന് മുട്ടുക"
 
-#: qml/DevicePage.qml:59 qml/PluginSettings.qml:20
+#: qml/DevicePage.qml:67 qml/PluginSettings.qml:21
 #, kde-format
 msgid "Plugin Settings"
 msgstr ""
 
-#: qml/DevicePage.qml:75
+#: qml/DevicePage.qml:83
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Actions"
 msgstr ""
 
-#: qml/DevicePage.qml:77
+#: qml/DevicePage.qml:85
 #, fuzzy, kde-format
 #| msgid "Remote Control"
 msgctxt "@title:group device page section header"
 msgid "Controls"
 msgstr "വിദൂര നിയന്ത്രണം"
 
-#: qml/DevicePage.qml:79
+#: qml/DevicePage.qml:87
 #, kde-format
 msgctxt "@title:group device page section header"
 msgid "Information"
 msgstr ""
 
-#: qml/DevicePage.qml:141
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "Multimedia control"
 msgstr "മൾട്ടിമീഡിയ നിയന്ത്രണം"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Notifications"
 msgstr ""
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:165
 #, kde-format
 msgid "Remote input"
 msgstr "വിദൂര ഇൻപുട്ട്"
 
-#: qml/DevicePage.qml:165 qml/runcommand.qml:16
+#: qml/DevicePage.qml:173 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "കമാൻഡ് പ്രവർത്തിപ്പിക്കുക"
 
-#: qml/DevicePage.qml:173 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:181 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "വിദൂര അവതരണം"
 
-#: qml/DevicePage.qml:182 qml/volume.qml:16
+#: qml/DevicePage.qml:190 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "ശബ്ദ നിയന്ത്രണം"
 
-#: qml/DevicePage.qml:192
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "SMS Messages"
 msgstr ""
 
-#: qml/DevicePage.qml:200 qml/mousepad.qml:44
+#: qml/DevicePage.qml:208 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "പൂട്ടുക"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:208
 #, kde-format
 msgid "Unlock"
 msgstr "പൂട്ടുതുറക്കുക"
 
-#: qml/DevicePage.qml:208
+#: qml/DevicePage.qml:216
 #, kde-format
 msgid "Find Device"
 msgstr "ഉപകരണം കണ്ടെത്തുക"
 
-#: qml/DevicePage.qml:216
+#: qml/DevicePage.qml:224
 #, kde-format
 msgid "Send Clipboard"
 msgstr ""
 
-#: qml/DevicePage.qml:223
+#: qml/DevicePage.qml:231
 #, kde-format
 msgid "Share File"
 msgstr "ഫയൽ പങ്കിടുക"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:239
 #, kde-format
 msgid "Browse this device"
 msgstr ""
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:247
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr ""
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:247
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr ""
 
-#: qml/DevicePage.qml:270
+#: qml/DevicePage.qml:278
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:279
+#: qml/DevicePage.qml:287
 #, fuzzy, kde-format
 msgid "This device is not paired."
 msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴിയുന്നതല്ല"
 
-#: qml/DevicePage.qml:283
+#: qml/DevicePage.qml:291
 #, fuzzy, kde-format
 #| msgid "Pair"
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "ജോഡിചേരുക"
 
-#: qml/DevicePage.qml:290 qml/DevicePage.qml:299
+#: qml/DevicePage.qml:298 qml/DevicePage.qml:307
 #, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
 msgstr ""
 
-#: qml/DevicePage.qml:305
+#: qml/DevicePage.qml:313
 #, kde-format
 msgid "Accept"
 msgstr "അംഗീകരിക്കുക"
 
-#: qml/DevicePage.qml:311
+#: qml/DevicePage.qml:319
 #, kde-format
 msgid "Reject"
 msgstr "നിരസിക്കുക"
 
-#: qml/DevicePage.qml:322
+#: qml/DevicePage.qml:330
 #, kde-format
 msgid "This device is not reachable"
 msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴിയുന്നതല്ല"
 
-#: qml/DevicePage.qml:330
+#: qml/DevicePage.qml:338
 #, kde-format
 msgid "Please choose a file"
 msgstr "ഒരു ഫയൽ തിരഞ്ഞെടുക്കുക"
@@ -381,7 +381,7 @@ msgstr ""
 msgid "Send"
 msgstr "ഒന്ന് മുട്ടുക"
 
-#: qml/PluginSettings.qml:140
+#: qml/PluginSettings.qml:141
 #, kde-format
 msgid "Configure plugin"
 msgstr ""
