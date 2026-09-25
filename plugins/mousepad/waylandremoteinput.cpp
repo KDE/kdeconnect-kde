@@ -385,8 +385,8 @@ void RemoteDesktopSession::pointerButton(int button, bool down)
 void RemoteDesktopSession::pointerAxis(double dx, double dy)
 {
     if (m_ei && m_pointer) {
-        // Qt/Kdeconnect use inverted vertical scroll direction compared to libei
-        ei_device_scroll_delta(m_pointer, dx, dy * -1);
+        // libei scroll direction is inverted
+        ei_device_scroll_delta(m_pointer, -dx, -dy);
         ei_device_frame(m_pointer, ei_now(m_ei));
     } else {
         iface->NotifyPointerAxis(m_xdpPath, {}, dx, dy);
