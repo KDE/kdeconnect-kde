@@ -106,10 +106,16 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket &np)
             input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
             ::SendInput(1, &input, sizeof(INPUT));
         } else if (isScroll) {
-            input.mi.dwFlags = MOUSEEVENTF_WHEEL;
-            input.mi.mouseData = dy;
-            ::SendInput(1, &input, sizeof(INPUT));
-
+            if (dy > 0 || dy < 0) {
+                input.mi.dwFlags = MOUSEEVENTF_WHEEL;
+                input.mi.mouseData = dy;
+                ::SendInput(1, &input, sizeof(INPUT));
+            }
+            if (dx > 0 || dx < 0) {
+                input.mi.dwFlags = MOUSEEVENTF_HWHEEL;
+                input.mi.mouseData = dx;
+                ::SendInput(1, &input, sizeof(INPUT));
+            }
         } else if (!key.isEmpty() || validSpecialKey) {
             input.type = INPUT_KEYBOARD;
 
