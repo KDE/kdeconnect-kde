@@ -11,7 +11,7 @@
 
 #include <core/kdeconnectplugin.h>
 
-#import <CoreAudio/CoreAudio.h>
+#include <CoreAudio/CoreAudio.h>
 
 #define PACKET_TYPE_SYSTEMVOLUME QStringLiteral("kdeconnect.systemvolume")
 #define PACKET_TYPE_SYSTEMVOLUME_REQUEST QStringLiteral("kdeconnect.systemvolume.request")
