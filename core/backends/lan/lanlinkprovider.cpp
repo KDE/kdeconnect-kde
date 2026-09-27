@@ -297,6 +297,17 @@ void LanLinkProvider::udpBroadcastReceived()
 // We discovered a device (via mDNS or UDP broadcast) and want to connect to it.
 void LanLinkProvider::deviceDiscovered(const QHostAddress &address, int port, const QString &deviceId, int protocolVersion)
 {
+    QHostAddress connectAddress = address;
+    if (address.protocol() == QAbstractSocket::IPv6Protocol) {
+        bool success;
+        // Handle ::ffff: addresses
+        const QHostAddress convertedAddress(address.toIPv4Address(&success));
+        if (success) {
+            qCDebug(KDECONNECT_CORE) << "Converting IPv6" << address << "to IPv4" << convertedAddress;
+            connectAddress = convertedAddress;
+        }
+    }
+
     if (protocolVersion < 8) {
         qCWarning(KDECONNECT_CORE) << "LanLinkProvider/encrypted: Ignoring device" << deviceId << "using too old protocol version" << protocolVersion;
         return;
@@ -336,19 +347,19 @@ void LanLinkProvider::deviceDiscovered(const QHostAddress &address, int port, co
         return;
     }
 
-    qCDebug(KDECONNECT_CORE) << "Attempting to connect to " << address << port;
+    qCDebug(KDECONNECT_CORE) << "Attempting to connect to " << connectAddress << port;
 
     QSslSocket *socket = new QSslSocket(this);
     socket->setProxy(QNetworkProxy::NoProxy);
-    connect(socket, &QAbstractSocket::errorOccurred, this, [this, socket, address](QAbstractSocket::SocketError socketError) {
+    connect(socket, &QAbstractSocket::errorOccurred, this, [this, socket, connectAddress](QAbstractSocket::SocketError socketError) {
         qCWarning(KDECONNECT_CORE) << socket->errorString() << socketError;
-        recoverConnectionError(address);
+        recoverConnectionError(connectAddress);
         socket->deleteLater();
     });
     connect(socket, &QAbstractSocket::connected, this, [this, socket, deviceId, protocolVersion]() {
         tcpSocketConnected(socket, deviceId, protocolVersion);
     });
-    socket->connectToHost(address, port);
+    socket->connectToHost(connectAddress, port);
 }
 
 void LanLinkProvider::recoverConnectionError(QHostAddress sender)
