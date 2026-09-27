@@ -380,7 +380,7 @@ void LanLinkProvider::tcpSocketConnected(QSslSocket *socket, const QString &devi
     bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
     configureSslSocket(socket, deviceId, isDeviceTrusted);
 
-    qCDebug(KDECONNECT_CORE) << "Starting server SSL (I'm the client TCP socket)";
+    qCDebug(KDECONNECT_CORE) << "Starting server SSL (I'm the client TCP socket)" << deviceId;
 
     connect(socket, &QSslSocket::encrypted, this, [this, socket, deviceId, protocolVersion]() {
         encrypted(socket, deviceId, protocolVersion);
@@ -556,7 +556,7 @@ void LanLinkProvider::tcpPacketReceived()
 
     configureSslSocket(socket, deviceId, isDeviceTrusted);
 
-    qCDebug(KDECONNECT_CORE) << "Starting client SSL (I'm the server TCP socket)";
+    qCDebug(KDECONNECT_CORE) << "Starting client SSL (I'm the server TCP socket)" << deviceId;
 
     connect(socket, &QSslSocket::encrypted, this, [this, socket, deviceId, protocolVersion]() {
         encrypted(socket, deviceId, protocolVersion);

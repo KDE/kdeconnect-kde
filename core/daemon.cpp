@@ -240,12 +240,12 @@ QMap<QString, QString> Daemon::deviceNames(bool onlyReachable, bool onlyTrusted)
 void Daemon::onNewDeviceLink(DeviceLink *link)
 {
     QString id = link->deviceId();
-
-    qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via link with priority" << link->priority();
-
-    if (d->m_devices.contains(id)) {
-        qCDebug(KDECONNECT_CORE) << "It is a known device" << link->deviceInfo().name;
-        Device *device = d->m_devices[id];
+    auto it = d->m_devices.find(id);
+    bool isKnown = it != d->m_devices.end();
+    qCDebug(KDECONNECT_CORE) << id << "connected, name" << link->deviceInfo().name << (isKnown ? "(already known device)" : "(new device)") << "via"
+                             << link->provider();
+    if (isKnown) {
+        Device *device = it.value();
         bool wasReachable = device->isReachable();
         device->addLink(link);
         if (!wasReachable) {
@@ -253,7 +253,6 @@ void Daemon::onNewDeviceLink(DeviceLink *link)
             Q_EMIT deviceListChanged();
         }
     } else {
-        qCDebug(KDECONNECT_CORE) << "It is a new device" << link->deviceInfo().name;
         Device *device = new Device(this, link);
         addDevice(device);
     }
