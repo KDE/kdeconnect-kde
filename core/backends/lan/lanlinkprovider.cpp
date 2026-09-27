@@ -417,9 +417,6 @@ void LanLinkProvider::encrypted(QSslSocket *socket, const QString &deviceId, int
     });
     timer->start();
 
-    NetworkPacket myIdentity = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
-    socket->write(myIdentity.serialize());
-    socket->flush();
     connect(socket, &QIODevice::readyRead, this, [this, socket, timer, protocolVersion, deviceId]() {
         if (socket->bytesAvailable() > MAX_IDENTITY_PACKET_SIZE) {
             qCWarning(KDECONNECT_CORE) << "Remote device sent a packet too large";
@@ -458,6 +455,10 @@ void LanLinkProvider::encrypted(QSslSocket *socket, const QString &deviceId, int
         timer->deleteLater();
         addLink(socket, deviceInfo);
     });
+
+    NetworkPacket myIdentity = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
+    socket->write(myIdentity.serialize());
+    socket->flush();
 }
 
 void LanLinkProvider::sslErrors(const QList<QSslError> &errors)
