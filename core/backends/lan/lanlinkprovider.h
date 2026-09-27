@@ -91,6 +91,8 @@ private:
     void sendUdpDiscoveryPacket(QUdpSocket &socket, const QList<QHostAddress> &addresses);
     void broadcastUdpDiscoveryPacket();
     bool isProtocolDowngrade(const QString &deviceId, int protocolVersion) const;
+    bool hasRecentConnection(const QString &deviceId);
+    bool recordConnection(const QString &deviceId);
 
     Server *m_server;
     QUdpSocket m_udpSocket;

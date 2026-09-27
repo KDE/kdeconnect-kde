@@ -318,6 +318,40 @@ void LanLinkProvider::deviceDiscovered(const QHostAddress &address, int port, co
         return;
     }
 
+    if (hasRecentConnection(deviceId)) {
+        qCDebug(KDECONNECT_CORE) << "Discarding second discovery of the same device" << deviceId << "received too quickly";
+        return;
+    }
+    if (!recordConnection(deviceId)) {
+        qCDebug(KDECONNECT_CORE) << "Too many recent device identities, ignoring" << deviceId;
+        return;
+    }
+
+    bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
+    if (isDeviceTrusted && isProtocolDowngrade(deviceId, protocolVersion)) {
+        qCWarning(KDECONNECT_CORE) << "Refusing to connect to a device using an older protocol version. Ignoring " << deviceId;
+        return;
+    }
+
+    qCDebug(KDECONNECT_CORE) << "Attempting to connect to " << connectAddress << port;
+
+    QSslSocket *socket = new QSslSocket(this);
+    socket->setProxy(QNetworkProxy::NoProxy);
+    connect(socket, &QAbstractSocket::errorOccurred, this, [this, socket, connectAddress, deviceId](QAbstractSocket::SocketError socketError) {
+        qCWarning(KDECONNECT_CORE) << socket->errorString() << socketError;
+        // We didn't connect, so don't reject their connection to us because of this attempt
+        m_lastConnectionTime.remove(deviceId);
+        recoverConnectionError(connectAddress);
+        socket->deleteLater();
+    });
+    connect(socket, &QAbstractSocket::connected, this, [this, socket, deviceId, protocolVersion]() {
+        tcpSocketConnected(socket, deviceId, protocolVersion);
+    });
+    socket->connectToHost(connectAddress, port);
+}
+
+bool LanLinkProvider::hasRecentConnection(const QString &deviceId)
+{
     const qint64 now = QDateTime::currentMSecsSinceEpoch();
     if (now - m_lastConnectionTimeCleanup >= MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE) {
         for (auto it = m_lastConnectionTime.begin(); it != m_lastConnectionTime.end();) {
@@ -331,35 +365,16 @@ void LanLinkProvider::deviceDiscovered(const QHostAddress &address, int port, co
     }
 
     const auto lastConnectionTime = m_lastConnectionTime.constFind(deviceId);
-    if (lastConnectionTime != m_lastConnectionTime.cend() && lastConnectionTime.value() + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now) {
-        qCDebug(KDECONNECT_CORE) << "Discarding second discovery of the same device" << deviceId << "received too quickly";
-        return;
-    }
-    if (lastConnectionTime == m_lastConnectionTime.cend() && m_lastConnectionTime.size() >= MAX_TRACKED_CONNECTION_TIMES) {
-        qCDebug(KDECONNECT_CORE) << "Too many recent device identities, ignoring" << deviceId;
-        return;
-    }
-    m_lastConnectionTime.insert(deviceId, now);
+    return lastConnectionTime != m_lastConnectionTime.cend() && lastConnectionTime.value() + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now;
+}
 
-    bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
-    if (isDeviceTrusted && isProtocolDowngrade(deviceId, protocolVersion)) {
-        qCWarning(KDECONNECT_CORE) << "Refusing to connect to a device using an older protocol version. Ignoring " << deviceId;
-        return;
+bool LanLinkProvider::recordConnection(const QString &deviceId)
+{
+    if (!m_lastConnectionTime.contains(deviceId) && m_lastConnectionTime.size() >= MAX_TRACKED_CONNECTION_TIMES) {
+        return false;
     }
-
-    qCDebug(KDECONNECT_CORE) << "Attempting to connect to " << connectAddress << port;
-
-    QSslSocket *socket = new QSslSocket(this);
-    socket->setProxy(QNetworkProxy::NoProxy);
-    connect(socket, &QAbstractSocket::errorOccurred, this, [this, socket, connectAddress](QAbstractSocket::SocketError socketError) {
-        qCWarning(KDECONNECT_CORE) << socket->errorString() << socketError;
-        recoverConnectionError(connectAddress);
-        socket->deleteLater();
-    });
-    connect(socket, &QAbstractSocket::connected, this, [this, socket, deviceId, protocolVersion]() {
-        tcpSocketConnected(socket, deviceId, protocolVersion);
-    });
-    socket->connectToHost(connectAddress, port);
+    m_lastConnectionTime.insert(deviceId, QDateTime::currentMSecsSinceEpoch());
+    return true;
 }
 
 void LanLinkProvider::recoverConnectionError(QHostAddress sender)
@@ -561,6 +576,18 @@ void LanLinkProvider::tcpPacketReceived()
         socket->abort();
         return;
     }
+
+    // If both devices are connecting to each other at the same time, keep only the connection started by the device
+    // with the smaller id. The other device will reject ours, but only if it implements this too (and sends the flag).
+    const bool peerDoesTieBreak = receivedPacket.get<bool>(QStringLiteral("connectionTieBreak"), false);
+    if (peerDoesTieBreak && hasRecentConnection(deviceId) && KdeConnectConfig::instance().deviceId() < deviceId) {
+        qCDebug(KDECONNECT_CORE) << "Simultaneous connections with" << deviceId << ", keeping the one I started";
+        socket->abort();
+        return;
+    }
+    // Record this connection, so we don't start one to them in the other direction.
+    // If we can't track it, deviceDiscovered() won't connect to them either, so it's safe to continue.
+    recordConnection(deviceId);
 
     // This socket will now be owned by the LanDeviceLink or we don't want more data to be received, forget about it
     disconnect(socket, &QIODevice::readyRead, this, &LanLinkProvider::tcpPacketReceived);
