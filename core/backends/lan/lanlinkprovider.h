@@ -55,6 +55,7 @@ public:
 
     static void configureSslSocket(QSslSocket *socket, const QString &deviceId, bool isDeviceTrusted);
     static void configureSocket(QSslSocket *socket);
+    static QString socketInfo(const QSslSocket *socket); // DEBUG
 
     uint16_t tcpPort() const
     {
@@ -91,6 +92,8 @@ private:
     void sendUdpDiscoveryPacket(QUdpSocket &socket, const QList<QHostAddress> &addresses);
     void broadcastUdpDiscoveryPacket();
     bool isProtocolDowngrade(const QString &deviceId, int protocolVersion) const;
+    bool hasRecentConnection(const QString &deviceId);
+    bool recordConnection(const QString &deviceId);
 
     Server *m_server;
     QUdpSocket m_udpSocket;

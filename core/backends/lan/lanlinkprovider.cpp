@@ -318,6 +318,40 @@ void LanLinkProvider::deviceDiscovered(const QHostAddress &address, int port, co
         return;
     }
 
+    if (hasRecentConnection(deviceId)) {
+        qCDebug(KDECONNECT_CORE) << "Discarding second discovery of the same device" << deviceId << "received too quickly";
+        return;
+    }
+    if (!recordConnection(deviceId)) {
+        qCDebug(KDECONNECT_CORE) << "Too many recent device identities, ignoring" << deviceId;
+        return;
+    }
+
+    bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
+    if (isDeviceTrusted && isProtocolDowngrade(deviceId, protocolVersion)) {
+        qCWarning(KDECONNECT_CORE) << "Refusing to connect to a device using an older protocol version. Ignoring " << deviceId;
+        return;
+    }
+
+    qCDebug(KDECONNECT_CORE) << "Attempting to connect to " << connectAddress << port << "existing link:" << m_links.contains(deviceId);
+
+    QSslSocket *socket = new QSslSocket(this);
+    socket->setProxy(QNetworkProxy::NoProxy);
+    connect(socket, &QAbstractSocket::errorOccurred, this, [this, socket, connectAddress, deviceId](QAbstractSocket::SocketError socketError) {
+        qCWarning(KDECONNECT_CORE) << "DEBUG outgoing connect error" << socketInfo(socket) << socket->errorString() << socketError;
+        // We didn't connect, so don't reject their connection to us because of this attempt
+        m_lastConnectionTime.remove(deviceId);
+        recoverConnectionError(connectAddress);
+        socket->deleteLater();
+    });
+    connect(socket, &QAbstractSocket::connected, this, [this, socket, deviceId, protocolVersion]() {
+        tcpSocketConnected(socket, deviceId, protocolVersion);
+    });
+    socket->connectToHost(connectAddress, port);
+}
+
+bool LanLinkProvider::hasRecentConnection(const QString &deviceId)
+{
     const qint64 now = QDateTime::currentMSecsSinceEpoch();
     if (now - m_lastConnectionTimeCleanup >= MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE) {
         for (auto it = m_lastConnectionTime.begin(); it != m_lastConnectionTime.end();) {
@@ -331,35 +365,16 @@ void LanLinkProvider::deviceDiscovered(const QHostAddress &address, int port, co
     }
 
     const auto lastConnectionTime = m_lastConnectionTime.constFind(deviceId);
-    if (lastConnectionTime != m_lastConnectionTime.cend() && lastConnectionTime.value() + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now) {
-        qCDebug(KDECONNECT_CORE) << "Discarding second discovery of the same device" << deviceId << "received too quickly";
-        return;
-    }
-    if (lastConnectionTime == m_lastConnectionTime.cend() && m_lastConnectionTime.size() >= MAX_TRACKED_CONNECTION_TIMES) {
-        qCDebug(KDECONNECT_CORE) << "Too many recent device identities, ignoring" << deviceId;
-        return;
-    }
-    m_lastConnectionTime.insert(deviceId, now);
+    return lastConnectionTime != m_lastConnectionTime.cend() && lastConnectionTime.value() + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now;
+}
 
-    bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
-    if (isDeviceTrusted && isProtocolDowngrade(deviceId, protocolVersion)) {
-        qCWarning(KDECONNECT_CORE) << "Refusing to connect to a device using an older protocol version. Ignoring " << deviceId;
-        return;
+bool LanLinkProvider::recordConnection(const QString &deviceId)
+{
+    if (!m_lastConnectionTime.contains(deviceId) && m_lastConnectionTime.size() >= MAX_TRACKED_CONNECTION_TIMES) {
+        return false;
     }
-
-    qCDebug(KDECONNECT_CORE) << "Attempting to connect to " << connectAddress << port;
-
-    QSslSocket *socket = new QSslSocket(this);
-    socket->setProxy(QNetworkProxy::NoProxy);
-    connect(socket, &QAbstractSocket::errorOccurred, this, [this, socket, connectAddress](QAbstractSocket::SocketError socketError) {
-        qCWarning(KDECONNECT_CORE) << socket->errorString() << socketError;
-        recoverConnectionError(connectAddress);
-        socket->deleteLater();
-    });
-    connect(socket, &QAbstractSocket::connected, this, [this, socket, deviceId, protocolVersion]() {
-        tcpSocketConnected(socket, deviceId, protocolVersion);
-    });
-    socket->connectToHost(connectAddress, port);
+    m_lastConnectionTime.insert(deviceId, QDateTime::currentMSecsSinceEpoch());
+    return true;
 }
 
 void LanLinkProvider::recoverConnectionError(QHostAddress sender)
@@ -376,12 +391,19 @@ void LanLinkProvider::tcpSocketConnected(QSslSocket *socket, const QString &devi
 
     configureSocket(socket);
 
+    const QString info = socketInfo(socket);
+    qCDebug(KDECONNECT_CORE) << "DEBUG outgoing TCP connected" << info;
+    connect(socket, &QAbstractSocket::disconnected, this, [info, socket]() {
+        qCDebug(KDECONNECT_CORE) << "DEBUG socket disconnected" << info << socket->errorString();
+    });
+
     // If socket disconnects due to any reason after connection, link on ssl failure
     connect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);
 
     NetworkPacket response = KdeConnectConfig::instance().deviceInfo().toConnectionPacket(deviceId, protocolVersion);
     socket->write(response.serialize());
     bool success = socket->waitForBytesWritten();
+    qCDebug(KDECONNECT_CORE) << "DEBUG connection packet written" << info << success;
     if (!success) {
         recoverConnectionError(socket->peerAddress());
         socket->abort(); // Triggers deleteLater
@@ -405,6 +427,8 @@ void LanLinkProvider::tcpSocketConnected(QSslSocket *socket, const QString &devi
 void LanLinkProvider::encrypted(QSslSocket *socket, const QString &deviceId, int protocolVersion)
 {
     qCDebug(KDECONNECT_CORE) << "Successfully established an SSL connection with" << deviceId;
+    qCDebug(KDECONNECT_CORE) << "DEBUG encrypted" << socketInfo(socket) << "tls:" << socket->sessionProtocol() << "backend:" << QSslSocket::activeBackend()
+                             << "bytesAvailable:" << socket->bytesAvailable() << "encryptedBytesAvailable:" << socket->encryptedBytesAvailable();
 
     Q_ASSERT(socket->mode() != QSslSocket::UnencryptedMode);
 
@@ -413,14 +437,21 @@ void LanLinkProvider::encrypted(QSslSocket *socket, const QString &deviceId, int
     timer->setInterval(1000);
     connect(timer, &QTimer::timeout, socket, [socket] {
         qCWarning(KDECONNECT_CORE) << "LanLinkProvider/encrypted: Host timed out without sending its encrypted identity." << socket->peerAddress();
+        qCWarning(KDECONNECT_CORE) << "DEBUG timeout" << socketInfo(socket) << "bytesAvailable:" << socket->bytesAvailable()
+                                   << "canReadLine:" << socket->canReadLine() << "encryptedBytesAvailable:" << socket->encryptedBytesAvailable();
         socket->abort();
     });
     timer->start();
 
     NetworkPacket myIdentity = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
-    socket->write(myIdentity.serialize());
+    qint64 written = socket->write(myIdentity.serialize());
+    qCDebug(KDECONNECT_CORE) << "DEBUG identity written" << socketInfo(socket) << written << "bytesAvailable before flush:" << socket->bytesAvailable();
     socket->flush();
+    qCDebug(KDECONNECT_CORE) << "DEBUG identity flushed" << socketInfo(socket) << "bytesAvailable after flush:" << socket->bytesAvailable()
+                             << "canReadLine:" << socket->canReadLine();
     connect(socket, &QIODevice::readyRead, this, [this, socket, timer, protocolVersion, deviceId]() {
+        qCDebug(KDECONNECT_CORE) << "DEBUG identity readyRead" << socketInfo(socket) << "bytesAvailable:" << socket->bytesAvailable()
+                                 << "canReadLine:" << socket->canReadLine();
         if (socket->bytesAvailable() > MAX_IDENTITY_PACKET_SIZE) {
             qCWarning(KDECONNECT_CORE) << "Remote device sent a packet too large";
             socket->abort();
@@ -453,6 +484,7 @@ void LanLinkProvider::encrypted(QSslSocket *socket, const QString &deviceId, int
             return;
         }
         DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(secureIdentityPacket, socket->peerCertificate());
+        qCDebug(KDECONNECT_CORE) << "DEBUG identity received" << socketInfo(socket);
 
         timer->stop();
         timer->deleteLater();
@@ -489,6 +521,11 @@ void LanLinkProvider::newTcpConnection()
     while (m_server->hasPendingConnections()) {
         QSslSocket *socket = m_server->nextPendingConnection();
         configureSocket(socket);
+        const QString info = socketInfo(socket);
+        qCDebug(KDECONNECT_CORE) << "DEBUG incoming TCP connection" << info;
+        connect(socket, &QAbstractSocket::disconnected, this, [info, socket]() {
+            qCDebug(KDECONNECT_CORE) << "DEBUG socket disconnected" << info << socket->errorString();
+        });
         // This socket is still managed by us (and child of the QTcpServer), if
         // it disconnects before we manage to pass it to a LanDeviceLink, it's
         // our responsibility to delete it. We do so with this connection.
@@ -562,12 +599,25 @@ void LanLinkProvider::tcpPacketReceived()
         return;
     }
 
+    // If both devices are connecting to each other at the same time, keep only the connection started by the device
+    // with the smaller id. The other device will reject ours, but only if it implements this too (and sends the flag).
+    const bool peerDoesTieBreak = receivedPacket.get<bool>(QStringLiteral("connectionTieBreak"), false);
+    if (peerDoesTieBreak && hasRecentConnection(deviceId) && KdeConnectConfig::instance().deviceId() < deviceId) {
+        qCDebug(KDECONNECT_CORE) << "Simultaneous connections with" << deviceId << ", keeping the one I started. Aborting" << socketInfo(socket);
+        socket->abort();
+        return;
+    }
+    // Record this connection, so we don't start one to them in the other direction.
+    // If we can't track it, deviceDiscovered() won't connect to them either, so it's safe to continue.
+    recordConnection(deviceId);
+
     // This socket will now be owned by the LanDeviceLink or we don't want more data to be received, forget about it
     disconnect(socket, &QIODevice::readyRead, this, &LanLinkProvider::tcpPacketReceived);
 
     configureSslSocket(socket, deviceId, isDeviceTrusted);
 
-    qCDebug(KDECONNECT_CORE) << "Starting client SSL (I'm the server TCP socket)" << deviceId;
+    qCDebug(KDECONNECT_CORE) << "Starting client SSL (I'm the server TCP socket)" << deviceId << socketInfo(socket)
+                             << "existing link:" << m_links.contains(deviceId);
 
     connect(socket, &QSslSocket::encrypted, this, [this, socket, deviceId, protocolVersion]() {
         encrypted(socket, deviceId, protocolVersion);
@@ -610,6 +660,14 @@ void LanLinkProvider::configureSslSocket(QSslSocket *socket, const QString &devi
     socket->setSslConfiguration(sslConfig);
     socket->setPeerVerifyName(deviceId);
 
+    // DEBUG
+    QObject::connect(socket, &QSslSocket::alertReceived, socket, [socket](QSsl::AlertLevel level, QSsl::AlertType type, const QString &description) {
+        qCDebug(KDECONNECT_CORE) << "DEBUG TLS alert received" << socketInfo(socket) << level << type << description;
+    });
+    QObject::connect(socket, &QSslSocket::alertSent, socket, [socket](QSsl::AlertLevel level, QSsl::AlertType type, const QString &description) {
+        qCDebug(KDECONNECT_CORE) << "DEBUG TLS alert sent" << socketInfo(socket) << level << type << description;
+    });
+
     // Usually SSL errors are only bad for trusted devices. Uncomment this section to log errors in any case, for debugging.
     // connect(socket, &QSslSocket::sslErrors, [](const QList<QSslError>& errors)
     // {
@@ -646,6 +704,17 @@ void LanLinkProvider::configureSocket(QSslSocket *socket)
 #endif
 }
 
+QString LanLinkProvider::socketInfo(const QSslSocket *socket)
+{
+    return QStringLiteral("[%1 local:%2 peer:%3:%4 state:%5 mode:%6]")
+        .arg(QString::number(reinterpret_cast<quintptr>(socket), 16))
+        .arg(socket->localPort())
+        .arg(socket->peerAddress().toString())
+        .arg(socket->peerPort())
+        .arg(static_cast<int>(socket->state()))
+        .arg(static_cast<int>(socket->mode()));
+}
+
 void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
 {
     QString certDeviceId = socket->peerCertificate().subjectDisplayName();
@@ -670,7 +739,7 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
             socket->deleteLater();
             return;
         }
-        // qCDebug(KDECONNECT_CORE) << "Reusing link to" << deviceId;
+        qCDebug(KDECONNECT_CORE) << "DEBUG addLink: replacing socket of existing link" << deviceInfo.id << "new:" << socketInfo(socket);
         deviceLink->reset(socket);
     } else {
         bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceInfo.id);
@@ -680,6 +749,7 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
             socket->deleteLater();
             return;
         }
+        qCDebug(KDECONNECT_CORE) << "DEBUG addLink: creating new link" << deviceInfo.id << socketInfo(socket);
         deviceLink = new LanDeviceLink(deviceInfo, this, socket);
         // Socket disconnection will now be handled by LanDeviceLink
         disconnect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);

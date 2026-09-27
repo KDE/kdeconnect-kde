@@ -31,6 +31,9 @@ LanDeviceLink::LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *pare
 
 void LanDeviceLink::reset(QSslSocket *socket)
 {
+    qCDebug(KDECONNECT_CORE) << "DEBUG LanDeviceLink::reset" << deviceId()
+                             << "old:" << (m_socket ? LanLinkProvider::socketInfo(m_socket) : QStringLiteral("none"))
+                             << "new:" << LanLinkProvider::socketInfo(socket);
     if (m_socket) {
         disconnect(m_socket, &QAbstractSocket::disconnected, this, nullptr);
         delete m_socket;
@@ -39,7 +42,10 @@ void LanDeviceLink::reset(QSslSocket *socket)
     m_socket = socket;
     socket->setParent(this);
 
-    connect(socket, &QAbstractSocket::disconnected, this, [this, socket]() {
+    const QString info = LanLinkProvider::socketInfo(socket);
+    connect(socket, &QAbstractSocket::disconnected, this, [this, socket, info]() {
+        qCDebug(KDECONNECT_CORE) << "DEBUG LanDeviceLink socket disconnected" << deviceId() << info << socket->errorString()
+                                 << "is current:" << (m_socket == socket);
         QTimer::singleShot(0, this, [this, socket]() {
             if (m_socket == socket) {
                 delete this;
