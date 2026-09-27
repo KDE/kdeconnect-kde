@@ -50,6 +50,8 @@ static const long MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE = 500;
 
 static const int MAX_TRACKED_CONNECTION_TIMES = 1024;
 
+static const qint64 MILLIS_SIMULTANEOUS_CONNECTIONS_WINDOW = 300;
+
 LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
     : m_server(new Server(this))
     , m_udpSocket(this)
@@ -658,6 +660,21 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
             socket->abort();
             socket->deleteLater();
             return;
+        }
+        // If both devices connected to each other at the same time, each end would keep the socket that completed last,
+        // but the order can differ at each end and then each closes the socket the other kept. To make both ends
+        // agree, keep the socket initiated by the device with the smaller id.
+        const bool newInitiatedLocally = socket->mode() == QSslSocket::SslServerMode;
+        const qint64 now = QDateTime::currentMSecsSinceEpoch();
+        if (newInitiatedLocally != deviceLink->initiatedLocally() && now - deviceLink->connectionTime() < MILLIS_SIMULTANEOUS_CONNECTIONS_WINDOW) {
+            qCDebug(KDECONNECT_CORE) << "Simultaneous connections with" << deviceInfo.id << ", using tie-breaker logic";
+            const bool preferLocallyInitiated = KdeConnectConfig::instance().deviceId() < deviceInfo.id;
+            if (newInitiatedLocally != preferLocallyInitiated) {
+                qCDebug(KDECONNECT_CORE) << "Keeping existing connection to" << deviceInfo.id;
+                socket->abort();
+                socket->deleteLater();
+                return;
+            }
         }
         // qCDebug(KDECONNECT_CORE) << "Reusing link to" << deviceId;
         deviceLink->reset(socket);

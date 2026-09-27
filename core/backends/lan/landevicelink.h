@@ -42,6 +42,18 @@ public:
 
     QHostAddress hostAddress() const;
 
+    // Milliseconds since epoch when the current socket was set
+    qint64 connectionTime() const
+    {
+        return m_connectionTime;
+    }
+
+    // Wether we are the SSL server
+    bool initiatedLocally() const
+    {
+        return m_socket->mode() == QSslSocket::SslServerMode;
+    }
+
 private Q_SLOTS:
     void dataReceived();
 
@@ -49,6 +61,7 @@ private:
     QSslSocket *m_socket;
     QPointer<CompositeUploadJob> m_compositeUploadJob;
     DeviceInfo m_deviceInfo;
+    qint64 m_connectionTime = 0;
 };
 
 #endif

@@ -6,6 +6,7 @@
 
 #include "landevicelink.h"
 
+#include <QDateTime>
 #include <QNetworkProxy>
 #include <QTimer>
 
@@ -37,6 +38,7 @@ void LanDeviceLink::reset(QSslSocket *socket)
     }
 
     m_socket = socket;
+    m_connectionTime = QDateTime::currentMSecsSinceEpoch();
     socket->setParent(this);
 
     connect(socket, &QAbstractSocket::disconnected, this, [this, socket]() {
