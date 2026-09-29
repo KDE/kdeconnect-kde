@@ -102,8 +102,32 @@ void CompositeUploadJob::startNextSubJob()
     // Already done by KCompositeJob
     // connect(m_currentJob, &KJob::result, this, &CompositeUploadJob::slotResult);
 
+    // The packet may have already been sent while the previous file was being transferred
+    const bool alreadyAnnounced = (m_currentJob == m_announcedJob);
+    m_announcedJob = nullptr;
+
+    if (!alreadyAnnounced && !sendPacketFor(m_currentJob)) {
+        m_running = false;
+        setError(SendingNetworkPacketFailed);
+        setErrorText(i18n("Failed to send packet to %1", m_device->name()));
+
+        emitResult();
+        return;
+    }
+
+    if (m_currentJob->getNetworkPacket().hasPayload()) {
+        m_server->resumeAccepting();
+        m_timeout.start();
+    } else {
+        // Nothing to transfer for this file (e.g. it's empty), the subjob is already done.
+        m_currentJob->start();
+    }
+}
+
+bool CompositeUploadJob::sendPacketFor(UploadJob *job)
+{
     // TODO: Create a copy of the networkpacket that can be re-injected if sending via lan fails?
-    NetworkPacket np = m_currentJob->getNetworkPacket();
+    NetworkPacket np = job->getNetworkPacket();
     np.set<int>(QStringLiteral("numberOfFiles"), m_totalJobs);
     np.set<quint64>(QStringLiteral("totalPayloadSize"), m_totalPayloadSize);
 
@@ -115,21 +139,22 @@ void CompositeUploadJob::startNextSubJob()
         np.setPayloadTransferInfo({{QStringLiteral("port"), m_port}});
     }
 
-    if (m_device->sendPacket(np)) {
-        if (hasPayload) {
-            m_server->resumeAccepting();
-            m_timeout.start();
-        } else {
-            // Nothing to transfer for this file (e.g. it's empty), the subjob is already done.
-            m_currentJob->start();
-        }
-    } else {
-        m_running = false;
-        setError(SendingNetworkPacketFailed);
-        setErrorText(i18n("Failed to send packet to %1", m_device->name()));
+    return m_device->sendPacket(np);
+}
 
-        emitResult();
+void CompositeUploadJob::announceNextSubJob()
+{
+    // Announce the next file while the current one is being transferred, so the receiver already
+    // has it queued (and can connect to us) by the time this transfer ends, instead of waiting for
+    // a round trip. We don't accept that connection until startNextSubJob() resumes accepting,
+    // so payloads are still sent one at a time and in order.
+    if (subjobs().size() < 2) {
+        return;
     }
+    UploadJob *next = qobject_cast<UploadJob *>(subjobs().at(1));
+    if (sendPacketFor(next)) {
+        m_announcedJob = next;
+    } // else startNextSubJob() will retry and report the error
 }
 
 void CompositeUploadJob::newConnection()
@@ -175,6 +200,7 @@ void CompositeUploadJob::newConnection()
         }
 
         m_currentJob->start();
+        announceNextSubJob();
     });
 
     LanLinkProvider::configureSslSocket(m_socket, m_device->id(), true);

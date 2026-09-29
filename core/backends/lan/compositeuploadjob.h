@@ -45,6 +45,8 @@ public:
 private:
     bool startListening();
     void emitDescription(const QString &currentFileName);
+    bool sendPacketFor(UploadJob *job);
+    void announceNextSubJob();
 
 protected:
     bool doKill() override;
@@ -62,6 +64,7 @@ private:
     quint64 m_totalSendPayloadSize;
     quint64 m_totalPayloadSize;
     UploadJob *m_currentJob;
+    UploadJob *m_announcedJob = nullptr; // Next subjob, if its packet was already sent
     QElapsedTimer m_timer;
     quint64 m_prevElapsedTime;
     bool m_updatePacketPending;
