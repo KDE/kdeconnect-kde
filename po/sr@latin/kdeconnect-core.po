@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-19 00:44+0000\n"
+"POT-Creation-Date: 2026-09-30 00:45+0000\n"
 "PO-Revision-Date: 2017-05-26 11:26+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -25,22 +25,22 @@ msgstr ""
 msgid "Couldn't find an available port"
 msgstr "Ne mogu da nađem dostupan port"
 
-#: backends/lan/compositeuploadjob.cpp:129
+#: backends/lan/compositeuploadjob.cpp:112
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:252
+#: backends/lan/compositeuploadjob.cpp:278
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:303
+#: backends/lan/compositeuploadjob.cpp:329
 #, kde-format
 msgid "Sending to %1"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:303
+#: backends/lan/compositeuploadjob.cpp:329
 #, kde-format
 msgid "File"
 msgstr ""
