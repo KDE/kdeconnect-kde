@@ -460,9 +460,6 @@ void InputCaptureSession::handleEiEvent(ei_event *event)
     case EI_EVENT_FRAME:
         break;
     case EI_EVENT_POINTER_MOTION:
-        if (m_currentEisSequence < m_currentActivationId) {
-            queuedEiEvents.push_back(event);
-        }
         Q_EMIT mouseMove(ei_event_pointer_get_dx(event), ei_event_pointer_get_dy(event));
         break;
     case EI_EVENT_POINTER_MOTION_ABSOLUTE:
