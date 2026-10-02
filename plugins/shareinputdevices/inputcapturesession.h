@@ -40,8 +40,10 @@ private:
     void getZones();
     void setUpBarrier();
     void enable();
+    void startSession();
 
-    void sessionCreated(uint response, const QVariantMap &options);
+    void sessionCreated(uint response, const QVariantMap &results);
+    void sessionStarted(uint response, const QVariantMap &results);
     void zonesReceived(uint response, const QVariantMap &results);
     void barriersSet(uint response, const QVariantMap &results);
 
@@ -67,4 +69,5 @@ private:
     std::unique_ptr<Xkb> m_xkb;
     ei *m_ei = nullptr;
     OrgFreedesktopPortalInputCaptureInterface *m_inputCapturePortal;
+    bool m_usesCreateSession2 = false;
 };
