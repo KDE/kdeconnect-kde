@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-22 16:00+0000\n"
-"PO-Revision-Date: 2026-02-25 14:10+0200\n"
+"PO-Revision-Date: 2026-08-25 20:03+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -124,9 +124,7 @@ msgid "Reply"
 msgstr "Vastaa"
 
 #: notifications/notification.cpp:123
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reply to %1…"
+#, kde-format
 msgctxt "@info:placeholder %1 is the name of a group chat"
 msgid "Reply in %1…"
 msgstr "Vastaa: %1…"
@@ -182,17 +180,17 @@ msgstr "Ping!"
 #, kde-format
 msgctxt "@action:label"
 msgid "Display:"
-msgstr ""
+msgstr "Näyttö:"
 
 #: presenter/kdeconnect_presenter_config.qml:25
 #, kde-format
 msgid "Red Dot"
-msgstr ""
+msgstr "Punainen piste"
 
 #: presenter/kdeconnect_presenter_config.qml:26
 #, kde-format
 msgid "Electric"
-msgstr ""
+msgstr "Sähköinen"
 
 #: runcommand/kdeconnect_runcommand_config.qml:21
 #, kde-format
@@ -426,12 +424,10 @@ msgid "%1 in the path will be replaced with the specific device name"
 msgstr "Hakupolun %1 korvataan annetulla laitenimellä"
 
 #: share/shareplugin.cpp:164
-#, fuzzy, kde-format
-#| msgctxt "@info Some piece of text was received from a connected device"
-#| msgid "Shared text from %1 copied to clipboard"
+#, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
-msgstr "Laitteelta %1 jaettu teksti kopioitu leikepöydälle"
+msgstr "Jaettu teksti kopioitu leikepöydälle"
 
 #: share/shareplugin.cpp:168
 #, kde-format
@@ -464,7 +460,7 @@ msgstr "Ei ole olemassa: %1"
 #: share/shareplugin.cpp:269
 #, kde-format
 msgid "Permission denied: %1"
-msgstr ""
+msgstr "Käyttöoikeus estetty: %1"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:43
 #, kde-format
