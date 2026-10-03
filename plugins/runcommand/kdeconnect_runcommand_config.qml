@@ -31,41 +31,58 @@ Kirigami.ScrollablePage {
             deviceId: device
         }
 
-        delegate: Kirigami.SwipeListItem {
-            width: parent.width
-            enabled: true
+        delegate: QQC2.ItemDelegate {
+            id: commandDelegate
 
-            contentItem: ColumnLayout {
-                QQC2.Label {
-                    text: name
-                    Layout.fillWidth: true
-                    elide: Text.ElideRight
-                }
-                QQC2.Label {
-                    text: command
-                    font.italic: true
-                    Layout.fillWidth: true
-                    elide: Text.ElideRight
-                }
-            }
+            width: ListView.view.width
 
-            actions: [
-                Kirigami.Action {
+            required property var model
+
+            KeyNavigation.tab: editButton
+            KeyNavigation.right: editButton
+
+            contentItem: RowLayout {
+                ColumnLayout {
+                    spacing: 0
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignVCenter
+
+                    QQC2.Label {
+                        text: commandDelegate.model.name
+                        Layout.fillWidth: true
+                        elide: Text.ElideRight
+                    }
+                    QQC2.Label {
+                        text: commandDelegate.model.command
+                        font.italic: true
+                        Layout.fillWidth: true
+                        elide: Text.ElideRight
+                    }
+                }
+
+                QQC2.ToolButton {
+                    id: editButton
                     text: i18nd("kdeconnect-plugins", "Edit")
                     icon.name: "edit-entry"
-                    onTriggered: {
-                        editDialog.index = index;
-                        editNameField.text = name;
-                        editCommandField.text = command;
+                    display: QQC2.ToolButton.IconOnly
+                    KeyNavigation.right: deleteButton
+                    onClicked: {
+                        editDialog.index = commandDelegate.model.index;
+                        editNameField.text = commandDelegate.model.name;
+                        editCommandField.text = commandDelegate.model.command;
                         editDialog.open();
                     }
-                },
-                Kirigami.Action {
+                }
+                QQC2.ToolButton {
+                    id: deleteButton
                     text: i18nd("kdeconnect-plugins", "Delete")
                     icon.name: "delete"
-                    onTriggered: commandModel.removeCommand(index)
+                    display: QQC2.ToolButton.IconOnly
+                    KeyNavigation.left: editButton
+                    KeyNavigation.right: deleteButton // Don't focus back to editButton.
+                    onClicked: commandModel.removeCommand(commandDelegate.model.index)
                 }
-            ]
+            }
         }
 
         Kirigami.PlaceholderMessage {

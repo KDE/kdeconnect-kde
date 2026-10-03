@@ -76,16 +76,20 @@ Kirigami.ScrollablePage {
             }
         }
 
-        delegate: Kirigami.SwipeListItem {
+        delegate: ItemDelegate {
             id: pluginDelegate
 
-            readonly property string description : model.description
-            text: model.name
+            width: ListView.view.width
+
+            required property var model
 
             checkable: true
             checked: model.isChecked
 
-            Accessible.description: description
+            KeyNavigation.tab: settingsButton
+            KeyNavigation.right: settingsButton
+
+            Accessible.description: model.description
             Accessible.role: Accessible.CheckBox
 
             onToggled: {
@@ -97,18 +101,18 @@ Kirigami.ScrollablePage {
                 CheckBox {
                     id: serviceCheck
                     Layout.alignment: Qt.AlignVCenter
-                    checked: model.isChecked
+                    checked: pluginDelegate.model.isChecked
 
                     activeFocusOnTab: false
                     onToggled: {
-                        model.isChecked = checked
+                        pluginDelegate.model.isChecked = checked
                     }
 
                     Accessible.ignored: true
                 }
 
                 Kirigami.Icon {
-                    source: model.iconName
+                    source: pluginDelegate.model.iconName
                 }
 
                 ColumnLayout {
@@ -118,35 +122,34 @@ Kirigami.ScrollablePage {
 
                     Label {
                         Layout.fillWidth: true
-                        text: pluginDelegate.text
+                        text: pluginDelegate.model.name
                         elide: Text.ElideRight
                     }
 
                     Label {
                         Layout.fillWidth: true
-                        text: pluginDelegate.description
+                        text: pluginDelegate.model.description
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
                     }
                 }
-            }
 
-            actions: [
-                Kirigami.Action {
+                ToolButton {
+                    id: settingsButton
+
+                    visible: pluginDelegate.model.configSource != ""
+
                     icon.name: "settings-configure"
-                    visible: configSource != ""
-                    // FIXME: not accessible. screen readers won't read this and just say "push button".
-                    //        https://bugreports.qt.io/browse/QTBUG-123123
-                    Accessible.name: i18nd("kdeconnect-app", "Configure plugin")
-                    onTriggered: {
-                        pageStack.push(configSource, {
-                            title: name,
+
+                    onClicked: {
+                        pageStack.push(pluginDelegate.model.configSource, {
+                            title: pluginDelegate.model.name,
                             device: root.device,
                         });
                     }
                 }
-            ]
+            }
         }
     }
 }
