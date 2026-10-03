@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2018, 2019, 2020, 2021, 2023, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2018, 2019, 2020, 2021, 2023, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-02 00:44+0000\n"
-"PO-Revision-Date: 2025-11-13 13:51+0200\n"
+"PO-Revision-Date: 2026-08-25 20:03+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -110,7 +110,7 @@ msgstr "Laite, johon %1 lähetetään:"
 #, kde-format
 msgctxt "Label, for a list of items like files or urls"
 msgid "Shared content:"
-msgstr ""
+msgstr "Jaettu sisältö:"
 
 #: kdeconnect-handler.cpp:196
 #, kde-format

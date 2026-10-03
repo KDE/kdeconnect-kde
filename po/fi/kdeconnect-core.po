@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-14 02:44+0000\n"
-"PO-Revision-Date: 2026-01-05 15:58+0200\n"
+"PO-Revision-Date: 2026-08-25 20:04+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -31,7 +31,7 @@ msgstr "Paketin lähetys kohteeseen %1 epäonnistui"
 #: backends/lan/compositeuploadjob.cpp:252
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "Aikakatkaisu odotettaessa vastaanottimen yhdistävän"
 
 #: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
@@ -119,10 +119,9 @@ msgid "Filename already present"
 msgstr "Tiedostonimi on jo olemassa"
 
 #: filetransferjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not create destination file: %1"
-msgstr "Ei voitu tallentaa vamennetiedostoa: %1"
+msgstr "Kohdetiedostoa ei voitu luoda: %1"
 
 #: filetransferjob.cpp:129
 #, kde-format

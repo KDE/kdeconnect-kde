@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2014, 2019, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2014, 2019, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-14 02:44+0000\n"
-"PO-Revision-Date: 2025-07-07 20:57+0300\n"
+"PO-Revision-Date: 2026-08-25 20:03+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: kiokdeconnect.cpp:110
 #, kde-format
@@ -55,7 +55,7 @@ msgstr "Taustapalveluun ei saatu yhteyttä."
 #: kiokdeconnect.cpp:353
 #, kde-format
 msgid "KDE Connect"
-msgstr ""
+msgstr "KDE Connect"
 
 #: kiokdeconnect.cpp:369
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-13 02:37+0000\n"
-"PO-Revision-Date: 2026-02-26 15:37+0200\n"
+"PO-Revision-Date: 2026-08-25 20:06+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -76,32 +76,32 @@ msgstr "Jaettava verkko-osoite"
 #: qml/BatteryInfo.qml:26
 #, kde-format
 msgid "Battery: No info"
-msgstr ""
+msgstr "Akku: Ei tietoa"
 
 #: qml/BatteryInfo.qml:28
 #, kde-format
 msgid "Battery: %1% (Charging)"
-msgstr ""
+msgstr "Akku: %1 % (latautuu)"
 
 #: qml/BatteryInfo.qml:30
 #, kde-format
 msgid "Battery: %1%"
-msgstr ""
+msgstr "Akku: %1 %"
 
 #: qml/ConnectivityInfo.qml:20
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "Tuntematon"
 
 #: qml/ConnectivityInfo.qml:26
 #, kde-format
 msgid "Mobile Network: No signal"
-msgstr ""
+msgstr "Mobiiliverkko: ei kenttää"
 
 #: qml/ConnectivityInfo.qml:28
 #, kde-format
 msgid "Mobile Network: %1"
-msgstr ""
+msgstr "Mobiiliverkko: %1"
 
 #: qml/DevicePage.qml:46
 #, kde-format
@@ -357,13 +357,13 @@ msgstr "Käytä koko näyttöä"
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Previous Slide"
-msgstr ""
+msgstr "Edellinen dia"
 
 #: qml/presentationRemote.qml:47
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Next Slide"
-msgstr ""
+msgstr "Seuraava dia"
 
 #: qml/runcommand.qml:23
 #, kde-format
