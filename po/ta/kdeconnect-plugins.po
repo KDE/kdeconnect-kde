@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 16:00+0000\n"
+"POT-Creation-Date: 2026-10-04 00:46+0000\n"
 "PO-Revision-Date: 2026-05-10 16:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -198,114 +198,114 @@ msgstr ""
 msgid "Add Command…"
 msgstr "கட்டளையை சேர்…"
 
-#: runcommand/kdeconnect_runcommand_config.qml:54
+#: runcommand/kdeconnect_runcommand_config.qml:65
 #, kde-format
 msgid "Edit"
 msgstr "திருத்து"
 
-#: runcommand/kdeconnect_runcommand_config.qml:64
+#: runcommand/kdeconnect_runcommand_config.qml:78
 #, kde-format
 msgid "Delete"
 msgstr "நீக்கு"
 
-#: runcommand/kdeconnect_runcommand_config.qml:76
+#: runcommand/kdeconnect_runcommand_config.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
 msgstr "எக்கட்டளையும் அமைக்கப்படவில்லை"
 
-#: runcommand/kdeconnect_runcommand_config.qml:77
+#: runcommand/kdeconnect_runcommand_config.qml:94
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
 msgstr "மற்ற சாதனங்களிலிருந்து தூண்டக்கூடிய கட்டளைகளை இங்கு சேர்க்கவும்"
 
-#: runcommand/kdeconnect_runcommand_config.qml:83
+#: runcommand/kdeconnect_runcommand_config.qml:100
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
 msgstr "கட்டளையை சேர்"
 
-#: runcommand/kdeconnect_runcommand_config.qml:89
+#: runcommand/kdeconnect_runcommand_config.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
 msgstr "சேர்"
 
-#: runcommand/kdeconnect_runcommand_config.qml:96
+#: runcommand/kdeconnect_runcommand_config.qml:113
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
 msgstr "கட்டளையைச் சேர்"
 
-#: runcommand/kdeconnect_runcommand_config.qml:105
-#: runcommand/kdeconnect_runcommand_config.qml:183
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:200
 #, kde-format
 msgid "Name:"
 msgstr "பெயர்:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:109
-#: runcommand/kdeconnect_runcommand_config.qml:187
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:204
 #, kde-format
 msgid "Command:"
 msgstr "கட்டளை:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:113
+#: runcommand/kdeconnect_runcommand_config.qml:130
 #, kde-format
 msgid "Sample commands:"
 msgstr "எடுத்துக்காட்டு கட்டளைகள்:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:131
-#: runcommand/kdeconnect_runcommand_config.qml:142
+#: runcommand/kdeconnect_runcommand_config.qml:148
+#: runcommand/kdeconnect_runcommand_config.qml:159
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "உறங்கு"
 
-#: runcommand/kdeconnect_runcommand_config.qml:135
-#: runcommand/kdeconnect_runcommand_config.qml:150
+#: runcommand/kdeconnect_runcommand_config.qml:152
+#: runcommand/kdeconnect_runcommand_config.qml:167
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "திரையை பூட்டு"
 
-#: runcommand/kdeconnect_runcommand_config.qml:146
+#: runcommand/kdeconnect_runcommand_config.qml:163
 #, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "அதிகபட்ச பிரகாசம்"
 
-#: runcommand/kdeconnect_runcommand_config.qml:154
+#: runcommand/kdeconnect_runcommand_config.qml:171
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "திரையைத் திற"
 
-#: runcommand/kdeconnect_runcommand_config.qml:158
+#: runcommand/kdeconnect_runcommand_config.qml:175
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "அனைத்து வால்ட்டுகளையும் மூடு"
 
-#: runcommand/kdeconnect_runcommand_config.qml:162
+#: runcommand/kdeconnect_runcommand_config.qml:179
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
 msgstr "அனைத்து வால்ட்டுகளையும் கட்டாயமாக மூடு"
 
-#: runcommand/kdeconnect_runcommand_config.qml:175
+#: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
 msgstr "கட்டளையைத் திருத்துவது"
 
-#: runcommand/kdeconnect_runcommand_config.qml:192
+#: runcommand/kdeconnect_runcommand_config.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "உறுதிசெய்"
 
-#: runcommand/kdeconnect_runcommand_config.qml:199
+#: runcommand/kdeconnect_runcommand_config.qml:216
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
+"POT-Creation-Date: 2026-10-04 00:46+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -379,11 +379,6 @@ msgstr "回复给 %1…"
 msgid "Send"
 msgstr "发送"
 
-#: qml/PluginSettings.qml:141
-#, kde-format
-msgid "Configure plugin"
-msgstr "配置插件"
-
 #: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
@@ -488,6 +483,9 @@ msgstr "KDE Connect iOS 应用"
 #, kde-format
 msgid "Apple Store"
 msgstr "Apple Store"
+
+#~ msgid "Configure plugin"
+#~ msgstr "配置插件"
 
 #~ msgid ""
 #~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"

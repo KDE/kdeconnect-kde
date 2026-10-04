@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 16:00+0000\n"
+"POT-Creation-Date: 2026-10-04 00:46+0000\n"
 "PO-Revision-Date: 2026-08-01 14:46+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -199,115 +199,115 @@ msgstr "Elektrinis"
 msgid "Add Command…"
 msgstr "Pridėti komandą…"
 
-#: runcommand/kdeconnect_runcommand_config.qml:54
+#: runcommand/kdeconnect_runcommand_config.qml:65
 #, kde-format
 msgid "Edit"
 msgstr "Taisyti"
 
-#: runcommand/kdeconnect_runcommand_config.qml:64
+#: runcommand/kdeconnect_runcommand_config.qml:78
 #, kde-format
 msgid "Delete"
 msgstr "Ištrinti"
 
-#: runcommand/kdeconnect_runcommand_config.qml:76
+#: runcommand/kdeconnect_runcommand_config.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
 msgstr "Nėra sukonfigūruotų komandų"
 
-#: runcommand/kdeconnect_runcommand_config.qml:77
+#: runcommand/kdeconnect_runcommand_config.qml:94
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
 msgstr ""
 "Pridėkite komandas norėdami paleisti jas nuotoliniu būdu iš kitų įrenginių"
 
-#: runcommand/kdeconnect_runcommand_config.qml:83
+#: runcommand/kdeconnect_runcommand_config.qml:100
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
 msgstr "Pridėti komandą"
 
-#: runcommand/kdeconnect_runcommand_config.qml:89
+#: runcommand/kdeconnect_runcommand_config.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
 msgstr "Pridėti"
 
-#: runcommand/kdeconnect_runcommand_config.qml:96
+#: runcommand/kdeconnect_runcommand_config.qml:113
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
 msgstr "Pridėti komandą"
 
-#: runcommand/kdeconnect_runcommand_config.qml:105
-#: runcommand/kdeconnect_runcommand_config.qml:183
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:200
 #, kde-format
 msgid "Name:"
 msgstr "Pavadinimas:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:109
-#: runcommand/kdeconnect_runcommand_config.qml:187
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:204
 #, kde-format
 msgid "Command:"
 msgstr "Komanda:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:113
+#: runcommand/kdeconnect_runcommand_config.qml:130
 #, kde-format
 msgid "Sample commands:"
 msgstr "Pavyzdinės komandos:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:131
-#: runcommand/kdeconnect_runcommand_config.qml:142
+#: runcommand/kdeconnect_runcommand_config.qml:148
+#: runcommand/kdeconnect_runcommand_config.qml:159
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Pristabdyti"
 
-#: runcommand/kdeconnect_runcommand_config.qml:135
-#: runcommand/kdeconnect_runcommand_config.qml:150
+#: runcommand/kdeconnect_runcommand_config.qml:152
+#: runcommand/kdeconnect_runcommand_config.qml:167
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Užrakinti ekraną"
 
-#: runcommand/kdeconnect_runcommand_config.qml:146
+#: runcommand/kdeconnect_runcommand_config.qml:163
 #, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "Didžiausias ryškumas"
 
-#: runcommand/kdeconnect_runcommand_config.qml:154
+#: runcommand/kdeconnect_runcommand_config.qml:171
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Atrakinti ekraną"
 
-#: runcommand/kdeconnect_runcommand_config.qml:158
+#: runcommand/kdeconnect_runcommand_config.qml:175
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Uždaryti visas slėptuves"
 
-#: runcommand/kdeconnect_runcommand_config.qml:162
+#: runcommand/kdeconnect_runcommand_config.qml:179
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
 msgstr "Priverstinai uždaryti visas slėptuves"
 
-#: runcommand/kdeconnect_runcommand_config.qml:175
+#: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
 msgstr "Taisyti komandą"
 
-#: runcommand/kdeconnect_runcommand_config.qml:192
+#: runcommand/kdeconnect_runcommand_config.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Patvirtinti"
 
-#: runcommand/kdeconnect_runcommand_config.qml:199
+#: runcommand/kdeconnect_runcommand_config.qml:216
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"

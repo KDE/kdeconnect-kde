@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
+"POT-Creation-Date: 2026-10-04 00:46+0000\n"
 "PO-Revision-Date: 2025-06-01 14:57+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -383,11 +383,6 @@ msgstr ""
 msgid "Send"
 msgstr "Send pingsignal"
 
-#: qml/PluginSettings.qml:141
-#, kde-format
-msgid "Configure plugin"
-msgstr "Set opp programtillegg"
-
 #: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
@@ -492,3 +487,6 @@ msgstr "KDE Connect iOS-app"
 #, kde-format
 msgid "Apple Store"
 msgstr "Apple Store"
+
+#~ msgid "Configure plugin"
+#~ msgstr "Set opp programtillegg"

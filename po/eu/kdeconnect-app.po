@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
+"POT-Creation-Date: 2026-10-04 00:46+0000\n"
 "PO-Revision-Date: 2026-09-27 19:23+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -384,11 +384,6 @@ msgstr "%1(e)ri erantzun…"
 msgid "Send"
 msgstr "Bidali"
 
-#: qml/PluginSettings.qml:141
-#, kde-format
-msgid "Configure plugin"
-msgstr "Konfiguratu plugina"
-
 #: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
@@ -493,6 +488,9 @@ msgstr "KDE Connect iOS aplikazioa"
 #, kde-format
 msgid "Apple Store"
 msgstr "Apple saltokia"
+
+#~ msgid "Configure plugin"
+#~ msgstr "Konfiguratu plugina"
 
 #~ msgid ""
 #~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"

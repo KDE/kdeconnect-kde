@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
+"POT-Creation-Date: 2026-10-04 00:46+0000\n"
 "PO-Revision-Date: 2026-08-25 20:06+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -380,11 +380,6 @@ msgstr "Vastaa: %1…"
 msgid "Send"
 msgstr "Lähetä"
 
-#: qml/PluginSettings.qml:141
-#, kde-format
-msgid "Configure plugin"
-msgstr "Liitännäisen asetukset"
-
 #: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
@@ -489,6 +484,9 @@ msgstr "KDE Connectin iOS-sovellus"
 #, kde-format
 msgid "Apple Store"
 msgstr "Apple-kauppa"
+
+#~ msgid "Configure plugin"
+#~ msgstr "Liitännäisen asetukset"
 
 #~ msgid ""
 #~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"

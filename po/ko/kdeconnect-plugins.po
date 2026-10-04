@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 16:00+0000\n"
+"POT-Creation-Date: 2026-10-04 00:46+0000\n"
 "PO-Revision-Date: 2026-09-21 23:11+0200\n"
 "Last-Translator: Shinjo Park <peremen@gmail.com>\n"
 "Language-Team: Korean\n"
@@ -197,114 +197,114 @@ msgstr "전기"
 msgid "Add Command…"
 msgstr "명령 추가…"
 
-#: runcommand/kdeconnect_runcommand_config.qml:54
+#: runcommand/kdeconnect_runcommand_config.qml:65
 #, kde-format
 msgid "Edit"
 msgstr "편집"
 
-#: runcommand/kdeconnect_runcommand_config.qml:64
+#: runcommand/kdeconnect_runcommand_config.qml:78
 #, kde-format
 msgid "Delete"
 msgstr "삭제"
 
-#: runcommand/kdeconnect_runcommand_config.qml:76
+#: runcommand/kdeconnect_runcommand_config.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
 msgstr "설정한 명령 없음"
 
-#: runcommand/kdeconnect_runcommand_config.qml:77
+#: runcommand/kdeconnect_runcommand_config.qml:94
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
 msgstr "명령을 추가하여 다른 장치에서 원격으로 실행"
 
-#: runcommand/kdeconnect_runcommand_config.qml:83
+#: runcommand/kdeconnect_runcommand_config.qml:100
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
 msgstr "명령 추가"
 
-#: runcommand/kdeconnect_runcommand_config.qml:89
+#: runcommand/kdeconnect_runcommand_config.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
 msgstr "추가"
 
-#: runcommand/kdeconnect_runcommand_config.qml:96
+#: runcommand/kdeconnect_runcommand_config.qml:113
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
 msgstr "명령 추가"
 
-#: runcommand/kdeconnect_runcommand_config.qml:105
-#: runcommand/kdeconnect_runcommand_config.qml:183
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:200
 #, kde-format
 msgid "Name:"
 msgstr "이름:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:109
-#: runcommand/kdeconnect_runcommand_config.qml:187
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:204
 #, kde-format
 msgid "Command:"
 msgstr "명령:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:113
+#: runcommand/kdeconnect_runcommand_config.qml:130
 #, kde-format
 msgid "Sample commands:"
 msgstr "예제 명령:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:131
-#: runcommand/kdeconnect_runcommand_config.qml:142
+#: runcommand/kdeconnect_runcommand_config.qml:148
+#: runcommand/kdeconnect_runcommand_config.qml:159
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "절전"
 
-#: runcommand/kdeconnect_runcommand_config.qml:135
-#: runcommand/kdeconnect_runcommand_config.qml:150
+#: runcommand/kdeconnect_runcommand_config.qml:152
+#: runcommand/kdeconnect_runcommand_config.qml:167
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "화면 잠그기"
 
-#: runcommand/kdeconnect_runcommand_config.qml:146
+#: runcommand/kdeconnect_runcommand_config.qml:163
 #, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "최대 밝기"
 
-#: runcommand/kdeconnect_runcommand_config.qml:154
+#: runcommand/kdeconnect_runcommand_config.qml:171
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "화면 잠금 해제"
 
-#: runcommand/kdeconnect_runcommand_config.qml:158
+#: runcommand/kdeconnect_runcommand_config.qml:175
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "모든 비밀 공간 닫기"
 
-#: runcommand/kdeconnect_runcommand_config.qml:162
+#: runcommand/kdeconnect_runcommand_config.qml:179
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
 msgstr "강제로 모든 비밀 공간 닫기"
 
-#: runcommand/kdeconnect_runcommand_config.qml:175
+#: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
 msgstr "편집 명령"
 
-#: runcommand/kdeconnect_runcommand_config.qml:192
+#: runcommand/kdeconnect_runcommand_config.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "확인"
 
-#: runcommand/kdeconnect_runcommand_config.qml:199
+#: runcommand/kdeconnect_runcommand_config.qml:216
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"

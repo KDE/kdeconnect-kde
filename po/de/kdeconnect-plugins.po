@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 16:00+0000\n"
+"POT-Creation-Date: 2026-10-04 00:46+0000\n"
 "PO-Revision-Date: 2026-05-26 23:17+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -201,115 +201,115 @@ msgstr "Elektrisch"
 msgid "Add Command…"
 msgstr "Befehl hinzufügen …"
 
-#: runcommand/kdeconnect_runcommand_config.qml:54
+#: runcommand/kdeconnect_runcommand_config.qml:65
 #, kde-format
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: runcommand/kdeconnect_runcommand_config.qml:64
+#: runcommand/kdeconnect_runcommand_config.qml:78
 #, kde-format
 msgid "Delete"
 msgstr "Löschen"
 
-#: runcommand/kdeconnect_runcommand_config.qml:76
+#: runcommand/kdeconnect_runcommand_config.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
 msgstr "Keine Befehle eingerichtet"
 
-#: runcommand/kdeconnect_runcommand_config.qml:77
+#: runcommand/kdeconnect_runcommand_config.qml:94
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
 msgstr ""
 "Befehle hinzufügen, um sie aus der Ferne von anderen Geräten auszuführen"
 
-#: runcommand/kdeconnect_runcommand_config.qml:83
+#: runcommand/kdeconnect_runcommand_config.qml:100
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
 msgstr "Befehl hinzufügen"
 
-#: runcommand/kdeconnect_runcommand_config.qml:89
+#: runcommand/kdeconnect_runcommand_config.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: runcommand/kdeconnect_runcommand_config.qml:96
+#: runcommand/kdeconnect_runcommand_config.qml:113
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
 msgstr "Befehl hinzufügen"
 
-#: runcommand/kdeconnect_runcommand_config.qml:105
-#: runcommand/kdeconnect_runcommand_config.qml:183
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:200
 #, kde-format
 msgid "Name:"
 msgstr "Name:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:109
-#: runcommand/kdeconnect_runcommand_config.qml:187
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:204
 #, kde-format
 msgid "Command:"
 msgstr "Befehl:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:113
+#: runcommand/kdeconnect_runcommand_config.qml:130
 #, kde-format
 msgid "Sample commands:"
 msgstr "Beispielbefehle:"
 
-#: runcommand/kdeconnect_runcommand_config.qml:131
-#: runcommand/kdeconnect_runcommand_config.qml:142
+#: runcommand/kdeconnect_runcommand_config.qml:148
+#: runcommand/kdeconnect_runcommand_config.qml:159
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Standby-Modus"
 
-#: runcommand/kdeconnect_runcommand_config.qml:135
-#: runcommand/kdeconnect_runcommand_config.qml:150
+#: runcommand/kdeconnect_runcommand_config.qml:152
+#: runcommand/kdeconnect_runcommand_config.qml:167
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Bildschirm sperren"
 
-#: runcommand/kdeconnect_runcommand_config.qml:146
+#: runcommand/kdeconnect_runcommand_config.qml:163
 #, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "Maximale Helligkeit"
 
-#: runcommand/kdeconnect_runcommand_config.qml:154
+#: runcommand/kdeconnect_runcommand_config.qml:171
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Bildschirm entsperren"
 
-#: runcommand/kdeconnect_runcommand_config.qml:158
+#: runcommand/kdeconnect_runcommand_config.qml:175
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Alle Tresore schließen"
 
-#: runcommand/kdeconnect_runcommand_config.qml:162
+#: runcommand/kdeconnect_runcommand_config.qml:179
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
 msgstr "Schließen aller Tresore erzwingen"
 
-#: runcommand/kdeconnect_runcommand_config.qml:175
+#: runcommand/kdeconnect_runcommand_config.qml:192
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
 msgstr "Befehl bearbeiten"
 
-#: runcommand/kdeconnect_runcommand_config.qml:192
+#: runcommand/kdeconnect_runcommand_config.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Bestätigen"
 
-#: runcommand/kdeconnect_runcommand_config.qml:199
+#: runcommand/kdeconnect_runcommand_config.qml:216
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"

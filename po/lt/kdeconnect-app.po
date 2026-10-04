@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
+"POT-Creation-Date: 2026-10-04 00:46+0000\n"
 "PO-Revision-Date: 2026-08-24 15:15+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
@@ -384,11 +384,6 @@ msgstr "Atsakyti %1…"
 msgid "Send"
 msgstr "Siųsti"
 
-#: qml/PluginSettings.qml:141
-#, kde-format
-msgid "Configure plugin"
-msgstr "Konfigūruoti įskiepį"
-
 #: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
@@ -493,6 +488,9 @@ msgstr "KDE Connect „iOS“ programėlė"
 #, kde-format
 msgid "Apple Store"
 msgstr "„Apple“ parduotuvė"
+
+#~ msgid "Configure plugin"
+#~ msgstr "Konfigūruoti įskiepį"
 
 #~ msgid ""
 #~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
+"POT-Creation-Date: 2026-10-04 00:46+0000\n"
 "PO-Revision-Date: 2024-12-25 19:36+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -389,11 +389,6 @@ msgstr ""
 msgid "Send"
 msgstr "Ping प्रेषयतु"
 
-#: qml/PluginSettings.qml:141
-#, kde-format
-msgid "Configure plugin"
-msgstr "प्लगिन् विन्यस्तं कुर्वन्तु"
-
 #: qml/presentationRemote.qml:22
 #, kde-format
 msgid "Enable Full-Screen"
@@ -498,6 +493,9 @@ msgstr "KDE Connect iOS अनुप्रयोगः"
 #, kde-format
 msgid "Apple Store"
 msgstr "आपल् स्टोरः"
+
+#~ msgid "Configure plugin"
+#~ msgstr "प्लगिन् विन्यस्तं कुर्वन्तु"
 
 #~ msgid ""
 #~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"

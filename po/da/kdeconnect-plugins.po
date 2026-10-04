@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 16:00+0000\n"
+"POT-Creation-Date: 2026-10-04 00:46+0000\n"
 "PO-Revision-Date: 2025-07-31 12:08+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -199,126 +199,126 @@ msgstr ""
 msgid "Add Command…"
 msgstr "Kommando"
 
-#: runcommand/kdeconnect_runcommand_config.qml:54
+#: runcommand/kdeconnect_runcommand_config.qml:65
 #, kde-format
 msgid "Edit"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:64
+#: runcommand/kdeconnect_runcommand_config.qml:78
 #, kde-format
 msgid "Delete"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:76
+#: runcommand/kdeconnect_runcommand_config.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:77
+#: runcommand/kdeconnect_runcommand_config.qml:94
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:83
+#: runcommand/kdeconnect_runcommand_config.qml:100
 #, fuzzy, kde-format
 #| msgid "Command"
 msgctxt "@title:window"
 msgid "Add Command"
 msgstr "Kommando"
 
-#: runcommand/kdeconnect_runcommand_config.qml:89
+#: runcommand/kdeconnect_runcommand_config.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:96
+#: runcommand/kdeconnect_runcommand_config.qml:113
 #, fuzzy, kde-format
 #| msgid "Command"
 msgctxt "@action:button accessible"
 msgid "Add command"
 msgstr "Kommando"
 
-#: runcommand/kdeconnect_runcommand_config.qml:105
-#: runcommand/kdeconnect_runcommand_config.qml:183
+#: runcommand/kdeconnect_runcommand_config.qml:122
+#: runcommand/kdeconnect_runcommand_config.qml:200
 #, fuzzy, kde-format
 #| msgid "Name"
 msgid "Name:"
 msgstr "Navn"
 
-#: runcommand/kdeconnect_runcommand_config.qml:109
-#: runcommand/kdeconnect_runcommand_config.qml:187
+#: runcommand/kdeconnect_runcommand_config.qml:126
+#: runcommand/kdeconnect_runcommand_config.qml:204
 #, fuzzy, kde-format
 #| msgid "Command"
 msgid "Command:"
 msgstr "Kommando"
 
-#: runcommand/kdeconnect_runcommand_config.qml:113
+#: runcommand/kdeconnect_runcommand_config.qml:130
 #, fuzzy, kde-format
 #| msgid "Sample commands"
 msgid "Sample commands:"
 msgstr "Sample-kommandoer"
 
-#: runcommand/kdeconnect_runcommand_config.qml:131
-#: runcommand/kdeconnect_runcommand_config.qml:142
+#: runcommand/kdeconnect_runcommand_config.qml:148
+#: runcommand/kdeconnect_runcommand_config.qml:159
 #, fuzzy, kde-format
 #| msgid "Suspend"
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Suspendér"
 
-#: runcommand/kdeconnect_runcommand_config.qml:135
-#: runcommand/kdeconnect_runcommand_config.qml:150
+#: runcommand/kdeconnect_runcommand_config.qml:152
+#: runcommand/kdeconnect_runcommand_config.qml:167
 #, fuzzy, kde-format
 #| msgid "Lock Screen"
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Lås skærmen"
 
-#: runcommand/kdeconnect_runcommand_config.qml:146
+#: runcommand/kdeconnect_runcommand_config.qml:163
 #, fuzzy, kde-format
 #| msgid "Maximum Brightness"
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "Maksimal lysstyrke"
 
-#: runcommand/kdeconnect_runcommand_config.qml:154
+#: runcommand/kdeconnect_runcommand_config.qml:171
 #, fuzzy, kde-format
 #| msgid "Unlock Screen"
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Lås skærmen op"
 
-#: runcommand/kdeconnect_runcommand_config.qml:158
+#: runcommand/kdeconnect_runcommand_config.qml:175
 #, fuzzy, kde-format
 #| msgid "Close All Vaults"
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Luk alle sikkerhedsbokse"
 
-#: runcommand/kdeconnect_runcommand_config.qml:162
+#: runcommand/kdeconnect_runcommand_config.qml:179
 #, fuzzy, kde-format
 #| msgid "Forcefully Close All Vaults"
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
 msgstr "Gennemtving lukning af alle sikkerhedsbokse"
 
-#: runcommand/kdeconnect_runcommand_config.qml:175
+#: runcommand/kdeconnect_runcommand_config.qml:192
 #, fuzzy, kde-format
 #| msgid "Command"
 msgctxt "@title:window"
 msgid "Edit Command"
 msgstr "Kommando"
 
-#: runcommand/kdeconnect_runcommand_config.qml:192
+#: runcommand/kdeconnect_runcommand_config.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr ""
 
-#: runcommand/kdeconnect_runcommand_config.qml:199
+#: runcommand/kdeconnect_runcommand_config.qml:216
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
