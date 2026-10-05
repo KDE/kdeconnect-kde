@@ -487,6 +487,3 @@ msgstr "KDE Connect sin iOS-app"
 #, kde-format
 msgid "Apple Store"
 msgstr "Apple Store"
-
-#~ msgid "Configure plugin"
-#~ msgstr "Konfigurer plugin"

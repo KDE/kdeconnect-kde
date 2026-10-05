@@ -45,8 +45,8 @@ msgstr ""
 "Устройство не указано: для указания устройства используйте параметр «-d "
 "<идентификатор устройства>» или параметр «-n <имя устройства>».\n"
 "Для определения идентификаторов или имён устройств служит команда "
-"«kdeconnect-cli -i».\n"
-"Для просмотра полной справки по использованию программы, запустите её с "
+"«kdeconnect-cli -l».\n"
+"Для просмотра полной справки по использованию программы запустите её с "
 "параметром «--help»."
 
 #: kdeconnect-cli.cpp:57
@@ -237,12 +237,12 @@ msgstr "Получить информацию о шифровании на ус�
 #: kdeconnect-cli.cpp:99
 #, kde-format
 msgid "List remote commands and their ids"
-msgstr "Просмотр списка удалённых команд и их идентификаторов"
+msgstr "Показать список удалённых команд и их идентификаторов"
 
 #: kdeconnect-cli.cpp:100
 #, kde-format
 msgid "Execute remote command by id"
-msgstr "Выполнение удалённой команды по идентификатору"
+msgstr "Выполнить удалённую команду по идентификатору"
 
 #: kdeconnect-cli.cpp:101
 #, kde-format
@@ -262,7 +262,7 @@ msgstr "Подключить файловую систему устройств�
 #: kdeconnect-cli.cpp:104
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr "Вывести список точек монтирования файловой системы устройства"
+msgstr "Вывести точку монтирования файловой системы устройства"
 
 #: kdeconnect-cli.cpp:153
 #, kde-format
@@ -303,18 +303,18 @@ msgstr "Устройств не найдено"
 #: kdeconnect-cli.cpp:184
 #, kde-format
 msgid "(unpaired)"
-msgstr "(сопряжение не создано)"
+msgstr "(не сопряжено)"
 
 #: kdeconnect-cli.cpp:244
 #, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
-msgstr "Создан общий доступ к %1"
+msgstr "Отправлено: %1"
 
 #: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Shared text: %1"
-msgstr "Создан общий доступ к тексту: %1"
+msgstr "Отправлен текст: %1"
 
 #: kdeconnect-cli.cpp:268
 #, kde-format

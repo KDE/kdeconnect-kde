@@ -157,7 +157,7 @@ msgstr "Не удалось сохранить файл закрытого кл�
 #: kdeconnectconfig.cpp:386
 #, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Не удалось создать сертификата устройства."
+msgstr "Не удалось создать сертификат устройства."
 
 #: kdeconnectconfig.cpp:402
 #, kde-format

@@ -45,7 +45,7 @@ msgstr "Отправить содержимое буфера обмена"
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
-msgstr "Позвонить на устройство"
+msgstr "Подать звуковой сигнал на устройстве"
 
 #: deviceindicator.cpp:96
 #, kde-format
