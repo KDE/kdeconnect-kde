@@ -47,7 +47,7 @@ msgstr "Включая пароли (обозначенные как таков�
 #: clipboard/kdeconnect_clipboard_config.qml:55
 #, kde-format
 msgid "Max Clipboard File Size (MB)"
-msgstr "Максимальный размер буфера обмена (МБ)"
+msgstr "Максимальный размер файла в буфере обмена (МБ)"
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
 #, kde-format
@@ -151,17 +151,17 @@ msgstr "Отправить"
 #: notifications/sendreplydialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr "Dialog"
+msgstr "Диалог"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:32
 #, kde-format
 msgid "Pause as soon as phone rings"
-msgstr "Приостановка в момент звонка"
+msgstr "Приостанавливать сразу при звонке"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:41
 #, kde-format
 msgid "Pause only while talking"
-msgstr "Приостановка только на время разговора"
+msgstr "Приостанавливать только на время разговора"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:47
 #, kde-format
@@ -171,12 +171,12 @@ msgstr "Приостанавливать воспроизведение в ме�
 #: pausemusic/kdeconnect_pausemusic_config.qml:54
 #, kde-format
 msgid "Mute system sound"
-msgstr "Выключить звук в системе"
+msgstr "Выключать системный звук"
 
 #: pausemusic/kdeconnect_pausemusic_config.qml:61
 #, kde-format
 msgid "Resume automatically when call ends"
-msgstr "Продолжить воспроизведение после завершения разговора"
+msgstr "Автоматически продолжать воспроизведение после завершения разговора"
 
 #: ping/pingplugin.cpp:26
 #, kde-format
@@ -330,12 +330,12 @@ msgstr "Только постоянные уведомления"
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:42
 #, kde-format
 msgid "Include body"
-msgstr "Включая тело"
+msgstr "Включать текст"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:49
 #, kde-format
 msgid "Include icon"
-msgstr "Включая значок"
+msgstr "Включать значок"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:56
 #, kde-format
@@ -429,7 +429,7 @@ msgstr "Сохранять файлы в:"
 #: share/kdeconnect_share_config.qml:63
 #, kde-format
 msgid "%1 in the path will be replaced with the specific device name"
-msgstr "%1 в пути будут заменены на имя устройства."
+msgstr "%1 в пути будет заменено на имя устройства."
 
 #: share/shareplugin.cpp:162
 #, kde-format
@@ -494,7 +494,7 @@ msgstr "Справа"
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr "Внизу"
+msgstr "Снизу"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:71
 #, kde-format
@@ -530,8 +530,8 @@ msgstr "Выключить звук звонка"
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
 msgstr ""
-"На удалённом устройстве не установленно приложение, обеспечивающее поддержку "
-"VNC или RDP (например: krdc)."
+"На удалённом устройстве не установлено приложение, обеспечивающее поддержку "
+"VNC или RDP (например, krdc)."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:187
 #, kde-format
