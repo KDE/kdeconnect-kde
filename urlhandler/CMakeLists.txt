@@ -12,7 +12,6 @@ target_link_libraries(kdeconnect-handler
     kdeconnectcore
     kdeconnectversion
     Qt::Widgets
-    Qt::QuickControls2
     KF6::CoreAddons
     KF6::ColorScheme
     KF6::DBusAddons

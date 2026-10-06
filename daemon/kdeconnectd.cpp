@@ -9,7 +9,6 @@
 #include <QCommandLineParser>
 #include <QDBusMessage>
 #include <QIcon>
-#include <QQuickStyle>
 #include <QStandardPaths>
 #include <QTimer>
 
@@ -94,11 +93,6 @@ int main(int argc, char *argv[])
 #else
     QIcon::setFallbackThemeName(QStringLiteral("breeze"));
 #endif
-
-    // Default to org.kde.desktop style unless the user forces another style
-    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
-        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
-    }
 
     KCrash::initialize();
 

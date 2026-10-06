@@ -15,7 +15,6 @@
 #include <QIcon>
 #include <QListWidget>
 #include <QMessageBox>
-#include <QQuickStyle>
 #include <QTextStream>
 #include <QUrl>
 #include <QtContainerFwd>
@@ -74,11 +73,6 @@ int main(int argc, char **argv)
 #else
     QIcon::setFallbackThemeName(QStringLiteral("breeze"));
 #endif
-
-    // Default to org.kde.desktop style unless the user forces another style
-    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
-        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
-    }
 
     KCrash::initialize();
 
