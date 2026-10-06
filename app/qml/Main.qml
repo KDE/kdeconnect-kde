@@ -83,8 +83,6 @@ Kirigami.ApplicationWindow {
         }
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
 
-        handleClosedIcon.source: modal ? null : "sidebar-expand-left"
-        handleOpenIcon.source: modal ? null : "sidebar-collapse-left"
         handleVisible: modal
 
         leftPadding: 0
