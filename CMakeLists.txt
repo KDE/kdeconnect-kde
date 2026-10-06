@@ -77,7 +77,7 @@ set_package_properties(KF6Kirigami2 PROPERTIES
     TYPE RUNTIME
 )
 
-find_package(KF6KirigamiAddons 0.11 REQUIRED)
+find_package(KF6KirigamiAddons 1.13 REQUIRED)
 set_package_properties(KF6KirigamiAddons PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required runtime dependency (all the modules are required)"

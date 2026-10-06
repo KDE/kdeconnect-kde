@@ -60,6 +60,7 @@ target_link_libraries(kdeconnect-app PRIVATE
     KF6::ItemModels
     KF6::DBusAddons
     KF6::WindowSystem
+    KirigamiApp
 )
 
 if (APPLE)
