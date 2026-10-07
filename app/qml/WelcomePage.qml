@@ -66,7 +66,7 @@ FormCard.FormCardPage {
 
     FormCard.FormCard {
         FormCard.FormButtonDelegate {
-            text: i18n("Apple Store")
+            text: i18n("App Store")
             onClicked: Qt.openUrlExternally("https://apps.apple.com/us/app/kde-connect/id1580245991")
         }
     }
