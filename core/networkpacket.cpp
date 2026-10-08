@@ -73,6 +73,10 @@ bool NetworkPacket::unserialize(const QByteArray &a, NetworkPacket *np)
     }
 
     np->m_type = obj[QStringLiteral("type")].toString();
+    if (np->m_type.isEmpty()) {
+        qCDebug(KDECONNECT_CORE) << "Unserialization error: packet has no type";
+        return false;
+    }
     np->m_body = obj[QStringLiteral("body")].toObject().toVariantMap();
     np->m_payloadSize = obj[QStringLiteral("payloadSize")].toInteger();
     // Will return an empty qvariantmap if was not present, which is ok
