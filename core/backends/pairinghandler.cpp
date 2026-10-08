@@ -38,25 +38,21 @@ void PairingHandler::packetReceived(const NetworkPacket &np)
             qCDebug(KDECONNECT_CORE) << "Ignoring second pairing request before the first one timed out";
             break;
         case PairState::Paired:
+            qWarning() << "Received pairing request from a device we already trusted.";
+            // It would be nice to auto-accept the pairing request here, but since the pairing accept and pairing request
+            // messages are identical, this could create an infinite loop if both devices are "accepting" each other pairs.
+            // Instead, unpair and handle as if "NotPaired". TODO: No longer true in protocol version 8, we can now distinguish the two.
+            m_pairState = PairState::NotPaired;
+            Q_EMIT unpaired();
+            [[fallthrough]]; // Treat as unpaired from here
         case PairState::NotPaired:
-            if (m_pairState == PairState::Paired) {
-                qWarning() << "Received pairing request from a device we already trusted.";
-                // It would be nice to auto-accept the pairing request here, but since the pairing accept and pairing request
-                // messages are identical, this could create an infinite loop if both devices are "accepting" each other pairs.
-                // Instead, unpair and handle as if "NotPaired". TODO: No longer true in protocol version 8, we can now distinguish the two.
-                m_pairState = PairState::NotPaired;
-                Q_EMIT unpaired();
-            }
-
             m_pairingTimestamp = np.get<long>(QStringLiteral("timestamp"), -1L);
             if (m_pairingTimestamp == -1L) {
-                m_pairState = PairState::NotPaired;
                 qCWarning(KDECONNECT_CORE) << "Ignoring pairing request without timestamp";
                 return;
             }
             long currentTimestamp = QDateTime::currentDateTime().toSecsSinceEpoch();
             if (abs(m_pairingTimestamp - currentTimestamp) > ALLOWED_TIMESTAMP_TIME_DIFFERENCE_SECONDS) {
-                m_pairState = PairState::NotPaired;
                 Q_EMIT pairingFailed(i18n("Device clocks are out of sync"));
                 return;
             }
