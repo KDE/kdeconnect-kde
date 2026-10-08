@@ -42,9 +42,9 @@ public:
         Paired = 0x01, // show device only if it's paired
         Reachable = 0x02 // show device only if it's reachable
     };
-    Q_DECLARE_FLAGS(StatusFilterFlags, StatusFilterFlag)
-    Q_FLAGS(StatusFilterFlags)
     Q_ENUM(StatusFilterFlag)
+    Q_DECLARE_FLAGS(StatusFilterFlags, StatusFilterFlag)
+    Q_FLAG(StatusFilterFlags)
 
     explicit DevicesModel(QObject *parent = nullptr);
     ~DevicesModel() override;
