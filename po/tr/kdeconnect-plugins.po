@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-04 00:46+0000\n"
-"PO-Revision-Date: 2026-07-27 19:34+0300\n"
+"PO-Revision-Date: 2026-10-07 19:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: battery/batteryplugin.cpp:150
 #, kde-format
@@ -47,7 +47,7 @@ msgstr "En büyük pano dosya boyutu (MB)"
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
 #, kde-format
 msgid "KDE Connect Error"
-msgstr "KDE Bağlan Hatası"
+msgstr "KDE Connect Hatası"
 
 #: digitizer/linuxdigitizerimpl.cpp:73
 #, kde-format
@@ -396,7 +396,7 @@ msgstr "Dosya sistemi bağlanamadı: Aygıt yanıt vermiyor"
 #: sftp/sftpplugin-win.cpp:97
 #, kde-format
 msgid "KDE Connect"
-msgstr "KDE Bağlan"
+msgstr "KDE Connect"
 
 #: sftp/sftpplugin-win.cpp:98
 #, kde-format

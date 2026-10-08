@@ -3,13 +3,13 @@
 #
 # Translators:
 # Volkan Gezer <volkangezer@gmail.com>, 2014, 2017, 2021.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2024, 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: playground-base-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-22 00:44+0000\n"
-"PO-Revision-Date: 2026-03-12 12:51+0300\n"
+"PO-Revision-Date: 2026-10-07 19:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: package/contents/ui/Battery.qml:35
 #, kde-format
@@ -171,7 +171,7 @@ msgstr[1] "Tüm eşleştirilmiş aygıtlar kullanılamıyor"
 #: package/contents/ui/FullRepresentation.qml:70
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
-msgstr "Plasma ile tümleştirmek için Android aygıtınıza KDE Bağlan’ı kurun!"
+msgstr "Plasma ile tümleştirmek için Android aygıtınıza KDE Connect’i kurun!"
 
 #: package/contents/ui/FullRepresentation.qml:74
 #, kde-format
@@ -191,7 +191,7 @@ msgstr "F-Droid’den Kur"
 #: package/contents/ui/main.qml:55
 #, kde-format
 msgid "KDE Connect Settings…"
-msgstr "KDE Bağlan Ayarları…"
+msgstr "KDE Connect Ayarları…"
 
 #~ msgid "Remote device does not have a VNC client (eg. krdc) installed."
 #~ msgstr "Uzak aygıtta bir VNC istemcisi (örneğin, krdc) kurulu değil."

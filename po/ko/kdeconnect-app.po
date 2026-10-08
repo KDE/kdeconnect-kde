@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-04 00:46+0000\n"
+"POT-Creation-Date: 2026-10-08 00:45+0000\n"
 "PO-Revision-Date: 2026-09-21 23:11+0200\n"
 "Last-Translator: Shinjo Park <peremen@gmail.com>\n"
 "Language-Team: Korean\n"
@@ -480,8 +480,9 @@ msgid "KDE Connect iOS App"
 msgstr "KDE Connect iOS 앱"
 
 #: qml/WelcomePage.qml:69
-#, kde-format
-msgid "Apple Store"
+#, fuzzy, kde-format
+#| msgid "Apple Store"
+msgid "App Store"
 msgstr "Apple 스토어"
 
 #~ msgid "Configure plugin"
