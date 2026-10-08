@@ -139,6 +139,7 @@ Q_SIGNALS:
 
 private:
     void init();
+    void notifyPairStateChanged();
     class DevicePrivate;
     DevicePrivate *d;
 };
