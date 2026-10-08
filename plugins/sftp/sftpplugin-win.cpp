@@ -57,8 +57,10 @@ void SftpPlugin::receivePacket(const NetworkPacket &np)
     QString path;
     if (np.has(QStringLiteral("multiPaths"))) {
         QStringList paths = np.get<QStringList>(QStringLiteral("multiPaths"));
-        if (!paths.isEmpty()) {
+        if (paths.size() == 1) {
             path = paths[0];
+        } else {
+            path = QStringLiteral("/");
         }
     } else {
         path = np.get<QString>(QStringLiteral("path"));
