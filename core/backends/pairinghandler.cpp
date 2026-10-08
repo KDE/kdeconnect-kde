@@ -41,13 +41,11 @@ void PairingHandler::packetReceived(const NetworkPacket &np)
             // Pairing requests have a timestamp, pairing accepts don't
             if (!np.has(QStringLiteral("timestamp"))) {
                 qCDebug(KDECONNECT_CORE) << "Ignoring pairing accept from a device we already trusted";
-            } else {
-                // The other end forgot about us: since we still trust its certificate, accept it right away
-                qCDebug(KDECONNECT_CORE) << "Auto-accepting pairing request from a device we already trusted";
-                NetworkPacket reply(PACKET_TYPE_PAIR, {{QStringLiteral("pair"), true}});
-                m_device->sendPacket(reply);
+                break;
             }
-            break;
+            m_pairState = PairState::NotPaired;
+            Q_EMIT unpaired();
+            [[fallthrough]]; // Treat as unpaired from here
         case PairState::NotPaired:
             m_pairingTimestamp = np.get<long>(QStringLiteral("timestamp"), -1L);
             if (m_pairingTimestamp == -1L) {
