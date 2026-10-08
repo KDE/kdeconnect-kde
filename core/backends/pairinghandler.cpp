@@ -51,7 +51,7 @@ void PairingHandler::packetReceived(const NetworkPacket &np)
             m_pairingTimestamp = np.get<long>(QStringLiteral("timestamp"), -1L);
             if (m_pairingTimestamp == -1L) {
                 m_pairState = PairState::NotPaired;
-                Q_EMIT unpaired();
+                qCWarning(KDECONNECT_CORE) << "Ignoring pairing request without timestamp";
                 return;
             }
             long currentTimestamp = QDateTime::currentDateTime().toSecsSinceEpoch();
@@ -164,9 +164,12 @@ void PairingHandler::cancelPairing()
 void PairingHandler::unpair()
 {
     m_pairingTimeout.stop();
-    m_pairState = PairState::NotPaired;
     NetworkPacket np(PACKET_TYPE_PAIR, {{QStringLiteral("pair"), false}});
     m_device->sendPacket(np);
+    if (m_pairState == PairState::NotPaired) {
+        return;
+    }
+    m_pairState = PairState::NotPaired;
     Q_EMIT unpaired();
 }
 
