@@ -58,7 +58,11 @@ void BluetoothDeviceLink::dataReceived()
         // qCDebug(KDECONNECT_CORE) << "BluetoothDeviceLink dataReceived" << packet;
 
         NetworkPacket packet;
-        NetworkPacket::unserialize(serializedPacket, &packet);
+        bool success = NetworkPacket::unserialize(serializedPacket, &packet);
+        if (!success) {
+            // unserialize already logs
+            continue;
+        }
 
         if (packet.hasPayloadTransferInfo()) {
             BluetoothDownloadJob *downloadJob = new BluetoothDownloadJob(mConnection, packet.payloadTransferInfo(), this);
