@@ -25,3 +25,6 @@ ecm_add_test(smshelpertest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 if (WIN32 OR APPLE)
     ecm_add_test(mdnstest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 endif()
+
+# Do not touch the clipboard of the running session (and avoid a KSystemClipboard deadlock on exit under Wayland)
+set_tests_properties(notificationstest pluginloadtest PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
