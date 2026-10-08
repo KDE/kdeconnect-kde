@@ -260,6 +260,7 @@ Kirigami.ScrollablePage {
             },
             PluginItem {
                 name: i18nd("kdeconnect-app", "Address: %1 via %2", root.currentDevice.reachableAddresses, root.currentDevice.activeProviderNames)
+                hidden: !root.currentDevice.isReachable
                 section: "info"
                 device: root.currentDevice
             }
