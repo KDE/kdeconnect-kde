@@ -32,6 +32,7 @@ public:
     DevicePrivate(const DeviceInfo &deviceInfo, PairingHandler *pairingHandler)
         : m_deviceInfo(deviceInfo)
         , m_pairingHandler(pairingHandler)
+        , m_lastNotifiedPairState(pairingHandler->pairState())
         , m_supportedPlugins(PluginLoader::instance()->pluginsForCapabilities(deviceInfo.incomingCapabilities, deviceInfo.outgoingCapabilities))
     {
     }
@@ -44,6 +45,7 @@ public:
 
     DeviceInfo m_deviceInfo;
     PairingHandler *m_pairingHandler;
+    PairState m_lastNotifiedPairState;
 
     QVector<DeviceLink *> m_deviceLinks;
     QHash<QString, KdeConnectPlugin *> m_plugins;
@@ -223,7 +225,7 @@ void Device::requestPairing()
 {
     qCDebug(KDECONNECT_CORE) << "Request pairing";
     d->m_pairingHandler->requestPairing();
-    Q_EMIT pairStateChanged(pairStateAsInt());
+    notifyPairStateChanged();
 }
 
 void Device::unpair()
@@ -244,10 +246,20 @@ void Device::cancelPairing()
     d->m_pairingHandler->cancelPairing();
 }
 
+void Device::notifyPairStateChanged()
+{
+    const PairState state = pairState();
+    if (state == d->m_lastNotifiedPairState) {
+        return;
+    }
+    d->m_lastNotifiedPairState = state;
+    Q_EMIT pairStateChanged((int)state);
+}
+
 void Device::pairingHandler_incomingPairRequest()
 {
     Q_ASSERT(d->m_pairingHandler->pairState() == PairState::RequestedByPeer);
-    Q_EMIT pairStateChanged(pairStateAsInt());
+    notifyPairStateChanged();
 }
 
 void Device::pairingHandler_pairingSuccessful()
@@ -255,7 +267,7 @@ void Device::pairingHandler_pairingSuccessful()
     Q_ASSERT(d->m_pairingHandler->pairState() == PairState::Paired);
     KdeConnectConfig::instance().addTrustedDevice(d->m_deviceInfo);
     reloadPlugins(); // Will load/unload plugins
-    Q_EMIT pairStateChanged(pairStateAsInt());
+    notifyPairStateChanged();
 }
 
 void Device::pairingHandler_pairingFailed(const QString &errorMessage)
@@ -263,7 +275,7 @@ void Device::pairingHandler_pairingFailed(const QString &errorMessage)
     Q_ASSERT(d->m_pairingHandler->pairState() == PairState::NotPaired);
     qCWarning(KDECONNECT_CORE) << "Device pairing error" << errorMessage;
     Q_EMIT pairingFailed(errorMessage);
-    Q_EMIT pairStateChanged(pairStateAsInt());
+    notifyPairStateChanged();
 }
 
 void Device::pairingHandler_unpaired()
@@ -272,7 +284,7 @@ void Device::pairingHandler_unpaired()
     qCDebug(KDECONNECT_CORE) << "Unpaired";
     KdeConnectConfig::instance().removeTrustedDevice(id());
     reloadPlugins(); // Will load/unload plugins
-    Q_EMIT pairStateChanged(pairStateAsInt());
+    notifyPairStateChanged();
 }
 
 void Device::addLink(DeviceLink *link)
