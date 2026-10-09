@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:45+0000\n"
+"POT-Creation-Date: 2026-10-09 00:46+0000\n"
 "PO-Revision-Date: 2026-09-15 14:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -220,18 +220,18 @@ msgstr "將裝置作為外部螢幕使用"
 msgid "Address: %1 via %2"
 msgstr "位址：%1 透過 %2"
 
-#: qml/DevicePage.qml:287
+#: qml/DevicePage.qml:288
 #, kde-format
 msgid "This device is not paired."
 msgstr "此裝置未配對。"
 
-#: qml/DevicePage.qml:291
+#: qml/DevicePage.qml:292
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "配對"
 
-#: qml/DevicePage.qml:298 qml/DevicePage.qml:307
+#: qml/DevicePage.qml:299 qml/DevicePage.qml:308
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -240,22 +240,22 @@ msgstr ""
 "配對請求已送出\n"
 "金鑰："
 
-#: qml/DevicePage.qml:313
+#: qml/DevicePage.qml:314
 #, kde-format
 msgid "Accept"
 msgstr "接受"
 
-#: qml/DevicePage.qml:319
+#: qml/DevicePage.qml:320
 #, kde-format
 msgid "Reject"
 msgstr "拒絕"
 
-#: qml/DevicePage.qml:330
+#: qml/DevicePage.qml:331
 #, kde-format
 msgid "This device is not reachable"
 msgstr "無法連線裝置"
 
-#: qml/DevicePage.qml:338
+#: qml/DevicePage.qml:339
 #, kde-format
 msgid "Please choose a file"
 msgstr "請選擇檔案"

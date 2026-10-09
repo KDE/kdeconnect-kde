@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-30 00:45+0000\n"
+"POT-Creation-Date: 2026-10-09 00:46+0000\n"
 "PO-Revision-Date: 2026-09-14 05:44-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -52,27 +52,27 @@ msgstr "Arquivo"
 msgid "Could not open source file: %1"
 msgstr "Não foi possível abrir o arquivo de origem: %1"
 
-#: backends/pairinghandler.cpp:60
+#: backends/pairinghandler.cpp:57
 #, kde-format
 msgid "Device clocks are out of sync"
 msgstr "Os relógios dos dispositivos estão dessincronizados"
 
-#: backends/pairinghandler.cpp:79
+#: backends/pairinghandler.cpp:76
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "Cancelado pelo outro dispositivo"
 
-#: backends/pairinghandler.cpp:103 backends/pairinghandler.cpp:122
+#: backends/pairinghandler.cpp:100 backends/pairinghandler.cpp:119
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: Dispositivo inacessível"
 
-#: backends/pairinghandler.cpp:145
+#: backends/pairinghandler.cpp:142
 #, kde-format
 msgid "Device not reachable"
 msgstr "Dispositivo inacessível"
 
-#: backends/pairinghandler.cpp:161
+#: backends/pairinghandler.cpp:158
 #, kde-format
 msgid "Cancelled by user"
 msgstr "Cancelado pelo usuário"
@@ -107,18 +107,18 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destino"
 
-#: device.cpp:479
+#: device.cpp:491
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "A impressão digital SHA256 do certificado do seu dispositivo é: %1\n"
 
-#: device.cpp:485
+#: device.cpp:497
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr ""
 "A impressão digital SHA256 do certificado do dispositivo remoto é: %1\n"
 
-#: device.cpp:487
+#: device.cpp:499
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "Versão do protocolo: %1\n"

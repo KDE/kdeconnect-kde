@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:45+0000\n"
+"POT-Creation-Date: 2026-10-09 00:46+0000\n"
 "PO-Revision-Date: 2026-09-21 23:11+0200\n"
 "Last-Translator: Shinjo Park <peremen@gmail.com>\n"
 "Language-Team: Korean\n"
@@ -215,18 +215,18 @@ msgstr "장치를 외부 모니터로 사용"
 msgid "Address: %1 via %2"
 msgstr "주소: %1(%2 경유)"
 
-#: qml/DevicePage.qml:287
+#: qml/DevicePage.qml:288
 #, kde-format
 msgid "This device is not paired."
 msgstr "장치가 페어링되지 않았습니다."
 
-#: qml/DevicePage.qml:291
+#: qml/DevicePage.qml:292
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "페어링"
 
-#: qml/DevicePage.qml:298 qml/DevicePage.qml:307
+#: qml/DevicePage.qml:299 qml/DevicePage.qml:308
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -235,22 +235,22 @@ msgstr ""
 "페어링 요청됨\n"
 "키: "
 
-#: qml/DevicePage.qml:313
+#: qml/DevicePage.qml:314
 #, kde-format
 msgid "Accept"
 msgstr "수락"
 
-#: qml/DevicePage.qml:319
+#: qml/DevicePage.qml:320
 #, kde-format
 msgid "Reject"
 msgstr "거부"
 
-#: qml/DevicePage.qml:330
+#: qml/DevicePage.qml:331
 #, kde-format
 msgid "This device is not reachable"
 msgstr "이 장치에 접근할 수 없음"
 
-#: qml/DevicePage.qml:338
+#: qml/DevicePage.qml:339
 #, kde-format
 msgid "Please choose a file"
 msgstr "파일을 선택하십시오"

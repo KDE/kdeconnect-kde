@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-30 00:45+0000\n"
+"POT-Creation-Date: 2026-10-09 00:46+0000\n"
 "PO-Revision-Date: 2026-09-14 17:23+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -47,27 +47,27 @@ msgstr "Файл"
 msgid "Could not open source file: %1"
 msgstr "Не може да се отвори файла източник: %1."
 
-#: backends/pairinghandler.cpp:60
+#: backends/pairinghandler.cpp:57
 #, kde-format
 msgid "Device clocks are out of sync"
 msgstr "Часовниците на устройствата не са синхронизирани"
 
-#: backends/pairinghandler.cpp:79
+#: backends/pairinghandler.cpp:76
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "Отменено от друг пиър"
 
-#: backends/pairinghandler.cpp:103 backends/pairinghandler.cpp:122
+#: backends/pairinghandler.cpp:100 backends/pairinghandler.cpp:119
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: Устройството не достъпно"
 
-#: backends/pairinghandler.cpp:145
+#: backends/pairinghandler.cpp:142
 #, kde-format
 msgid "Device not reachable"
 msgstr "Устройството не достъпно"
 
-#: backends/pairinghandler.cpp:161
+#: backends/pairinghandler.cpp:158
 #, kde-format
 msgid "Cancelled by user"
 msgstr "Отменено от потребителя"
@@ -102,17 +102,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Дестинация"
 
-#: device.cpp:479
+#: device.cpp:491
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "SHA256 отпечатъкът на сертификата на вашето устройство е: %1\n"
 
-#: device.cpp:485
+#: device.cpp:497
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "SHA256 отпечатъкът на сертификата на отдалеченото устройство е: %1\n"
 
-#: device.cpp:487
+#: device.cpp:499
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr " Версия на протокол: %1\n"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:45+0000\n"
+"POT-Creation-Date: 2026-10-09 00:46+0000\n"
 "PO-Revision-Date: 2026-04-04 21:55+0100\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
@@ -216,18 +216,18 @@ msgstr "Úsáid an gléas mar mhonatóir seachtrach"
 msgid "Address: %1 via %2"
 msgstr "Seoladh: %1 trí %2"
 
-#: qml/DevicePage.qml:287
+#: qml/DevicePage.qml:288
 #, kde-format
 msgid "This device is not paired."
 msgstr "Níl an gléas seo péireáilte."
 
-#: qml/DevicePage.qml:291
+#: qml/DevicePage.qml:292
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Péire"
 
-#: qml/DevicePage.qml:298 qml/DevicePage.qml:307
+#: qml/DevicePage.qml:299 qml/DevicePage.qml:308
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -236,22 +236,22 @@ msgstr ""
 "Péire iarrtha\n"
 "Eochair: "
 
-#: qml/DevicePage.qml:313
+#: qml/DevicePage.qml:314
 #, kde-format
 msgid "Accept"
 msgstr "Glac leis"
 
-#: qml/DevicePage.qml:319
+#: qml/DevicePage.qml:320
 #, kde-format
 msgid "Reject"
 msgstr "Diúltaigh"
 
-#: qml/DevicePage.qml:330
+#: qml/DevicePage.qml:331
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Níl an gléas seo inrochtana"
 
-#: qml/DevicePage.qml:338
+#: qml/DevicePage.qml:339
 #, kde-format
 msgid "Please choose a file"
 msgstr "Roghnaigh comhad le do thoil"

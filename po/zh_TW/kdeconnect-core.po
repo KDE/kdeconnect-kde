@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-30 00:45+0000\n"
+"POT-Creation-Date: 2026-10-09 00:46+0000\n"
 "PO-Revision-Date: 2026-09-15 14:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -50,27 +50,27 @@ msgstr "檔案"
 msgid "Could not open source file: %1"
 msgstr "無法開啟來源檔案：%1"
 
-#: backends/pairinghandler.cpp:60
+#: backends/pairinghandler.cpp:57
 #, kde-format
 msgid "Device clocks are out of sync"
 msgstr "裝置時鐘不同步"
 
-#: backends/pairinghandler.cpp:79
+#: backends/pairinghandler.cpp:76
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "已被對方取消"
 
-#: backends/pairinghandler.cpp:103 backends/pairinghandler.cpp:122
+#: backends/pairinghandler.cpp:100 backends/pairinghandler.cpp:119
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: 裝置無法連接"
 
-#: backends/pairinghandler.cpp:145
+#: backends/pairinghandler.cpp:142
 #, kde-format
 msgid "Device not reachable"
 msgstr "裝置無法連接"
 
-#: backends/pairinghandler.cpp:161
+#: backends/pairinghandler.cpp:158
 #, kde-format
 msgid "Cancelled by user"
 msgstr "已被使用者取消"
@@ -104,17 +104,17 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "目的地"
 
-#: device.cpp:479
+#: device.cpp:491
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "本機裝置憑證的 SHA256 指紋是：%1\n"
 
-#: device.cpp:485
+#: device.cpp:497
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "遠端裝置憑證的 SHA256 指紋是：%1\n"
 
-#: device.cpp:487
+#: device.cpp:499
 #, kde-format
 msgid "Protocol version: %1\n"
 msgstr "協定版本：%1\n"

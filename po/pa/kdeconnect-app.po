@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:45+0000\n"
+"POT-Creation-Date: 2026-10-09 00:46+0000\n"
 "PO-Revision-Date: 2024-01-28 13:07-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -216,19 +216,19 @@ msgstr ""
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:287
+#: qml/DevicePage.qml:288
 #, fuzzy, kde-format
 #| msgid "This device is not paired"
 msgid "This device is not paired."
 msgstr "ਇਹ ਡਿਵਾਈਸ ਪੇਅਰ ਨਹੀਂ ਕੀਤਾ ਹੈ"
 
-#: qml/DevicePage.qml:291
+#: qml/DevicePage.qml:292
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "ਪੇਅਰ ਕਰੋ"
 
-#: qml/DevicePage.qml:298 qml/DevicePage.qml:307
+#: qml/DevicePage.qml:299 qml/DevicePage.qml:308
 #, fuzzy, kde-format
 #| msgid "Pair requested"
 msgid ""
@@ -236,22 +236,22 @@ msgid ""
 "Key: "
 msgstr "ਪੇਅਰ ਕਰਨ ਦੀ ਬੇਨਤੀ"
 
-#: qml/DevicePage.qml:313
+#: qml/DevicePage.qml:314
 #, kde-format
 msgid "Accept"
 msgstr "ਮਨਜ਼ੂਰ"
 
-#: qml/DevicePage.qml:319
+#: qml/DevicePage.qml:320
 #, kde-format
 msgid "Reject"
 msgstr "ਇਨਕਾਰ"
 
-#: qml/DevicePage.qml:330
+#: qml/DevicePage.qml:331
 #, kde-format
 msgid "This device is not reachable"
 msgstr "ਇਹ ਡਿਵਾਈਸ ਪਹੁੰਚ ਵਿੱਚ ਨਹੀਂ ਹੈ"
 
-#: qml/DevicePage.qml:338
+#: qml/DevicePage.qml:339
 #, kde-format
 msgid "Please choose a file"
 msgstr "ਫਾਇਲ ਚੁਣੋ ਜੀ"
