@@ -5,6 +5,7 @@
  */
 
 #include <QCoreApplication>
+#include <QScopeGuard>
 #include <QSignalSpy>
 #include <QSocketNotifier>
 #include <QStandardPaths>
@@ -22,6 +23,7 @@
 #include "testdaemon.h"
 #include "testdevice.h"
 #include <backends/lan/compositeuploadjob.h>
+#include <backends/lan/lanlinkprovider.h>
 #include <backends/pairinghandler.h>
 #include <plugins/share/shareplugin.h>
 
@@ -291,6 +293,95 @@ private Q_SLOTS:
         // The header must not carry the payload device onward: it's just an announcement, not
         // something the other end should try to open a transfer socket for.
         QVERIFY(!last->payload());
+    }
+
+    void testReceiverConnectsForNextFileEarly()
+    {
+        // While a file is being sent, the next one is announced and the receiver (e.g. Android)
+        // connects for it right away, but only reads from it once it's done with the current file.
+        // That early connection must not be mixed up with the current transfer.
+        DeviceInfo deviceInfo = KdeConnectConfig::instance().deviceInfo();
+        KdeConnectConfig::instance().addTrustedDevice(deviceInfo);
+
+        TestDevice *device = new TestDevice(this, deviceInfo.id);
+
+        const int numFiles = 3;
+        const qint64 size = 64 * 1024 * 1024;
+        QList<QSharedPointer<QTemporaryFile>> originFiles;
+        CompositeUploadJob *job = new CompositeUploadJob(device, false);
+        // The sender can finish before the last receiver does, so don't let the job get deleted while we wait for that one
+        job->setAutoDelete(false);
+        const auto deleteJob = qScopeGuard([job] {
+            delete job;
+        });
+        for (int i = 0; i < numFiles; ++i) {
+            QSharedPointer<QTemporaryFile> originFile(new QTemporaryFile);
+            QVERIFY(originFile->open());
+            QByteArray block(1024 * 1024, char('a' + i));
+            for (qint64 written = 0; written < size; written += block.size()) {
+                block[0] = char(written / block.size()); // Make every block different
+                QCOMPARE(originFile->write(block), block.size());
+            }
+            originFile->close();
+            originFiles.append(originFile);
+
+            QSharedPointer<QFile> input(new QFile(originFile->fileName()));
+            NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
+            np.setPayload(input, size);
+            job->addSubjob(new UploadJob(np));
+        }
+
+        QSignalSpy spyUpload(job, &KJob::result);
+        job->start();
+
+        // Connect for every file as soon as it's announced (real clients announce the next file as soon as the first starts its transfer)
+        QList<FileTransferJob *> transferJobs;
+        QStringList destFiles;
+        auto connectForAnnouncedFile = [&]() {
+            QTRY_COMPARE_WITH_TIMEOUT(device->getSentPackets(), transferJobs.size() + 1, 10000);
+            const quint16 port = device->getLastPacket()->payloadTransferInfo().value(QStringLiteral("port")).toInt();
+            QVERIFY(port);
+
+            QSharedPointer<QSslSocket> socket(new QSslSocket);
+            LanLinkProvider::configureSslSocket(socket.data(), deviceInfo.id, true);
+            connect(socket.data(), &QAbstractSocket::disconnected, socket.data(), &QAbstractSocket::readChannelFinished);
+            // Don't buffer the whole file before we start reading it, so the sender is still sending it when we connect for the next one
+            socket->setReadBufferSize(64 * 1024);
+            socket->connectToHostEncrypted(QStringLiteral("127.0.0.1"), port, QIODevice::ReadWrite);
+
+            const QString destFile = QDir::tempPath() + QStringLiteral("/kdeconnect-test-early-%1").arg(transferJobs.size());
+            QFile(destFile).remove();
+            NetworkPacket receiveNp(PACKET_TYPE_SHARE_REQUEST);
+            receiveNp.setPayload(socket, size);
+            transferJobs.append(receiveNp.createPayloadTransferJob(QUrl::fromLocalFile(destFile)));
+            destFiles.append(destFile);
+        };
+
+        connectForAnnouncedFile();
+        for (int i = 0; i < numFiles; ++i) {
+            if (i + 1 < numFiles) {
+                connectForAnnouncedFile(); // The next file gets announced once this one starts
+                if (QTest::currentTestFailed()) {
+                    return;
+                }
+            }
+            QSignalSpy spyTransfer(transferJobs[i], &KJob::result);
+            transferJobs[i]->start();
+            QVERIFY(spyTransfer.wait(30000));
+            QCOMPARE(transferJobs[i]->error(), 0);
+
+            QFile resultFile(destFiles[i]);
+            QVERIFY(originFiles[i]->open());
+            QVERIFY(resultFile.open(QIODevice::ReadOnly));
+            QCOMPARE(resultFile.size(), size);
+            QCOMPARE(resultFile.readAll(), originFiles[i]->readAll());
+            originFiles[i]->close();
+            resultFile.remove();
+        }
+
+        QVERIFY(spyUpload.count() || spyUpload.wait());
+        QCOMPARE(job->error(), 0);
+        QCOMPARE(device->getSentPackets(), numFiles);
     }
 
     void testMoreDataThanAnnounced()

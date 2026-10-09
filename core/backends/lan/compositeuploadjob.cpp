@@ -118,6 +118,10 @@ void CompositeUploadJob::startNextSubJob()
     if (m_currentJob->getNetworkPacket().hasPayload()) {
         m_server->resumeAccepting();
         m_timeout.start();
+        if (m_server->hasPendingConnections()) {
+            // The receiver already connected for this file while the previous one was being sent
+            newConnection();
+        }
     } else {
         // Nothing to transfer for this file (e.g. it's empty), the subjob is already done.
         m_currentJob->start();
@@ -162,21 +166,36 @@ void CompositeUploadJob::newConnection()
     if (!m_running) {
         return;
     }
-    m_server->pauseAccepting();
+
+    if (m_socket || !m_currentJob || !m_currentJob->getNetworkPacket().hasPayload()) {
+        // The receiver connects as soon as a file is announced, and we announce the next file while
+        // the current one is still being sent. Leave that connection pending until it's that file's
+        // turn (startNextSubJob() picks it up), so it doesn't get mixed up with the current transfer.
+        m_server->pauseAccepting();
+        return;
+    }
 
     m_socket = m_server->nextPendingConnection();
+    // Note nextPendingConnection() resumes accepting, so this has to come after it
+    m_server->pauseAccepting();
 
     if (!m_socket) {
         qCDebug(KDECONNECT_CORE) << "CompositeUploadJob::newConnection() - m_server->nextPendingConnection() returned a nullptr";
         return;
     }
 
-    m_currentJob->setSocket(m_socket);
+    QSslSocket *socket = m_socket;
+    m_currentJob->setSocket(socket);
 
-    connect(m_socket, &QSslSocket::disconnected, this, [this]() {
-        m_socket->close();
+    // Signals from the socket of a file that has already been sent (e.g. it being closed by the
+    // receiver) must not affect the transfer of the next one, so check the socket is still current.
+    connect(socket, &QSslSocket::disconnected, this, [socket]() {
+        socket->close();
     });
-    connect(m_socket, &QAbstractSocket::errorOccurred, this, [this](QAbstractSocket::SocketError error) {
+    connect(socket, &QAbstractSocket::errorOccurred, this, [this, socket](QAbstractSocket::SocketError error) {
+        if (socket != m_socket) {
+            return;
+        }
         qCDebug(KDECONNECT_CORE) << "Error in socket occurred" << error;
         // Do not close the socket because when android closes the socket (share is cancelled) closing the socket leads to a cyclic socketError and eventually a
         // segv
@@ -185,15 +204,21 @@ void CompositeUploadJob::newConnection()
 
         m_running = false;
     });
-    connect(m_socket, &QSslSocket::sslErrors, this, [this](const QList<QSslError> &errors) {
+    connect(socket, &QSslSocket::sslErrors, this, [this, socket](const QList<QSslError> &errors) {
+        if (socket != m_socket) {
+            return;
+        }
         qCDebug(KDECONNECT_CORE) << "Received ssl errors" << errors;
-        m_socket->close();
+        socket->close();
         setError(SslError);
         emitResult();
 
         m_running = false;
     });
-    connect(m_socket, &QSslSocket::encrypted, this, [this]() {
+    connect(socket, &QSslSocket::encrypted, this, [this, socket]() {
+        if (socket != m_socket) {
+            return;
+        }
         m_timeout.stop();
         if (!m_timer.isValid()) {
             m_timer.start();
@@ -203,9 +228,9 @@ void CompositeUploadJob::newConnection()
         announceNextSubJob();
     });
 
-    LanLinkProvider::configureSslSocket(m_socket, m_device->id(), true);
+    LanLinkProvider::configureSslSocket(socket, m_device->id(), true);
 
-    m_socket->startServerEncryption();
+    socket->startServerEncryption();
 }
 
 bool CompositeUploadJob::addSubjob(KJob *job)
@@ -311,6 +336,8 @@ void CompositeUploadJob::slotResult(KJob *job)
     }
 
     m_totalSendPayloadSize += m_currentJobSendPayloadSize;
+    // The socket belonged to the finished subjob and gets deleted with it
+    m_socket = nullptr;
 
     if (hasSubjobs()) {
         m_currentJobNum++;
