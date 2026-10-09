@@ -30,7 +30,6 @@ set(LibFakeKey_VERSION ${PC_LibFakeKey_VERSION})
 include(FindPackageHandleStandardArgs)
 
 find_package_handle_standard_args(LibFakeKey
-    FOUND_VAR LibFakeKey_FOUND
     REQUIRED_VARS LibFakeKey_LIBRARIES LibFakeKey_INCLUDE_DIRS
     VERSION_VAR LibFakeKey_VERSION
 )
