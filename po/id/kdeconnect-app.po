@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 02:37+0000\n"
+"POT-Creation-Date: 2026-10-09 02:58+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -211,20 +211,20 @@ msgstr ""
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:271
+#: qml/DevicePage.qml:272
 #, fuzzy, kde-format
 #| msgid "This device is not paired"
 msgid "This device is not paired."
 msgstr "Perangkat ini belum disandingkan"
 
-#: qml/DevicePage.qml:275
+#: qml/DevicePage.qml:276
 #, fuzzy, kde-format
 #| msgid "Pair"
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Sandingkan"
 
-#: qml/DevicePage.qml:282 qml/DevicePage.qml:291
+#: qml/DevicePage.qml:283 qml/DevicePage.qml:292
 #, fuzzy, kde-format
 #| msgid "Pair requested"
 msgid ""
@@ -232,22 +232,22 @@ msgid ""
 "Key: "
 msgstr "Diminta sandingkan"
 
-#: qml/DevicePage.qml:297
+#: qml/DevicePage.qml:298
 #, kde-format
 msgid "Accept"
 msgstr "Setujui"
 
-#: qml/DevicePage.qml:303
+#: qml/DevicePage.qml:304
 #, kde-format
 msgid "Reject"
 msgstr "Apkir"
 
-#: qml/DevicePage.qml:314
+#: qml/DevicePage.qml:315
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Perangkat ini belum bisa diraih"
 
-#: qml/DevicePage.qml:322
+#: qml/DevicePage.qml:323
 #, kde-format
 msgid "Please choose a file"
 msgstr "Silakan pilih sebuah file"

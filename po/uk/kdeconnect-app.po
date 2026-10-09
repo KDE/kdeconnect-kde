@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 02:37+0000\n"
+"POT-Creation-Date: 2026-10-09 02:58+0000\n"
 "PO-Revision-Date: 2026-04-08 08:35+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -214,18 +214,18 @@ msgstr "Використовувати пристрій як зовнішній 
 msgid "Address: %1 via %2"
 msgstr "Адреса: %1 через %2"
 
-#: qml/DevicePage.qml:271
+#: qml/DevicePage.qml:272
 #, kde-format
 msgid "This device is not paired."
 msgstr "Цей пристрій не пов'язано."
 
-#: qml/DevicePage.qml:275
+#: qml/DevicePage.qml:276
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Пов'язати"
 
-#: qml/DevicePage.qml:282 qml/DevicePage.qml:291
+#: qml/DevicePage.qml:283 qml/DevicePage.qml:292
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -234,22 +234,22 @@ msgstr ""
 "Запит щодо пов’язування\n"
 "Ключ: "
 
-#: qml/DevicePage.qml:297
+#: qml/DevicePage.qml:298
 #, kde-format
 msgid "Accept"
 msgstr "Прийняти"
 
-#: qml/DevicePage.qml:303
+#: qml/DevicePage.qml:304
 #, kde-format
 msgid "Reject"
 msgstr "Відкинути"
 
-#: qml/DevicePage.qml:314
+#: qml/DevicePage.qml:315
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Цей пристрій є недоступним"
 
-#: qml/DevicePage.qml:322
+#: qml/DevicePage.qml:323
 #, kde-format
 msgid "Please choose a file"
 msgstr "Будь ласка, виберіть файл"

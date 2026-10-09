@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 02:37+0000\n"
+"POT-Creation-Date: 2026-10-09 02:58+0000\n"
 "PO-Revision-Date: 2026-04-09 14:44+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -210,18 +210,18 @@ msgstr "Apparaat als een externe monitor gebruiken"
 msgid "Address: %1 via %2"
 msgstr "Adres: %1 via %2"
 
-#: qml/DevicePage.qml:271
+#: qml/DevicePage.qml:272
 #, kde-format
 msgid "This device is not paired."
 msgstr "Dit apparaat is niet gepaard."
 
-#: qml/DevicePage.qml:275
+#: qml/DevicePage.qml:276
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Paren"
 
-#: qml/DevicePage.qml:282 qml/DevicePage.qml:291
+#: qml/DevicePage.qml:283 qml/DevicePage.qml:292
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -230,22 +230,22 @@ msgstr ""
 "Paarvorming gevraagd\n"
 "Sleutel:"
 
-#: qml/DevicePage.qml:297
+#: qml/DevicePage.qml:298
 #, kde-format
 msgid "Accept"
 msgstr "Accepteren"
 
-#: qml/DevicePage.qml:303
+#: qml/DevicePage.qml:304
 #, kde-format
 msgid "Reject"
 msgstr "Afwijzen"
 
-#: qml/DevicePage.qml:314
+#: qml/DevicePage.qml:315
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Dit apparaat is niet bereikbaar"
 
-#: qml/DevicePage.qml:322
+#: qml/DevicePage.qml:323
 #, kde-format
 msgid "Please choose a file"
 msgstr "Kies een bestand a.u.b"

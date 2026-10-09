@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 02:37+0000\n"
+"POT-Creation-Date: 2026-10-09 02:58+0000\n"
 "PO-Revision-Date: 2024-05-21 19:33+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -211,7 +211,7 @@ msgstr ""
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:271
+#: qml/DevicePage.qml:272
 #, fuzzy, kde-format
 #| msgid ""
 #| "This device is not paired.\n"
@@ -221,13 +221,13 @@ msgstr ""
 "This device is not paired.\n"
 "Key: %1"
 
-#: qml/DevicePage.qml:275
+#: qml/DevicePage.qml:276
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Pair"
 
-#: qml/DevicePage.qml:282 qml/DevicePage.qml:291
+#: qml/DevicePage.qml:283 qml/DevicePage.qml:292
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -236,22 +236,22 @@ msgstr ""
 "Pair requested\n"
 "Key: "
 
-#: qml/DevicePage.qml:297
+#: qml/DevicePage.qml:298
 #, kde-format
 msgid "Accept"
 msgstr "Accept"
 
-#: qml/DevicePage.qml:303
+#: qml/DevicePage.qml:304
 #, kde-format
 msgid "Reject"
 msgstr "Reject"
 
-#: qml/DevicePage.qml:314
+#: qml/DevicePage.qml:315
 #, kde-format
 msgid "This device is not reachable"
 msgstr "This device is not reachable"
 
-#: qml/DevicePage.qml:322
+#: qml/DevicePage.qml:323
 #, kde-format
 msgid "Please choose a file"
 msgstr "Please choose a file"
