@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-09 00:46+0000\n"
-"PO-Revision-Date: 2026-08-23 13:30+0300\n"
+"PO-Revision-Date: 2026-10-08 17:58+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -483,10 +483,9 @@ msgid "KDE Connect iOS App"
 msgstr "Програма KDE Connect для iOS"
 
 #: qml/WelcomePage.qml:69
-#, fuzzy, kde-format
-#| msgid "Apple Store"
+#, kde-format
 msgid "App Store"
-msgstr "Apple Store"
+msgstr "Крамниця програм"
 
 #~ msgid "Configure plugin"
 #~ msgstr "Налаштувати додаток"

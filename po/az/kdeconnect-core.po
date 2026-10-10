@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-09 00:46+0000\n"
+"POT-Creation-Date: 2026-10-10 00:45+0000\n"
 "PO-Revision-Date: 2023-10-11 18:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,17 +27,17 @@ msgstr "Mövcud port tapıla bilmədi"
 msgid "Failed to send packet to %1"
 msgstr "Paketi %1'ə(a) göndərmək mümkün olmadı"
 
-#: backends/lan/compositeuploadjob.cpp:278
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:329
+#: backends/lan/compositeuploadjob.cpp:356
 #, kde-format
 msgid "Sending to %1"
 msgstr "%1'ə(a) göndərilir"
 
-#: backends/lan/compositeuploadjob.cpp:329
+#: backends/lan/compositeuploadjob.cpp:356
 #, kde-format
 msgid "File"
 msgstr "Fayl"

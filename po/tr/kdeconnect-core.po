@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-09 00:46+0000\n"
+"POT-Creation-Date: 2026-10-10 00:45+0000\n"
 "PO-Revision-Date: 2026-10-07 19:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -28,17 +28,17 @@ msgstr "Kullanılabilir bir kapı bulunamadı"
 msgid "Failed to send packet to %1"
 msgstr "Paket, %1 alıcısına gönderilemedi"
 
-#: backends/lan/compositeuploadjob.cpp:278
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
 msgstr "Alıcının bağlanması beklenirken zaman aşımı"
 
-#: backends/lan/compositeuploadjob.cpp:329
+#: backends/lan/compositeuploadjob.cpp:356
 #, kde-format
 msgid "Sending to %1"
 msgstr "%1 adresine gönderiliyor"
 
-#: backends/lan/compositeuploadjob.cpp:329
+#: backends/lan/compositeuploadjob.cpp:356
 #, kde-format
 msgid "File"
 msgstr "Dosya"

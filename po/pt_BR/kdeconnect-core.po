@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-09 00:46+0000\n"
+"POT-Creation-Date: 2026-10-10 00:45+0000\n"
 "PO-Revision-Date: 2026-09-14 05:44-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -32,17 +32,17 @@ msgstr "Não foi possível encontrar uma porta disponível"
 msgid "Failed to send packet to %1"
 msgstr "Ocorreu uma falha ao enviar o pacote para %1"
 
-#: backends/lan/compositeuploadjob.cpp:278
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
 msgstr "Tempo limite excedido ao aguardar a conexão do receptor"
 
-#: backends/lan/compositeuploadjob.cpp:329
+#: backends/lan/compositeuploadjob.cpp:356
 #, kde-format
 msgid "Sending to %1"
 msgstr "Enviando para %1"
 
-#: backends/lan/compositeuploadjob.cpp:329
+#: backends/lan/compositeuploadjob.cpp:356
 #, kde-format
 msgid "File"
 msgstr "Arquivo"

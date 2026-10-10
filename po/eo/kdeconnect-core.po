@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-09 00:46+0000\n"
+"POT-Creation-Date: 2026-10-10 00:45+0000\n"
 "PO-Revision-Date: 2024-05-10 11:33+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -28,17 +28,17 @@ msgstr "Ne eblis trovi disponeblan pordon"
 msgid "Failed to send packet to %1"
 msgstr "Malsukcesis sendi pakaĵon al %1"
 
-#: backends/lan/compositeuploadjob.cpp:278
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:329
+#: backends/lan/compositeuploadjob.cpp:356
 #, kde-format
 msgid "Sending to %1"
 msgstr "Sendante al %1"
 
-#: backends/lan/compositeuploadjob.cpp:329
+#: backends/lan/compositeuploadjob.cpp:356
 #, kde-format
 msgid "File"
 msgstr "Dosiero"

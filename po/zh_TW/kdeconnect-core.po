@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-09 00:46+0000\n"
+"POT-Creation-Date: 2026-10-10 00:45+0000\n"
 "PO-Revision-Date: 2026-09-15 14:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -30,17 +30,17 @@ msgstr "找不到任何可用的連接埠"
 msgid "Failed to send packet to %1"
 msgstr "無法傳送封包到 %1"
 
-#: backends/lan/compositeuploadjob.cpp:278
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
 msgstr "等待接收者連線時逾時"
 
-#: backends/lan/compositeuploadjob.cpp:329
+#: backends/lan/compositeuploadjob.cpp:356
 #, kde-format
 msgid "Sending to %1"
 msgstr "正在傳送到 %1"
 
-#: backends/lan/compositeuploadjob.cpp:329
+#: backends/lan/compositeuploadjob.cpp:356
 #, kde-format
 msgid "File"
 msgstr "檔案"
