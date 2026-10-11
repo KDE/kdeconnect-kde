@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-09 00:46+0000\n"
-"PO-Revision-Date: 2026-08-24 09:26+0200\n"
+"PO-Revision-Date: 2026-10-09 12:06+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: main.cpp:45 main.cpp:47
 #, kde-format
@@ -484,10 +484,9 @@ msgid "KDE Connect iOS App"
 msgstr "Application KDEConnect pour iOS"
 
 #: qml/WelcomePage.qml:69
-#, fuzzy, kde-format
-#| msgid "Apple Store"
+#, kde-format
 msgid "App Store"
-msgstr "Apple Store"
+msgstr "Boutique d'applications"
 
 #~ msgid "Configure plugin"
 #~ msgstr "Configurer un module externe"

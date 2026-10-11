@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-09 00:46+0000\n"
-"PO-Revision-Date: 2026-08-29 17:26+0100\n"
+"PO-Revision-Date: 2026-10-10 15:28+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -483,19 +483,6 @@ msgid "KDE Connect iOS App"
 msgstr "KDE Connect iOS App"
 
 #: qml/WelcomePage.qml:69
-#, fuzzy, kde-format
-#| msgid "Apple Store"
+#, kde-format
 msgid "App Store"
-msgstr "Apple Store"
-
-#~ msgid "Configure plugin"
-#~ msgstr "Configurar complemento"
-
-#~ msgid ""
-#~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#~ "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
-#~ "Community wiki</span></a> for help."
-#~ msgstr ""
-#~ "Si tiene problemas, visite la <a href=\"https://userbase.kde.org/"
-#~ "KDEConnect\"><span style=\" text-decoration: underline;\">Wiki de la "
-#~ "comunidad KDE Connect</span></a> para obtener ayuda."
+msgstr "Tienda de aplicaciones"
