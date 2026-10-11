@@ -102,6 +102,10 @@ ShareInputDevicesPlugin::ShareInputDevicesPlugin(QObject *parent, const QVariant
         sendPacket(packet);
     });
     connect(m_inputCaptureSession, &InputCaptureSession::key, this, [this](Qt::Key key, Qt::KeyboardModifiers modifiers, const QString &text) {
+        if (key == Qt::Key_Backtab) {
+            key = Qt::Key_Tab;
+            modifiers |= Qt::ShiftModifier;
+        }
         qDebug() << "sending key" << text << modifiers << specialKeysMap.value(key);
         NetworkPacket packet(PACKET_TYPE_MOUSEPAD_REQUEST,
                              {

@@ -99,9 +99,13 @@ void RemoteKeyboardPlugin::sendQKeyEvent(const QVariantMap &keyEvent, bool sendA
     if (!keyEvent.contains(QStringLiteral("key"))) {
         return;
     }
-    const int key = keyEvent.value(QStringLiteral("key")).toInt();
-    int k = translateQtKey(key);
+    int key = keyEvent.value(QStringLiteral("key")).toInt();
     int modifiers = keyEvent.value(QStringLiteral("modifiers")).toInt();
+    if (key == Qt::Key_Backtab) {
+        key = Qt::Key_Tab;
+        modifiers |= Qt::ShiftModifier;
+    }
+    int k = translateQtKey(key);
 
     // Qt will be calling xkb_state_key_get_utf8 to create this string.
     // As documented, it will be giving us weird strings with Ctrl combinations:
