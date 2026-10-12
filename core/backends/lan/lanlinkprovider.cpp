@@ -217,6 +217,8 @@ QList<QHostAddress> LanLinkProvider::getBroadcastAddresses()
     destinations.append(m_testMode ? QHostAddress::LocalHost : QHostAddress::Broadcast);
 
     // Custom device addresses
+    // TODO: With protocol v8, we should be able to connect to those directly via TCP,
+    //       instead of sending a UDP packet and expecting them to connect to use
     for (auto &customDevice : customDevices) {
         QHostAddress address(customDevice);
         if (address.isNull()) {
