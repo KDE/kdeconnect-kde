@@ -395,10 +395,6 @@ void MprisControlPlugin::handleDefaultPlayer(const NetworkPacket &np)
 
 void MprisControlPlugin::receivePacket(const NetworkPacket &np)
 {
-    if (np.has(QStringLiteral("playerList"))) {
-        return; // Whoever sent this is an mpris client and not an mpris control!
-    }
-
     // Send the player list
     const QString name = np.get<QString>(QStringLiteral("player"));
 

@@ -254,10 +254,6 @@ bool MprisControlPlugin::sendAlbumArt(const NetworkPacket &np)
 
 void MprisControlPlugin::receivePacket(const NetworkPacket &np)
 {
-    if (np.has(QStringLiteral("playerList"))) {
-        return; // Whoever sent this is an mpris client and not an mpris control!
-    }
-
     if (np.has(QStringLiteral("albumArtUrl"))) {
         sendAlbumArt(np);
         return;
