@@ -158,7 +158,7 @@ QString translateDeviceSource(AudioObjectID deviceId)
     UInt32 sourceId = getDeviceSourceId(deviceId);
 
     if (sourceId == kAudioDeviceUnknown) {
-        qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unknown data source id of device" << deviceId;
+        qCDebug(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unknown data source id of device" << deviceId;
         return QStringLiteral("");
     }
 
@@ -182,6 +182,24 @@ QString translateDeviceSource(AudioObjectID deviceId)
 
     QString ret = QString::fromCFString(sourceName);
     CFRelease(sourceName);
+
+    return ret;
+}
+
+QString getDeviceName(AudioObjectID deviceId)
+{
+    CFStringRef deviceName = nullptr;
+    UInt32 size = sizeof(deviceName);
+    AudioObjectPropertyAddress propertyAddress = {kAudioObjectPropertyName, kAudioObjectPropertyScopeGlobal, kAudioObjectPropertyElementMain};
+
+    OSStatus result = AudioObjectGetPropertyData(deviceId, &propertyAddress, 0, NULL, &size, &deviceName);
+    if (result != noErr || !deviceName) {
+        qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Cannot get name of device" << deviceId;
+        return QStringLiteral("");
+    }
+
+    QString ret = QString::fromCFString(deviceName);
+    CFRelease(deviceName);
 
     return ret;
 }
@@ -274,6 +292,9 @@ void SystemvolumePlugin::sendSinkList()
         MacOSCoreAudioDevice *audioDevice = new MacOSCoreAudioDevice(deviceId);
 
         audioDevice->m_description = translateDeviceSource(deviceId);
+        if (audioDevice->m_description.isEmpty()) {
+            audioDevice->m_description = getDeviceName(deviceId);
+        }
 
         m_sinksMap.insert(QStringLiteral("default-") + QString::number(deviceId), audioDevice);
 
