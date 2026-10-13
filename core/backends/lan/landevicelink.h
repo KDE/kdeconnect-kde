@@ -26,7 +26,7 @@ class KDECONNECTCORE_EXPORT LanDeviceLink : public DeviceLink
 
 public:
     LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *parent, QSslSocket *socket);
-    void reset(QSslSocket *socket);
+    void reset(QSslSocket *socket, const DeviceInfo &deviceInfo);
 
     bool sendPacket(NetworkPacket &np) override;
 
