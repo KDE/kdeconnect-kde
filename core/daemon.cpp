@@ -115,6 +115,7 @@ void Daemon::init()
     // Listen to new devices
     for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
         connect(a, &LinkProvider::onConnectionReceived, this, &Daemon::onNewDeviceLink);
+        connect(a, &LinkProvider::onDeviceInfoUpdated, this, &Daemon::onDeviceInfoUpdated);
         a->onStart();
     }
 
@@ -256,6 +257,16 @@ void Daemon::onNewDeviceLink(DeviceLink *link)
         Device *device = new Device(this, link);
         addDevice(device);
     }
+}
+
+void Daemon::onDeviceInfoUpdated(const DeviceInfo &deviceInfo)
+{
+    Device *device = d->m_devices.value(deviceInfo.id);
+    if (!device) {
+        qCWarning(KDECONNECT_CORE) << "onDeviceInfoUpdated for an unknown device" << deviceInfo.id;
+        return;
+    }
+    device->updateDeviceInfo(deviceInfo);
 }
 
 void Daemon::onDeviceStatusChanged()

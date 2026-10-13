@@ -674,7 +674,8 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
             return;
         }
         // qCDebug(KDECONNECT_CORE) << "Reusing link to" << deviceId;
-        deviceLink->reset(socket);
+        deviceLink->reset(socket, deviceInfo);
+        Q_EMIT onDeviceInfoUpdated(deviceInfo);
     } else {
         bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceInfo.id);
         if (!isDeviceTrusted && m_links.size() >= MAX_UNPAIRED_CONNECTIONS) {
@@ -687,8 +688,8 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
         // Socket disconnection will now be handled by LanDeviceLink
         disconnect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);
         m_links[deviceInfo.id] = deviceLink;
+        Q_EMIT onConnectionReceived(deviceLink);
     }
-    Q_EMIT onConnectionReceived(deviceLink);
 }
 
 #include "moc_lanlinkprovider.cpp"

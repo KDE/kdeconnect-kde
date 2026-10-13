@@ -10,6 +10,7 @@
 #include <KLocalizedString>
 #include <QObject>
 
+#include "deviceinfo.h"
 #include "networkpacket.h"
 #include "pairinghandler.h"
 
@@ -39,6 +40,8 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void onConnectionReceived(DeviceLink *);
+    // Emitted when we receive new DeviceInfo for an already linked device
+    void onDeviceInfoUpdated(const DeviceInfo &deviceInfo);
 };
 
 #endif

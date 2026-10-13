@@ -85,6 +85,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onNewDeviceLink(DeviceLink *dl);
+    void onDeviceInfoUpdated(const DeviceInfo &deviceInfo);
     void onDeviceStatusChanged();
 
 private:

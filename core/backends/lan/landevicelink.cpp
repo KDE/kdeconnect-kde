@@ -26,11 +26,13 @@ LanDeviceLink::LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *pare
     , m_socket(nullptr)
     , m_deviceInfo(deviceInfo)
 {
-    reset(socket);
+    reset(socket, deviceInfo);
 }
 
-void LanDeviceLink::reset(QSslSocket *socket)
+void LanDeviceLink::reset(QSslSocket *socket, const DeviceInfo &deviceInfo)
 {
+    m_deviceInfo = deviceInfo;
+
     if (m_socket) {
         disconnect(m_socket, &QAbstractSocket::disconnected, this, nullptr);
         delete m_socket;
