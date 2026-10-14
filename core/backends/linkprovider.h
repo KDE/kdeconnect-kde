@@ -39,9 +39,9 @@ public Q_SLOTS:
     void suspend(bool suspend);
 
 Q_SIGNALS:
-    void onConnectionReceived(DeviceLink *);
+    void connectionReceived(DeviceLink *);
     // Emitted when we receive new DeviceInfo for an already linked device
-    void onDeviceInfoUpdated(const DeviceInfo &deviceInfo);
+    void deviceInfoUpdated(const DeviceInfo &deviceInfo);
 };
 
 #endif

@@ -127,7 +127,7 @@ void BluetoothLinkProviderImpl::connectError()
 
 void BluetoothLinkProviderImpl::addLink(BluetoothDeviceLink *deviceLink, const QString &deviceId)
 {
-    Q_EMIT onConnectionReceived(deviceLink);
+    Q_EMIT connectionReceived(deviceLink);
 
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProviderImpl::addLink executed";
     if (mLinks.contains(deviceId)) {
