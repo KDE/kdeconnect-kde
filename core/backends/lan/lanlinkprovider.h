@@ -90,6 +90,8 @@ private:
     void sendUdpIdentityPacket(QUdpSocket &socket, const QList<QHostAddress> &addresses);
     void broadcastUdpIdentityPacket();
     bool isProtocolDowngrade(const QString &deviceId, int protocolVersion) const;
+    bool rateLimitByIp(const QHostAddress &address);
+    bool rateLimitByDeviceId(const QString &deviceId);
 
     Server *m_server;
     QUdpSocket m_udpSocket;
@@ -97,7 +99,8 @@ private:
 
     QMap<QString, LanDeviceLink *> m_links;
 
-    QMap<QString, qint64> m_lastConnectionTime;
+    QHash<QString, qint64> m_lastConnectionTimeByDeviceId;
+    QHash<QHostAddress, qint64> m_lastConnectionTimeByIp;
     const bool m_testMode;
     QTimer m_combineNetworkChangeTimer;
 

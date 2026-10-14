@@ -48,6 +48,8 @@ static const int MAX_UNPAIRED_CONNECTIONS = 42;
 
 static const long MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE = 500;
 
+static const int MAX_RATE_LIMIT_ENTRIES = 255;
+
 LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
     : m_server(new Server(this))
     , m_udpSocket(this)
@@ -284,6 +286,11 @@ void LanLinkProvider::udpBroadcastReceived()
         if (sender.isLoopback() && !m_testMode)
             continue;
 
+        if (rateLimitByIp(sender)) {
+            qCDebug(KDECONNECT_CORE) << "Discarding second UDP packet from the same ip" << sender << "received too quickly";
+            continue;
+        }
+
         std::shared_ptr<NetworkPacket> receivedPacket = std::shared_ptr<NetworkPacket>{new NetworkPacket()};
         bool success = NetworkPacket::unserialize(datagram, receivedPacket.get());
 
@@ -306,12 +313,10 @@ void LanLinkProvider::udpBroadcastReceived()
             continue;
         }
 
-        qint64 now = QDateTime::currentMSecsSinceEpoch();
-        if (m_lastConnectionTime[deviceId] + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now) {
-            qCDebug(KDECONNECT_CORE) << "Discarding second UPD packet from the same device" << deviceId << "received too quickly";
+        if (rateLimitByDeviceId(deviceId)) {
+            qCDebug(KDECONNECT_CORE) << "Discarding second UDP packet from the same device" << deviceId << "received too quickly";
             continue;
         }
-        m_lastConnectionTime[deviceId] = now;
 
         int tcpPort = receivedPacket->get<int>(QStringLiteral("tcpPort"));
         if (tcpPort < MIN_TCP_PORT || tcpPort > MAX_TCP_PORT) {
@@ -483,6 +488,14 @@ void LanLinkProvider::newTcpConnection()
 
     while (m_server->hasPendingConnections()) {
         QSslSocket *socket = m_server->nextPendingConnection();
+
+        if (rateLimitByIp(socket->peerAddress())) {
+            qCDebug(KDECONNECT_CORE) << "Discarding second TCP connection from the same ip" << socket->peerAddress() << "received too quickly";
+            socket->abort();
+            socket->deleteLater();
+            continue;
+        }
+
         configureSocket(socket);
         // This socket is still managed by us (and child of the QTcpServer), if
         // it disconnects before we manage to pass it to a LanDeviceLink, it's
@@ -578,6 +591,36 @@ bool LanLinkProvider::isProtocolDowngrade(const QString &deviceId, int protocolV
 {
     int lastKnownProtocolVersion = KdeConnectConfig::instance().getTrustedDeviceProtocolVersion(deviceId);
     return lastKnownProtocolVersion > protocolVersion;
+}
+
+template<typename Key>
+static bool rateLimit(QHash<Key, qint64> &lastConnectionTime, const Key &key)
+{
+    const qint64 now = QDateTime::currentMSecsSinceEpoch();
+    auto it = lastConnectionTime.constFind(key);
+    if (it != lastConnectionTime.constEnd() && *it + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now) {
+        return true;
+    }
+    lastConnectionTime[key] = now;
+    if (lastConnectionTime.size() > MAX_RATE_LIMIT_ENTRIES) {
+        lastConnectionTime.removeIf([now](const auto &entry) {
+            return entry.value() + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE < now;
+        });
+    }
+    return false;
+}
+
+bool LanLinkProvider::rateLimitByIp(const QHostAddress &address)
+{
+    // Normalize IPv4-mapped IPv6 addresses (eg: from dual-stack sockets) so they match their IPv4 form
+    bool isIPv4;
+    const quint32 ipv4 = address.toIPv4Address(&isIPv4);
+    return rateLimit(m_lastConnectionTimeByIp, isIPv4 ? QHostAddress(ipv4) : address);
+}
+
+bool LanLinkProvider::rateLimitByDeviceId(const QString &deviceId)
+{
+    return rateLimit(m_lastConnectionTimeByDeviceId, deviceId);
 }
 
 void LanLinkProvider::onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr)
