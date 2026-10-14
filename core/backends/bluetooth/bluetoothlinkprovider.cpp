@@ -17,7 +17,7 @@ BluetoothLinkProvider::BluetoothLinkProvider(bool isDisabled)
     connect(&workerThread, &QThread::started, this, [this, isDisabled]() {
         wrappedInstance = new BluetoothLinkProviderImpl(isDisabled, this);
 
-        connect(wrappedInstance, &BluetoothLinkProviderImpl::onConnectionReceived, this, &BluetoothLinkProvider::onNewDeviceLink);
+        connect(wrappedInstance, &BluetoothLinkProviderImpl::connectionReceived, this, &BluetoothLinkProvider::onNewDeviceLink);
 
         connect(this, &BluetoothLinkProvider::enableRequestEvent, wrappedInstance, &BluetoothLinkProviderImpl::enable);
         connect(this, &BluetoothLinkProvider::disableRequestEvent, wrappedInstance, &BluetoothLinkProviderImpl::disable);
@@ -76,5 +76,5 @@ void BluetoothLinkProvider::onLinkDestroyed(const QString &a, DeviceLink *b)
 
 void BluetoothLinkProvider::onNewDeviceLink(DeviceLink *link)
 {
-    Q_EMIT LinkProvider::onConnectionReceived(link);
+    Q_EMIT LinkProvider::connectionReceived(link);
 }

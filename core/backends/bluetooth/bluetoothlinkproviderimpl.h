@@ -54,7 +54,7 @@ private Q_SLOTS:
     void serviceDiscovered(const QBluetoothServiceInfo &info);
 
 Q_SIGNALS:
-    void onConnectionReceived(DeviceLink *);
+    void connectionReceived(DeviceLink *);
 
 private:
     void addLink(BluetoothDeviceLink *deviceLink, const QString &deviceId);

@@ -27,7 +27,7 @@ void LoopbackLinkProvider::onNetworkChange()
     }
 
     LoopbackDeviceLink *newLoopbackDeviceLink = new LoopbackDeviceLink(this);
-    Q_EMIT onConnectionReceived(newLoopbackDeviceLink);
+    Q_EMIT connectionReceived(newLoopbackDeviceLink);
 
     if (loopbackDeviceLink) {
         delete loopbackDeviceLink;

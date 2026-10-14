@@ -114,8 +114,8 @@ void Daemon::init()
 
     // Listen to new devices
     for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
-        connect(a, &LinkProvider::onConnectionReceived, this, &Daemon::onNewDeviceLink);
-        connect(a, &LinkProvider::onDeviceInfoUpdated, this, &Daemon::onDeviceInfoUpdated);
+        connect(a, &LinkProvider::connectionReceived, this, &Daemon::onNewDeviceLink);
+        connect(a, &LinkProvider::deviceInfoUpdated, this, &Daemon::onDeviceInfoUpdated);
         a->onStart();
     }
 
