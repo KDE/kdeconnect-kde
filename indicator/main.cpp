@@ -101,6 +101,13 @@ int main(int argc, char **argv)
     DaemonDbusInterface iface;
 
     auto refreshMenu = [&iface, &proxyModel, &menu]() {
+        // Submenus are not owned by their actions, so clear() doesn't delete them
+        const auto actions = menu->actions();
+        for (QAction *action : actions) {
+            if (QMenu *subMenu = action->menu()) {
+                subMenu->deleteLater();
+            }
+        }
         menu->clear();
         // Note: This is needed on macOS since a single click on the icon doesn't open the app like on other platforms.
         menu->addAction(i18n("Open app"), menu, []() {
@@ -123,8 +130,9 @@ int main(int argc, char **argv)
             menu->addSection(i18n("Pairing requests"));
 
             for (const auto &req : requests) {
-                DeviceDbusInterface *dev = new DeviceDbusInterface(req, menu);
+                DeviceDbusInterface *dev = new DeviceDbusInterface(req);
                 auto pairMenu = menu->addMenu(dev->name());
+                dev->setParent(pairMenu);
                 pairMenu->addAction(i18nc("Accept a pairing request", "Pair"), dev, &DeviceDbusInterface::acceptPairing);
                 pairMenu->addAction(i18n("Reject"), dev, &DeviceDbusInterface::cancelPairing);
             }
