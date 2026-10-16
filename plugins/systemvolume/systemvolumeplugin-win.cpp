@@ -220,6 +220,7 @@ SystemvolumePlugin::SystemvolumePlugin(QObject *parent, const QVariantList &args
 {
     CoInitialize(nullptr);
     deviceEnumerator = nullptr;
+    deviceCallback = nullptr;
     HRESULT hr = CoCreateInstance(__uuidof(MMDeviceEnumerator), nullptr, CLSCTX_INPROC_SERVER, __uuidof(IMMDeviceEnumerator), (LPVOID *)&(deviceEnumerator));
     valid = (hr == S_OK);
     if (!valid) {
@@ -236,7 +237,11 @@ SystemvolumePlugin::~SystemvolumePlugin()
             entry.second->Release();
             entry.first->Release();
         }
-        deviceEnumerator->UnregisterEndpointNotificationCallback(deviceCallback);
+        if (deviceCallback) {
+            deviceEnumerator->UnregisterEndpointNotificationCallback(deviceCallback);
+            deviceCallback->Release();
+            deviceCallback = nullptr;
+        }
         deviceEnumerator->Release();
         deviceEnumerator = nullptr;
     }
@@ -354,8 +359,10 @@ void SystemvolumePlugin::connected()
     if (!valid)
         return;
 
-    deviceCallback = new CMMNotificationClient(*this);
-    deviceEnumerator->RegisterEndpointNotificationCallback(deviceCallback);
+    if (!deviceCallback) {
+        deviceCallback = new CMMNotificationClient(*this);
+        deviceEnumerator->RegisterEndpointNotificationCallback(deviceCallback);
+    }
     sendSinkList();
 }
 
