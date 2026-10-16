@@ -168,17 +168,31 @@ void DevicesModel::refreshDeviceList()
 void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher *watcher)
 {
     watcher->deleteLater();
-    clearDevices();
     QDBusPendingReply<QStringList> pendingDeviceIds = *watcher;
     if (pendingDeviceIds.isError()) {
         qCWarning(KDECONNECT_MODELS) << "error while refreshing device list" << pendingDeviceIds.error().message();
+        clearDevices();
     } else {
-        Q_ASSERT(m_deviceList.isEmpty());
         const QStringList deviceIds = pendingDeviceIds.value();
 
-        if (!deviceIds.isEmpty()) {
-            beginInsertRows(QModelIndex(), 0, deviceIds.count() - 1);
-            for (const QString &id : deviceIds) {
+        for (int row = m_deviceList.size() - 1; row >= 0; --row) {
+            if (!deviceIds.contains(m_deviceList[row]->id())) {
+                beginRemoveRows(QModelIndex(), row, row);
+                delete m_deviceList.takeAt(row);
+                endRemoveRows();
+            }
+        }
+
+        QStringList newIds;
+        for (const QString &id : deviceIds) {
+            if (rowForDevice(id) < 0) {
+                newIds.append(id);
+            }
+        }
+
+        if (!newIds.isEmpty()) {
+            beginInsertRows(QModelIndex(), m_deviceList.size(), m_deviceList.size() + newIds.count() - 1);
+            for (const QString &id : std::as_const(newIds)) {
                 appendDevice(new DeviceDbusInterface(id, this));
             }
             endInsertRows();
