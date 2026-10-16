@@ -387,23 +387,11 @@ HRESULT SystemvolumePlugin::setDefaultAudioPlaybackDevice(QString &name, bool en
     if (!enabled)
         return S_OK;
 
-    PWSTR deviceId = nullptr;
-    for (auto &entry : idToNameMap.toStdMap()) {
-        if (entry.second == name) {
-            deviceId = new WCHAR[entry.first.length()];
-            wcscpy(deviceId, entry.first.toStdWString().data());
-            break;
-        }
-    }
-
-    if (deviceId == nullptr)
+    const QString deviceId = idToNameMap.key(name);
+    if (deviceId.isEmpty())
         return ERROR_BAD_UNIT;
 
-    HRESULT hr = ::setDefaultAudioPlaybackDevice(deviceId);
-
-    delete[] deviceId;
-
-    return hr;
+    return ::setDefaultAudioPlaybackDevice(deviceId.toStdWString().c_str());
 }
 
 void SystemvolumePlugin::receivePacket(const NetworkPacket &np)
