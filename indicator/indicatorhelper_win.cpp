@@ -90,18 +90,19 @@ bool IndicatorHelper::terminateProcess(const QString &processName, const QUrl &i
         return FALSE;
     }
 
+    bool success = true;
     do {
         if (QString::fromWCharArray((wchar_t *)pe32.szExeFile) == processName) {
             hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pe32.th32ProcessID);
 
             if (hProcess == NULL) {
                 qCWarning(KDECONNECT_INDICATOR) << "Failed to get handle for the process:" << processName;
-                return FALSE;
+                success = false;
             } else {
-                const DWORD processPathSize = 4096;
-                CHAR processPathString[processPathSize];
+                CHAR processPathString[4096];
+                DWORD processPathSize = sizeof(processPathString);
 
-                BOOL gotProcessPath = QueryFullProcessImageNameA(hProcess, 0, (LPSTR)processPathString, (PDWORD)&processPathSize);
+                BOOL gotProcessPath = QueryFullProcessImageNameA(hProcess, 0, processPathString, &processPathSize);
 
                 if (gotProcessPath) {
                     const QUrl processUrl = QUrl::fromLocalFile(QString::fromStdString(processPathString)); // to replace \\ with /
@@ -109,14 +110,15 @@ bool IndicatorHelper::terminateProcess(const QString &processName, const QUrl &i
                         BOOL terminateSuccess = TerminateProcess(hProcess, 0);
                         if (!terminateSuccess) {
                             qCWarning(KDECONNECT_INDICATOR) << "Failed to terminate process:" << processName;
-                            return FALSE;
+                            success = false;
                         }
                     }
                 }
+                CloseHandle(hProcess);
             }
         }
     } while (Process32Next(hProcessSnap, &pe32));
 
     CloseHandle(hProcessSnap);
-    return TRUE;
+    return success;
 }
