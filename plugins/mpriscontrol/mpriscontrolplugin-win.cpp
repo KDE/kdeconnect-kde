@@ -12,6 +12,8 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
+#include <QTimer>
+
 #include <chrono>
 #include <random>
 
@@ -33,9 +35,16 @@ MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args
     try {
         sessionManager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get();
         if (sessionManager) {
-            sessionManager.SessionsChanged([this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
-                this->updatePlayerList();
-            });
+            sessionsChangedHandler =
+                sessionManager.SessionsChanged(auto_revoke, [this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
+                    // WinRT events are delivered on a thread pool thread, process them in the Qt thread
+                    QMetaObject::invokeMethod(
+                        this,
+                        [this]() {
+                            updatePlayerList();
+                        },
+                        Qt::QueuedConnection);
+                });
         } else {
             qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to obtain Session Manager.";
         }
@@ -225,16 +234,19 @@ void MprisControlPlugin::updatePlayerList()
             player
                 .PlaybackInfoChanged(auto_revoke,
                                      [this](GlobalSystemMediaTransportControlsSession player, PlaybackInfoChangedEventArgs args) {
-                                         if (auto name = getPlayerName(player))
-                                             this->sendPlaybackInfo(name.value(), player);
+                                         // WinRT events are delivered on a thread pool thread, process them in the Qt thread
+                                         QMetaObject::invokeMethod(
+                                             this,
+                                             [this, player]() {
+                                                 if (auto name = getPlayerName(player))
+                                                     sendPlaybackInfo(name.value(), player);
+                                             },
+                                             Qt::QueuedConnection);
                                      })
                 .swap(playbackInfoChangedHandlers[i]);
-            concurrency::create_task([this, player] {
-                std::chrono::milliseconds timespan(50);
-                std::this_thread::sleep_for(timespan);
-
+            QTimer::singleShot(std::chrono::milliseconds(50), this, [this, player]() {
                 if (auto name = getPlayerName(player))
-                    this->sendPlaybackInfo(name.value(), player);
+                    sendPlaybackInfo(name.value(), player);
             });
 
             if (auto name = getPlayerName(player))
@@ -243,31 +255,37 @@ void MprisControlPlugin::updatePlayerList()
             player
                 .MediaPropertiesChanged(auto_revoke,
                                         [this](GlobalSystemMediaTransportControlsSession player, MediaPropertiesChangedEventArgs args) {
-                                            if (auto name = getPlayerName(player))
-                                                this->sendMediaProperties(name.value(), player);
+                                            // WinRT events are delivered on a thread pool thread, process them in the Qt thread
+                                            QMetaObject::invokeMethod(
+                                                this,
+                                                [this, player]() {
+                                                    if (auto name = getPlayerName(player))
+                                                        sendMediaProperties(name.value(), player);
+                                                },
+                                                Qt::QueuedConnection);
                                         })
                 .swap(mediaPropertiesChangedHandlers[i]);
-            concurrency::create_task([this, player] {
-                std::chrono::milliseconds timespan(50);
-                std::this_thread::sleep_for(timespan);
-
+            QTimer::singleShot(std::chrono::milliseconds(50), this, [this, player]() {
                 if (auto name = getPlayerName(player))
-                    this->sendMediaProperties(name.value(), player);
+                    sendMediaProperties(name.value(), player);
             });
 
             player
                 .TimelinePropertiesChanged(auto_revoke,
                                            [this](GlobalSystemMediaTransportControlsSession player, TimelinePropertiesChangedEventArgs args) {
-                                               if (auto name = getPlayerName(player))
-                                                   this->sendTimelineProperties(name.value(), player);
+                                               // WinRT events are delivered on a thread pool thread, process them in the Qt thread
+                                               QMetaObject::invokeMethod(
+                                                   this,
+                                                   [this, player]() {
+                                                       if (auto name = getPlayerName(player))
+                                                           sendTimelineProperties(name.value(), player);
+                                                   },
+                                                   Qt::QueuedConnection);
                                            })
                 .swap(timelinePropertiesChangedHandlers[i]);
-            concurrency::create_task([this, player] {
-                std::chrono::milliseconds timespan(50);
-                std::this_thread::sleep_for(timespan);
-
+            QTimer::singleShot(std::chrono::milliseconds(50), this, [this, player]() {
                 if (auto name = getPlayerName(player))
-                    this->sendTimelineProperties(name.value(), player);
+                    sendTimelineProperties(name.value(), player);
             });
         }
     } catch (winrt::hresult_error e) {
@@ -413,6 +431,11 @@ void MprisControlPlugin::receivePacket(const NetworkPacket &np)
         updatePlayerList();
         sendPlayerList();
         if (!valid_player) {
+            return;
+        }
+        // updatePlayerList() rebuilt the hash, so the iterator is no longer valid
+        it = playerList.find(name);
+        if (it == playerList.end()) {
             return;
         }
     }
