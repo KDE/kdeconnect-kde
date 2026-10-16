@@ -42,6 +42,7 @@ public Q_SLOTS:
 private:
     QHash<QString, GlobalSystemMediaTransportControlsSession> playerList;
     GlobalSystemMediaTransportControlsSessionManager sessionManager;
+    GlobalSystemMediaTransportControlsSessionManager::SessionsChanged_revoker sessionsChangedHandler;
     std::vector<GlobalSystemMediaTransportControlsSession::PlaybackInfoChanged_revoker> playbackInfoChangedHandlers;
     std::vector<GlobalSystemMediaTransportControlsSession::MediaPropertiesChanged_revoker> mediaPropertiesChangedHandlers;
     std::vector<GlobalSystemMediaTransportControlsSession::TimelinePropertiesChanged_revoker> timelinePropertiesChangedHandlers;
