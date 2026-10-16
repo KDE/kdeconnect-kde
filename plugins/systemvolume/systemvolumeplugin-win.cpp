@@ -75,7 +75,15 @@ public:
         np.set<int>(QStringLiteral("volume"), (int)(pNotify->fMasterVolume * 100));
         np.set<bool>(QStringLiteral("muted"), pNotify->bMuted);
         np.set<QString>(QStringLiteral("name"), name);
-        enclosing.sendPacket(np);
+
+        // This is called from a COM thread, but sockets can only be used from the thread that owns them
+        SystemvolumePlugin *plugin = &enclosing;
+        QMetaObject::invokeMethod(
+            plugin,
+            [plugin, np]() mutable {
+                plugin->sendPacket(np);
+            },
+            Qt::QueuedConnection);
 
         return S_OK;
     }
@@ -130,64 +138,30 @@ public:
     HRESULT STDMETHODCALLTYPE OnDefaultDeviceChanged(EDataFlow flow, ERole role, LPCWSTR pwstrDeviceId) override
     {
         if (flow == eRender) {
-            enclosing.sendSinkList();
+            queueSendSinkList();
         }
         return S_OK;
     }
 
     HRESULT STDMETHODCALLTYPE OnDeviceAdded(LPCWSTR pwstrDeviceId) override
     {
-        enclosing.sendSinkList();
+        queueSendSinkList();
         return S_OK;
-    }
-
-    struct RemovedDeviceThreadData {
-        QString qDeviceId;
-        SystemvolumePlugin *plugin;
-    };
-
-    static DWORD WINAPI releaseRemovedDevice(_In_ LPVOID lpParameter)
-    {
-        auto *data = static_cast<RemovedDeviceThreadData *>(lpParameter);
-
-        if (!data->plugin->sinkList.empty()) {
-            auto idToNameIterator = data->plugin->idToNameMap.find(data->qDeviceId);
-            if (idToNameIterator == data->plugin->idToNameMap.end())
-                return 0;
-
-            QString &sinkName = idToNameIterator.value();
-
-            auto sinkListIterator = data->plugin->sinkList.find(sinkName);
-            if (sinkListIterator == data->plugin->sinkList.end())
-                return 0;
-
-            auto &sink = sinkListIterator.value();
-
-            sink.first->UnregisterControlChangeNotify(sink.second);
-            sink.first->Release();
-            sink.second->Release();
-
-            data->plugin->idToNameMap.remove(data->qDeviceId);
-            data->plugin->sinkList.remove(sinkName);
-        }
-
-        data->plugin->sendSinkList();
-
-        return 0;
     }
 
     HRESULT STDMETHODCALLTYPE OnDeviceRemoved(LPCWSTR pwstrDeviceId) override
     {
-        static RemovedDeviceThreadData data{};
-        data.qDeviceId = QString::fromWCharArray(pwstrDeviceId);
-        data.plugin = &enclosing;
-
-        DWORD threadId;
-        HANDLE threadHandle = CreateThread(NULL, 0, releaseRemovedDevice, &data, 0, &threadId);
-        CloseHandle(threadHandle);
-
-        enclosing.sendSinkList();
-
+        // These callbacks come from an arbitrary COM thread, and we can't unregister
+        // notification callbacks from inside a callback anyway, so defer the cleanup
+        // to the plugin's thread, where sinkList and idToNameMap are accessed.
+        QString deviceId = QString::fromWCharArray(pwstrDeviceId);
+        SystemvolumePlugin *plugin = &enclosing;
+        QMetaObject::invokeMethod(
+            plugin,
+            [plugin, deviceId]() {
+                releaseRemovedDevice(plugin, deviceId);
+            },
+            Qt::QueuedConnection);
         return S_OK;
     }
 
@@ -202,14 +176,40 @@ public:
     {
         // This callback is supper spammy. Care only about name and description changes.
         if (IsEqualPropertyKey(key, PKEY_Device_FriendlyName)) {
-            enclosing.sendSinkList();
+            queueSendSinkList();
         } else if (IsEqualPropertyKey(key, PKEY_Device_DeviceDesc)) {
-            enclosing.sendSinkList();
+            queueSendSinkList();
         }
         return S_OK;
     }
 
 private:
+    void queueSendSinkList()
+    {
+        QMetaObject::invokeMethod(&enclosing, &SystemvolumePlugin::sendSinkList, Qt::QueuedConnection);
+    }
+
+    static void releaseRemovedDevice(SystemvolumePlugin *plugin, const QString &deviceId)
+    {
+        auto idToNameIterator = plugin->idToNameMap.find(deviceId);
+        if (idToNameIterator != plugin->idToNameMap.end()) {
+            // Copy, since the reference would dangle once removed from idToNameMap
+            const QString sinkName = idToNameIterator.value();
+            plugin->idToNameMap.erase(idToNameIterator);
+
+            auto sinkListIterator = plugin->sinkList.find(sinkName);
+            if (sinkListIterator != plugin->sinkList.end()) {
+                auto &sink = sinkListIterator.value();
+                sink.first->UnregisterControlChangeNotify(sink.second);
+                sink.first->Release();
+                sink.second->Release();
+                plugin->sinkList.erase(sinkListIterator);
+            }
+        }
+
+        plugin->sendSinkList();
+    }
+
     LONG _cRef;
     SystemvolumePlugin &enclosing;
 };
