@@ -132,6 +132,7 @@ void NotificationsModel::receivedNotifications(QDBusPendingCallWatcher *watcher)
     beginInsertRows(QModelIndex(), 0, notificationIds.size() - 1);
     for (const QString &notificationId : notificationIds) {
         NotificationDbusInterface *dbusInterface = new NotificationDbusInterface(m_deviceId, notificationId, this);
+        connect(dbusInterface, &NotificationDbusInterface::ready, this, &NotificationsModel::notificationUpdated);
         m_notificationList.append(dbusInterface);
     }
     endInsertRows();
@@ -233,7 +234,12 @@ void NotificationsModel::clearNotifications()
 
 void NotificationsModel::notificationUpdated()
 {
-    Q_EMIT dataChanged(index(0, 0), index(m_notificationList.size() - 1, 0));
+    NotificationDbusInterface *notification = qobject_cast<NotificationDbusInterface *>(sender());
+    const int row = m_notificationList.indexOf(notification);
+    if (row < 0) {
+        return;
+    }
+    Q_EMIT dataChanged(index(row, 0), index(row, 0));
 }
 
 #include "moc_notificationsmodel.cpp"
