@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 02:49+0000\n"
+"POT-Creation-Date: 2026-10-17 03:05+0000\n"
 "PO-Revision-Date: 2026-05-10 16:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -102,7 +102,7 @@ msgstr "தொலை பூட்டல் வெற்றியடைந்த�
 msgid "Remote lock failed"
 msgstr "தொலை பூட்டல் தோல்வியடைந்த‍து"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:26
+#: mpriscontrol/mpriscontrolplugin-win.cpp:28
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
@@ -110,9 +110,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "தற்போதைய இயக்கி"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:93
-#: mpriscontrol/mpriscontrolplugin-win.cpp:94
-#: mpriscontrol/mpriscontrolplugin-win.cpp:95
+#: mpriscontrol/mpriscontrolplugin-win.cpp:102
+#: mpriscontrol/mpriscontrolplugin-win.cpp:103
+#: mpriscontrol/mpriscontrolplugin-win.cpp:104
 #, kde-format
 msgid "N/A"
 msgstr "பொருந்தாதது"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 02:49+0000\n"
+"POT-Creation-Date: 2026-10-17 03:05+0000\n"
 "PO-Revision-Date: 2025-06-01 14:58+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -103,7 +103,7 @@ msgstr "Eininga er no låst"
 msgid "Remote lock failed"
 msgstr "Mislukka fjernlåsing"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:26
+#: mpriscontrol/mpriscontrolplugin-win.cpp:28
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
@@ -111,9 +111,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Gjeldande spelar"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:93
-#: mpriscontrol/mpriscontrolplugin-win.cpp:94
-#: mpriscontrol/mpriscontrolplugin-win.cpp:95
+#: mpriscontrol/mpriscontrolplugin-win.cpp:102
+#: mpriscontrol/mpriscontrolplugin-win.cpp:103
+#: mpriscontrol/mpriscontrolplugin-win.cpp:104
 #, kde-format
 msgid "N/A"
 msgstr "–"
