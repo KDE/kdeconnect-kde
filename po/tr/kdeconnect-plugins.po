@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-04 00:46+0000\n"
+"POT-Creation-Date: 2026-10-17 00:49+0000\n"
 "PO-Revision-Date: 2026-10-07 19:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -103,7 +103,8 @@ msgstr "Uzaktan kilitleme başarılı"
 msgid "Remote lock failed"
 msgstr "Uzaktan kilitleme başarısız"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:26
+#: mpriscontrol/mpriscontrolplugin-macos.mm:23
+#: mpriscontrol/mpriscontrolplugin-win.cpp:28
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
@@ -111,9 +112,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Geçerli Oynatıcı"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:93
-#: mpriscontrol/mpriscontrolplugin-win.cpp:94
-#: mpriscontrol/mpriscontrolplugin-win.cpp:95
+#: mpriscontrol/mpriscontrolplugin-win.cpp:102
+#: mpriscontrol/mpriscontrolplugin-win.cpp:103
+#: mpriscontrol/mpriscontrolplugin-win.cpp:104
 #, kde-format
 msgid "N/A"
 msgstr "Yok"

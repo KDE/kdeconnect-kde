@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-04 00:46+0000\n"
+"POT-Creation-Date: 2026-10-17 00:49+0000\n"
 "PO-Revision-Date: 2026-07-28 08:47+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -104,7 +104,8 @@ msgstr "הנעילה המרוחקת הצליחה"
 msgid "Remote lock failed"
 msgstr "נעילה מרוחקת נכשלה"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:26
+#: mpriscontrol/mpriscontrolplugin-macos.mm:23
+#: mpriscontrol/mpriscontrolplugin-win.cpp:28
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
@@ -112,9 +113,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "נגן נוכחי"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:93
-#: mpriscontrol/mpriscontrolplugin-win.cpp:94
-#: mpriscontrol/mpriscontrolplugin-win.cpp:95
+#: mpriscontrol/mpriscontrolplugin-win.cpp:102
+#: mpriscontrol/mpriscontrolplugin-win.cpp:103
+#: mpriscontrol/mpriscontrolplugin-win.cpp:104
 #, kde-format
 msgid "N/A"
 msgstr "לא זמין"
