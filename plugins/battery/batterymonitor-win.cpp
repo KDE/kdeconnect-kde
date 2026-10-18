@@ -12,6 +12,7 @@
 #include <windows.h>
 
 #include <powersetting.h>
+#include <powrprof.h>
 
 class BatteryMonitor::Private
 {

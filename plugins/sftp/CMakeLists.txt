@@ -22,7 +22,11 @@ target_link_libraries(kdeconnect_sftp
     KF6::Notifications
 )
 
-if(NOT WIN32)
+if(WIN32)
+    target_link_libraries(kdeconnect_sftp
+        Qt::Widgets
+    )
+else()
     target_link_libraries(kdeconnect_sftp
         KF6::KIOFileWidgets
         KF6::KIOWidgets
