@@ -70,6 +70,7 @@ bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket &np)
     }
     uIDList_t uIDsToUpdate;
     QDir vcardsDir(vcardsPath);
+    const QString dir = QDir::cleanPath(vcardsDir.absolutePath());
 
     // Get a list of all file info in this directory
     // Clean out IDs returned from the remote. Anything leftover should be deleted
@@ -82,7 +83,11 @@ bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket &np)
     //  If the contact is in local storage but not reported, delete it
     //  If the contact is in local storage, compare its timestamp. If different, request the contact
     for (const QString &ID : uIDs) {
-        QString filename = vcardsDir.filePath(ID + VCARD_EXTENSION);
+        const QString filename = QDir::cleanPath(vcardsDir.absoluteFilePath(ID + VCARD_EXTENSION));
+        if (!filename.startsWith(dir + QStringLiteral("/"))) {
+            qCWarning(KDECONNECT_PLUGIN_CONTACTS) << "Directory traversal detected";
+            continue;
+        }
         QFile vcardFile(filename);
 
         if (!QFile().exists(filename)) {
@@ -142,12 +147,17 @@ bool ContactsPlugin::handleResponseVCards(const NetworkPacket &np)
     }
 
     QDir vcardsDir(vcardsPath);
+    const QString dir = QDir::cleanPath(vcardsDir.absolutePath());
     const QStringList &uIDs = np.get<QStringList>(QStringLiteral("uids"));
 
     // Loop over all IDs, extract the VCard from the packet and write the file
     for (const auto &ID : uIDs) {
         // qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Got VCard:" << np.get<QString>(ID);
-        QString filename = vcardsDir.filePath(ID + VCARD_EXTENSION);
+        const QString filename = QDir::cleanPath(vcardsDir.absoluteFilePath(ID + VCARD_EXTENSION));
+        if (!filename.startsWith(dir + QStringLiteral("/"))) {
+            qCWarning(KDECONNECT_PLUGIN_CONTACTS) << "Directory traversal detected";
+            continue;
+        }
         QFile vcardFile(filename);
         bool vcardFileOpened = vcardFile.open(QIODevice::WriteOnly); // Want to smash anything that might have already been there
         if (!vcardFileOpened) {

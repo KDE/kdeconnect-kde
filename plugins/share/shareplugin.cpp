@@ -58,10 +58,14 @@ QUrl SharePlugin::destinationDir() const
 
 QUrl SharePlugin::getFileDestination(const QString filename) const
 {
-    const QUrl dir = destinationDir().adjusted(QUrl::StripTrailingSlash);
-    QUrl destination(dir);
-    destination.setPath(dir.path() + QStringLiteral("/") + filename, QUrl::DecodedMode);
-    return destination;
+    const QDir destDir(destinationDir().toLocalFile());
+    const QString dir = QDir::cleanPath(destDir.absolutePath());
+    const QString filePath = QDir::cleanPath(destDir.absoluteFilePath(filename));
+    if (!filePath.startsWith(dir + QStringLiteral("/"))) {
+        qCWarning(KDECONNECT_PLUGIN_SHARE) << "Directory traversal detected";
+        return QUrl();
+    }
+    return QUrl::fromLocalFile(filePath);
 }
 
 static QString cleanFilename(const QString &filename)
@@ -119,7 +123,10 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
     if (np.hasPayload() || np.has(QStringLiteral("filename"))) {
         //         qCDebug(KDECONNECT_PLUGIN_SHARE) << "receiving file" << filename << "in" << dir << "into" << destination;
         const QString filename = cleanFilename(np.get<QString>(QStringLiteral("filename"), QString::number(QDateTime::currentMSecsSinceEpoch())));
-        QUrl destination = getFileDestination(filename);
+        const QUrl destination = getFileDestination(filename);
+        if (destination.isEmpty()) {
+            return;
+        }
         const qint64 dateCreated = np.get<qint64>(QStringLiteral("creationTime"), QDateTime::currentMSecsSinceEpoch());
         const qint64 dateModified = np.get<qint64>(QStringLiteral("lastModified"), QDateTime::currentMSecsSinceEpoch());
         const bool open = np.get<bool>(QStringLiteral("open"), false);
