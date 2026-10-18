@@ -63,6 +63,9 @@ PRIVATE
 
 if(WIN32)
     target_link_libraries(kdeconnectcore PRIVATE ws2_32.lib) # winsock2
+    target_link_libraries(kdeconnectcore PRIVATE powrprof)
+elseif(APPLE)
+    target_link_libraries(kdeconnectcore PRIVATE "-framework IOKit" "-framework CoreFoundation")
 endif()
 
 if (BLUETOOTH_ENABLED)
