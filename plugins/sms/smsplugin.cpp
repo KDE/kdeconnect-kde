@@ -12,6 +12,7 @@
 
 #include <QDBusConnection>
 #include <QDebug>
+#include <QDir>
 #include <QFile>
 #include <QFileInfo>
 #include <QMimeDatabase>
@@ -140,9 +141,13 @@ bool SmsPlugin::handleSmsAttachmentFile(const NetworkPacket &np)
         return false;
     }
 
-    QUrl fileUrl = QUrl::fromLocalFile(attachmentsCacheDir.absolutePath());
-    fileUrl = fileUrl.adjusted(QUrl::StripTrailingSlash);
-    fileUrl.setPath(fileUrl.path() + QStringLiteral("/") + fileName, QUrl::DecodedMode);
+    const QString dir = QDir::cleanPath(attachmentsCacheDir.absolutePath());
+    const QString filePath = QDir::cleanPath(attachmentsCacheDir.absoluteFilePath(fileName));
+    if (!filePath.startsWith(dir + QStringLiteral("/"))) {
+        qCWarning(KDECONNECT_PLUGIN_SMS) << "Directory traversal detected";
+        return false;
+    }
+    const QUrl fileUrl = QUrl::fromLocalFile(filePath);
 
     FileTransferJob *job = np.createPayloadTransferJob(fileUrl);
     connect(job, &FileTransferJob::result, this, [this, fileName](KJob *job) -> void {

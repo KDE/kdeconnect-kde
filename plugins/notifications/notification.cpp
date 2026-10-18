@@ -145,10 +145,20 @@ void Notification::createKNotification(const NetworkPacket &np)
     m_notification->setPixmap({});
     if (!m_hasIcon) {
         show();
-    } else {
-        m_iconPath = m_imagesDir.absoluteFilePath(m_payloadHash);
-        loadIcon(np);
+        return;
     }
+
+    const QString dir = QDir::cleanPath(m_imagesDir.absolutePath());
+    const QString filePath = QDir::cleanPath(m_imagesDir.absoluteFilePath(m_payloadHash));
+    if (!filePath.startsWith(dir + QStringLiteral("/"))) {
+        qCWarning(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Directory traversal detected";
+        m_iconPath.clear();
+        show();
+        return;
+    }
+
+    m_iconPath = filePath;
+    loadIcon(np);
 }
 
 void Notification::loadIcon(const NetworkPacket &np)
