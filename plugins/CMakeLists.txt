@@ -8,13 +8,7 @@ add_subdirectory(remotesystemvolume)
 add_subdirectory(clipboard)
 add_subdirectory(runcommand)
 add_subdirectory(digitizer)
-
-
-if(NOT WIN32)
-    # https://bugs.kde.org/show_bug.cgi?id=444612
-    add_subdirectory(battery)
-endif()
-
+add_subdirectory(battery)
 add_subdirectory(presenter)
 add_subdirectory(mpriscontrol)
 add_subdirectory(mprisremote)

@@ -8,6 +8,8 @@
 
 #include <core/kdeconnectplugin.h>
 
+class BatteryMonitor;
+
 #define PACKET_TYPE_BATTERY QStringLiteral("kdeconnect.battery")
 
 class BatteryPlugin : public KdeConnectPlugin
@@ -49,6 +51,7 @@ private:
         ThresholdBatteryLow = 1,
     };
 
+    BatteryMonitor *m_monitor;
     int m_charge = -1;
     bool m_isCharging = false;
 };
