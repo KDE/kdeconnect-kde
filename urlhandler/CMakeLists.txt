@@ -17,6 +17,7 @@ target_link_libraries(kdeconnect-handler
     KF6::ColorScheme
     KF6::DBusAddons
     KF6::I18n
+    KF6::IconThemes
     KF6::KIOCore
     KF6::KIOFileWidgets
     KF6::KIOWidgets

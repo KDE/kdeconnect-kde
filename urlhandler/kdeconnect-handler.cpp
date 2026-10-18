@@ -24,6 +24,7 @@
 #include <KColorSchemeManager>
 #include <KCrash>
 #include <KDBusService>
+#include <KIconTheme>
 #include <KLocalizedString>
 #include <KUrlRequester>
 
@@ -47,6 +48,10 @@ enum class HandlerMode {
 
 int main(int argc, char **argv)
 {
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+    // Install KIconEngine so widget icons get recolored in dark mode. Must be called before QApplication.
+    KIconTheme::initTheme();
+#endif
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     const QString description = i18n("KDE Connect URL handler");

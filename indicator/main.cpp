@@ -25,6 +25,7 @@
 #include <KColorSchemeManager>
 #include <KCrash>
 #include <KDBusService>
+#include <KIconTheme>
 #include <KLocalizedString>
 
 #include "dbusinterfaces/dbusinterfaces.h"
@@ -48,6 +49,10 @@ int main(int argc, char **argv)
     }
 #endif
 
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+    // Install KIconEngine so widget icons get recolored in dark mode. Must be called before QApplication.
+    KIconTheme::initTheme();
+#endif
     QApplication app(argc, argv);
 
     IndicatorHelper helper;
