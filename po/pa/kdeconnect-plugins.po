@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:49+0000\n"
+"POT-Creation-Date: 2026-10-19 00:46+0000\n"
 "PO-Revision-Date: 2024-10-25 21:54-0500\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -17,13 +17,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: battery/batteryplugin.cpp:150
+#: battery/batteryplugin.cpp:106
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
 msgstr "%1: ਘੱਟ ਬੈਟਰੀ"
 
-#: battery/batteryplugin.cpp:151
+#: battery/batteryplugin.cpp:107
 #, kde-format
 msgid "Battery at %1%"
 msgstr "ਬੈਟਰੀ %1% ਉੱਤੇ ਹੈ"

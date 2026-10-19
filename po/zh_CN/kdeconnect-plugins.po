@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:49+0000\n"
+"POT-Creation-Date: 2026-10-19 00:46+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,13 +17,13 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/kdeconnect-kde/kdeconnect-plugins.pot\n"
 "X-Crowdin-File-ID: 49030\n"
 
-#: battery/batteryplugin.cpp:150
+#: battery/batteryplugin.cpp:106
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
 msgstr "%1：电池电量低"
 
-#: battery/batteryplugin.cpp:151
+#: battery/batteryplugin.cpp:107
 #, kde-format
 msgid "Battery at %1%"
 msgstr "电量 %1%"

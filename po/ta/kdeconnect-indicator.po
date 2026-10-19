@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 00:43+0000\n"
+"POT-Creation-Date: 2026-10-19 00:46+0000\n"
 "PO-Revision-Date: 2026-05-10 16:43+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -82,58 +82,58 @@ msgstr ""
 msgid "Cannot find kdeconnectd"
 msgstr "kdeconnectd கண்டுபிடிக்கப்படவில்லை"
 
-#: main.cpp:57
+#: main.cpp:62
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "கே.டீ.யீ. கனெக்ட் காட்டி"
 
-#: main.cpp:59
+#: main.cpp:64
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "கே.டீ.யீ. கனெக்ட் நிலைகாட்டி கருவி"
 
-#: main.cpp:61
+#: main.cpp:66
 #, kde-format
 msgid "© 2016–2025 KDE Connect Team"
 msgstr "© 2016–2025 கே.டீ.யீ. கனெக்ட் குழு"
 
-#: main.cpp:62
+#: main.cpp:67
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "அலேயிக்சு போல் கொன்ஸாலெசு"
 
-#: main.cpp:63
+#: main.cpp:68
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "ஆல்பர்டு வாக்கா சின்ட்டோரா"
 
-#: main.cpp:101
+#: main.cpp:106
 #, kde-format
 msgid "Open app"
 msgstr "செயலியை திற"
 
-#: main.cpp:118
+#: main.cpp:123
 #, kde-format
 msgid "Pairing requests"
 msgstr "இணைப்பு கோரிக்கைகள்"
 
-#: main.cpp:123
+#: main.cpp:128
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "இணை"
 
-#: main.cpp:124
+#: main.cpp:129
 #, kde-format
 msgid "Reject"
 msgstr "மறு"
 
-#: main.cpp:129 main.cpp:142
+#: main.cpp:134 main.cpp:147
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
 
-#: main.cpp:159 main.cpp:181
+#: main.cpp:164 main.cpp:186
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
