@@ -98,6 +98,15 @@ void SharePlugin::setDateCreated(const QUrl &destination, const qint64 timestamp
     receivedFile.setFileTime(QDateTime::fromMSecsSinceEpoch(timestamp), QFileDevice::FileTime(QFileDevice::FileBirthTime));
 }
 
+static bool isWebUrl(QUrl &url)
+{
+    if (!url.isValid()) {
+        return false;
+    }
+    const QString scheme = url.scheme();
+    return scheme == QStringLiteral("http") || scheme == QStringLiteral("https") || scheme == QStringLiteral("mailto");
+}
+
 void SharePlugin::receivePacket(const NetworkPacket &np)
 {
     /*
@@ -160,8 +169,8 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
 
         QUrl url;
         QStringList lines = text.split(QStringLiteral("\n"), Qt::SkipEmptyParts);
-        if (lines.count()) {
-            url.setUrl(lines[lines.count() - 1].trimmed());
+        if (!lines.isEmpty()) {
+            url.setUrl(lines.last().trimmed());
         }
 
         KNotification *notif = new KNotification(QStringLiteral("textShareReceived"));
@@ -216,25 +225,25 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
             }
         };
 
-        auto openUrl = [this, url, notif] {
-            auto *job = new KIO::OpenUrlJob(url);
-            job->setStartupId(notif->xdgActivationToken().toUtf8());
-            job->start();
-            Q_EMIT shareReceived(url.toString());
-        };
-
         KNotificationAction *textEditorAction = notif->addAction(i18nc("@action:button Edit text with default text editor", "Open in Text Editor"));
         connect(textEditorAction, &KNotificationAction::activated, this, openTextEditor);
 
-        if (url.isValid() && (url.scheme() == QStringLiteral("http") || url.scheme() == QStringLiteral("https"))) {
+        if (isWebUrl(url)) {
             KNotificationAction *openLinkAction = notif->addAction(i18nc("@action:button Open URL with default app", "Open Link"));
-            connect(openLinkAction, &KNotificationAction::activated, this, openUrl);
+            connect(openLinkAction, &KNotificationAction::activated, this, [this, url, notif] {
+                auto *job = new KIO::OpenUrlJob(url);
+                job->setStartupId(notif->xdgActivationToken().toUtf8());
+                job->start();
+                Q_EMIT shareReceived(url.toString());
+            });
         }
         notif->sendEvent();
 
     } else if (np.has(QStringLiteral("url"))) {
         QUrl url = QUrl::fromEncoded(np.get<QByteArray>(QStringLiteral("url")));
-        QDesktopServices::openUrl(url);
+        if (isWebUrl(url)) {
+            QDesktopServices::openUrl(url);
+        }
         Q_EMIT shareReceived(url.toString());
     } else {
         qCDebug(KDECONNECT_PLUGIN_SHARE) << "Error: Nothing attached!";
