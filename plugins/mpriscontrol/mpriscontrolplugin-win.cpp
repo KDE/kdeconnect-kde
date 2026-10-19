@@ -69,7 +69,7 @@ std::optional<QString> MprisControlPlugin::getPlayerName(const GlobalSystemMedia
 TimeSpan MprisControlPlugin::getPlayerPosition(const GlobalSystemMediaTransportControlsSession &player)
 {
     auto playbackInfo = player.GetPlaybackInfo();
-    bool isPlaying = playbackInfo.PlaybackStatus() == GlobalSystemMediaTransportControlsSessionPlaybackStatus::Playing;
+    bool isPlaying = playbackInfo && playbackInfo.PlaybackStatus() == GlobalSystemMediaTransportControlsSessionPlaybackStatus::Playing;
     auto position = player.GetTimelineProperties().Position();
     if (isPlaying)
         return position + winrt::clock::now() - player.GetTimelineProperties().LastUpdatedTime();
@@ -135,14 +135,20 @@ void MprisControlPlugin::sendPlaybackInfo(const std::variant<NetworkPacket, QStr
     sendMediaProperties(np, player);
 
     auto playbackInfo = player.GetPlaybackInfo();
-    auto playbackControls = playbackInfo.Controls();
-
+    if (!playbackInfo) {
+        qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to get playback info";
+        return;
+    }
     np.set(QStringLiteral("isPlaying"), playbackInfo.PlaybackStatus() == GlobalSystemMediaTransportControlsSessionPlaybackStatus::Playing);
-    np.set(QStringLiteral("canPause"), playbackControls.IsPauseEnabled());
-    np.set(QStringLiteral("canPlay"), playbackControls.IsPlayEnabled());
-    np.set(QStringLiteral("canGoNext"), playbackControls.IsNextEnabled());
-    np.set(QStringLiteral("canGoPrevious"), playbackControls.IsPreviousEnabled());
-    np.set(QStringLiteral("canSeek"), playbackControls.IsPlaybackPositionEnabled());
+
+    auto playbackControls = playbackInfo.Controls();
+    if (playbackControls != nullptr) {
+        np.set(QStringLiteral("canPause"), playbackControls.IsPauseEnabled());
+        np.set(QStringLiteral("canPlay"), playbackControls.IsPlayEnabled());
+        np.set(QStringLiteral("canGoNext"), playbackControls.IsNextEnabled());
+        np.set(QStringLiteral("canGoPrevious"), playbackControls.IsPreviousEnabled());
+        np.set(QStringLiteral("canSeek"), playbackControls.IsPlaybackPositionEnabled());
+    }
 
     if (playbackInfo.IsShuffleActive()) {
         const bool shuffleStatus = playbackInfo.IsShuffleActive().Value();
@@ -186,8 +192,12 @@ void MprisControlPlugin::sendTimelineProperties(const std::variant<NetworkPacket
 
     if (!lengthOnly) {
         const auto playbackInfo = player.GetPlaybackInfo();
-        const auto playbackControls = playbackInfo.Controls();
-        np.set(QStringLiteral("canSeek"), playbackControls.IsPlaybackPositionEnabled());
+        if (playbackInfo != nullptr) {
+            auto playbackControls = playbackInfo.Controls();
+            if (playbackControls != nullptr) {
+                np.set(QStringLiteral("canSeek"), playbackControls.IsPlaybackPositionEnabled());
+            }
+        }
         np.set(QStringLiteral("pos"),
                std::chrono::duration_cast<std::chrono::milliseconds>(timelineProperties.Position() - timelineProperties.StartTime()).count());
     }
