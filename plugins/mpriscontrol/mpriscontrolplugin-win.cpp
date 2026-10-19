@@ -93,12 +93,8 @@ QString MprisControlPlugin::randomUrl()
     return QStringLiteral("file://") + fileUrl;
 }
 
-void MprisControlPlugin::sendMediaProperties(const std::variant<NetworkPacket, QString> &packetOrName, const GlobalSystemMediaTransportControlsSession &player)
+void MprisControlPlugin::addMediaProperties(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player)
 {
-    NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
-    if (packetOrName.index() == 1)
-        np.set(QStringLiteral("player"), std::get<1>(packetOrName));
-
     QString title = i18n("N/A");
     QString artist = i18n("N/A");
     QString album = i18n("N/A");
@@ -120,20 +116,11 @@ void MprisControlPlugin::sendMediaProperties(const std::variant<NetworkPacket, Q
     np.set(QStringLiteral("albumArtUrl"), randomUrl());
 
     np.set(QStringLiteral("url"), QString());
-    sendTimelineProperties(np, player, true); // "length"
-
-    if (packetOrName.index() == 1)
-        sendPacket(np);
+    addTimelineProperties(np, player, true); // "length"
 }
 
-void MprisControlPlugin::sendPlaybackInfo(const std::variant<NetworkPacket, QString> &packetOrName, const GlobalSystemMediaTransportControlsSession &player)
+void MprisControlPlugin::addPlaybackInfo(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player)
 {
-    NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
-    if (packetOrName.index() == 1)
-        np.set(QStringLiteral("player"), std::get<1>(packetOrName));
-
-    sendMediaProperties(np, player);
-
     auto playbackInfo = player.GetPlaybackInfo();
     if (!playbackInfo) {
         qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to get playback info";
@@ -173,21 +160,10 @@ void MprisControlPlugin::sendPlaybackInfo(const std::variant<NetworkPacket, QStr
         }
         np.set(QStringLiteral("loopStatus"), loopStatus);
     }
-
-    sendTimelineProperties(np, player);
-
-    if (packetOrName.index() == 1)
-        sendPacket(np);
 }
 
-void MprisControlPlugin::sendTimelineProperties(const std::variant<NetworkPacket, QString> &packetOrName,
-                                                const GlobalSystemMediaTransportControlsSession &player,
-                                                bool lengthOnly)
+void MprisControlPlugin::addTimelineProperties(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player, bool lengthOnly)
 {
-    NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
-    if (packetOrName.index() == 1)
-        np.set(QStringLiteral("player"), std::get<1>(packetOrName));
-
     auto timelineProperties = player.GetTimelineProperties();
 
     if (!lengthOnly) {
@@ -203,9 +179,30 @@ void MprisControlPlugin::sendTimelineProperties(const std::variant<NetworkPacket
     }
     np.set(QStringLiteral("length"),
            std::chrono::duration_cast<std::chrono::milliseconds>(timelineProperties.EndTime() - timelineProperties.StartTime()).count());
+}
 
-    if (packetOrName.index() == 1)
-        sendPacket(np);
+void MprisControlPlugin::sendMediaProperties(const QString &playerName, const GlobalSystemMediaTransportControlsSession &player)
+{
+    NetworkPacket np(PACKET_TYPE_MPRIS);
+    np.set(QStringLiteral("player"), playerName);
+    addMediaProperties(np, player);
+    sendPacket(np);
+}
+
+void MprisControlPlugin::sendPlaybackInfo(const QString &playerName, const GlobalSystemMediaTransportControlsSession &player)
+{
+    NetworkPacket np(PACKET_TYPE_MPRIS);
+    np.set(QStringLiteral("player"), playerName);
+    addPlaybackInfo(np, player);
+    sendPacket(np);
+}
+
+void MprisControlPlugin::sendTimelineProperties(const QString &playerName, const GlobalSystemMediaTransportControlsSession &player)
+{
+    NetworkPacket np(PACKET_TYPE_MPRIS);
+    np.set(QStringLiteral("player"), playerName);
+    addTimelineProperties(np, player);
+    sendPacket(np);
 }
 
 void MprisControlPlugin::updatePlayerList()
@@ -315,9 +312,7 @@ void MprisControlPlugin::sendPlayerList()
     sendPacket(np);
 }
 
-void MprisControlPlugin::getThumbnail(const std::variant<NetworkPacket, QString> &packetOrName,
-                                      const GlobalSystemMediaTransportControlsSession &player,
-                                      const QString artUrl)
+void MprisControlPlugin::getThumbnail(const QString &playerName, const GlobalSystemMediaTransportControlsSession &player, const QString artUrl)
 {
     QSharedPointer<QBuffer> qdata = QSharedPointer<QBuffer>(new QBuffer());
 
@@ -344,17 +339,16 @@ void MprisControlPlugin::getThumbnail(const std::variant<NetworkPacket, QString>
     QMetaObject::invokeMethod(
         this,
         [=]() {
-            sendAlbumArt(packetOrName, qdata, artUrl);
+            sendAlbumArt(playerName, qdata, artUrl);
         },
         Qt::QueuedConnection);
 }
 
-bool MprisControlPlugin::sendAlbumArt(const std::variant<NetworkPacket, QString> &packetOrName, const QSharedPointer<QBuffer> qdata, const QString artUrl)
+bool MprisControlPlugin::sendAlbumArt(const QString &playerName, const QSharedPointer<QBuffer> qdata, const QString artUrl)
 {
     qWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Sending Album Art";
-    NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
-    if (packetOrName.index() == 1)
-        np.set(QStringLiteral("player"), std::get<1>(packetOrName));
+    NetworkPacket np(PACKET_TYPE_MPRIS);
+    np.set(QStringLiteral("player"), playerName);
 
     np.set(QStringLiteral("transferringAlbumArt"), true);
     np.set(QStringLiteral("albumArtUrl"), artUrl);
@@ -515,7 +509,9 @@ void MprisControlPlugin::receivePacket(const NetworkPacket &np)
     answer.set(QStringLiteral("player"), name);
     bool somethingToSend = false;
     if (np.get<bool>(QStringLiteral("requestNowPlaying"))) {
-        sendPlaybackInfo(answer, player);
+        addMediaProperties(answer, player);
+        addPlaybackInfo(answer, player);
+        addTimelineProperties(answer, player);
         somethingToSend = true;
     }
     if (np.get<bool>(QStringLiteral("requestVolume"))) {
