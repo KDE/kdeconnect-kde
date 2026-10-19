@@ -12,6 +12,7 @@
 #include "bluetoothlinkprovider.h"
 #include "connectionmultiplexer.h"
 #include "core_debug.h"
+#include "dbushelper.h"
 #include "kdeconnectconfig.h"
 #include "multiplexchannel.h"
 
@@ -250,6 +251,12 @@ void BluetoothLinkProviderImpl::clientIdentityReceived(const QBluetoothAddress &
     }
     QSslCertificate receivedCertificate(certificateBody.toLatin1());
     DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(receivedPacket, receivedCertificate);
+    if (!isCertificateValid(deviceInfo)) {
+        mSockets.remove(peer);
+        socket->close();
+        socket->deleteLater();
+        return;
+    }
     BluetoothDeviceLink *deviceLink = new BluetoothDeviceLink(deviceInfo, mParent, mSockets[peer], socket);
 
     DeviceInfo myDeviceInfo = KdeConnectConfig::instance().deviceInfo();
@@ -367,9 +374,34 @@ void BluetoothLinkProviderImpl::serverDataReceived(const QBluetoothAddress &peer
     }
     QSslCertificate receivedCertificate(certificateBody.toLatin1());
     DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(receivedPacket, receivedCertificate);
+    if (!isCertificateValid(deviceInfo)) {
+        mSockets.remove(peer);
+        socket->close();
+        socket->deleteLater();
+        return;
+    }
     BluetoothDeviceLink *deviceLink = new BluetoothDeviceLink(deviceInfo, mParent, mSockets[peer], socket);
 
     addLink(deviceLink, deviceInfo.id);
+}
+
+bool BluetoothLinkProviderImpl::isCertificateValid(const DeviceInfo &deviceInfo)
+{
+    QString certDeviceId = deviceInfo.certificate.subjectDisplayName();
+    DBusHelper::filterNonExportableCharacters(certDeviceId);
+    if (certDeviceId != deviceInfo.id) {
+        qCWarning(KDECONNECT_CORE) << "BluetoothLinkProviderImpl: DeviceID in cert doesn't match deviceID in identity packet." << deviceInfo.id << "vs"
+                                   << certDeviceId;
+        return false;
+    }
+
+    if (KdeConnectConfig::instance().trustedDevices().contains(deviceInfo.id)
+        && deviceInfo.certificate != KdeConnectConfig::instance().getTrustedDeviceCertificate(deviceInfo.id)) {
+        qCWarning(KDECONNECT_CORE) << "BluetoothLinkProviderImpl: Certificate doesn't match the one stored for trusted device" << deviceInfo.id;
+        return false;
+    }
+
+    return true;
 }
 
 void BluetoothLinkProviderImpl::onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr)
