@@ -23,6 +23,7 @@ ColumnLayout {
         id: messageDialog
         title: i18nd("kdeconnect-sms", "Failed to send")
         text: i18nd("kdeconnect-sms", "Max message size limit exceeded.")
+        buttons: MessageDialog.Ok
 
         onAccepted: {
             messageDialog.close()
@@ -188,7 +189,7 @@ ColumnLayout {
                             isSendingInProcess = true
 
                             if (SmsHelper.totalMessageSize(selectedFileUrls, messageField.text) > maxMessageSize) {
-                                messageDialog.visible = true
+                                messageDialog.open()
                             } else if (page.conversationId === page.invalidId) {
                                 messageSent = conversationModel.startNewConversation(messageField.text, addresses, selectedFileUrls)
                             } else {
