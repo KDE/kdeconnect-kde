@@ -153,6 +153,7 @@ void BluetoothLinkProviderImpl::serviceDiscovered(const QBluetoothServiceInfo &o
 
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProviderImpl::serviceDiscovered before creating socket";
     QBluetoothSocket *socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
+    socket->setPreferredSecurityFlags(QBluetooth::Security::Encryption | QBluetooth::Security::Secure);
 
     // Delay before sending data
     QPointer<QBluetoothSocket> deleteableSocket = socket;
