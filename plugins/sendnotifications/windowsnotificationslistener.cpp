@@ -63,9 +63,6 @@ void WindowsNotificationsListener::onNotificationChanged(const UserNotificationL
     const AppDisplayInfo appDisplayInfo = userNotification.AppInfo().DisplayInfo();
     const std::wstring_view appDisplayName = appDisplayInfo.DisplayName();
     const QString appName = QString::fromWCharArray(appDisplayName.data(), appDisplayName.size());
-    if (!checkApplicationName(appName, QString())) {
-        return;
-    }
 
     const winrt::Windows::UI::Notifications::Notification notification = userNotification.Notification();
     const NotificationBinding toastBinding = notification.Visual().GetBinding(KnownNotificationBindings::ToastGeneric());
@@ -85,9 +82,6 @@ void WindowsNotificationsListener::onNotificationChanged(const UserNotificationL
     }
 
     const QString content = QString::fromStdWString(ticker);
-    if (checkIsInBlacklist(appName, content)) {
-        return;
-    }
 
     static unsigned id = 0;
     if (id == std::numeric_limits<unsigned>::max()) {
@@ -127,8 +121,11 @@ void WindowsNotificationsListener::onNotificationChanged(const UserNotificationL
     // safe interaction with Qt objects, QMetaObject::invokeMethod is used to
     // schedule the execution within the Qt event loop of the object's thread.
     QMetaObject::invokeMethod(
-        m_plugin,
-        [&, np]() mutable {
+        this,
+        [this, appName, content, np]() mutable {
+            if (!checkApplicationName(appName, QString()) || checkIsInBlacklist(appName, content)) {
+                return;
+            }
             m_plugin->sendPacket(np);
         },
         Qt::QueuedConnection);

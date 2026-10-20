@@ -70,6 +70,9 @@ bool NotificationsListener::checkApplicationName(const QString &appName, const Q
 bool NotificationsListener::checkIsInBlacklist(const QString &appName, const QString &content)
 {
     auto appIt = m_applications.constFind(appName);
+    if (appIt == m_applications.cend()) {
+        return false;
+    }
     return appIt->blacklistExpression.isValid() && !appIt->blacklistExpression.pattern().isEmpty() && appIt->blacklistExpression.match(content).hasMatch();
 }
 
