@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:46+0000\n"
+"POT-Creation-Date: 2026-10-20 00:52+0000\n"
 "PO-Revision-Date: 2026-09-21 23:11+0200\n"
 "Last-Translator: Shinjo Park <peremen@gmail.com>\n"
 "Language-Team: Korean\n"
@@ -111,9 +111,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "현재 재생기"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:102
-#: mpriscontrol/mpriscontrolplugin-win.cpp:103
-#: mpriscontrol/mpriscontrolplugin-win.cpp:104
+#: mpriscontrol/mpriscontrolplugin-win.cpp:98
+#: mpriscontrol/mpriscontrolplugin-win.cpp:99
+#: mpriscontrol/mpriscontrolplugin-win.cpp:100
 #, kde-format
 msgid "N/A"
 msgstr "없음"
@@ -423,41 +423,41 @@ msgstr "파일 저장 경로:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "경로 중 %1 문자열은 지정한 장치 이름으로 대체됩니다"
 
-#: share/shareplugin.cpp:164
+#: share/shareplugin.cpp:171
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
 msgstr "공유한 텍스트를 클립보드에 복사함"
 
-#: share/shareplugin.cpp:168
+#: share/shareplugin.cpp:175
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "%1에서 공유한 텍스트를 클립보드에 복사함"
 
-#: share/shareplugin.cpp:219
+#: share/shareplugin.cpp:226
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "텍스트 편집기에서 열기"
 
-#: share/shareplugin.cpp:223
+#: share/shareplugin.cpp:230
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "링크 열기"
 
-#: share/shareplugin.cpp:264 share/shareplugin.cpp:269
+#: share/shareplugin.cpp:271 share/shareplugin.cpp:276
 #, kde-format
 msgid "Could not share file"
 msgstr "파일을 공유할 수 없음"
 
-#: share/shareplugin.cpp:264
+#: share/shareplugin.cpp:271
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1이(가) 없음"
 
-#: share/shareplugin.cpp:269
+#: share/shareplugin.cpp:276
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "권한 거부됨: %1"

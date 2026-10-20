@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-25 00:44+0000\n"
+"POT-Creation-Date: 2026-10-20 00:52+0000\n"
 "PO-Revision-Date: 2025-03-09 17:05+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -232,24 +232,24 @@ msgstr "அனுப்புவது தோல்வியடைந்தத�
 msgid "Max message size limit exceeded."
 msgstr "செய்தி அதற்கான அதிகபட்ச அளவை மீறியது."
 
-#: qml/SendingArea.qml:67
+#: qml/SendingArea.qml:68
 #, kde-format
 msgid "Send a message…"
 msgstr "செய்தியை அனுப்பு…"
 
-#: qml/SendingArea.qml:123
+#: qml/SendingArea.qml:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
 msgstr "படத்தை அல்லது கோப்பை இணை"
 
-#: qml/SendingArea.qml:148
+#: qml/SendingArea.qml:149
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
 msgstr "உடனிணைப்புகளை நீக்கு"
 
-#: qml/SendingArea.qml:177
+#: qml/SendingArea.qml:178
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"

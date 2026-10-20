@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:46+0000\n"
+"POT-Creation-Date: 2026-10-20 00:52+0000\n"
 "PO-Revision-Date: 2026-07-27 08:39+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -114,9 +114,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Поточний програвач"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:102
-#: mpriscontrol/mpriscontrolplugin-win.cpp:103
-#: mpriscontrol/mpriscontrolplugin-win.cpp:104
+#: mpriscontrol/mpriscontrolplugin-win.cpp:98
+#: mpriscontrol/mpriscontrolplugin-win.cpp:99
+#: mpriscontrol/mpriscontrolplugin-win.cpp:100
 #, kde-format
 msgid "N/A"
 msgstr "н/д"
@@ -427,41 +427,41 @@ msgstr "Зберігати файли до:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 у записі шляху буде замінено на специфічну назву пристрою"
 
-#: share/shareplugin.cpp:164
+#: share/shareplugin.cpp:171
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
 msgstr "Оприлюднений текст скопійовано до буфера"
 
-#: share/shareplugin.cpp:168
+#: share/shareplugin.cpp:175
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Оприлюднений текст з %1 скопійовано до буфера"
 
-#: share/shareplugin.cpp:219
+#: share/shareplugin.cpp:226
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Відкрити у текстовому редакторі"
 
-#: share/shareplugin.cpp:223
+#: share/shareplugin.cpp:230
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Відкрити посилання"
 
-#: share/shareplugin.cpp:264 share/shareplugin.cpp:269
+#: share/shareplugin.cpp:271 share/shareplugin.cpp:276
 #, kde-format
 msgid "Could not share file"
 msgstr "Не вдалося оприлюднити файл"
 
-#: share/shareplugin.cpp:264
+#: share/shareplugin.cpp:271
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 не існує"
 
-#: share/shareplugin.cpp:269
+#: share/shareplugin.cpp:276
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Відмовлено у доступі: %1"

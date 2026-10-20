@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:46+0000\n"
+"POT-Creation-Date: 2026-10-20 00:52+0000\n"
 "PO-Revision-Date: 2026-05-26 23:17+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -115,9 +115,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Aktuelles Wiedergabegerät"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:102
-#: mpriscontrol/mpriscontrolplugin-win.cpp:103
-#: mpriscontrol/mpriscontrolplugin-win.cpp:104
+#: mpriscontrol/mpriscontrolplugin-win.cpp:98
+#: mpriscontrol/mpriscontrolplugin-win.cpp:99
+#: mpriscontrol/mpriscontrolplugin-win.cpp:100
 #, kde-format
 msgid "N/A"
 msgstr "N/V"
@@ -430,7 +430,7 @@ msgstr "Dateien speichern unter:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "„%1“ im Pfad wird durch den angegebenen Gerätenamen ersetzt"
 
-#: share/shareplugin.cpp:164
+#: share/shareplugin.cpp:171
 #, fuzzy, kde-format
 #| msgctxt "@info Some piece of text was received from a connected device"
 #| msgid "Shared text from %1 copied to clipboard"
@@ -438,35 +438,35 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
 msgstr "Geteilter Text von %1 in die Zwischenablage kopiert"
 
-#: share/shareplugin.cpp:168
+#: share/shareplugin.cpp:175
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Geteilter Text von %1 in die Zwischenablage kopiert"
 
-#: share/shareplugin.cpp:219
+#: share/shareplugin.cpp:226
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "In Texteditor öffnen"
 
-#: share/shareplugin.cpp:223
+#: share/shareplugin.cpp:230
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Verknüpfung öffnen"
 
-#: share/shareplugin.cpp:264 share/shareplugin.cpp:269
+#: share/shareplugin.cpp:271 share/shareplugin.cpp:276
 #, kde-format
 msgid "Could not share file"
 msgstr "Die Datei kann nicht geteilt werden"
 
-#: share/shareplugin.cpp:264
+#: share/shareplugin.cpp:271
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 existiert nicht"
 
-#: share/shareplugin.cpp:269
+#: share/shareplugin.cpp:276
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Zugriff verweigert: %1"

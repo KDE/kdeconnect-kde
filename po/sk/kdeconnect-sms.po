@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-25 00:44+0000\n"
+"POT-Creation-Date: 2026-10-20 00:52+0000\n"
 "PO-Revision-Date: 2024-04-27 16:45+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -226,24 +226,24 @@ msgstr "Odosielanie zlyhalo"
 msgid "Max message size limit exceeded."
 msgstr "Bol prekročený limit maximálnej veľkosti správy."
 
-#: qml/SendingArea.qml:67
+#: qml/SendingArea.qml:68
 #, kde-format
 msgid "Send a message…"
 msgstr "Odoslať správu"
 
-#: qml/SendingArea.qml:123
+#: qml/SendingArea.qml:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
 msgstr "Priložiť obrázok alebo súbor"
 
-#: qml/SendingArea.qml:148
+#: qml/SendingArea.qml:149
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
 msgstr "Vymazať prílohy"
 
-#: qml/SendingArea.qml:177
+#: qml/SendingArea.qml:178
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-25 00:44+0000\n"
+"POT-Creation-Date: 2026-10-20 00:52+0000\n"
 "PO-Revision-Date: 2025-10-14 23:46+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -226,24 +226,24 @@ msgstr "Verzenden is mislukt"
 msgid "Max message size limit exceeded."
 msgstr "Limiet voor maximale grootte van bericht overschreden."
 
-#: qml/SendingArea.qml:67
+#: qml/SendingArea.qml:68
 #, kde-format
 msgid "Send a message…"
 msgstr "Een bericht verzenden…"
 
-#: qml/SendingArea.qml:123
+#: qml/SendingArea.qml:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
 msgstr "Een afbeelding of bestand bijvoegen"
 
-#: qml/SendingArea.qml:148
+#: qml/SendingArea.qml:149
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
 msgstr "Bijlagen wissen"
 
-#: qml/SendingArea.qml:177
+#: qml/SendingArea.qml:178
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
