@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 03:05+0000\n"
+"POT-Creation-Date: 2026-10-20 03:13+0000\n"
 "PO-Revision-Date: 2026-05-08 07:53+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -113,9 +113,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Поточний програвач"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:102
-#: mpriscontrol/mpriscontrolplugin-win.cpp:103
-#: mpriscontrol/mpriscontrolplugin-win.cpp:104
+#: mpriscontrol/mpriscontrolplugin-win.cpp:98
+#: mpriscontrol/mpriscontrolplugin-win.cpp:99
+#: mpriscontrol/mpriscontrolplugin-win.cpp:100
 #, kde-format
 msgid "N/A"
 msgstr "н/д"
@@ -426,35 +426,35 @@ msgstr "Зберігати файли до:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 у записі шляху буде замінено на специфічну назву пристрою"
 
-#: share/shareplugin.cpp:162
+#: share/shareplugin.cpp:169
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Оприлюднений текст з %1 скопійовано до буфера"
 
-#: share/shareplugin.cpp:202
+#: share/shareplugin.cpp:209
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Відкрити у текстовому редакторі"
 
-#: share/shareplugin.cpp:206
+#: share/shareplugin.cpp:213
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Відкрити посилання"
 
-#: share/shareplugin.cpp:247 share/shareplugin.cpp:252
+#: share/shareplugin.cpp:254 share/shareplugin.cpp:259
 #, kde-format
 msgid "Could not share file"
 msgstr "Не вдалося оприлюднити файл"
 
-#: share/shareplugin.cpp:247
+#: share/shareplugin.cpp:254
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 не існує"
 
-#: share/shareplugin.cpp:252
+#: share/shareplugin.cpp:259
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Відмовлено у доступі: %1"
