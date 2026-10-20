@@ -65,7 +65,7 @@ int DevicesModel::rowForDevice(const QString &id) const
 void DevicesModel::deviceAdded(const QString &id)
 {
     if (rowForDevice(id) >= 0) {
-        Q_ASSERT_X(false, "deviceAdded", "Trying to add a device twice");
+        qCDebug(KDECONNECT_MODELS) << "Trying to add a device twice" << id;
         return;
     }
 
