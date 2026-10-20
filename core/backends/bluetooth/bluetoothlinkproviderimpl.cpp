@@ -128,13 +128,12 @@ void BluetoothLinkProviderImpl::connectError()
 
 void BluetoothLinkProviderImpl::addLink(BluetoothDeviceLink *deviceLink, const QString &deviceId)
 {
-    Q_EMIT connectionReceived(deviceLink);
-
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProviderImpl::addLink executed";
-    if (mLinks.contains(deviceId)) {
-        delete mLinks.take(deviceId); // not calling deleteLater because this triggers onLinkDestroyed
-    }
+    // Delete the old link first, so Device never holds both
+    delete mLinks.value(deviceId);
     mLinks[deviceId] = deviceLink;
+
+    Q_EMIT connectionReceived(deviceLink);
 }
 
 void BluetoothLinkProviderImpl::serviceDiscovered(const QBluetoothServiceInfo &old_info)

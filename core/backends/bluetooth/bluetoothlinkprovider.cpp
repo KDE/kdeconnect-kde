@@ -9,33 +9,13 @@
 #include "bluetoothlinkproviderimpl.h"
 
 BluetoothLinkProvider::BluetoothLinkProvider(bool isDisabled)
+    : wrappedInstance(new BluetoothLinkProviderImpl(isDisabled, this))
+    , connectTimer(new QTimer(this))
 {
-    startDisabled = isDisabled;
+    connect(wrappedInstance, &BluetoothLinkProviderImpl::connectionReceived, this, &BluetoothLinkProvider::onNewDeviceLink);
 
-    this->moveToThread(&workerThread);
-
-    connect(&workerThread, &QThread::started, this, [this, isDisabled]() {
-        wrappedInstance = new BluetoothLinkProviderImpl(isDisabled, this);
-
-        connect(wrappedInstance, &BluetoothLinkProviderImpl::connectionReceived, this, &BluetoothLinkProvider::onNewDeviceLink);
-
-        connect(this, &BluetoothLinkProvider::enableRequestEvent, wrappedInstance, &BluetoothLinkProviderImpl::enable);
-        connect(this, &BluetoothLinkProvider::disableRequestEvent, wrappedInstance, &BluetoothLinkProviderImpl::disable);
-        connect(this, &BluetoothLinkProvider::startRequestEvent, wrappedInstance, &BluetoothLinkProviderImpl::onStart);
-        connect(this, &BluetoothLinkProvider::stopRequestEvent, wrappedInstance, &BluetoothLinkProviderImpl::onStop);
-        connect(this, &BluetoothLinkProvider::networkChangeEvent, wrappedInstance, &BluetoothLinkProviderImpl::onNetworkChange);
-
-        connectTimer = new QTimer();
-        connectTimer->setInterval(30000);
-        connect(connectTimer, &QTimer::timeout, wrappedInstance, &BluetoothLinkProviderImpl::onStartDiscovery);
-
-        connect(this, &BluetoothLinkProvider::enableRequestEvent, connectTimer, qOverload<>(&QTimer::start));
-        connect(this, &BluetoothLinkProvider::startRequestEvent, connectTimer, qOverload<>(&QTimer::start));
-        connect(this, &BluetoothLinkProvider::disableRequestEvent, connectTimer, &QTimer::stop);
-        connect(this, &BluetoothLinkProvider::stopRequestEvent, connectTimer, &QTimer::stop);
-    });
-
-    workerThread.start();
+    connectTimer->setInterval(30000);
+    connect(connectTimer, &QTimer::timeout, wrappedInstance, &BluetoothLinkProviderImpl::onStartDiscovery);
 }
 
 BluetoothLinkProvider::~BluetoothLinkProvider()
@@ -44,34 +24,36 @@ BluetoothLinkProvider::~BluetoothLinkProvider()
 
 void BluetoothLinkProvider::enable()
 {
-    Q_EMIT enableRequestEvent();
+    wrappedInstance->enable();
+    connectTimer->start();
 }
 
 void BluetoothLinkProvider::disable()
 {
-    Q_EMIT disableRequestEvent();
+    wrappedInstance->disable();
+    connectTimer->stop();
 }
 
 void BluetoothLinkProvider::onStart()
 {
-    Q_EMIT startRequestEvent();
+    wrappedInstance->onStart();
+    connectTimer->start();
 }
 
 void BluetoothLinkProvider::onStop()
 {
-    Q_EMIT stopRequestEvent();
+    wrappedInstance->onStop();
+    connectTimer->stop();
 }
 
 void BluetoothLinkProvider::onNetworkChange()
 {
-    Q_EMIT networkChangeEvent();
+    wrappedInstance->onNetworkChange();
 }
 
 void BluetoothLinkProvider::onLinkDestroyed(const QString &a, DeviceLink *b)
 {
-    if (wrappedInstance != nullptr) {
-        wrappedInstance->onLinkDestroyed(a, b);
-    }
+    wrappedInstance->onLinkDestroyed(a, b);
 }
 
 void BluetoothLinkProvider::onNewDeviceLink(DeviceLink *link)
