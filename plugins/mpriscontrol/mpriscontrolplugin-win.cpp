@@ -54,16 +54,16 @@ MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args
     this->updatePlayerList();
 }
 
-std::optional<QString> MprisControlPlugin::getPlayerName(const GlobalSystemMediaTransportControlsSession &player)
+std::optional<GlobalSystemMediaTransportControlsSession> MprisControlPlugin::getPlayer(const QString &playerName)
 {
-    auto entry = std::find(this->playerList.constBegin(), this->playerList.constEnd(), player);
+    auto entry = playerList.constFind(playerName);
 
-    if (entry == this->playerList.constEnd()) {
-        qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "PlaybackInfoChanged received for no longer tracked session" << player.SourceAppUserModelId().c_str();
+    if (entry == playerList.constEnd()) {
+        qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Event received for no longer tracked session" << playerName;
         return std::nullopt;
     }
 
-    return entry.key();
+    return entry.value();
 }
 
 TimeSpan MprisControlPlugin::getPlayerPosition(const GlobalSystemMediaTransportControlsSession &player)
@@ -240,59 +240,55 @@ void MprisControlPlugin::updatePlayerList()
 
             player
                 .PlaybackInfoChanged(auto_revoke,
-                                     [this](GlobalSystemMediaTransportControlsSession player, PlaybackInfoChangedEventArgs args) {
-                                         // WinRT events are delivered on a thread pool thread, process them in the Qt thread
+                                     [this, uniqueName](GlobalSystemMediaTransportControlsSession, PlaybackInfoChangedEventArgs) {
                                          QMetaObject::invokeMethod(
                                              this,
-                                             [this, player]() {
-                                                 if (auto name = getPlayerName(player))
-                                                     sendPlaybackInfo(name.value(), player);
+                                             [this, uniqueName]() {
+                                                 if (auto player = getPlayer(uniqueName))
+                                                     sendPlaybackInfo(uniqueName, player.value());
                                              },
                                              Qt::QueuedConnection);
                                      })
                 .swap(playbackInfoChangedHandlers[i]);
-            QTimer::singleShot(std::chrono::milliseconds(50), this, [this, player]() {
-                if (auto name = getPlayerName(player))
-                    sendPlaybackInfo(name.value(), player);
+            QTimer::singleShot(std::chrono::milliseconds(50), this, [this, uniqueName]() {
+                if (auto player = getPlayer(uniqueName))
+                    sendPlaybackInfo(uniqueName, player.value());
             });
 
-            if (auto name = getPlayerName(player))
-                sendPlaybackInfo(name.value(), player);
+            sendPlaybackInfo(uniqueName, player);
 
             player
                 .MediaPropertiesChanged(auto_revoke,
-                                        [this](GlobalSystemMediaTransportControlsSession player, MediaPropertiesChangedEventArgs args) {
-                                            // WinRT events are delivered on a thread pool thread, process them in the Qt thread
+                                        [this, uniqueName](GlobalSystemMediaTransportControlsSession, MediaPropertiesChangedEventArgs) {
                                             QMetaObject::invokeMethod(
                                                 this,
-                                                [this, player]() {
-                                                    if (auto name = getPlayerName(player))
-                                                        sendMediaProperties(name.value(), player);
+                                                [this, uniqueName]() {
+                                                    if (auto player = getPlayer(uniqueName))
+                                                        sendMediaProperties(uniqueName, player.value());
                                                 },
                                                 Qt::QueuedConnection);
                                         })
                 .swap(mediaPropertiesChangedHandlers[i]);
-            QTimer::singleShot(std::chrono::milliseconds(50), this, [this, player]() {
-                if (auto name = getPlayerName(player))
-                    sendMediaProperties(name.value(), player);
+            QTimer::singleShot(std::chrono::milliseconds(50), this, [this, uniqueName]() {
+                if (auto player = getPlayer(uniqueName))
+                    sendMediaProperties(uniqueName, player.value());
             });
 
             player
                 .TimelinePropertiesChanged(auto_revoke,
-                                           [this](GlobalSystemMediaTransportControlsSession player, TimelinePropertiesChangedEventArgs args) {
-                                               // WinRT events are delivered on a thread pool thread, process them in the Qt thread
+                                           [this, uniqueName](GlobalSystemMediaTransportControlsSession, TimelinePropertiesChangedEventArgs) {
                                                QMetaObject::invokeMethod(
                                                    this,
-                                                   [this, player]() {
-                                                       if (auto name = getPlayerName(player))
-                                                           sendTimelineProperties(name.value(), player);
+                                                   [this, uniqueName]() {
+                                                       if (auto player = getPlayer(uniqueName))
+                                                           sendTimelineProperties(uniqueName, player.value());
                                                    },
                                                    Qt::QueuedConnection);
                                            })
                 .swap(timelinePropertiesChangedHandlers[i]);
-            QTimer::singleShot(std::chrono::milliseconds(50), this, [this, player]() {
-                if (auto name = getPlayerName(player))
-                    sendTimelineProperties(name.value(), player);
+            QTimer::singleShot(std::chrono::milliseconds(50), this, [this, uniqueName]() {
+                if (auto player = getPlayer(uniqueName))
+                    sendTimelineProperties(uniqueName, player.value());
             });
         }
     } catch (winrt::hresult_error e) {
