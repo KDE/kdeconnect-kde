@@ -153,7 +153,7 @@ void SftpPlugin::receivePacket(const NetworkPacket &np)
     }
 
     // Note: for Windows, a password field is also expected. See the expectedFields definition in sftpplugin-win.cpp
-    static const QSet<QString> expectedFields{QStringLiteral("user"), QStringLiteral("port"), QStringLiteral("path"), QStringLiteral("password")};
+    static const QSet<QString> expectedFields{QStringLiteral("user"), QStringLiteral("port"), QStringLiteral("path")};
     const QStringList receivedFieldsList = np.body().keys();
     const QSet<QString> receivedFields(receivedFieldsList.begin(), receivedFieldsList.end());
     if (!(expectedFields - receivedFields).isEmpty()) {
