@@ -43,8 +43,17 @@ public:
     void onLinkDestroyed(const QString &a, DeviceLink *b) override;
 
 private:
+    void updateImpl();
+
     BluetoothLinkProviderImpl *wrappedInstance;
     QTimer *connectTimer;
+    bool started;
+    bool enabled;
+
+#ifdef Q_OS_LINUX
+    void startBluezAsync();
+    bool bluezRunning;
+#endif
 
 private Q_SLOTS:
     void onNewDeviceLink(DeviceLink *link);
