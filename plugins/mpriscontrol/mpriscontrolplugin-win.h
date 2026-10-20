@@ -45,7 +45,7 @@ private:
     std::vector<GlobalSystemMediaTransportControlsSession::MediaPropertiesChanged_revoker> mediaPropertiesChangedHandlers;
     std::vector<GlobalSystemMediaTransportControlsSession::TimelinePropertiesChanged_revoker> timelinePropertiesChangedHandlers;
 
-    std::optional<QString> getPlayerName(const GlobalSystemMediaTransportControlsSession &player);
+    std::optional<GlobalSystemMediaTransportControlsSession> getPlayer(const QString &playerName);
     TimeSpan getPlayerPosition(const GlobalSystemMediaTransportControlsSession &player);
     void addMediaProperties(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player);
     void addPlaybackInfo(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player);
