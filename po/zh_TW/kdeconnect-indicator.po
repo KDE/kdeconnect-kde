@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:46+0000\n"
+"POT-Creation-Date: 2026-10-21 00:51+0000\n"
 "PO-Revision-Date: 2025-07-01 19:43+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -32,38 +32,38 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "pan93412@gmail.com, brli@chakralinux.org"
 
-#: deviceindicator.cpp:54
+#: deviceindicator.cpp:56
 #, kde-format
 msgid "Browse device"
 msgstr "瀏覽裝置"
 
-#: deviceindicator.cpp:68
+#: deviceindicator.cpp:70
 #, kde-format
 msgid "Send clipboard"
 msgstr "傳送剪貼簿"
 
-#: deviceindicator.cpp:82
+#: deviceindicator.cpp:84
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "讓裝置響鈴"
 
-#: deviceindicator.cpp:96
+#: deviceindicator.cpp:98
 #, kde-format
 msgid "Send files"
 msgstr "傳送檔案"
 
-#: deviceindicator.cpp:118
+#: deviceindicator.cpp:124
 #, kde-format
 msgid "SMS Messages…"
 msgstr "簡訊…"
 
-#: deviceindicator.cpp:131
+#: deviceindicator.cpp:137
 #, kde-format
 msgid "Run command"
 msgstr "執行指令"
 
-#: deviceindicator.cpp:133
+#: deviceindicator.cpp:139
 #, kde-format
 msgid "Add commands"
 msgstr "新增指令"
@@ -112,33 +112,33 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: main.cpp:106
+#: main.cpp:113
 #, kde-format
 msgid "Open app"
 msgstr "開啟應用程式"
 
-#: main.cpp:123
+#: main.cpp:130
 #, kde-format
 msgid "Pairing requests"
 msgstr "配對請求"
 
-#: main.cpp:128
+#: main.cpp:136
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "配對"
 
-#: main.cpp:129
+#: main.cpp:137
 #, kde-format
 msgid "Reject"
 msgstr "拒絕"
 
-#: main.cpp:134 main.cpp:147
+#: main.cpp:142 main.cpp:155
 #, kde-format
 msgid "Quit"
 msgstr "離開"
 
-#: main.cpp:164 main.cpp:186
+#: main.cpp:172 main.cpp:194
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

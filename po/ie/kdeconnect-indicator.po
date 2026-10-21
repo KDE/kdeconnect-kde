@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:46+0000\n"
+"POT-Creation-Date: 2026-10-21 00:51+0000\n"
 "PO-Revision-Date: 2022-11-16 16:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -28,41 +28,41 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mistresssilvara@hotmail.com"
 
-#: deviceindicator.cpp:54
+#: deviceindicator.cpp:56
 #, kde-format
 msgid "Browse device"
 msgstr "Navigar ti aparate"
 
-#: deviceindicator.cpp:68
+#: deviceindicator.cpp:70
 #, kde-format
 msgid "Send clipboard"
 msgstr ""
 
-#: deviceindicator.cpp:82
+#: deviceindicator.cpp:84
 #, fuzzy, kde-format
 #| msgid "Ring device"
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Sonar"
 
-#: deviceindicator.cpp:96
+#: deviceindicator.cpp:98
 #, fuzzy, kde-format
 #| msgid "Send a file/URL"
 msgid "Send files"
 msgstr "Inviar un file o URL"
 
-#: deviceindicator.cpp:118
+#: deviceindicator.cpp:124
 #, fuzzy, kde-format
 #| msgid "SMS Messages..."
 msgid "SMS Messages…"
 msgstr "Missages SMS..."
 
-#: deviceindicator.cpp:131
+#: deviceindicator.cpp:137
 #, kde-format
 msgid "Run command"
 msgstr "Lansar un comande"
 
-#: deviceindicator.cpp:133
+#: deviceindicator.cpp:139
 #, fuzzy, kde-format
 msgid "Add commands"
 msgstr "Comandes"
@@ -110,34 +110,34 @@ msgstr "(C) 2016 Aleix Pol Gonzalez"
 msgid "Albert Vaca Cintora"
 msgstr ""
 
-#: main.cpp:106
+#: main.cpp:113
 #, kde-format
 msgid "Open app"
 msgstr ""
 
-#: main.cpp:123
+#: main.cpp:130
 #, kde-format
 msgid "Pairing requests"
 msgstr "Demandes de acuplation"
 
-#: main.cpp:128
+#: main.cpp:136
 #, fuzzy, kde-format
 #| msgid "Pair"
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Acuplar"
 
-#: main.cpp:129
+#: main.cpp:137
 #, kde-format
 msgid "Reject"
 msgstr "Rejecter"
 
-#: main.cpp:134 main.cpp:147
+#: main.cpp:142 main.cpp:155
 #, kde-format
 msgid "Quit"
 msgstr "Surtir"
 
-#: main.cpp:164 main.cpp:186
+#: main.cpp:172 main.cpp:194
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

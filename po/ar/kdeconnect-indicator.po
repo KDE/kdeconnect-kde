@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:46+0000\n"
+"POT-Creation-Date: 2026-10-21 00:51+0000\n"
 "PO-Revision-Date: 2025-07-31 18:25+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -28,38 +28,38 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
 
-#: deviceindicator.cpp:54
+#: deviceindicator.cpp:56
 #, kde-format
 msgid "Browse device"
 msgstr "تصفّح جهاز"
 
-#: deviceindicator.cpp:68
+#: deviceindicator.cpp:70
 #, kde-format
 msgid "Send clipboard"
 msgstr "أرسل الحافظة"
 
-#: deviceindicator.cpp:82
+#: deviceindicator.cpp:84
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "رنّ على الجهاز"
 
-#: deviceindicator.cpp:96
+#: deviceindicator.cpp:98
 #, kde-format
 msgid "Send files"
 msgstr "أرسل ملفّات"
 
-#: deviceindicator.cpp:118
+#: deviceindicator.cpp:124
 #, kde-format
 msgid "SMS Messages…"
 msgstr "الرسائل النصية القصيرة…"
 
-#: deviceindicator.cpp:131
+#: deviceindicator.cpp:137
 #, kde-format
 msgid "Run command"
 msgstr "نفّذ أمرًا"
 
-#: deviceindicator.cpp:133
+#: deviceindicator.cpp:139
 #, kde-format
 msgid "Add commands"
 msgstr "أضف أوامر"
@@ -108,33 +108,33 @@ msgstr "أليكس بول غونزاليس"
 msgid "Albert Vaca Cintora"
 msgstr "ألبرت فاكا سينتورا"
 
-#: main.cpp:106
+#: main.cpp:113
 #, kde-format
 msgid "Open app"
 msgstr "افتح تطبيق"
 
-#: main.cpp:123
+#: main.cpp:130
 #, kde-format
 msgid "Pairing requests"
 msgstr "طلبات الاقتران"
 
-#: main.cpp:128
+#: main.cpp:136
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "اقرن"
 
-#: main.cpp:129
+#: main.cpp:137
 #, kde-format
 msgid "Reject"
 msgstr "ارفض"
 
-#: main.cpp:134 main.cpp:147
+#: main.cpp:142 main.cpp:155
 #, kde-format
 msgid "Quit"
 msgstr "أنهِ"
 
-#: main.cpp:164 main.cpp:186
+#: main.cpp:172 main.cpp:194
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

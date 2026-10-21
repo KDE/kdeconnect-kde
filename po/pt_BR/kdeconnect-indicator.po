@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:46+0000\n"
+"POT-Creation-Date: 2026-10-21 00:51+0000\n"
 "PO-Revision-Date: 2025-11-08 21:10-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -32,38 +32,38 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alvarenga@kde.org, geraldosimiao@fedoraproject.org"
 
-#: deviceindicator.cpp:54
+#: deviceindicator.cpp:56
 #, kde-format
 msgid "Browse device"
 msgstr "Navegar no dispositivo"
 
-#: deviceindicator.cpp:68
+#: deviceindicator.cpp:70
 #, kde-format
 msgid "Send clipboard"
 msgstr "Enviar área de transferência"
 
-#: deviceindicator.cpp:82
+#: deviceindicator.cpp:84
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Fazer o dispositivo tocar"
 
-#: deviceindicator.cpp:96
+#: deviceindicator.cpp:98
 #, kde-format
 msgid "Send files"
 msgstr "Enviar arquivos"
 
-#: deviceindicator.cpp:118
+#: deviceindicator.cpp:124
 #, kde-format
 msgid "SMS Messages…"
 msgstr "Mensagens SMS…"
 
-#: deviceindicator.cpp:131
+#: deviceindicator.cpp:137
 #, kde-format
 msgid "Run command"
 msgstr "Executar comando"
 
-#: deviceindicator.cpp:133
+#: deviceindicator.cpp:139
 #, kde-format
 msgid "Add commands"
 msgstr "Adicionar comandos"
@@ -112,33 +112,33 @@ msgstr "Aleix Pol Gonzalez"
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: main.cpp:106
+#: main.cpp:113
 #, kde-format
 msgid "Open app"
 msgstr "Abrir aplicativo"
 
-#: main.cpp:123
+#: main.cpp:130
 #, kde-format
 msgid "Pairing requests"
 msgstr "Pedidos de emparelhamento"
 
-#: main.cpp:128
+#: main.cpp:136
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Emparelhar"
 
-#: main.cpp:129
+#: main.cpp:137
 #, kde-format
 msgid "Reject"
 msgstr "Rejeitar"
 
-#: main.cpp:134 main.cpp:147
+#: main.cpp:142 main.cpp:155
 #, kde-format
 msgid "Quit"
 msgstr "Sair"
 
-#: main.cpp:164 main.cpp:186
+#: main.cpp:172 main.cpp:194
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
