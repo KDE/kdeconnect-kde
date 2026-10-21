@@ -165,6 +165,10 @@ void MprisControlPlugin::propertiesChanged(const QString & /*propertyInterface*/
         np.set(QStringLiteral("shuffle"), properties[QStringLiteral("Shuffle")].toBool());
         somethingToSend = true;
     }
+    if (properties.contains(QStringLiteral("Rate"))) {
+        np.set(QStringLiteral("rate"), properties[QStringLiteral("Rate")].toDouble());
+        somethingToSend = true;
+    }
     if (properties.contains(QStringLiteral("CanPause"))) {
         np.set(QStringLiteral("canPause"), properties[QStringLiteral("CanPause")].toBool());
         somethingToSend = true;
@@ -338,6 +342,12 @@ void MprisControlPlugin::receivePacket(const NetworkPacket &np)
         if (mprisInterface.property("Shuffle").isValid()) {
             bool shuffle = mprisInterface.shuffle();
             answer.set(QStringLiteral("shuffle"), shuffle);
+        }
+
+        // Rate is an optional field (1.0 default)
+        if (mprisInterface.property("Rate").isValid()) {
+            double rate = mprisInterface.rate();
+            answer.set(QStringLiteral("rate"), rate);
         }
 
         somethingToSend = true;
