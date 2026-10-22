@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:45+0000\n"
+"POT-Creation-Date: 2026-10-22 00:50+0000\n"
 "PO-Revision-Date: 2019-11-29 20:54+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -140,29 +140,29 @@ msgstr "Sertifikaadifaili salvestamine nurjus: %1"
 msgid "Received incomplete file from: %1"
 msgstr "Saadi ebatäielik fail seadmest %1"
 
-#: kdeconnectconfig.cpp:352 kdeconnectconfig.cpp:386
+#: kdeconnectconfig.cpp:433 kdeconnectconfig.cpp:467
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connecti käivitamine nurjus"
 
-#: kdeconnectconfig.cpp:352
+#: kdeconnectconfig.cpp:433
 #, fuzzy, kde-format
 #| msgid "Could not store private key file: %1"
 msgid "Could not generate the private key."
 msgstr "Privaatvõtmefaili salvestamine nurjus: %1"
 
-#: kdeconnectconfig.cpp:371
+#: kdeconnectconfig.cpp:452
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Privaatvõtmefaili salvestamine nurjus: %1"
 
-#: kdeconnectconfig.cpp:386
+#: kdeconnectconfig.cpp:467
 #, fuzzy, kde-format
 #| msgid "Could not store certificate file: %1"
 msgid "Could not generate the device certificate."
 msgstr "Sertifikaadifaili salvestamine nurjus: %1"
 
-#: kdeconnectconfig.cpp:402
+#: kdeconnectconfig.cpp:483
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Sertifikaadifaili salvestamine nurjus: %1"

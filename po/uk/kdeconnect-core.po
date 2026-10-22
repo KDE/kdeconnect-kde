@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:45+0000\n"
+"POT-Creation-Date: 2026-10-22 00:50+0000\n"
 "PO-Revision-Date: 2026-09-14 10:16+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -137,27 +137,27 @@ msgstr "Не вдалося створити файл призначення: %1
 msgid "Received incomplete file from: %1"
 msgstr "Файл отримано не повністю від %1"
 
-#: kdeconnectconfig.cpp:352 kdeconnectconfig.cpp:386
+#: kdeconnectconfig.cpp:433 kdeconnectconfig.cpp:467
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Не вдалося запустити засіб з’єднання KDE"
 
-#: kdeconnectconfig.cpp:352
+#: kdeconnectconfig.cpp:433
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "Не вдалося створити закритий ключ."
 
-#: kdeconnectconfig.cpp:371
+#: kdeconnectconfig.cpp:452
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Не вдалося зберегти файл закритого ключа: %1"
 
-#: kdeconnectconfig.cpp:386
+#: kdeconnectconfig.cpp:467
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Не вдалося створити сертифікат пристрою."
 
-#: kdeconnectconfig.cpp:402
+#: kdeconnectconfig.cpp:483
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Не вдалося зберегти файл сертифіката: %1"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:45+0000\n"
+"POT-Creation-Date: 2026-10-22 00:50+0000\n"
 "PO-Revision-Date: 2025-11-30 13:46+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -134,27 +134,27 @@ msgstr "சான்றிதழ் கோப்பை சேமிக்க ம
 msgid "Received incomplete file from: %1"
 msgstr "இதிலிருந்து முடிவடையாத கோப்பு பெறப்பட்டது: %1"
 
-#: kdeconnectconfig.cpp:352 kdeconnectconfig.cpp:386
+#: kdeconnectconfig.cpp:433 kdeconnectconfig.cpp:467
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "கே.டீ.யீ. கனெக்டின் துவக்கம் தோல்வியடைந்தது"
 
-#: kdeconnectconfig.cpp:352
+#: kdeconnectconfig.cpp:433
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "கமுக்க சாவியை உருவாக்க முடியவில்லை."
 
-#: kdeconnectconfig.cpp:371
+#: kdeconnectconfig.cpp:452
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "கமுக்க சாவி கோப்பை சேமிக்க முடியவில்லை: %1"
 
-#: kdeconnectconfig.cpp:386
+#: kdeconnectconfig.cpp:467
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "சாதனச் சான்றிதழை உருவாக்க முடியவில்லை."
 
-#: kdeconnectconfig.cpp:402
+#: kdeconnectconfig.cpp:483
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "சான்றிதழ் கோப்பை சேமிக்க முடியவில்லை: %1"

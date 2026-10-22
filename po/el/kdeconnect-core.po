@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:45+0000\n"
+"POT-Creation-Date: 2026-10-22 00:50+0000\n"
 "PO-Revision-Date: 2021-06-14 15:37+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -137,29 +137,29 @@ msgstr "Αδυναμία αποθήκευσης αρχείου πιστοποι�
 msgid "Received incomplete file from: %1"
 msgstr "Λήψη μη ολοκληρωμένου αρχείου από: %1"
 
-#: kdeconnectconfig.cpp:352 kdeconnectconfig.cpp:386
+#: kdeconnectconfig.cpp:433 kdeconnectconfig.cpp:467
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Αποτυχία εκκίνησης του KDE Connect"
 
-#: kdeconnectconfig.cpp:352
+#: kdeconnectconfig.cpp:433
 #, fuzzy, kde-format
 #| msgid "Could not store private key file: %1"
 msgid "Could not generate the private key."
 msgstr "Αδυναμία αποθήκευσης ιδιωτικού κλειδιού: %1"
 
-#: kdeconnectconfig.cpp:371
+#: kdeconnectconfig.cpp:452
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Αδυναμία αποθήκευσης ιδιωτικού κλειδιού: %1"
 
-#: kdeconnectconfig.cpp:386
+#: kdeconnectconfig.cpp:467
 #, fuzzy, kde-format
 #| msgid "Could not store certificate file: %1"
 msgid "Could not generate the device certificate."
 msgstr "Αδυναμία αποθήκευσης αρχείου πιστοποιητικού: %1"
 
-#: kdeconnectconfig.cpp:402
+#: kdeconnectconfig.cpp:483
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Αδυναμία αποθήκευσης αρχείου πιστοποιητικού: %1"
