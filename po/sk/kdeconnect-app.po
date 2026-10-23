@@ -479,10 +479,9 @@ msgid "KDE Connect iOS App"
 msgstr "KDE Connect"
 
 #: qml/WelcomePage.qml:69
-#, fuzzy, kde-format
-#| msgid "Apple Store"
+#, kde-format
 msgid "App Store"
-msgstr "Apple Store"
+msgstr "App Store"
 
 #~ msgid "Configure plugin"
 #~ msgstr "Nastaviť modul"
