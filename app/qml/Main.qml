@@ -28,6 +28,11 @@ Kirigami.ApplicationWindow {
         configGroupName: "MainWindow"
     }
 
+    Shortcut {
+        sequences: [StandardKey.Quit]
+        onActivated: root.close()
+    }
+
     Component {
         id: deviceComp
         DevicePage {}
