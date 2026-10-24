@@ -90,6 +90,9 @@ Kirigami.ApplicationWindow {
 
         handleClosedIcon.source: modal ? null : "sidebar-expand-left"
         handleOpenIcon.source: modal ? null : "sidebar-collapse-left"
+        handleClosedToolTip: i18nc("@action:button", "Open device list")
+        handleOpenToolTip: i18nc("@action:button", "Close device list")
+        handle.Accessible.name: drawerOpen ? handleOpenToolTip : handleClosedToolTip
         handleVisible: modal
 
         leftPadding: 0
