@@ -9,6 +9,7 @@
 
 #include <QAbstractItemModel>
 #include <QAbstractListModel>
+#include <QHash>
 #include <QList>
 #include <QPixmap>
 
@@ -69,8 +70,12 @@ Q_SIGNALS:
     void rowsChanged();
 
 private:
+    void updateAnyDismissable();
+
     DeviceNotificationsDbusInterface *m_dbusInterface;
     QList<NotificationDbusInterface *> m_notificationList;
+    QHash<NotificationDbusInterface *, bool> m_dismissable;
+    bool m_anyDismissable = false;
     QString m_deviceId;
 };
 
