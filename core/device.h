@@ -104,6 +104,7 @@ public:
 
     int protocolVersion();
     QStringList supportedPlugins() const;
+    QSet<QString> incomingCapabilities() const;
 
     QHostAddress getLocalIpAddress() const;
 

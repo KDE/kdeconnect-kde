@@ -143,6 +143,11 @@ QStringList Device::supportedPlugins() const
     return QList(d->m_supportedPlugins.cbegin(), d->m_supportedPlugins.cend());
 }
 
+QSet<QString> Device::incomingCapabilities() const
+{
+    return d->m_deviceInfo.incomingCapabilities;
+}
+
 bool Device::hasPlugin(const QString &name) const
 {
     return d->m_plugins.contains(name);
