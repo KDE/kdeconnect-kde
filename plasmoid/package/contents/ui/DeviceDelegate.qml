@@ -353,7 +353,7 @@ PlasmaComponents.ItemDelegate {
                     PlasmaComponents.ToolButton {
                         id: dismissAllButton
                         enabled: true
-                        visible: notificationsModel.isAnyDimissable;
+                        visible: notificationsModel.isAnyDismissable;
                         icon.name: "edit-clear-history"
                         icon.width: Kirigami.Units.iconSizes.smallMedium
                         icon.height: Kirigami.Units.iconSizes.smallMedium
@@ -618,7 +618,7 @@ PlasmaComponents.ItemDelegate {
 
                                         PlasmaComponents.ToolButton {
                                             id: dismissButton
-                                            visible: notificationsModel.isAnyDimissable;
+                                            visible: notificationsModel.isAnyDismissable;
                                             enabled: listitem.model.dismissable
                                             Layout.alignment: Qt.AlignTop
                                             icon.name: "window-close"

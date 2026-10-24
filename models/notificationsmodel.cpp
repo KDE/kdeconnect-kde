@@ -203,7 +203,7 @@ int NotificationsModel::rowCount(const QModelIndex &parent) const
     return m_notificationList.count();
 }
 
-bool NotificationsModel::isAnyDimissable() const
+bool NotificationsModel::isAnyDismissable() const
 {
     for (NotificationDbusInterface *notification : std::as_const(m_notificationList)) {
         if (notification->dismissable()) {

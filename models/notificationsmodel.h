@@ -21,7 +21,7 @@ class KDECONNECTMODELS_EXPORT NotificationsModel : public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
     Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
-    Q_PROPERTY(bool isAnyDimissable READ isAnyDimissable NOTIFY anyDismissableChanged STORED false)
+    Q_PROPERTY(bool isAnyDismissable READ isAnyDismissable NOTIFY anyDismissableChanged STORED false)
 
 public:
     enum ModelRoles {
@@ -49,7 +49,7 @@ public:
 
     NotificationDbusInterface *getNotification(const QModelIndex &index) const;
 
-    Q_INVOKABLE bool isAnyDimissable() const;
+    Q_INVOKABLE bool isAnyDismissable() const;
     QHash<int, QByteArray> roleNames() const override;
 
 public Q_SLOTS:
