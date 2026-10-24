@@ -171,8 +171,6 @@ Kirigami.ScrollablePage {
 
                                 ToolButton {
                                     id: dismissButton
-
-                                    visible: notificationsModel.isAnyDimissable
                                     enabled: listitem.model.dismissable
                                     Layout.alignment: Qt.AlignTop
                                     icon.name: "window-close"
