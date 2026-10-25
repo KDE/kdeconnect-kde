@@ -13,11 +13,11 @@
 #include <KPluginFactory>
 
 #include <QCoreApplication>
+#include <QCryptographicHash>
 #include <QPointer>
 #include <QTimer>
 
 #include <chrono>
-#include <random>
 
 #include <ppltasks.h>
 #include <windows.h>
@@ -82,20 +82,11 @@ TimeSpan MprisControlPlugin::getPlayerPosition(const GlobalSystemMediaTransportC
         return position;
 }
 
-QString MprisControlPlugin::randomUrl()
+QString MprisControlPlugin::albumArtUrl(const QString &title, const QString &artist, const QString &album)
 {
-    const QString VALID_CHARS = QStringLiteral("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    std::random_device rd;
-    std::default_random_engine generator(rd());
-    std::uniform_int_distribution<int> distribution(0, VALID_CHARS.size() - 1);
-
-    const int size = 10;
-    QString fileUrl(size, QChar());
-    for (int i = 0; i < size; i++) {
-        fileUrl[i] = VALID_CHARS[distribution(generator)];
-    }
-
-    return QStringLiteral("file://") + fileUrl;
+    // Windows doesn't give us a url for the thumbnail, so make up one that only changes when the track does.
+    const QByteArray track = (title + QChar::Null + artist + QChar::Null + album).toUtf8();
+    return QStringLiteral("file://") + QString::fromLatin1(QCryptographicHash::hash(track, QCryptographicHash::Sha1).toHex());
 }
 
 void MprisControlPlugin::addMediaProperties(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player)
@@ -114,11 +105,13 @@ void MprisControlPlugin::addMediaProperties(NetworkPacket &np, const GlobalSyste
     } catch (winrt::hresult_error e) {
         qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to get media properties";
     }
+    QString artUrl = albumArtUrl(title, artist, album);
 
     np.set(QStringLiteral("title"), title);
     np.set(QStringLiteral("artist"), artist);
     np.set(QStringLiteral("album"), album);
-    np.set(QStringLiteral("albumArtUrl"), randomUrl());
+    np.set(QStringLiteral("albumArtUrl"), artUrl);
+    // qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "DEBUG media properties" << title << artist << album << artUrl;
 
     np.set(QStringLiteral("url"), QString());
     addTimelineProperties(np, player, true); // "length"
@@ -377,7 +370,7 @@ void MprisControlPlugin::getThumbnail(const QString &playerName, const GlobalSys
 
 bool MprisControlPlugin::sendAlbumArt(const QString &playerName, const QSharedPointer<QBuffer> qdata, const QString artUrl)
 {
-    qWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Sending Album Art";
+    qWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Sending Album Art" << artUrl;
     NetworkPacket np(PACKET_TYPE_MPRIS);
     np.set(QStringLiteral("player"), playerName);
 

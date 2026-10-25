@@ -59,5 +59,5 @@ private:
 
     void handleDefaultPlayer(const NetworkPacket &np);
 
-    static QString randomUrl();
+    static QString albumArtUrl(const QString &title, const QString &artist, const QString &album);
 };
