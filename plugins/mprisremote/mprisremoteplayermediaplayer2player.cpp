@@ -77,7 +77,7 @@ void MprisRemotePlayerMediaPlayer2Player::setVolume(double volume) const
 
 qlonglong MprisRemotePlayerMediaPlayer2Player::Position() const
 {
-    return m_plugin->position() * qlonglong(1000);
+    return m_parent->position() * qlonglong(1000);
 }
 
 double MprisRemotePlayerMediaPlayer2Player::MinimumRate() const
