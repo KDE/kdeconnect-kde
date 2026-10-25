@@ -47,9 +47,9 @@ private:
 
     std::optional<GlobalSystemMediaTransportControlsSession> getPlayer(const QString &playerName);
     TimeSpan getPlayerPosition(const GlobalSystemMediaTransportControlsSession &player);
-    void addMediaProperties(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player);
-    void addPlaybackInfo(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player);
-    void addTimelineProperties(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player, bool lengthOnly = false);
+    static void addMediaProperties(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player);
+    static void addPlaybackInfo(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player);
+    static void addTimelineProperties(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player, bool lengthOnly = false);
     void sendMediaProperties(const QString &playerName, const GlobalSystemMediaTransportControlsSession &player);
     void sendPlaybackInfo(const QString &playerName, const GlobalSystemMediaTransportControlsSession &player);
     void sendTimelineProperties(const QString &playerName, const GlobalSystemMediaTransportControlsSession &player);
@@ -59,5 +59,5 @@ private:
 
     void handleDefaultPlayer(const NetworkPacket &np);
 
-    QString randomUrl();
+    static QString randomUrl();
 };
