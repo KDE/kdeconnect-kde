@@ -100,8 +100,12 @@ int main(int argc, char **argv)
     parser.addOption(QCommandLineOption(QStringLiteral("execute-command"), i18n("Execute remote command by id"), QStringLiteral("id")));
     parser.addOption(QCommandLineOption(QStringList{QStringLiteral("k"), QStringLiteral("send-keys")}, i18n("Send keys to device"), QStringLiteral("key")));
     parser.addOption(QCommandLineOption(QStringLiteral("my-id"), i18n("Display this device's id and exit")));
+#ifdef Q_OS_WIN
+    parser.addOption(QCommandLineOption(QStringLiteral("browse"), i18n("Browse the filesystem of a said device")));
+#else
     parser.addOption(QCommandLineOption(QStringLiteral("mount"), i18n("Mount filesystem of a said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("get-mount-point"), i18n("Print mount point for the filesystem of a said device")));
+#endif
 
     // Hidden because it's an implementation detail
     QCommandLineOption deviceAutocomplete(QStringLiteral("shell-device-autocompletion"));
@@ -442,6 +446,18 @@ int main(int argc, char **argv)
         DeviceDbusInterface dev(device);
         QString info = blockOnReply<QString>(dev.encryptionInfo()); // QSsl::Der = 1
         QTextStream(stdout) << info << Qt::endl;
+#ifdef Q_OS_WIN
+    } else if (parser.isSet(QStringLiteral("browse"))) {
+        QString device = getDevice(iface, parser);
+        if (device.isEmpty())
+            return 1;
+
+        QDBusMessage msgBrowse = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
+                                                                QLatin1String("/modules/kdeconnect/devices/%1/sftp").arg(device),
+                                                                QStringLiteral("org.kde.kdeconnect.device.sftp"),
+                                                                QStringLiteral("startBrowsing"));
+        blockOnReply(QDBusConnection::sessionBus().asyncCall(msgBrowse));
+#else
     } else if (parser.isSet(QStringLiteral("mount"))) {
         QString device = getDevice(iface, parser);
         if (device.isEmpty())
@@ -463,6 +479,7 @@ int main(int argc, char **argv)
                                                                     QStringLiteral("mountPoint"));
         QString mountPoint = blockOnReply<QString>(QDBusConnection::sessionBus().call(msgMountPoint));
         QTextStream(stdout) << mountPoint << Qt::endl;
+#endif
     } else {
         parser.showHelp(1);
     }
