@@ -12,6 +12,8 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
+#include <QCoreApplication>
+#include <QPointer>
 #include <QTimer>
 
 #include <chrono>
@@ -26,6 +28,16 @@ namespace
 {
 const QString DEFAULT_PLAYER =
     i18nc("@title Users select this to control the current media player when we can't detect a specific player name like VLC", "Current Player");
+
+void addMediaMetadata(NetworkPacket &np, const GlobalSystemMediaTransportControlsSessionMediaProperties &properties)
+{
+    if (!properties) {
+        return;
+    }
+    np.set(QStringLiteral("title"), QString::fromWCharArray(properties.Title().c_str()));
+    np.set(QStringLiteral("artist"), QString::fromWCharArray(properties.Artist().c_str()));
+    np.set(QStringLiteral("album"), QString::fromWCharArray(properties.AlbumTitle().c_str()));
+}
 }
 
 MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args)
@@ -35,13 +47,16 @@ MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args
     try {
         sessionManager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get();
         if (sessionManager) {
-            sessionsChangedHandler =
-                sessionManager.SessionsChanged(auto_revoke, [this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
-                    // WinRT events are delivered on a thread pool thread, process them in the Qt thread
+            sessionsChangedHandler = sessionManager.SessionsChanged(
+                auto_revoke,
+                [context = QCoreApplication::instance(), plugin = QPointer<MprisControlPlugin>(this)](GlobalSystemMediaTransportControlsSessionManager,
+                                                                                                      SessionsChangedEventArgs) {
                     QMetaObject::invokeMethod(
-                        this,
-                        [this]() {
-                            updatePlayerList();
+                        context,
+                        [plugin]() {
+                            if (plugin) {
+                                plugin->updatePlayerList();
+                            }
                         },
                         Qt::QueuedConnection);
                 });
@@ -93,30 +108,28 @@ QString MprisControlPlugin::randomUrl()
     return QStringLiteral("file://") + fileUrl;
 }
 
+void MprisControlPlugin::initializeMediaProperties(NetworkPacket &np)
+{
+    np.set(QStringLiteral("title"), i18n("N/A"));
+    np.set(QStringLiteral("artist"), i18n("N/A"));
+    np.set(QStringLiteral("album"), i18n("N/A"));
+    np.set(QStringLiteral("albumArtUrl"), randomUrl());
+    np.set(QStringLiteral("url"), QString());
+}
+
 void MprisControlPlugin::addMediaProperties(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player)
 {
-    QString title = i18n("N/A");
-    QString artist = i18n("N/A");
-    QString album = i18n("N/A");
+    initializeMediaProperties(np);
     // Calling GlobalSystemMediaTransportControlsSession.TryGetMediaPropertiesAsync().get()
     // can trigger a RuntimeError: Element not found in some scenarios.
     // See: https://bugs.kde.org/show_bug.cgi?id=502269
     try {
-        auto mediaProperties = player.TryGetMediaPropertiesAsync().get();
-        title = QString::fromWCharArray(mediaProperties.Title().c_str());
-        artist = QString::fromWCharArray(mediaProperties.Artist().c_str());
-        album = QString::fromWCharArray(mediaProperties.AlbumTitle().c_str());
+        addMediaMetadata(np, player.TryGetMediaPropertiesAsync().get());
     } catch (winrt::hresult_error e) {
         qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to get media properties";
     }
 
-    np.set(QStringLiteral("title"), title);
-    np.set(QStringLiteral("artist"), artist);
-    np.set(QStringLiteral("album"), album);
-    np.set(QStringLiteral("albumArtUrl"), randomUrl());
-
-    np.set(QStringLiteral("url"), QString());
-    addTimelineProperties(np, player, true); // "length"
+    addTimelineProperties(np, player);
 }
 
 void MprisControlPlugin::addPlaybackInfo(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player)
@@ -162,21 +175,11 @@ void MprisControlPlugin::addPlaybackInfo(NetworkPacket &np, const GlobalSystemMe
     }
 }
 
-void MprisControlPlugin::addTimelineProperties(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player, bool lengthOnly)
+void MprisControlPlugin::addTimelineProperties(NetworkPacket &np, const GlobalSystemMediaTransportControlsSession &player)
 {
     auto timelineProperties = player.GetTimelineProperties();
-
-    if (!lengthOnly) {
-        const auto playbackInfo = player.GetPlaybackInfo();
-        if (playbackInfo != nullptr) {
-            auto playbackControls = playbackInfo.Controls();
-            if (playbackControls != nullptr) {
-                np.set(QStringLiteral("canSeek"), playbackControls.IsPlaybackPositionEnabled());
-            }
-        }
-        np.set(QStringLiteral("pos"),
-               std::chrono::duration_cast<std::chrono::milliseconds>(timelineProperties.Position() - timelineProperties.StartTime()).count());
-    }
+    np.set(QStringLiteral("pos"),
+           std::chrono::duration_cast<std::chrono::milliseconds>(timelineProperties.Position() - timelineProperties.StartTime()).count());
     np.set(QStringLiteral("length"),
            std::chrono::duration_cast<std::chrono::milliseconds>(timelineProperties.EndTime() - timelineProperties.StartTime()).count());
 }
@@ -238,16 +241,28 @@ void MprisControlPlugin::updatePlayerList()
 
             playerList.insert(uniqueName, player);
 
+            const auto queuePacket = [context = QCoreApplication::instance(), plugin = QPointer<MprisControlPlugin>(this)](NetworkPacket np) {
+                QMetaObject::invokeMethod(
+                    context,
+                    [plugin, np]() mutable {
+                        if (plugin) {
+                            plugin->sendPacket(np);
+                        }
+                    },
+                    Qt::QueuedConnection);
+            };
+
             player
                 .PlaybackInfoChanged(auto_revoke,
-                                     [this, uniqueName](GlobalSystemMediaTransportControlsSession, PlaybackInfoChangedEventArgs) {
-                                         QMetaObject::invokeMethod(
-                                             this,
-                                             [this, uniqueName]() {
-                                                 if (auto player = getPlayer(uniqueName))
-                                                     sendPlaybackInfo(uniqueName, player.value());
-                                             },
-                                             Qt::QueuedConnection);
+                                     [uniqueName, queuePacket](GlobalSystemMediaTransportControlsSession sender, PlaybackInfoChangedEventArgs) {
+                                         try {
+                                             NetworkPacket np(PACKET_TYPE_MPRIS);
+                                             np.set(QStringLiteral("player"), uniqueName);
+                                             addPlaybackInfo(np, sender);
+                                             queuePacket(np);
+                                         } catch (const winrt::hresult_error &) {
+                                             qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to read playback info in event handler";
+                                         }
                                      })
                 .swap(playbackInfoChangedHandlers[i]);
             QTimer::singleShot(std::chrono::milliseconds(50), this, [this, uniqueName]() {
@@ -259,14 +274,28 @@ void MprisControlPlugin::updatePlayerList()
 
             player
                 .MediaPropertiesChanged(auto_revoke,
-                                        [this, uniqueName](GlobalSystemMediaTransportControlsSession, MediaPropertiesChangedEventArgs) {
-                                            QMetaObject::invokeMethod(
-                                                this,
-                                                [this, uniqueName]() {
-                                                    if (auto player = getPlayer(uniqueName))
-                                                        sendMediaProperties(uniqueName, player.value());
-                                                },
-                                                Qt::QueuedConnection);
+                                        [uniqueName, queuePacket](GlobalSystemMediaTransportControlsSession sender, MediaPropertiesChangedEventArgs) {
+                                            NetworkPacket np(PACKET_TYPE_MPRIS);
+                                            np.set(QStringLiteral("player"), uniqueName);
+                                            initializeMediaProperties(np);
+                                            try {
+                                                addTimelineProperties(np, sender);
+                                            } catch (const winrt::hresult_error &) {
+                                                qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to read timeline properties in event handler";
+                                            }
+                                            try {
+                                                sender.TryGetMediaPropertiesAsync().Completed([np, queuePacket](const auto &operation, AsyncStatus) mutable {
+                                                    try {
+                                                        addMediaMetadata(np, operation.GetResults());
+                                                    } catch (const winrt::hresult_error &) {
+                                                        qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to read media properties in event handler";
+                                                    }
+                                                    queuePacket(np);
+                                                });
+                                            } catch (const winrt::hresult_error &) {
+                                                qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to read media properties in event handler";
+                                                queuePacket(np);
+                                            }
                                         })
                 .swap(mediaPropertiesChangedHandlers[i]);
             QTimer::singleShot(std::chrono::milliseconds(50), this, [this, uniqueName]() {
@@ -276,14 +305,15 @@ void MprisControlPlugin::updatePlayerList()
 
             player
                 .TimelinePropertiesChanged(auto_revoke,
-                                           [this, uniqueName](GlobalSystemMediaTransportControlsSession, TimelinePropertiesChangedEventArgs) {
-                                               QMetaObject::invokeMethod(
-                                                   this,
-                                                   [this, uniqueName]() {
-                                                       if (auto player = getPlayer(uniqueName))
-                                                           sendTimelineProperties(uniqueName, player.value());
-                                                   },
-                                                   Qt::QueuedConnection);
+                                           [uniqueName, queuePacket](GlobalSystemMediaTransportControlsSession sender, TimelinePropertiesChangedEventArgs) {
+                                               try {
+                                                   NetworkPacket np(PACKET_TYPE_MPRIS);
+                                                   np.set(QStringLiteral("player"), uniqueName);
+                                                   addTimelineProperties(np, sender);
+                                                   queuePacket(np);
+                                               } catch (const winrt::hresult_error &) {
+                                                   qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Failed to read timeline properties in event handler";
+                                               }
                                            })
                 .swap(timelinePropertiesChangedHandlers[i]);
             QTimer::singleShot(std::chrono::milliseconds(50), this, [this, uniqueName]() {
