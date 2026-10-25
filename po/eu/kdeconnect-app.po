@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
 "PO-Revision-Date: 2026-10-10 14:13+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -259,50 +259,62 @@ msgstr "Gailu hau ez dago eskuragarri"
 msgid "Please choose a file"
 msgstr "Mesedez aukeratu fitxategi bat"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:93
+#, kde-format
+msgctxt "@action:button"
+msgid "Open device list"
+msgstr ""
+
+#: qml/Main.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Close device list"
+msgstr ""
+
+#: qml/Main.qml:113
 #, kde-format
 msgid "Devices"
 msgstr "Gailuak"
 
-#: qml/Main.qml:118
+#: qml/Main.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Berritu"
 
-#: qml/Main.qml:121
+#: qml/Main.qml:124
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Berritu gailuak"
 
-#: qml/Main.qml:157
+#: qml/Main.qml:160
 #, kde-format
 msgid "Remembered"
 msgstr "Oroitua"
 
-#: qml/Main.qml:159
+#: qml/Main.qml:162
 #, kde-format
 msgid "Available"
 msgstr "Erabilgarri"
 
-#: qml/Main.qml:161
+#: qml/Main.qml:164
 #, kde-format
 msgid "Connected"
 msgstr "Konektatuta"
 
-#: qml/Main.qml:166
+#: qml/Main.qml:169
 #, kde-format
 msgid "No devices found"
 msgstr "Ez da gailurik aurkitu"
 
-#: qml/Main.qml:245
+#: qml/Main.qml:248
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Ezarpenak"
 
-#: qml/Main.qml:260
+#: qml/Main.qml:263
 #, kde-format
 msgid "Settings"
 msgstr "Ezarpenak"
@@ -363,23 +375,23 @@ msgstr "Jakinarazpenak"
 msgid "Reply"
 msgstr "Erantzun"
 
-#: qml/NotificationPanel.qml:181
+#: qml/NotificationPanel.qml:179
 #, kde-format
 msgid "Dismiss"
 msgstr "Baztertu"
 
-#: qml/NotificationPanel.qml:208
+#: qml/NotificationPanel.qml:206
 #, kde-format
 msgid "Cancel"
 msgstr "Utzi"
 
-#: qml/NotificationPanel.qml:226
+#: qml/NotificationPanel.qml:224
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "%1(e)ri erantzun…"
 
-#: qml/NotificationPanel.qml:245
+#: qml/NotificationPanel.qml:243
 #, kde-format
 msgid "Send"
 msgstr "Bidali"

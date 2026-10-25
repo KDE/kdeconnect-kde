@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
 "PO-Revision-Date: 2026-10-08 06:49-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -261,50 +261,62 @@ msgstr "Este dispositivo está inacessível"
 msgid "Please choose a file"
 msgstr "Escolha um arquivo"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:93
+#, kde-format
+msgctxt "@action:button"
+msgid "Open device list"
+msgstr ""
+
+#: qml/Main.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Close device list"
+msgstr ""
+
+#: qml/Main.qml:113
 #, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: qml/Main.qml:118
+#: qml/Main.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Atualizar"
 
-#: qml/Main.qml:121
+#: qml/Main.qml:124
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "Atualizar dispositivos"
 
-#: qml/Main.qml:157
+#: qml/Main.qml:160
 #, kde-format
 msgid "Remembered"
 msgstr "Lembrados"
 
-#: qml/Main.qml:159
+#: qml/Main.qml:162
 #, kde-format
 msgid "Available"
 msgstr "Disponível"
 
-#: qml/Main.qml:161
+#: qml/Main.qml:164
 #, kde-format
 msgid "Connected"
 msgstr "Conectado"
 
-#: qml/Main.qml:166
+#: qml/Main.qml:169
 #, kde-format
 msgid "No devices found"
 msgstr "Nenhum dispositivo encontrado"
 
-#: qml/Main.qml:245
+#: qml/Main.qml:248
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Configurações"
 
-#: qml/Main.qml:260
+#: qml/Main.qml:263
 #, kde-format
 msgid "Settings"
 msgstr "Configurações"
@@ -365,23 +377,23 @@ msgstr "Notificações"
 msgid "Reply"
 msgstr "Responder"
 
-#: qml/NotificationPanel.qml:181
+#: qml/NotificationPanel.qml:179
 #, kde-format
 msgid "Dismiss"
 msgstr "Descartar"
 
-#: qml/NotificationPanel.qml:208
+#: qml/NotificationPanel.qml:206
 #, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: qml/NotificationPanel.qml:226
+#: qml/NotificationPanel.qml:224
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Responder para %1…"
 
-#: qml/NotificationPanel.qml:245
+#: qml/NotificationPanel.qml:243
 #, kde-format
 msgid "Send"
 msgstr "Enviar"

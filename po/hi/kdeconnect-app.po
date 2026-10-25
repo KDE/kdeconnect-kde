@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
 "PO-Revision-Date: 2024-06-08 20:36+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -261,20 +261,32 @@ msgstr "उपकरण पहुंच योग्य नहीं"
 msgid "Please choose a file"
 msgstr "कृपया एक फ़ाइल चुनें"
 
-#: qml/Main.qml:110
+#: qml/Main.qml:93
+#, kde-format
+msgctxt "@action:button"
+msgid "Open device list"
+msgstr ""
+
+#: qml/Main.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Close device list"
+msgstr ""
+
+#: qml/Main.qml:113
 #, fuzzy, kde-format
 #| msgctxt "Title of the page listing the devices"
 #| msgid "Devices"
 msgid "Devices"
 msgstr "उपकरण"
 
-#: qml/Main.qml:118
+#: qml/Main.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr ""
 
-#: qml/Main.qml:121
+#: qml/Main.qml:124
 #, fuzzy, kde-format
 #| msgctxt "Title of the page listing the devices"
 #| msgid "Devices"
@@ -282,34 +294,34 @@ msgctxt "@action:button accessible"
 msgid "Refresh Devices"
 msgstr "उपकरण"
 
-#: qml/Main.qml:157
+#: qml/Main.qml:160
 #, kde-format
 msgid "Remembered"
 msgstr "याद रखा हुआ"
 
-#: qml/Main.qml:159
+#: qml/Main.qml:162
 #, kde-format
 msgid "Available"
 msgstr "उपलब्ध"
 
-#: qml/Main.qml:161
+#: qml/Main.qml:164
 #, kde-format
 msgid "Connected"
 msgstr "जुड़े हुए"
 
-#: qml/Main.qml:166
+#: qml/Main.qml:169
 #, kde-format
 msgid "No devices found"
 msgstr "कोई उपकरण नहीं मिले"
 
-#: qml/Main.qml:245
+#: qml/Main.qml:248
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "सेटिंग्स"
 
-#: qml/Main.qml:260
+#: qml/Main.qml:263
 #, kde-format
 msgid "Settings"
 msgstr "सेटिंग्स"
@@ -368,23 +380,23 @@ msgstr ""
 msgid "Reply"
 msgstr ""
 
-#: qml/NotificationPanel.qml:181
+#: qml/NotificationPanel.qml:179
 #, kde-format
 msgid "Dismiss"
 msgstr ""
 
-#: qml/NotificationPanel.qml:208
+#: qml/NotificationPanel.qml:206
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: qml/NotificationPanel.qml:226
+#: qml/NotificationPanel.qml:224
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr ""
 
-#: qml/NotificationPanel.qml:245
+#: qml/NotificationPanel.qml:243
 #, fuzzy, kde-format
 #| msgid "Send Ping"
 msgid "Send"
