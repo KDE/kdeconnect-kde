@@ -231,7 +231,7 @@ PlasmaComponents.ItemDelegate {
                         icon.height: Kirigami.Units.iconSizes.small
                         visible: virtualmonitor.available
                         display: PlasmaComponents.AbstractButton.IconOnly
-                        checked: visible && virtualmonitor.plugin.active
+                        checked: visible && !!virtualmonitor.plugin?.active
                         checkable: true
                         
                         hoverEnabled: true
