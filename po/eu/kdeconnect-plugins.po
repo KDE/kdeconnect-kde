@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 03:13+0000\n"
+"POT-Creation-Date: 2026-10-26 02:58+0000\n"
 "PO-Revision-Date: 2026-07-03 22:03+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -107,7 +107,7 @@ msgstr "Urruneko giltzatze arrakastatsua"
 msgid "Remote lock failed"
 msgstr "Urruneko giltzatzeak huts egin du"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:28
+#: mpriscontrol/mpriscontrolplugin-win.cpp:30
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
@@ -115,9 +115,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Uneko jotzailea"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:98
-#: mpriscontrol/mpriscontrolplugin-win.cpp:99
-#: mpriscontrol/mpriscontrolplugin-win.cpp:100
+#: mpriscontrol/mpriscontrolplugin-win.cpp:94
+#: mpriscontrol/mpriscontrolplugin-win.cpp:95
+#: mpriscontrol/mpriscontrolplugin-win.cpp:96
 #, kde-format
 msgid "N/A"
 msgstr "E/E"

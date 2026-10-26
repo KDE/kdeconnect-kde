@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 03:13+0000\n"
+"POT-Creation-Date: 2026-10-26 02:58+0000\n"
 "PO-Revision-Date: 2024-05-10 11:33+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -101,7 +101,7 @@ msgstr "Fora riglado sukcesa"
 msgid "Remote lock failed"
 msgstr "Fora riglado malsukcesis"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:28
+#: mpriscontrol/mpriscontrolplugin-win.cpp:30
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
@@ -109,9 +109,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Nuna Ludanto"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:98
-#: mpriscontrol/mpriscontrolplugin-win.cpp:99
-#: mpriscontrol/mpriscontrolplugin-win.cpp:100
+#: mpriscontrol/mpriscontrolplugin-win.cpp:94
+#: mpriscontrol/mpriscontrolplugin-win.cpp:95
+#: mpriscontrol/mpriscontrolplugin-win.cpp:96
 #, kde-format
 msgid "N/A"
 msgstr ""
