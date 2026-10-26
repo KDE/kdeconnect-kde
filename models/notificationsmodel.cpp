@@ -91,7 +91,7 @@ void NotificationsModel::notificationRemoved(const QString &id)
         if (m_notificationList[i]->notificationId() == id) {
             beginRemoveRows(QModelIndex(), i, i);
             m_dismissable.remove(m_notificationList[i]);
-            m_notificationList.removeAt(i);
+            m_notificationList.takeAt(i)->deleteLater();
             endRemoveRows();
             return;
         }
