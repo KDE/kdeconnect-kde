@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:50+0000\n"
-"PO-Revision-Date: 2026-10-08 20:00+0200\n"
+"PO-Revision-Date: 2026-10-25 16:53+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: main.cpp:45 main.cpp:47
 #, kde-format
@@ -259,13 +259,13 @@ msgstr "Kies een bestand a.u.b"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open device list"
-msgstr ""
+msgstr "Lijst met apparaten openen"
 
 #: qml/Main.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Close device list"
-msgstr ""
+msgstr "Lijst met apparaten sluiten"
 
 #: qml/Main.qml:113
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-24 00:44+0000\n"
+"POT-Creation-Date: 2026-10-26 00:49+0000\n"
 "PO-Revision-Date: 2026-06-15 13:18+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -247,41 +247,47 @@ msgstr "Trimite taste către dispozitiv"
 msgid "Display this device's id and exit"
 msgstr "Afișează identificatorul acestui dispozitiv și termină"
 
-#: kdeconnect-cli.cpp:103
+#: kdeconnect-cli.cpp:104
+#, fuzzy, kde-format
+#| msgid "Mount filesystem of a said device"
+msgid "Browse the filesystem of a said device"
+msgstr "Montează sistemul de fișiere al unui dispozitiv numit"
+
+#: kdeconnect-cli.cpp:106
 #, kde-format
 msgid "Mount filesystem of a said device"
 msgstr "Montează sistemul de fișiere al unui dispozitiv numit"
 
-#: kdeconnect-cli.cpp:104
+#: kdeconnect-cli.cpp:107
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr ""
 "Tipărește punctul de montare pentru sistemul de fișiere al unui dispozitiv "
 "numit"
 
-#: kdeconnect-cli.cpp:153
+#: kdeconnect-cli.cpp:157
 #, kde-format
 msgctxt ""
 "Details on how a device is connected eg: on <network address> via Bluetooth"
 msgid "on %1 via %2"
 msgstr "la %1 prin %2"
 
-#: kdeconnect-cli.cpp:156
+#: kdeconnect-cli.cpp:160
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(asociat și accesibil)"
 
-#: kdeconnect-cli.cpp:158
+#: kdeconnect-cli.cpp:162
 #, kde-format
 msgid "(reachable)"
 msgstr "(accesibil)"
 
-#: kdeconnect-cli.cpp:160 kdeconnect-cli.cpp:182
+#: kdeconnect-cli.cpp:164 kdeconnect-cli.cpp:186
 #, kde-format
 msgid "(paired)"
 msgstr "(asociat)"
 
-#: kdeconnect-cli.cpp:165
+#: kdeconnect-cli.cpp:169
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
@@ -289,70 +295,70 @@ msgstr[0] "1 dispozitiv găsit"
 msgstr[1] "%1 dispozitive găsite"
 msgstr[2] "%1 de dispozitive găsite"
 
-#: kdeconnect-cli.cpp:167
+#: kdeconnect-cli.cpp:171
 #, kde-format
 msgid "No devices found"
 msgstr "Niciun dispozitiv găsit"
 
-#: kdeconnect-cli.cpp:184
+#: kdeconnect-cli.cpp:188
 #, kde-format
 msgid "(unpaired)"
 msgstr "(neasociat)"
 
-#: kdeconnect-cli.cpp:244
+#: kdeconnect-cli.cpp:248
 #, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "%1 partajat"
 
-#: kdeconnect-cli.cpp:257
+#: kdeconnect-cli.cpp:261
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Text partajat: %1"
 
-#: kdeconnect-cli.cpp:268
+#: kdeconnect-cli.cpp:272
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "S-a cerut blocarea %1."
 
-#: kdeconnect-cli.cpp:270
+#: kdeconnect-cli.cpp:274
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "S-a cerut deblocarea %1."
 
-#: kdeconnect-cli.cpp:281
+#: kdeconnect-cli.cpp:285
 #, kde-format
 msgid "waiting for device…"
 msgstr "se așteaptă dispozitivul…"
 
-#: kdeconnect-cli.cpp:294
+#: kdeconnect-cli.cpp:298
 #, kde-format
 msgid "Device not found"
 msgstr "Dispozitivul nu a fost găsit"
 
-#: kdeconnect-cli.cpp:296
+#: kdeconnect-cli.cpp:300
 #, kde-format
 msgid "Already paired"
 msgstr "Asociat deja"
 
-#: kdeconnect-cli.cpp:298
+#: kdeconnect-cli.cpp:302
 #, kde-format
 msgid "Pair requested"
 msgstr "Asociere cerută"
 
-#: kdeconnect-cli.cpp:308
+#: kdeconnect-cli.cpp:312
 #, kde-format
 msgid "Already not paired"
 msgstr "Neasociat deja"
 
-#: kdeconnect-cli.cpp:310
+#: kdeconnect-cli.cpp:314
 #, kde-format
 msgid "Successfully unpaired"
 msgstr "Disociat cu succes"
 
-#: kdeconnect-cli.cpp:368
+#: kdeconnect-cli.cpp:372
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "

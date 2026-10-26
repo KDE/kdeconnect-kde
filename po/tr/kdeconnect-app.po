@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:50+0000\n"
-"PO-Revision-Date: 2026-10-08 18:57+0300\n"
+"PO-Revision-Date: 2026-10-25 20:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -262,13 +262,13 @@ msgstr "Dosya Seç"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open device list"
-msgstr ""
+msgstr "Aygıt Listesini Aç"
 
 #: qml/Main.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Close device list"
-msgstr ""
+msgstr "Aygıt Listesini Kapat"
 
 #: qml/Main.qml:113
 #, kde-format

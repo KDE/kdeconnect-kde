@@ -257,13 +257,13 @@ msgstr "Prosím, vyberte súbor"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open device list"
-msgstr ""
+msgstr "Otvoriť zoznam zariadení"
 
 #: qml/Main.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Close device list"
-msgstr ""
+msgstr "Zavrieť zoznam zariadení"
 
 #: qml/Main.qml:113
 #, kde-format

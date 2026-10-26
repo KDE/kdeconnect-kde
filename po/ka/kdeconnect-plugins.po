@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:51+0000\n"
+"POT-Creation-Date: 2026-10-26 00:49+0000\n"
 "PO-Revision-Date: 2026-07-27 07:49+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -104,7 +104,7 @@ msgid "Remote lock failed"
 msgstr "დაშორებული დაბლოკვა წარუმატებელია"
 
 #: mpriscontrol/mpriscontrolplugin-macos.mm:23
-#: mpriscontrol/mpriscontrolplugin-win.cpp:28
+#: mpriscontrol/mpriscontrolplugin-win.cpp:30
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
@@ -112,9 +112,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "მიმდინარე დამკვრელი"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:98
-#: mpriscontrol/mpriscontrolplugin-win.cpp:99
-#: mpriscontrol/mpriscontrolplugin-win.cpp:100
+#: mpriscontrol/mpriscontrolplugin-win.cpp:94
+#: mpriscontrol/mpriscontrolplugin-win.cpp:95
+#: mpriscontrol/mpriscontrolplugin-win.cpp:96
 #, kde-format
 msgid "N/A"
 msgstr "ა/მ"

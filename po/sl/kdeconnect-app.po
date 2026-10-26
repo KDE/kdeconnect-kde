@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:50+0000\n"
-"PO-Revision-Date: 2026-10-08 07:15+0200\n"
+"PO-Revision-Date: 2026-10-25 07:17+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #: main.cpp:45 main.cpp:47
 #, kde-format
@@ -260,13 +260,13 @@ msgstr "Izberite datoteko"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open device list"
-msgstr ""
+msgstr "Odpri seznam naprav"
 
 #: qml/Main.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Close device list"
-msgstr ""
+msgstr "Zapri seznam naprav"
 
 #: qml/Main.qml:113
 #, kde-format

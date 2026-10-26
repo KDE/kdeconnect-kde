@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:51+0000\n"
+"POT-Creation-Date: 2026-10-26 00:49+0000\n"
 "PO-Revision-Date: 2026-08-01 14:46+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -105,7 +105,7 @@ msgid "Remote lock failed"
 msgstr "Nepavyko užrakinti per nuotolį"
 
 #: mpriscontrol/mpriscontrolplugin-macos.mm:23
-#: mpriscontrol/mpriscontrolplugin-win.cpp:28
+#: mpriscontrol/mpriscontrolplugin-win.cpp:30
 #, kde-format
 msgctxt ""
 "@title Users select this to control the current media player when we can't "
@@ -113,9 +113,9 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Dabartinė leistuvė"
 
-#: mpriscontrol/mpriscontrolplugin-win.cpp:98
-#: mpriscontrol/mpriscontrolplugin-win.cpp:99
-#: mpriscontrol/mpriscontrolplugin-win.cpp:100
+#: mpriscontrol/mpriscontrolplugin-win.cpp:94
+#: mpriscontrol/mpriscontrolplugin-win.cpp:95
+#: mpriscontrol/mpriscontrolplugin-win.cpp:96
 #, kde-format
 msgid "N/A"
 msgstr "Neprieinama"

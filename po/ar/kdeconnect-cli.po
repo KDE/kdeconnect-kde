@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-24 00:44+0000\n"
+"POT-Creation-Date: 2026-10-26 00:49+0000\n"
 "PO-Revision-Date: 2026-06-05 11:55+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -244,39 +244,45 @@ msgstr "أرسل مفاتيح إلى جهاز"
 msgid "Display this device's id and exit"
 msgstr "اعرض معرف هذا الجهاز واخرج"
 
-#: kdeconnect-cli.cpp:103
+#: kdeconnect-cli.cpp:104
+#, fuzzy, kde-format
+#| msgid "Mount filesystem of a said device"
+msgid "Browse the filesystem of a said device"
+msgstr "ضُم نظام ملفات الجهاز المذكور"
+
+#: kdeconnect-cli.cpp:106
 #, kde-format
 msgid "Mount filesystem of a said device"
 msgstr "ضُم نظام ملفات الجهاز المذكور"
 
-#: kdeconnect-cli.cpp:104
+#: kdeconnect-cli.cpp:107
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
 msgstr "اطبع نقطة الضم لنظام الملفات الخاص بالجهاز المذكور"
 
-#: kdeconnect-cli.cpp:153
+#: kdeconnect-cli.cpp:157
 #, kde-format
 msgctxt ""
 "Details on how a device is connected eg: on <network address> via Bluetooth"
 msgid "on %1 via %2"
 msgstr "على %1 بواسطة %2"
 
-#: kdeconnect-cli.cpp:156
+#: kdeconnect-cli.cpp:160
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(مُقترن ويمكن الوصول إليه)"
 
-#: kdeconnect-cli.cpp:158
+#: kdeconnect-cli.cpp:162
 #, kde-format
 msgid "(reachable)"
 msgstr "(يمكن الوصول إليه)"
 
-#: kdeconnect-cli.cpp:160 kdeconnect-cli.cpp:182
+#: kdeconnect-cli.cpp:164 kdeconnect-cli.cpp:186
 #, kde-format
 msgid "(paired)"
 msgstr "(مُقترن)"
 
-#: kdeconnect-cli.cpp:165
+#: kdeconnect-cli.cpp:169
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
@@ -287,70 +293,70 @@ msgstr[3] "وُجدت %1 أجهزة"
 msgstr[4] "وُجد %1 جهازًا"
 msgstr[5] "وُجد %1 جهاز"
 
-#: kdeconnect-cli.cpp:167
+#: kdeconnect-cli.cpp:171
 #, kde-format
 msgid "No devices found"
 msgstr "لا يوجد أجهزة"
 
-#: kdeconnect-cli.cpp:184
+#: kdeconnect-cli.cpp:188
 #, kde-format
 msgid "(unpaired)"
 msgstr "(غير مُقترن)"
 
-#: kdeconnect-cli.cpp:244
+#: kdeconnect-cli.cpp:248
 #, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "شُرِكت %1"
 
-#: kdeconnect-cli.cpp:257
+#: kdeconnect-cli.cpp:261
 #, kde-format
 msgid "Shared text: %1"
 msgstr "النص المشارك: %1"
 
-#: kdeconnect-cli.cpp:268
+#: kdeconnect-cli.cpp:272
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "مطلوب منه قفل %1."
 
-#: kdeconnect-cli.cpp:270
+#: kdeconnect-cli.cpp:274
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "مطلوب منه فك قفل %1."
 
-#: kdeconnect-cli.cpp:281
+#: kdeconnect-cli.cpp:285
 #, kde-format
 msgid "waiting for device…"
 msgstr "ينتظر الجهاز…"
 
-#: kdeconnect-cli.cpp:294
+#: kdeconnect-cli.cpp:298
 #, kde-format
 msgid "Device not found"
 msgstr "لم يوجد الجهاز"
 
-#: kdeconnect-cli.cpp:296
+#: kdeconnect-cli.cpp:300
 #, kde-format
 msgid "Already paired"
 msgstr "مُقترن به فعلًا"
 
-#: kdeconnect-cli.cpp:298
+#: kdeconnect-cli.cpp:302
 #, kde-format
 msgid "Pair requested"
 msgstr "طُلب الاقتران"
 
-#: kdeconnect-cli.cpp:308
+#: kdeconnect-cli.cpp:312
 #, kde-format
 msgid "Already not paired"
 msgstr "ليس مُقترنًا به فعلًا"
 
-#: kdeconnect-cli.cpp:310
+#: kdeconnect-cli.cpp:314
 #, kde-format
 msgid "Successfully unpaired"
 msgstr "نجح فك الاقتران"
 
-#: kdeconnect-cli.cpp:368
+#: kdeconnect-cli.cpp:372
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
