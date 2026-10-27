@@ -10,7 +10,6 @@
 #include "mprisremoteplugin.h"
 #include "plugin_mprisremote_debug.h"
 
-// TODO: Not sure where to put such utils
 constexpr std::size_t operator""_MB(unsigned long long v)
 {
     return 1024u * 1024u * v;

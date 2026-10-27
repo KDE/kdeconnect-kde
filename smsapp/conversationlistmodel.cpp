@@ -166,12 +166,6 @@ QStandardItem *ConversationListModel::getConversationForAddress(const QString &a
 
 void ConversationListModel::createRowFromMessage(const ConversationMessage &message)
 {
-    if (message.type() == -1) {
-        // The Android side currently hacks in -1 if something weird comes up
-        // TODO: Remove this hack when MMS support is implemented
-        return;
-    }
-
     /** The address of everyone involved in this conversation, which we should not display (check if they are known contacts first) */
     const QList<ConversationAddress> rawAddresses = message.addresses();
     if (rawAddresses.isEmpty()) {

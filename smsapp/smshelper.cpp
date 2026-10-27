@@ -200,7 +200,7 @@ QSharedPointer<KPeople::PersonData> SmsHelper::lookupPersonByAddress(const QStri
             }
         }
 
-        // TODO: Either upgrade KPeople with an allPhoneNumbers method
+        // TODO: Upgrade KPeople with an allPhoneNumbers method
         const QVariantList allPhoneNumbers = person->contactCustomProperty(QStringLiteral("all-phoneNumber")).toList();
         for (const QVariant &rawPhoneNumber : allPhoneNumbers) {
             const QString &phoneNumber = SmsHelper::canonicalizePhoneNumber(rawPhoneNumber.toString());

@@ -116,7 +116,7 @@ void FileTransferJob::transferFinished()
         setError(m_reply->error());
         setErrorText(m_reply->errorString());
     } else {
-        // TODO: MD5-check the file
+        // TODO: maybe hash-check the file?
         // A payload size of -1 means the sender does not know how much it is going to send,
         // and a sender can also announce less than it ends up sending, so only a file that
         // stops short of the announced size is an incomplete one.

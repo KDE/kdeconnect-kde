@@ -275,8 +275,7 @@ bool VirtualMonitorPlugin::checkRdpClient() const
 
 bool VirtualMonitorPlugin::checkDefaultSchemeHandler(const QString &scheme) const
 {
-    // TODO: macOS built-in tool: defaults read com.apple.LaunchServices/com.apple.launchservices.secure
-    // A function to use such a program was implemented and later removed in MR !670 (Commit e72f688ae1fad8846c006a3f87d57e507f6dbcb6)
+    // TODO: macOS. Could use: defaults read com.apple.LaunchServices/com.apple.launchservices.secure
 #if defined(Q_OS_WIN)
     // Scheme handlers are stored in the registry on Windows
     // https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa767914(v=vs.85)

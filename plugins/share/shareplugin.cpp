@@ -109,24 +109,6 @@ static bool isWebUrl(QUrl &url)
 
 void SharePlugin::receivePacket(const NetworkPacket &np)
 {
-    /*
-        //TODO: Write a test like this
-        if (np.type() == PACKET_TYPE_PING) {
-
-            qCDebug(KDECONNECT_PLUGIN_SHARE) << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
-
-            NetworkPacket out(PACKET_TYPE_SHARE_REQUEST);
-            out.set("filename", mDestinationDir + "itworks.txt");
-            AutoClosingQFile* file = new AutoClosingQFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc"); //Test file to
-       transfer
-
-            out.setPayload(file, file->size());
-
-            device()->sendPacket(out);
-
-        }
-    */
-
     qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer";
 
     if (np.hasPayload() || np.has(QStringLiteral("filename"))) {
