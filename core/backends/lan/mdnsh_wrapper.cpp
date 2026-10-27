@@ -132,8 +132,9 @@ static int query_callback(int sock,
         discoveredService->address = QHostAddress(ntohl(addr.sin_addr.s_addr));
     } break;
     case MDNS_RECORDTYPE_AAAA: {
-        // Prefer IPv4 if we also got an A record
-        if (discoveredService->address.isNull() || discoveredService->address.protocol() == QAbstractSocket::IPv6Protocol) {
+        // Prefer IPv4 if we also got an A record, then link-local IPv6 over other IPv6 addresses
+        const QHostAddress &current = discoveredService->address;
+        if (current.isNull() || (current.protocol() == QAbstractSocket::IPv6Protocol && !current.isLinkLocal())) {
             sockaddr_in6 addr6;
             mdns_record_parse_aaaa(data, size, record_offset, record_length, &addr6);
             discoveredService->address = QHostAddress(addr6.sin6_addr.s6_addr);
