@@ -131,11 +131,14 @@ static int query_callback(int sock,
         mdns_record_parse_a(data, size, record_offset, record_length, &addr);
         discoveredService->address = QHostAddress(ntohl(addr.sin_addr.s_addr));
     } break;
-    case MDNS_RECORDTYPE_AAAA:
-        // Ignore IPv6 for now
-        // sockaddr_in6 addr6;
-        // mdns_record_parse_aaaa(data, size, record_offset, record_length, &addr6);
-        break;
+    case MDNS_RECORDTYPE_AAAA: {
+        // Prefer IPv4 if we also got an A record
+        if (discoveredService->address.isNull() || discoveredService->address.protocol() == QAbstractSocket::IPv6Protocol) {
+            sockaddr_in6 addr6;
+            mdns_record_parse_aaaa(data, size, record_offset, record_length, &addr6);
+            discoveredService->address = QHostAddress(addr6.sin6_addr.s6_addr);
+        }
+    } break;
     case MDNS_RECORDTYPE_TXT: {
         mdns_record_txt_t records[24];
         size_t parsed = mdns_record_parse_txt(data, size, record_offset, record_length, records, sizeof(records) / sizeof(mdns_record_txt_t));
@@ -185,8 +188,8 @@ void Discoverer::stopListeningForQueryResponses()
 
 int Discoverer::listenForQueryResponses(const QByteArray &wantedServiceType)
 {
-    // Open a socket for each interface
-    QVector<int> sockets;
+    // Open a socket for each interface, keeping the interface name to scope link-local IPv6 addresses
+    QHash<int, QString> sockets;
     for (const QNetworkInterface &iface : QNetworkInterface::allInterfaces()) {
         int flags = iface.flags();
         if (!(flags & QNetworkInterface::IsUp) || !(flags & QNetworkInterface::CanMulticast) || (flags & QNetworkInterface::IsLoopBack)) {
@@ -199,7 +202,7 @@ int Discoverer::listenForQueryResponses(const QByteArray &wantedServiceType)
                 struct sockaddr_in saddr = qHostAddressToSockaddr(sourceAddress);
                 int socket = mdns_socket_open_ipv4(&saddr);
                 if (socket >= 0) {
-                    sockets.append(socket);
+                    sockets.insert(socket, iface.name());
                 } else {
                     qCDebug(KDECONNECT_CORE) << "Couldn't open socket";
                 }
@@ -208,7 +211,7 @@ int Discoverer::listenForQueryResponses(const QByteArray &wantedServiceType)
                 struct sockaddr_in6 saddr = qHostAddressToSockaddr6(sourceAddress);
                 int socket = mdns_socket_open_ipv6(&saddr);
                 if (socket >= 0) {
-                    sockets.append(socket);
+                    sockets.insert(socket, iface.name());
                 } else {
                     qCDebug(KDECONNECT_CORE) << "Couldn't open socket";
                 }
@@ -217,9 +220,10 @@ int Discoverer::listenForQueryResponses(const QByteArray &wantedServiceType)
     }
 
     // Start listening on all sockets
-    for (int socket : std::as_const(sockets)) {
-        QSocketNotifier *socketNotifier = new QSocketNotifier(socket, QSocketNotifier::Read);
-        QObject::connect(socketNotifier, &QSocketNotifier::activated, this, [this, wantedServiceType](QSocketDescriptor socket) {
+    for (auto it = sockets.cbegin(); it != sockets.cend(); ++it) {
+        const QString ifaceName = it.value();
+        QSocketNotifier *socketNotifier = new QSocketNotifier(it.key(), QSocketNotifier::Read);
+        QObject::connect(socketNotifier, &QSocketNotifier::activated, this, [this, wantedServiceType, ifaceName](QSocketDescriptor socket) {
             MdnsService discoveredService;
 
             static char buffer[2048];
@@ -230,6 +234,10 @@ int Discoverer::listenForQueryResponses(const QByteArray &wantedServiceType)
 
             if (discoveredService.serviceType.toLatin1().compare(wantedServiceType, Qt::CaseInsensitive) != 0) {
                 return;
+            }
+
+            if (discoveredService.address.isLinkLocal() && discoveredService.address.scopeId().isEmpty()) {
+                discoveredService.address.setScopeId(ifaceName);
             }
 
             if (!discoveredService.name.isEmpty() && !discoveredService.address.isNull()) {

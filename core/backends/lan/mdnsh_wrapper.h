@@ -31,7 +31,7 @@ public:
         QString name; // The instance-name part in "<instance-name>._<service-type>._tcp.local."
         QString serviceType; // ie: "_<service-type>._tcp.local."
         uint16_t port;
-        QHostAddress address; // An IPv4 address (IPv6 addresses are ignored)
+        QHostAddress address; // IPv4 if available, IPv6 otherwise
         QMap<QString, QString> txtRecords;
     };
 
