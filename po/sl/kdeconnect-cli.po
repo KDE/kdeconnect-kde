@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-26 00:49+0000\n"
-"PO-Revision-Date: 2026-05-29 06:37+0200\n"
+"PO-Revision-Date: 2026-10-26 06:46+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -247,10 +247,9 @@ msgid "Display this device's id and exit"
 msgstr "Prikaže id naprave in zaključi"
 
 #: kdeconnect-cli.cpp:104
-#, fuzzy, kde-format
-#| msgid "Mount filesystem of a said device"
+#, kde-format
 msgid "Browse the filesystem of a said device"
-msgstr "Priklopi datotečni sistem omenjene naprave"
+msgstr "Brskaj po datotečnem sistemu omenjene naprave"
 
 #: kdeconnect-cli.cpp:106
 #, kde-format

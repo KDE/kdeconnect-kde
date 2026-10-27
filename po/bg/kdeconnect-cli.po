@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-26 00:49+0000\n"
-"PO-Revision-Date: 2026-08-21 19:24+0200\n"
+"PO-Revision-Date: 2026-10-26 13:59+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -248,10 +248,9 @@ msgid "Display this device's id and exit"
 msgstr "Показване на идентификацията и изхода на това устройство"
 
 #: kdeconnect-cli.cpp:104
-#, fuzzy, kde-format
-#| msgid "Mount filesystem of a said device"
+#, kde-format
 msgid "Browse the filesystem of a said device"
-msgstr "Монтиране на файловата система на посоченото устройство"
+msgstr "Преглед на файловата система на посоченото устройство"
 
 #: kdeconnect-cli.cpp:106
 #, kde-format
