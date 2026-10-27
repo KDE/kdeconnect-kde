@@ -11,6 +11,8 @@
 #include "kdeconnectconfig.h"
 #include "lanlinkprovider.h"
 
+#include <QNetworkInterface>
+
 const QString kAvahiDbusService = QStringLiteral("org.freedesktop.Avahi");
 
 const QString kKdeConnectServiceType = QStringLiteral("_kdeconnect._udp");
@@ -226,7 +228,11 @@ void AvahiDiscovery::startDiscovering()
                         }
 
                         // args: 0: iface, 1: protocol, 2: name, 3: type, 4: domain, 5: host, 6: aprotocol, 7: address, 8: port, 9: txt, 10: flags
-                        const QHostAddress address(service.argumentAt<7>());
+                        QHostAddress address(service.argumentAt<7>());
+                        if (address.isLinkLocal() && address.protocol() == QAbstractSocket::IPv6Protocol) {
+                            // Avahi doesn't include the scope id, which is needed to connect to link-local addresses
+                            address.setScopeId(QNetworkInterface::interfaceNameFromIndex(service.argumentAt<0>()));
+                        }
                         const ushort port = service.argumentAt<8>();
                         const QByteArrayList txtRecords = service.argumentAt<9>();
 
