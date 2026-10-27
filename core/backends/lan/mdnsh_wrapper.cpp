@@ -154,6 +154,13 @@ static int query_callback(int sock,
         break;
     }
 
+    if (discoveredService->address.isLinkLocal() && discoveredService->address.scopeId().isEmpty() && from->sa_family == AF_INET6) {
+        const auto *sender = reinterpret_cast<const sockaddr_in6 *>(from);
+        if (sender->sin6_scope_id != 0) {
+            discoveredService->address.setScopeId(QString::number(sender->sin6_scope_id));
+        }
+    }
+
     return 0;
 }
 
