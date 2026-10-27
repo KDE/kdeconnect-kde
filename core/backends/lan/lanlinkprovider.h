@@ -56,6 +56,14 @@ public:
     static void configureSslSocket(QSslSocket *socket, const QString &deviceId, bool isDeviceTrusted);
     static void configureSocket(QSslSocket *socket);
 
+#ifdef BUILD_TESTING
+    // Must be called before onStart()
+    void testSetLoopbackAddress(const QHostAddress &address)
+    {
+        m_testLoopbackAddress = address;
+    }
+#endif
+
     uint16_t tcpPort() const
     {
         return m_tcpPort;
@@ -105,6 +113,7 @@ private:
     QHash<QHostAddress, qint64> m_lastConnectionTimeByIp;
     qint64 m_lastConnectionTimeByIpCleanup = 0;
     const bool m_testMode;
+    QHostAddress m_testLoopbackAddress = QHostAddress::LocalHost;
     QTimer m_combineNetworkChangeTimer;
 
     bool m_disabled;

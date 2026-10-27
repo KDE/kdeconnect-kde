@@ -127,7 +127,7 @@ void LanLinkProvider::onStart()
         return;
     }
 
-    const QHostAddress bindAddress = m_testMode ? QHostAddress::LocalHost : QHostAddress::Any;
+    const QHostAddress bindAddress = m_testMode ? m_testLoopbackAddress : QHostAddress::Any;
 
     bool success = m_udpSocket.bind(bindAddress, UDP_PORT, QUdpSocket::ShareAddress);
     if (!success) {
@@ -214,7 +214,7 @@ QList<QHostAddress> LanLinkProvider::getBroadcastAddresses()
     destinations.reserve(customDevices.length() + 1);
 
     // Default broadcast address
-    destinations.append(m_testMode ? QHostAddress::LocalHost : QHostAddress::Broadcast);
+    destinations.append(m_testMode ? m_testLoopbackAddress : QHostAddress::Broadcast);
 
     // Custom device addresses
     for (auto &customDevice : customDevices) {
