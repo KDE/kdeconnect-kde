@@ -330,12 +330,60 @@ static QHostAddress findBestAddressMatchV4(const QVector<QHostAddress> &hostAddr
     return matchingIp;
 }
 
+int countCommonLeadingBitsV6(const Q_IPV6ADDR &addr1, const Q_IPV6ADDR &addr2)
+{
+    int count = 0;
+    for (int i = 0; i < 16; ++i) {
+        quint8 diff = addr1[i] ^ addr2[i];
+        if (diff == 0) {
+            count += 8;
+            continue;
+        }
+        while (!(diff & 0x80)) {
+            count++;
+            diff <<= 1;
+        }
+        break;
+    }
+    return count;
+}
+
 static QHostAddress findBestAddressMatchV6(const QVector<QHostAddress> &hostAddresses, const struct sockaddr *fromAddress)
 {
     Q_ASSERT(!hostAddresses.empty());
-    // We could do the same logic for v6 that we do for V4, but we don't care that much about IPv6
-    return hostAddresses[0];
-    Q_UNUSED(fromAddress);
+
+    if (hostAddresses.size() == 1 || fromAddress == nullptr || fromAddress->sa_family != AF_INET6) {
+        return hostAddresses[0];
+    }
+
+    // QHostAddress(sockaddr *) drops sin6_scope_id, so read it directly
+    const sockaddr_in6 *otherSockaddr = reinterpret_cast<const sockaddr_in6 *>(fromAddress);
+    const QHostAddress otherIp(otherSockaddr->sin6_addr.s6_addr);
+
+    if (otherIp.isLinkLocal()) {
+        // Answer with our link-local address on the interface the query came from
+        const QString ifaceName = QNetworkInterface::interfaceNameFromIndex(otherSockaddr->sin6_scope_id);
+        for (const QHostAddress &ip : hostAddresses) {
+            if (ip.isLinkLocal() && ip.scopeId() == ifaceName) {
+                return ip;
+            }
+        }
+        return hostAddresses[0];
+    }
+
+    QHostAddress matchingIp = hostAddresses[0];
+    int matchingBits = -1;
+    const Q_IPV6ADDR rawOtherIp = otherIp.toIPv6Address();
+    for (const QHostAddress &ip : hostAddresses) {
+        // Same as in findBestAddressMatchV4, compare prefixes since we don't have the network mask
+        int matchingBitsCount = countCommonLeadingBitsV6(ip.toIPv6Address(), rawOtherIp);
+        if (matchingBitsCount > matchingBits) {
+            matchingIp = ip;
+            matchingBits = matchingBitsCount;
+        }
+    }
+
+    return matchingIp;
 }
 
 static mdns_record_t createMdnsRecord(const Announcer::AnnouncedInfo &self,
