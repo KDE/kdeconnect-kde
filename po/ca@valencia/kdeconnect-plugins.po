@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-26 00:49+0000\n"
+"POT-Creation-Date: 2026-10-28 01:00+0000\n"
 "PO-Revision-Date: 2026-07-27 09:36+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -428,41 +428,41 @@ msgstr "Guarda els fitxers a:"
 msgid "%1 in the path will be replaced with the specific device name"
 msgstr "%1 al camí serà substituït pel nom específic del dispositiu"
 
-#: share/shareplugin.cpp:180
+#: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
 msgstr "El text rebut s'ha copiat a dins del porta-retalls"
 
-#: share/shareplugin.cpp:184
+#: share/shareplugin.cpp:166
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "El text rebut de %1 s'ha copiat a dins del porta-retalls"
 
-#: share/shareplugin.cpp:228
+#: share/shareplugin.cpp:210
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Obri en l'editor de text"
 
-#: share/shareplugin.cpp:232
+#: share/shareplugin.cpp:214
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Obri l'enllaç"
 
-#: share/shareplugin.cpp:280 share/shareplugin.cpp:285
+#: share/shareplugin.cpp:262 share/shareplugin.cpp:267
 #, kde-format
 msgid "Could not share file"
 msgstr "No s'ha pogut compartir el fitxer"
 
-#: share/shareplugin.cpp:280
+#: share/shareplugin.cpp:262
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 no existix"
 
-#: share/shareplugin.cpp:285
+#: share/shareplugin.cpp:267
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "S'ha denegat el permís: %1"

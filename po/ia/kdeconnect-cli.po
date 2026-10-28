@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-26 00:49+0000\n"
-"PO-Revision-Date: 2026-07-16 16:45+0200\n"
+"PO-Revision-Date: 2026-10-27 16:02+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -247,10 +247,9 @@ msgid "Display this device's id and exit"
 msgstr "Monstra id de iste dispositivo e exi"
 
 #: kdeconnect-cli.cpp:104
-#, fuzzy, kde-format
-#| msgid "Mount filesystem of a said device"
+#, kde-format
 msgid "Browse the filesystem of a said device"
-msgstr "Monta filesystem de un dispositivo specificate"
+msgstr "Naviga le  filesystem (systema de file)  de un dispositivo specificate"
 
 #: kdeconnect-cli.cpp:106
 #, kde-format
