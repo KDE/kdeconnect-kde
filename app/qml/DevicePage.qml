@@ -112,7 +112,7 @@ Kirigami.ScrollablePage {
                 Accessible.name: Kirigami.MnemonicData.plainTextLabel ?? modelData.name // fallback needed for KF < 6.12
                 Accessible.role: modelData.clickable ? Accessible.Button : Accessible.StaticText
                 icon.name: modelData.iconName
-                highlighted: false
+                highlighted: modelData === sharePlugin && dropArea.containsDrag
                 icon.color: "transparent"
                 width: pluginsListView.width
                 enabled: true
@@ -227,6 +227,7 @@ Kirigami.ScrollablePage {
                 device: root.currentDevice
             },
             PluginItem {
+                id: sharePlugin
                 pluginName: "share"
                 name: i18nd("kdeconnect-app", "Share File")
                 onClick: () => fileDialog.open()
@@ -281,6 +282,18 @@ Kirigami.ScrollablePage {
                 device: root.currentDevice
             }
         ]
+
+        DropArea {
+            id: dropArea
+            parent: pluginsListView
+            anchors.fill: parent
+            enabled: sharePlugin.loaded
+            onEntered: drag => drag.accepted = drag.hasUrls
+            onDropped: drop => {
+                fileDialog.shareIface.shareUrls(drop.urls)
+                drop.accept(Qt.CopyAction)
+            }
+        }
 
         Kirigami.PlaceholderMessage {
             // FIXME: not accessible. screen readers won't read this. Idem for the other PlaceholderMessages
