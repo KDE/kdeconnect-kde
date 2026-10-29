@@ -13,6 +13,8 @@
 
 #include <atomic>
 
+#include <QMutex>
+#include <QPointer>
 #include <QThread>
 
 #include <dbus/dbus.h>
@@ -30,7 +32,9 @@ Q_SIGNALS:
     void notificationReceived(const NotificationManager::Notification &);
 
 private:
-    std::atomic<DBusConnection *> m_connection = nullptr;
+    QMutex m_mutex;
+    DBusConnection *m_connection = nullptr; // guarded by m_mutex
+    std::atomic<bool> m_stopRequested = false;
 };
 
 class DBusNotificationsListener : public NotificationsListener
@@ -56,5 +60,5 @@ private:
     QSharedPointer<QIODevice> iconForIconName(const QString &iconName) const;
     QSharedPointer<QIODevice> pngFromImage() const;
 
-    DBusNotificationsListenerThread *m_thread = nullptr;
+    QPointer<DBusNotificationsListenerThread> m_thread; // deletes itself when finished
 };
