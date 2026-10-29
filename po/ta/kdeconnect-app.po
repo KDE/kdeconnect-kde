@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-10-29 00:53+0000\n"
 "PO-Revision-Date: 2026-04-12 20:25+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -190,43 +190,43 @@ msgstr "சாதனத்தை கண்டுபிடி"
 msgid "Send Clipboard"
 msgstr "பிடிப்புப்பலகையை அனுப்பு"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:232
 #, kde-format
 msgid "Share File"
 msgstr "கோப்பை பகிர்"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:240
 #, kde-format
 msgid "Browse this device"
 msgstr "சாதனத்தில் உலாவு"
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:248
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "மெய்நிகர் திரை அமர்வை நிறுத்து"
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:248
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "சாதனத்தை கூடுதல் திரையாகப் பயன்படுத்து"
 
-#: qml/DevicePage.qml:278
+#: qml/DevicePage.qml:279
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr "முகவரி: %2 மூலம் %1"
 
-#: qml/DevicePage.qml:288
+#: qml/DevicePage.qml:301
 #, kde-format
 msgid "This device is not paired."
 msgstr "இச்சாதனம் இணைக்கப்படவில்லை."
 
-#: qml/DevicePage.qml:292
+#: qml/DevicePage.qml:305
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "இணை"
 
-#: qml/DevicePage.qml:299 qml/DevicePage.qml:308
+#: qml/DevicePage.qml:312 qml/DevicePage.qml:321
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -235,22 +235,22 @@ msgstr ""
 "இணைப்பு கோரப்பட்டுள்ளது\n"
 "சாவி: "
 
-#: qml/DevicePage.qml:314
+#: qml/DevicePage.qml:327
 #, kde-format
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
-#: qml/DevicePage.qml:320
+#: qml/DevicePage.qml:333
 #, kde-format
 msgid "Reject"
 msgstr "மறு"
 
-#: qml/DevicePage.qml:331
+#: qml/DevicePage.qml:344
 #, kde-format
 msgid "This device is not reachable"
 msgstr "சாதனத்தைத் தொடர்புகொள்ள முடியவில்லை"
 
-#: qml/DevicePage.qml:339
+#: qml/DevicePage.qml:352
 #, kde-format
 msgid "Please choose a file"
 msgstr "கோப்பைத் தேர்ந்தெடுங்கள்"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
+"POT-Creation-Date: 2026-10-29 00:53+0000\n"
 "PO-Revision-Date: 2025-12-11 16:07+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -230,19 +230,19 @@ msgstr "Byl překročen limit velikosti zprávy."
 msgid "Send a message…"
 msgstr "Poslat správu…"
 
-#: qml/SendingArea.qml:124
+#: qml/SendingArea.qml:125
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
 msgstr "Připojit obrázek nebo soubor"
 
-#: qml/SendingArea.qml:149
+#: qml/SendingArea.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
 msgstr "Vymazat přílohy"
 
-#: qml/SendingArea.qml:178
+#: qml/SendingArea.qml:179
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"

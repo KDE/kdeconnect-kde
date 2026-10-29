@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-10-29 00:53+0000\n"
 "PO-Revision-Date: 2026-10-25 17:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -194,43 +194,43 @@ msgstr "Troba el dispositiu"
 msgid "Send Clipboard"
 msgstr "Envia el porta-retalls"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:232
 #, kde-format
 msgid "Share File"
 msgstr "Compartix el fitxer"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:240
 #, kde-format
 msgid "Browse this device"
 msgstr "Navega per este dispositiu"
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:248
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "Para la sessió de monitor virtual"
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:248
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "Utilitza el dispositiu com un monitor extern"
 
-#: qml/DevicePage.qml:278
+#: qml/DevicePage.qml:279
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr "Adreç: %1 mitjançant %2"
 
-#: qml/DevicePage.qml:288
+#: qml/DevicePage.qml:301
 #, kde-format
 msgid "This device is not paired."
 msgstr "Este dispositiu no està aparellat."
 
-#: qml/DevicePage.qml:292
+#: qml/DevicePage.qml:305
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Aparella"
 
-#: qml/DevicePage.qml:299 qml/DevicePage.qml:308
+#: qml/DevicePage.qml:312 qml/DevicePage.qml:321
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -239,22 +239,22 @@ msgstr ""
 "S'ha demanat aparellar\n"
 "Clau:"
 
-#: qml/DevicePage.qml:314
+#: qml/DevicePage.qml:327
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
-#: qml/DevicePage.qml:320
+#: qml/DevicePage.qml:333
 #, kde-format
 msgid "Reject"
 msgstr "Rebutja"
 
-#: qml/DevicePage.qml:331
+#: qml/DevicePage.qml:344
 #, kde-format
 msgid "This device is not reachable"
 msgstr "No es pot accedir a este dispositiu"
 
-#: qml/DevicePage.qml:339
+#: qml/DevicePage.qml:352
 #, kde-format
 msgid "Please choose a file"
 msgstr "Trieu un fitxer"

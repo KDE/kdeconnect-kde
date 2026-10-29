@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-10-29 00:53+0000\n"
 "PO-Revision-Date: 2025-06-01 14:57+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -193,43 +193,43 @@ msgstr "Finn eining"
 msgid "Send Clipboard"
 msgstr "Send utklippstavla"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:232
 #, kde-format
 msgid "Share File"
 msgstr "Del fil"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:240
 #, kde-format
 msgid "Browse this device"
 msgstr ""
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:248
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr ""
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:248
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr ""
 
-#: qml/DevicePage.qml:278
+#: qml/DevicePage.qml:279
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:288
+#: qml/DevicePage.qml:301
 #, kde-format
 msgid "This device is not paired."
 msgstr "Eininga er ikkje para."
 
-#: qml/DevicePage.qml:292
+#: qml/DevicePage.qml:305
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Par"
 
-#: qml/DevicePage.qml:299 qml/DevicePage.qml:308
+#: qml/DevicePage.qml:312 qml/DevicePage.qml:321
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -238,22 +238,22 @@ msgstr ""
 "Paringsførespurnad\n"
 "Nøkkel: "
 
-#: qml/DevicePage.qml:314
+#: qml/DevicePage.qml:327
 #, kde-format
 msgid "Accept"
 msgstr "Godta"
 
-#: qml/DevicePage.qml:320
+#: qml/DevicePage.qml:333
 #, kde-format
 msgid "Reject"
 msgstr "Avvis"
 
-#: qml/DevicePage.qml:331
+#: qml/DevicePage.qml:344
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Får ikkje kontakt med eininga"
 
-#: qml/DevicePage.qml:339
+#: qml/DevicePage.qml:352
 #, kde-format
 msgid "Please choose a file"
 msgstr "Vel ei fil"

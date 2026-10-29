@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-10-29 00:53+0000\n"
 "PO-Revision-Date: 2026-04-13 18:17+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -191,43 +191,43 @@ msgstr "Finna tæki"
 msgid "Send Clipboard"
 msgstr "Senda klippispjald"
 
-#: qml/DevicePage.qml:231
+#: qml/DevicePage.qml:232
 #, kde-format
 msgid "Share File"
 msgstr "Samnýta skrá"
 
-#: qml/DevicePage.qml:239
+#: qml/DevicePage.qml:240
 #, kde-format
 msgid "Browse this device"
 msgstr "Fletta í þessu tæki"
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:248
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "Stöðva setu sýndarskjás"
 
-#: qml/DevicePage.qml:247
+#: qml/DevicePage.qml:248
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "Nota tækið sem utanáliggjandi skjá"
 
-#: qml/DevicePage.qml:278
+#: qml/DevicePage.qml:279
 #, kde-format
 msgid "Address: %1 via %2"
 msgstr "Vistfang: %1 með %2"
 
-#: qml/DevicePage.qml:288
+#: qml/DevicePage.qml:301
 #, kde-format
 msgid "This device is not paired."
 msgstr "Þetta tæki er ekki parað."
 
-#: qml/DevicePage.qml:292
+#: qml/DevicePage.qml:305
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Para"
 
-#: qml/DevicePage.qml:299 qml/DevicePage.qml:308
+#: qml/DevicePage.qml:312 qml/DevicePage.qml:321
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -236,22 +236,22 @@ msgstr ""
 "Beðið um pörun\n"
 "Lykill: "
 
-#: qml/DevicePage.qml:314
+#: qml/DevicePage.qml:327
 #, kde-format
 msgid "Accept"
 msgstr "Samþykkja"
 
-#: qml/DevicePage.qml:320
+#: qml/DevicePage.qml:333
 #, kde-format
 msgid "Reject"
 msgstr "Hafna"
 
-#: qml/DevicePage.qml:331
+#: qml/DevicePage.qml:344
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Þetta tæki er ekki aðgengilegt"
 
-#: qml/DevicePage.qml:339
+#: qml/DevicePage.qml:352
 #, kde-format
 msgid "Please choose a file"
 msgstr "Veldu skrá"

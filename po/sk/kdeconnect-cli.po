@@ -245,10 +245,9 @@ msgid "Display this device's id and exit"
 msgstr "Zobraz id tohto zariadenia a skonči"
 
 #: kdeconnect-cli.cpp:104
-#, fuzzy, kde-format
-#| msgid "Mount filesystem of a said device"
+#, kde-format
 msgid "Browse the filesystem of a said device"
-msgstr "Pošle kľúče na dané zariadenie"
+msgstr "Prehliadať súborový systém daného zariadenia"
 
 #: kdeconnect-cli.cpp:106
 #, kde-format
