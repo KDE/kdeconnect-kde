@@ -24,6 +24,15 @@ Kirigami.ScrollablePage {
         console.log("pluginInterface =", pluginInterface);
     }
 
+    Kirigami.PlaceholderMessage {
+        parent: page
+        anchors.centerIn: parent
+        width: parent.width - Kirigami.Units.gridUnit * 4
+        visible: notificationsView.count === 0
+        icon.name: "notifications"
+        text: i18nc("@info:placeholder", "No notifications")
+    }
+
     Column {
         Repeater {
             id: notificationsView
