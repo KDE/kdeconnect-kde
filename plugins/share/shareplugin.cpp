@@ -224,7 +224,8 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
     } else if (np.has(QStringLiteral("url"))) {
         QUrl url = QUrl::fromEncoded(np.get<QByteArray>(QStringLiteral("url")));
         if (isWebUrl(url)) {
-            QDesktopServices::openUrl(url);
+            auto *job = new KIO::OpenUrlJob(url);
+            job->start();
         }
         Q_EMIT shareReceived(url.toString());
     } else {
