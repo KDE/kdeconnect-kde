@@ -176,20 +176,25 @@ static QVariantMap nextVariantMap(DBusMessageIter *iter)
 void DBusNotificationsListenerThread::run()
 {
     DBusError err = DBUS_ERROR_INIT;
-    m_connection = dbus_bus_get_private(DBUS_BUS_SESSION, &err);
+    DBusConnection *connection = dbus_bus_get_private(DBUS_BUS_SESSION, &err);
     if (dbus_error_is_set(&err)) {
         qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "D-Bus connection failed" << err.message;
         dbus_error_free(&err);
         return;
     }
 
-    Q_ASSERT(m_connection != nullptr);
+    Q_ASSERT(connection != nullptr);
 
-    dbus_connection_set_route_peer_messages(m_connection, true);
-    dbus_connection_set_exit_on_disconnect(m_connection, false);
-    dbus_connection_add_filter(m_connection, handleMessageFromC, this, nullptr);
+    {
+        QMutexLocker locker(&m_mutex);
+        m_connection = connection;
+    }
 
-    QString error = becomeMonitor(m_connection,
+    dbus_connection_set_route_peer_messages(connection, true);
+    dbus_connection_set_exit_on_disconnect(connection, false);
+    dbus_connection_add_filter(connection, handleMessageFromC, this, nullptr);
+
+    QString error = becomeMonitor(connection,
                                   "interface='org.freedesktop.Notifications',"
                                   "member='Notify'");
 
@@ -198,20 +203,25 @@ void DBusNotificationsListenerThread::run()
                                                                  << "No notifications will be sent. Error:" << error;
     }
 
-    // wake up every minute to see if we are still connected
-    while (m_connection != nullptr) {
-        dbus_connection_read_write_dispatch(m_connection, 60 * 1000);
-    }
+    // wake up every minute to see if we have been asked to stop
+    while (!m_stopRequested && dbus_connection_read_write_dispatch(connection, 60 * 1000)) { }
 
-    deleteLater();
+    {
+        QMutexLocker locker(&m_mutex);
+        m_connection = nullptr;
+    }
+    dbus_connection_close(connection);
+    dbus_connection_unref(connection);
 }
 
 void DBusNotificationsListenerThread::stop()
 {
+    QMutexLocker locker(&m_mutex);
+    m_stopRequested = true;
+    // The connection is owned (and unreferenced) by the thread, we only close it here to
+    // make dbus_connection_read_write_dispatch() return early
     if (m_connection) {
         dbus_connection_close(m_connection);
-        dbus_connection_unref(m_connection);
-        m_connection = nullptr;
     }
 }
 
@@ -252,13 +262,16 @@ DBusNotificationsListener::DBusNotificationsListener(KdeConnectPlugin *aPlugin)
     , m_thread(new DBusNotificationsListenerThread)
 {
     connect(m_thread, &DBusNotificationsListenerThread::notificationReceived, this, &DBusNotificationsListener::onNotify);
+    // The thread may outlive us while it waits for dbus_connection_read_write_dispatch() to return, so it deletes itself
+    connect(m_thread, &QThread::finished, m_thread, &QObject::deleteLater);
     m_thread->start();
 }
 
 DBusNotificationsListener::~DBusNotificationsListener()
 {
-    m_thread->stop();
-    m_thread->quit();
+    if (m_thread) {
+        m_thread->stop();
+    }
 }
 
 void DBusNotificationsListener::onNotify(const NotificationManager::Notification &notification)
