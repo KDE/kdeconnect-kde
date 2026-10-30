@@ -331,6 +331,7 @@ void MprisControlPlugin::sendPlayerList()
     NetworkPacket np(PACKET_TYPE_MPRIS);
 
     np.set(QStringLiteral("playerList"), playerList.keys() + QStringList(DEFAULT_PLAYER));
+    np.set(QStringLiteral("fallbackPlayer"), DEFAULT_PLAYER);
     np.set(QStringLiteral("supportAlbumArtPayload"), true);
 
     sendPacket(np);
