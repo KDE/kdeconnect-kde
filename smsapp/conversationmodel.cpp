@@ -90,6 +90,10 @@ void ConversationModel::setDeviceId(const QString &deviceId)
         (*m_thumbnailsProvider)->clear();
     }
 
+    if (m_threadId != INVALID_THREAD_ID) {
+        requestMessages(RequestMessageRole::FetchMore);
+    }
+
     Q_EMIT deviceIdChanged(deviceId);
 }
 
@@ -131,7 +135,7 @@ void ConversationModel::requestMessages(enum RequestMessageRole role)
     constexpr qint64 requestBatchSize = 25;
     constexpr qint64 maxRequestBatchSize = requestBatchSize * 10;
 
-    if (m_threadId == INVALID_THREAD_ID) {
+    if (m_threadId == INVALID_THREAD_ID || !m_conversationsInterface) {
         return;
     }
 
