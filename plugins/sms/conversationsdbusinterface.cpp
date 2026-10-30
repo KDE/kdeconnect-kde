@@ -184,8 +184,14 @@ void ConversationsDbusInterface::updateConversation(const qint64 &conversationID
     if (numberToRequest < MIN_NUMBER_TO_REQUEST) {
         numberToRequest = MIN_NUMBER_TO_REQUEST;
     }
+    waitingForMessagesLock.unlock();
+
+    // Must not hold the lock here: this is a loopback D-Bus call to an object on the main thread,
+    // which blocks until the main thread handles it, and the main thread may be waiting for this
+    // lock in addMessages()
     m_smsInterface.requestConversation(conversationID, rangeStartTimestamp, numberToRequest);
 
+    waitingForMessagesLock.lockForRead();
     while (conversationsWaitingForMessages.contains(conversationID)) {
         waitingForMessages.wait(&waitingForMessagesLock);
     }
