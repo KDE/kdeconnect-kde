@@ -71,7 +71,6 @@ ColumnLayout {
                     bottomPadding: topPadding
                     selectByMouse: true
                     hoverEnabled: true
-                    tabChangesFocus: true
 
                     Keys.onReturnPressed: event => {
                         if (event.key === Qt.Key_Return) {
