@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
 "PO-Revision-Date: 2025-03-01 17:55+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -216,18 +216,18 @@ msgstr ""
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:301
+#: qml/DevicePage.qml:299
 #, kde-format
 msgid "This device is not paired."
 msgstr "Ĉi tiu aparato ne estas parigita."
 
-#: qml/DevicePage.qml:305
+#: qml/DevicePage.qml:303
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Parigi"
 
-#: qml/DevicePage.qml:312 qml/DevicePage.qml:321
+#: qml/DevicePage.qml:310 qml/DevicePage.qml:319
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -236,22 +236,22 @@ msgstr ""
 "Parigo alpetiĝis\n"
 "Ŝlosilo: "
 
-#: qml/DevicePage.qml:327
+#: qml/DevicePage.qml:325
 #, kde-format
 msgid "Accept"
 msgstr "Akcepti"
 
-#: qml/DevicePage.qml:333
+#: qml/DevicePage.qml:331
 #, kde-format
 msgid "Reject"
 msgstr "Malakcepti"
 
-#: qml/DevicePage.qml:344
+#: qml/DevicePage.qml:340
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Ĉi tiu aparato ne estas atingebla"
 
-#: qml/DevicePage.qml:352
+#: qml/DevicePage.qml:348
 #, kde-format
 msgid "Please choose a file"
 msgstr "Bonvolu elekti dosieron"
@@ -351,12 +351,12 @@ msgstr ""
 msgid "Multimedia Controls"
 msgstr "Plurmediaj Regiloj"
 
-#: qml/mpris.qml:68
+#: qml/mpris.qml:66
 #, kde-format
 msgid "No players available"
 msgstr "Neniuj ludantoj disponeblaj"
 
-#: qml/mpris.qml:128
+#: qml/mpris.qml:126
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -367,28 +367,34 @@ msgctxt "@title:window"
 msgid "Notifications"
 msgstr ""
 
-#: qml/NotificationPanel.qml:164
+#: qml/NotificationPanel.qml:33
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No notifications"
+msgstr ""
+
+#: qml/NotificationPanel.qml:173
 #, kde-format
 msgid "Reply"
 msgstr ""
 
-#: qml/NotificationPanel.qml:179
+#: qml/NotificationPanel.qml:188
 #, kde-format
 msgid "Dismiss"
 msgstr ""
 
-#: qml/NotificationPanel.qml:206
+#: qml/NotificationPanel.qml:215
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: qml/NotificationPanel.qml:224
+#: qml/NotificationPanel.qml:233
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr ""
 
-#: qml/NotificationPanel.qml:243
+#: qml/NotificationPanel.qml:252
 #, fuzzy, kde-format
 #| msgid "Send Ping"
 msgid "Send"
@@ -421,7 +427,7 @@ msgstr "Redakti komandojn"
 msgid "You can edit commands on the connected device"
 msgstr "Vi povas redakti komandojn sur la konektita aparato"
 
-#: qml/runcommand.qml:53
+#: qml/runcommand.qml:51
 #, kde-format
 msgid "No commands defined"
 msgstr "Neniuj komandoj difinitaj"

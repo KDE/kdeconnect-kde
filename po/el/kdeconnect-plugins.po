@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
 "PO-Revision-Date: 2024-09-19 21:43+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -473,17 +473,17 @@ msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr ""
 
-#: share/shareplugin.cpp:262 share/shareplugin.cpp:267
+#: share/shareplugin.cpp:263 share/shareplugin.cpp:268
 #, kde-format
 msgid "Could not share file"
 msgstr "Αδυναμία διαμοιρασμού αρχείου"
 
-#: share/shareplugin.cpp:262
+#: share/shareplugin.cpp:263
 #, kde-format
 msgid "%1 does not exist"
 msgstr "Το %1 δεν υπάρχει"
 
-#: share/shareplugin.cpp:267
+#: share/shareplugin.cpp:268
 #, kde-format
 msgid "Permission denied: %1"
 msgstr ""

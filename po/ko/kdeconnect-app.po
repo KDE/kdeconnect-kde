@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
 "PO-Revision-Date: 2026-09-21 23:11+0200\n"
 "Last-Translator: Shinjo Park <peremen@gmail.com>\n"
 "Language-Team: Korean\n"
@@ -215,18 +215,18 @@ msgstr "장치를 외부 모니터로 사용"
 msgid "Address: %1 via %2"
 msgstr "주소: %1(%2 경유)"
 
-#: qml/DevicePage.qml:301
+#: qml/DevicePage.qml:299
 #, kde-format
 msgid "This device is not paired."
 msgstr "장치가 페어링되지 않았습니다."
 
-#: qml/DevicePage.qml:305
+#: qml/DevicePage.qml:303
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "페어링"
 
-#: qml/DevicePage.qml:312 qml/DevicePage.qml:321
+#: qml/DevicePage.qml:310 qml/DevicePage.qml:319
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -235,22 +235,22 @@ msgstr ""
 "페어링 요청됨\n"
 "키: "
 
-#: qml/DevicePage.qml:327
+#: qml/DevicePage.qml:325
 #, kde-format
 msgid "Accept"
 msgstr "수락"
 
-#: qml/DevicePage.qml:333
+#: qml/DevicePage.qml:331
 #, kde-format
 msgid "Reject"
 msgstr "거부"
 
-#: qml/DevicePage.qml:344
+#: qml/DevicePage.qml:340
 #, kde-format
 msgid "This device is not reachable"
 msgstr "이 장치에 접근할 수 없음"
 
-#: qml/DevicePage.qml:352
+#: qml/DevicePage.qml:348
 #, kde-format
 msgid "Please choose a file"
 msgstr "파일을 선택하십시오"
@@ -349,12 +349,12 @@ msgstr "오른쪽 클릭"
 msgid "Multimedia Controls"
 msgstr "멀티미디어 제어"
 
-#: qml/mpris.qml:68
+#: qml/mpris.qml:66
 #, kde-format
 msgid "No players available"
 msgstr "사용 가능한 재생기 없음"
 
-#: qml/mpris.qml:128
+#: qml/mpris.qml:126
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -365,28 +365,35 @@ msgctxt "@title:window"
 msgid "Notifications"
 msgstr "알림"
 
-#: qml/NotificationPanel.qml:164
+#: qml/NotificationPanel.qml:33
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "@info:placeholder"
+msgid "No notifications"
+msgstr "알림"
+
+#: qml/NotificationPanel.qml:173
 #, kde-format
 msgid "Reply"
 msgstr "답장"
 
-#: qml/NotificationPanel.qml:179
+#: qml/NotificationPanel.qml:188
 #, kde-format
 msgid "Dismiss"
 msgstr "무시"
 
-#: qml/NotificationPanel.qml:206
+#: qml/NotificationPanel.qml:215
 #, kde-format
 msgid "Cancel"
 msgstr "취소"
 
-#: qml/NotificationPanel.qml:224
+#: qml/NotificationPanel.qml:233
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "%1 님에게 답장…"
 
-#: qml/NotificationPanel.qml:243
+#: qml/NotificationPanel.qml:252
 #, kde-format
 msgid "Send"
 msgstr "보내기"
@@ -418,7 +425,7 @@ msgstr "명령 편집"
 msgid "You can edit commands on the connected device"
 msgstr "연결된 장치에서 명령을 편집할 수 있습니다"
 
-#: qml/runcommand.qml:53
+#: qml/runcommand.qml:51
 #, kde-format
 msgid "No commands defined"
 msgstr "지정한 명령 없음"

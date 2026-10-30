@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
 "PO-Revision-Date: 2026-08-25 20:03+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -448,17 +448,17 @@ msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Avaa linkki"
 
-#: share/shareplugin.cpp:262 share/shareplugin.cpp:267
+#: share/shareplugin.cpp:263 share/shareplugin.cpp:268
 #, kde-format
 msgid "Could not share file"
 msgstr "Tiedostoa ei voitu jakaa"
 
-#: share/shareplugin.cpp:262
+#: share/shareplugin.cpp:263
 #, kde-format
 msgid "%1 does not exist"
 msgstr "Ei ole olemassa: %1"
 
-#: share/shareplugin.cpp:267
+#: share/shareplugin.cpp:268
 #, kde-format
 msgid "Permission denied: %1"
 msgstr "Käyttöoikeus estetty: %1"

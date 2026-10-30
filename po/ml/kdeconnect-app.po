@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
 "PO-Revision-Date: 2020-01-28 02:48+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -216,41 +216,41 @@ msgstr ""
 msgid "Address: %1 via %2"
 msgstr ""
 
-#: qml/DevicePage.qml:301
+#: qml/DevicePage.qml:299
 #, fuzzy, kde-format
 msgid "This device is not paired."
 msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴിയുന്നതല്ല"
 
-#: qml/DevicePage.qml:305
+#: qml/DevicePage.qml:303
 #, fuzzy, kde-format
 #| msgid "Pair"
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "ജോഡിചേരുക"
 
-#: qml/DevicePage.qml:312 qml/DevicePage.qml:321
+#: qml/DevicePage.qml:310 qml/DevicePage.qml:319
 #, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
 msgstr ""
 
-#: qml/DevicePage.qml:327
+#: qml/DevicePage.qml:325
 #, kde-format
 msgid "Accept"
 msgstr "അംഗീകരിക്കുക"
 
-#: qml/DevicePage.qml:333
+#: qml/DevicePage.qml:331
 #, kde-format
 msgid "Reject"
 msgstr "നിരസിക്കുക"
 
-#: qml/DevicePage.qml:344
+#: qml/DevicePage.qml:340
 #, kde-format
 msgid "This device is not reachable"
 msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴിയുന്നതല്ല"
 
-#: qml/DevicePage.qml:352
+#: qml/DevicePage.qml:348
 #, kde-format
 msgid "Please choose a file"
 msgstr "ഒരു ഫയൽ തിരഞ്ഞെടുക്കുക"
@@ -350,12 +350,12 @@ msgstr ""
 msgid "Multimedia Controls"
 msgstr "മൾട്ടിമീഡിയ നിയന്ത്രണങ്ങൾ"
 
-#: qml/mpris.qml:68
+#: qml/mpris.qml:66
 #, kde-format
 msgid "No players available"
 msgstr "പ്ലെയറുകൾ ലഭ്യമല്ല"
 
-#: qml/mpris.qml:128
+#: qml/mpris.qml:126
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -366,28 +366,34 @@ msgctxt "@title:window"
 msgid "Notifications"
 msgstr ""
 
-#: qml/NotificationPanel.qml:164
+#: qml/NotificationPanel.qml:33
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No notifications"
+msgstr ""
+
+#: qml/NotificationPanel.qml:173
 #, kde-format
 msgid "Reply"
 msgstr ""
 
-#: qml/NotificationPanel.qml:179
+#: qml/NotificationPanel.qml:188
 #, kde-format
 msgid "Dismiss"
 msgstr ""
 
-#: qml/NotificationPanel.qml:206
+#: qml/NotificationPanel.qml:215
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: qml/NotificationPanel.qml:224
+#: qml/NotificationPanel.qml:233
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr ""
 
-#: qml/NotificationPanel.qml:243
+#: qml/NotificationPanel.qml:252
 #, fuzzy, kde-format
 #| msgid "Send Ping"
 msgid "Send"
@@ -420,7 +426,7 @@ msgstr "കമാൻഡുകൾ എഡിറ്റുചെയ്യുക"
 msgid "You can edit commands on the connected device"
 msgstr "കണക്റ്റുചെയ്‌ത ഉപകരണത്തിൽ നിങ്ങൾക്ക് കമാൻഡുകൾ എഡിറ്റുചെയ്യാനാകും"
 
-#: qml/runcommand.qml:53
+#: qml/runcommand.qml:51
 #, kde-format
 msgid "No commands defined"
 msgstr "കമാൻഡുകളൊന്നും നിർവചിച്ചിട്ടില്ല"

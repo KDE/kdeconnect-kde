@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
 "PO-Revision-Date: 2026-10-27 16:01+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -218,18 +218,18 @@ msgstr "Usa dispositivo comoun monitor externe"
 msgid "Address: %1 via %2"
 msgstr "Adresse: %1 via %2"
 
-#: qml/DevicePage.qml:301
+#: qml/DevicePage.qml:299
 #, kde-format
 msgid "This device is not paired."
 msgstr "Iste dispositivo non es associate."
 
-#: qml/DevicePage.qml:305
+#: qml/DevicePage.qml:303
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Associa"
 
-#: qml/DevicePage.qml:312 qml/DevicePage.qml:321
+#: qml/DevicePage.qml:310 qml/DevicePage.qml:319
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -238,22 +238,22 @@ msgstr ""
 "Coppiar requirite\n"
 "Clave: "
 
-#: qml/DevicePage.qml:327
+#: qml/DevicePage.qml:325
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
-#: qml/DevicePage.qml:333
+#: qml/DevicePage.qml:331
 #, kde-format
 msgid "Reject"
 msgstr "Rejecta"
 
-#: qml/DevicePage.qml:344
+#: qml/DevicePage.qml:340
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Iste dispositivo non es attingibile"
 
-#: qml/DevicePage.qml:352
+#: qml/DevicePage.qml:348
 #, kde-format
 msgid "Please choose a file"
 msgstr "Pro favor tu selige un file"
@@ -353,12 +353,12 @@ msgstr "Pulsa a dextera:"
 msgid "Multimedia Controls"
 msgstr "Controlos de Multimedia"
 
-#: qml/mpris.qml:68
+#: qml/mpris.qml:66
 #, kde-format
 msgid "No players available"
 msgstr "Necun reproductores disponibile"
 
-#: qml/mpris.qml:128
+#: qml/mpris.qml:126
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -369,28 +369,35 @@ msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Notificationes"
 
-#: qml/NotificationPanel.qml:164
+#: qml/NotificationPanel.qml:33
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "@info:placeholder"
+msgid "No notifications"
+msgstr "Notificationes"
+
+#: qml/NotificationPanel.qml:173
 #, kde-format
 msgid "Reply"
 msgstr "Responde"
 
-#: qml/NotificationPanel.qml:179
+#: qml/NotificationPanel.qml:188
 #, kde-format
 msgid "Dismiss"
 msgstr "Abbandona"
 
-#: qml/NotificationPanel.qml:206
+#: qml/NotificationPanel.qml:215
 #, kde-format
 msgid "Cancel"
 msgstr "Cancella"
 
-#: qml/NotificationPanel.qml:224
+#: qml/NotificationPanel.qml:233
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Responde a %1..."
 
-#: qml/NotificationPanel.qml:243
+#: qml/NotificationPanel.qml:252
 #, kde-format
 msgid "Send"
 msgstr "Invia"
@@ -422,7 +429,7 @@ msgstr "Edita commandos"
 msgid "You can edit commands on the connected device"
 msgstr "Tu pote modificar commandos sur le dispositivo connectite"
 
-#: qml/runcommand.qml:53
+#: qml/runcommand.qml:51
 #, kde-format
 msgid "No commands defined"
 msgstr "Necun commandos definite"

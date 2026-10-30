@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
 "PO-Revision-Date: 2026-10-25 07:17+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -216,18 +216,18 @@ msgstr "Uporabi napravo kot zunanji monitor"
 msgid "Address: %1 via %2"
 msgstr "Naslov: %1 prek %2"
 
-#: qml/DevicePage.qml:301
+#: qml/DevicePage.qml:299
 #, kde-format
 msgid "This device is not paired."
 msgstr "Ta naprava ni uparjena."
 
-#: qml/DevicePage.qml:305
+#: qml/DevicePage.qml:303
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Upari"
 
-#: qml/DevicePage.qml:312 qml/DevicePage.qml:321
+#: qml/DevicePage.qml:310 qml/DevicePage.qml:319
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -236,22 +236,22 @@ msgstr ""
 "Zahtevan par\n"
 "Ključ: "
 
-#: qml/DevicePage.qml:327
+#: qml/DevicePage.qml:325
 #, kde-format
 msgid "Accept"
 msgstr "Sprejmi"
 
-#: qml/DevicePage.qml:333
+#: qml/DevicePage.qml:331
 #, kde-format
 msgid "Reject"
 msgstr "Zavrni"
 
-#: qml/DevicePage.qml:344
+#: qml/DevicePage.qml:340
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Ta naprava ni dosegljiva"
 
-#: qml/DevicePage.qml:352
+#: qml/DevicePage.qml:348
 #, kde-format
 msgid "Please choose a file"
 msgstr "Izberite datoteko"
@@ -349,12 +349,12 @@ msgstr "Desni klik"
 msgid "Multimedia Controls"
 msgstr "Nadzor večpredstavnosti"
 
-#: qml/mpris.qml:68
+#: qml/mpris.qml:66
 #, kde-format
 msgid "No players available"
 msgstr "Ni na voljo predvajalnikov"
 
-#: qml/mpris.qml:128
+#: qml/mpris.qml:126
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -365,28 +365,35 @@ msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Obvestila"
 
-#: qml/NotificationPanel.qml:164
+#: qml/NotificationPanel.qml:33
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "@info:placeholder"
+msgid "No notifications"
+msgstr "Obvestila"
+
+#: qml/NotificationPanel.qml:173
 #, kde-format
 msgid "Reply"
 msgstr "Odgovori"
 
-#: qml/NotificationPanel.qml:179
+#: qml/NotificationPanel.qml:188
 #, kde-format
 msgid "Dismiss"
 msgstr "Zavrzi"
 
-#: qml/NotificationPanel.qml:206
+#: qml/NotificationPanel.qml:215
 #, kde-format
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: qml/NotificationPanel.qml:224
+#: qml/NotificationPanel.qml:233
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Odgovori na %1…"
 
-#: qml/NotificationPanel.qml:243
+#: qml/NotificationPanel.qml:252
 #, kde-format
 msgid "Send"
 msgstr "Pošlji"
@@ -418,7 +425,7 @@ msgstr "Ukazi urejanja"
 msgid "You can edit commands on the connected device"
 msgstr "Lahko urejate ukaze na povezani napravi"
 
-#: qml/runcommand.qml:53
+#: qml/runcommand.qml:51
 #, kde-format
 msgid "No commands defined"
 msgstr "Ni določenega ukaza"
