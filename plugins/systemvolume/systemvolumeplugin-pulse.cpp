@@ -18,6 +18,7 @@
 
 #include "plugin_systemvolume_debug.h"
 #include <PulseAudioQt/Context>
+#include <PulseAudioQt/Port>
 #include <PulseAudioQt/Sink>
 
 K_PLUGIN_CLASS_WITH_JSON(SystemvolumePlugin, "kdeconnect_systemvolume.json")
@@ -64,6 +65,20 @@ void SystemvolumePlugin::sendSinkList()
 
     const auto sinks = PulseAudioQt::Context::instance()->sinks();
     for (PulseAudioQt::Sink *sink : sinks) {
+        // Avoid accumulating duplicate connections, since this function is called repeatedly
+        disconnect(sink, nullptr, this, nullptr);
+
+        const auto ports = sink->ports();
+        for (PulseAudioQt::Port *port : ports) {
+            disconnect(port, nullptr, this, nullptr);
+            connect(port, &PulseAudioQt::Port::availabilityChanged, this, &SystemvolumePlugin::sendSinkList);
+        }
+
+        // Hide inactive sinks (eg: unplugged HDMI), using the same criteria as plasma-pa
+        if (ports.size() == 1 && ports[0]->availability() == PulseAudioQt::Port::Unavailable) {
+            continue;
+        }
+
         sinksMap.insert(sink->name(), sink);
 
         connect(sink, &PulseAudioQt::Sink::volumeChanged, this, [this, sink] {
