@@ -119,15 +119,3 @@ msgstr "Contingut compartit:"
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "No s'ha pogut compartir %1"
-
-#~ msgid "Send URL"
-#~ msgstr "Envia un URL"
-
-#~ msgid "Send File"
-#~ msgstr "Envia un fitxer"
-
-#~ msgid "Open on peer device"
-#~ msgstr "Obre en el dispositiu aparellat"
-
-#~ msgid "Enter URL here"
-#~ msgstr "Introduïu aquí un URL"

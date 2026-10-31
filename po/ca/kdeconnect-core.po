@@ -156,9 +156,3 @@ msgstr "No s'ha pogut generar el certificat del dispositiu."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "No s'ha pogut emmagatzemar el fitxer del certificat: %1"
-
-#~| msgctxt "@info"
-#~| msgid "Bluetooth"
-#~ msgctxt "@info"
-#~ msgid "Bluetooth (beta)"
-#~ msgstr "Bluetooth (beta)"
