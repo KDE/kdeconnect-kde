@@ -72,6 +72,9 @@ ColumnLayout {
                     selectByMouse: true
                     hoverEnabled: true
 
+                    KeyNavigation.priority: KeyNavigation.BeforeItem
+                    KeyNavigation.tab: attachFilesButton
+
                     Keys.onReturnPressed: event => {
                         if (event.key === Qt.Key_Return) {
                             if (event.modifiers & Qt.ShiftModifier) {
