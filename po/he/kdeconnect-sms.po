@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-31 00:50+0000\n"
 "PO-Revision-Date: 2025-10-14 07:31+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -228,19 +228,19 @@ msgstr "חרגת ממגבלת הגודל המרבי להודעה."
 msgid "Send a message…"
 msgstr "שליחת הודעה…"
 
-#: qml/SendingArea.qml:125
+#: qml/SendingArea.qml:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
 msgstr "צירוף תמונה או קובץ"
 
-#: qml/SendingArea.qml:150
+#: qml/SendingArea.qml:149
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
 msgstr "פינוי קבצים מצורפים"
 
-#: qml/SendingArea.qml:179
+#: qml/SendingArea.qml:178
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"

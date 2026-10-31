@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:53+0000\n"
-"PO-Revision-Date: 2026-10-25 07:17+0100\n"
+"PO-Revision-Date: 2026-10-30 06:15+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -366,11 +366,10 @@ msgid "Notifications"
 msgstr "Obvestila"
 
 #: qml/NotificationPanel.qml:33
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No notifications"
-msgstr "Obvestila"
+msgstr "Ni obvestil"
 
 #: qml/NotificationPanel.qml:173
 #, kde-format

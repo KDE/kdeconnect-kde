@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-31 00:50+0000\n"
 "PO-Revision-Date: 2024-05-21 19:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -236,19 +236,19 @@ msgstr "Maximum message size limit exceeded."
 msgid "Send a message…"
 msgstr "Send a message"
 
-#: qml/SendingArea.qml:125
+#: qml/SendingArea.qml:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
 msgstr ""
 
-#: qml/SendingArea.qml:150
+#: qml/SendingArea.qml:149
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
 msgstr ""
 
-#: qml/SendingArea.qml:179
+#: qml/SendingArea.qml:178
 #, fuzzy, kde-format
 #| msgid "Send a message"
 msgctxt "@info:tooltip"
