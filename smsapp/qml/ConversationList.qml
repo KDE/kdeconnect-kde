@@ -225,6 +225,7 @@ Kirigami.ScrollablePage
 
             function startChat() {
                 view.currentItem.forceActiveFocus();
+                applicationWindow().pageStack.pop(page);
                 applicationWindow().pageStack.push(chatView, {
                                                        addresses: listItem.addresses,
                                                        conversationId: listItem.conversationId,
