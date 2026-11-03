@@ -313,8 +313,7 @@ msgid "(unpaired)"
 msgstr "(desemparellado)"
 
 #: kdeconnect-cli.cpp:245
-#, fuzzy, kde-format
-#| msgid "Shared %1"
+#, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
 msgstr "Compartiuse %1"
