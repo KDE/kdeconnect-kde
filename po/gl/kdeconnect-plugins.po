@@ -264,44 +264,38 @@ msgstr "Ordes de exemplo"
 
 #: runcommand/kdeconnect_runcommand_config.qml:148
 #: runcommand/kdeconnect_runcommand_config.qml:159
-#, fuzzy, kde-format
-#| msgid "Suspend"
+#, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
 msgstr "Suspender"
 
 #: runcommand/kdeconnect_runcommand_config.qml:152
 #: runcommand/kdeconnect_runcommand_config.qml:167
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
 msgstr "Bloquear a pantalla"
 
 #: runcommand/kdeconnect_runcommand_config.qml:163
-#, fuzzy, kde-format
-#| msgid "Maximum Brightness"
+#, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
 msgstr "Brillo máximo"
 
 #: runcommand/kdeconnect_runcommand_config.qml:171
-#, fuzzy, kde-format
-#| msgid "Unlock Screen"
+#, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
 msgstr "Desbloquear a pantalla"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
-#, fuzzy, kde-format
-#| msgid "Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
 msgstr "Pechar todos os cofres"
 
 #: runcommand/kdeconnect_runcommand_config.qml:179
-#, fuzzy, kde-format
-#| msgid "Forcefully Close All Vaults"
+#, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
 msgstr "Forzar o peche de todos os cofres"
