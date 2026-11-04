@@ -279,8 +279,20 @@ void BluetoothLinkProviderImpl::clientIdentityReceived(const QBluetoothAddress &
 void BluetoothLinkProviderImpl::serverNewConnection()
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProviderImpl::serverNewConnection executed";
-    QBluetoothSocket *socket = mBluetoothServer->nextPendingConnection();
+    auto *server = qobject_cast<QBluetoothServer *>(sender());
+    if (!server || server != mBluetoothServer) {
+        qCDebug(KDECONNECT_CORE) << "Ignoring connection from a stale server";
+        return;
+    }
 
+    while (server->hasPendingConnections()) {
+        QBluetoothSocket *socket = server->nextPendingConnection();
+        handleIncomingSocket(socket);
+    }
+}
+
+void BluetoothLinkProviderImpl::handleIncomingSocket(QBluetoothSocket *socket)
+{
     qCDebug(KDECONNECT_CORE) << socket->peerAddress() << "Received connection";
 
     QBluetoothAddress peer = socket->peerAddress();

@@ -61,6 +61,7 @@ private:
     bool isCertificateValid(const DeviceInfo &deviceInfo);
     QList<QBluetoothAddress> getPairedDevices();
     void tryToInitialise();
+    void handleIncomingSocket(QBluetoothSocket *socket);
 
     QBluetoothUuid mServiceUuid;
     QPointer<QBluetoothServer> mBluetoothServer;
