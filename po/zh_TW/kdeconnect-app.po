@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:53+0000\n"
-"PO-Revision-Date: 2026-09-15 14:29+0900\n"
+"PO-Revision-Date: 2026-11-03 20:37+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -264,13 +264,13 @@ msgstr "請選擇檔案"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open device list"
-msgstr ""
+msgstr "開啟裝置列表"
 
 #: qml/Main.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Close device list"
-msgstr ""
+msgstr "關閉裝置列表"
 
 #: qml/Main.qml:113
 #, kde-format
@@ -370,11 +370,10 @@ msgid "Notifications"
 msgstr "通知"
 
 #: qml/NotificationPanel.qml:33
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No notifications"
-msgstr "通知"
+msgstr "沒有通知"
 
 #: qml/NotificationPanel.qml:173
 #, kde-format
@@ -503,10 +502,9 @@ msgid "KDE Connect iOS App"
 msgstr "KDE Connect iOS 應用程式"
 
 #: qml/WelcomePage.qml:69
-#, fuzzy, kde-format
-#| msgid "Apple Store"
+#, kde-format
 msgid "App Store"
-msgstr "Apple Store"
+msgstr "App Store"
 
 #~ msgid "Configure plugin"
 #~ msgstr "設定外掛程式"
