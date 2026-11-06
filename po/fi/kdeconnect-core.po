@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:50+0000\n"
-"PO-Revision-Date: 2026-08-25 20:04+0300\n"
+"PO-Revision-Date: 2026-10-06 09:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -44,10 +44,9 @@ msgid "File"
 msgstr "Tiedosto"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "Ei voitu tallentaa vamennetiedostoa: %1"
+msgstr "Lähdetiedostoa ei voitu avata: %1"
 
 #: backends/pairinghandler.cpp:57
 #, kde-format
@@ -82,7 +81,7 @@ msgstr "Aikakatkaisu"
 #: backends/pairinghandler.cpp:191
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "Paritus ei ole meneillään"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
