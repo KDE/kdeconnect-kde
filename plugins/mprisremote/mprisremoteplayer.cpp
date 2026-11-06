@@ -25,6 +25,8 @@ MprisRemotePlayer::MprisRemotePlayer(QString id, MprisRemotePlugin *plugin)
     , m_canPause(true)
     , m_canGoPrevious(true)
     , m_canGoNext(true)
+    , m_canFastForward(false)
+    , m_canRewind(false)
     , m_volume(50)
     , m_length(0)
     , m_lastPosition(0)
@@ -115,12 +117,17 @@ void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket &np)
     bool newCanPause = np.get<bool>(QStringLiteral("canPause"), m_canPause);
     bool newCanGoPrevious = np.get<bool>(QStringLiteral("canGoPrevious"), m_canGoPrevious);
     bool newCanGoNext = np.get<bool>(QStringLiteral("canGoNext"), m_canGoNext);
-    if (newCanSeek != m_canSeek || newCanPlay != m_canPlay || newCanPause != m_canPause || newCanGoPrevious != m_canGoPrevious || newCanGoNext != m_canGoNext) {
+    bool newCanFastForward = np.get<bool>(QStringLiteral("canFastForward"), m_canFastForward);
+    bool newCanRewind = np.get<bool>(QStringLiteral("canRewind"), m_canRewind);
+    if (newCanSeek != m_canSeek || newCanPlay != m_canPlay || newCanPause != m_canPause || newCanGoPrevious != m_canGoPrevious || newCanGoNext != m_canGoNext
+        || newCanFastForward != m_canFastForward || newCanRewind != m_canRewind) {
         m_canSeek = newCanSeek;
         m_canPlay = newCanPlay;
         m_canPause = newCanPause;
         m_canGoPrevious = newCanGoPrevious;
         m_canGoNext = newCanGoNext;
+        m_canFastForward = newCanFastForward;
+        m_canRewind = newCanRewind;
         Q_EMIT controlsChanged();
     }
 }
@@ -205,6 +212,16 @@ bool MprisRemotePlayer::canGoPrevious() const
 bool MprisRemotePlayer::canGoNext() const
 {
     return m_canGoNext;
+}
+
+bool MprisRemotePlayer::canFastForward() const
+{
+    return m_canFastForward;
+}
+
+bool MprisRemotePlayer::canRewind() const
+{
+    return m_canRewind;
 }
 
 QDBusConnection &MprisRemotePlayer::dbus()

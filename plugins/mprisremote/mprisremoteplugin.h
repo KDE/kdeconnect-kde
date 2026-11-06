@@ -30,6 +30,8 @@ class MprisRemotePlugin : public KdeConnectPlugin
     Q_PROPERTY(QString album READ album NOTIFY propertiesChanged)
     Q_PROPERTY(QString localAlbumArtUrl READ localAlbumArtUrl NOTIFY propertiesChanged)
     Q_PROPERTY(bool canSeek READ canSeek NOTIFY propertiesChanged)
+    Q_PROPERTY(bool canFastForward READ canFastForward NOTIFY propertiesChanged)
+    Q_PROPERTY(bool canRewind READ canRewind NOTIFY propertiesChanged)
 
 public:
     using KdeConnectPlugin::KdeConnectPlugin;
@@ -47,6 +49,8 @@ public:
     QString album() const;
     QString localAlbumArtUrl() const;
     bool canSeek() const;
+    bool canFastForward() const;
+    bool canRewind() const;
 
     void setVolume(int volume);
     void setPosition(int position);

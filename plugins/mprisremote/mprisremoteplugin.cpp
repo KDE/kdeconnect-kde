@@ -203,5 +203,17 @@ bool MprisRemotePlugin::canSeek() const
     return player ? player->canSeek() : false;
 }
 
+bool MprisRemotePlugin::canFastForward() const
+{
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->canFastForward() : false;
+}
+
+bool MprisRemotePlugin::canRewind() const
+{
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->canRewind() : false;
+}
+
 #include "moc_mprisremoteplugin.cpp"
 #include "mprisremoteplugin.moc"

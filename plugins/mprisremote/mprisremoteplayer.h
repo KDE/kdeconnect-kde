@@ -40,6 +40,8 @@ public:
     bool canPause() const;
     bool canGoPrevious() const;
     bool canGoNext() const;
+    bool canFastForward() const;
+    bool canRewind() const;
 
     QDBusConnection &dbus();
 
@@ -60,6 +62,8 @@ private:
     bool m_canPause;
     bool m_canGoPrevious;
     bool m_canGoNext;
+    bool m_canFastForward;
+    bool m_canRewind;
     int m_volume;
     long m_length;
     long m_lastPosition;
