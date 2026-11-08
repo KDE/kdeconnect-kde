@@ -148,6 +148,12 @@ void BluetoothLinkProvider::updateImpl()
         wrappedInstance->onStart();
         connectTimer->start();
     } else if (!shouldRun && wrappedInstance) {
+#ifdef Q_OS_MACOS
+        // QtBluetooth on macOS keeps a dangling listener after the QBluetoothServer is destroyed,
+        // which crashes on the next incoming connection. Keep running until KDE Connect is restarted.
+        qCInfo(KDECONNECT_CORE) << "Bluetooth will be stopped the next time KDE Connect is restarted";
+        return;
+#endif
         qCDebug(KDECONNECT_CORE) << "Stopping the Bluetooth link provider";
         connectTimer->stop();
 #ifdef Q_OS_LINUX
