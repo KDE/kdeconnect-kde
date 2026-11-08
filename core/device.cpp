@@ -133,6 +133,15 @@ QStringList Device::activeProviderNames() const
     return providers;
 }
 
+QString Device::connectionDescription() const
+{
+    QStringList links;
+    for (const DeviceLink *deviceLink : std::as_const(d->m_deviceLinks)) {
+        links.append(QStringLiteral("%1 (%2)").arg(deviceLink->address(), deviceLink->providerName()));
+    }
+    return links.join(QStringLiteral(", "));
+}
+
 int Device::protocolVersion()
 {
     return d->m_deviceInfo.protocolVersion;

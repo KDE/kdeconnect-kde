@@ -58,6 +58,7 @@ class KDECONNECTDBUSINTERFACES_EXPORT DeviceDbusInterface : public OrgKdeKdeconn
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChangedProxy)
     Q_PROPERTY(QStringList reachableAddresses READ reachableAddresses NOTIFY linksChangedProxy)
     Q_PROPERTY(QStringList activeProviderNames READ activeProviderNames NOTIFY linksChangedProxy)
+    Q_PROPERTY(QString connectionDescription READ connectionDescription NOTIFY linksChangedProxy)
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChangedProxy)
     Q_PROPERTY(bool isPairRequested READ isPairRequested NOTIFY pairStateChangedProxy)
     Q_PROPERTY(bool isPairRequestedByPeer READ isPairRequestedByPeer NOTIFY pairStateChangedProxy)

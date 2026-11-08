@@ -31,6 +31,7 @@ class KDECONNECTCORE_EXPORT Device : public QObject
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChanged)
     Q_PROPERTY(QStringList reachableAddresses READ reachableAddresses NOTIFY linksChanged)
     Q_PROPERTY(QStringList activeProviderNames READ activeProviderNames NOTIFY linksChanged)
+    Q_PROPERTY(QString connectionDescription READ connectionDescription NOTIFY linksChanged)
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChanged)
     Q_PROPERTY(bool isPairRequested READ isPairRequested NOTIFY pairStateChanged)
     Q_PROPERTY(bool isPairRequestedByPeer READ isPairRequestedByPeer NOTIFY pairStateChanged)
@@ -92,6 +93,7 @@ public:
 
     virtual QStringList reachableAddresses() const;
     virtual QStringList activeProviderNames() const;
+    QString connectionDescription() const;
 
     Q_SCRIPTABLE QStringList loadedPlugins() const;
     Q_SCRIPTABLE bool hasPlugin(const QString &name) const;
