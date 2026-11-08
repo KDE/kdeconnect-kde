@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:53+0000\n"
-"PO-Revision-Date: 2026-10-10 15:28+0100\n"
+"PO-Revision-Date: 2026-11-07 22:56+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -261,13 +261,13 @@ msgstr "Por favor, elija un archivo"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open device list"
-msgstr ""
+msgstr "Abrir lista de dispositivos"
 
 #: qml/Main.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Close device list"
-msgstr ""
+msgstr "Cerrar lista de dispositivos"
 
 #: qml/Main.qml:113
 #, kde-format
@@ -369,11 +369,10 @@ msgid "Notifications"
 msgstr "Notificaciones"
 
 #: qml/NotificationPanel.qml:33
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No notifications"
-msgstr "Notificaciones"
+msgstr "Sin notificaciones"
 
 #: qml/NotificationPanel.qml:173
 #, kde-format
