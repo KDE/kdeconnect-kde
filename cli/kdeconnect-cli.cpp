@@ -149,18 +149,19 @@ int main(int argc, char **argv)
                 DeviceDbusInterface deviceIface(id);
                 const bool isReachable = deviceIface.isReachable();
                 const bool isPaired = deviceIface.isPaired();
-                QTextStream(stdout) << "- " << deviceIface.name() << ": " << deviceIface.id() << ' ';
+                QTextStream out(stdout);
+                out << "- " << deviceIface.name() << ": " << deviceIface.id() << ' ';
                 if (isReachable && isPaired) {
-                    QTextStream(stdout) << i18n("(paired and reachable)");
+                    out << i18n("(paired and reachable)");
                 } else if (isReachable) {
-                    QTextStream(stdout) << i18n("(reachable)");
+                    out << i18n("(reachable)");
                 } else if (isPaired) {
-                    QTextStream(stdout) << i18n("(paired)");
+                    out << i18n("(paired)");
                 }
                 if (isReachable) {
-                    QTextStream(stdout) << ' ' << i18nc("How a device is connected, eg: via <ip address>", "via %1", deviceIface.connectionDescription());
+                    out << ' ' << i18nc("How a device is connected, eg: via <ip address>", "via %1", deviceIface.connectionDescription());
                 }
-                QTextStream(stdout) << Qt::endl;
+                out << Qt::endl;
             }
         }
         if (displayCount) {
