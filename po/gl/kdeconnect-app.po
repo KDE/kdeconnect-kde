@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-09 00:55+0000\n"
 "PO-Revision-Date: 2025-06-19 10:08+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -212,7 +212,7 @@ msgstr ""
 
 #: qml/DevicePage.qml:279
 #, kde-format
-msgid "Address: %1 via %2"
+msgid "Address: %1"
 msgstr ""
 
 #: qml/DevicePage.qml:299

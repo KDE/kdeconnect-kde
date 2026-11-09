@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-09 00:55+0000\n"
 "PO-Revision-Date: 2026-10-30 04:39+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -212,8 +212,9 @@ msgid "Use device as an external monitor"
 msgstr "მოწყობილობის გარე მონიტორად გამოყენება"
 
 #: qml/DevicePage.qml:279
-#, kde-format
-msgid "Address: %1 via %2"
+#, fuzzy, kde-format
+#| msgid "Address: %1 via %2"
+msgid "Address: %1"
 msgstr "მისამართი: %1 %2-ის გავლით"
 
 #: qml/DevicePage.qml:299

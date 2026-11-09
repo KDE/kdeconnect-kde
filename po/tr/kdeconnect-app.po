@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-09 00:55+0000\n"
 "PO-Revision-Date: 2026-11-03 21:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -214,8 +214,9 @@ msgid "Use device as an external monitor"
 msgstr "Aygıtı Dış Monitör Olarak Kullan"
 
 #: qml/DevicePage.qml:279
-#, kde-format
-msgid "Address: %1 via %2"
+#, fuzzy, kde-format
+#| msgid "Address: %1 via %2"
+msgid "Address: %1"
 msgstr "Adres: %2 aracılığıyla %1"
 
 #: qml/DevicePage.qml:299

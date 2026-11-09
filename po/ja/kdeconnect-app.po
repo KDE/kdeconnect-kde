@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-09 00:55+0000\n"
 "PO-Revision-Date: 2026-03-31 20:07+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -213,7 +213,7 @@ msgstr "デバイスを外部モニタとして使用"
 
 #: qml/DevicePage.qml:279
 #, kde-format
-msgid "Address: %1 via %2"
+msgid "Address: %1"
 msgstr ""
 
 #: qml/DevicePage.qml:299
