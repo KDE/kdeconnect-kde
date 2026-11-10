@@ -10,6 +10,11 @@
 #include <PulseAudioQt/Context>
 #include <PulseAudioQt/Sink>
 
+#include <QDBusConnection>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
+
+#include "generated/systeminterfaces/dbusproperties.h"
 #include "generated/systeminterfaces/mprisplayer.h"
 #include <dbushelper.h>
 
@@ -45,6 +50,8 @@ void PauseMusicPlugin::receivePacket(const NetworkPacket &np)
     const bool autoResume = config()->getBool(QStringLiteral("actionResume"), true);
 
     if (pauseConditionFulfilled) {
+        m_pauseActive = true;
+
         if (mute) {
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Muting system volume";
             const auto sinks = PulseAudioQt::Context::instance()->sinks();
@@ -57,7 +64,9 @@ void PauseMusicPlugin::receivePacket(const NetworkPacket &np)
         }
 
         if (pause) {
-            // Search for interfaces currently playing
+            // Search for interfaces currently playing. The properties are read asynchronously,
+            // and Pause/Stop/Play are asynchronous already, so a player that doesn't answer
+            // (e.g. Chromium's MPRIS service) can't block the daemon's event loop.
             const QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
             for (const QString &iface : interfaces) {
                 if (!iface.startsWith(QStringLiteral("org.mpris.MediaPlayer2."))) {
@@ -66,22 +75,42 @@ void PauseMusicPlugin::receivePacket(const NetworkPacket &np)
                 if (iface.startsWith(QStringLiteral("org.mpris.MediaPlayer2.kdeconnect."))) {
                     continue;
                 }
-                OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QDBusConnection::sessionBus());
-                QString status = mprisInterface.playbackStatus();
-                if (status == QLatin1String("Playing")) {
-                    if (!pausedSources.contains(iface)) {
-                        pausedSources.insert(iface);
-                        if (mprisInterface.canPause()) {
-                            mprisInterface.Pause();
-                        } else {
-                            mprisInterface.Stop();
-                        }
-                    }
+                // Both the ringing and the talking event trigger this, so skip known players.
+                if (pausedSources.contains(iface)) {
+                    continue;
                 }
+
+                // Fetch the player's properties to check whether it is playing and can pause.
+                OrgFreedesktopDBusPropertiesInterface properties(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QDBusConnection::sessionBus());
+                QDBusPendingCallWatcher *propertiesWatcher =
+                    new QDBusPendingCallWatcher(properties.GetAll(QStringLiteral("org.mpris.MediaPlayer2.Player")), this);
+                connect(propertiesWatcher, &QDBusPendingCallWatcher::finished, this, [this, iface](QDBusPendingCallWatcher *watcher) {
+                    watcher->deleteLater();
+                    const QDBusPendingReply<QVariantMap> reply = *watcher;
+                    // The call might have ended, or another event might have handled this player.
+                    if (reply.isError() || !m_pauseActive || pausedSources.contains(iface)) {
+                        return;
+                    }
+                    const QVariantMap playerProperties = reply.value();
+                    if (playerProperties.value(QStringLiteral("PlaybackStatus")).toString() != QLatin1String("Playing")) {
+                        return;
+                    }
+                    pausedSources.insert(iface);
+
+                    // Pause the playing player, or stop it if it doesn't support pausing.
+                    OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QDBusConnection::sessionBus());
+                    if (playerProperties.value(QStringLiteral("CanPause")).toBool()) {
+                        mprisInterface.Pause();
+                    } else {
+                        mprisInterface.Stop();
+                    }
+                });
             }
         }
 
     } else {
+        m_pauseActive = false;
+
         if (mute) {
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuting system volume";
 

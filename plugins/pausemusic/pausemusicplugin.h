@@ -24,4 +24,5 @@ public:
 private:
     QSet<QString> pausedSources;
     QSet<QString> mutedSinks;
+    bool m_pauseActive = false;
 };
