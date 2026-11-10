@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-09 00:55+0000\n"
-"PO-Revision-Date: 2026-10-30 18:07+0200\n"
-"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"PO-Revision-Date: 2026-11-09 08:45+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -215,10 +215,9 @@ msgid "Use device as an external monitor"
 msgstr "Використовувати пристрій як зовнішній монітор"
 
 #: qml/DevicePage.qml:279
-#, fuzzy, kde-format
-#| msgid "Address: %1 via %2"
+#, kde-format
 msgid "Address: %1"
-msgstr "Адреса: %1 через %2"
+msgstr "Адреса: %1"
 
 #: qml/DevicePage.qml:299
 #, kde-format

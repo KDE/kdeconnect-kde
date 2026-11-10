@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-09 00:55+0000\n"
-"PO-Revision-Date: 2026-10-26 07:17+0100\n"
+"PO-Revision-Date: 2026-11-09 15:53+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.10\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: main.cpp:45 main.cpp:47
 #, kde-format
@@ -213,10 +213,9 @@ msgid "Use device as an external monitor"
 msgstr "Utilizza il dispositivo come monitor esterno"
 
 #: qml/DevicePage.qml:279
-#, fuzzy, kde-format
-#| msgid "Address: %1 via %2"
+#, kde-format
 msgid "Address: %1"
-msgstr "Indirizzo: %1 tramite %2"
+msgstr "Indirizzo: %1"
 
 #: qml/DevicePage.qml:299
 #, kde-format
@@ -370,11 +369,10 @@ msgid "Notifications"
 msgstr "Notifiche"
 
 #: qml/NotificationPanel.qml:33
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No notifications"
-msgstr "Notifiche"
+msgstr "Nessuna notifica"
 
 #: qml/NotificationPanel.qml:173
 #, kde-format

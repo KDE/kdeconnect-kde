@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-09 00:55+0000\n"
-"PO-Revision-Date: 2026-11-03 21:49+0300\n"
+"PO-Revision-Date: 2026-11-09 22:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: main.cpp:45 main.cpp:47
 #, kde-format
@@ -214,10 +214,9 @@ msgid "Use device as an external monitor"
 msgstr "Aygıtı Dış Monitör Olarak Kullan"
 
 #: qml/DevicePage.qml:279
-#, fuzzy, kde-format
-#| msgid "Address: %1 via %2"
+#, kde-format
 msgid "Address: %1"
-msgstr "Adres: %2 aracılığıyla %1"
+msgstr "Adres: %1"
 
 #: qml/DevicePage.qml:299
 #, kde-format

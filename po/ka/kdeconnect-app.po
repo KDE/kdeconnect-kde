@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-09 00:55+0000\n"
-"PO-Revision-Date: 2026-10-30 04:39+0100\n"
+"PO-Revision-Date: 2026-11-09 05:01+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -212,10 +212,9 @@ msgid "Use device as an external monitor"
 msgstr "მოწყობილობის გარე მონიტორად გამოყენება"
 
 #: qml/DevicePage.qml:279
-#, fuzzy, kde-format
-#| msgid "Address: %1 via %2"
+#, kde-format
 msgid "Address: %1"
-msgstr "მისამართი: %1 %2-ის გავლით"
+msgstr "მისამართი: %1"
 
 #: qml/DevicePage.qml:299
 #, kde-format
@@ -504,72 +503,3 @@ msgstr "KDE Connect-ის iOS-ის აპლიკაცია"
 #, kde-format
 msgid "App Store"
 msgstr "აპლიკაციების მაღაზია"
-
-#~ msgid "Configure plugin"
-#~ msgstr "დამატების მორგება"
-
-#~ msgid ""
-#~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#~ "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
-#~ "Community wiki</span></a> for help."
-#~ msgstr ""
-#~ "პრობლემების ქონის შემთხვევაში დახმარებისთვის ეწვიეთ <a href=\"https://"
-#~ "userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline;"
-#~ "\">KDE Connect-ის საზოგადოების ვიკის</span></a>."
-
-#~ msgctxt "@title:window"
-#~ msgid "Active Notifications"
-#~ msgstr "აქტიური გაფრთხილებები"
-
-#~ msgid "@action:button"
-#~ msgstr "@action:button"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Bluetooth"
-#~ msgstr "ბლუთუზი"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Loopback"
-#~ msgstr "მარყუჟი ინტერფეისი"
-
-#~ msgctxt "@info KDE Connect provider name"
-#~ msgid "Network"
-#~ msgstr "ქსელი"
-
-#~ msgid "(c) 2015, Aleix Pol Gonzalez"
-#~ msgstr "(c) 2015, Aleix Pol Gonzalez"
-
-#~ msgid "Maintainer"
-#~ msgstr "წამყვანი პროგრამისტი"
-
-#~ msgid ""
-#~ "<html><head/><body><p>No device selected<br><br>If you own an Android "
-#~ "device, make sure to install the <a href=\"https://play.google.com/store/"
-#~ "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#~ "underline;\">KDE Connect Android app</span></a> (also available <a href="
-#~ "\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
-#~ "\"><span style=\" text-decoration: underline;\">from F-Droid</span></a>) "
-#~ "and it should appear in the list. If you have an iPhone, make sure to "
-#~ "install the <a href=\"https://apps.apple.com/us/app/kde-connect/"
-#~ "id1580245991\"><span style=\" text-decoration: underline;\">KDE Connect "
-#~ "iOS app.</span></a> <br><br>If you are having problems, visit the <a href="
-#~ "\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
-#~ "underline;\">KDE Connect Community wiki</span></a> for help.</p></body></"
-#~ "html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>მოწყობილობა არჩეული არაა<br><br>თუ გაქვთ Android-ის "
-#~ "მოწყობილობა, დარწმუნდით, რომ დააყენეთ <a href=\"https://play.google.com/"
-#~ "store/apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-"
-#~ "decoration: underline;\">KDE Connect-ის Android app</span></a> (ასევე "
-#~ "ხელმისაწვდომია <a href=\"https://f-droid.org/repository/browse/?fdid=org."
-#~ "kde.kdeconnect_tp\"><span style=\" text-decoration: underline;\">F-Droid-"
-#~ "სგან</span></a>) და ის სიაში უნდა გამოჩნდეს. თუ გაქვთ iPhone, დარწმუნდით, "
-#~ "რომ დააყენეთ <a href=\"https://apps.apple.com/us/app/kde-connect/"
-#~ "id1580245991\"><span style=\" text-decoration: underline;\">KDE Connect-"
-#~ "ის iOS app.</span></a> <br><br>თუ გაქვთ პრობლემები ეწვიეთ <a href="
-#~ "\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
-#~ "underline;\">KDE Connect-ის საზოგადოების ვიკის</span></a>, დახმარების "
-#~ "მისაღებად.</p></body></html>"
-
-#~ msgid "Find devices..."
-#~ msgstr "მოწყობილობების ძებნა..."
