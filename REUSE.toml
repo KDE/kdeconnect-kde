@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Martin Sh <hemisputnik@proton.me>
-# SPDX-License-Identifier: CC0
+# SPDX-License-Identifier: CC0-1.0
 
 version = 1
 
@@ -11,4 +11,11 @@ SPDX-License-Identifier = "GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accept
 
 [[annotations]]
 path = "plugins/digitizer/kdeconnect_digitizer.json"
+SPDX-FileCopyrightText = "2025 Martin Sh <hemisputnik@proton.me>"
 SPDX-License-Identifier = "GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL"
+
+# Freedesktop portal D-Bus definitions (Licensed under LGPL-2.0-or-later by Red Hat, Inc.)
+[[annotations]]
+path = "dbusinterfaces/systeminterfaces/org.freedesktop.portal.*.xml"
+SPDX-FileCopyrightText = "Red Hat, Inc."
+SPDX-License-Identifier = "LGPL-2.0-or-later"
