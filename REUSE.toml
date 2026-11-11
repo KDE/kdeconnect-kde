@@ -3,6 +3,12 @@
 
 version = 1
 
+# Translations (Mandated by KDE Licensing Policy Section 4 & PO header declarations)
+[[annotations]]
+path = "po/**"
+SPDX-FileCopyrightText = "KDE Localization Team"
+SPDX-License-Identifier = "GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL"
+
 [[annotations]]
 path = "plugins/digitizer/kdeconnect_digitizer.json"
 SPDX-License-Identifier = "GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL"
