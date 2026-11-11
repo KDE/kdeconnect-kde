@@ -113,7 +113,7 @@
         "EnabledByDefault": true,
         "Icon": "system-run",
         "License": "GPL",
-        "Name": "Send commands to execute",
+        "Name": "Send commands to run",
         "Name[ar]": "أرسل الأوامر لتنفيذها",
         "Name[bg]": "Изпращане на команди за изпълнение",
         "Name[ca@valencia]": "Envia ordres a executar",
