@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2015 Aleix Pol Gonzalez <aleixpol@kde.org>
+# SPDX-License-Identifier: BSD-2-Clause
 # Redistribution and use is allowed according to the terms of the BSD license.
 
 # Function to create the plugin and generate a logging category for it
