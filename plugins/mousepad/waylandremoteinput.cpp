@@ -13,6 +13,8 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <QDBusConnection>
+#include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
 
 #include <libei.h>
@@ -164,6 +166,7 @@ void RemoteDesktopSession::handleXdpSessionCreated(uint code, const QVariantMap 
 {
     if (code != 0) {
         qCWarning(KDECONNECT_PLUGIN_MOUSEPAD) << "Failed to create session with code" << code << results;
+        resetSession();
         return;
     }
 
@@ -194,7 +197,7 @@ void RemoteDesktopSession::handleXdpSessionCreated(uint code, const QVariantMap 
         self->deleteLater();
         if (reply.isError()) {
             qCWarning(KDECONNECT_PLUGIN_MOUSEPAD) << "Could not start the remote control session" << reply.error();
-            m_connecting = false;
+            resetSession();
             return;
         }
 
@@ -213,7 +216,7 @@ void RemoteDesktopSession::handleXdpSessionConfigured(uint code, const QVariantM
 {
     if (code != 0) {
         qCWarning(KDECONNECT_PLUGIN_MOUSEPAD) << "Failed to configure session with code" << code << results;
-        m_connecting = false;
+        resetSession();
         return;
     }
     const QVariantMap startParameters = {
@@ -225,7 +228,7 @@ void RemoteDesktopSession::handleXdpSessionConfigured(uint code, const QVariantM
         self->deleteLater();
         if (reply.isError()) {
             qCWarning(KDECONNECT_PLUGIN_MOUSEPAD) << "Could not start the remote control session" << reply.error();
-            m_connecting = false;
+            resetSession();
             return;
         }
 
@@ -242,7 +245,11 @@ void RemoteDesktopSession::handleXdpSessionConfigured(uint code, const QVariantM
 
 void RemoteDesktopSession::handleXdpSessionStarted(uint code, const QVariantMap &results)
 {
-    Q_UNUSED(code);
+    if (code != 0) {
+        qCWarning(KDECONNECT_PLUGIN_MOUSEPAD) << "Failed to start session with code" << code << results;
+        resetSession();
+        return;
+    }
 
     KConfigGroup stateConfig = KSharedConfig::openStateConfig()->group(QStringLiteral("mousepad"));
     stateConfig.writeEntry(QStringLiteral("RestoreToken"), results[QStringLiteral("restore_token")].toString());
@@ -252,6 +259,7 @@ void RemoteDesktopSession::handleXdpSessionStarted(uint code, const QVariantMap 
         QDBusReply<QDBusUnixFileDescriptor> reply = *watcher;
         if (!reply.isValid()) {
             qCWarning(KDECONNECT_PLUGIN_MOUSEPAD) << "Error connecting to eis" << reply.error();
+            resetSession();
             return;
         }
         connectToEi(reply.value().takeFileDescriptor());
@@ -364,11 +372,35 @@ void RemoteDesktopSession::handleEiEvents()
 
 void RemoteDesktopSession::handleXdpSessionFinished(uint /*code*/, const QVariantMap & /*results*/)
 {
-    m_xdpPath = {};
+    qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "Remote desktop session closed";
+    resetSession();
+}
+
+void RemoteDesktopSession::resetSession()
+{
+    if (!m_xdpPath.path().isEmpty()) {
+        QDBusConnection::sessionBus().disconnect(QString(),
+                                                 m_xdpPath.path(),
+                                                 QLatin1String("org.freedesktop.portal.Session"),
+                                                 QLatin1String("Closed"),
+                                                 this,
+                                                 SLOT(handleXdpSessionFinished(uint, QVariantMap)));
+        auto close = QDBusMessage::createMethodCall(QLatin1String("org.freedesktop.portal.Desktop"),
+                                                    m_xdpPath.path(),
+                                                    QLatin1String("org.freedesktop.portal.Session"),
+                                                    QLatin1String("Close"));
+        QDBusConnection::sessionBus().asyncCall(close);
+        m_xdpPath = {};
+    }
+    m_connecting = false;
     m_eiNotifier.setEnabled(false);
-    ei_unref(m_ei);
+    if (m_ei) {
+        ei_unref(m_ei);
+        m_ei = nullptr;
+    }
     m_pointer = nullptr;
     m_keyboard = nullptr;
+    m_textDevice = nullptr;
     m_absolutePointer = nullptr;
 }
 

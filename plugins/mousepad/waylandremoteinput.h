@@ -47,6 +47,7 @@ private Q_SLOTS:
 
 private:
     void connectToEi(int fd);
+    void resetSession();
     void handleEiEvents();
     QSocketNotifier m_eiNotifier;
     std::unique_ptr<Xkb> m_xkb;
