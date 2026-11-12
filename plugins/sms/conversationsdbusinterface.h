@@ -101,12 +101,6 @@ public Q_SLOTS:
 Q_SIGNALS:
 
     /**
-     * This signal is never emitted, but if it's not here then qdbuscpp2xml in Qt6
-     * will not generate all the signals that use QDBusVariant in the output XML
-     */
-    Q_SCRIPTABLE void veryHackyWorkaround(const QVariant &);
-
-    /**
      * Emitted whenever a conversation with no cached messages is added, either because the cache
      * is being populated or because a new conversation has been created
      */
