@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:53+0000\n"
-"PO-Revision-Date: 2026-09-22 22:06+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-11-11 22:57+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "%1: низкий уровень заряда батареи"
 #: battery/batteryplugin.cpp:107
 #, kde-format
 msgid "Battery at %1%"
-msgstr "Заряд батареи %1%"
+msgstr "Заряд батареи %1 %"
 
 #: clipboard/kdeconnect_clipboard_config.qml:34
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:53+0000\n"
-"PO-Revision-Date: 2026-11-09 09:50+0100\n"
+"PO-Revision-Date: 2026-11-11 20:04+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -57,7 +57,7 @@ msgstr "antonibella5@yahoo.com"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Device id to open the app in"
-msgstr "ID de dispositiu en el qual obrir-hi l'aplicació"
+msgstr "ID de dispositiu en el qual obrir l'aplicació"
 
 #: main.cpp:86
 #, kde-format

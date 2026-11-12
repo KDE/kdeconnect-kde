@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-21 00:51+0000\n"
-"PO-Revision-Date: 2025-08-18 11:24+0300\n"
+"PO-Revision-Date: 2026-11-11 22:57+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -154,12 +154,12 @@ msgstr "Батарея отсутствует"
 #: systray_actions/battery_action.cpp:37
 #, kde-format
 msgid "Battery: %1% (Charging)"
-msgstr "Батарея: %1%, заряжается"
+msgstr "Батарея: %1 %, заряжается"
 
 #: systray_actions/battery_action.cpp:39
 #, kde-format
 msgid "Battery: %1%"
-msgstr "Батарея: %1%"
+msgstr "Батарея: %1 %"
 
 #: systray_actions/connectivity_action.cpp:30
 #, kde-format
@@ -175,7 +175,7 @@ msgctxt ""
 "Display the cellular connection type and an approximate percentage of signal "
 "strength"
 msgid "%1  | ~%2%"
-msgstr "%1  | ~%2%"
+msgstr "%1  | ~%2 %"
 
 #, fuzzy
 #~| msgid "Configure..."
