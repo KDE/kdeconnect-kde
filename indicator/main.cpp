@@ -49,7 +49,7 @@ int main(int argc, char **argv)
     }
 #endif
 
-#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     // Install KIconEngine so widget icons get recolored in dark mode. Must be called before QApplication.
     KIconTheme::initTheme();
 #endif
@@ -69,7 +69,7 @@ int main(int argc, char **argv)
     aboutData.setProgramLogo(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     KAboutData::setApplicationData(aboutData);
 
-#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     // Ensure we have a suitable color theme set for light/dark mode. KColorSchemeManager implicitly applies
     // a suitable default theme.
     KColorSchemeManager::instance();
@@ -138,7 +138,7 @@ int main(int argc, char **argv)
             }
         }
         // Add quit menu
-#if defined(Q_OS_MAC)
+#if defined(Q_OS_MACOS)
         menu->addAction(i18n("Quit"), qApp, []() {
             const auto quitApplication = [](const QString &service) {
                 const auto message = QDBusMessage::createMethodCall(service,

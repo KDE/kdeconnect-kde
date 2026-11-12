@@ -14,7 +14,7 @@
 namespace DBusHelper
 {
 void KDECONNECTCORE_EXPORT filterNonExportableCharacters(QString &s);
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
 int KDECONNECTCORE_EXPORT startDBusDaemon();
 #endif
 }

@@ -54,7 +54,7 @@ void ClipboardListener::refreshContent(const QVariant &content, ClipboardListene
 ClipboardListener::ClipboardListener()
     : clipboard(KSystemClipboard::instance())
 {
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     connect(&m_clipboardMonitorTimer, &QTimer::timeout, this, [this]() {
         updateClipboard(QClipboard::Clipboard);
     });

@@ -12,7 +12,7 @@
 #include <QPointer>
 #include <QVariant>
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
 #include <QTimer>
 #endif
 
@@ -58,7 +58,7 @@ Q_SIGNALS:
 private:
     void updateClipboard(QClipboard::Mode mode);
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     QTimer m_clipboardMonitorTimer;
 #endif
     KSystemClipboard *clipboard;

@@ -36,7 +36,7 @@
 #include "kdeconnectconfig.h"
 #include "landevicelink.h"
 #include "mdnshdiscovery.h"
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
 #include "avahidiscovery.h"
 #endif
 
@@ -58,7 +58,7 @@ LanLinkProvider::LanLinkProvider(bool testMode, bool isDisabled)
     , m_combineNetworkChangeTimer(this)
     , m_disabled(isDisabled)
 {
-#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     // TODO: Both Windows and macOS have system APIs for mDNS that we could use.
     //       Windows docs: https://learn.microsoft.com/en-us/uwp/api/windows.networking.servicediscovery.dnssd
     m_mdnsDiscovery = new MdnshDiscovery(this);

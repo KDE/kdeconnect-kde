@@ -31,7 +31,7 @@
 #include <windows.h>
 
 #include <powrprof.h>
-#elif defined(Q_OS_MAC)
+#elif defined(Q_OS_MACOS)
 #include <IOKit/ps/IOPSKeys.h>
 #include <IOKit/ps/IOPowerSources.h>
 #else
@@ -118,7 +118,7 @@ static DeviceType detectPlatformDeviceType()
     default:
         return DeviceType::Unknown;
     }
-#elif defined(Q_OS_MAC)
+#elif defined(Q_OS_MACOS)
     // Assume Macs with an internal battery are laptops
     CFTypeRef info = IOPSCopyPowerSourcesInfo();
     if (!info) {

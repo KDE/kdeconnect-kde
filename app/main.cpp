@@ -22,13 +22,13 @@
 #include <KLocalizedString>
 #include <KWindowSystem>
 
-#if defined(Q_OS_MAC)
+#if defined(Q_OS_MACOS)
 #include "macosforegroundapp.h"
 #endif
 
 static void raiseWindow(QWindow *window)
 {
-#if defined(Q_OS_MAC)
+#if defined(Q_OS_MACOS)
     activateWindowForMacOS(window);
 #else
     KWindowSystem::updateStartupId(window);
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 
     KCrash::initialize();
 
-#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     // Ensure we have a suitable color theme set for light/dark mode. KColorSchemeManager implicitly applies
     // a suitable default theme.
     KColorSchemeManager::instance();

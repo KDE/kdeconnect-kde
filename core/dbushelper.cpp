@@ -17,7 +17,7 @@
 
 #include "kdeconnectconfig.h"
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
 #include <KLocalizedString>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
@@ -34,7 +34,7 @@ void filterNonExportableCharacters(QString &s)
     s.replace(regexp, QLatin1String("_"));
 }
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
 
 const QString PrivateDbusAddr = QStringLiteral("unix:tmpdir=/tmp");
 const QString PrivateDBusAddressPath = QStringLiteral("/tmp/private_dbus_address");
@@ -160,6 +160,6 @@ int startDBusDaemon()
     return 0;
 }
 
-#endif // Q_OS_MAC
+#endif // Q_OS_MACOS
 
 } // namespace DBusHelper
