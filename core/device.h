@@ -110,7 +110,7 @@ public:
 
     QHostAddress getLocalIpAddress() const;
 
-public Q_SLOTS:
+public:
     /// sends a @p np packet to the device
     /// virtual for testing purposes.
     virtual bool sendPacket(NetworkPacket &np);

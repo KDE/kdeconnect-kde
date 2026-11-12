@@ -43,7 +43,7 @@ private:
         lastPacket = nullptr;
     }
 
-public Q_SLOTS:
+public:
     bool sendPacket(NetworkPacket &np) override;
 };
 

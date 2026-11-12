@@ -63,7 +63,7 @@ public:
     explicit ClipboardPlugin(QObject *parent, const QVariantList &args);
 
     Q_SCRIPTABLE void sendClipboard();
-    Q_SCRIPTABLE void sendClipboard(const QVariant &content);
+    void sendClipboard(const QVariant &content);
     QString dbusPath() const override;
 
     void receivePacket(const NetworkPacket &np) override;
