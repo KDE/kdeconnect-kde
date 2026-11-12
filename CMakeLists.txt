@@ -9,7 +9,7 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 project(kdeconnect VERSION ${RELEASE_SERVICE_VERSION})
 
 set(KF_MIN_VERSION "6.3.0")
-set(QT_MIN_VERSION "6.7.0")
+set(QT_MIN_VERSION "6.9.0")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -119,7 +119,7 @@ endif()
 #ecm_find_qmlmodule(org.kde.people 1.0) FIXME This results in KPeople code being called which triggers DBus calls which breaks the Windows CI
 ecm_find_qmlmodule(QtQuick.Particles 2.0)
 
-add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII -DQT_NO_CONTEXTLESS_CONNECT)
+add_definitions(-DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII -DQT_ENABLE_STRICT_MODE_UP_TO=0x060900)
 
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Quick QuickWidgets QuickControls2 Network Multimedia)
 
