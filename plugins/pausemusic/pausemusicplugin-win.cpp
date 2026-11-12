@@ -131,16 +131,14 @@ void PauseMusicPlugin::receivePacket(const NetworkPacket &np)
         if (mute) {
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Muting all the unmuted sinks";
             this->updateSinksList();
-            QHashIterator<QString, IAudioEndpointVolume *> sinksIterator(sinksList);
-            while (sinksIterator.hasNext()) {
-                sinksIterator.next();
+            for (const auto &[sinkName, sink] : std::as_const(sinksList).asKeyValueRange()) {
                 BOOL muted;
-                sinksIterator.value()->GetMute(&muted);
+                sink->GetMute(&muted);
                 if (!((bool)muted)) {
-                    qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Trying to mute " << sinksIterator.key();
-                    if (sinksIterator.value()->SetMute(true, NULL) == S_OK) {
-                        qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Muted " << sinksIterator.key();
-                        mutedSinks.insert(sinksIterator.key());
+                    qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Trying to mute " << sinkName;
+                    if (sink->SetMute(true, NULL) == S_OK) {
+                        qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Muted " << sinkName;
+                        mutedSinks.insert(sinkName);
                     }
                 }
             }
@@ -149,12 +147,7 @@ void PauseMusicPlugin::receivePacket(const NetworkPacket &np)
         if (pause) {
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Pausing all the playing media";
             this->updatePlayersList();
-            QHashIterator<QString, GlobalSystemMediaTransportControlsSession> playersIterator(playersList);
-            while (playersIterator.hasNext()) {
-                playersIterator.next();
-                auto &player = playersIterator.value();
-                auto &playerName = playersIterator.key();
-
+            for (const auto &[playerName, player] : std::as_const(playersList).asKeyValueRange()) {
                 auto playbackInfo = player.GetPlaybackInfo();
                 auto playbackControls = playbackInfo.Controls();
                 if (playbackInfo.PlaybackStatus() == GlobalSystemMediaTransportControlsSessionPlaybackStatus::Playing) {
@@ -177,29 +170,22 @@ void PauseMusicPlugin::receivePacket(const NetworkPacket &np)
     } else if (autoResume) {
         if (mute) {
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuting sinks";
-            QHashIterator<QString, IAudioEndpointVolume *> sinksIterator(sinksList);
-            while (sinksIterator.hasNext()) {
-                sinksIterator.next();
-                if (mutedSinks.contains(sinksIterator.key())) {
-                    qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Trying to unmute " << sinksIterator.key();
-                    if (sinksIterator.value()->SetMute(false, NULL) == S_OK) {
-                        qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuted " << sinksIterator.key();
+            for (const auto &[sinkName, sink] : std::as_const(sinksList).asKeyValueRange()) {
+                if (mutedSinks.contains(sinkName)) {
+                    qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Trying to unmute " << sinkName;
+                    if (sink->SetMute(false, NULL) == S_OK) {
+                        qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuted " << sinkName;
                     }
-                    mutedSinks.remove(sinksIterator.key());
+                    mutedSinks.remove(sinkName);
                 }
             }
         }
         if (pause) {
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unpausing media";
-            QHashIterator<QString, GlobalSystemMediaTransportControlsSession> playersIterator(playersList);
-            while (playersIterator.hasNext()) {
-                playersIterator.next();
-                auto &player = playersIterator.value();
-                auto &playerName = playersIterator.key();
-
+            for (const auto &[playerName, player] : std::as_const(playersList).asKeyValueRange()) {
                 auto playbackInfo = player.GetPlaybackInfo();
                 auto playbackControls = playbackInfo.Controls();
-                if (pausedSources.contains({playerName})) {
+                if (pausedSources.contains(playerName)) {
                     if (playbackInfo.PlaybackStatus() == GlobalSystemMediaTransportControlsSessionPlaybackStatus::Paused) {
                         qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Trying to resume " << playerName;
                         if (player.TryPlayAsync().get()) {
