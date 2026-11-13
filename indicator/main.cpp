@@ -21,6 +21,10 @@
 #include <KStatusNotifierItem>
 #endif
 
+#ifdef Q_OS_MACOS
+#include <QMessageBox>
+#endif
+
 #include <KAboutData>
 #include <KColorSchemeManager>
 #include <KCrash>
@@ -39,6 +43,10 @@
 #include "indicatorhelper.h"
 #include "openconfig.h"
 
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+#include "desktop_daemon.h"
+#endif
+
 int main(int argc, char **argv)
 {
 #ifdef Q_OS_WIN
@@ -52,11 +60,26 @@ int main(int argc, char **argv)
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     // Install KIconEngine so widget icons get recolored in dark mode. Must be called before QApplication.
     KIconTheme::initTheme();
+    // Same as kdeconnectd: don't quit when a QEventLoopLocker used by the embedded daemon is released
+    QGuiApplication::setQuitLockEnabled(false);
 #endif
     QApplication app(argc, argv);
 
+#ifdef Q_OS_MACOS
+    // On macOS there's nothing that autostarts the dbus daemon, we have to do it. Needs a QApplication.
+    int dbusStatus = DBusHelper::startDBusDaemon();
+    if (dbusStatus) {
+        QMessageBox::critical(nullptr,
+                              i18n("KDE Connect"),
+                              i18n("Cannot connect to DBus\n"
+                                   "KDE Connect will quit"),
+                              QMessageBox::Abort,
+                              QMessageBox::Abort);
+        return dbusStatus;
+    }
+#endif
+
     IndicatorHelper helper;
-    helper.startDaemon();
 
     KAboutData aboutData(QStringLiteral("kdeconnect-indicator"),
                          i18n("KDE Connect Indicator"),
@@ -91,6 +114,12 @@ int main(int argc, char **argv)
     KCrash::initialize();
 
     KDBusService dbusService(KDBusService::Unique);
+
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    // On Windows and macOS the indicator is the main process, so the daemon runs in it instead of in kdeconnectd.
+    // This way the OS attributes everything the daemon does (eg: Now Playing, Local Network) to the app.
+    DesktopDaemon daemon;
+#endif
 
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
@@ -148,7 +177,6 @@ int main(int argc, char **argv)
                 QDBusConnection::sessionBus().call(message, QDBus::NoBlock);
             };
             quitApplication(QStringLiteral("org.kde.kdeconnect.app"));
-            quitApplication(QStringLiteral("org.kde.kdeconnect.daemon"));
             qApp->quit();
         });
 #elif defined(Q_OS_WIN)
@@ -159,9 +187,6 @@ int main(int argc, char **argv)
     QObject::connect(&iface, &DaemonDbusInterface::pairingRequestsChanged, &model, refreshMenu);
     QObject::connect(&model, &DevicesModel::rowsInserted, &model, refreshMenu);
     QObject::connect(&model, &DevicesModel::rowsRemoved, &model, refreshMenu);
-
-    // Run icon to add icon path (if necessary)
-    helper.iconPathHook();
 
 #ifdef Q_OS_WIN
     QSystemTrayIcon systray;

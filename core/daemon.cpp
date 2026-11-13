@@ -53,9 +53,6 @@ Daemon::Daemon(QObject *parent, bool testMode)
     Q_ASSERT(!s_instance);
     s_instance = this;
     d->m_testMode = testMode;
-
-    // HACK init may call pure virtual functions from this class so it can't be called directly from the ctor
-    QTimer::singleShot(0, this, &Daemon::init);
 }
 
 void Daemon::init()

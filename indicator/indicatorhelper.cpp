@@ -17,15 +17,6 @@ IndicatorHelper::~IndicatorHelper()
 {
 }
 
-void IndicatorHelper::iconPathHook()
-{
-}
-
-int IndicatorHelper::startDaemon()
-{
-    return 0;
-}
-
 void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
 {
     systray.setIconByName(QStringLiteral("kdeconnectindicatordark"));

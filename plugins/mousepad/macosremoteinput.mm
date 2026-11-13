@@ -55,7 +55,7 @@ MacOSRemoteInput::MacOSRemoteInput(QObject* parent)
     // Ask user to enable accessibility API
     NSDictionary *options = @{(id)kAXTrustedCheckOptionPrompt: @YES};
     if (!AXIsProcessTrustedWithOptions((CFDictionaryRef)options)) {
-        qWarning() << "kdeconnectd is not set as a trusted accessibility, mousepad and keyboard will not work";
+        qWarning() << "KDE Connect is not set as a trusted accessibility, mousepad and keyboard will not work";
     }
 }
 

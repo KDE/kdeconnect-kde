@@ -11,7 +11,6 @@
 #include <core/daemon.h>
 
 #include <KJobTrackerInterface>
-#include <QCoreApplication>
 
 class TestDaemon : public Daemon
 {
@@ -20,9 +19,7 @@ public:
         : Daemon(parent, true)
         , m_jobTrackerInterface(nullptr)
     {
-        // Necessary to force the event loop to run because the test harness seems to behave differently
-        // and we need the QTimer::SingleShot in Daemon's constructor to fire
-        QCoreApplication::processEvents();
+        init();
     }
 
     void addDevice(Device *device)

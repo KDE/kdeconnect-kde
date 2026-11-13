@@ -14,12 +14,10 @@
 #endif
 
 #ifdef Q_OS_WIN
-#include <QProcess>
 #include <QUrl>
 namespace processes
 {
 const QString dbus_daemon = QStringLiteral("dbus-daemon.exe");
-const QString kdeconnect_daemon = QStringLiteral("kdeconnectd.exe");
 const QString kdeconnect_app = QStringLiteral("kdeconnect-app.exe");
 const QString kdeconnect_handler = QStringLiteral("kdeconnect-handler.exe");
 const QString kdeconnect_sms = QStringLiteral("kdeconnect-sms.exe");
@@ -32,10 +30,6 @@ public:
     IndicatorHelper();
     ~IndicatorHelper();
 
-    void iconPathHook();
-
-    int startDaemon();
-
 #ifdef Q_OS_WIN
     void systrayIconHook(QSystemTrayIcon &systray);
 #else
@@ -44,10 +38,8 @@ public:
 
 private:
 #ifdef Q_OS_WIN
-    QProcess kdeconnectd;
-
     /**
-     * Terminate processes of KDE Connect like kdeconnectd.exe and dbus-daemon.exe
+     * Terminate processes of KDE Connect like kdeconnect-app.exe and dbus-daemon.exe
      *
      * @return True if termination was successful, false otherwise
      */

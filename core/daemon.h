@@ -88,10 +88,10 @@ private Q_SLOTS:
     void onDeviceInfoUpdated(const DeviceInfo &deviceInfo);
     void onDeviceStatusChanged();
 
-private:
+protected:
+    // Must be called at the end of the subclass constructor, since it calls virtual functions
     void init();
 
-protected:
     void addDevice(Device *device);
     void removeDevice(Device *d);
 

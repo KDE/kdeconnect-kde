@@ -46,7 +46,7 @@ MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args
     // Ask user to enable accessibility API
     NSDictionary *options = @{(id)kAXTrustedCheckOptionPrompt: @YES};
     if (!AXIsProcessTrustedWithOptions((CFDictionaryRef)options)) {
-        qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "kdeconnectd is not set as a trusted accessibility, media controls will not work";
+        qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "KDE Connect is not set as a trusted accessibility, media controls will not work";
     }
 }
 

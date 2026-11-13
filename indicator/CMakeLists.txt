@@ -47,19 +47,28 @@ else()
     target_link_libraries(kdeconnect-indicator KF6::StatusNotifierItem)
 endif()
 
+if (WIN32 OR APPLE)
+    # On Windows and macOS the indicator is the main process, so it runs the daemon in-process
+    target_link_libraries(kdeconnect-indicator kdeconnectdesktopdaemon)
+endif()
+
 if (APPLE)
-# Apple frameworks
-target_link_libraries(kdeconnect-indicator "-framework AppKit")
-# Apple app package
-set_target_properties(kdeconnect-indicator PROPERTIES
-    OUTPUT_NAME "KDE Connect"
-    MACOSX_BUNDLE_BUNDLE_NAME "KDE Connect"
-    MACOSX_BUNDLE_LONG_VERSION_STRING "${KDECONNECT_VERSION_STRING}"
-    MACOSX_BUNDLE_SHORT_VERSION_STRING "${KDECONNECT_VERSION_MAJOR}.${KDECONNECT_VERSION_MINOR}.${KDECONNECT_VERSION_PATCH}"
-    MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.kdeconnect"
-    MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist
-)
+    # Apple frameworks
+    target_link_libraries(kdeconnect-indicator "-framework AppKit")
+    # Apple app package
+    set_target_properties(kdeconnect-indicator PROPERTIES
+        OUTPUT_NAME "KDE Connect"
+        MACOSX_BUNDLE_BUNDLE_NAME "KDE Connect"
+        MACOSX_BUNDLE_LONG_VERSION_STRING "${KDECONNECT_VERSION_STRING}"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${KDECONNECT_VERSION_MAJOR}.${KDECONNECT_VERSION_MINOR}.${KDECONNECT_VERSION_PATCH}"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.kdeconnect"
+        MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist
+    )
 endif()
 
 install(TARGETS kdeconnect-indicator ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS_BUNDLE})
 install(PROGRAMS org.kde.kdeconnect.nonplasma.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+if (WIN32)
+    # For D-Bus activation (eg when kdeconnect-app is started first), supported on Windows but not on macOS
+    install(FILES org.kde.kdeconnect.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
+endif()

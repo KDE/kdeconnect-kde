@@ -1,34 +1,39 @@
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kded")
 
-add_executable(kdeconnectd kdeconnectd.cpp desktop_daemon.cpp ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
-ecm_qt_declare_logging_category(kdeconnectd
-    HEADER kdeconnectd_debug.h
-    IDENTIFIER KDECONNECT_DAEMON CATEGORY_NAME kdeconnect.daemon
-    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (daemon)")
-target_link_libraries(kdeconnectd
-    kdeconnectcore
-    kdeconnectversion
-    KF6::ColorScheme
-    KF6::KIOWidgets
-    KF6::DBusAddons
-    KF6::Notifications
-    KF6::I18n
-    KF6::WindowSystem
-    KF6::Crash
-    Qt::QuickControls2
-    Qt::Widgets)
-
-ecm_mark_nongui_executable(kdeconnectd)
-
-configure_file(org.kde.kdeconnect.daemon.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop)
+# Static library so the daemon can also be embedded in the indicator (see indicator/CMakeLists.txt)
+add_library(kdeconnectdesktopdaemon STATIC desktop_daemon.cpp)
+target_include_directories(kdeconnectdesktopdaemon PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(kdeconnectdesktopdaemon PUBLIC kdeconnectcore PRIVATE KF6::KIOWidgets KF6::Notifications KF6::I18n KF6::DBusAddons)
 
 if (UNIX AND NOT APPLE)
-    set(kdeconnectd_prefix "${KDE_INSTALL_FULL_BINDIR}/")
+    # kdeconnectd only exists on Linux, on Windows and macOS the indicator is the main process and runs the daemon in-process
+    add_executable(kdeconnectd kdeconnectd.cpp ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+    ecm_qt_declare_logging_category(kdeconnectd
+        HEADER kdeconnectd_debug.h
+        IDENTIFIER KDECONNECT_DAEMON CATEGORY_NAME kdeconnect.daemon
+        EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (daemon)")
+    target_link_libraries(kdeconnectd
+        kdeconnectdesktopdaemon
+        kdeconnectcore
+        kdeconnectversion
+        KF6::ColorScheme
+        KF6::KIOWidgets
+        KF6::DBusAddons
+        KF6::Notifications
+        KF6::I18n
+        KF6::WindowSystem
+        KF6::Crash
+        Qt::QuickControls2
+        Qt::Widgets)
+
+    ecm_mark_nongui_executable(kdeconnectd)
+
+    configure_file(org.kde.kdeconnect.daemon.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop)
+
+    configure_file(org.kde.kdeconnect.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service)
+
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
+    install(TARGETS kdeconnectd ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS})
 endif()
-configure_file(org.kde.kdeconnect.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${KDE_INSTALL_APPDIR})
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
-install(TARGETS kdeconnectd ${KDECONNECT_INSTALL_TARGETS_DEFAULT_ARGS})
-

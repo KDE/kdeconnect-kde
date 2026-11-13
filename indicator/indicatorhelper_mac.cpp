@@ -9,14 +9,10 @@
 #include <KLocalizedString>
 #include <QApplication>
 #include <QDebug>
-#include <QFile>
 #include <QIcon>
-#include <QMessageBox>
 #include <QStandardPaths>
-#include <QThread>
 
 #include "serviceregister_mac.h"
-#include <core/processhelper.h>
 #include <dbushelper.h>
 #include <kdeconnectconfig.h>
 
@@ -27,39 +23,6 @@ IndicatorHelper::IndicatorHelper()
 
 IndicatorHelper::~IndicatorHelper()
 {
-}
-
-void IndicatorHelper::iconPathHook()
-{
-    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("kdeconnect-icons"), QStandardPaths::LocateDirectory);
-    if (!iconPath.isNull()) {
-        QStringList themeSearchPaths = QIcon::themeSearchPaths();
-        themeSearchPaths << iconPath;
-        QIcon::setThemeSearchPaths(themeSearchPaths);
-    }
-}
-
-int IndicatorHelper::startDaemon()
-{
-    int dbusStatus = DBusHelper::startDBusDaemon();
-    if (dbusStatus) {
-        QMessageBox::critical(nullptr,
-                              i18n("KDE Connect"),
-                              i18n("Cannot connect to DBus\n"
-                                   "KDE Connect will quit"),
-                              QMessageBox::Abort,
-                              QMessageBox::Abort);
-        QApplication::exit(dbusStatus);
-    }
-
-    // Start kdeconnectd, the daemon will not duplicate when there is already one
-    QString daemonPath = QCoreApplication::applicationDirPath() + QLatin1String("/kdeconnectd");
-    if (!QFile::exists(daemonPath)) {
-        QMessageBox::critical(nullptr, i18n("KDE Connect"), i18n("Cannot find kdeconnectd"), QMessageBox::Abort, QMessageBox::Abort);
-        QApplication::exit(-10);
-    }
-    ProcessHelper::startDetached(daemonPath);
-    return 0;
 }
 
 void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)

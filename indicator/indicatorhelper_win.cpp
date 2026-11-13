@@ -34,17 +34,6 @@ IndicatorHelper::~IndicatorHelper()
     this->terminateProcess(processes::kdeconnect_app, m_indicatorUrl);
     this->terminateProcess(processes::kdeconnect_handler, m_indicatorUrl);
     this->terminateProcess(processes::kdeconnect_sms, m_indicatorUrl);
-    this->terminateProcess(processes::kdeconnect_daemon, m_indicatorUrl);
-}
-
-void IndicatorHelper::iconPathHook()
-{
-}
-
-int IndicatorHelper::startDaemon()
-{
-    kdeconnectd.start(processes::kdeconnect_daemon, QStringList());
-    return 0;
 }
 
 void onThemeChanged(QSystemTrayIcon &systray)
