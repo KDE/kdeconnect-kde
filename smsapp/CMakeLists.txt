@@ -42,6 +42,11 @@ add_executable(kdeconnect-sms
     ${kdeconnect_custom_icons_SRCS}
 )
 
+if (APPLE)
+    target_sources(kdeconnect-sms PRIVATE ${CMAKE_SOURCE_DIR}/app/macosforegroundapp.mm)
+    target_link_libraries(kdeconnect-sms PRIVATE "-framework AppKit")
+endif()
+
 ecm_add_qml_module(kdeconnect-sms URI org.kde.kdeconnect.sms)
 
 ecm_target_qml_sources(kdeconnect-sms SOURCES
