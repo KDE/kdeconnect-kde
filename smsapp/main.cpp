@@ -20,7 +20,6 @@
 #include <KLocalizedQmlContext>
 #include <KLocalizedString>
 #include <KSharedConfig>
-#include <KWindowSystem>
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -31,6 +30,8 @@
 #include <QWindow>
 
 #include "smshelper.h"
+
+#include "app/raisewindow.h"
 
 class AppData : public QObject
 {
@@ -138,7 +139,13 @@ int main(int argc, char *argv[])
     engine.addImageProvider(QStringLiteral("thumbnailsProvider"), new ThumbnailsProvider);
     engine.loadFromModule("org.kde.kdeconnect.sms", "Main");
 
-    QObject::connect(&service, &KDBusService::activateRequested, &service, [&parser, &data, &engine](const QStringList &args, const QString & /*workDir*/) {
+    if (engine.rootObjects().isEmpty()) {
+        qWarning() << "Failed to load the app" << engine.hasError();
+        return 1;
+    }
+    auto window = qobject_cast<QWindow *>(engine.rootObjects().constFirst());
+    raiseWindow(window);
+    QObject::connect(&service, &KDBusService::activateRequested, window, [&parser, &data, window](const QStringList &args, const QString & /*workDir*/) {
         parser.parse(args);
 
         data.m_initialMessage = parser.value(QStringLiteral("message"));
@@ -147,14 +154,7 @@ int main(int argc, char *argv[])
         Q_EMIT data.deviceIdChanged();
         Q_EMIT data.initialMessageChanged();
 
-        const auto rootObjects = engine.rootObjects();
-        for (QObject *obj : rootObjects) {
-            if (auto *window = qobject_cast<QWindow *>(obj)) {
-                window->setWindowStates(window->windowStates() & ~Qt::WindowMinimized);
-                KWindowSystem::updateStartupId(window);
-                KWindowSystem::activateWindow(window);
-            }
-        }
+        raiseWindow(window);
     });
 
     return app.exec();

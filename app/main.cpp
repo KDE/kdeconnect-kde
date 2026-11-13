@@ -20,21 +20,8 @@
 #include <KDBusService>
 #include <KLocalizedQmlContext>
 #include <KLocalizedString>
-#include <KWindowSystem>
 
-#if defined(Q_OS_MACOS)
-#include "macosforegroundapp.h"
-#endif
-
-static void raiseWindow(QWindow *window)
-{
-#if defined(Q_OS_MACOS)
-    activateWindowForMacOS(window);
-#else
-    KWindowSystem::updateStartupId(window);
-    KWindowSystem::activateWindow(window);
-#endif
-}
+#include "raisewindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -126,14 +113,14 @@ int main(int argc, char *argv[])
         qWarning() << "Failed to load the app" << engine.hasError();
         return 1;
     }
-    auto obj = qobject_cast<QWindow *>(engine.rootObjects().constFirst());
+    auto window = qobject_cast<QWindow *>(engine.rootObjects().constFirst());
     if (!device.isEmpty()) {
-        auto mo = obj->metaObject();
-        mo->invokeMethod(obj, "openDevice", Qt::QueuedConnection, Q_ARG(QVariant, device), Q_ARG(QVariant, config));
+        auto mo = window->metaObject();
+        mo->invokeMethod(window, "openDevice", Qt::QueuedConnection, Q_ARG(QVariant, device), Q_ARG(QVariant, config));
     }
-    raiseWindow(obj);
-    QObject::connect(&dbusService, &KDBusService::activateRequested, obj, [obj](const QStringList & /*arguments*/, const QString & /*workingDirectory*/) {
-        raiseWindow(obj);
+    raiseWindow(window);
+    QObject::connect(&dbusService, &KDBusService::activateRequested, window, [window](const QStringList & /*arguments*/, const QString & /*workingDirectory*/) {
+        raiseWindow(window);
     });
     return app.exec();
 }
