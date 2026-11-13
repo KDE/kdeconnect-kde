@@ -101,7 +101,7 @@ void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &m
 
         // Store the Message in the list corresponding to its thread
         bool newConversation = !m_conversations.contains(threadId);
-        const auto &threadPosition = m_conversations[threadId].insert(message.date(), message);
+        const auto &threadPosition = m_conversations[threadId].insert({message.date(), message.uID()}, message);
         m_known_messages[threadId].insert(message.uID());
 
         // If this message was inserted at the end of the list, it is the latest message in the conversation
