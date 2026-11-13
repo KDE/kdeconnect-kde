@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-28 01:00+0000\n"
-"PO-Revision-Date: 2026-03-12 08:22+0100\n"
+"PO-Revision-Date: 2026-11-11 20:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -29,7 +29,7 @@ msgstr "%1% de càrrega"
 #: package/contents/ui/Battery.qml:37
 #, kde-format
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: package/contents/ui/Battery.qml:40
 #, kde-format
@@ -100,7 +100,7 @@ msgstr "Pantalla virtual"
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: package/contents/ui/DeviceDelegate.qml:309
 #, kde-format
@@ -189,7 +189,7 @@ msgstr "Instal·la des de Google Play"
 #: package/contents/ui/FullRepresentation.qml:96
 #, kde-format
 msgid "Install from F-Droid"
-msgstr "Instal·la des del F-Droid"
+msgstr "Instal·la des de l'F-Droid"
 
 #: package/contents/ui/main.qml:55
 #, kde-format

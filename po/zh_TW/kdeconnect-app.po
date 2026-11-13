@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-09 00:55+0000\n"
-"PO-Revision-Date: 2026-11-03 20:37+0900\n"
+"PO-Revision-Date: 2026-11-12 19:31+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -216,10 +216,9 @@ msgid "Use device as an external monitor"
 msgstr "將裝置作為外部螢幕使用"
 
 #: qml/DevicePage.qml:279
-#, fuzzy, kde-format
-#| msgid "Address: %1 via %2"
+#, kde-format
 msgid "Address: %1"
-msgstr "位址：%1 透過 %2"
+msgstr "位址：%1"
 
 #: qml/DevicePage.qml:299
 #, kde-format
