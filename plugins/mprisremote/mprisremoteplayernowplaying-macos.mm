@@ -8,6 +8,7 @@
 #include "mprisremoteplayer.h"
 #include "mprisremoteplugin.h"
 
+#include <QList>
 #include <QPointer>
 
 #import <AppKit/AppKit.h>
@@ -16,6 +17,7 @@
 namespace
 {
 QPointer<MprisRemotePlayerNowPlaying> s_active;
+QList<MprisRemotePlayerNowPlaying *> s_instances;
 
 void addActionTarget(MPRemoteCommand *command, const QString &action)
 {
@@ -62,6 +64,7 @@ MprisRemotePlayerNowPlaying::MprisRemotePlayerNowPlaying(MprisRemotePlayer *pare
     , m_plugin(plugin)
 {
     installCommandTargets();
+    s_instances.append(this);
 
     connect(m_parent, &MprisRemotePlayer::playingChanged, this, &MprisRemotePlayerNowPlaying::onChanged);
     connect(m_parent, &MprisRemotePlayer::trackInfoChanged, this, &MprisRemotePlayerNowPlaying::onChanged);
@@ -71,8 +74,21 @@ MprisRemotePlayerNowPlaying::MprisRemotePlayerNowPlaying(MprisRemotePlayer *pare
 
 MprisRemotePlayerNowPlaying::~MprisRemotePlayerNowPlaying()
 {
-    if (s_active == this) {
-        s_active = nullptr;
+    s_instances.removeOne(this);
+    if (s_active != this) {
+        return;
+    }
+    // Hand the slot to a playing player, or else to any remaining one
+    s_active = s_instances.isEmpty() ? nullptr : s_instances.first();
+    for (MprisRemotePlayerNowPlaying *other : std::as_const(s_instances)) {
+        if (other->m_parent->playing()) {
+            s_active = other;
+            break;
+        }
+    }
+    if (s_active) {
+        s_active->update();
+    } else {
         MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
         center.nowPlayingInfo = nil;
         center.playbackState = MPNowPlayingPlaybackStateStopped;
@@ -94,8 +110,21 @@ void MprisRemotePlayerNowPlaying::setPosition(qint64 positionMs)
 
 void MprisRemotePlayerNowPlaying::onChanged()
 {
-    // A playing player takes over the slot, an idle one only fills an empty slot
-    if (!s_active || m_parent->playing()) {
+    if (m_updateOwnerPending) {
+        return;
+    }
+    m_updateOwnerPending = true;
+    QMetaObject::invokeMethod(this, &MprisRemotePlayerNowPlaying::updateOwner, Qt::QueuedConnection);
+}
+
+void MprisRemotePlayerNowPlaying::updateOwner()
+{
+    m_updateOwnerPending = false;
+
+    // A player that starts playing takes over the slot, others only fill an empty slot
+    const bool startedPlaying = m_parent->playing() && !m_wasPlaying;
+    m_wasPlaying = m_parent->playing();
+    if (!s_active || startedPlaying) {
         s_active = this;
     }
     if (s_active == this) {

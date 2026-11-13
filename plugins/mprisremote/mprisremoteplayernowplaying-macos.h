@@ -28,8 +28,11 @@ public:
 
 private:
     void onChanged();
+    void updateOwner();
     void update();
 
     MprisRemotePlayer *m_parent;
     MprisRemotePlugin *m_plugin;
+    bool m_updateOwnerPending = false;
+    bool m_wasPlaying = false;
 };
