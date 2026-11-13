@@ -29,12 +29,11 @@ public:
     PresenterView(const QString &filename)
         : m_current(filename)
     {
-        Qt::WindowFlags windowFlags = Qt::WindowFlags(Qt::WindowDoesNotAcceptFocus | Qt::WindowFullScreen | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint
-                                                      | Qt::Tool | (int)(Qt::WA_TranslucentBackground));
-#ifdef Q_OS_WIN
-        windowFlags |= Qt::WindowTransparentForInput;
+#ifdef Q_OS_MACOS
+        // Qt::Tool windows hide by default when the app is not active
+        setProperty("_q_macAlwaysShowToolWindow", true);
 #endif
-        setFlags(windowFlags);
+        setFlags(Qt::WindowDoesNotAcceptFocus | Qt::WindowTransparentForInput | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool);
         setColor(QColor(Qt::transparent));
 
         setResizeMode(QQuickView::SizeViewToRootObject);
@@ -81,7 +80,13 @@ void PresenterPlugin::receivePacket(const NetworkPacket &np)
         m_view = new PresenterView(current);
         m_xPos = 0.5f;
         m_yPos = 0.5f;
+#ifdef Q_OS_MACOS
+        // showFullScreen would move the window to its own Space
+        m_view->setGeometry(m_view->screen()->geometry());
+        m_view->show();
+#else
         m_view->showFullScreen();
+#endif
         connect(this, &QObject::destroyed, m_view, &QObject::deleteLater);
         connect(m_timer, &QTimer::timeout, m_view, &QObject::deleteLater);
     }
