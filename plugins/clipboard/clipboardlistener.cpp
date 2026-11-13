@@ -55,10 +55,16 @@ ClipboardListener::ClipboardListener()
     : clipboard(KSystemClipboard::instance())
 {
 #ifdef Q_OS_MACOS
+    // macOS has no pasteboard change notification, so poll the cheap change counter
+    m_lastChangeCount = macosPasteboardChangeCount();
     connect(&m_clipboardMonitorTimer, &QTimer::timeout, this, [this]() {
-        updateClipboard(QClipboard::Clipboard);
+        const long changeCount = macosPasteboardChangeCount();
+        if (changeCount != m_lastChangeCount) {
+            m_lastChangeCount = changeCount;
+            updateClipboard(QClipboard::Clipboard);
+        }
     });
-    m_clipboardMonitorTimer.start(1000); // Refresh 1s
+    m_clipboardMonitorTimer.start(500);
 #endif
     connect(clipboard, &KSystemClipboard::changed, this, &ClipboardListener::updateClipboard);
     updateClipboard(QClipboard::Clipboard);

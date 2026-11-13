@@ -59,7 +59,9 @@ private:
     void updateClipboard(QClipboard::Mode mode);
 
 #ifdef Q_OS_MACOS
+    static long macosPasteboardChangeCount();
     QTimer m_clipboardMonitorTimer;
+    long m_lastChangeCount = -1;
 #endif
     KSystemClipboard *clipboard;
 };
