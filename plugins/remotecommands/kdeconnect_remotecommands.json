@@ -113,7 +113,17 @@
         "EnabledByDefault": true,
         "Icon": "system-run",
         "License": "GPL",
-        "Name": "Send commands to run"
+        "Name": "Send commands to run",
+        "Name[ca@valencia]": "Envia ordres a executar",
+        "Name[ca]": "Envia ordres a executar",
+        "Name[cs]": "Posílejte příkazy, které se mají spustit",
+        "Name[he]": "שליחת פקודות להרצה",
+        "Name[ka]": "ბრძანებების გაგზავნა შესასრულებლად",
+        "Name[pt_BR]": "Enviar comandos para executar",
+        "Name[ru]": "Передача команд для выполнения",
+        "Name[sl]": "Pošlji ukaze za izvajanje",
+        "Name[tr]": "Çalıştırılacak Komutlar Gönder",
+        "Name[uk]": "Надсилання команд для виконання"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.runcommand.request"
