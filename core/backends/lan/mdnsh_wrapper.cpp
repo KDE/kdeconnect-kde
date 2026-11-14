@@ -77,7 +77,47 @@ static sockaddr_in6 qHostAddressToSockaddr6(QHostAddress hostAddress)
     return socketAddress;
 }
 
-// Callback that handles responses to a query
+// Multicast DNS packets can be up to 9000 bytes (RFC 6762 section 17)
+static const size_t maxReceivedPacketSize = 9000;
+
+// Records of one received packet, grouped by owner name so packets that contain several services can be split
+struct MdnsRecords {
+    struct Ptr {
+        QString serviceType; // ie: "_<service-type>._tcp.local."
+        QString instanceKey; // lowercase "<instance-name>._<service-type>._tcp.local."
+        QString name; // The instance-name part
+        uint32_t ttl;
+    };
+    struct Srv {
+        QString hostnameKey; // lowercase "<hostname>.local."
+        uint16_t port;
+    };
+    QVector<Ptr> ptrs;
+    QHash<QString, Srv> srvs; // by instance
+    QHash<QString, QMap<QString, QString>> txts; // by instance
+    QHash<QString, QVector<QHostAddress>> addresses; // by hostname
+    QHostAddress sender;
+    uint32_t senderScopeId = 0;
+    Announcer::AnnouncedInfo *announcer = nullptr; // If set, questions are answered with service_callback
+};
+
+static int service_callback(int sock,
+                            const struct sockaddr *from,
+                            size_t addrlen,
+                            mdns_entry_type_t entry_type,
+                            uint16_t query_id,
+                            uint16_t record_type,
+                            uint16_t rclass,
+                            uint32_t ttl,
+                            const void *data,
+                            size_t size,
+                            size_t name_offset,
+                            size_t name_length,
+                            size_t record_offset,
+                            size_t record_length,
+                            void *user_data);
+
+// Callback that collects the records of a response, and passes questions to the Announcer if set
 static int query_callback(int sock,
                           const struct sockaddr *from,
                           size_t addrlen,
@@ -94,63 +134,81 @@ static int query_callback(int sock,
                           size_t record_length,
                           void *user_data)
 {
-    Q_UNUSED(sock);
-    Q_UNUSED(addrlen);
-    Q_UNUSED(query_id);
-    Q_UNUSED(entry_type);
-    Q_UNUSED(rclass);
-    Q_UNUSED(name_length);
+    MdnsRecords *records = static_cast<MdnsRecords *>(user_data);
 
-    // A TTL of zero is a goodbye record: the service is going away
-    if (ttl == 0) {
+    if (entry_type == MDNS_ENTRYTYPE_QUESTION) {
+        if (!records->announcer) {
+            return 0;
+        }
+        return service_callback(sock,
+                                from,
+                                addrlen,
+                                entry_type,
+                                query_id,
+                                record_type,
+                                rclass,
+                                ttl,
+                                data,
+                                size,
+                                name_offset,
+                                name_length,
+                                record_offset,
+                                record_length,
+                                records->announcer);
+    }
+
+    // A TTL of zero is a goodbye record. Only the PTR one is needed to know which service is going away.
+    if (ttl == 0 && record_type != MDNS_RECORDTYPE_PTR) {
         return 0;
     }
 
     // qCDebug(KDECONNECT_CORE) << "Received DNS record of type" << recordTypeToStr(record_type) << "from socket" << sock << "with type" <<
     // entryTypeToStr(entry_type);
 
-    Discoverer::MdnsService *discoveredService = static_cast<Discoverer::MdnsService *>(user_data);
+    if (records->sender.isNull()) {
+        records->sender = QHostAddress(from);
+        if (from->sa_family == AF_INET6) {
+            records->senderScopeId = reinterpret_cast<const sockaddr_in6 *>(from)->sin6_scope_id;
+        }
+    }
+
+    char ownerBuffer[256];
+    const mdns_string_t ownerString = mdns_string_extract(data, size, &name_offset, ownerBuffer, sizeof(ownerBuffer));
+    const QString owner = QString::fromLatin1(ownerString.str, ownerString.length);
 
     switch (record_type) {
     case MDNS_RECORDTYPE_PTR: {
-        char serviceTypeBuffer[256];
-        const mdns_string_t serviceType = mdns_string_extract(data, size, &name_offset, serviceTypeBuffer, sizeof(serviceTypeBuffer));
-        discoveredService->serviceType = QString::fromLatin1(serviceType.str, serviceType.length);
-
+        char instanceBuffer[256];
+        const mdns_string_t instance = mdns_record_parse_ptr(data, size, record_offset, record_length, instanceBuffer, sizeof(instanceBuffer));
         mdns_string_pair_t instanceNamePos = mdns_get_next_substring(data, size, record_offset);
-        discoveredService->name = QString::fromLatin1((char *)data + instanceNamePos.offset, instanceNamePos.length);
-        if (discoveredService->address == QHostAddress::Null) {
-            discoveredService->address = QHostAddress(from); // In case we don't receive a A record, use from as address
-        }
+        records->ptrs.append({owner,
+                              QString::fromLatin1(instance.str, instance.length).toLower(),
+                              QString::fromLatin1((char *)data + instanceNamePos.offset, instanceNamePos.length),
+                              ttl});
     } break;
     case MDNS_RECORDTYPE_SRV: {
-        static char nameBuffer[256];
-        mdns_record_srv_t record = mdns_record_parse_srv(data, size, record_offset, record_length, nameBuffer, sizeof(nameBuffer));
-        // We can use the IP to connect so we don't need to store the "<hostname>.local." address.
-        // discoveredService->qualifiedHostname = QString::fromLatin1(record.name.str, record.name.length);
-        discoveredService->port = record.port;
+        char hostnameBuffer[256];
+        mdns_record_srv_t record = mdns_record_parse_srv(data, size, record_offset, record_length, hostnameBuffer, sizeof(hostnameBuffer));
+        records->srvs.insert(owner.toLower(), {QString::fromLatin1(record.name.str, record.name.length).toLower(), record.port});
     } break;
     case MDNS_RECORDTYPE_A: {
         sockaddr_in addr;
         mdns_record_parse_a(data, size, record_offset, record_length, &addr);
-        discoveredService->address = QHostAddress(ntohl(addr.sin_addr.s_addr));
+        records->addresses[owner.toLower()].append(QHostAddress(ntohl(addr.sin_addr.s_addr)));
     } break;
     case MDNS_RECORDTYPE_AAAA: {
-        // Prefer IPv4 if we also got an A record, then link-local IPv6 over other IPv6 addresses
-        const QHostAddress &current = discoveredService->address;
-        if (current.isNull() || (current.protocol() == QAbstractSocket::IPv6Protocol && !current.isLinkLocal())) {
-            sockaddr_in6 addr6;
-            mdns_record_parse_aaaa(data, size, record_offset, record_length, &addr6);
-            discoveredService->address = QHostAddress(addr6.sin6_addr.s6_addr);
-        }
+        sockaddr_in6 addr6;
+        mdns_record_parse_aaaa(data, size, record_offset, record_length, &addr6);
+        records->addresses[owner.toLower()].append(QHostAddress(addr6.sin6_addr.s6_addr));
     } break;
     case MDNS_RECORDTYPE_TXT: {
-        mdns_record_txt_t records[24];
-        size_t parsed = mdns_record_parse_txt(data, size, record_offset, record_length, records, sizeof(records) / sizeof(mdns_record_txt_t));
+        mdns_record_txt_t txtRecords[24];
+        size_t parsed = mdns_record_parse_txt(data, size, record_offset, record_length, txtRecords, sizeof(txtRecords) / sizeof(mdns_record_txt_t));
+        QMap<QString, QString> &txt = records->txts[owner.toLower()];
         for (size_t itxt = 0; itxt < parsed; ++itxt) {
-            QString key = QString::fromLatin1(records[itxt].key.str, records[itxt].key.length);
-            QString value = QString::fromLatin1(records[itxt].value.str, records[itxt].value.length);
-            discoveredService->txtRecords[key] = value;
+            QString key = QString::fromLatin1(txtRecords[itxt].key.str, txtRecords[itxt].key.length);
+            QString value = QString::fromLatin1(txtRecords[itxt].value.str, txtRecords[itxt].value.length);
+            txt[key] = value;
         }
     } break;
     default:
@@ -158,24 +216,94 @@ static int query_callback(int sock,
         break;
     }
 
-    if (discoveredService->address.isLinkLocal() && discoveredService->address.scopeId().isEmpty() && from->sa_family == AF_INET6) {
-        const auto *sender = reinterpret_cast<const sockaddr_in6 *>(from);
-        if (sender->sin6_scope_id != 0) {
-            discoveredService->address.setScopeId(QString::number(sender->sin6_scope_id));
+    return 0;
+}
+
+// Returns the local interface whose subnet contains the address, if any.
+// Multicast mDNS packets are not routed, so the sender is in the subnet of the interface that received them.
+static QString interfaceForAddress(const QHostAddress &address)
+{
+    const QList<QNetworkInterface> interfaces = QNetworkInterface::allInterfaces();
+    for (const QNetworkInterface &iface : interfaces) {
+        const auto flags = iface.flags();
+        if (!(flags & QNetworkInterface::IsUp) || !(flags & QNetworkInterface::IsRunning)) {
+            continue;
+        }
+        const QList<QNetworkAddressEntry> entries = iface.addressEntries();
+        for (const QNetworkAddressEntry &entry : entries) {
+            if (entry.ip().protocol() == address.protocol() && address.isInSubnet(entry.ip(), entry.prefixLength())) {
+                return iface.name();
+            }
         }
     }
+    return QString();
+}
 
-    return 0;
+// Prefer IPv4, in a local subnet if there are several. Otherwise prefer link-local IPv6, matching the sender if advertised.
+static QHostAddress chooseAddress(const QVector<QHostAddress> &addresses, const QHostAddress &sender)
+{
+    QVector<QHostAddress> ipv4;
+    QHostAddress ipv6;
+    for (const QHostAddress &address : addresses) {
+        if (address.protocol() == QAbstractSocket::IPv4Protocol) {
+            ipv4.append(address);
+        } else if (ipv6.isNull() || (address.isLinkLocal() && (!ipv6.isLinkLocal() || address == sender))) {
+            ipv6 = address;
+        }
+    }
+    if (ipv4.size() > 1) {
+        for (const QHostAddress &address : std::as_const(ipv4)) {
+            if (!interfaceForAddress(address).isEmpty()) {
+                return address;
+            }
+        }
+    }
+    return ipv4.isEmpty() ? ipv6 : ipv4.first();
+}
+
+// Build one service for each PTR record, using the SRV, TXT and address records that belong to it
+static QVector<Discoverer::MdnsService> servicesFromRecords(const MdnsRecords &records, const QString &receivingInterface = QString())
+{
+    QVector<Discoverer::MdnsService> services;
+    for (const MdnsRecords::Ptr &ptr : records.ptrs) {
+        Discoverer::MdnsService service;
+        service.name = ptr.name;
+        service.serviceType = ptr.serviceType;
+        service.txtRecords = records.txts.value(ptr.instanceKey);
+        service.ttl = ptr.ttl;
+
+        const auto srv = records.srvs.constFind(ptr.instanceKey);
+        if (srv != records.srvs.cend()) {
+            service.port = srv->port;
+            service.address = chooseAddress(records.addresses.value(srv->hostnameKey), records.sender);
+        }
+        if (service.address.isNull()) {
+            service.address = records.sender; // In case we don't receive an A or AAAA record
+        }
+
+        if (service.address.isLinkLocal() && service.address.scopeId().isEmpty()) {
+            if (records.senderScopeId != 0) {
+                service.address.setScopeId(QString::number(records.senderScopeId));
+            } else if (!receivingInterface.isEmpty()) {
+                service.address.setScopeId(receivingInterface);
+            } else if (records.sender.protocol() == QAbstractSocket::IPv4Protocol || !records.sender.isLinkLocal()) {
+                service.address.setScopeId(interfaceForAddress(records.sender));
+            }
+        }
+
+        services.append(service);
+    }
+    return services;
 }
 
 void Discoverer::startDiscovering(const QString &serviceType)
 {
-    QByteArray wantedServiceType = serviceType.toLatin1();
-    if (!wantedServiceType.endsWith('.')) {
-        wantedServiceType.append('.');
+    wantedServiceType = serviceType;
+    if (!wantedServiceType.endsWith(QLatin1Char('.'))) {
+        wantedServiceType.append(QLatin1Char('.'));
     }
 
-    int num_sockets = listenForQueryResponses(wantedServiceType);
+    int num_sockets = listenForQueryResponses();
     if (num_sockets <= 0) {
         qCWarning(KDECONNECT_CORE) << "Failed to open any MDNS server sockets";
         return;
@@ -186,6 +314,8 @@ void Discoverer::startDiscovering(const QString &serviceType)
 void Discoverer::stopDiscovering()
 {
     stopListeningForQueryResponses();
+    wantedServiceType.clear();
+    cachedServices.clear();
 }
 
 void Discoverer::stopListeningForQueryResponses()
@@ -198,7 +328,7 @@ void Discoverer::stopListeningForQueryResponses()
     responseSocketNotifiers.clear();
 }
 
-int Discoverer::listenForQueryResponses(const QByteArray &wantedServiceType)
+int Discoverer::listenForQueryResponses()
 {
     // Open a socket for each interface, keeping the interface name to scope link-local IPv6 addresses
     QHash<int, QString> sockets;
@@ -235,25 +365,15 @@ int Discoverer::listenForQueryResponses(const QByteArray &wantedServiceType)
     for (auto it = sockets.cbegin(); it != sockets.cend(); ++it) {
         const QString ifaceName = it.value();
         QSocketNotifier *socketNotifier = new QSocketNotifier(it.key(), QSocketNotifier::Read);
-        QObject::connect(socketNotifier, &QSocketNotifier::activated, this, [this, wantedServiceType, ifaceName](QSocketDescriptor socket) {
-            MdnsService discoveredService;
+        QObject::connect(socketNotifier, &QSocketNotifier::activated, this, [this, ifaceName](QSocketDescriptor socket) {
+            MdnsRecords records;
 
-            static char buffer[2048];
-            size_t num_records = mdns_query_recv(socket, buffer, sizeof(buffer), query_callback, &discoveredService, 0);
-            Q_UNUSED(num_records);
-            // qCDebug(KDECONNECT_CORE) << "Discovered service" << discoveredService.name << "at" << discoveredService.address << "in" << num_records <<
-            // "records via socket" << socket;
+            static char buffer[maxReceivedPacketSize];
+            mdns_query_recv(socket, buffer, sizeof(buffer), query_callback, &records, 0);
 
-            if (discoveredService.serviceType.toLatin1().compare(wantedServiceType, Qt::CaseInsensitive) != 0) {
-                return;
-            }
-
-            if (discoveredService.address.isLinkLocal() && discoveredService.address.scopeId().isEmpty()) {
-                discoveredService.address.setScopeId(ifaceName);
-            }
-
-            if (!discoveredService.name.isEmpty() && !discoveredService.address.isNull()) {
-                Q_EMIT serviceFound(discoveredService);
+            const QVector<MdnsService> services = servicesFromRecords(records, ifaceName);
+            for (const MdnsService &service : services) {
+                handleResponse(service);
             }
         });
         responseSocketNotifiers.append(socketNotifier);
@@ -264,9 +384,46 @@ int Discoverer::listenForQueryResponses(const QByteArray &wantedServiceType)
     return sockets.size();
 }
 
+void Discoverer::handleResponse(const MdnsService &service)
+{
+    if (service.serviceType.compare(wantedServiceType, Qt::CaseInsensitive) != 0 || service.name.isEmpty()) {
+        return;
+    }
+
+    const QString key = service.name.toLower();
+
+    if (service.ttl == 0) {
+        cachedServices.remove(key);
+        return;
+    }
+
+    // Can't connect without a SRV record or an address
+    if (service.port == 0 || service.address.isNull()) {
+        return;
+    }
+
+    cachedServices.removeIf([](const auto &it) {
+        return it->expires.hasExpired();
+    });
+
+    // Suppress bursts across sockets, but let later announcements retry failed connections.
+    // Addresses can differ between responses, and missing TXT records aren't a change.
+    auto cached = cachedServices.constFind(key);
+    if (cached != cachedServices.cend() && cached->service.port == service.port
+        && (service.txtRecords.isEmpty() || cached->service.txtRecords == service.txtRecords)) {
+        return;
+    }
+    cachedServices.insert(key, {service, QDeadlineTimer(1000)});
+
+    Q_EMIT serviceFound(service);
+}
+
 void Discoverer::sendQuery(const QString &serviceType)
 {
     qCDebug(KDECONNECT_CORE) << "Sending MDNS query for service" << serviceType;
+
+    // Report every service that answers again, even if it's in the cache
+    cachedServices.clear();
 
     mdns_query_t query;
     QByteArray serviceTypeBytes = serviceType.toLatin1();
@@ -663,8 +820,20 @@ static int service_callback(int sock,
 int Announcer::listenForQueries()
 {
     auto callback = [this](QSocketDescriptor socket) {
-        static char buffer[2048];
-        mdns_socket_listen(socket, buffer, sizeof(buffer), service_callback, &self);
+        static char buffer[maxReceivedPacketSize];
+        MdnsRecords records;
+        records.announcer = &self;
+        size_t num_records = mdns_socket_listen(socket, buffer, sizeof(buffer), query_callback, &records);
+
+        // Responders may answer queries via multicast instead of unicast (RFC 6762 section 5.4).
+        // These reach this socket and not the Discoverer ones, so forward them.
+        const bool isResponse = buffer[2] & 0x80;
+        if (num_records > 0 && isResponse) {
+            const QVector<Discoverer::MdnsService> services = servicesFromRecords(records);
+            for (const Discoverer::MdnsService &service : services) {
+                Q_EMIT responseReceived(service);
+            }
+        }
     };
 
     int numSockets = 0;
@@ -762,6 +931,7 @@ void Announcer::detectHostAddresses()
 {
     self.addressesV4.clear();
     self.addressesV6.clear();
+    addressesByInterface.clear();
     for (const QNetworkInterface &iface : QNetworkInterface::allInterfaces()) {
         int flags = iface.flags();
         if (!(flags & QNetworkInterface::IsUp) || !(flags & QNetworkInterface::CanMulticast) || (flags & QNetworkInterface::IsLoopBack)) {
@@ -775,8 +945,10 @@ void Announcer::detectHostAddresses()
             QHostAddress sourceAddress = ifaceAddress.ip();
             if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
                 self.addressesV4.append(sourceAddress);
+                addressesByInterface[iface.index()].append(sourceAddress);
             } else if (sourceAddress.protocol() == QAbstractSocket::IPv6Protocol && sourceAddress != QHostAddress::LocalHostIPv6) {
                 self.addressesV6.append(sourceAddress);
+                addressesByInterface[iface.index()].append(sourceAddress);
             }
         }
     }
@@ -812,36 +984,74 @@ void Announcer::stopListeningForQueries()
     }
 }
 
-void Announcer::sendMulticastAnnounce(bool isGoodbye)
+static void sendAnnouncement(int socket, const Announcer::AnnouncedInfo &self, bool isGoodbye)
 {
     mdns_record_t ptr_record = createMdnsRecord(self, MDNS_RECORDTYPE_PTR);
 
     QVector<mdns_record_t> additional;
     additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_SRV));
-    if (!self.addressesV4.empty()) {
-        additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_A));
-    }
-    if (!self.addressesV6.empty()) {
-        additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_AAAA));
-    }
-
     for (auto txtIterator = self.txtRecords.cbegin(); txtIterator != self.txtRecords.cend(); txtIterator++) {
         additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_TXT, nullptr, txtIterator));
     }
 
-    static char buffer[2048];
-    if (isGoodbye) {
-        qCDebug(KDECONNECT_CORE) << "Sending goodbye";
-        if (socketNotifier)
-            mdns_goodbye_multicast(socketNotifier->socket(), buffer, sizeof(buffer), ptr_record, nullptr, 0, additional.constData(), additional.length());
-        if (socketNotifierV6)
-            mdns_goodbye_multicast(socketNotifierV6->socket(), buffer, sizeof(buffer), ptr_record, nullptr, 0, additional.constData(), additional.length());
-    } else {
-        qCDebug(KDECONNECT_CORE) << "Sending announce";
-        if (socketNotifier)
-            mdns_announce_multicast(socketNotifier->socket(), buffer, sizeof(buffer), ptr_record, nullptr, 0, additional.constData(), additional.length());
-        if (socketNotifierV6)
-            mdns_announce_multicast(socketNotifierV6->socket(), buffer, sizeof(buffer), ptr_record, nullptr, 0, additional.constData(), additional.length());
+    for (const QHostAddress &address : self.addressesV4) {
+        mdns_record_t record = createMdnsRecord(self, MDNS_RECORDTYPE_A);
+        record.data.a.addr = qHostAddressToSockaddr(address);
+        additional.append(record);
+    }
+    for (const QHostAddress &address : self.addressesV6) {
+        mdns_record_t record = createMdnsRecord(self, MDNS_RECORDTYPE_AAAA);
+        record.data.aaaa.addr = qHostAddressToSockaddr6(address);
+        additional.append(record);
+    }
+
+    char buffer[2048];
+    const auto sendMulticast = isGoodbye ? mdns_goodbye_multicast : mdns_announce_multicast;
+    if (sendMulticast(socket, buffer, sizeof(buffer), ptr_record, nullptr, 0, additional.constData(), additional.size()) < 0) {
+        qCWarning(KDECONNECT_CORE) << "Failed to send mDNS" << (isGoodbye ? "goodbye" : "announcement");
+    }
+}
+
+void Announcer::sendMulticastAnnounce(bool isGoodbye)
+{
+    qCDebug(KDECONNECT_CORE) << "Sending mDNS" << (isGoodbye ? "goodbye" : "announcement");
+    for (auto it = addressesByInterface.cbegin(); it != addressesByInterface.cend(); ++it) {
+        AnnouncedInfo info = self;
+        info.addressesV4.clear();
+        info.addressesV6.clear();
+        for (const QHostAddress &address : it.value()) {
+            if (address.protocol() == QAbstractSocket::IPv4Protocol) {
+                info.addressesV4.append(address);
+            } else {
+                info.addressesV6.append(address);
+            }
+        }
+
+        auto sendOnInterface = [&](QSocketNotifier *notifier, int level, int option, const auto &outgoingInterface) {
+            if (!notifier) {
+                return;
+            }
+            const int socket = notifier->socket();
+            auto previousInterface = outgoingInterface;
+            socklen_t length = sizeof(previousInterface);
+            if (getsockopt(socket, level, option, reinterpret_cast<char *>(&previousInterface), &length) < 0
+                || setsockopt(socket, level, option, reinterpret_cast<const char *>(&outgoingInterface), sizeof(outgoingInterface)) < 0) {
+                qCWarning(KDECONNECT_CORE) << "Failed to select mDNS multicast interface" << it.key();
+                return;
+            }
+            sendAnnouncement(socket, info, isGoodbye);
+            if (setsockopt(socket, level, option, reinterpret_cast<const char *>(&previousInterface), sizeof(previousInterface)) < 0) {
+                qCWarning(KDECONNECT_CORE) << "Failed to restore mDNS multicast interface";
+            }
+        };
+
+        if (!info.addressesV4.isEmpty()) {
+            const in_addr address = qHostAddressToSockaddr(info.addressesV4.first()).sin_addr;
+            sendOnInterface(socketNotifier, IPPROTO_IP, IP_MULTICAST_IF, address);
+        }
+        if (!info.addressesV6.isEmpty()) {
+            sendOnInterface(socketNotifierV6, IPPROTO_IPV6, IPV6_MULTICAST_IF, it.key());
+        }
     }
 }
 

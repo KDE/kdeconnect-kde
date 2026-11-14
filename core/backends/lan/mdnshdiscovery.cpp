@@ -23,6 +23,7 @@ MdnshDiscovery::MdnshDiscovery(LanLinkProvider *lanLinkProvider)
     mdnsAnnouncer.putTxtRecord(QStringLiteral("name"), config.name());
     mdnsAnnouncer.putTxtRecord(QStringLiteral("protocol"), QString::number(NetworkPacket::s_protocolVersion));
 
+    connect(&mdnsAnnouncer, &MdnshWrapper::Announcer::responseReceived, &mdnsDiscoverer, &MdnshWrapper::Discoverer::handleResponse);
     connect(&mdnsDiscoverer, &MdnshWrapper::Discoverer::serviceFound, this, [lanLinkProvider](const MdnshWrapper::Discoverer::MdnsService &service) {
         if (KdeConnectConfig::instance().deviceId() == service.name) {
             qCDebug(KDECONNECT_CORE) << "Discovered myself, ignoring";

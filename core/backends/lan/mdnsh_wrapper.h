@@ -7,6 +7,7 @@
 #ifndef KDECONNECT_MDNSH_WRAPPER_H
 #define KDECONNECT_MDNSH_WRAPPER_H
 
+#include <QDeadlineTimer>
 #include <QHash>
 #include <QHostAddress>
 #include <QMap>
@@ -30,9 +31,10 @@ public:
     struct MdnsService {
         QString name; // The instance-name part in "<instance-name>._<service-type>._tcp.local."
         QString serviceType; // ie: "_<service-type>._tcp.local."
-        uint16_t port;
+        uint16_t port = 0;
         QHostAddress address; // IPv4 if available, IPv6 otherwise
         QMap<QString, QString> txtRecords;
+        uint32_t ttl = 0; // Seconds this information is valid for, 0 if the service is going away
     };
 
     // serviceType must be of the form "_<service-type>._<tcp/udp>.local"
@@ -41,13 +43,23 @@ public:
 
     void sendQuery(const QString &serviceType);
 
+    // Emits serviceFound for matching services, suppressing duplicate responses in a short burst
+    void handleResponse(const MdnshWrapper::Discoverer::MdnsService &service);
+
 Q_SIGNALS:
     void serviceFound(const MdnshWrapper::Discoverer::MdnsService &service);
 
 private:
-    int listenForQueryResponses(const QByteArray &wantedServiceType);
+    struct CachedService {
+        MdnsService service;
+        QDeadlineTimer expires;
+    };
+
+    int listenForQueryResponses();
     void stopListeningForQueryResponses();
 
+    QString wantedServiceType;
+    QHash<QString, CachedService> cachedServices; // by lowercase instance name
     QVector<QSocketNotifier *> responseSocketNotifiers;
 };
 
@@ -84,6 +96,10 @@ public:
 
     void sendMulticastAnnounce(bool isGoodbye);
 
+Q_SIGNALS:
+    // Responses received via multicast on the mDNS port, which the Discoverer doesn't listen to
+    void responseReceived(const MdnshWrapper::Discoverer::MdnsService &service);
+
 public Q_SLOTS:
     // notify that network interfaces changed since the creation of this Announcer
     void onNetworkChange()
@@ -98,6 +114,7 @@ private:
     void detectHostAddresses();
 
     AnnouncedInfo self;
+    QHash<uint, QVector<QHostAddress>> addressesByInterface;
 
     QSocketNotifier *socketNotifier = nullptr;
     QSocketNotifier *socketNotifierV6 = nullptr;
