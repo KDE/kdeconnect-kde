@@ -99,8 +99,12 @@ static int query_callback(int sock,
     Q_UNUSED(query_id);
     Q_UNUSED(entry_type);
     Q_UNUSED(rclass);
-    Q_UNUSED(ttl);
     Q_UNUSED(name_length);
+
+    // A TTL of zero is a goodbye record: the service is going away
+    if (ttl == 0) {
+        return 0;
+    }
 
     // qCDebug(KDECONNECT_CORE) << "Received DNS record of type" << recordTypeToStr(record_type) << "from socket" << sock << "with type" <<
     // entryTypeToStr(entry_type);
