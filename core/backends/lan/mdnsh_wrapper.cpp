@@ -714,7 +714,8 @@ Announcer::Announcer(const QString &instanceName, const QString &serviceType, ui
         self.serviceType.append('.');
     }
     self.serviceInstance = instanceName.toLatin1() + '.' + self.serviceType;
-    self.hostname = QHostInfo::localHostName().toLatin1() + ".local.";
+    self.hostname = QHostInfo::localHostName().toLatin1();
+    self.hostname.append(self.hostname.endsWith(".local") ? "." : ".local.");
     self.port = port;
     detectHostAddresses();
 }
