@@ -70,11 +70,24 @@ Q_SIGNALS:
     void rowsChanged();
 
 private:
+    struct NotificationData {
+        QString internalId;
+        QString appName;
+        QString ticker;
+        QString title;
+        QString text;
+        QString iconPath;
+        QString replyId;
+        bool dismissable = false;
+    };
+
     void updateAnyDismissable();
+    NotificationDbusInterface *createNotificationInterface(const QString &id);
+    void fetchNotificationData(NotificationDbusInterface *notification);
 
     DeviceNotificationsDbusInterface *m_dbusInterface;
     QList<NotificationDbusInterface *> m_notificationList;
-    QHash<NotificationDbusInterface *, bool> m_dismissable;
+    QHash<NotificationDbusInterface *, NotificationData> m_data;
     bool m_anyDismissable = false;
     QString m_deviceId;
 };
