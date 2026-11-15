@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:45+0000\n"
+"POT-Creation-Date: 2026-11-15 01:05+0000\n"
 "PO-Revision-Date: 2017-03-20 21:08+0100\n"
 "Last-Translator: Slobodan Simic <slsimic@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: desktop_daemon.cpp:37
+#: desktop_daemon.cpp:38
 #, fuzzy, kde-format
 #| msgid "Pairing request from %1"
 msgid ""
@@ -36,17 +36,17 @@ msgid ""
 "Key: %2"
 msgstr "%1 упути захтев за повезивање"
 
-#: desktop_daemon.cpp:45
+#: desktop_daemon.cpp:46
 #, kde-format
 msgid "Open"
 msgstr ""
 
-#: desktop_daemon.cpp:48
+#: desktop_daemon.cpp:49
 #, kde-format
 msgid "Accept"
 msgstr "Прихвати"
 
-#: desktop_daemon.cpp:51
+#: desktop_daemon.cpp:52
 #, kde-format
 msgid "Reject"
 msgstr "Одбаци"

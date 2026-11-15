@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:45+0000\n"
+"POT-Creation-Date: 2026-11-15 01:05+0000\n"
 "PO-Revision-Date: 2022-04-22 12:25+0400\n"
 "Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xxmn77@gmail.com"
 
-#: desktop_daemon.cpp:37
+#: desktop_daemon.cpp:38
 #, fuzzy, kde-format
 #| msgid ""
 #| "Pairing request from %1\n"
@@ -39,17 +39,17 @@ msgstr ""
 "%1 tərəfindən qoşulma tələbi\n"
 "Açar: %2..."
 
-#: desktop_daemon.cpp:45
+#: desktop_daemon.cpp:46
 #, kde-format
 msgid "Open"
 msgstr "Açmaq"
 
-#: desktop_daemon.cpp:48
+#: desktop_daemon.cpp:49
 #, kde-format
 msgid "Accept"
 msgstr "Qəbul etmək"
 
-#: desktop_daemon.cpp:51
+#: desktop_daemon.cpp:52
 #, kde-format
 msgid "Reject"
 msgstr "Ayırmaq"

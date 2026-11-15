@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:51+0000\n"
+"POT-Creation-Date: 2026-11-15 01:05+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -63,12 +63,12 @@ msgstr "运行命令"
 msgid "Add commands"
 msgstr "添加命令"
 
-#: indicatorhelper_mac.cpp:47 indicatorhelper_mac.cpp:58
+#: main.cpp:73
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: indicatorhelper_mac.cpp:48
+#: main.cpp:74
 #, kde-format
 msgid ""
 "Cannot connect to DBus\n"
@@ -77,63 +77,58 @@ msgstr ""
 "无法连接到 DBus\n"
 "KDE Connect 将退出"
 
-#: indicatorhelper_mac.cpp:58
-#, kde-format
-msgid "Cannot find kdeconnectd"
-msgstr "找不到 kdeconnectd"
-
-#: main.cpp:62
+#: main.cpp:85
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "KDE Connect 指示器"
 
-#: main.cpp:64
+#: main.cpp:87
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "KDE Connect 指示器工具"
 
-#: main.cpp:66
+#: main.cpp:89
 #, kde-format
 msgid "© 2016–2025 KDE Connect Team"
 msgstr "© 2016–2025 KDE Connect Team"
 
-#: main.cpp:67
+#: main.cpp:90
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:68
+#: main.cpp:91
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: main.cpp:113
+#: main.cpp:142
 #, kde-format
 msgid "Open app"
 msgstr "打开应用"
 
-#: main.cpp:130
+#: main.cpp:159
 #, kde-format
 msgid "Pairing requests"
 msgstr "配对请求"
 
-#: main.cpp:136
+#: main.cpp:165
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "配对"
 
-#: main.cpp:137
+#: main.cpp:166
 #, kde-format
 msgid "Reject"
 msgstr "拒绝"
 
-#: main.cpp:142 main.cpp:155
+#: main.cpp:171 main.cpp:183
 #, kde-format
 msgid "Quit"
 msgstr "退出"
 
-#: main.cpp:172 main.cpp:194
+#: main.cpp:197 main.cpp:219
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
@@ -169,3 +164,6 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#~ msgid "Cannot find kdeconnectd"
+#~ msgstr "找不到 kdeconnectd"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:45+0000\n"
+"POT-Creation-Date: 2026-11-15 01:05+0000\n"
 "PO-Revision-Date: 2026-03-26 15:50+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -26,7 +26,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "5602mint@gmail.com"
 
-#: desktop_daemon.cpp:37
+#: desktop_daemon.cpp:38
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -35,17 +35,17 @@ msgstr ""
 "%1 からのペアリングリクエスト\n"
 "キー: %2"
 
-#: desktop_daemon.cpp:45
+#: desktop_daemon.cpp:46
 #, kde-format
 msgid "Open"
 msgstr "開く"
 
-#: desktop_daemon.cpp:48
+#: desktop_daemon.cpp:49
 #, kde-format
 msgid "Accept"
 msgstr "承認"
 
-#: desktop_daemon.cpp:51
+#: desktop_daemon.cpp:52
 #, kde-format
 msgid "Reject"
 msgstr "拒否"

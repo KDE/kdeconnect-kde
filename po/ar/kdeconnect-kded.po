@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:45+0000\n"
+"POT-Creation-Date: 2026-11-15 01:05+0000\n"
 "PO-Revision-Date: 2025-06-26 10:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "safa1996alfulaij@gmail.com"
 
-#: desktop_daemon.cpp:37
+#: desktop_daemon.cpp:38
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -38,17 +38,17 @@ msgstr ""
 "طلب اقتران من%1\n"
 "المفتاح: %2"
 
-#: desktop_daemon.cpp:45
+#: desktop_daemon.cpp:46
 #, kde-format
 msgid "Open"
 msgstr "افتح"
 
-#: desktop_daemon.cpp:48
+#: desktop_daemon.cpp:49
 #, kde-format
 msgid "Accept"
 msgstr "اقبل"
 
-#: desktop_daemon.cpp:51
+#: desktop_daemon.cpp:52
 #, kde-format
 msgid "Reject"
 msgstr "ارفض"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:51+0000\n"
+"POT-Creation-Date: 2026-11-15 01:05+0000\n"
 "PO-Revision-Date: 2024-09-20 10:20+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -66,12 +66,12 @@ msgstr "Εκτέλεση εντολής"
 msgid "Add commands"
 msgstr "Προσθήκη εντολών"
 
-#: indicatorhelper_mac.cpp:47 indicatorhelper_mac.cpp:58
+#: main.cpp:73
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: indicatorhelper_mac.cpp:48
+#: main.cpp:74
 #, kde-format
 msgid ""
 "Cannot connect to DBus\n"
@@ -80,64 +80,59 @@ msgstr ""
 "Αδυναμία σύνδεσης στο DBus\n"
 "Το KDE Connect θα τερματιστεί"
 
-#: indicatorhelper_mac.cpp:58
-#, kde-format
-msgid "Cannot find kdeconnectd"
-msgstr "Αδυναμία εύρεσης του kdeconnectd"
-
-#: main.cpp:62
+#: main.cpp:85
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "Ένδειξη του KDE Connect"
 
-#: main.cpp:64
+#: main.cpp:87
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "Εργαλείο ένδειξης του KDE Connect"
 
-#: main.cpp:66
+#: main.cpp:89
 #, kde-format
 msgid "© 2016–2025 KDE Connect Team"
 msgstr ""
 
-#: main.cpp:67
+#: main.cpp:90
 #, fuzzy, kde-format
 #| msgid "(C) 2016 Aleix Pol Gonzalez"
 msgid "Aleix Pol Gonzalez"
 msgstr "(C) 2016 Aleix Pol Gonzalez"
 
-#: main.cpp:68
+#: main.cpp:91
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr ""
 
-#: main.cpp:113
+#: main.cpp:142
 #, kde-format
 msgid "Open app"
 msgstr ""
 
-#: main.cpp:130
+#: main.cpp:159
 #, kde-format
 msgid "Pairing requests"
 msgstr "Αιτήσεις σύζευξης"
 
-#: main.cpp:136
+#: main.cpp:165
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Ζεύγος"
 
-#: main.cpp:137
+#: main.cpp:166
 #, kde-format
 msgid "Reject"
 msgstr "Απόρριψη"
 
-#: main.cpp:142 main.cpp:155
+#: main.cpp:171 main.cpp:183
 #, kde-format
 msgid "Quit"
 msgstr "Έξοδος"
 
-#: main.cpp:172 main.cpp:194
+#: main.cpp:197 main.cpp:219
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
@@ -174,6 +169,9 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#~ msgid "Cannot find kdeconnectd"
+#~ msgstr "Αδυναμία εύρεσης του kdeconnectd"
 
 #, fuzzy
 #~| msgid "Configure..."

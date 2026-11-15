@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:51+0000\n"
+"POT-Creation-Date: 2026-11-15 01:05+0000\n"
 "PO-Revision-Date: 2024-06-08 20:33+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -65,12 +65,12 @@ msgstr "समादेश चलाएँ"
 msgid "Add commands"
 msgstr "समादेश जोड़ें"
 
-#: indicatorhelper_mac.cpp:47 indicatorhelper_mac.cpp:58
+#: main.cpp:73
 #, kde-format
 msgid "KDE Connect"
 msgstr "केडीई कनेक्ट"
 
-#: indicatorhelper_mac.cpp:48
+#: main.cpp:74
 #, kde-format
 msgid ""
 "Cannot connect to DBus\n"
@@ -79,64 +79,59 @@ msgstr ""
 "DBus से कनेक्ट नहीं हो सका\n"
 "केडीई कनेक्ट बंद हो जाएगा"
 
-#: indicatorhelper_mac.cpp:58
-#, kde-format
-msgid "Cannot find kdeconnectd"
-msgstr "केडीकनेक्टेड नहीं मिल सका"
-
-#: main.cpp:62
+#: main.cpp:85
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "केडीई कनेक्ट सूचक"
 
-#: main.cpp:64
+#: main.cpp:87
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "केडीई कनेक्ट सूचक साधन"
 
-#: main.cpp:66
+#: main.cpp:89
 #, kde-format
 msgid "© 2016–2025 KDE Connect Team"
 msgstr ""
 
-#: main.cpp:67
+#: main.cpp:90
 #, fuzzy, kde-format
 #| msgid "(C) 2016 Aleix Pol Gonzalez"
 msgid "Aleix Pol Gonzalez"
 msgstr "(C) 2016, एलेक्स पोल गोंजालेज"
 
-#: main.cpp:68
+#: main.cpp:91
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr ""
 
-#: main.cpp:113
+#: main.cpp:142
 #, kde-format
 msgid "Open app"
 msgstr ""
 
-#: main.cpp:130
+#: main.cpp:159
 #, kde-format
 msgid "Pairing requests"
 msgstr "जोड़ने का अनुरोध"
 
-#: main.cpp:136
+#: main.cpp:165
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "जोड़ी"
 
-#: main.cpp:137
+#: main.cpp:166
 #, kde-format
 msgid "Reject"
 msgstr "अस्वीकार करें"
 
-#: main.cpp:142 main.cpp:155
+#: main.cpp:171 main.cpp:183
 #, kde-format
 msgid "Quit"
 msgstr "छोड़ें"
 
-#: main.cpp:172 main.cpp:194
+#: main.cpp:197 main.cpp:219
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
@@ -173,6 +168,9 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#~ msgid "Cannot find kdeconnectd"
+#~ msgstr "केडीकनेक्टेड नहीं मिल सका"
 
 #, fuzzy
 #~| msgid "Configure..."

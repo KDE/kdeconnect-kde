@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:45+0000\n"
+"POT-Creation-Date: 2026-11-15 01:05+0000\n"
 "PO-Revision-Date: 2025-06-22 18:44+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "vrcordoba@gmail.com"
 
-#: desktop_daemon.cpp:37
+#: desktop_daemon.cpp:38
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -39,17 +39,17 @@ msgstr ""
 "Solicitud de vinculación de %1\n"
 "Clave: %2"
 
-#: desktop_daemon.cpp:45
+#: desktop_daemon.cpp:46
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: desktop_daemon.cpp:48
+#: desktop_daemon.cpp:49
 #, kde-format
 msgid "Accept"
 msgstr "Aceptar"
 
-#: desktop_daemon.cpp:51
+#: desktop_daemon.cpp:52
 #, kde-format
 msgid "Reject"
 msgstr "Rechazar"

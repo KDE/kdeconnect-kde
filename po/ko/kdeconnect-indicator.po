@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:51+0000\n"
+"POT-Creation-Date: 2026-11-15 01:05+0000\n"
 "PO-Revision-Date: 2025-07-21 00:59+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -63,12 +63,12 @@ msgstr "명령 실행"
 msgid "Add commands"
 msgstr "명령 추가"
 
-#: indicatorhelper_mac.cpp:47 indicatorhelper_mac.cpp:58
+#: main.cpp:73
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: indicatorhelper_mac.cpp:48
+#: main.cpp:74
 #, kde-format
 msgid ""
 "Cannot connect to DBus\n"
@@ -77,63 +77,58 @@ msgstr ""
 "D-Bus에 연결할 수 없음\n"
 "KDE Connect를 종료합니다"
 
-#: indicatorhelper_mac.cpp:58
-#, kde-format
-msgid "Cannot find kdeconnectd"
-msgstr "kdeconnectd를 찾을 수 없음"
-
-#: main.cpp:62
+#: main.cpp:85
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "KDE Connect 표시기"
 
-#: main.cpp:64
+#: main.cpp:87
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "KDE Connect 표시기 도구"
 
-#: main.cpp:66
+#: main.cpp:89
 #, kde-format
 msgid "© 2016–2025 KDE Connect Team"
 msgstr "© 2016–2025 KDE Connect Team"
 
-#: main.cpp:67
+#: main.cpp:90
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:68
+#: main.cpp:91
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: main.cpp:113
+#: main.cpp:142
 #, kde-format
 msgid "Open app"
 msgstr "앱 열기"
 
-#: main.cpp:130
+#: main.cpp:159
 #, kde-format
 msgid "Pairing requests"
 msgstr "페어링 요청"
 
-#: main.cpp:136
+#: main.cpp:165
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "페어링"
 
-#: main.cpp:137
+#: main.cpp:166
 #, kde-format
 msgid "Reject"
 msgstr "거부"
 
-#: main.cpp:142 main.cpp:155
+#: main.cpp:171 main.cpp:183
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
 
-#: main.cpp:172 main.cpp:194
+#: main.cpp:197 main.cpp:219
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
@@ -169,6 +164,9 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#~ msgid "Cannot find kdeconnectd"
+#~ msgstr "kdeconnectd를 찾을 수 없음"
 
 #, fuzzy
 #~| msgid "Configure..."
