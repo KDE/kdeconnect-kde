@@ -470,7 +470,7 @@ PlasmaComponents.ItemDelegate {
                         required property var model
 
                         hoverEnabled: true
-                        width: parent.width
+                        width: notificationsColumn.width
                         height: implicitHeight
 
                         clip: true
