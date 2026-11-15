@@ -14,6 +14,7 @@
 #include <QObject>
 #include <QPointer>
 #include <QString>
+#include <optional>
 
 #include <core/device.h>
 #include <core/networkpacket.h>
@@ -45,23 +46,23 @@ public:
     }
     QString appName() const
     {
-        return m_appName;
+        return m_contents.appName;
     }
     QString ticker() const
     {
-        return m_ticker;
+        return m_contents.ticker;
     }
     QString title() const
     {
-        return m_title;
+        return m_contents.title;
     }
     QString text() const
     {
-        return m_text;
+        return m_contents.text;
     }
     QString groupName() const
     {
-        return m_groupName;
+        return m_contents.groupName;
     }
     QString iconPath() const
     {
@@ -69,11 +70,11 @@ public:
     }
     bool dismissable() const
     {
-        return m_dismissable;
+        return m_contents.dismissable;
     }
     QString replyId() const
     {
-        return m_requestReplyId;
+        return m_contents.requestReplyId;
     }
     bool hasIcon() const
     {
@@ -91,11 +92,11 @@ public:
     }
     bool isConversation() const
     {
-        return !m_conversation.isEmpty();
+        return !m_contents.conversation.isEmpty();
     }
     bool isGroupConversation() const
     {
-        return !m_groupName.isEmpty();
+        return !m_contents.groupName.isEmpty();
     }
     void createKNotification(const NetworkPacket &np);
 
@@ -112,23 +113,31 @@ Q_SIGNALS:
     void replied(const QString &message);
 
 private:
+    // Actual notification data, whose changes are announced on D-Bus with ready()
+    struct Contents {
+        QString appName;
+        QString ticker;
+        QString title;
+        QString text;
+        QString groupName;
+        bool dismissable;
+        QString payloadHash;
+        QString requestReplyId;
+        QStringList actions;
+        QJsonArray conversation;
+
+        bool operator==(const Contents &other) const = default;
+    };
+
     QString m_internalId;
-    QString m_appName;
-    QString m_ticker;
-    QString m_title;
-    QString m_text;
-    QString m_groupName;
+    Contents m_contents;
+    std::optional<Contents> m_lastPublishedContents;
     QString m_iconPath;
-    QString m_requestReplyId;
-    bool m_dismissable;
     bool m_hasIcon;
     QPointer<KNotification> m_notification;
     QDir m_imagesDir;
     bool m_silent;
-    QString m_payloadHash;
     bool m_ready;
-    QStringList m_actions;
-    QJsonArray m_conversation;
     const Device *m_device;
 
     struct Message {
