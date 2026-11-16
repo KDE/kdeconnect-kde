@@ -85,7 +85,7 @@ void ClipboardPlugin::sendClipboard(const QVariant &content)
 {
     const bool isFile = content.typeId() == QMetaType::QUrl || content.typeId() == QMetaType::QImage;
     const QSet<QString> remoteCapabilities = device()->incomingCapabilities();
-    if (isFile && !remoteCapabilities.isEmpty() && !remoteCapabilities.contains(PACKET_TYPE_CLIPBOARD_FILE)) {
+    if (isFile && !remoteCapabilities.contains(PACKET_TYPE_CLIPBOARD_FILE)) {
         qCDebug(KDECONNECT_PLUGIN_CLIPBOARD) << "Remote device doesn't support clipboard files, not syncing";
         return;
     }
