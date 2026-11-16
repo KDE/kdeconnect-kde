@@ -49,6 +49,11 @@ void LanDeviceLink::reset(QSslSocket *socket, const DeviceInfo &deviceInfo)
         });
     });
     connect(socket, &QAbstractSocket::readyRead, this, &LanDeviceLink::dataReceived);
+
+    if (socket->bytesAvailable() > 0) {
+        // Packets that arrived together with the identity packet are already buffered and won't trigger readyRead
+        QMetaObject::invokeMethod(this, &LanDeviceLink::dataReceived, Qt::QueuedConnection);
+    }
 }
 
 QHostAddress LanDeviceLink::hostAddress() const
