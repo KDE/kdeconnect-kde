@@ -5,7 +5,7 @@
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2014, 2019.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2019, 2023.
 # SPDX-FileCopyrightText: 2025 Geraldo Simiao <geraldosimiao@fedoraproject.org>
-# SPDX-FileCopyrightText: 2025, 2026 Marcus Gama <marcus.gama@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Marcus Gama <marcus.gama@kde.org>
 # SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 msgid ""
 msgstr ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-07 00:45+0000\n"
 "PO-Revision-Date: 2026-04-08 08:47-0300\n"
-"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"Last-Translator: Marcus Gama <marcus.gama@kde.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
