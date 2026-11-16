@@ -32,6 +32,7 @@ MprisRemotePlayer::MprisRemotePlayer(QString id, MprisRemotePlugin *plugin)
     , m_canRewind(false)
     , m_volume(50)
     , m_length(0)
+    , m_rate(1.0)
     , m_lastPosition(0)
     , m_lastPositionTime()
     , m_title()
@@ -110,6 +111,17 @@ void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket &np)
         }
     }
 
+    // Check rate changes
+    double newRate = np.get<double>(QStringLiteral("rate"), m_rate);
+    if (newRate != m_rate && newRate > 0.0) {
+        if (!np.has(QStringLiteral("pos"))) {
+            // So we don't apply the new rate to all elapsed time since the last position packet
+            setPosition(position());
+        }
+        m_rate = newRate;
+        Q_EMIT rateChanged();
+    }
+
     // Check if we started/stopped playing
     bool newPlaying = np.get<bool>(QStringLiteral("isPlaying"), m_playing);
     if (newPlaying != m_playing) {
@@ -141,10 +153,15 @@ void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket &np)
 long MprisRemotePlayer::position() const
 {
     if (m_playing) {
-        return m_lastPosition + (QDateTime::currentMSecsSinceEpoch() - m_lastPositionTime);
+        return m_lastPosition + (QDateTime::currentMSecsSinceEpoch() - m_lastPositionTime) * m_rate;
     } else {
         return m_lastPosition;
     }
+}
+
+double MprisRemotePlayer::rate() const
+{
+    return m_rate;
 }
 
 void MprisRemotePlayer::setPosition(long position)

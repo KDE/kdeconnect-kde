@@ -111,6 +111,7 @@ MprisDbusInterface::MprisDbusInterface(const QString &id, QObject *parent)
                                                  parent)
 {
     connect(this, &OrgKdeKdeconnectDeviceMprisremoteInterface::propertiesChanged, this, &MprisDbusInterface::propertiesChangedProxy);
+    connect(this, &OrgKdeKdeconnectDeviceMprisremoteInterface::rateChanged, this, &MprisDbusInterface::rateChangedProxy);
 }
 
 RemoteControlDbusInterface::RemoteControlDbusInterface(const QString &id, QObject *parent)

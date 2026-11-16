@@ -152,6 +152,7 @@ class KDECONNECTDBUSINTERFACES_EXPORT MprisDbusInterface : public OrgKdeKdeconne
     Q_OBJECT
     // Workaround because qdbusxml2cpp is not generating NOTIFY for properties
     Q_PROPERTY(bool isPlaying READ isPlaying NOTIFY propertiesChangedProxy)
+    Q_PROPERTY(double rate READ rate NOTIFY rateChangedProxy)
     Q_PROPERTY(int length READ length NOTIFY propertiesChangedProxy)
     Q_PROPERTY(QString title READ title NOTIFY propertiesChangedProxy)
     Q_PROPERTY(QString artist READ artist NOTIFY propertiesChangedProxy)
@@ -169,6 +170,7 @@ public:
 
 Q_SIGNALS:
     void propertiesChangedProxy();
+    void rateChangedProxy(double rate);
 };
 
 class KDECONNECTDBUSINTERFACES_EXPORT RemoteControlDbusInterface : public OrgKdeKdeconnectDeviceRemotecontrolInterface

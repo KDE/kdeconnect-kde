@@ -18,7 +18,7 @@ class MprisRemotePlayerMediaPlayer2Player : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.mpris.MediaPlayer2.Player")
 
     Q_PROPERTY(QString PlaybackStatus READ PlaybackStatus)
-    Q_PROPERTY(double Rate READ Rate CONSTANT)
+    Q_PROPERTY(double Rate READ Rate)
     Q_PROPERTY(QVariantMap Metadata READ Metadata)
     Q_PROPERTY(double Volume READ Volume WRITE setVolume)
     Q_PROPERTY(qlonglong Position READ Position)
@@ -73,11 +73,13 @@ private:
     bool m_positionChanged;
     bool m_volumeChanged;
     bool m_playingChanged;
+    bool m_rateChanged;
 
     void controlsChanged();
     void trackInfoChanged();
     void positionChanged();
     void volumeChanged();
     void playingChanged();
+    void rateChanged();
     void emitPropertiesChanged();
 };

@@ -22,6 +22,7 @@ class MprisRemotePlugin : public KdeConnectPlugin
     Q_PROPERTY(int volume READ volume WRITE setVolume NOTIFY propertiesChanged)
     Q_PROPERTY(int length READ length NOTIFY propertiesChanged)
     Q_PROPERTY(bool isPlaying READ isPlaying NOTIFY propertiesChanged)
+    Q_PROPERTY(double rate READ rate NOTIFY rateChanged)
     Q_PROPERTY(int position READ position WRITE setPosition NOTIFY propertiesChanged)
     Q_PROPERTY(QStringList playerList READ playerList NOTIFY propertiesChanged)
     Q_PROPERTY(QString player READ player WRITE setPlayer)
@@ -42,6 +43,7 @@ public:
     int volume() const;
     int length() const;
     bool isPlaying() const;
+    double rate() const;
     QStringList playerList() const;
     QString player() const;
     QString title() const;
@@ -67,6 +69,7 @@ public:
 
 Q_SIGNALS:
     Q_SCRIPTABLE void propertiesChanged();
+    Q_SCRIPTABLE void rateChanged(double rate);
 
 private:
     void requestPlayerStatus(const QString &player);

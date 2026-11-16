@@ -19,12 +19,14 @@ MprisRemotePlayerMediaPlayer2Player::MprisRemotePlayerMediaPlayer2Player(MprisRe
     , m_positionChanged{false}
     , m_volumeChanged{false}
     , m_playingChanged{false}
+    , m_rateChanged{false}
 {
     connect(m_parent, &MprisRemotePlayer::controlsChanged, this, &MprisRemotePlayerMediaPlayer2Player::controlsChanged);
     connect(m_parent, &MprisRemotePlayer::trackInfoChanged, this, &MprisRemotePlayerMediaPlayer2Player::trackInfoChanged);
     connect(m_parent, &MprisRemotePlayer::positionChanged, this, &MprisRemotePlayerMediaPlayer2Player::positionChanged);
     connect(m_parent, &MprisRemotePlayer::volumeChanged, this, &MprisRemotePlayerMediaPlayer2Player::volumeChanged);
     connect(m_parent, &MprisRemotePlayer::playingChanged, this, &MprisRemotePlayerMediaPlayer2Player::playingChanged);
+    connect(m_parent, &MprisRemotePlayer::rateChanged, this, &MprisRemotePlayerMediaPlayer2Player::rateChanged);
 }
 
 QString MprisRemotePlayerMediaPlayer2Player::PlaybackStatus() const
@@ -38,7 +40,7 @@ QString MprisRemotePlayerMediaPlayer2Player::PlaybackStatus() const
 
 double MprisRemotePlayerMediaPlayer2Player::Rate() const
 {
-    return 1.0;
+    return m_parent->rate();
 }
 
 QVariantMap MprisRemotePlayerMediaPlayer2Player::Metadata() const
@@ -202,11 +204,17 @@ void MprisRemotePlayerMediaPlayer2Player::volumeChanged()
     QMetaObject::invokeMethod(this, &MprisRemotePlayerMediaPlayer2Player::emitPropertiesChanged, Qt::QueuedConnection);
 }
 
+void MprisRemotePlayerMediaPlayer2Player::rateChanged()
+{
+    m_rateChanged = true;
+    QMetaObject::invokeMethod(this, &MprisRemotePlayerMediaPlayer2Player::emitPropertiesChanged, Qt::QueuedConnection);
+}
+
 void MprisRemotePlayerMediaPlayer2Player::emitPropertiesChanged()
 {
     // Always invoked "queued", so we can send all changes at once
     // Check if things really changed (we might get called multiple times)
-    if (!m_controlsChanged && !m_trackInfoChanged && !m_positionChanged && !m_volumeChanged && !m_playingChanged)
+    if (!m_controlsChanged && !m_trackInfoChanged && !m_positionChanged && !m_volumeChanged && !m_playingChanged && !m_rateChanged)
         return;
 
     // Qt doesn't automatically send the "org.freedesktop.DBus.Properties PropertiesChanged" signal, so do it manually
@@ -235,6 +243,10 @@ void MprisRemotePlayerMediaPlayer2Player::emitPropertiesChanged()
         properties[QStringLiteral("Volume")] = Volume();
     }
 
+    if (m_rateChanged) {
+        properties[QStringLiteral("Rate")] = Rate();
+    }
+
     QList<QVariant> args;
     args.push_back(QVariant(QStringLiteral("org.mpris.MediaPlayer2.Player")));
     args.push_back(properties);
@@ -255,6 +267,7 @@ void MprisRemotePlayerMediaPlayer2Player::emitPropertiesChanged()
     m_playingChanged = false;
     m_positionChanged = false;
     m_volumeChanged = false;
+    m_rateChanged = false;
 }
 
 #include "moc_mprisremoteplayermediaplayer2player.cpp"

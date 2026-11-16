@@ -10,6 +10,7 @@ import QtQuick.Controls
 Loader {
 
     property var plugin
+    property real playbackRate: plugin.rate || 1.0
     property var lastPosition: plugin.position
     property date lastPositionTime: new Date()
     property bool updatePositionSlider: true
@@ -55,6 +56,6 @@ Loader {
         repeat: true
         running: updatePositionSlider && plugin.isPlaying
 
-        onTriggered: item.value = lastPosition + (new Date().getTime() - lastPositionTime.getTime())
+        onTriggered: item.value = lastPosition + (new Date().getTime() - lastPositionTime.getTime()) * playbackRate
     }
 }
