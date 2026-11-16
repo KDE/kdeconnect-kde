@@ -9,6 +9,7 @@
 #include "daemon.h"
 #include <core_debug.h>
 
+#include <QAbstractSocket>
 #include <QDebug>
 #include <QFileInfo>
 #include <QNetworkAccessManager>
@@ -77,6 +78,22 @@ void FileTransferJob::doStart()
         startTransfer();
 
     connect(m_origin.data(), &QIODevice::readyRead, this, &FileTransferJob::startTransfer);
+
+    // If the payload connection fails before anything arrives, nothing else would end this job
+    if (const auto socket = qobject_cast<QAbstractSocket *>(m_origin.data())) {
+        const auto failIfNothingArrived = [this, socket] {
+            if (!m_reply && !socket->bytesAvailable()) {
+                qCDebug(KDECONNECT_CORE) << "Payload connection failed before any data arrived" << socket->error() << socket->errorString();
+                setError(4);
+                setErrorText(socket->errorString());
+                emitResult();
+            }
+        };
+        connect(socket, &QAbstractSocket::errorOccurred, this, failIfNothingArrived);
+        if (socket->state() == QAbstractSocket::UnconnectedState) {
+            failIfNothingArrived();
+        }
+    }
 }
 
 void FileTransferJob::startTransfer()

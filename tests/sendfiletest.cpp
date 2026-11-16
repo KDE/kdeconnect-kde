@@ -9,6 +9,7 @@
 #include <QSignalSpy>
 #include <QSocketNotifier>
 #include <QStandardPaths>
+#include <QTcpServer>
 #include <QTcpSocket>
 #include <QTemporaryFile>
 #include <QTest>
@@ -534,6 +535,71 @@ private Q_SLOTS:
 
         QVERIFY(spy.wait(5000));
         QCOMPARE(job->error(), CompositeUploadJob::ConnectionTimeoutError);
+    }
+
+    void testPayloadConnectionAlreadyFailed()
+    {
+        // The sender closes its payload port when it gives up waiting for us. If its request only
+        // reaches us after that, the transfer has to fail instead of waiting forever.
+        const QString destFile = QDir::tempPath() + QStringLiteral("/kdeconnect-test-connection-already-failed");
+        QFile(destFile).remove();
+
+        DeviceInfo deviceInfo = KdeConnectConfig::instance().deviceInfo();
+        KdeConnectConfig::instance().addTrustedDevice(deviceInfo);
+
+        QTcpServer server;
+        QVERIFY(server.listen(QHostAddress::LocalHost));
+        const quint16 port = server.serverPort();
+        server.close();
+
+        QSharedPointer<QSslSocket> socket(new QSslSocket);
+        LanLinkProvider::configureSslSocket(socket.data(), deviceInfo.id, true);
+        QSignalSpy spyError(socket.data(), &QAbstractSocket::errorOccurred);
+        socket->connectToHostEncrypted(QStringLiteral("127.0.0.1"), port, QIODevice::ReadWrite);
+        // Like a file that waits behind another one, the job only starts once the connection is already gone
+        QVERIFY(spyError.count() || spyError.wait(5000));
+
+        NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
+        np.setPayload(socket, 1000);
+
+        FileTransferJob *ft = np.createPayloadTransferJob(QUrl::fromLocalFile(destFile));
+        QSignalSpy spyTransfer(ft, &KJob::result);
+        ft->start();
+
+        QVERIFY(spyTransfer.count() || spyTransfer.wait(5000));
+        QVERIFY(ft->error());
+        QVERIFY(!QFile::exists(destFile));
+    }
+
+    void testPayloadConnectionFailsWhileWaiting()
+    {
+        // The connection gets accepted but is dropped before any data is sent
+        const QString destFile = QDir::tempPath() + QStringLiteral("/kdeconnect-test-connection-fails-while-waiting");
+        QFile(destFile).remove();
+
+        DeviceInfo deviceInfo = KdeConnectConfig::instance().deviceInfo();
+        KdeConnectConfig::instance().addTrustedDevice(deviceInfo);
+
+        QTcpServer server;
+        connect(&server, &QTcpServer::newConnection, &server, [&server] {
+            delete server.nextPendingConnection();
+        });
+        QVERIFY(server.listen(QHostAddress::LocalHost));
+
+        QSharedPointer<QSslSocket> socket(new QSslSocket);
+        LanLinkProvider::configureSslSocket(socket.data(), deviceInfo.id, true);
+        socket->connectToHostEncrypted(QStringLiteral("127.0.0.1"), server.serverPort(), QIODevice::ReadWrite);
+
+        NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
+        np.setPayload(socket, 1000);
+
+        FileTransferJob *ft = np.createPayloadTransferJob(QUrl::fromLocalFile(destFile));
+        QSignalSpy spyTransfer(ft, &KJob::result);
+        ft->start();
+
+        QVERIFY(spyTransfer.count() || spyTransfer.wait(5000));
+        QVERIFY(ft->error());
+        QVERIFY(!QFile::exists(destFile));
     }
 
 private:
