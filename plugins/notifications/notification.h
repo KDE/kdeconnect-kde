@@ -19,6 +19,8 @@
 #include <core/device.h>
 #include <core/networkpacket.h>
 
+class KJob;
+
 class Notification : public QObject
 {
     Q_OBJECT
@@ -66,7 +68,7 @@ public:
     }
     QString iconPath() const
     {
-        return m_iconPath;
+        return m_contents.iconPath;
     }
     bool dismissable() const
     {
@@ -120,7 +122,7 @@ private:
         QString text;
         QString groupName;
         bool dismissable;
-        QString payloadHash;
+        QString iconPath;
         QString requestReplyId;
         QStringList actions;
         QJsonArray conversation;
@@ -131,7 +133,7 @@ private:
     QString m_internalId;
     Contents m_contents;
     std::optional<Contents> m_lastPublishedContents;
-    QString m_iconPath;
+    QString m_payloadHash;
     bool m_hasIcon;
     QPointer<KNotification> m_notification;
     QDir m_imagesDir;
@@ -150,6 +152,7 @@ private:
     };
 
     void loadIcon(const NetworkPacket &np);
+    void iconDownloaded(KJob *job);
     void updateKNotification();
 
     QString getConversationMessages(bool supportsMarkup) const;

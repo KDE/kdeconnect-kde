@@ -143,34 +143,7 @@ void Notification::updateKNotification()
         });
     }
 
-    m_notification->setPixmap(m_iconPath.isEmpty() ? QPixmap() : QPixmap(m_iconPath, "PNG"));
-}
-
-void Notification::loadIcon(const NetworkPacket &np)
-{
-    m_ready = false;
-
-    if (QFileInfo::exists(m_iconPath)) {
-        show();
-    } else {
-        FileTransferJob *fileTransferJob = s_downloadsInProgress.value(m_iconPath);
-        if (!fileTransferJob) {
-            fileTransferJob = np.createPayloadTransferJob(QUrl::fromLocalFile(m_iconPath));
-            s_downloadsInProgress[m_iconPath] = fileTransferJob;
-            // Use the job as context, so the entry is removed even if no Notification is waiting for it anymore
-            connect(fileTransferJob, &KJob::result, fileTransferJob, [path = m_iconPath] {
-                s_downloadsInProgress.remove(path);
-            });
-            fileTransferJob->start();
-        }
-
-        connect(fileTransferJob, &FileTransferJob::result, this, [this, fileTransferJob] {
-            if (fileTransferJob->error()) {
-                qCDebug(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Error in FileTransferJob: " << fileTransferJob->errorString();
-            }
-            show();
-        });
-    }
+    m_notification->setPixmap(m_contents.iconPath.isEmpty() ? QPixmap() : QPixmap(m_contents.iconPath, "PNG"));
 }
 
 QString Notification::getConversationMessages(bool supportsMarkup) const
@@ -219,7 +192,7 @@ void Notification::update(const NetworkPacket &np)
     m_contents.groupName = np.get<QString>(QStringLiteral("groupName"), QString());
     m_contents.dismissable = np.get<bool>(QStringLiteral("isClearable"));
     m_silent = np.get<bool>(QStringLiteral("silent"));
-    m_contents.payloadHash = np.get<QString>(QStringLiteral("payloadHash"));
+    m_payloadHash = np.get<QString>(QStringLiteral("payloadHash"));
     m_contents.requestReplyId = np.get<QString>(QStringLiteral("requestReplyId"), QString());
     m_contents.conversation = np.get<QJsonArray>(QStringLiteral("conversation"), QJsonArray());
 
@@ -229,7 +202,7 @@ void Notification::update(const NetworkPacket &np)
         m_contents.text = getConversationMessages(supportsMarkup);
     }
 
-    m_hasIcon = !m_contents.payloadHash.isEmpty();
+    m_hasIcon = !m_payloadHash.isEmpty();
     m_contents.actions.clear();
 
     const auto actions = np.get<QJsonArray>(QStringLiteral("actions"));
@@ -238,22 +211,51 @@ void Notification::update(const NetworkPacket &np)
     }
 
     if (!m_hasIcon) {
-        m_iconPath.clear();
+        m_contents.iconPath.clear();
         show();
+    } else {
+        const QString dir = QDir::cleanPath(m_imagesDir.absolutePath());
+        const QString filePath = QDir::cleanPath(m_imagesDir.absoluteFilePath(m_payloadHash));
+        if (!filePath.startsWith(dir + QStringLiteral("/"))) {
+            qCWarning(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Directory traversal detected";
+            m_contents.iconPath.clear();
+            show();
+            return;
+        }
+        m_contents.iconPath = filePath;
+
+        m_ready = false;
+        if (QFileInfo::exists(m_contents.iconPath)) {
+            show();
+        } else {
+            FileTransferJob *fileTransferJob = s_downloadsInProgress.value(m_contents.iconPath);
+            if (!fileTransferJob) {
+                fileTransferJob = np.createPayloadTransferJob(QUrl::fromLocalFile(m_contents.iconPath));
+                s_downloadsInProgress[m_contents.iconPath] = fileTransferJob;
+                // Use the job as context, so the entry is removed even if no Notification is waiting for it anymore
+                connect(fileTransferJob, &KJob::result, fileTransferJob, [path = m_contents.iconPath] {
+                    s_downloadsInProgress.remove(path);
+                });
+                fileTransferJob->start();
+            }
+
+            // Unique, since update() can call this again while the same icon is still downloading
+            connect(fileTransferJob, &FileTransferJob::result, this, &Notification::iconDownloaded, Qt::UniqueConnection);
+        }
+    }
+}
+
+void Notification::iconDownloaded(KJob *job)
+{
+    // Ignore downloads of an icon that a later update replaced
+    if (static_cast<FileTransferJob *>(job)->destination() != QUrl::fromLocalFile(m_contents.iconPath)) {
         return;
     }
-
-    const QString dir = QDir::cleanPath(m_imagesDir.absolutePath());
-    const QString filePath = QDir::cleanPath(m_imagesDir.absoluteFilePath(m_contents.payloadHash));
-    if (!filePath.startsWith(dir + QStringLiteral("/"))) {
-        qCWarning(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Directory traversal detected";
-        m_iconPath.clear();
-        show();
-        return;
+    if (job->error()) {
+        qCDebug(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Error in FileTransferJob: " << job->errorString();
+        m_contents.iconPath.clear();
     }
-
-    m_iconPath = filePath;
-    loadIcon(np);
+    show();
 }
 
 #include "moc_notification.cpp"
