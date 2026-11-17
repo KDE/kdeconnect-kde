@@ -1,13 +1,14 @@
 # Translation of kdeconnect-cli.po into Serbian.
 # Slobodan Simić <slsimic@gmail.com>, 2017.
-# Chusslove Illich <caslav.ilic@gmx.net>, 2017.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2017, 2018.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-26 00:49+0000\n"
-"PO-Revision-Date: 2017-05-26 11:26+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-11-16 12:41+0100\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
@@ -15,20 +16,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 1.5\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
+"X-Generator: Lokalize 1.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Слободан Симић"
+msgstr "Слободан Симић,Немања Хиршл"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "slsimic@gmail.com"
+msgstr "slsimic@gmail.com,nemhirsl@gmail.com"
 
 #: kdeconnect-cli.cpp:37
 #, kde-format
@@ -38,6 +39,10 @@ msgid ""
 "Device ID's and names may be found using \"kdeconnect-cli -l\" \n"
 "View complete help with --help option"
 msgstr ""
+"Није наведен уређај: употребите -d <Device ID> или -n <Device Name> да бисте "
+"навели уређај. \n"
+"ИД‑ове и називе уређаја можете наћи помоћу „kdeconnect-cli -l“ \n"
+"Потпуну помоћ видите опцијом --help"
 
 #: kdeconnect-cli.cpp:57
 #, kde-format
@@ -47,7 +52,7 @@ msgstr "КДЕ‑конекцијина алатка командне линиј
 #: kdeconnect-cli.cpp:59
 #, kde-format
 msgid "© 2015–2025, KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025, тим КДЕ‑конекције"
 
 #: kdeconnect-cli.cpp:60
 #, kde-format
@@ -72,24 +77,22 @@ msgstr "приказује доступне (упарене и повезиве)
 #: kdeconnect-cli.cpp:70
 #, kde-format
 msgid "List all backends and status"
-msgstr ""
+msgstr "приказује све позадине и њихово стање"
 
 #: kdeconnect-cli.cpp:71
-#, fuzzy, kde-format
-#| msgid "Lock the specified device"
+#, kde-format
 msgid "Enable the specified backend"
-msgstr "закључава наведени уређај"
+msgstr "укључује наведену позадину"
 
 #: kdeconnect-cli.cpp:71 kdeconnect-cli.cpp:72
 #, kde-format
 msgid "backend"
-msgstr ""
+msgstr "позадина"
 
 #: kdeconnect-cli.cpp:72
-#, fuzzy, kde-format
-#| msgid "Lock the specified device"
+#, kde-format
 msgid "Disable the specified backend"
-msgstr "закључава наведени уређај"
+msgstr "искључује наведену позадину"
 
 #: kdeconnect-cli.cpp:74
 #, kde-format
@@ -101,28 +104,22 @@ msgstr ""
 "што олакшава скриптовање"
 
 #: kdeconnect-cli.cpp:76
-#, fuzzy, kde-format
-#| msgid ""
-#| "Make --list-devices or --list-available print only the devices id, to "
-#| "ease scripting"
+#, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices name, to ease "
 "scripting"
 msgstr ""
-"омогућава да --list-devices или --list-available приказују само ИД уређаја, "
-"што олакшава скриптовање"
+"омогућава да --list-devices или --list-available приказују само назив "
+"уређаја, што олакшава скриптовање"
 
 #: kdeconnect-cli.cpp:78
-#, fuzzy, kde-format
-#| msgid ""
-#| "Make --list-devices or --list-available print only the devices id, to "
-#| "ease scripting"
+#, kde-format
 msgid ""
 "Make --list-devices or --list-available print only the devices id and name, "
 "to ease scripting"
 msgstr ""
-"омогућава да --list-devices или --list-available приказују само ИД уређаја, "
-"што олакшава скриптовање"
+"омогућава да --list-devices или --list-available приказују само ИД и назив "
+"уређаја, што олакшава скриптовање"
 
 #: kdeconnect-cli.cpp:79
 #, kde-format
@@ -130,28 +127,24 @@ msgid "Search for devices in the network and re-establish connections"
 msgstr "тражи уређаје на мрежи и поново успоставља везе"
 
 #: kdeconnect-cli.cpp:80
-#, fuzzy, kde-format
-#| msgid "Request pairing to a said device"
+#, kde-format
 msgid "Request pairing with device"
-msgstr "захтева упаривање са наведеним уређајем"
+msgstr "захтева упаривање са уређајем"
 
 #: kdeconnect-cli.cpp:81
-#, fuzzy, kde-format
-#| msgid "Find the said device by ringing it."
+#, kde-format
 msgid "Find device by ringing it"
-msgstr "налази наведени уређај звоњавом"
+msgstr "налази уређај звоњавом"
 
 #: kdeconnect-cli.cpp:82
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "Unpair from device"
-msgstr "чекам на уређај..."
+msgstr "распарује уређај"
 
 #: kdeconnect-cli.cpp:83
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send ping to device"
-msgstr "шаље пинг наведеном уређају"
+msgstr "шаље пинг уређају"
 
 #: kdeconnect-cli.cpp:84
 #, kde-format
@@ -164,28 +157,24 @@ msgid "message"
 msgstr "порука"
 
 #: kdeconnect-cli.cpp:85
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Send clipboard to device"
-msgstr "шаље пинг наведеном уређају"
+msgstr "шаље садржај клипборда уређају"
 
 #: kdeconnect-cli.cpp:86
-#, fuzzy, kde-format
-#| msgid "Share a file to a said device"
+#, kde-format
 msgid "Share file/URL to device"
-msgstr "дели фајл са наведеним уређајем"
+msgstr "дели фајл или УРЛ са уређајем"
 
 #: kdeconnect-cli.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share a file to a said device"
+#, kde-format
 msgid "Share text to device"
-msgstr "дели фајл са наведеним уређајем"
+msgstr "дели текст са уређајем"
 
 #: kdeconnect-cli.cpp:88
-#, fuzzy, kde-format
-#| msgid "Display the notifications on a said device"
+#, kde-format
 msgid "Display notifications on device"
-msgstr "приказује обавештења на наведеном уређају"
+msgstr "приказује обавештења на уређају"
 
 #: kdeconnect-cli.cpp:89
 #, kde-format
@@ -193,10 +182,9 @@ msgid "Lock the specified device"
 msgstr "закључава наведени уређај"
 
 #: kdeconnect-cli.cpp:90
-#, fuzzy, kde-format
-#| msgid "Lock the specified device"
+#, kde-format
 msgid "Unlock the specified device"
-msgstr "закључава наведени уређај"
+msgstr "откључава наведени уређај"
 
 #: kdeconnect-cli.cpp:91
 #, kde-format
@@ -218,11 +206,12 @@ msgstr "број телефона"
 msgid ""
 "File URLs to send attachments with the message (can be passed multiple times)"
 msgstr ""
+"УРЛ‑ови фајлова који се шаљу као прилози уз поруку (може се задати више пута)"
 
 #: kdeconnect-cli.cpp:95
 #, kde-format
 msgid "file URLs"
-msgstr ""
+msgstr "УРЛ‑ови фајлова"
 
 #: kdeconnect-cli.cpp:96
 #, kde-format
@@ -235,28 +224,24 @@ msgid "Device Name"
 msgstr "назив уређаја"
 
 #: kdeconnect-cli.cpp:98
-#, fuzzy, kde-format
-#| msgid "Get encryption info about said device"
+#, kde-format
 msgid "Get encryption info about device"
-msgstr "добавља податке о шифровању за наведени уређај"
+msgstr "добавља податке о шифровању за уређај"
 
 #: kdeconnect-cli.cpp:99
-#, fuzzy, kde-format
-#| msgid "Lists remote commands and their ids"
+#, kde-format
 msgid "List remote commands and their ids"
 msgstr "излистава удаљене наредбе и њихове ИД‑ове"
 
 #: kdeconnect-cli.cpp:100
-#, fuzzy, kde-format
-#| msgid "Executes a remote command by id"
+#, kde-format
 msgid "Execute remote command by id"
 msgstr "извршава удаљену наредбу по ИД‑у"
 
 #: kdeconnect-cli.cpp:101
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Send keys to device"
-msgstr "шаље кључеве наведеном уређају"
+msgstr "шаље тастере уређају"
 
 #: kdeconnect-cli.cpp:102
 #, kde-format
@@ -264,28 +249,26 @@ msgid "Display this device's id and exit"
 msgstr "приказује ИД овог уређаја и излази"
 
 #: kdeconnect-cli.cpp:104
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Browse the filesystem of a said device"
-msgstr "шаље кључеве наведеном уређају"
+msgstr "прегледа фајл систем наведеног уређаја"
 
 #: kdeconnect-cli.cpp:106
-#, fuzzy, kde-format
-#| msgid "Sends keys to a said device"
+#, kde-format
 msgid "Mount filesystem of a said device"
-msgstr "шаље кључеве наведеном уређају"
+msgstr "монтира фајл систем наведеног уређаја"
 
 #: kdeconnect-cli.cpp:107
 #, kde-format
 msgid "Print mount point for the filesystem of a said device"
-msgstr ""
+msgstr "исписује тачку монтирања фајл система наведеног уређаја"
 
 #: kdeconnect-cli.cpp:157
 #, kde-format
 msgctxt ""
 "Details on how a device is connected eg: on <network address> via Bluetooth"
 msgid "on %1 via %2"
-msgstr ""
+msgstr "на %1 преко %2"
 
 #: kdeconnect-cli.cpp:160
 #, kde-format
@@ -306,10 +289,10 @@ msgstr "(упарен)"
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
-msgstr[0] "пронађен %1 уређај"
-msgstr[1] "пронађена %1 уређаја"
-msgstr[2] "пронађено %1 уређаја"
-msgstr[3] "пронађен један уређај"
+msgstr[0] "нађен %1 уређај"
+msgstr[1] "нађена %1 уређаја"
+msgstr[2] "нађено %1 уређаја"
+msgstr[3] "нађен један уређај"
 
 #: kdeconnect-cli.cpp:171
 #, kde-format
@@ -317,44 +300,42 @@ msgid "No devices found"
 msgstr "није нађен ниједан уређај"
 
 #: kdeconnect-cli.cpp:188
-#, fuzzy, kde-format
-#| msgid "(paired)"
+#, kde-format
 msgid "(unpaired)"
-msgstr "(упарен)"
+msgstr "(неупарен)"
 
 #: kdeconnect-cli.cpp:248
 #, kde-format
 msgctxt "A file or URL was shared"
 msgid "Shared %1"
-msgstr ""
+msgstr "подељено %1"
 
 #: kdeconnect-cli.cpp:261
 #, kde-format
 msgid "Shared text: %1"
-msgstr ""
+msgstr "подељен текст: %1"
 
 #: kdeconnect-cli.cpp:272
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
-msgstr ""
+msgstr "затражено закључавање уређаја %1."
 
 #: kdeconnect-cli.cpp:274
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
-msgstr ""
+msgstr "затражено откључавање уређаја %1."
 
 #: kdeconnect-cli.cpp:285
-#, fuzzy, kde-format
-#| msgid "waiting for device..."
+#, kde-format
 msgid "waiting for device…"
-msgstr "чекам на уређај..."
+msgstr "чекам на уређај…"
 
 #: kdeconnect-cli.cpp:298
 #, kde-format
 msgid "Device not found"
-msgstr "уређај није пронађен"
+msgstr "уређај није нађен"
 
 #: kdeconnect-cli.cpp:300
 #, kde-format
@@ -374,7 +355,7 @@ msgstr "већ је неупарен"
 #: kdeconnect-cli.cpp:314
 #, kde-format
 msgid "Successfully unpaired"
-msgstr ""
+msgstr "успешно распарен"
 
 # |, no-check-markup
 #: kdeconnect-cli.cpp:372
@@ -383,15 +364,3 @@ msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
 "number>"
 msgstr "грешка: морате навести примаоца наводећи --destination <број телефона>"
-
-#~ msgid "Nothing to be done"
-#~ msgstr "нема шта да се уради"
-
-#~ msgid "Stop pairing to a said device"
-#~ msgstr "зауставља упаривање са наведеним уређајем"
-
-#~ msgid "Unpaired"
-#~ msgstr "распарен"
-
-#~ msgid "(C) 2015 Aleix Pol Gonzalez"
-#~ msgstr "© 2015 Алекс Пол Гонзалез"

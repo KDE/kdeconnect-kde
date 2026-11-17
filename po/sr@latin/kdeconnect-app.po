@@ -1,0 +1,503 @@
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"PO-Revision-Date: 2026-11-16 12:41+0100\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@latin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#: main.cpp:45 main.cpp:47
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE‑konekcija"
+
+#: main.cpp:49
+#, kde-format
+msgid "© 2015–2025 KDE Connect Team"
+msgstr "© 2015–2025, tim KDE‑konekcije"
+
+#: main.cpp:50
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleks Pol Gonzalez"
+
+#: main.cpp:51
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaka Sintora"
+
+#: main.cpp:52
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Nemanja Hiršl"
+
+#: main.cpp:52
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "nemhirsl@gmail.com"
+
+#: main.cpp:83
+#, kde-format
+msgctxt "@info:shell"
+msgid "Device id to open the app in"
+msgstr "ID uređaja za koji se otvara program"
+
+#: main.cpp:86
+#, kde-format
+msgctxt "@info:shell"
+msgid "Configuration module to show, requires --device to be set."
+msgstr "Modul postave za prikaz, zahteva da je zadato --device."
+
+#: main.cpp:90
+#, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr "Zameni postojeći primerak"
+
+#: main.cpp:93
+#, kde-format
+msgid "URL to share"
+msgstr "URL za deljenje"
+
+#: qml/BatteryInfo.qml:26
+#, kde-format
+msgid "Battery: No info"
+msgstr "Baterija: nema podataka"
+
+#: qml/BatteryInfo.qml:28
+#, kde-format
+msgid "Battery: %1% (Charging)"
+msgstr "Baterija: %1% (puni se)"
+
+#: qml/BatteryInfo.qml:30
+#, kde-format
+msgid "Battery: %1%"
+msgstr "Baterija: %1%"
+
+#: qml/ConnectivityInfo.qml:20
+#, kde-format
+msgid "Unknown"
+msgstr "nepoznato"
+
+#: qml/ConnectivityInfo.qml:26
+#, kde-format
+msgid "Mobile Network: No signal"
+msgstr "Mobilna mreža: nema signala"
+
+#: qml/ConnectivityInfo.qml:28
+#, kde-format
+msgid "Mobile Network: %1"
+msgstr "Mobilna mreža: %1"
+
+#: qml/DevicePage.qml:54
+#, kde-format
+msgid "Unpair"
+msgstr "Raspari"
+
+#: qml/DevicePage.qml:59
+#, kde-format
+msgid "Send Ping"
+msgstr "Pošalji ping"
+
+#: qml/DevicePage.qml:67 qml/PluginSettings.qml:21
+#, kde-format
+msgid "Plugin Settings"
+msgstr "Postavke priključaka"
+
+#: qml/DevicePage.qml:83
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Actions"
+msgstr "Radnje"
+
+#: qml/DevicePage.qml:85
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Controls"
+msgstr "Upravljanje"
+
+#: qml/DevicePage.qml:87
+#, kde-format
+msgctxt "@title:group device page section header"
+msgid "Information"
+msgstr "Podaci"
+
+#: qml/DevicePage.qml:149
+#, kde-format
+msgid "Multimedia control"
+msgstr "Upravljanje multimedijom"
+
+#: qml/DevicePage.qml:157
+#, kde-format
+msgid "Notifications"
+msgstr "Obaveštenja"
+
+#: qml/DevicePage.qml:165
+#, kde-format
+msgid "Remote input"
+msgstr "Daljinski unos"
+
+#: qml/DevicePage.qml:173 qml/runcommand.qml:16
+#, kde-format
+msgid "Run command"
+msgstr "Izvršavanje naredbe"
+
+#: qml/DevicePage.qml:181 qml/presentationRemote.qml:15
+#, kde-format
+msgid "Presentation Remote"
+msgstr "Daljinski upravljač za prezentacije"
+
+#: qml/DevicePage.qml:190 qml/volume.qml:16
+#, kde-format
+msgid "Volume control"
+msgstr "Upravljanje jačinom zvuka"
+
+#: qml/DevicePage.qml:200
+#, kde-format
+msgid "SMS Messages"
+msgstr "SMS poruke"
+
+#: qml/DevicePage.qml:208 qml/mousepad.qml:44
+#, kde-format
+msgid "Lock"
+msgstr "Zaključaj"
+
+#: qml/DevicePage.qml:208
+#, kde-format
+msgid "Unlock"
+msgstr "Otključaj"
+
+#: qml/DevicePage.qml:216
+#, kde-format
+msgid "Find Device"
+msgstr "Nađi uređaj"
+
+#: qml/DevicePage.qml:224
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Pošalji klipbord"
+
+#: qml/DevicePage.qml:232
+#, kde-format
+msgid "Share File"
+msgstr "Podeli fajl"
+
+#: qml/DevicePage.qml:240
+#, kde-format
+msgid "Browse this device"
+msgstr "Pregledaj ovaj uređaj"
+
+#: qml/DevicePage.qml:248
+#, kde-format
+msgid "Stop virtual monitor session"
+msgstr "Zaustavi sesiju virtuelnog monitora"
+
+#: qml/DevicePage.qml:248
+#, kde-format
+msgid "Use device as an external monitor"
+msgstr "Koristi uređaj kao spoljašnji monitor"
+
+#: qml/DevicePage.qml:279
+#, kde-format
+msgid "Address: %1 via %2"
+msgstr "Adresa: %1 preko %2"
+
+#: qml/DevicePage.qml:299
+#, kde-format
+msgid "This device is not paired."
+msgstr "Ovaj uređaj nije uparen."
+
+#: qml/DevicePage.qml:303
+#, kde-format
+msgctxt "Request pairing with a given device"
+msgid "Pair"
+msgstr "Upari"
+
+#: qml/DevicePage.qml:310 qml/DevicePage.qml:319
+#, kde-format
+msgid ""
+"Pair requested\n"
+"Key: "
+msgstr ""
+"Uparivanje je traženo\n"
+"Ključ: "
+
+#: qml/DevicePage.qml:325
+#, kde-format
+msgid "Accept"
+msgstr "Prihvati"
+
+#: qml/DevicePage.qml:331
+#, kde-format
+msgid "Reject"
+msgstr "Odbaci"
+
+#: qml/DevicePage.qml:340
+#, kde-format
+msgid "This device is not reachable"
+msgstr "Ovaj uređaj nije dostupan"
+
+#: qml/DevicePage.qml:348
+#, kde-format
+msgid "Please choose a file"
+msgstr "Izbor fajla"
+
+#: qml/Main.qml:93
+#, kde-format
+msgctxt "@action:button"
+msgid "Open device list"
+msgstr "Otvori spisak uređaja"
+
+#: qml/Main.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Close device list"
+msgstr "Zatvori spisak uređaja"
+
+#: qml/Main.qml:113
+#, kde-format
+msgid "Devices"
+msgstr "Uređaji"
+
+#: qml/Main.qml:121
+#, kde-format
+msgctxt "@action:button"
+msgid "Refresh"
+msgstr "Osveži"
+
+#: qml/Main.qml:124
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Refresh Devices"
+msgstr "Osveži uređaje"
+
+#: qml/Main.qml:160
+#, kde-format
+msgid "Remembered"
+msgstr "Zapamćeni"
+
+#: qml/Main.qml:162
+#, kde-format
+msgid "Available"
+msgstr "Dostupni"
+
+#: qml/Main.qml:164
+#, kde-format
+msgid "Connected"
+msgstr "Povezani"
+
+#: qml/Main.qml:169
+#, kde-format
+msgid "No devices found"
+msgstr "Nije nađen nijedan uređaj"
+
+#: qml/Main.qml:248
+#, kde-format
+msgctxt "@action:button"
+msgid "Settings"
+msgstr "Postavke"
+
+#: qml/Main.qml:263
+#, kde-format
+msgid "Settings"
+msgstr "Postavke"
+
+#: qml/mousepad.qml:16
+#, kde-format
+msgid "Remote Control"
+msgstr "Daljinski unos"
+
+#: qml/mousepad.qml:61
+#, kde-format
+msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
+msgstr ""
+"Pritisnite %1 ili istovremeno levo i desno dugme miša da biste otključali"
+
+#: qml/mousepad.qml:213
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Left Click"
+msgstr "Levi klik"
+
+#: qml/mousepad.qml:222
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Middle Click"
+msgstr "Srednji klik"
+
+#: qml/mousepad.qml:231
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Right Click"
+msgstr "Desni klik"
+
+#: qml/mpris.qml:20
+#, kde-format
+msgid "Multimedia Controls"
+msgstr "Upravljanje multimedijom"
+
+#: qml/mpris.qml:66
+#, kde-format
+msgid "No players available"
+msgstr "Nema dostupnih plejera"
+
+#: qml/mpris.qml:126
+#, kde-format
+msgid "%1 - %2"
+msgstr "%1 — %2"
+
+#: qml/NotificationPanel.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Notifications"
+msgstr "Obaveštenja"
+
+#: qml/NotificationPanel.qml:33
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No notifications"
+msgstr "Nema obaveštenja"
+
+#: qml/NotificationPanel.qml:173
+#, kde-format
+msgid "Reply"
+msgstr "Odgovori"
+
+#: qml/NotificationPanel.qml:188
+#, kde-format
+msgid "Dismiss"
+msgstr "Odbaci"
+
+#: qml/NotificationPanel.qml:215
+#, kde-format
+msgid "Cancel"
+msgstr "Odustani"
+
+#: qml/NotificationPanel.qml:233
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr "Odgovor na „%1“…"
+
+#: qml/NotificationPanel.qml:252
+#, kde-format
+msgid "Send"
+msgstr "Pošalji"
+
+#: qml/presentationRemote.qml:22
+#, kde-format
+msgid "Enable Full-Screen"
+msgstr "Uključi ceo ekran"
+
+#: qml/presentationRemote.qml:39
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Previous Slide"
+msgstr "Prethodni slajd"
+
+#: qml/presentationRemote.qml:47
+#, kde-format
+msgctxt "@action:button accessible"
+msgid "Next Slide"
+msgstr "Sledeći slajd"
+
+#: qml/runcommand.qml:23
+#, kde-format
+msgid "Edit commands"
+msgstr "Uredi naredbe"
+
+#: qml/runcommand.qml:26
+#, kde-format
+msgid "You can edit commands on the connected device"
+msgstr "Naredbe možete urediti na povezanom uređaju"
+
+#: qml/runcommand.qml:51
+#, kde-format
+msgid "No commands defined"
+msgstr "Nema definisanih naredaba"
+
+#: qml/Settings.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "Settings"
+msgstr "Postavke"
+
+#: qml/Settings.qml:27
+#, kde-format
+msgid "Device name"
+msgstr "Naziv uređaja"
+
+#: qml/Settings.qml:39
+#, kde-format
+msgctxt "@title:group"
+msgid "Backends"
+msgstr "Pozadine"
+
+#: qml/Settings.qml:72
+#, kde-format
+msgid "About KDE Connect"
+msgstr "O KDE‑konekciji"
+
+#: qml/Settings.qml:80
+#, kde-format
+msgid "About KDE"
+msgstr "O KDE‑u"
+
+#: qml/Settings.qml:91
+#, kde-format
+msgid "Close"
+msgstr "Zatvori"
+
+#: qml/WelcomePage.qml:27
+#, kde-format
+msgctxt "@title"
+msgid "No Device Selected"
+msgstr "Nije izabran nijedan uređaj"
+
+#: qml/WelcomePage.qml:35
+#, kde-format
+msgctxt "@info"
+msgid "Make sure to install KDE Connect on your other devices."
+msgstr "Obavezno instalirajte KDE‑konekciju i na drugim svojim uređajima."
+
+#: qml/WelcomePage.qml:44
+#, kde-format
+msgctxt "@title:context"
+msgid "KDE Connect Android App"
+msgstr "Program KDE‑konekcije za Android"
+
+#: qml/WelcomePage.qml:51
+#, kde-format
+msgctxt "Android Application Store"
+msgid "F-Droid"
+msgstr "F‑Droid"
+
+#: qml/WelcomePage.qml:58
+#, kde-format
+msgctxt "Android Application Store"
+msgid "Play Store"
+msgstr "Play Store"
+
+#: qml/WelcomePage.qml:64
+#, kde-format
+msgctxt "@title:context"
+msgid "KDE Connect iOS App"
+msgstr "Program KDE‑konekcije za iOS"
+
+#: qml/WelcomePage.qml:69
+#, kde-format
+msgid "App Store"
+msgstr "App Store"

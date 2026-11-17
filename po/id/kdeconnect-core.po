@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-11-17 02:21+0000\n"
 "PO-Revision-Date: 2022-11-16 22:43+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -121,18 +121,18 @@ msgstr "Sidik jari SHA256 pada sertifikat peranti jarak jauh adalah: %1\n"
 msgid "Protocol version: %1\n"
 msgstr ""
 
-#: filetransferjob.cpp:54
+#: filetransferjob.cpp:55
 #, kde-format
 msgid "Filename already present"
 msgstr "Nama berkas sudah ada"
 
-#: filetransferjob.cpp:70
+#: filetransferjob.cpp:71
 #, fuzzy, kde-format
 #| msgid "Could not store certificate file: %1"
 msgid "Could not create destination file: %1"
 msgstr "Tidak dapat menyimpan berkas sertifikat: %1"
 
-#: filetransferjob.cpp:129
+#: filetransferjob.cpp:146
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Menerima berkas yang belum selesai dari: %1"

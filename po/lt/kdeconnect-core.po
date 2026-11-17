@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-11-17 02:21+0000\n"
 "PO-Revision-Date: 2026-09-16 15:07+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -121,17 +121,17 @@ msgstr "Nuotolinio įrenginio liudijimo SHA256 kontrolinis kodas yra: %1\n"
 msgid "Protocol version: %1\n"
 msgstr "Protokolo versija: %1\n"
 
-#: filetransferjob.cpp:54
+#: filetransferjob.cpp:55
 #, kde-format
 msgid "Filename already present"
 msgstr "Failo pavadinimas jau yra"
 
-#: filetransferjob.cpp:70
+#: filetransferjob.cpp:71
 #, kde-format
 msgid "Could not create destination file: %1"
 msgstr "Nepavyko sukurti paskirties failo: %1"
 
-#: filetransferjob.cpp:129
+#: filetransferjob.cpp:146
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Gautas nepilnas failas iš: %1"

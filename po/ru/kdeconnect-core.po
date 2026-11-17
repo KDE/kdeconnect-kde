@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-11-17 02:21+0000\n"
 "PO-Revision-Date: 2026-09-22 22:06+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -124,17 +124,17 @@ msgstr "Отпечаток SHA256 сертификата удалённого у
 msgid "Protocol version: %1\n"
 msgstr "Версия протокола: %1\n"
 
-#: filetransferjob.cpp:54
+#: filetransferjob.cpp:55
 #, kde-format
 msgid "Filename already present"
 msgstr "Такое имя файла уже существует"
 
-#: filetransferjob.cpp:70
+#: filetransferjob.cpp:71
 #, kde-format
 msgid "Could not create destination file: %1"
 msgstr "Не удалось создать файл назначения: %1"
 
-#: filetransferjob.cpp:129
+#: filetransferjob.cpp:146
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "С %1 получен неполный файл"

@@ -1,13 +1,14 @@
 # Translation of kdeconnect-core.po into Serbian.
 # Slobodan Simić <slsimic@gmail.com>, 2017.
-# Chusslove Illich <caslav.ilic@gmx.net>, 2017.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2017, 2018.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
-"PO-Revision-Date: 2017-05-26 11:26+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"POT-Creation-Date: 2026-11-17 02:21+0000\n"
+"PO-Revision-Date: 2026-11-16 12:41+0100\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -15,10 +16,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 1.5\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: backends/lan/compositeuploadjob.cpp:83
 #, kde-format
@@ -28,33 +29,32 @@ msgstr "Ne mogu da nađem dostupan port"
 #: backends/lan/compositeuploadjob.cpp:112
 #, kde-format
 msgid "Failed to send packet to %1"
-msgstr ""
+msgstr "Ne mogu da pošaljem paket uređaju %1"
 
 #: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
-msgstr ""
+msgstr "Prekovreme pri čekanju da se primalac poveže"
 
 #: backends/lan/compositeuploadjob.cpp:356
 #, kde-format
 msgid "Sending to %1"
-msgstr ""
+msgstr "Šaljem uređaju %1"
 
 #: backends/lan/compositeuploadjob.cpp:356
 #, kde-format
 msgid "File"
-msgstr ""
+msgstr "Fajl"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "Ne mogu da smestim fajl sertifikata: %1"
+msgstr "Ne mogu da otvorim izvorni fajl: %1"
 
 #: backends/pairinghandler.cpp:57
 #, kde-format
 msgid "Device clocks are out of sync"
-msgstr ""
+msgstr "Satovi uređaja nisu sinhronizovani"
 
 #: backends/pairinghandler.cpp:76
 #, kde-format
@@ -62,10 +62,9 @@ msgid "Canceled by other peer"
 msgstr "Otkazala druga strana"
 
 #: backends/pairinghandler.cpp:100 backends/pairinghandler.cpp:119
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "Uređaj nije dostupan"
+msgstr "%1: uređaj nije dostupan"
 
 #: backends/pairinghandler.cpp:142
 #, kde-format
@@ -73,10 +72,9 @@ msgid "Device not reachable"
 msgstr "Uređaj nije dostupan"
 
 #: backends/pairinghandler.cpp:158
-#, fuzzy, kde-format
-#| msgid "Canceled by other peer"
+#, kde-format
 msgid "Cancelled by user"
-msgstr "Otkazala druga strana"
+msgstr "Otkazao korisnik"
 
 #: backends/pairinghandler.cpp:178
 #, kde-format
@@ -86,64 +84,59 @@ msgstr "Isteklo vreme"
 #: backends/pairinghandler.cpp:191
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "Uparivanje nije u toku"
 
 #: compositefiletransferjob.cpp:47
-#, fuzzy, kde-format
-#| msgid "Received incomplete file: %1"
+#, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
 msgid_plural "Receiving files"
-msgstr[0] "Primljen nedovršen fajl: %1"
-msgstr[1] "Primljen nedovršen fajl: %1"
-msgstr[2] "Primljen nedovršen fajl: %1"
-msgstr[3] "Primljen nedovršen fajl: %1"
+msgstr[0] "Primam fajlove"
+msgstr[1] "Primam fajlove"
+msgstr[2] "Primam fajlove"
+msgstr[3] "Primam fajl"
 
 #: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
-msgstr ""
+msgstr "Izvor"
 
 #: compositefiletransferjob.cpp:49
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
-msgstr ""
+msgstr "Odredište"
 
 #: device.cpp:496
-#, fuzzy, kde-format
-#| msgid "SHA1 fingerprint of your device certificate is: %1\n"
+#, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
-msgstr "SHA‑1 otisak sertifikata za vaš uređaj je: %1\n"
+msgstr "SHA‑256 otisak sertifikata vašeg uređaja je: %1\n"
 
 #: device.cpp:502
-#, fuzzy, kde-format
-#| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
+#, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
-msgstr "SHA‑1 otisak sertifikata udaljenog uređaja je: %1\n"
+msgstr "SHA‑256 otisak sertifikata udaljenog uređaja je: %1\n"
 
 #: device.cpp:504
 #, kde-format
 msgid "Protocol version: %1\n"
-msgstr ""
+msgstr "Verzija protokola: %1\n"
 
-#: filetransferjob.cpp:54
+#: filetransferjob.cpp:55
 #, kde-format
 msgid "Filename already present"
 msgstr "Naziv fajla već postoji"
 
-#: filetransferjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#: filetransferjob.cpp:71
+#, kde-format
 msgid "Could not create destination file: %1"
-msgstr "Ne mogu da smestim fajl sertifikata: %1"
+msgstr "Ne mogu da napravim odredišni fajl: %1"
 
-#: filetransferjob.cpp:129
-#, fuzzy, kde-format
-#| msgid "Received incomplete file: %1"
+#: filetransferjob.cpp:146
+#, kde-format
 msgid "Received incomplete file from: %1"
-msgstr "Primljen nedovršen fajl: %1"
+msgstr "Primljen nedovršen fajl od: %1"
 
 #: kdeconnectconfig.cpp:433 kdeconnectconfig.cpp:467
 #, kde-format
@@ -151,10 +144,9 @@ msgid "KDE Connect failed to start"
 msgstr "Propalo pokretanje KDE‑konekcije"
 
 #: kdeconnectconfig.cpp:433
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Ne mogu da smestim fajl ličnog ključa: %1"
+msgstr "Ne mogu da generišem lični ključ."
 
 #: kdeconnectconfig.cpp:452
 #, kde-format
@@ -162,51 +154,11 @@ msgid "Could not store private key file: %1"
 msgstr "Ne mogu da smestim fajl ličnog ključa: %1"
 
 #: kdeconnectconfig.cpp:467
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Ne mogu da smestim fajl sertifikata: %1"
+msgstr "Ne mogu da generišem sertifikat uređaja."
 
 #: kdeconnectconfig.cpp:483
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Ne mogu da smestim fajl sertifikata: %1"
-
-#~ msgid "%1: Already paired"
-#~ msgstr "%1: već upareno"
-
-#~ msgid "Received incomplete file: %1"
-#~ msgstr "Primljen nedovršen fajl: %1"
-
-#~ msgid "%1: Pairing already requested for this device"
-#~ msgstr "%1: već je zatraženo uparivanje sa uređajem"
-
-#~ msgid ""
-#~ "This device cannot be paired because it is running an old version of KDE "
-#~ "Connect."
-#~ msgstr ""
-#~ "Ovaj uređaj se ne može upariti jer radi sa starijom verzijom "
-#~ "KDE‑konekcije."
-
-#, fuzzy
-#~| msgid "Receiving file over KDE Connect"
-#~ msgid "Receiving file %1 of %2"
-#~ msgstr "Primam fajl preko KDE‑konekcije"
-
-#~ msgid "Already paired"
-#~ msgstr "već upareno"
-
-# QCA-ossl and QCA-gnupg are plugin identifiers in QCA
-#, fuzzy
-#~| msgid ""
-#~| "Could not find support for RSA in your QCA installation. If your "
-#~| "distribution provides separate packages for QCA-ossl and QCA-gnupg, make "
-#~| "sure you have them installed and try again."
-#~ msgid ""
-#~ "Could not find support for RSA in your QCA installation. If your "
-#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
-#~ "sure you have them installed and try again."
-#~ msgstr ""
-#~ "U vašoj instalaciji QCA‑a, ne mogu da nađem podršku za RSA. Ako vaša "
-#~ "distribucija daje odvojene pakete za QCA-ossl i QCA-gnupg proverite da su "
-#~ "instalirani i pokušajte ponovo."

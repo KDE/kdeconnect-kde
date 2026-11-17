@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-11-17 02:21+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -120,18 +120,18 @@ msgstr "दूरस्थयन्त्रप्रमाणपत्रस्
 msgid "Protocol version: %1\n"
 msgstr ""
 
-#: filetransferjob.cpp:54
+#: filetransferjob.cpp:55
 #, kde-format
 msgid "Filename already present"
 msgstr "सञ्चिकानाम पूर्वमेव वर्तते"
 
-#: filetransferjob.cpp:70
+#: filetransferjob.cpp:71
 #, fuzzy, kde-format
 #| msgid "Could not store certificate file: %1"
 msgid "Could not create destination file: %1"
 msgstr "प्रमाणपत्रसञ्चिकां संग्रहीतुं न शक्तवान्: %1"
 
-#: filetransferjob.cpp:129
+#: filetransferjob.cpp:146
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "अपूर्णसञ्चिका प्राप्ता: %1"

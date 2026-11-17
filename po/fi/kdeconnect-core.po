@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-11-17 02:21+0000\n"
 "PO-Revision-Date: 2026-10-06 09:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -118,17 +118,17 @@ msgstr "Etälaitteen varmenteen SHA256-sormenjälki on: %1\n"
 msgid "Protocol version: %1\n"
 msgstr "Yhteyskäytäntöversio: %1\n"
 
-#: filetransferjob.cpp:54
+#: filetransferjob.cpp:55
 #, kde-format
 msgid "Filename already present"
 msgstr "Tiedostonimi on jo olemassa"
 
-#: filetransferjob.cpp:70
+#: filetransferjob.cpp:71
 #, kde-format
 msgid "Could not create destination file: %1"
 msgstr "Kohdetiedostoa ei voitu luoda: %1"
 
-#: filetransferjob.cpp:129
+#: filetransferjob.cpp:146
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Vastaanotettiin epätäydellinen lähettäjältä: %1"

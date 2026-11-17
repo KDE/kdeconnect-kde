@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-11-17 02:21+0000\n"
 "PO-Revision-Date: 2026-09-14 21:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -123,17 +123,17 @@ msgstr "بصمة SHA256 لشهادة الجهاز البعيد هي: %1\n"
 msgid "Protocol version: %1\n"
 msgstr "إصدار الميفاق: %1\n"
 
-#: filetransferjob.cpp:54
+#: filetransferjob.cpp:55
 #, kde-format
 msgid "Filename already present"
 msgstr "اسم الملفّ موجود فعلًا"
 
-#: filetransferjob.cpp:70
+#: filetransferjob.cpp:71
 #, kde-format
 msgid "Could not create destination file: %1"
 msgstr "تعذّر تخزين ملفّ المقصد: %1"
 
-#: filetransferjob.cpp:129
+#: filetransferjob.cpp:146
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "استُقبل ملفّ غير مكتمل من: %1"
