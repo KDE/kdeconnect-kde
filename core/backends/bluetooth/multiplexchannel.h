@@ -53,6 +53,11 @@ private:
      */
     void disconnect();
 
+    /**
+     * Enqueues closing the channel in the event loop
+     */
+    void closeLater();
+
     friend class ConnectionMultiplexer;
 };
 
