@@ -58,5 +58,6 @@ private:
 
     QHash<QString, QPointer<Notification>> m_notifications;
     QHash<QString, QString> m_internalIdToPublicId;
+    QHash<QString, Notification *> m_pendingNotifications; // By internal id, waiting for their icon to download
     int m_lastId = 0;
 };

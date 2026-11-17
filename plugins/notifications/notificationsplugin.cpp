@@ -41,6 +41,8 @@ void NotificationsPlugin::receivePacket(const NetworkPacket &np)
         // cut off kdeconnect-android's prefix if there:
         if (id.startsWith(QLatin1String("org.kde.kdeconnect_tp::")))
             id = id.mid(id.indexOf(QLatin1String("::")) + 2);
+        // Not deleteLater(), or the icon could finish downloading in the meantime and add it anyway
+        delete m_pendingNotifications.take(id);
         removeNotification(id);
         return;
     }
@@ -49,12 +51,16 @@ void NotificationsPlugin::receivePacket(const NetworkPacket &np)
 
     Notification *noti = nullptr;
 
-    if (!m_internalIdToPublicId.contains(id)) {
+    if (Notification *pending = m_pendingNotifications.value(id)) {
+        // Still waiting for the icon of a previous packet for this notification: update instead of creating a new one
+        pending->update(np);
+    } else if (!m_internalIdToPublicId.contains(id)) {
         noti = new Notification(np, device(), this);
 
         if (noti->isReady()) {
             addNotification(noti);
         } else {
+            m_pendingNotifications.insert(id, noti);
             connect(noti, &Notification::ready, this, &NotificationsPlugin::notificationReady);
         }
     } else {
@@ -66,6 +72,8 @@ void NotificationsPlugin::receivePacket(const NetworkPacket &np)
 
 void NotificationsPlugin::clearNotifications()
 {
+    qDeleteAll(m_pendingNotifications);
+    m_pendingNotifications.clear();
     qDeleteAll(m_notifications);
     m_notifications.clear();
     Q_EMIT allNotificationsRemoved();
@@ -80,6 +88,7 @@ void NotificationsPlugin::notificationReady()
 {
     Notification *noti = static_cast<Notification *>(sender());
     disconnect(noti, &Notification::ready, this, &NotificationsPlugin::notificationReady);
+    m_pendingNotifications.remove(noti->internalId());
     addNotification(noti);
 }
 

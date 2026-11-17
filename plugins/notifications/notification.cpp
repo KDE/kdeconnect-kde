@@ -172,12 +172,15 @@ void Notification::loadIcon(const NetworkPacket &np)
         FileTransferJob *fileTransferJob = s_downloadsInProgress.value(m_iconPath);
         if (!fileTransferJob) {
             fileTransferJob = np.createPayloadTransferJob(QUrl::fromLocalFile(m_iconPath));
-            fileTransferJob->start();
             s_downloadsInProgress[m_iconPath] = fileTransferJob;
+            // Use the job as context, so the entry is removed even if no Notification is waiting for it anymore
+            connect(fileTransferJob, &KJob::result, fileTransferJob, [path = m_iconPath] {
+                s_downloadsInProgress.remove(path);
+            });
+            fileTransferJob->start();
         }
 
         connect(fileTransferJob, &FileTransferJob::result, this, [this, fileTransferJob] {
-            s_downloadsInProgress.remove(m_iconPath);
             if (fileTransferJob->error()) {
                 qCDebug(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Error in FileTransferJob: " << fileTransferJob->errorString();
             } else {
