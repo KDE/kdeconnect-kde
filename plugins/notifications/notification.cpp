@@ -42,7 +42,6 @@ Notification::Notification(const NetworkPacket &np, const Device *device, QObjec
     m_imagesDir.setPath(QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect_") + username));
     m_imagesDir.mkpath(m_imagesDir.absolutePath());
     QFile(m_imagesDir.absolutePath()).setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner);
-    m_ready = false;
 
     update(np);
 }
@@ -56,7 +55,6 @@ void Notification::dismiss()
 
 void Notification::show()
 {
-    m_ready = true;
     // Emitting ready() makes every D-Bus client re-read the notification, so only do it if something changed
     if (m_lastPublishedContents != m_contents) {
         m_lastPublishedContents = m_contents;
@@ -185,63 +183,58 @@ void Notification::sendReply(const QString &message)
 void Notification::update(const NetworkPacket &np)
 {
     m_internalId = np.get<QString>(QStringLiteral("id"));
+    m_silent = np.get<bool>(QStringLiteral("silent"));
+
     m_contents.appName = np.get<QString>(QStringLiteral("appName"));
     m_contents.ticker = np.get<QString>(QStringLiteral("ticker"));
     m_contents.title = np.get<QString>(QStringLiteral("title"));
     m_contents.text = np.get<QString>(QStringLiteral("text"));
     m_contents.groupName = np.get<QString>(QStringLiteral("groupName"), QString());
     m_contents.dismissable = np.get<bool>(QStringLiteral("isClearable"));
-    m_silent = np.get<bool>(QStringLiteral("silent"));
     m_payloadHash = np.get<QString>(QStringLiteral("payloadHash"));
     m_contents.requestReplyId = np.get<QString>(QStringLiteral("requestReplyId"), QString());
-    m_contents.conversation = np.get<QJsonArray>(QStringLiteral("conversation"), QJsonArray());
 
-    if (isConversation()) {
+    m_contents.conversation = np.get<QJsonArray>(QStringLiteral("conversation"), QJsonArray());
+    if (!m_contents.conversation.isEmpty()) {
         m_contents.title = isGroupConversation() ? m_contents.groupName : Message::fromObject(m_contents.conversation.at(0).toObject()).sender;
         bool supportsMarkup = true; // The QML app and plasmoid, which query this via D-Bus, support HTML.
         m_contents.text = getConversationMessages(supportsMarkup);
     }
 
-    m_hasIcon = !m_payloadHash.isEmpty();
     m_contents.actions.clear();
-
     const auto actions = np.get<QJsonArray>(QStringLiteral("actions"));
     for (const QJsonValue &value : actions) {
         m_contents.actions.append(value.toString());
     }
 
-    if (!m_hasIcon) {
-        m_contents.iconPath.clear();
-        show();
-    } else {
+    m_contents.iconPath.clear();
+    if (!m_payloadHash.isEmpty()) {
         const QString dir = QDir::cleanPath(m_imagesDir.absolutePath());
         const QString filePath = QDir::cleanPath(m_imagesDir.absoluteFilePath(m_payloadHash));
-        if (!filePath.startsWith(dir + QStringLiteral("/"))) {
-            qCWarning(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Directory traversal detected";
-            m_contents.iconPath.clear();
-            show();
-            return;
-        }
-        m_contents.iconPath = filePath;
-
-        m_ready = false;
-        if (QFileInfo::exists(m_contents.iconPath)) {
-            show();
+        if (filePath.startsWith(dir + QStringLiteral("/"))) {
+            m_contents.iconPath = filePath;
         } else {
-            FileTransferJob *fileTransferJob = s_downloadsInProgress.value(m_contents.iconPath);
-            if (!fileTransferJob) {
-                fileTransferJob = np.createPayloadTransferJob(QUrl::fromLocalFile(m_contents.iconPath));
-                s_downloadsInProgress[m_contents.iconPath] = fileTransferJob;
-                // Use the job as context, so the entry is removed even if no Notification is waiting for it anymore
-                connect(fileTransferJob, &KJob::result, fileTransferJob, [path = m_contents.iconPath] {
-                    s_downloadsInProgress.remove(path);
-                });
-                fileTransferJob->start();
-            }
-
-            // Unique, since update() can call this again while the same icon is still downloading
-            connect(fileTransferJob, &FileTransferJob::result, this, &Notification::iconDownloaded, Qt::UniqueConnection);
+            qCWarning(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Directory traversal detected";
         }
+    }
+
+    // The file already exists while it's being downloaded, so check for a download in progress before QFileInfo::exists
+    FileTransferJob *fileTransferJob = s_downloadsInProgress.value(m_contents.iconPath);
+    if (m_contents.iconPath.isEmpty() || (!fileTransferJob && QFileInfo::exists(m_contents.iconPath))) {
+        show();
+    } else {
+        if (!fileTransferJob) {
+            fileTransferJob = np.createPayloadTransferJob(QUrl::fromLocalFile(m_contents.iconPath));
+            s_downloadsInProgress[m_contents.iconPath] = fileTransferJob;
+            // Use the job as context, so the entry is removed even if no Notification is waiting for it anymore
+            connect(fileTransferJob, &KJob::result, fileTransferJob, [path = m_contents.iconPath] {
+                s_downloadsInProgress.remove(path);
+            });
+            fileTransferJob->start();
+        }
+
+        // Unique, since update() can call this again while the same icon is still downloading
+        connect(fileTransferJob, &FileTransferJob::result, this, &Notification::iconDownloaded, Qt::UniqueConnection);
     }
 }
 

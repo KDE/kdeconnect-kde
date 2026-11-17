@@ -80,7 +80,7 @@ public:
     }
     bool hasIcon() const
     {
-        return m_hasIcon;
+        return !m_contents.iconPath.isEmpty();
     }
     void show();
     bool silent() const
@@ -90,7 +90,7 @@ public:
     void update(const NetworkPacket &np);
     bool isReady() const
     {
-        return m_ready;
+        return m_lastPublishedContents.has_value();
     }
     bool isConversation() const
     {
@@ -134,11 +134,9 @@ private:
     Contents m_contents;
     std::optional<Contents> m_lastPublishedContents;
     QString m_payloadHash;
-    bool m_hasIcon;
     QPointer<KNotification> m_notification;
     QDir m_imagesDir;
     bool m_silent;
-    bool m_ready;
     const Device *m_device;
 
     struct Message {
