@@ -44,8 +44,7 @@ Notification::Notification(const NetworkPacket &np, const Device *device, QObjec
     QFile(m_imagesDir.absolutePath()).setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner);
     m_ready = false;
 
-    parseNetworkPacket(np);
-    createKNotification(np);
+    update(np);
 }
 
 void Notification::dismiss()
@@ -63,18 +62,16 @@ void Notification::show()
         m_lastPublishedContents = m_contents;
         Q_EMIT ready();
     }
-    if (!m_silent && m_notification) {
+    // Silent notifications don't need a KNotification, unless there's already one shown that we need to update
+    if (m_notification || !m_silent) {
+        updateKNotification();
+    }
+    if (!m_silent) {
         m_notification->sendEvent();
     }
 }
 
-void Notification::update(const NetworkPacket &np)
-{
-    parseNetworkPacket(np);
-    createKNotification(np);
-}
-
-void Notification::createKNotification(const NetworkPacket &np)
+void Notification::updateKNotification()
 {
     if (!m_notification) {
         m_notification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout, this);
@@ -146,23 +143,7 @@ void Notification::createKNotification(const NetworkPacket &np)
         });
     }
 
-    m_notification->setPixmap({});
-    if (!m_hasIcon) {
-        show();
-        return;
-    }
-
-    const QString dir = QDir::cleanPath(m_imagesDir.absolutePath());
-    const QString filePath = QDir::cleanPath(m_imagesDir.absoluteFilePath(m_contents.payloadHash));
-    if (!filePath.startsWith(dir + QStringLiteral("/"))) {
-        qCWarning(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Directory traversal detected";
-        m_iconPath.clear();
-        show();
-        return;
-    }
-
-    m_iconPath = filePath;
-    loadIcon(np);
+    m_notification->setPixmap(m_iconPath.isEmpty() ? QPixmap() : QPixmap(m_iconPath, "PNG"));
 }
 
 void Notification::loadIcon(const NetworkPacket &np)
@@ -170,7 +151,6 @@ void Notification::loadIcon(const NetworkPacket &np)
     m_ready = false;
 
     if (QFileInfo::exists(m_iconPath)) {
-        applyIcon();
         show();
     } else {
         FileTransferJob *fileTransferJob = s_downloadsInProgress.value(m_iconPath);
@@ -187,22 +167,10 @@ void Notification::loadIcon(const NetworkPacket &np)
         connect(fileTransferJob, &FileTransferJob::result, this, [this, fileTransferJob] {
             if (fileTransferJob->error()) {
                 qCDebug(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Error in FileTransferJob: " << fileTransferJob->errorString();
-            } else {
-                applyIcon();
             }
             show();
         });
     }
-}
-
-void Notification::applyIcon()
-{
-    if (!m_notification) {
-        return;
-    }
-
-    QPixmap icon(m_iconPath, "PNG");
-    m_notification->setPixmap(icon);
 }
 
 QString Notification::getConversationMessages(bool supportsMarkup) const
@@ -241,7 +209,7 @@ void Notification::sendReply(const QString &message)
     Q_EMIT replied(message);
 }
 
-void Notification::parseNetworkPacket(const NetworkPacket &np)
+void Notification::update(const NetworkPacket &np)
 {
     m_internalId = np.get<QString>(QStringLiteral("id"));
     m_contents.appName = np.get<QString>(QStringLiteral("appName"));
@@ -268,6 +236,24 @@ void Notification::parseNetworkPacket(const NetworkPacket &np)
     for (const QJsonValue &value : actions) {
         m_contents.actions.append(value.toString());
     }
+
+    if (!m_hasIcon) {
+        m_iconPath.clear();
+        show();
+        return;
+    }
+
+    const QString dir = QDir::cleanPath(m_imagesDir.absolutePath());
+    const QString filePath = QDir::cleanPath(m_imagesDir.absoluteFilePath(m_contents.payloadHash));
+    if (!filePath.startsWith(dir + QStringLiteral("/"))) {
+        qCWarning(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Directory traversal detected";
+        m_iconPath.clear();
+        show();
+        return;
+    }
+
+    m_iconPath = filePath;
+    loadIcon(np);
 }
 
 #include "moc_notification.cpp"

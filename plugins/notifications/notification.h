@@ -98,7 +98,6 @@ public:
     {
         return !m_contents.groupName.isEmpty();
     }
-    void createKNotification(const NetworkPacket &np);
 
 public Q_SLOTS:
     Q_SCRIPTABLE void dismiss();
@@ -150,9 +149,8 @@ private:
         }
     };
 
-    void parseNetworkPacket(const NetworkPacket &np);
     void loadIcon(const NetworkPacket &np);
-    void applyIcon();
+    void updateKNotification();
 
     QString getConversationMessages(bool supportsMarkup) const;
 
