@@ -66,7 +66,7 @@ qint64 MultiplexChannel::readData(char *data, qint64 maxlen)
         state->read_buffer.remove(0, num_to_read);
         Q_EMIT state->readAvailable();
         if (!state->connected && state->read_buffer.isEmpty()) {
-            close();
+            closeLater();
         }
         return num_to_read;
     } else if (isOpen() && state->connected) {
@@ -75,9 +75,14 @@ qint64 MultiplexChannel::readData(char *data, qint64 maxlen)
         }
         return 0;
     } else {
-        close();
+        closeLater();
         return -1;
     }
+}
+
+void MultiplexChannel::closeLater()
+{
+    QMetaObject::invokeMethod(this, &QIODevice::close, Qt::QueuedConnection);
 }
 
 qint64 MultiplexChannel::writeData(const char *data, qint64 len)
