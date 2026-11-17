@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 17:40+0000\n"
+"POT-Creation-Date: 2026-11-16 22:00+0000\n"
 "PO-Revision-Date: 2022-11-16 16:14+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -119,17 +119,17 @@ msgstr ""
 msgid "Protocol version: %1\n"
 msgstr ""
 
-#: filetransferjob.cpp:54
+#: filetransferjob.cpp:55
 #, kde-format
 msgid "Filename already present"
 msgstr ""
 
-#: filetransferjob.cpp:70
+#: filetransferjob.cpp:71
 #, fuzzy, kde-format
 msgid "Could not create destination file: %1"
 msgstr "Ne successat leer li file %1."
 
-#: filetransferjob.cpp:129
+#: filetransferjob.cpp:146
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr ""

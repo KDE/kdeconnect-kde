@@ -1,13 +1,14 @@
 # Translation of kdeconnect-plugins.po into Serbian.
 # Slobodan Simić <slsimic@gmail.com>, 2017.
-# Chusslove Illich <caslav.ilic@gmx.net>, 2017.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2017, 2018.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:53+0000\n"
-"PO-Revision-Date: 2017-09-28 17:57+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-11-16 12:41+0100\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavian\n"
 "MIME-Version: 1.0\n"
@@ -34,23 +35,22 @@ msgstr "батерија на %1%"
 #: clipboard/kdeconnect_clipboard_config.qml:34
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "Аутоматски дијели клипборд са овог уређаја"
 
 #: clipboard/kdeconnect_clipboard_config.qml:42
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr ""
+msgstr "Укључујући лозинке (како их означавају менаџери лозинки)"
 
 #: clipboard/kdeconnect_clipboard_config.qml:55
 #, kde-format
 msgid "Max Clipboard File Size (MB)"
-msgstr ""
+msgstr "Највећа величина фајла клипборда (MB)"
 
 #: digitizer/linuxdigitizerimpl.cpp:72 digitizer/linuxdigitizerimpl.cpp:168
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "KDE Connect Error"
-msgstr "КДЕ‑конекција"
+msgstr "Грешка КДЕ‑конекције"
 
 #: digitizer/linuxdigitizerimpl.cpp:73
 #, kde-format
@@ -58,6 +58,8 @@ msgid ""
 "Unable to create a virtual drawing tablet. If this error persists, file a "
 "bug report."
 msgstr ""
+"Не могу да направим виртуелну графичку таблицу. Ако се ово понавља, "
+"пријавите грешку."
 
 #: digitizer/linuxdigitizerimpl.cpp:169
 #, kde-format
@@ -65,42 +67,44 @@ msgid ""
 "Unable to process one or more input events for the virtual device. If this "
 "error persists, file a bug report."
 msgstr ""
+"Не могу да обрадим један или више улазних догађаја за виртуелни уређај. Ако "
+"се ово понавља, пријавите грешку."
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:23
 #: share/kdeconnect_share_config.qml:22
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:25
 #, kde-format
 msgid "Apply"
-msgstr ""
+msgstr "Примијени"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:47
 #, kde-format
 msgid "Sound to play:"
-msgstr ""
+msgstr "Звук за пуштање:"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:57
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose file"
-msgstr ""
+msgstr "Изабери фајл"
 
 #: findthisdevice/kdeconnect_findthisdevice_config.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Play"
-msgstr ""
+msgstr "Пусти"
 
 #: lockdevice/lockdeviceplugin-win.cpp:58 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
-msgstr ""
+msgstr "Даљинско закључавање је успјело"
 
 #: lockdevice/lockdeviceplugin-win.cpp:61
 #: lockdevice/lockdeviceplugin-win.cpp:62 lockdevice/lockdeviceplugin.cpp:92
 #: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
-msgstr ""
+msgstr "Даљинско закључавање није успјело"
 
 #: mpriscontrol/mpriscontrolplugin-macos.mm:23
 #: mpriscontrol/mpriscontrolplugin-win.cpp:30
@@ -109,18 +113,17 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "Текући плејер"
 
 #: mpriscontrol/mpriscontrolplugin-win.cpp:94
 #: mpriscontrol/mpriscontrolplugin-win.cpp:95
 #: mpriscontrol/mpriscontrolplugin-win.cpp:96
 #, kde-format
 msgid "N/A"
-msgstr ""
+msgstr "н/д"
 
 #: notifications/notification.cpp:120
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Одговори"
@@ -129,13 +132,13 @@ msgstr "Одговори"
 #, kde-format
 msgctxt "@info:placeholder %1 is the name of a group chat"
 msgid "Reply in %1…"
-msgstr ""
+msgstr "Одговор у групи %1…"
 
 #: notifications/notification.cpp:125
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "Одговор на „%1“…"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -171,7 +174,7 @@ msgstr "Утишај звукове система"
 #: pausemusic/kdeconnect_pausemusic_config.qml:61
 #, kde-format
 msgid "Resume automatically when call ends"
-msgstr ""
+msgstr "Аутоматски настави по завршетку позива"
 
 #: ping/pingplugin.cpp:26
 #, kde-format
@@ -182,152 +185,145 @@ msgstr "Пинг!"
 #, kde-format
 msgctxt "@action:label"
 msgid "Display:"
-msgstr ""
+msgstr "Приказ:"
 
 #: presenter/kdeconnect_presenter_config.qml:25
 #, kde-format
 msgid "Red Dot"
-msgstr ""
+msgstr "црвена тачка"
 
 #: presenter/kdeconnect_presenter_config.qml:26
 #, kde-format
 msgid "Electric"
-msgstr ""
+msgstr "електрични сјај"
 
 #: runcommand/kdeconnect_runcommand_config.qml:21
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Add Command…"
-msgstr "Наредба"
+msgstr "Додај наредбу…"
 
 #: runcommand/kdeconnect_runcommand_config.qml:65
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Уреди"
 
 #: runcommand/kdeconnect_runcommand_config.qml:78
 #, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "Обриши"
 
 #: runcommand/kdeconnect_runcommand_config.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "No commands configured"
-msgstr ""
+msgstr "Нема подешених наредаба"
 
 #: runcommand/kdeconnect_runcommand_config.qml:94
 #, kde-format
 msgctxt "@info"
 msgid "Add commands to run them remotely from other devices"
-msgstr ""
+msgstr "Додајте наредбе да бисте их даљински извршавали са других уређаја"
 
 #: runcommand/kdeconnect_runcommand_config.qml:100
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Command"
-msgstr "Наредба"
+msgstr "Додавање наредбе"
 
 #: runcommand/kdeconnect_runcommand_config.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "Додај"
 
 #: runcommand/kdeconnect_runcommand_config.qml:113
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
-msgstr "Наредба"
+msgstr "Додај наредбу"
 
 #: runcommand/kdeconnect_runcommand_config.qml:122
 #: runcommand/kdeconnect_runcommand_config.qml:200
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgid "Name:"
-msgstr "Назив"
+msgstr "Име:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:126
 #: runcommand/kdeconnect_runcommand_config.qml:204
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Command:"
-msgstr "Наредба"
+msgstr "Наредба:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:130
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Sample commands:"
-msgstr "Наредба"
+msgstr "Примјери наредаба:"
 
 #: runcommand/kdeconnect_runcommand_config.qml:148
 #: runcommand/kdeconnect_runcommand_config.qml:159
 #, kde-format
 msgctxt "Sample command"
 msgid "Suspend"
-msgstr ""
+msgstr "Суспендуј"
 
 #: runcommand/kdeconnect_runcommand_config.qml:152
 #: runcommand/kdeconnect_runcommand_config.qml:167
 #, kde-format
 msgctxt "Sample command"
 msgid "Lock Screen"
-msgstr ""
+msgstr "Закључај екран"
 
 #: runcommand/kdeconnect_runcommand_config.qml:163
 #, kde-format
 msgctxt "Sample command"
 msgid "Maximum Brightness"
-msgstr ""
+msgstr "Највећи освјетљај"
 
 #: runcommand/kdeconnect_runcommand_config.qml:171
 #, kde-format
 msgctxt "Sample command"
 msgid "Unlock Screen"
-msgstr ""
+msgstr "Откључај екран"
 
 #: runcommand/kdeconnect_runcommand_config.qml:175
 #, kde-format
 msgctxt "Sample command"
 msgid "Close All Vaults"
-msgstr ""
+msgstr "Затвори све трезоре"
 
 #: runcommand/kdeconnect_runcommand_config.qml:179
 #, kde-format
 msgctxt "Sample command"
 msgid "Forcefully Close All Vaults"
-msgstr ""
+msgstr "Принудно затвори све трезоре"
 
 #: runcommand/kdeconnect_runcommand_config.qml:192
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Command"
-msgstr "Наредба"
+msgstr "Уређивање наредбе"
 
 #: runcommand/kdeconnect_runcommand_config.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr ""
+msgstr "Потврди"
 
 #: runcommand/kdeconnect_runcommand_config.qml:216
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Confirm"
-msgstr ""
+msgstr "Потврди"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
-msgstr ""
+msgstr "Телефон је повезан"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:34
 #, kde-format
 msgid "Persistent notifications only"
-msgstr "Само стална обавештења"
+msgstr "Само стална обавјештења"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:42
 #, kde-format
@@ -335,16 +331,14 @@ msgid "Include body"
 msgstr "Укључи садржај"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:49
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Include icon"
-msgstr "Укључи садржај"
+msgstr "Укључи иконицу"
 
 #: sendnotifications/kdeconnect_sendnotifications_config.qml:56
-#, fuzzy, kde-format
-#| msgid "Minimum urgency level"
+#, kde-format
 msgid "Minimum urgency level:"
-msgstr "Минимум нивоа хитности"
+msgstr "Најмањи ниво хитности:"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
@@ -352,20 +346,19 @@ msgid "Name"
 msgstr "Назив"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:182
-#, fuzzy, kde-format
-#| msgid "Include body"
+#, kde-format
 msgid "Excluded"
-msgstr "Укључи садржај"
+msgstr "Искључено"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
-msgstr "Назив обавештавајућег програма."
+msgstr "Назив обавјештавајућег програма."
 
 #: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
-msgstr "Синхронизовати обавештења програма?"
+msgstr "Синхронизовати обавјештења програма?"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
@@ -374,9 +367,9 @@ msgid ""
 "This pattern is applied to the summary and, if selected above, the body of "
 "notifications."
 msgstr ""
-"Регуларним изразом одређује се која обавештења се не шаљу.\n"
-"Овај образац се примењује над сажетком и, ако је означено изнад, садржајем "
-"обавештења."
+"Регуларним изразом одређује се која обавјештења се не шаљу.\n"
+"Овај образац се примјењује над сажетком и, ако је означено изнад, садржајем "
+"обавјештења."
 
 #: sftp/mounter.cpp:153
 #, kde-format
@@ -386,23 +379,23 @@ msgstr "Не могу да покренем sshfs"
 #: sftp/mounter.cpp:157
 #, kde-format
 msgid "sshfs process crashed"
-msgstr ""
+msgstr "Процес sshfs се срушио"
 
 #: sftp/mounter.cpp:161
 #, kde-format
 msgid "Unknown error in sshfs"
-msgstr ""
+msgstr "Непозната грешка у sshfs"
 
 #: sftp/mounter.cpp:172
-#, fuzzy, kde-format
-#| msgid "Error when accessing to filesystem"
+#, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
-msgstr "Грешка у приступу фајл систему"
+msgstr ""
+"Грешка при приступу фајл систему. sshfs је завршио са излазним кодом %0"
 
 #: sftp/mounter.cpp:181
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
-msgstr "Неуспело монтирање фајл система: уређај не одговара"
+msgstr "Неуспјело монтирање фајл система: уређај не одговара"
 
 #: sftp/sftpplugin-win.cpp:97
 #, kde-format
@@ -412,7 +405,7 @@ msgstr "КДЕ‑конекција"
 #: sftp/sftpplugin-win.cpp:98
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
-msgstr ""
+msgstr "Не могу да рукујем СФТП протоколом. Извините на непријатности"
 
 #: sftp/sftpplugin.cpp:181
 #, kde-format
@@ -431,50 +424,48 @@ msgstr "Уписуј фајлове у:"
 
 # ignore-entity: percnt
 #: share/kdeconnect_share_config.qml:63
-#, fuzzy, kde-format
-#| msgid ""
-#| "&percnt;1 in the path will be replaced with the specific device name."
+#, kde-format
 msgid "%1 in the path will be replaced with the specific device name"
-msgstr "&percnt;1 у путањи биће замењено са називом уређаја."
+msgstr "%1 у путањи биће замијењено називом конкретног уређаја"
 
 #: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text copied to clipboard"
-msgstr ""
+msgstr "Подијељени текст копиран је у клипборд"
 
 #: share/shareplugin.cpp:166
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "Подијељени текст са уређаја %1 копиран је у клипборд"
 
 #: share/shareplugin.cpp:210
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Отвори у уређивачу текста"
 
 #: share/shareplugin.cpp:214
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "Отвори везу"
 
 #: share/shareplugin.cpp:263 share/shareplugin.cpp:268
 #, kde-format
 msgid "Could not share file"
-msgstr ""
+msgstr "Не могу да подијелим фајл"
 
 #: share/shareplugin.cpp:263
 #, kde-format
 msgid "%1 does not exist"
-msgstr ""
+msgstr "%1 не постоји"
 
 #: share/shareplugin.cpp:268
 #, kde-format
 msgid "Permission denied: %1"
-msgstr ""
+msgstr "Дозвола одбијена: %1"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:43
 #, kde-format
@@ -482,31 +473,31 @@ msgctxt ""
 "@label:listbox Forms a sentence: 'Leave the screen at the top/bottom/left/"
 "right edge', the pointer will switch to the connected device there"
 msgid "Leave Screen at"
-msgstr ""
+msgstr "Излаз са екрана на"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:51
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Top"
-msgstr ""
+msgstr "горњој ивици"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:55
 #, kde-format
 msgctxt "@item:inlistbox left edge of screen"
 msgid "Left"
-msgstr ""
+msgstr "лијевој ивици"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:59
 #, kde-format
 msgctxt "@item:inlistbox right edge of screen"
 msgid "Right"
-msgstr ""
+msgstr "десној ивици"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:63
 #, kde-format
 msgctxt "@item:inlistbox top edge of screen"
 msgid "Bottom"
-msgstr ""
+msgstr "доњој ивици"
 
 #: shareinputdevices/kdeconnect_shareinputdevices_config.qml:71
 #, kde-format
@@ -515,6 +506,8 @@ msgid ""
 "Another device already reserved this edge. This may lead to unexpected "
 "results when both are connected at the same time."
 msgstr ""
+"Други уређај је већ заузео ову ивицу. Ово може довести до неочекиваних "
+"резултата кад су оба повезана у исто вријеме."
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
@@ -539,69 +532,14 @@ msgstr "Утишај позив"
 #: virtualmonitor/virtualmonitorplugin.cpp:184
 #, kde-format
 msgid "Remote device does not have a VNC or RDP client (eg. krdc) installed."
-msgstr ""
+msgstr "На удаљеном уређају није инсталиран ВНЦ или РДП клијент (нпр. КРДЦ)."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:187
 #, kde-format
 msgid "The krdp package is required on the local device."
-msgstr ""
+msgstr "На локалном уређају потребан је пакет krdp."
 
 #: virtualmonitor/virtualmonitorplugin.cpp:190
 #, kde-format
 msgid "Cannot start a request without a resolution"
-msgstr ""
-
-#~ msgid "Pause music plugin"
-#~ msgstr "Прикључак паузирања музике"
-
-#~ msgid "Condition"
-#~ msgstr "Услов"
-
-#~ msgid "Actions"
-#~ msgstr "Радње"
-
-#, fuzzy
-#~| msgid "Command"
-#~ msgid "Export Commands"
-#~ msgstr "Наредба"
-
-#~ msgid "General"
-#~ msgstr "Опште"
-
-#~ msgid "Synchronize only notifications with a timeout value of 0?"
-#~ msgstr "Синхронизовати само обавештења којима је време истека 0?"
-
-#~ msgid ""
-#~ "Append the notification body to the summary when synchronizing "
-#~ "notifications?"
-#~ msgstr "Прикључити садржај сажетку обавештења, приликом синхронизације?"
-
-#~ msgid "Synchronize icons of notifying applications if possible?"
-#~ msgstr "Синхронизовати, ако је могуће, и иконицу програма?"
-
-#~ msgid "Synchronize icons"
-#~ msgstr "Синхронизуј иконице"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Minimum urgency level of the notifications</p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Минимум нивоа хитности обавештења</p></body></html>"
-
-#~ msgid "Synchronize only notifications with the given urgency level."
-#~ msgstr "Синхронизује само обавештења са одређеним нивоом хитности."
-
-#~ msgid "Applications"
-#~ msgstr "Програми"
-
-#~ msgid "Share plugin settings"
-#~ msgstr "Поставке прикључка дељења"
-
-#~ msgid "Receiving"
-#~ msgstr "Примање"
-
-#~ msgid "Blacklisted"
-#~ msgstr "На црној листи"
-
-#~ msgid "Use your phone as a touchpad and keyboard"
-#~ msgstr "Користите телефон као додирник и тастатуру"
+msgstr "Не могу да покренем захтјев без резолуције"

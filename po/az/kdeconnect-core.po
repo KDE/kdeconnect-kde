@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 17:40+0000\n"
+"POT-Creation-Date: 2026-11-16 22:00+0000\n"
 "PO-Revision-Date: 2023-10-11 18:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -118,18 +118,18 @@ msgstr "Uzaq cihazın sertifikatının SHA256 şifrə izi: %1\n"
 msgid "Protocol version: %1\n"
 msgstr ""
 
-#: filetransferjob.cpp:54
+#: filetransferjob.cpp:55
 #, kde-format
 msgid "Filename already present"
 msgstr "Fayl_adı artıq mövcuddur"
 
-#: filetransferjob.cpp:70
+#: filetransferjob.cpp:71
 #, fuzzy, kde-format
 #| msgid "Could not store certificate file: %1"
 msgid "Could not create destination file: %1"
 msgstr "Bu sertifikat faylını saxlamaq mümkün olmadı: %1"
 
-#: filetransferjob.cpp:129
+#: filetransferjob.cpp:146
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Natamam fayl buradan alındı: %1"

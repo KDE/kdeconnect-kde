@@ -1,11 +1,12 @@
 # Slobodan Simic <slsimic@gmail.com>, 2017.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-07 00:45+0000\n"
-"PO-Revision-Date: 2017-03-20 21:07+0100\n"
-"Last-Translator: Slobodan Simic <slsimic@gmail.com>\n"
+"PO-Revision-Date: 2026-11-16 12:41+0100\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -13,42 +14,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 1.5\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: kiokdeconnect.cpp:110
 #, kde-format
 msgid "No such device: %0"
-msgstr ""
+msgstr "Nema takvog uređaja: %0"
 
 #: kiokdeconnect.cpp:116
 #, kde-format
 msgid "%0 is not paired"
-msgstr ""
+msgstr "Uređaj %0 nije uparen"
 
 #: kiokdeconnect.cpp:120
 #, kde-format
 msgid "%0 is not connected"
-msgstr ""
+msgstr "Uređaj %0 nije povezan"
 
 #: kiokdeconnect.cpp:124
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
-msgstr ""
+msgstr "Uređaj %0 nema priključak udaljenog fajl sistema"
 
 #: kiokdeconnect.cpp:206
-#, fuzzy, kde-format
-#| msgid "Listing devices..."
+#, kde-format
 msgid "Listing devices…"
-msgstr "Listam uređaje..."
+msgstr "Listam uređaje…"
 
 #: kiokdeconnect.cpp:251
-#, fuzzy, kde-format
-#| msgid "Accessing device..."
+#, kde-format
 msgid "Accessing device…"
-msgstr "Pristupam uređajima..."
+msgstr "Pristupam uređaju…"
 
 #: kiokdeconnect.cpp:326
 #, kde-format
@@ -58,9 +57,9 @@ msgstr "Ne mogu da kontaktiram pozadinski servis."
 #: kiokdeconnect.cpp:353
 #, kde-format
 msgid "KDE Connect"
-msgstr ""
+msgstr "KDE‑konekcija"
 
 #: kiokdeconnect.cpp:369
 #, kde-format
 msgid "Failed to get mount point: %1"
-msgstr ""
+msgstr "Ne mogu da dobavim tačku montiranja: %1"

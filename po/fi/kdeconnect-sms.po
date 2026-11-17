@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-14 01:03+0000\n"
+"POT-Creation-Date: 2026-11-17 01:06+0000\n"
 "PO-Revision-Date: 2025-11-13 13:50+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -231,19 +231,19 @@ msgstr "Viestin enimmäiskoko ylitetty."
 msgid "Send a message…"
 msgstr "Lähetä viesti…"
 
-#: qml/SendingArea.qml:124
+#: qml/SendingArea.qml:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
 msgstr "Liitä kuva tai tiedosto"
 
-#: qml/SendingArea.qml:149
+#: qml/SendingArea.qml:152
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
 msgstr "Tyhjennä liitteet"
 
-#: qml/SendingArea.qml:178
+#: qml/SendingArea.qml:181
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"

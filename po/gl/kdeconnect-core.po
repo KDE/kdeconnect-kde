@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 17:40+0000\n"
+"POT-Creation-Date: 2026-11-16 22:00+0000\n"
 "PO-Revision-Date: 2025-02-28 07:10+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -119,18 +119,18 @@ msgstr "A pegada SHA256 do certificado do dispositivo remoto é: %1\n"
 msgid "Protocol version: %1\n"
 msgstr "Versión %1 do protocolo\n"
 
-#: filetransferjob.cpp:54
+#: filetransferjob.cpp:55
 #, kde-format
 msgid "Filename already present"
 msgstr "O nome do ficheiro xa está presente."
 
-#: filetransferjob.cpp:70
+#: filetransferjob.cpp:71
 #, fuzzy, kde-format
 #| msgid "Could not store certificate file: %1"
 msgid "Could not create destination file: %1"
 msgstr "Non foi posíbel almacenar o ficheiro de certificado: %1"
 
-#: filetransferjob.cpp:129
+#: filetransferjob.cpp:146
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Recibiuse un ficheiro incompleto de: %1"

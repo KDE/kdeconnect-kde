@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 17:40+0000\n"
+"POT-Creation-Date: 2026-11-16 22:00+0000\n"
 "PO-Revision-Date: 2026-10-07 19:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -118,17 +118,17 @@ msgstr "Uzak aygıt sertifikasının SHA256 parmak izi: %1\n"
 msgid "Protocol version: %1\n"
 msgstr "Prokotol sürümü: %1\n"
 
-#: filetransferjob.cpp:54
+#: filetransferjob.cpp:55
 #, kde-format
 msgid "Filename already present"
 msgstr "Dosya adı hâlihazırda var"
 
-#: filetransferjob.cpp:70
+#: filetransferjob.cpp:71
 #, kde-format
 msgid "Could not create destination file: %1"
 msgstr "Hedef dosya oluşturulamadı: %1"
 
-#: filetransferjob.cpp:129
+#: filetransferjob.cpp:146
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Eksik dosya şuradan alındı: %1"

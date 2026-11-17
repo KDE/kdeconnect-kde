@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-14 01:03+0000\n"
+"POT-Creation-Date: 2026-11-17 01:06+0000\n"
 "PO-Revision-Date: 2025-10-14 08:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -235,19 +235,19 @@ msgstr "Перевищено обмеження на максимальний р
 msgid "Send a message…"
 msgstr "Надіслати повідомлення…"
 
-#: qml/SendingArea.qml:124
+#: qml/SendingArea.qml:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach an image or file"
 msgstr "Долучити зображення або файл"
 
-#: qml/SendingArea.qml:149
+#: qml/SendingArea.qml:152
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear attachments"
 msgstr "Вилучити долучення"
 
-#: qml/SendingArea.qml:178
+#: qml/SendingArea.qml:181
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"

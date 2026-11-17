@@ -1,11 +1,12 @@
 # Slobodan Simic <slsimic@gmail.com>, 2017.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-15 01:05+0000\n"
-"PO-Revision-Date: 2017-03-20 21:08+0100\n"
-"Last-Translator: Slobodan Simic <slsimic@gmail.com>\n"
+"PO-Revision-Date: 2026-11-16 12:41+0100\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavianlatin\n"
 "MIME-Version: 1.0\n"
@@ -13,33 +14,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 1.5\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
+"X-Generator: Lokalize 1.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Slobodan Simić,Nemanja Hiršl"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "slsimic@gmail.com,nemhirsl@gmail.com"
 
 #: desktop_daemon.cpp:38
-#, fuzzy, kde-format
-#| msgid "Pairing request from %1"
+#, kde-format
 msgid ""
 "Pairing request from %1\n"
 "Key: %2"
-msgstr "%1 uputi zahtev za povezivanje"
+msgstr ""
+"Zahtjev za uparivanje sa %1\n"
+"Ključ: %2"
 
 #: desktop_daemon.cpp:46
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "Otvori"
 
 #: desktop_daemon.cpp:49
 #, kde-format
@@ -54,14 +56,14 @@ msgstr "Odbaci"
 #: kdeconnectd.cpp:76 kdeconnectd.cpp:78
 #, kde-format
 msgid "KDE Connect Daemon"
-msgstr ""
+msgstr "KDE‑konekcijin demon"
 
 #: kdeconnectd.cpp:80
 #, kde-format
 msgid "© 2015–2025 KDE Connect Team"
-msgstr ""
+msgstr "© 2015–2025, tim KDE‑konekcije"
 
 #: kdeconnectd.cpp:106
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Zamijeni postojeći primjerak"
