@@ -90,6 +90,7 @@ void MprisControlPlugin::receivePacket(const NetworkPacket &np)
         answer.set(QStringLiteral("pos"), 0);
         answer.set(QStringLiteral("isPlaying"), false);
         answer.set(QStringLiteral("canPause"), false);
+        answer.set(QStringLiteral("canStop"), false);
         answer.set(QStringLiteral("canPlay"), true);
         answer.set(QStringLiteral("canGoNext"), true);
         answer.set(QStringLiteral("canGoPrevious"), true);
