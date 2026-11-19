@@ -104,6 +104,7 @@ class KDECONNECTDBUSINTERFACES_EXPORT ConnectivityReportDbusInterface : public O
     Q_PROPERTY(QString cellularNetworkType READ cellularNetworkType NOTIFY refreshedProxy)
     Q_PROPERTY(int cellularNetworkStrength READ cellularNetworkStrength NOTIFY refreshedProxy)
     Q_PROPERTY(QString iconName READ iconName NOTIFY refreshedProxy)
+    Q_PROPERTY(QString subscriptionsJson READ subscriptionsJson NOTIFY refreshedProxy)
 public:
     explicit ConnectivityReportDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 

@@ -19,11 +19,15 @@
  *     "signalStrengths": {
  *         "6": {
  *             "networkType": "4G",
- *             "signalStrength": 3
+ *             "signalStrength": 3,
+ *             "name": "Vodafone",
+ *             "slot": 0
  *         },
  *         "17": {
  *             "networkType": "HSPA",
- *             "signalStrength": 2
+ *             "signalStrength": 2,
+ *             "name": "Orange",
+ *             "slot": 1
  *         },
  *         ...
  *     }
@@ -38,12 +42,19 @@ class ConnectivityReportPlugin : public KdeConnectPlugin
     Q_PROPERTY(QString cellularNetworkType READ cellularNetworkType NOTIFY refreshed)
     Q_PROPERTY(int cellularNetworkStrength READ cellularNetworkStrength NOTIFY refreshed)
     Q_PROPERTY(QString iconName READ iconName NOTIFY refreshed)
+    Q_PROPERTY(QString subscriptionsJson READ subscriptionsJson NOTIFY refreshed)
 
 public:
     using KdeConnectPlugin::KdeConnectPlugin;
 
     void receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;
+
+    /**
+     * JSON array with one object per SIM, ordered by slot:
+     * [{"name": string (may be empty), "networkType": string, "signalStrength": int, "iconName": string}, ...]
+     */
+    QString subscriptionsJson() const;
 
     QString cellularNetworkType() const;
     int cellularNetworkStrength() const;
@@ -62,4 +73,5 @@ Q_SIGNALS:
 private:
     QString m_cellularNetworkType;
     int m_cellularNetworkStrength = -1;
+    QString m_subscriptionsJson = QStringLiteral("[]");
 };

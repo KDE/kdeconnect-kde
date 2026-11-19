@@ -48,8 +48,19 @@ QtObject {
     readonly property int signalStrength: connectivity?.cellularNetworkStrength ?? -1
     readonly property string iconName: connectivity?.iconName ?? "network-mobile-off"
 
+    // One entry per SIM: {name, networkType, signalStrength, iconName}
+    readonly property var subscriptions: {
+        try {
+            return JSON.parse(connectivity?.subscriptionsJson ?? "[]");
+        } catch (e) {
+            return [];
+        }
+    }
+
     readonly property string displayString: {
-        if (connectivity !== null) {
+        if (connectivity !== null && subscriptions.length > 1) {
+            return subscriptions.map((sim, i) => `${sim.name || i18n("SIM %1", i + 1)}: ${sim.networkType} ${sim.signalStrength}/4`).join(" · ");
+        } else if (connectivity !== null) {
             return `${networkType} ${signalStrength}/4`;
         } else {
             return i18n("No signal");
