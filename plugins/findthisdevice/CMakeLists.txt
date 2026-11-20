@@ -9,6 +9,7 @@ target_sources(kdeconnect_findthisdevice_qmlhelper PRIVATE findthisdevicehelper.
 
 target_link_libraries(kdeconnect_findthisdevice_qmlhelper PRIVATE
     Qt::Qml
+    KF6::CoreAddons
 )
 
 ecm_finalize_qml_module(kdeconnect_findthisdevice_qmlhelper DESTINATION ${KDE_INSTALL_QMLDIR})

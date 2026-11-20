@@ -7,6 +7,7 @@
 #pragma once
 
 #include <QObject>
+#include <QUrl>
 #include <qqmlregistration.h>
 
 class FindThisDeviceHelper : public QObject
@@ -18,4 +19,5 @@ class FindThisDeviceHelper : public QObject
 public:
     static Q_INVOKABLE QString defaultSound();
     Q_INVOKABLE bool pathExists(const QString &path);
+    static Q_INVOKABLE QUrl soundUrl(const QString &path);
 };

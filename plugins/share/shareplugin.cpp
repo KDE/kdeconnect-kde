@@ -23,6 +23,7 @@
 #include <KLocalizedString>
 #include <KNotification>
 #include <KPluginFactory>
+#include <KShell>
 #include <KSystemClipboard>
 
 #include "core/daemon.h"
@@ -41,7 +42,7 @@ SharePlugin::SharePlugin(QObject *parent, const QVariantList &args)
 QUrl SharePlugin::destinationDir() const
 {
     const QString defaultDownloadPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
-    QUrl dir = QUrl::fromLocalFile(config()->getString(QStringLiteral("incoming_path"), defaultDownloadPath));
+    QUrl dir = QUrl::fromLocalFile(KShell::tildeExpand(config()->getString(QStringLiteral("incoming_path"), defaultDownloadPath)));
 
     if (dir.path().contains(QLatin1String("%1"))) {
         dir.setPath(dir.path().arg(device()->name()));

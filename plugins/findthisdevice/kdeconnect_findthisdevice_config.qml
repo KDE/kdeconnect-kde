@@ -68,7 +68,7 @@ Kirigami.ScrollablePage {
                 icon.name: playMusic.playing ? "media-playback-stop-symbolic" : "media-playback-start-symbolic"
                 enabled: FindThisDevice.FindThisDeviceHelper.pathExists(path.text)
                 onClicked: {
-                    playMusic.source = path.text;
+                    playMusic.source = FindThisDevice.FindThisDeviceHelper.soundUrl(path.text);
                     playMusic.playing ? playMusic.stop() : playMusic.play();
                 }
 

@@ -29,7 +29,7 @@ K_PLUGIN_CLASS_WITH_JSON(FindThisDevicePlugin, "kdeconnect_findthisdevice.json")
 void FindThisDevicePlugin::receivePacket(const NetworkPacket & /*np*/)
 {
     const QString soundFile = config()->getString(QStringLiteral("ringtone"), FindThisDeviceHelper::defaultSound());
-    const QUrl soundURL = QUrl::fromLocalFile(soundFile);
+    const QUrl soundURL = FindThisDeviceHelper::soundUrl(soundFile);
 
     if (soundURL.isEmpty()) {
         qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sound, no valid ring tone specified.";

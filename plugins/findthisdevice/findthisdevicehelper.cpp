@@ -20,6 +20,8 @@
 #include <QFileInfo>
 #include <QUrl>
 
+#include <KShell>
+
 QString FindThisDeviceHelper::defaultSound()
 {
     QString dirPath;
@@ -52,5 +54,10 @@ QString FindThisDeviceHelper::defaultSound()
 
 bool FindThisDeviceHelper::pathExists(const QString &path)
 {
-    return QFileInfo::exists(path);
+    return QFileInfo::exists(KShell::tildeExpand(path));
+}
+
+QUrl FindThisDeviceHelper::soundUrl(const QString &path)
+{
+    return QUrl::fromLocalFile(KShell::tildeExpand(path));
 }
