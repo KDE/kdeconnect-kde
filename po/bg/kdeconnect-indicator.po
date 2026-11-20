@@ -165,6 +165,3 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
-
-#~ msgid "Cannot find kdeconnectd"
-#~ msgstr "Не може да се намери kdeconnectd"
