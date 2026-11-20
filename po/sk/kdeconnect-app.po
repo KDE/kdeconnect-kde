@@ -363,11 +363,10 @@ msgid "Notifications"
 msgstr "Oznámenia"
 
 #: qml/NotificationPanel.qml:33
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No notifications"
-msgstr "Oznámenia"
+msgstr "Žiadne oznámenia"
 
 #: qml/NotificationPanel.qml:173
 #, kde-format
