@@ -115,23 +115,27 @@
         "License": "GPL",
         "Name": "Send commands to run",
         "Name[ar]": "أرسل الأوامر لتشغيلها",
+        "Name[bg]": "Изпращане на команди за изпълнение",
         "Name[ca@valencia]": "Envia ordres a executar",
         "Name[ca]": "Envia ordres a executar",
         "Name[cs]": "Posílejte příkazy, které se mají spustit",
         "Name[fr]": "Envoyer des commandes à exécuter",
         "Name[he]": "שליחת פקודות להרצה",
+        "Name[it]": "Invia i comandi da eseguire",
         "Name[ka]": "ბრძანებების გაგზავნა შესასრულებლად",
         "Name[lt]": "Siųsti norimas paleisti komandas",
         "Name[nl]": "Stuur uit te voeren commando's",
         "Name[pt_BR]": "Enviar comandos para executar",
         "Name[ru]": "Передача команд для выполнения",
+        "Name[sk]": "Odosielať príkazy na spustenie",
         "Name[sl]": "Pošlji ukaze za izvajanje",
         "Name[sr@ijekavian]": "Шаљи наредбе за извршавање",
         "Name[sr@ijekavianlatin]": "Šalji naredbe za izvršavanje",
         "Name[sr@latin]": "Šalji naredbe za izvršavanje",
         "Name[sr]": "Шаљи наредбе за извршавање",
         "Name[tr]": "Çalıştırılacak Komutlar Gönder",
-        "Name[uk]": "Надсилання команд для виконання"
+        "Name[uk]": "Надсилання команд для виконання",
+        "Name[zh_TW]": "傳送要執行的指令"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.runcommand.request"
