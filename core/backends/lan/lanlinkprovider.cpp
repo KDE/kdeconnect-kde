@@ -656,6 +656,7 @@ void LanLinkProvider::configureSslSocket(QSslSocket *socket, const QString &devi
 void LanLinkProvider::configureSocket(QSslSocket *socket)
 {
     socket->setProxy(QNetworkProxy::NoProxy);
+    socket->setSocketOption(QAbstractSocket::LowDelayOption, QVariant(1));
     socket->setSocketOption(QAbstractSocket::KeepAliveOption, QVariant(1));
 
 #if defined(TCP_KEEPIDLE) || defined(TCP_KEEPALIVE) || defined(TCP_USER_TIMEOUT)
