@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
+"POT-Creation-Date: 2026-11-21 10:20+0000\n"
 "PO-Revision-Date: 2026-11-16 12:41+0100\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -41,7 +41,12 @@ msgstr "Нема података"
 msgid "Unknown"
 msgstr "Непознато"
 
-#: package/contents/ui/Connectivity.qml:55
+#: package/contents/ui/Connectivity.qml:62
+#, kde-format
+msgid "SIM %1"
+msgstr ""
+
+#: package/contents/ui/Connectivity.qml:66
 #, kde-format
 msgid "No signal"
 msgstr "Нема сигнала"

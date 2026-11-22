@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-14 01:03+0000\n"
+"POT-Creation-Date: 2026-11-22 01:04+0000\n"
 "PO-Revision-Date: 2026-11-12 19:31+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -97,12 +97,27 @@ msgstr "電池：%1%"
 msgid "Unknown"
 msgstr "未知"
 
-#: qml/ConnectivityInfo.qml:26
+#: qml/ConnectivityInfo.qml:34
+#, kde-format
+msgid "SIM %1"
+msgstr ""
+
+#: qml/ConnectivityInfo.qml:36
+#, kde-format
+msgid "%1: No signal"
+msgstr ""
+
+#: qml/ConnectivityInfo.qml:37
+#, kde-format
+msgid "%1: %2"
+msgstr ""
+
+#: qml/ConnectivityInfo.qml:42
 #, kde-format
 msgid "Mobile Network: No signal"
 msgstr "行動網路：無訊號"
 
-#: qml/ConnectivityInfo.qml:28
+#: qml/ConnectivityInfo.qml:44 qml/ConnectivityInfo.qml:46
 #, kde-format
 msgid "Mobile Network: %1"
 msgstr "行動網路：%1"

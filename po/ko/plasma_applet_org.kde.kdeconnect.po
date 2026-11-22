@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
+"POT-Creation-Date: 2026-11-21 10:20+0000\n"
 "PO-Revision-Date: 2026-04-26 21:42+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -37,7 +37,12 @@ msgstr "정보 없음"
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: package/contents/ui/Connectivity.qml:55
+#: package/contents/ui/Connectivity.qml:62
+#, kde-format
+msgid "SIM %1"
+msgstr ""
+
+#: package/contents/ui/Connectivity.qml:66
 #, kde-format
 msgid "No signal"
 msgstr "신호 없음"

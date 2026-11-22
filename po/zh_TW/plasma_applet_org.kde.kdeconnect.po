@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
+"POT-Creation-Date: 2026-11-21 10:20+0000\n"
 "PO-Revision-Date: 2026-03-16 16:44+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -40,7 +40,12 @@ msgstr "沒有資訊"
 msgid "Unknown"
 msgstr "未知"
 
-#: package/contents/ui/Connectivity.qml:55
+#: package/contents/ui/Connectivity.qml:62
+#, kde-format
+msgid "SIM %1"
+msgstr ""
+
+#: package/contents/ui/Connectivity.qml:66
 #, kde-format
 msgid "No signal"
 msgstr "無訊號"

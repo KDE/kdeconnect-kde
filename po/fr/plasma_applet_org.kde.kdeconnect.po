@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
+"POT-Creation-Date: 2026-11-21 10:20+0000\n"
 "PO-Revision-Date: 2026-03-13 20:42+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -39,7 +39,12 @@ msgstr "aucune information"
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: package/contents/ui/Connectivity.qml:55
+#: package/contents/ui/Connectivity.qml:62
+#, kde-format
+msgid "SIM %1"
+msgstr ""
+
+#: package/contents/ui/Connectivity.qml:66
 #, kde-format
 msgid "No signal"
 msgstr "Aucun signal"

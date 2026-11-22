@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
+"POT-Creation-Date: 2026-11-21 10:20+0000\n"
 "PO-Revision-Date: 2024-07-14 07:33+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -39,7 +39,12 @@ msgstr "Sen información"
 msgid "Unknown"
 msgstr "Descoñecida"
 
-#: package/contents/ui/Connectivity.qml:55
+#: package/contents/ui/Connectivity.qml:62
+#, kde-format
+msgid "SIM %1"
+msgstr ""
+
+#: package/contents/ui/Connectivity.qml:66
 #, kde-format
 msgid "No signal"
 msgstr "Sen sinal"

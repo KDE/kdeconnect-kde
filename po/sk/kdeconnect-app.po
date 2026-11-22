@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-14 01:03+0000\n"
+"POT-Creation-Date: 2026-11-22 01:04+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -92,12 +92,27 @@ msgstr "Batéria: %1%"
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: qml/ConnectivityInfo.qml:26
+#: qml/ConnectivityInfo.qml:34
+#, kde-format
+msgid "SIM %1"
+msgstr ""
+
+#: qml/ConnectivityInfo.qml:36
+#, kde-format
+msgid "%1: No signal"
+msgstr ""
+
+#: qml/ConnectivityInfo.qml:37
+#, kde-format
+msgid "%1: %2"
+msgstr ""
+
+#: qml/ConnectivityInfo.qml:42
 #, kde-format
 msgid "Mobile Network: No signal"
 msgstr "Mobilná sieť: Žiadny signál"
 
-#: qml/ConnectivityInfo.qml:28
+#: qml/ConnectivityInfo.qml:44 qml/ConnectivityInfo.qml:46
 #, kde-format
 msgid "Mobile Network: %1"
 msgstr "Mobilná sieť: %1"

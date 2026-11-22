@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-14 01:03+0000\n"
+"POT-Creation-Date: 2026-11-22 01:04+0000\n"
 "PO-Revision-Date: 2025-06-01 14:57+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -95,12 +95,27 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: qml/ConnectivityInfo.qml:26
+#: qml/ConnectivityInfo.qml:34
+#, kde-format
+msgid "SIM %1"
+msgstr ""
+
+#: qml/ConnectivityInfo.qml:36
+#, kde-format
+msgid "%1: No signal"
+msgstr ""
+
+#: qml/ConnectivityInfo.qml:37
+#, kde-format
+msgid "%1: %2"
+msgstr ""
+
+#: qml/ConnectivityInfo.qml:42
 #, kde-format
 msgid "Mobile Network: No signal"
 msgstr ""
 
-#: qml/ConnectivityInfo.qml:28
+#: qml/ConnectivityInfo.qml:44 qml/ConnectivityInfo.qml:46
 #, kde-format
 msgid "Mobile Network: %1"
 msgstr ""
