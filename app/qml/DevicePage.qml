@@ -108,10 +108,13 @@ Kirigami.ScrollablePage {
 
             delegate: QQC2.ItemDelegate {
                 id: pluginDelegate
-                text: Kirigami.MnemonicData.richTextLabel
+                readonly property bool hasSegments: modelData.segments.length > 0
+                text: hasSegments ? "" : Kirigami.MnemonicData.richTextLabel
                 Accessible.name: Kirigami.MnemonicData.plainTextLabel ?? modelData.name // fallback needed for KF < 6.12
                 Accessible.role: modelData.clickable ? Accessible.Button : Accessible.StaticText
-                icon.name: modelData.iconName
+                icon.name: hasSegments ? "" : modelData.iconName
+                implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
+                                         (hasSegments ? segmentsFlow.implicitHeight : implicitContentHeight) + topPadding + bottomPadding)
                 highlighted: modelData === sharePlugin && dropArea.containsDrag
                 icon.color: "transparent"
                 width: pluginsListView.width
@@ -131,6 +134,38 @@ Kirigami.ScrollablePage {
                 Shortcut {
                     sequence: pluginDelegate.Kirigami.MnemonicData.sequence
                     onActivated: clicked()
+                }
+
+                Flow {
+                    id: segmentsFlow
+                    visible: pluginDelegate.hasSegments
+                    x: pluginDelegate.leftPadding
+                    y: pluginDelegate.topPadding + (pluginDelegate.availableHeight - height) / 2
+                    width: pluginDelegate.availableWidth
+                    spacing: Kirigami.Units.largeSpacing
+
+                    Repeater {
+                        model: modelData.segments
+                        delegate: RowLayout {
+                            required property var modelData
+                            required property int index
+                            spacing: pluginDelegate.spacing
+
+                            QQC2.Label {
+                                visible: index > 0
+                                text: "·"
+                                Layout.rightMargin: Kirigami.Units.largeSpacing - parent.spacing
+                            }
+                            Kirigami.Icon {
+                                source: modelData.iconName
+                                Layout.preferredWidth: pluginDelegate.icon.width || Kirigami.Units.iconSizes.smallMedium
+                                Layout.preferredHeight: pluginDelegate.icon.height || Kirigami.Units.iconSizes.smallMedium
+                            }
+                            QQC2.Label {
+                                text: modelData.text
+                            }
+                        }
+                    }
                 }
 
                 MouseArea {
@@ -270,7 +305,7 @@ Kirigami.ScrollablePage {
             PluginItem {
                 pluginName: "connectivity_report"
                 name: connectivityInfo.displayString
-                iconNameOverride: connectivityInfo.iconName
+                segments: connectivityInfo.segments
                 hidden: !connectivityInfo.available
                 section: "info"
                 device: root.currentDevice

@@ -37,15 +37,15 @@ QtObject {
             : i18nd("kdeconnect-app", "%1: %2", name, sim.networkType);
     }
 
-    readonly property string displayString: {
-        if (signalStrength < 0 || connectivity === null) {
-            return i18nd("kdeconnect-app", "Mobile Network: No signal");
-        } else if (subscriptions.length > 1) {
-            return i18nd("kdeconnect-app", "Mobile Network: %1", subscriptions.map((sim, i) => simLabel(sim, i)).join(" · "));
-        } else {
-            return i18nd("kdeconnect-app", "Mobile Network: %1", networkType);
+    readonly property var segments: {
+        if (connectivity !== null && subscriptions.length > 0) {
+            return subscriptions.map((sim, i) => ({ iconName: sim.iconName, text: simLabel(sim, i) }));
         }
+        const text = (signalStrength < 0 || connectivity === null) ? i18nd("kdeconnect-app", "No signal") : networkType;
+        return [{ iconName: iconName, text: text }];
     }
+
+    readonly property string displayString: segments.map(segment => segment.text).join(" · ")
 
     readonly property KDEConnect.PluginChecker pluginChecker: KDEConnect.PluginChecker {
         id: checker

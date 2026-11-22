@@ -22,6 +22,8 @@ QtObject
     property var name
     property var section
     property bool hidden: false
+    // Optional list of {iconName, text}. If set, the row shows these instead of iconName and name; name is still used as the accessible name
+    property var segments: []
     property bool clickable: section !== "info" && loaded
 
     readonly property var checker: PluginChecker {
