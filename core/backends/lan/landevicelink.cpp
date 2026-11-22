@@ -151,6 +151,9 @@ void LanDeviceLink::dataReceived()
             // emit readChannelFinished when the socket gets disconnected. This seems to be a bug in upstream QSslSocket.
             // Needs investigation and upstreaming of the fix. QTBUG-62257
             connect(socket.data(), &QAbstractSocket::disconnected, socket.data(), &QAbstractSocket::readChannelFinished);
+            connect(socket.data(), &QAbstractSocket::connected, socket.data(), [socket = socket.data()]() {
+                LanLinkProvider::enableKeepAlive(socket);
+            });
 
             const QString address = m_socket->peerAddress().toString();
             const quint16 port = transferInfo[QStringLiteral("port")].toInt();

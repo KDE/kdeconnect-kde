@@ -55,6 +55,7 @@ public:
 
     static void configureSslSocket(QSslSocket *socket, const QString &deviceId, bool isDeviceTrusted);
     static void configureSocket(QSslSocket *socket);
+    static void enableKeepAlive(QSslSocket *socket);
 
 #ifdef BUILD_TESTING
     // Must be called before onStart()

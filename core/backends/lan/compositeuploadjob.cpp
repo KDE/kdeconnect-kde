@@ -228,6 +228,7 @@ void CompositeUploadJob::newConnection()
         announceNextSubJob();
     });
 
+    LanLinkProvider::enableKeepAlive(socket);
     LanLinkProvider::configureSslSocket(socket, m_device->id(), true);
 
     socket->startServerEncryption();
