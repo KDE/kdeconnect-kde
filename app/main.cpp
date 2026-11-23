@@ -1,3 +1,4 @@
+
 /**
  * SPDX-FileCopyrightText: 2018 Aleix Pol Gonzalez <aleixpol@kde.org>
  *
@@ -81,6 +82,7 @@ int main(int argc, char *argv[])
         aboutData.setupCommandLine(&parser);
         parser.process(app);
         aboutData.processCommandLine(&parser);
+
         if (parser.positionalArguments().count() == 1) {
             const QString urlToShare = parser.positionalArguments().constFirst();
             const QString kdeconnectHandlerExecutable =
@@ -90,11 +92,20 @@ int main(int argc, char *argv[])
                 return 0; // exit the app once kdeconnect-handler is started
             }
         }
+
         replace = parser.isSet(replaceOption);
+
+        // --plugin-config requires --device
+        if (parser.isSet(configOption) && !parser.isSet(deviceOption)) {
+            qCritical() << "--plugin-config requires --device.";
+            return 1;
+        }
+
         if (parser.isSet(deviceOption)) {
             device = parser.value(deviceOption);
             replace = true;
         }
+
         if (parser.isSet(configOption)) {
             config = parser.value(configOption);
         }
@@ -113,14 +124,17 @@ int main(int argc, char *argv[])
         qWarning() << "Failed to load the app" << engine.hasError();
         return 1;
     }
+
     auto window = qobject_cast<QWindow *>(engine.rootObjects().constFirst());
     if (!device.isEmpty()) {
         auto mo = window->metaObject();
         mo->invokeMethod(window, "openDevice", Qt::QueuedConnection, Q_ARG(QVariant, device), Q_ARG(QVariant, config));
     }
+
     raiseWindow(window);
     QObject::connect(&dbusService, &KDBusService::activateRequested, window, [window](const QStringList & /*arguments*/, const QString & /*workingDirectory*/) {
         raiseWindow(window);
     });
+
     return app.exec();
 }
