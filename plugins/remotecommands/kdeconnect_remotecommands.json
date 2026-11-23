@@ -136,6 +136,7 @@
         "Name[sr]": "Шаљи наредбе за извршавање",
         "Name[tr]": "Çalıştırılacak Komutlar Gönder",
         "Name[uk]": "Надсилання команд для виконання",
+        "Name[zh_CN]": "发送要运行的命令",
         "Name[zh_TW]": "傳送要執行的指令"
     },
     "X-KdeConnect-OutgoingPacketType": [
