@@ -96,6 +96,9 @@ int main(int argc, char *argv[])
             replace = true;
         }
         if (parser.isSet(configOption)) {
+            if (!parser.isSet(deviceOption)) {
+                qWarning() << "--plugin-config requires --device to be set, ignoring it";
+            }
             config = parser.value(configOption);
         }
     }
