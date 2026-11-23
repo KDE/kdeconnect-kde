@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-22 01:04+0000\n"
-"PO-Revision-Date: 2026-11-09 12:05+0100\n"
+"PO-Revision-Date: 2026-11-22 12:19+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -96,17 +96,17 @@ msgstr "Neznámý"
 #: qml/ConnectivityInfo.qml:34
 #, kde-format
 msgid "SIM %1"
-msgstr ""
+msgstr "SIM %1"
 
 #: qml/ConnectivityInfo.qml:36
 #, kde-format
 msgid "%1: No signal"
-msgstr ""
+msgstr "%1: žádný signál"
 
 #: qml/ConnectivityInfo.qml:37
 #, kde-format
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: qml/ConnectivityInfo.qml:42
 #, kde-format

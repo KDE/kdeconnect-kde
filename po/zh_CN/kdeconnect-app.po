@@ -227,10 +227,9 @@ msgid "Use device as an external monitor"
 msgstr "使用设备作为外接监视器"
 
 #: qml/DevicePage.qml:279
-#, fuzzy, kde-format
-#| msgid "Address: %1 via %2"
+#, kde-format
 msgid "Address: %1"
-msgstr "地址：%1 (通过 %2)"
+msgstr "地址：%1"
 
 #: qml/DevicePage.qml:299
 #, kde-format
@@ -276,13 +275,13 @@ msgstr "请选择文件"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open device list"
-msgstr ""
+msgstr "打开设备列表"
 
 #: qml/Main.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Close device list"
-msgstr ""
+msgstr "关闭设备列表"
 
 #: qml/Main.qml:113
 #, kde-format
@@ -382,11 +381,10 @@ msgid "Notifications"
 msgstr "通知"
 
 #: qml/NotificationPanel.qml:33
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No notifications"
-msgstr "通知"
+msgstr "没有通知"
 
 #: qml/NotificationPanel.qml:173
 #, kde-format
@@ -515,19 +513,6 @@ msgid "KDE Connect iOS App"
 msgstr "KDE Connect iOS 应用"
 
 #: qml/WelcomePage.qml:69
-#, fuzzy, kde-format
-#| msgid "Apple Store"
+#, kde-format
 msgid "App Store"
-msgstr "Apple Store"
-
-#~ msgid "Configure plugin"
-#~ msgstr "配置插件"
-
-#~ msgid ""
-#~ "If you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#~ "KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
-#~ "Community wiki</span></a> for help."
-#~ msgstr ""
-#~ "如果您遇到问题，请访问 <a href=\"https://userbase.kde.org/KDEConnect"
-#~ "\"><span style=\" text-decoration: underline;\">KDE Connect 社区百科</"
-#~ "span></a> 寻求帮助。"
+msgstr "Арр Store"

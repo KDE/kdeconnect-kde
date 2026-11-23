@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-16 22:00+0000\n"
+"POT-Creation-Date: 2026-11-22 13:35+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,26 +27,25 @@ msgstr "无法找到可用端口"
 msgid "Failed to send packet to %1"
 msgstr "发送数据包给 %1 失败"
 
-#: backends/lan/compositeuploadjob.cpp:303
+#: backends/lan/compositeuploadjob.cpp:304
 #, kde-format
 msgid "Timeout waiting for receiver to connect"
 msgstr "等待接收器连接超时"
 
-#: backends/lan/compositeuploadjob.cpp:356
+#: backends/lan/compositeuploadjob.cpp:357
 #, kde-format
 msgid "Sending to %1"
 msgstr "正在发送给 %1"
 
-#: backends/lan/compositeuploadjob.cpp:356
+#: backends/lan/compositeuploadjob.cpp:357
 #, kde-format
 msgid "File"
 msgstr "文件"
 
 #: backends/lan/uploadjob.cpp:102
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not open source file: %1"
-msgstr "无法保存证书文件：%1"
+msgstr "无法打开源文件：%1"
 
 #: backends/pairinghandler.cpp:57
 #, kde-format
@@ -81,7 +80,7 @@ msgstr "超时"
 #: backends/pairinghandler.cpp:191
 #, kde-format
 msgid "Pairing is not in progress"
-msgstr ""
+msgstr "配对没有处于进行中状态"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
@@ -156,6 +155,3 @@ msgstr "无法生成设备证书。"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "无法保存证书文件：%1"
-
-#~ msgid "%1: Already paired"
-#~ msgstr "%1：设备已被配对过"

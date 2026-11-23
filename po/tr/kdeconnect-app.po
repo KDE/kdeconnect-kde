@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-22 01:04+0000\n"
-"PO-Revision-Date: 2026-11-09 22:37+0300\n"
+"PO-Revision-Date: 2026-11-22 19:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -98,17 +98,17 @@ msgstr "Bilinmiyor"
 #: qml/ConnectivityInfo.qml:34
 #, kde-format
 msgid "SIM %1"
-msgstr ""
+msgstr "SIM %1"
 
 #: qml/ConnectivityInfo.qml:36
 #, kde-format
 msgid "%1: No signal"
-msgstr ""
+msgstr "%1: Sinyal yok"
 
 #: qml/ConnectivityInfo.qml:37
 #, kde-format
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: qml/ConnectivityInfo.qml:42
 #, kde-format
