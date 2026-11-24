@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-22 01:04+0000\n"
+"POT-Creation-Date: 2026-11-24 01:03+0000\n"
 "PO-Revision-Date: 2026-04-12 20:25+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -107,15 +107,10 @@ msgstr ""
 msgid "%1: %2"
 msgstr ""
 
-#: qml/ConnectivityInfo.qml:42
+#: qml/ConnectivityInfo.qml:44
 #, kde-format
-msgid "Mobile Network: No signal"
-msgstr "கைபேசி பிணையம்: இணைப்பு இல்லை"
-
-#: qml/ConnectivityInfo.qml:44 qml/ConnectivityInfo.qml:46
-#, kde-format
-msgid "Mobile Network: %1"
-msgstr "கைபேசி பிணையம்: %1"
+msgid "No signal"
+msgstr ""
 
 #: qml/DevicePage.qml:54
 #, kde-format
@@ -150,99 +145,99 @@ msgctxt "@title:group device page section header"
 msgid "Information"
 msgstr "விவரங்கள்"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:184
 #, kde-format
 msgid "Multimedia control"
 msgstr "பல்லூடக கட்டுப்பாடு"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:192
 #, kde-format
 msgid "Notifications"
 msgstr ""
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "Remote input"
 msgstr "தொலை உள்ளீடு"
 
-#: qml/DevicePage.qml:173 qml/runcommand.qml:16
+#: qml/DevicePage.qml:208 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "கட்டளையை இயக்கு"
 
-#: qml/DevicePage.qml:181 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:216 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "வில்லைக்காட்சி தொலையியக்கி"
 
-#: qml/DevicePage.qml:190 qml/volume.qml:16
+#: qml/DevicePage.qml:225 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "ஒலியளவு கட்டுப்பாடு"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:235
 #, kde-format
 msgid "SMS Messages"
 msgstr "SMS குறுஞ்செய்திகள்"
 
-#: qml/DevicePage.qml:208 qml/mousepad.qml:44
+#: qml/DevicePage.qml:243 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "பூட்டு"
 
-#: qml/DevicePage.qml:208
+#: qml/DevicePage.qml:243
 #, kde-format
 msgid "Unlock"
 msgstr "திற"
 
-#: qml/DevicePage.qml:216
+#: qml/DevicePage.qml:251
 #, kde-format
 msgid "Find Device"
 msgstr "சாதனத்தை கண்டுபிடி"
 
-#: qml/DevicePage.qml:224
+#: qml/DevicePage.qml:259
 #, kde-format
 msgid "Send Clipboard"
 msgstr "பிடிப்புப்பலகையை அனுப்பு"
 
-#: qml/DevicePage.qml:232
+#: qml/DevicePage.qml:267
 #, kde-format
 msgid "Share File"
 msgstr "கோப்பை பகிர்"
 
-#: qml/DevicePage.qml:240
+#: qml/DevicePage.qml:275
 #, kde-format
 msgid "Browse this device"
 msgstr "சாதனத்தில் உலாவு"
 
-#: qml/DevicePage.qml:248
+#: qml/DevicePage.qml:283
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "மெய்நிகர் திரை அமர்வை நிறுத்து"
 
-#: qml/DevicePage.qml:248
+#: qml/DevicePage.qml:283
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "சாதனத்தை கூடுதல் திரையாகப் பயன்படுத்து"
 
-#: qml/DevicePage.qml:279
+#: qml/DevicePage.qml:314
 #, fuzzy, kde-format
 #| msgid "Address: %1 via %2"
 msgid "Address: %1"
 msgstr "முகவரி: %2 மூலம் %1"
 
-#: qml/DevicePage.qml:299
+#: qml/DevicePage.qml:334
 #, kde-format
 msgid "This device is not paired."
 msgstr "இச்சாதனம் இணைக்கப்படவில்லை."
 
-#: qml/DevicePage.qml:303
+#: qml/DevicePage.qml:338
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "இணை"
 
-#: qml/DevicePage.qml:310 qml/DevicePage.qml:319
+#: qml/DevicePage.qml:345 qml/DevicePage.qml:354
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -251,22 +246,22 @@ msgstr ""
 "இணைப்பு கோரப்பட்டுள்ளது\n"
 "சாவி: "
 
-#: qml/DevicePage.qml:325
+#: qml/DevicePage.qml:360
 #, kde-format
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
-#: qml/DevicePage.qml:331
+#: qml/DevicePage.qml:366
 #, kde-format
 msgid "Reject"
 msgstr "மறு"
 
-#: qml/DevicePage.qml:340
+#: qml/DevicePage.qml:375
 #, kde-format
 msgid "This device is not reachable"
 msgstr "சாதனத்தைத் தொடர்புகொள்ள முடியவில்லை"
 
-#: qml/DevicePage.qml:348
+#: qml/DevicePage.qml:383
 #, kde-format
 msgid "Please choose a file"
 msgstr "கோப்பைத் தேர்ந்தெடுங்கள்"
@@ -519,6 +514,12 @@ msgstr "கே.டீ.யீ. கனெக்ட் iOS செயலி"
 #| msgid "Apple Store"
 msgid "App Store"
 msgstr "ஆப்பிள் கடை"
+
+#~ msgid "Mobile Network: No signal"
+#~ msgstr "கைபேசி பிணையம்: இணைப்பு இல்லை"
+
+#~ msgid "Mobile Network: %1"
+#~ msgstr "கைபேசி பிணையம்: %1"
 
 #~ msgid "Configure plugin"
 #~ msgstr "செருகுநிரலை அமை"

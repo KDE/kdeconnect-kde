@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-22 01:04+0000\n"
+"POT-Creation-Date: 2026-11-24 01:03+0000\n"
 "PO-Revision-Date: 2026-08-25 20:06+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -108,15 +108,10 @@ msgstr ""
 msgid "%1: %2"
 msgstr ""
 
-#: qml/ConnectivityInfo.qml:42
+#: qml/ConnectivityInfo.qml:44
 #, kde-format
-msgid "Mobile Network: No signal"
-msgstr "Mobiiliverkko: ei kenttää"
-
-#: qml/ConnectivityInfo.qml:44 qml/ConnectivityInfo.qml:46
-#, kde-format
-msgid "Mobile Network: %1"
-msgstr "Mobiiliverkko: %1"
+msgid "No signal"
+msgstr ""
 
 #: qml/DevicePage.qml:54
 #, kde-format
@@ -151,99 +146,99 @@ msgctxt "@title:group device page section header"
 msgid "Information"
 msgstr "Tietoa"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:184
 #, kde-format
 msgid "Multimedia control"
 msgstr "Multimediaohjain"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:192
 #, kde-format
 msgid "Notifications"
 msgstr "Ilmoitukset"
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "Remote input"
 msgstr "Etäsyöte"
 
-#: qml/DevicePage.qml:173 qml/runcommand.qml:16
+#: qml/DevicePage.qml:208 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Suorita komento"
 
-#: qml/DevicePage.qml:181 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:216 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Esityskaukosäädin"
 
-#: qml/DevicePage.qml:190 qml/volume.qml:16
+#: qml/DevicePage.qml:225 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Äänenvoimakkuuden säätö"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:235
 #, kde-format
 msgid "SMS Messages"
 msgstr "Tekstiviestit"
 
-#: qml/DevicePage.qml:208 qml/mousepad.qml:44
+#: qml/DevicePage.qml:243 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Lukitse"
 
-#: qml/DevicePage.qml:208
+#: qml/DevicePage.qml:243
 #, kde-format
 msgid "Unlock"
 msgstr "Poista lukitus"
 
-#: qml/DevicePage.qml:216
+#: qml/DevicePage.qml:251
 #, kde-format
 msgid "Find Device"
 msgstr "Etsi laite"
 
-#: qml/DevicePage.qml:224
+#: qml/DevicePage.qml:259
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Lähetä leikepöytä"
 
-#: qml/DevicePage.qml:232
+#: qml/DevicePage.qml:267
 #, kde-format
 msgid "Share File"
 msgstr "Jaa tiedosto"
 
-#: qml/DevicePage.qml:240
+#: qml/DevicePage.qml:275
 #, kde-format
 msgid "Browse this device"
 msgstr "Selaa tätä laitetta"
 
-#: qml/DevicePage.qml:248
+#: qml/DevicePage.qml:283
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "Lopeta virtuaalinäyttöistunto"
 
-#: qml/DevicePage.qml:248
+#: qml/DevicePage.qml:283
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "Käytä laitetta ulkoisena näyttönä"
 
-#: qml/DevicePage.qml:279
+#: qml/DevicePage.qml:314
 #, fuzzy, kde-format
 #| msgid "Address: %1 via %2"
 msgid "Address: %1"
 msgstr "Osoite: %1, väylä %2"
 
-#: qml/DevicePage.qml:299
+#: qml/DevicePage.qml:334
 #, kde-format
 msgid "This device is not paired."
 msgstr "Tätä laitetta ei ole paritettu."
 
-#: qml/DevicePage.qml:303
+#: qml/DevicePage.qml:338
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Parita"
 
-#: qml/DevicePage.qml:310 qml/DevicePage.qml:319
+#: qml/DevicePage.qml:345 qml/DevicePage.qml:354
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -252,22 +247,22 @@ msgstr ""
 "Paritusta pyydetään\n"
 "Avain: "
 
-#: qml/DevicePage.qml:325
+#: qml/DevicePage.qml:360
 #, kde-format
 msgid "Accept"
 msgstr "Hyväksy"
 
-#: qml/DevicePage.qml:331
+#: qml/DevicePage.qml:366
 #, kde-format
 msgid "Reject"
 msgstr "Hylkää"
 
-#: qml/DevicePage.qml:340
+#: qml/DevicePage.qml:375
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Laitetta ei tavoiteta"
 
-#: qml/DevicePage.qml:348
+#: qml/DevicePage.qml:383
 #, kde-format
 msgid "Please choose a file"
 msgstr "Valitse tiedosto"
@@ -520,6 +515,12 @@ msgstr "KDE Connectin iOS-sovellus"
 #| msgid "Apple Store"
 msgid "App Store"
 msgstr "Apple-kauppa"
+
+#~ msgid "Mobile Network: No signal"
+#~ msgstr "Mobiiliverkko: ei kenttää"
+
+#~ msgid "Mobile Network: %1"
+#~ msgstr "Mobiiliverkko: %1"
 
 #~ msgid "Configure plugin"
 #~ msgstr "Liitännäisen asetukset"

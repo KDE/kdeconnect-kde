@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-22 01:04+0000\n"
+"POT-Creation-Date: 2026-11-24 01:03+0000\n"
 "PO-Revision-Date: 2026-11-22 07:35+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -113,15 +113,11 @@ msgstr "%1: нет сигнала"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: qml/ConnectivityInfo.qml:42
-#, kde-format
-msgid "Mobile Network: No signal"
-msgstr "Мобильная сеть: нет сигнала"
-
-#: qml/ConnectivityInfo.qml:44 qml/ConnectivityInfo.qml:46
-#, kde-format
-msgid "Mobile Network: %1"
-msgstr "Мобильная сеть: %1"
+#: qml/ConnectivityInfo.qml:44
+#, fuzzy, kde-format
+#| msgid "%1: No signal"
+msgid "No signal"
+msgstr "%1: нет сигнала"
 
 #: qml/DevicePage.qml:54
 #, kde-format
@@ -156,98 +152,98 @@ msgctxt "@title:group device page section header"
 msgid "Information"
 msgstr "Сведения"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:184
 #, kde-format
 msgid "Multimedia control"
 msgstr "Управление мультимедиа"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:192
 #, kde-format
 msgid "Notifications"
 msgstr "Уведомления"
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:200
 #, kde-format
 msgid "Remote input"
 msgstr "Удалённый ввод"
 
-#: qml/DevicePage.qml:173 qml/runcommand.qml:16
+#: qml/DevicePage.qml:208 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Выполнить команду"
 
-#: qml/DevicePage.qml:181 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:216 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Управление презентацией"
 
-#: qml/DevicePage.qml:190 qml/volume.qml:16
+#: qml/DevicePage.qml:225 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Регулятор громкости"
 
-#: qml/DevicePage.qml:200
+#: qml/DevicePage.qml:235
 #, kde-format
 msgid "SMS Messages"
 msgstr "SMS-сообщения"
 
-#: qml/DevicePage.qml:208 qml/mousepad.qml:44
+#: qml/DevicePage.qml:243 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Заблокировать"
 
-#: qml/DevicePage.qml:208
+#: qml/DevicePage.qml:243
 #, kde-format
 msgid "Unlock"
 msgstr "Разблокировать"
 
-#: qml/DevicePage.qml:216
+#: qml/DevicePage.qml:251
 #, kde-format
 msgid "Find Device"
 msgstr "Найти устройство"
 
-#: qml/DevicePage.qml:224
+#: qml/DevicePage.qml:259
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Отправить содержимое буфера обмена"
 
-#: qml/DevicePage.qml:232
+#: qml/DevicePage.qml:267
 #, kde-format
 msgid "Share File"
 msgstr "Поделиться файлом"
 
-#: qml/DevicePage.qml:240
+#: qml/DevicePage.qml:275
 #, kde-format
 msgid "Browse this device"
 msgstr "Просмотреть это устройство"
 
-#: qml/DevicePage.qml:248
+#: qml/DevicePage.qml:283
 #, kde-format
 msgid "Stop virtual monitor session"
 msgstr "Остановить работу виртуального экрана"
 
-#: qml/DevicePage.qml:248
+#: qml/DevicePage.qml:283
 #, kde-format
 msgid "Use device as an external monitor"
 msgstr "Использовать устройство в качестве внешнего экрана"
 
-#: qml/DevicePage.qml:279
+#: qml/DevicePage.qml:314
 #, kde-format
 msgid "Address: %1"
 msgstr "Адрес: %1"
 
-#: qml/DevicePage.qml:299
+#: qml/DevicePage.qml:334
 #, kde-format
 msgid "This device is not paired."
 msgstr "Это устройство не сопряжено."
 
-#: qml/DevicePage.qml:303
+#: qml/DevicePage.qml:338
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Создать сопряжение"
 
-#: qml/DevicePage.qml:310 qml/DevicePage.qml:319
+#: qml/DevicePage.qml:345 qml/DevicePage.qml:354
 #, kde-format
 msgid ""
 "Pair requested\n"
@@ -256,22 +252,22 @@ msgstr ""
 "Запрошено сопряжение\n"
 "Ключ: "
 
-#: qml/DevicePage.qml:325
+#: qml/DevicePage.qml:360
 #, kde-format
 msgid "Accept"
 msgstr "Принять"
 
-#: qml/DevicePage.qml:331
+#: qml/DevicePage.qml:366
 #, kde-format
 msgid "Reject"
 msgstr "Отклонить"
 
-#: qml/DevicePage.qml:340
+#: qml/DevicePage.qml:375
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Это устройство недоступно"
 
-#: qml/DevicePage.qml:348
+#: qml/DevicePage.qml:383
 #, kde-format
 msgid "Please choose a file"
 msgstr "Выберите файл"
@@ -522,6 +518,12 @@ msgstr "Приложение KDE Connect для iOS"
 #, kde-format
 msgid "App Store"
 msgstr "App Store"
+
+#~ msgid "Mobile Network: No signal"
+#~ msgstr "Мобильная сеть: нет сигнала"
+
+#~ msgid "Mobile Network: %1"
+#~ msgstr "Мобильная сеть: %1"
 
 #~ msgid "Configure plugin"
 #~ msgstr "Настроить модуль"
