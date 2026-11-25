@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-24 01:03+0000\n"
-"PO-Revision-Date: 2026-11-22 12:59+0100\n"
+"PO-Revision-Date: 2026-11-24 22:00+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -110,10 +110,9 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: qml/ConnectivityInfo.qml:44
-#, fuzzy, kde-format
-#| msgid "%1: No signal"
+#, kde-format
 msgid "No signal"
-msgstr "%1: Няма сигнал"
+msgstr "Няма сигнал"
 
 #: qml/DevicePage.qml:54
 #, kde-format
@@ -514,9 +513,3 @@ msgstr "KDE Connect iOS App"
 #, kde-format
 msgid "App Store"
 msgstr "App Store"
-
-#~ msgid "Mobile Network: No signal"
-#~ msgstr "Мобилна мрежа: Няма сигнал"
-
-#~ msgid "Mobile Network: %1"
-#~ msgstr "Мобилна мрежа: %1"

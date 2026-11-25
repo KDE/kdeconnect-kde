@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-24 01:03+0000\n"
-"PO-Revision-Date: 2026-11-22 12:43+0200\n"
+"PO-Revision-Date: 2026-11-24 08:38+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -112,10 +112,9 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: qml/ConnectivityInfo.qml:44
-#, fuzzy, kde-format
-#| msgid "%1: No signal"
+#, kde-format
 msgid "No signal"
-msgstr "%1: немає сигналу"
+msgstr "Немає сигналу"
 
 #: qml/DevicePage.qml:54
 #, kde-format

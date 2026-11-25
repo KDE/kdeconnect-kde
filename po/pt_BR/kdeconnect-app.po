@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-24 01:03+0000\n"
-"PO-Revision-Date: 2026-11-22 04:55-0300\n"
+"PO-Revision-Date: 2026-11-24 05:27-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@kde.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -114,10 +114,9 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: qml/ConnectivityInfo.qml:44
-#, fuzzy, kde-format
-#| msgid "%1: No signal"
+#, kde-format
 msgid "No signal"
-msgstr "%1: Sem sinal"
+msgstr "Sem sinal"
 
 #: qml/DevicePage.qml:54
 #, kde-format

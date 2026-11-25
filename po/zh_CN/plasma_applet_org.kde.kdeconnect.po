@@ -41,7 +41,7 @@ msgstr "未知"
 #: package/contents/ui/Connectivity.qml:62
 #, kde-format
 msgid "SIM %1"
-msgstr ""
+msgstr "SIM %1"
 
 #: package/contents/ui/Connectivity.qml:66
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-24 01:03+0000\n"
-"PO-Revision-Date: 2026-11-13 11:47+0200\n"
+"PO-Revision-Date: 2026-11-24 08:51+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
 "Language: he\n"
@@ -96,22 +96,22 @@ msgstr "לא ידוע"
 #: qml/ConnectivityInfo.qml:34
 #, kde-format
 msgid "SIM %1"
-msgstr ""
+msgstr "SIM %1"
 
 #: qml/ConnectivityInfo.qml:36
 #, kde-format
 msgid "%1: No signal"
-msgstr ""
+msgstr "%1: אין קליטה"
 
 #: qml/ConnectivityInfo.qml:37
 #, kde-format
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: qml/ConnectivityInfo.qml:44
 #, kde-format
 msgid "No signal"
-msgstr ""
+msgstr "אין קליטה"
 
 #: qml/DevicePage.qml:54
 #, kde-format

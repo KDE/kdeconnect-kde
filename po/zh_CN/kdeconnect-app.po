@@ -96,17 +96,17 @@ msgstr "未知"
 #: qml/ConnectivityInfo.qml:34
 #, kde-format
 msgid "SIM %1"
-msgstr ""
+msgstr "SIM %1"
 
 #: qml/ConnectivityInfo.qml:36
 #, kde-format
 msgid "%1: No signal"
-msgstr ""
+msgstr "%1：无信号"
 
 #: qml/ConnectivityInfo.qml:37
 #, kde-format
 msgid "%1: %2"
-msgstr ""
+msgstr "%1：%2"
 
 #: qml/ConnectivityInfo.qml:44
 #, kde-format
@@ -511,9 +511,3 @@ msgstr "KDE Connect iOS 应用"
 #, kde-format
 msgid "App Store"
 msgstr "Арр Store"
-
-#~ msgid "Mobile Network: No signal"
-#~ msgstr "移动网络：无信号"
-
-#~ msgid "Mobile Network: %1"
-#~ msgstr "移动网络：%1"
