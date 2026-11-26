@@ -14,9 +14,9 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kdeconnect-kde/kdeconnect-nautilus-"
+"X-Crowdin-File: /kf6-stable/messages/kdeconnect-kde/kdeconnect-nautilus-"
 "extension.pot\n"
-"X-Crowdin-File-ID: 49026\n"
+"X-Crowdin-File-ID: 49966\n"
 
 #: kdeconnect-share.py:105
 #, python-format
